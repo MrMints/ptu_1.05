@@ -97,6 +97,17 @@ export async function runIntegrationCheck() {
             check(unlinked.actor.getFlag('ptu','verificationTokenMarker')==='unlinked-only','Unlinked token state did not persist.');
             return {scene:scene.id,linked:linked.id,unlinked:unlinked.id,linkedSharesActor:true,unlinkedIndependent:true};
         });
+    } else if (plan.phase === 'generation') {
+        await record('fresh-full-generation',async()=>{
+            const species=await fromUuid(speciesUuid);
+            check(species?.system.number===1&&species.system.form==='','Expected the recorded Generation 1 fixture.');
+            const generator=new game.ptu.species.generator(species);
+            await generator.prepare({minLevel:5,maxLevel:5,shinyChance:0,statRandomness:0,preventEvolution:true,saveDefault:false});
+            const result=await generator.create({folder:null,generate:true});
+            await result.actor.update({name:'PTU 02 — Archive generation',flags:flag('archive-generation')});
+            check(result.actor.system.level.current===5&&result.actor.species?.system.number===1,'Fresh full generation did not save its species/level.');
+            return {actor:result.actor.id,level:result.actor.system.level.current,species:result.actor.species.sourceId,moves:result.actor.itemTypes.move.length,abilities:result.actor.itemTypes.ability.length,capabilities:result.actor.itemTypes.capability.length};
+        });
     } else if (plan.phase === 'compatibility') {
         await record('legacy-and-repeated-import',async()=>{
             const source=await fromUuid(sourceUuid);

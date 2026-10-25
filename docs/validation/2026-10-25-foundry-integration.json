@@ -1,0 +1,1213 @@
+{
+  "schemaVersion": 1,
+  "batch": "ptu02-gen1-8-20261025",
+  "systemVersion": "4.4.3",
+  "foundryVersion": "13.351",
+  "nodeVersion": "v24.19.0",
+  "testedCommit": "83ae248dba2415be815768a0a2c836cf3ebb11a9",
+  "testedInputObjects": {
+    "src": "25e4d32b5db2867e6b01728c8ddbd71fec20bda8",
+    "static": "1a6d553c0321589180275392ec17f007944c0552",
+    "css": "dc5679b4d03f2da6d14deacb4da61173a667d2e4",
+    "images": "5572bfa6239a241ba5b6ce5730ee6a2df4d19d77",
+    "packs": "be9043b12d1e4fe304dd33b23548f32fc7d2ecdf",
+    "system.json": "ce24de1cadba076fbfcff130f961c93d191826df",
+    "template.json": "f753ba3d552b3043d9fc43d073cb58440bbaad87",
+    "package.json": "6f7401ecc75172cd3536f55f44bb652b9f2bc33a",
+    "pnpm-lock.yaml": "c6cbc598dbbc393b3692cff2ea815451ddb445ca",
+    "tools/build.mjs": "f149b9950780dbee32cbeaccef10ebd69610fc65",
+    "tools/packs.mjs": "8eb08e2b445f165867d284c592b32f9118a04bb9",
+    "tools/foundry-setup.mjs": "1770ae3747579c3b3a4e22555a00a6a5eaae9de7"
+  },
+  "result": "addressable-work-finished-with-blockers",
+  "allSectionAcceptanceGatesPassed": false,
+  "releaseCertified": false,
+  "scope": {
+    "policy": "docs/SCOPE.md",
+    "sourceFingerprint": "82370d1749f655ea3fd70ec1dbcbf144eceebfb47dd535043a98647cc9945685",
+    "packMissingTargets": 682,
+    "provenanceTargetsPreserved": 658,
+    "excludedConsumerOnlyTargets": 24,
+    "newInScopeCodeTarget": "Compendium.ptu.edges.Item.xiZydXM8sex5CP7O",
+    "newCodeTargetIncludedInPackAudit": false,
+    "sourcePacksChanged": false,
+    "completeContentClassification": false,
+    "physicalReleaseExclusion": false,
+    "runtimeBrowsingFiltering": false
+  },
+  "automation": {
+    "tests": {
+      "result": "pass",
+      "passed": 20,
+      "command": "node --test --test-isolation=none tests/*.test.mjs",
+      "note": "One intermediate setup rename returned EPERM; subsequent focused/full execution passed without code changes. Normal test workers are restricted by the local sandbox."
+    },
+    "validation": {
+      "result": "pass",
+      "packs": 15,
+      "sourceRecords": 7395,
+      "skills": 17
+    },
+    "packRoundtrip": {
+      "result": "reused-pass",
+      "basis": "No pack sources or compiler inputs changed since recorded baseline; final build uses the same compiled sources. CI repeats semantic round trips."
+    },
+    "build": {
+      "result": "pass",
+      "command": "pnpm build"
+    },
+    "syntax": {
+      "result": "pass"
+    }
+  },
+  "archive": {
+    "commit": "83ae248dba2415be815768a0a2c836cf3ebb11a9",
+    "archiveBytes": 1108934595,
+    "archiveSha256": "5f26c800c31fa9cbcfa67019f4ebb3262507f30c862151f1f09271d2ab0d1fac",
+    "entries": 6833,
+    "declaredPacks": 15,
+    "runtimeMatchesCheckout": true,
+    "privateConfigAndWorldBytesPreserved": true,
+    "backup": ".foundry-test\\.setup-backups\\archive-0e011fd5abbb4d6696c20ff709247036\\ptu",
+    "result": "pass"
+  },
+  "setup": {
+    "runs": [
+      {
+        "data": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test",
+        "system": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test\\Data\\systems\\ptu",
+        "backup": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test\\.setup-backups\\ptu-0QwweP\\ptu"
+      },
+      {
+        "data": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test",
+        "system": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test\\Data\\systems\\ptu",
+        "backup": "D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test\\.setup-backups\\ptu-pzrAcW\\ptu"
+      }
+    ],
+    "configFilesPreserved": true,
+    "worldFilesPreserved": true,
+    "liveLock": {
+      "result": "pass",
+      "runningServerRefused": true,
+      "message": "Stop Foundry before refreshing .foundry-test (data-directory lock is held)."
+    }
+  },
+  "acceptance": [
+    {
+      "id": "fresh-install",
+      "result": "pass",
+      "evidence": "archive",
+      "limit": "Inherited inventory includes excluded/unclassified records; this is an installation candidate, not supported release content."
+    },
+    {
+      "id": "setup-repeat-and-live-lock",
+      "result": "pass",
+      "evidence": "setup",
+      "limit": "Dedicated disposable directory only; no campaign upgrade."
+    },
+    {
+      "id": "all-declared-packs",
+      "result": "pass",
+      "documents": 7198,
+      "folders": 197,
+      "evidence": "packResult"
+    },
+    {
+      "id": "modern-legacy-and-custom-source",
+      "result": "pass",
+      "evidence": "live.compatibility, live.finalSetup",
+      "limit": "Legacy transient class construction and helper tests; no broad legacy campaign migration certification."
+    },
+    {
+      "id": "custom-svg-refresh",
+      "result": "pass",
+      "previousFailure": "Refresh overwrote icons/svg/d20-grey.svg.",
+      "fix": "Use exact document default icon comparison; preserve custom SVGs."
+    },
+    {
+      "id": "trainer-sheet",
+      "result": "pass",
+      "evidence": "live.trainerFinal",
+      "limit": "Basic render; complete skills and viewport/layout acceptance belong to chat 03."
+    },
+    {
+      "id": "pokemon-sheet",
+      "result": "pass",
+      "evidence": "live.pokemonInitial",
+      "limit": "Reused first-session render: later image/default-column/missing-training guards do not change this sheet path."
+    },
+    {
+      "id": "full-generation",
+      "result": "pass",
+      "evidence": "live.generationFinal",
+      "limit": "Generation 1 Bulbasaur, fixed level 5, no evolution; no move or calculation rule certification."
+    },
+    {
+      "id": "level-up-ui",
+      "result": "pass",
+      "evidence": "live.reloadFinal",
+      "steps": "Open actual form for 5 to 6, then 6 to 7; allocate one HP point and submit each. Level 7 and completion flag persist after reload.",
+      "limit": "Move/ability choices, evolution, cancellation and rule correctness not certified."
+    },
+    {
+      "id": "bundled-macro",
+      "result": "pass",
+      "evidence": "live.macro",
+      "limit": "Inspected all seven bundled commands; executed Type Matrix only. No other pack macro behavior certified."
+    },
+    {
+      "id": "linked-unlinked-tokens",
+      "result": "pass",
+      "evidence": "live.finalSetup, live.reloadFinal",
+      "limit": "Saved flags show linked sharing and synthetic independence; no combat/automation certification."
+    },
+    {
+      "id": "gm-player-boundaries",
+      "result": "pass",
+      "evidence": "live.playerUI, live.reloadFinal",
+      "limit": "Actual player UI owned-name edit, observer disabled fields, core update rejection from initial sheet bug; no adversarial RPC/security audit."
+    },
+    {
+      "id": "observer-render",
+      "result": "pass",
+      "previousFailure": "Observer getData attempted two flag updates and core rejected both.",
+      "fix": "Persist default inventory columns only when sheet is editable.",
+      "limit": "Final player errors contain viewport warnings only."
+    },
+    {
+      "id": "save-reload",
+      "result": "pass",
+      "evidence": "live.reloadFinal",
+      "limit": "Saved item, actor, level, permission and token state; no full campaign upgrade."
+    },
+    {
+      "id": "starter-training-content",
+      "result": "blocked",
+      "target": "Compendium.ptu.edges.Item.xiZydXM8sex5CP7O",
+      "observedFailure": "Trainer creation dereferenced null.toObject before the guard.",
+      "currentBehavior": "Actor is created, warning is visible, no training is granted.",
+      "neededEvidence": "Authoritative original record/export with this exact ID, complete pack relationship history, and source/page evidence for intended automatic grant.",
+      "defensiveBehaviorVerified": true
+    },
+    {
+      "id": "supported-release-content-exclusion",
+      "result": "blocked",
+      "owners": [
+        "04",
+        "02",
+        "05",
+        "09"
+      ],
+      "neededEvidence": "Authoritative stable-ID classifications and compatibility policy before pack separation, browsing filters and release validation."
+    },
+    {
+      "id": "complete-skills-rules-variants-moves-automation-campaign-upgrades",
+      "result": "not-run",
+      "owners": [
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09"
+      ]
+    },
+    {
+      "id": "layout",
+      "result": "not-run",
+      "reason": "Available browser viewport 1280x720 is below Foundry minimum 1024x768."
+    }
+  ],
+  "live": {
+    "initial": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "setup",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:28:52.649Z",
+      "scenarios": [
+        {
+          "id": "trainer-create",
+          "result": "pass",
+          "details": {
+            "actor": "7IkwR9DlWP9l7uFf",
+            "type": "character",
+            "sheet": "PTUCharacterSheet"
+          }
+        },
+        {
+          "id": "full-generation",
+          "result": "pass",
+          "details": {
+            "actor": "T9QHv2ik0Y6pd81S",
+            "species": "Actor.T9QHv2ik0Y6pd81S.Item.EGv5CwK9I10EfXb5",
+            "sourceId": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+            "level": 5,
+            "moves": [
+              {
+                "id": "lVamdGyEGCMzxYeV",
+                "sourceId": "Compendium.ptu.moves.Item.50Vtl0u0jPevwY4K"
+              },
+              {
+                "id": "Tva0vUStk14qUWSZ",
+                "sourceId": "Compendium.ptu.moves.Item.9Bi4aMf4Ls0JdLNK"
+              }
+            ],
+            "abilities": 1,
+            "capabilities": 1
+          }
+        },
+        {
+          "id": "acquisition-and-refresh",
+          "result": "fail",
+          "error": "Refresh changed a custom label or image.",
+          "stack": [
+            "Error: Refresh changed a custom label or image.",
+            "    at check (http://127.0.0.1:30001/ptu02-checks/foundry-integration-check.mjs?v=1792906132628:7:54)",
+            "    at http://127.0.0.1:30001/ptu02-checks/foundry-integration-check.mjs?v=1792906132628:55:13",
+            "    at async record (http://127.0.0.1:30001/ptu02-checks/foundry-integration-check.mjs?v=1792906132628:14:63)"
+          ]
+        },
+        {
+          "id": "custom-and-deleted-source",
+          "result": "pass",
+          "details": {
+            "customUnchanged": true,
+            "deletedUnchanged": true
+          }
+        },
+        {
+          "id": "player-and-observer-fixtures",
+          "result": "pass",
+          "details": {
+            "player": "iVkqwxalI3cGJahD",
+            "trainer": "7IkwR9DlWP9l7uFf",
+            "observer": "z60uZJcZji5Gpg3Z",
+            "ownerCanUpdate": true,
+            "observerCannotUpdate": true
+          }
+        },
+        {
+          "id": "linked-unlinked-tokens",
+          "result": "pass",
+          "details": {
+            "scene": "2uSnegSt0al2ypEy",
+            "linked": "HlCmm45YYoLxlZmO",
+            "unlinked": "sPqIftgLO5bUx5xY",
+            "linkedSharesActor": true,
+            "unlinkedIndependent": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "finalSetup": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "setup",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:37:56.091Z",
+      "scenarios": [
+        {
+          "id": "trainer-create",
+          "result": "pass",
+          "details": {
+            "actor": "7IkwR9DlWP9l7uFf",
+            "type": "character",
+            "sheet": "PTUCharacterSheet"
+          }
+        },
+        {
+          "id": "full-generation",
+          "result": "pass",
+          "details": {
+            "actor": "T9QHv2ik0Y6pd81S",
+            "species": "Actor.T9QHv2ik0Y6pd81S.Item.EGv5CwK9I10EfXb5",
+            "sourceId": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+            "level": 6,
+            "moves": [
+              {
+                "id": "lVamdGyEGCMzxYeV",
+                "sourceId": "Compendium.ptu.moves.Item.50Vtl0u0jPevwY4K"
+              },
+              {
+                "id": "Tva0vUStk14qUWSZ",
+                "sourceId": "Compendium.ptu.moves.Item.9Bi4aMf4Ls0JdLNK"
+              }
+            ],
+            "abilities": 1,
+            "capabilities": 1
+          }
+        },
+        {
+          "id": "acquisition-and-refresh",
+          "result": "pass",
+          "details": {
+            "actor": "7IkwR9DlWP9l7uFf",
+            "item": "qUcd10nep64DRzUt",
+            "sourceId": "Compendium.ptu.items.Item.2kQmUgVMnwb8JfW4",
+            "quantity": 0,
+            "enabled": false,
+            "customImagePreserved": true
+          }
+        },
+        {
+          "id": "custom-and-deleted-source",
+          "result": "pass",
+          "details": {
+            "customUnchanged": true,
+            "deletedUnchanged": true
+          }
+        },
+        {
+          "id": "player-and-observer-fixtures",
+          "result": "pass",
+          "details": {
+            "player": "iVkqwxalI3cGJahD",
+            "trainer": "7IkwR9DlWP9l7uFf",
+            "observer": "z60uZJcZji5Gpg3Z",
+            "ownerCanUpdate": true,
+            "observerCannotUpdate": true
+          }
+        },
+        {
+          "id": "linked-unlinked-tokens",
+          "result": "pass",
+          "details": {
+            "scene": "2uSnegSt0al2ypEy",
+            "linked": "HlCmm45YYoLxlZmO",
+            "unlinked": "sPqIftgLO5bUx5xY",
+            "linkedSharesActor": true,
+            "unlinkedIndependent": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "compatibility": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "compatibility",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:38:14.167Z",
+      "scenarios": [
+        {
+          "id": "legacy-and-repeated-import",
+          "result": "pass",
+          "details": {
+            "legacyItem": "Compendium.ptu.items.Item.2kQmUgVMnwb8JfW4",
+            "legacyActor": "Actor.0123456789abcdef",
+            "currentRepeatedImport": true,
+            "transientOnly": true
+          }
+        },
+        {
+          "id": "trainer-create-missing-training",
+          "result": "pass",
+          "details": {
+            "actor": "XMStozeLb0BAajWg",
+            "starterTraining": "unresolved",
+            "created": true,
+            "trainingNotRecovered": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "generationFinal": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "generation",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:38:37.309Z",
+      "scenarios": [
+        {
+          "id": "fresh-full-generation",
+          "result": "pass",
+          "details": {
+            "actor": "4bO5qqIyWpGrQ5wZ",
+            "level": 5,
+            "species": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+            "moves": 2,
+            "abilities": 1,
+            "capabilities": 1
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "trainerFinal": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "trainer-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:38:59.197Z",
+      "scenarios": [
+        {
+          "id": "trainer-sheet",
+          "result": "pass",
+          "details": {
+            "actor": "7IkwR9DlWP9l7uFf",
+            "sheet": "PTUCharacterSheet",
+            "rendered": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "pokemonInitial": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "pokemon-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:30:07.293Z",
+      "scenarios": [
+        {
+          "id": "pokemon-sheet",
+          "result": "pass",
+          "details": {
+            "actor": "T9QHv2ik0Y6pd81S",
+            "sheet": "PTUPokemonSheet",
+            "rendered": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "macro": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "macro",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:30:31.601Z",
+      "scenarios": [
+        {
+          "id": "bundled-type-matrix-macro",
+          "result": "pass",
+          "details": {
+            "macro": "Compendium.ptu.macros.Macro.XGxaPZzFSyRg8ykw",
+            "commandInspected": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "levelUpFirst": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "reload",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:33:40.840Z",
+      "scenarios": [
+        {
+          "id": "saved-reloaded-state",
+          "result": "pass",
+          "details": {
+            "trainer": "7IkwR9DlWP9l7uFf",
+            "trainerName": "PTU 02 — Trainer player-edited",
+            "pokemon": "T9QHv2ik0Y6pd81S",
+            "item": "qUcd10nep64DRzUt",
+            "level": 6,
+            "levelUpComplete": 6,
+            "ownedPermission": true,
+            "observerPermission": false
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "reloadFinal": {
+      "batch": "ptu02-gen1-8-20261025",
+      "phase": "reload",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "checkedAt": "2026-10-25T05:40:48.921Z",
+      "scenarios": [
+        {
+          "id": "saved-reloaded-state",
+          "result": "pass",
+          "details": {
+            "trainer": "7IkwR9DlWP9l7uFf",
+            "trainerName": "PTU 02 — Trainer player-edited",
+            "pokemon": "T9QHv2ik0Y6pd81S",
+            "item": "qUcd10nep64DRzUt",
+            "level": 7,
+            "levelUpComplete": 7,
+            "ownedPermission": true,
+            "observerPermission": false
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "7IkwR9DlWP9l7uFf",
+        "pokemon": "T9QHv2ik0Y6pd81S",
+        "observer": "z60uZJcZji5Gpg3Z",
+        "player": "iVkqwxalI3cGJahD"
+      }
+    },
+    "playerUI": {
+      "ownedNameSaved": "PTU 02 — Trainer player-edited",
+      "observerDisabledFields": true,
+      "observerDeniedWritesAfterFix": 0,
+      "viewportWarning": true,
+      "screenshot": ".cache/remaining-02/persistence-final.png"
+    }
+  },
+  "packResult": {
+    "systemId": "ptu",
+    "systemVersion": "4.4.3",
+    "foundryVersion": "13.351",
+    "world": "ptu-verification",
+    "checkedAt": "2026-10-25T05:39:53.843Z",
+    "packs": [
+      {
+        "pack": "ptu.abilities",
+        "expectedDocuments": 631,
+        "expectedFolders": 3,
+        "index": 631,
+        "documents": 631,
+        "folders": 3,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.moves",
+        "expectedDocuments": 1294,
+        "expectedFolders": 16,
+        "index": 1294,
+        "documents": 1294,
+        "folders": 16,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.feats",
+        "expectedDocuments": 1324,
+        "expectedFolders": 78,
+        "index": 1324,
+        "documents": 1324,
+        "folders": 78,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.edges",
+        "expectedDocuments": 85,
+        "expectedFolders": 1,
+        "index": 85,
+        "documents": 85,
+        "folders": 1,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.items",
+        "expectedDocuments": 843,
+        "expectedFolders": 11,
+        "index": 843,
+        "documents": 843,
+        "folders": 11,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.capabilities",
+        "expectedDocuments": 144,
+        "expectedFolders": 4,
+        "index": 144,
+        "documents": 144,
+        "folders": 4,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.habitats",
+        "expectedDocuments": 25,
+        "expectedFolders": 0,
+        "index": 25,
+        "documents": 25,
+        "folders": 0,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "RollTable",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.rolltables",
+        "expectedDocuments": 17,
+        "expectedFolders": 5,
+        "index": 17,
+        "documents": 17,
+        "folders": 5,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "RollTable",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.effects",
+        "expectedDocuments": 614,
+        "expectedFolders": 59,
+        "index": 614,
+        "documents": 614,
+        "folders": 59,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.species",
+        "expectedDocuments": 1806,
+        "expectedFolders": 8,
+        "index": 1806,
+        "documents": 1806,
+        "folders": 8,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.macros",
+        "expectedDocuments": 6,
+        "expectedFolders": 0,
+        "index": 6,
+        "documents": 6,
+        "folders": 0,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Macro",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.references",
+        "expectedDocuments": 335,
+        "expectedFolders": 1,
+        "index": 335,
+        "documents": 335,
+        "folders": 1,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.spirit-actions",
+        "expectedDocuments": 34,
+        "expectedFolders": 8,
+        "index": 34,
+        "documents": 34,
+        "folders": 8,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.journals",
+        "expectedDocuments": 2,
+        "expectedFolders": 0,
+        "index": 2,
+        "documents": 2,
+        "folders": 0,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "JournalEntry",
+        "result": "pass"
+      },
+      {
+        "pack": "ptu.poke-edges",
+        "expectedDocuments": 38,
+        "expectedFolders": 3,
+        "index": 38,
+        "documents": 38,
+        "folders": 3,
+        "indexIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "documentIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "folderIds": {
+          "missing": [],
+          "unexpected": [],
+          "duplicateCount": 0
+        },
+        "invalidDocuments": [],
+        "invalidFolders": [],
+        "documentType": "Item",
+        "result": "pass"
+      }
+    ],
+    "result": "pass"
+  },
+  "history": {
+    "excludedConsumerSearch": {
+      "performedBeforeScopeCorrection": true,
+      "continueSearch": false,
+      "additionalSnapshots": [
+        {
+          "commit": "059ffdc5bd47cb0531e95936de5319736c043721",
+          "packs": [
+            {
+              "pack": "abilities",
+              "tree": "9e7a89b6a88ea918e241c90eb250db0c1a2c936a",
+              "sourceRecords": 580,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "capabilities",
+              "tree": "6676235bda3120568b5c77f239fff2df879b2c52",
+              "sourceRecords": 121,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "moves",
+              "tree": "fef8f551ec0d2cbcc36e427bd6ad668c73685a13",
+              "sourceRecords": 1083,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "species",
+              "tree": "64a898912bd634df1a3fa7113972168b9be46a34",
+              "sourceRecords": 1778,
+              "exactTargetsFound": []
+            }
+          ]
+        },
+        {
+          "commit": "5bf20d15dc244eab54dbad283d137c0a316ccedd",
+          "packs": [
+            {
+              "pack": "abilities",
+              "tree": "afa9dc8da7b1fa6c8fd43483d1cf1bb13da40695",
+              "sourceRecords": 581,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "capabilities",
+              "tree": "62d7681590f49acacfcaf1f987895f81be5dca5e",
+              "sourceRecords": 121,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "moves",
+              "tree": "a904daee0312d05128bbe60d6ae47bd89f730556",
+              "sourceRecords": 1083,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "species",
+              "tree": "642730276a44fffe0157006a207d69634e541249",
+              "sourceRecords": 1783,
+              "exactTargetsFound": []
+            }
+          ]
+        },
+        {
+          "commit": "be63a651ad65ba09d1e4d9344b3d2973f739cc75",
+          "packs": [
+            {
+              "pack": "abilities",
+              "tree": "41611cdf5109a82f379f6a7eb513f9f1d8d50f2d",
+              "sourceRecords": 605,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "capabilities",
+              "tree": "76a59de9926a8f3dcdfa43b2656e604287ebdd27",
+              "sourceRecords": 127,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "moves",
+              "tree": "a7fde79f4656884eaa697201fbf8573daba7bc4d",
+              "sourceRecords": 1275,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "species",
+              "tree": "ce93e2ba5d50945abc6f243255a180d11c3fcdd5",
+              "sourceRecords": 1806,
+              "exactTargetsFound": []
+            }
+          ]
+        },
+        {
+          "commit": "17ccf810c77f71d3ce3a0a9fc53067d1f8c3fddd",
+          "packs": [
+            {
+              "pack": "abilities",
+              "tree": "ac9fa61e7558dcef5ce5d3c90a3c00e2870d1767",
+              "sourceRecords": 605,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "capabilities",
+              "tree": "0458ccbe0bdea3fe4daaffb5e2e6bc5d54c9776d",
+              "sourceRecords": 127,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "moves",
+              "tree": "368c4d2424dd2e491cde23eb01b0a9e2153a30f6",
+              "sourceRecords": 1281,
+              "exactTargetsFound": []
+            },
+            {
+              "pack": "species",
+              "tree": "e3d20305698d56be37ebb130ddfee6af1c362b03",
+              "sourceRecords": 1810,
+              "exactTargetsFound": []
+            }
+          ]
+        }
+      ],
+      "exactTargetRecordsRecovered": 0,
+      "releasesApiResult": [],
+      "priorSnapshots": [
+        "b36aca6a08139594ade65908f4e22ed6227ac85e",
+        "ba75061ae39ca3976ddfb67d8511512e720dfe2b"
+      ],
+      "conclusion": "No identity mapping established; preserve existing 24-target dispositions."
+    },
+    "starterTraining": {
+      "target": "edges.xiZydXM8sex5CP7O",
+      "currentSourceExactMatches": 0,
+      "staticRuntimeMissingTargets": 1,
+      "inspected": [
+        {
+          "commit": "b36aca6a08139594ade65908f4e22ed6227ac85e",
+          "outcome": "Recovered current sources: exact record absent."
+        },
+        {
+          "commit": "ba75061ae39ca3976ddfb67d8511512e720dfe2b",
+          "outcome": "86 original edge records extracted; exact record absent. CURRENT line endings normalized only in ignored extraction copy."
+        },
+        {
+          "commit": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28",
+          "outcome": "Call introduced here; edge CURRENT names MANIFEST-002224 absent from snapshot. Snapshot is incomplete; raw retained files also contain no exact ID."
+        }
+      ],
+      "sameNameRetargets": 0,
+      "conclusion": "No authoritative original identity recovered; stop bounded search pending original export or relationship evidence."
+    }
+  },
+  "warnings": [
+    {
+      "id": "manifest-unknown-keys",
+      "severity": "warning",
+      "detail": "Inherited type/templateVersion keys; unchanged manifest, structural loading passes."
+    },
+    {
+      "id": "v1-applications",
+      "severity": "deprecation",
+      "detail": "Core says supported until removal in v16; sheets and diagnostic dialogs render in v13.351."
+    },
+    {
+      "id": "public-update-manifest",
+      "severity": "warning",
+      "detail": "No published release manifest at configured releases/latest URL; do not publish just to silence it."
+    },
+    {
+      "id": "viewport",
+      "severity": "manual-limitation",
+      "detail": "Layout not certified at 1280x720."
+    },
+    {
+      "id": "generator-transient-no-species",
+      "severity": "warning",
+      "detail": "Actor preparation warns before generator embeds species; final generated actors have species, moves, ability and capability."
+    },
+    {
+      "id": "deleted-source-test",
+      "severity": "expected-error-notification",
+      "detail": "Intentional missing UUID refresh reports failure and leaves item unchanged."
+    }
+  ],
+  "chat03": {
+    "unaffectedPathsReady": true,
+    "explicitStartStillRequired": true,
+    "limitations": [
+      "Starter training not recovered",
+      "No complete skill acceptance claimed",
+      "No broad rules or campaign upgrades certified"
+    ]
+  },
+  "shutdown": {
+    "worldReturnedToSetup": true,
+    "rootRedirectBeforeStop": "/setup",
+    "sessionExitCode": 1,
+    "port30001RefusesConnections": true,
+    "method": "Return to Setup, then managed terminal Ctrl+C; no final process shutdown line captured",
+    "checkedAt": "2026-10-25T05:42:09.814Z"
+  }
+}
