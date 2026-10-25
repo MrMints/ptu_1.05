@@ -29,4 +29,4 @@ Use stable keys for actor properties and selectors. For example, `actor.attribut
 
 The exported legacy `PTUSkills.calculate({actor, context: {skill: 'pokemonEd', options: []}})` and `createSkillModifier({actor, skill: 'pokemonEd', domains: []})` retain stable keys, dice and modifiers. Their labels use the same core/localized presentation. The inherited Transform macro explicitly marks itself unreviewed; its optional skill-copying mode is outside supported skill-macro acceptance.
 
-Foundry acceptance results and limitations are recorded in the section-03 validation report and handoff. Supported gameplay fixtures use Generation 1 species identities under [SCOPE.md](SCOPE.md); no Generation 9 behavior is certified.
+Foundry acceptance results and limitations are recorded in the [section-03 validation report](validation/2026-10-25-skills.md) and [handoff](workstreams/03-skills.md). Supported gameplay fixtures use Generation 1 species identities under [SCOPE.md](SCOPE.md); no Generation 9 behavior is certified.

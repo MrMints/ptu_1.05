@@ -56,6 +56,19 @@ does not fall back to historical metadata or a matching label. Refresh updates s
 system data while preserving owned quantity, enabled state, custom name/image and source
 identity; comprehensive campaign and rule-selection migrations remain with chat 09.
 
+### Skill terminology acceptance
+
+Use `tools/foundry-skills-check.mjs` only in the disposable `ptu-verification` world as GM.
+The [section-03 matrix](validation/2026-10-25-skills.md) documents setup, phases, exact
+coverage and the manual dialog/contested steps; its JSON preserves the numerical results.
+Serve the runner and `docs/data/skill-terminology-review.json` from `Data/ptu03-checks/`,
+not from the installed system. It creates flagged trainer/Pokémon fixtures, a trainer
+folder and two scene tokens, and writes test chat. Existing campaign data is outside this runner.
+Use populated background choices for exact persistence checks; preserve the recorded
+empty-slot `""` to `"blank"` observation instead of claiming that source state is identical.
+The runner and data directory are excluded from the archive. Restore browser sizing after
+layout checks and stop the server at handoff.
+
 ### Reference classification and targeted probes
 
 Run `node tools/audit-content.mjs` to regenerate the structural audit, move inventory

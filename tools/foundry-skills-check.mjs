@@ -273,6 +273,39 @@ export async function runSkillsCheck() {
             check(attack.options.outcomes[pokemon.uuid] === expected,'Contested numerical outcome changed.');
             return {original:original.id,response:response.id,originTotal:attack.total,responseTotal:defense.total,dc:defense.options.dc.value,outcome:expected};
         });
+    } else if (plan.phase === 'persistence-setup') {
+        await record('populated-background-persistence-fixture',async () => {
+            check(trainer && pokemon,'Fixtures missing.');
+            // Deliberate fixture choices in all six slots distinguish real skill IDs from
+            // the inherited form's empty-string -> "blank" placeholder normalization.
+            await pokemon.update({'system.background':{
+                increased:{one:'athletics',two:'focus',three:'generalEd'},
+                decreased:{one:'charm',two:'perception',three:'occultEd'}
+            }});
+            const rows = [];
+            for (const actor of [trainer,pokemon]) {
+                const expected = {numeric:numeric(actor),sourceSkills:actor.toObject().system.skills,background:actor.toObject().system.background};
+                const source = actor.toObject();
+                for (const [key,definition] of Object.entries(SKILLS)) source.system.skills[key].label = definition.name;
+                equal(numeric(new CONFIG.Actor.documentClass(source)),expected.numeric,`${actor.type} selected background labels changed numbers`);
+                await actor.setFlag('ptu','verificationSkills03Expected',expected);
+                rows.push({actor:actor.id,...expected});
+            }
+            return rows;
+        });
+    } else if (plan.phase === 'source-text') {
+        await record('changed-pack-text-and-identities',async () => {
+            const review = await fetch('/ptu03-checks/skill-terminology-review.json',{cache:'no-store'}).then(r=>r.json());
+            const rows = [];
+            for (const row of review.documents.filter(r=>r.changedFields.length)) {
+                const [pack,id] = row.identity.split('.');
+                const item = await fromUuid(`Compendium.ptu.${pack}.Item.${id}`);
+                check(item?.id === id,`${row.identity} identity`);
+                for (const field of row.changedFields) equal(field.pointer.slice(1).split('/').reduce((v,k)=>v[k],item.toObject()),field.after,`${row.identity}${field.pointer}`);
+                rows.push({identity:row.identity,fields:row.changedFields.map(f=>f.pointer)});
+            }
+            return {rows,terminologyOnly:true,contentApproval:false};
+        });
     } else if (plan.phase === 'reload') {
         await record('saved-reloaded-all-17', async () => {
             for (const actor of [trainer,pokemon]) {
@@ -280,7 +313,7 @@ export async function runSkillsCheck() {
                 const expected = actor.getFlag('ptu','verificationSkills03Expected');
                 equal(numeric(actor),expected.numeric,`${actor.type} persisted numeric values`);
                 equal(actor.toObject().system.skills,expected.sourceSkills,`${actor.type} source values/labels`);
-                equal(actor.toObject().system.background,expected.background,`${actor.type} background keys`);
+                equal(actor.toObject().system.background,expected.background,`${actor.type} background keys: ${JSON.stringify({actual:actor.toObject().system.background,expected:expected.background})}`);
             }
             return {trainer:trainer.id,pokemon:pokemon.id,keys,sourceAndNumericValuesPreserved:true};
         });
