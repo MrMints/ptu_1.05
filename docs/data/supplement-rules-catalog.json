@@ -12162,7 +12162,34 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Clear Body",
+            "after": "Solid Rock"
+          },
+          {
+            "before": "Light Metal",
+            "after": "Sturdy"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Miracle Eye",
+            "after": "Lock On"
+          },
+          {
+            "before": "Zen Headbutt",
+            "after": "Power Gem"
+          },
+          {
+            "before": "Psychic",
+            "after": "Stone Edge"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0020",
@@ -12211,7 +12238,34 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Rain Dish",
+            "after": "Lightningrod"
+          },
+          {
+            "before": "Hydration",
+            "after": "Aftermath"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Bubblebeam",
+            "after": "Air Slash"
+          },
+          {
+            "before": "Water Pulse",
+            "after": "Defog"
+          },
+          {
+            "before": "Hydro Pump",
+            "after": "Hurricane"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0021",
@@ -12260,7 +12314,78 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Dry Skin",
+            "after": "Clear Body"
+          },
+          {
+            "before": "Tochukaso",
+            "after": "Cave Crasher"
+          },
+          {
+            "before": "Effect Spore",
+            "after": "Synchronize"
+          },
+          {
+            "before": "Dire Spore",
+            "after": "Mnemonic Minerals"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Poisonpowder",
+            "after": "Foresight"
+          },
+          {
+            "before": "Stun Spore",
+            "after": "Disable"
+          },
+          {
+            "before": "Spore",
+            "after": "Shock Quartz"
+          },
+          {
+            "before": "Slash",
+            "after": "Power Gem"
+          },
+          {
+            "before": "Growth",
+            "after": "Rock Polish"
+          },
+          {
+            "before": "Giga Drain",
+            "after": "Bug Buzz"
+          },
+          {
+            "before": "Aromatherapy",
+            "after": "Refresh"
+          },
+          {
+            "before": "Rage Powder",
+            "after": "Barrier"
+          }
+        ],
+        "addedLevelMoves": [
+          {
+            "level": 1,
+            "move": "Harden"
+          }
+        ],
+        "additionalMachineTutorAccess": [
+          "Psyshock",
+          "Psychic",
+          "Shadow Ball",
+          "Shock Wave",
+          "all Rock"
+        ],
+        "removedMachineTutorAccess": [
+          "all Grass"
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0022",
@@ -12969,7 +13094,32 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "levelMoves": [
+          {
+            "before": "Water Gun",
+            "after": "Ember"
+          },
+          {
+            "before": "Camouflage",
+            "after": "Autotomize"
+          },
+          {
+            "before": "Bubblebeam",
+            "after": "Flame Burst"
+          },
+          {
+            "before": "Brine",
+            "after": "Lava Plume"
+          },
+          {
+            "before": "Hydro Pump",
+            "after": "Fire Blast"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0037",
@@ -13018,7 +13168,20 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "levelMoves": [
+          {
+            "before": "Rollout",
+            "after": "Mirror Shot"
+          },
+          {
+            "before": "Mist",
+            "after": "Metal Sound"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0038",
@@ -13065,7 +13228,24 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "levelMoves": [
+          {
+            "before": "Withdraw",
+            "after": "Poison Gas"
+          },
+          {
+            "before": "Rapid Spin",
+            "after": "Toxic Spikes"
+          },
+          {
+            "before": "Heat Wave",
+            "after": "Sludge Wave"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0039",
@@ -13112,7 +13292,40 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Compound Eyes",
+            "after": "Levitate"
+          },
+          {
+            "before": "Friend Guard",
+            "after": "Synchronize"
+          },
+          {
+            "before": "Effect Spore",
+            "after": "Transporter"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Hurricane",
+            "after": "Psychic"
+          },
+          {
+            "before": "Safeguard",
+            "after": "Trick"
+          }
+        ],
+        "addedLevelMoves": [
+          {
+            "level": 10,
+            "move": "Teleport"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-p0040",
@@ -22612,7 +22825,59 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "printedOptions": [
+        {
+          "d10": 1,
+          "condition": "Sleep",
+          "specialTargeting": null
+        },
+        {
+          "d10": 2,
+          "condition": "Burn",
+          "specialTargeting": null
+        },
+        {
+          "d10": 3,
+          "condition": "Frozen",
+          "specialTargeting": null
+        },
+        {
+          "d10": 4,
+          "condition": "Infatuation",
+          "specialTargeting": "random foe"
+        },
+        {
+          "d10": 5,
+          "condition": "Poison",
+          "specialTargeting": null
+        },
+        {
+          "d10": 6,
+          "condition": "Confused",
+          "specialTargeting": null
+        },
+        {
+          "d10": 7,
+          "condition": "Paralysis",
+          "specialTargeting": null
+        },
+        {
+          "d10": 8,
+          "condition": "Enraged",
+          "specialTargeting": null
+        },
+        {
+          "d10": 9,
+          "condition": "Disabled",
+          "specialTargeting": "random known Move"
+        },
+        {
+          "d10": 10,
+          "condition": "Suppressed",
+          "specialTargeting": null
+        }
+      ]
     },
     {
       "id": "r04-p0237",
@@ -22941,7 +23206,28 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "levelMoves": [
+          {
+            "before": "Charge Beam",
+            "after": "Spark"
+          },
+          {
+            "before": "Mirror Shot",
+            "after": "Magnet Bomb"
+          },
+          {
+            "before": "Discharge",
+            "after": "Wild Charge"
+          },
+          {
+            "before": "Hyper Beam",
+            "after": "Meteor Mash"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-t0003",
@@ -23176,7 +23462,42 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Soulstealer",
+            "after": "Fox Fire"
+          },
+          {
+            "before": "Infiltrator",
+            "after": "Heat Mirage"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Night Shade",
+            "after": "Swift"
+          },
+          {
+            "before": "Imprison",
+            "after": "Incinerate"
+          },
+          {
+            "before": "Hex",
+            "after": "Fiery Dance"
+          },
+          {
+            "before": "Curse",
+            "after": "Morning Sun"
+          },
+          {
+            "before": "Shadow Ball",
+            "after": "Solar Beam"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-t0008",
@@ -23223,7 +23544,38 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "abilities": [
+          {
+            "before": "Iron Fist",
+            "after": "Bulletproof"
+          },
+          {
+            "before": "Klutz",
+            "after": "Sturdy"
+          },
+          {
+            "before": "No Guard",
+            "after": "Parry"
+          }
+        ],
+        "levelMoves": [
+          {
+            "before": "Mud-Slap",
+            "after": "Bullet Punch"
+          },
+          {
+            "before": "Magnitude",
+            "after": "Iron Head"
+          },
+          {
+            "before": "Earthquake",
+            "after": "Meteor Mash"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-t0009",
@@ -23937,7 +24289,32 @@
       "ruleVersionApproval": "source-catalog-only; no runtime/build policy promotion",
       "dataReview": "current source unit interpreted; inherited mapping not certified",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "explicitVariantDeltas": {
+        "levelMoves": [
+          {
+            "before": "Aqua Jet",
+            "after": "Shadow Sneak"
+          },
+          {
+            "before": "Mega Drain",
+            "after": "Pursuit"
+          },
+          {
+            "before": "Slash",
+            "after": "Shadow Claw"
+          },
+          {
+            "before": "Ancient Power",
+            "after": "Stone Edge"
+          },
+          {
+            "before": "Wring Out",
+            "after": "Phantom Force"
+          }
+        ],
+        "identityLimit": "Printed source names identify these field differences only. They do not establish runtime IDs or waive exact relationship/version review."
+      }
     },
     {
       "id": "r04-t0021",

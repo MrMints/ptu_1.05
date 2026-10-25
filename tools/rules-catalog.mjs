@@ -117,6 +117,12 @@ export function rulesCatalogErrors(bundle) {
     }
     const sync = supplements.entries.filter(x => x.label.startsWith('Type Sync'));
     fail(sync.length === 2 && sync[0].canonicalId === sync[1].canonicalId && sync.every(x => x.crossSourceUnits.length === 2), 'Type Sync reprints must share one source identity');
+    for (const id of ['r04-p0019', 'r04-p0020', 'r04-p0021', 'r04-p0036', 'r04-p0037', 'r04-p0038', 'r04-p0039', 'r04-t0002', 'r04-t0007', 'r04-t0008', 'r04-t0020']) {
+        const deltas = supplements.entries.find(x => x.id === id)?.explicitVariantDeltas;
+        fail(deltas?.levelMoves.length && deltas.levelMoves.every(x => x.before && x.after && x.before !== x.after) && deltas.identityLimit, `Explicit variant substitutions missing: ${id}`);
+    }
+    const errorTable = supplements.entries.find(x => x.id === 'r04-p0236')?.printedOptions;
+    fail(errorTable?.length === 10 && new Set(errorTable.map(x => x.d10)).size === 10 && errorTable.every(x => x.d10 >= 1 && x.d10 <= 10 && x.condition), 'I Am Error must retain all ten printed condition outcomes');
     for (const [key, total, profiles, offset] of [['alola', 117, 114, 747], ['galar', 120, 118, 864], ['hisui', 30, 27, 984]]) {
         const rows = regional.entries.filter(x => x.id.startsWith(`r04-${key}-`)), coverage = regional.coverage[key];
         const pages = [...rows.flatMap(x => x.sources[0].pdfPages), ...coverage.nonprofilePages.map(x => x.pdfPage)];

@@ -63,9 +63,11 @@ test('dex candidates require substantive field readings and repeated printed slo
     const data = structuredClone(original);
     delete data.dex.profileDeltas[0].changes[0].sourceInterpretation;
     data.dex.profileDeltas.find(x => x.id === 'r04-d0128').changes = [];
+    delete data.supplements.entries.find(x => x.id === 'r04-p0021').explicitVariantDeltas;
     const errors = rulesCatalogErrors(data);
     assert.ok(errors.some(x => x.includes('Profile field interpretation missing')));
     assert.ok(errors.some(x => x.includes('Bellossom repeated printed ability slots')));
+    assert.ok(errors.some(x => x.includes('Explicit variant substitutions missing')));
 });
 test('regional catalogs must account for every profile and composite coordinate', () => {
     const data = structuredClone(original);
@@ -83,7 +85,9 @@ test('source text retains Digital Avatar conflict and avoids reported word defec
     assert.equal(row.disposition.category, 'rule-ambiguity');
     const data = structuredClone(original);
     data.supplements.entries.find(x => x.id === 'r04-p0197').currentInterpretation = 'Upgraderare Researcherfieldchoices';
+    data.supplements.entries.find(x => x.id === 'r04-p0236').printedOptions.pop();
     assert.ok(rulesCatalogErrors(data).some(x => x.includes('Unreadable merged/split source prose')));
+    assert.ok(rulesCatalogErrors(data).some(x => x.includes('all ten printed condition outcomes')));
 });
 test('same-rule reprints retain one identity without approving runtime mappings', () => {
     const data = structuredClone(original);

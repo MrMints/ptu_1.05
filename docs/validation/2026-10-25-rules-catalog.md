@@ -29,6 +29,8 @@ An attempted exact earliest-species-tree read at `02517e8f042787b9eb951764283655
 
 ## Acceptance and limits
 
+Final source QA records eleven explicit variant substitution maps, including every named Move pair in the previously counted sci-fi/fantasy summaries, and all ten I Am Error condition outcomes. Catalog checks and corruption cases reject missing substitutions/outcomes; the affected eleven-test batch passes after this addition. Source unit totals and all manual dispositions remain unchanged.
+
 Required readable source work is complete; final section 04 acceptance is for owner review with specific unresolved rulings/evidence limits visible. Packet/guidance categories: 267 implementation-design, 14 rule ambiguity, 6 missing source/identity evidence, 2 optional campaign choices. Supplements: 462 design, 106 rule ambiguity, 41 evidence limits, 89 optional choices, 1 source-label correction. Unit counts are not unique ruling counts. No generic manual flag substitutes for dex source interpretation. See [the source guide](../RULES_SOURCES.md) and [coverage ledger](../data/source-authority.json).
 
 Optional adoption does not block cataloging. General Research/Cheerleader replacement/nonstacking is section 05 design after explicit start. Missing earlier editions limit historical comparisons; missing original exports and exact inherited relationships limit data approval. Source questions such as Books lifecycle, Mummy wording, Digital Avatar dice, capacity/Breach examples and conflicting evolution chains remain precise affected-topic rulings, not a blanket stop on unrelated source work.
