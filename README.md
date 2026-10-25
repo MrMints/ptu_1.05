@@ -12,7 +12,7 @@ THIS LINK IS NOT VALID
 ## Special Thanks
 * [cswendrowski](https://github.com/cswendrowski) for starting Foundry
 * https://www.theworldofpokemon.com/ for their amazing pokedex entries 
-* npaisley for doing a lot of the backend stuff; I am not a coder in any capacity, and having to work with abandonware was a daunting task that I could never have completed without their support.
+* npaisley for their work on the pokemon carbon system
 * animenerdfreddurst for making pokemon carbon; please take anything from this project for your own use.
 
 ## Disclaimer
