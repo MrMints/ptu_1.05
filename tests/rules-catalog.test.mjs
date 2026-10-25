@@ -50,3 +50,46 @@ test('catalog requires reasons for manual rulings and all historical candidate d
     assert.ok(errors.some(x => x.includes('Manual ruling lacks reason')));
     assert.ok(errors.some(x => x.includes('finite original ID inventory')));
 });
+test('readable source coverage cannot be replaced by an adoption-permission gap', () => {
+    const data = structuredClone(original);
+    data.supplements.entries = data.supplements.entries.filter(x => !x.sources[0].pdfPages.includes(120));
+    data.supplements.entries[0].disposition.blocksCataloging = true;
+    const errors = rulesCatalogErrors(data);
+    assert.ok(errors.some(x => x.includes('source unit coverage incomplete: throhs')));
+    assert.ok(errors.some(x => x.includes('Readable supplemental page unaccounted: throhs 120')));
+    assert.ok(errors.some(x => x.includes('Supplemental/regional disposition missing')));
+});
+test('dex candidates require substantive field readings and repeated printed slots', () => {
+    const data = structuredClone(original);
+    delete data.dex.profileDeltas[0].changes[0].sourceInterpretation;
+    data.dex.profileDeltas.find(x => x.id === 'r04-d0128').changes = [];
+    const errors = rulesCatalogErrors(data);
+    assert.ok(errors.some(x => x.includes('Profile field interpretation missing')));
+    assert.ok(errors.some(x => x.includes('Bellossom repeated printed ability slots')));
+});
+test('regional catalogs must account for every profile and composite coordinate', () => {
+    const data = structuredClone(original);
+    data.regional.entries[0].combinedPdfPage++;
+    data.regional.entries.pop();
+    const errors = rulesCatalogErrors(data);
+    assert.ok(errors.some(x => x.includes('Regional composite page offset wrong')));
+    assert.ok(errors.some(x => x.includes('Regional profile/page coverage incomplete: hisui')));
+});
+test('source text retains Digital Avatar conflict and avoids reported word defects', () => {
+    const row = original.supplements.entries.find(x => x.id === 'r04-p0177');
+    assert.match(row.currentInterpretation, /2d6/);
+    assert.match(row.currentInterpretation, /3d6 only if no skill previously/);
+    assert.match(row.disposition.specificQuestionOrNote, /Same edition/);
+    assert.equal(row.disposition.category, 'rule-ambiguity');
+    const data = structuredClone(original);
+    data.supplements.entries.find(x => x.id === 'r04-p0197').currentInterpretation = 'Upgraderare Researcherfieldchoices';
+    assert.ok(rulesCatalogErrors(data).some(x => x.includes('Unreadable merged/split source prose')));
+});
+test('same-rule reprints retain one identity without approving runtime mappings', () => {
+    const data = structuredClone(original);
+    data.supplements.entries.find(x => x.label === 'Type Sync fantasy reprint').canonicalId = 'another-rule';
+    data.regional.entries[0].stableIdentities = ['species.0000000000000000'];
+    const errors = rulesCatalogErrors(data);
+    assert.ok(errors.some(x => x.includes('Type Sync reprints must share one source identity')));
+    assert.ok(errors.some(x => x.includes('must not invent runtime mappings')));
+});

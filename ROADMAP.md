@@ -25,7 +25,8 @@ Use its section brief and concise dependency handoffs instead of copying the ful
 
 ## Rules policy
 The [section-04 source guide](docs/RULES_SOURCES.md) and its linked catalogs record source interpretations,
-manual conflicts and unfinished coverage. Source review does not promote runtime/build approval or implement variants.
+specific manual conflicts and completed required readable coverage. Historical/identity evidence limits remain
+explicit. Source review does not promote runtime/build approval or implement variants.
 
 The core book is the standard baseline. Catalog May/September 2015 and February 2016 revisions separately.
 Later explicit revisions supersede earlier ones only in the revised version. Supplements and newer Pokédex

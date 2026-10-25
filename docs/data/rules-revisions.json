@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedBaseline": "9d678f05cbdc864aeab205fdecc7eb6950bd9d22",
   "scope": "PTU 1.05; approved Generations 1–8 only; no Generation9 acquisition/recovery/behavior",
-  "status": "source catalog with explicit manual dispositions; no runtime or pack policy promotion",
+  "status": "All identified packet entries and supporting guidance interpreted; review categories separate rule ambiguity, historical/identity evidence, optional campaign choices and section05 implementation design. No runtime approval.",
   "identityPolicy": "r04 IDs are catalog coordinates, never runtime document IDs. Labels are explanatory. Runtime mappings require exact export relationships and content review.",
   "entries": [
     {
@@ -78,6 +78,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -153,6 +159,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -228,6 +240,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -303,6 +321,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -378,6 +402,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -453,6 +483,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -528,6 +564,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -603,6 +645,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -678,6 +726,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -753,6 +807,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -828,6 +888,12 @@
           "connection": "Whirlwind"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -903,6 +969,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -978,6 +1050,12 @@
           "connection": "Bonemerang"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1053,6 +1131,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1128,6 +1212,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1203,6 +1293,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1278,6 +1374,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1353,6 +1455,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1428,6 +1536,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1503,6 +1617,12 @@
           "connection": "Sweet Scent"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1578,6 +1698,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1653,6 +1779,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1728,6 +1860,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1803,6 +1941,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1878,6 +2022,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -1953,6 +2103,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2028,6 +2184,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2103,6 +2265,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2178,6 +2346,12 @@
           "connection": "Poison Powder"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2253,6 +2427,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2328,6 +2508,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2403,6 +2589,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2478,6 +2670,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2553,6 +2751,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2628,6 +2832,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2703,6 +2913,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2778,6 +2994,12 @@
           "connection": "Ember"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2853,6 +3075,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -2928,6 +3156,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3005,6 +3239,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3080,6 +3320,12 @@
           "connection": "Horn Attack"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3155,6 +3401,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3230,6 +3482,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3305,6 +3563,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3380,6 +3644,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3462,6 +3732,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Keep distinct canonical identities and stable IDs even though February prints one combined entry."
       }
     },
     {
@@ -3537,6 +3813,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3612,6 +3894,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3687,6 +3975,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3762,6 +4056,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3837,6 +4137,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3912,6 +4218,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -3987,6 +4299,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4062,6 +4380,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4137,6 +4461,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4212,6 +4542,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4287,6 +4623,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4362,6 +4704,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4437,6 +4785,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4512,6 +4866,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4587,6 +4947,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4662,6 +5028,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4737,6 +5109,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4812,6 +5190,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4887,6 +5271,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -4962,6 +5352,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5037,6 +5433,12 @@
           "connection": "Confusion"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5112,6 +5514,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5187,6 +5595,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5264,6 +5678,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "February literally disables one of the user’s own Abilities. Decide whether to use literal text or an expressly documented correction before automation; never silently target attacker."
       }
     },
     {
@@ -5339,6 +5759,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5414,6 +5840,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5489,6 +5921,12 @@
           "connection": "Poison Gas"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5564,6 +6002,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5639,6 +6083,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5714,6 +6164,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5789,6 +6245,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5864,6 +6326,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -5939,6 +6407,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6016,6 +6490,12 @@
           "connection": "Defense Curl"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6091,6 +6571,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6166,6 +6652,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6241,6 +6733,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6316,6 +6814,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6391,6 +6895,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6466,6 +6976,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6541,6 +7057,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6616,6 +7138,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6691,6 +7219,12 @@
           "connection": "Ingrain"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6766,6 +7300,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6843,6 +7383,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Scene frequency has no activation action/trigger line; immunity is in Effect rather than separate Bonus. Owner/GM must specify activation and passive immunity treatment."
       }
     },
     {
@@ -6918,6 +7464,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -6993,6 +7545,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7068,6 +7626,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7143,6 +7707,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7220,6 +7790,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7295,6 +7871,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7370,6 +7952,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7445,6 +8033,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7522,6 +8116,12 @@
           "connection": "Withdraw"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7597,6 +8197,12 @@
           "connection": "String Shot"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7672,6 +8278,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7747,6 +8359,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7822,6 +8440,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -7899,6 +8523,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Core p.330 multipliers disagree with core p.236 type chart; standard interpretation requires manual ruling. February DR wording does not retroactively repair standard."
       }
     },
     {
@@ -7974,6 +8604,12 @@
           "connection": "Attract"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8049,6 +8685,12 @@
           "connection": "Heal Bell"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8124,6 +8766,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8199,6 +8847,12 @@
           "connection": "Supersonic"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8274,6 +8928,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8349,6 +9009,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8424,6 +9090,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8499,6 +9171,12 @@
           "connection": "Rapid Spin"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8574,6 +9252,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8649,6 +9333,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8724,6 +9414,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8799,6 +9495,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8874,6 +9576,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -8949,6 +9657,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9024,6 +9738,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9099,6 +9819,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9174,6 +9900,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9249,6 +9981,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9324,6 +10062,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9399,6 +10143,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9474,6 +10224,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9549,6 +10305,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9624,6 +10386,12 @@
           "connection": "Teleport"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9699,6 +10467,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9774,6 +10548,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9849,6 +10629,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9924,6 +10710,12 @@
           "connection": "Triple Kick"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -9999,6 +10791,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10074,6 +10872,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10130,6 +10934,12 @@
           "connection": "Aqua Jet"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10186,6 +10996,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10244,6 +11060,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Explicitly permits Struggle retriggering itself. Resolve action/reaction chain handling and interruption before automation; no invented recursion cap."
       }
     },
     {
@@ -10300,6 +11122,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10358,6 +11186,12 @@
           "connection": "Barrage"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10414,6 +11248,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10491,6 +11331,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "February labels this among New Abilities but core p.318 already has a different same-titled ability. Treat as distinct versions of source identity after explicit review; do not create unrelated stacked benefits."
       }
     },
     {
@@ -10547,6 +11393,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10603,6 +11455,12 @@
           "connection": "Present"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10659,6 +11517,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10715,6 +11579,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10771,6 +11641,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10827,6 +11703,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10885,6 +11767,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10941,6 +11829,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -10997,6 +11891,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11053,6 +11953,12 @@
           "connection": "Needle Arm"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11109,6 +12015,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11165,6 +12077,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11221,6 +12139,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11277,6 +12201,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11333,6 +12263,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11389,6 +12325,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11445,6 +12387,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11501,6 +12449,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11557,6 +12511,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11613,6 +12573,12 @@
           "connection": "Lick"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11669,6 +12635,12 @@
           "connection": "Tri Attack"
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11725,6 +12697,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11783,6 +12761,12 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
       }
     },
     {
@@ -11832,7 +12816,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0166",
@@ -11881,7 +12871,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0167",
@@ -11930,7 +12926,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0168",
@@ -11981,7 +12983,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Header says Ranked 3 but lists rank 4 prerequisites. Owner/GM must choose rank count before acquisition."
+      }
     },
     {
       "id": "r04-r0169",
@@ -12030,7 +13038,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0170",
@@ -12079,7 +13093,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0171",
@@ -12128,7 +13148,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0172",
@@ -12177,7 +13203,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0173",
@@ -12226,7 +13258,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0174",
@@ -12273,7 +13311,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0175",
@@ -12320,7 +13364,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0176",
@@ -12367,7 +13417,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0177",
@@ -12416,7 +13472,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0178",
@@ -12465,7 +13527,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0179",
@@ -12514,7 +13582,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0180",
@@ -12563,7 +13637,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0181",
@@ -12610,7 +13690,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0182",
@@ -12657,7 +13743,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0183",
@@ -12704,7 +13796,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0184",
@@ -12766,7 +13864,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0185",
@@ -12828,7 +13932,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0186",
@@ -12875,7 +13985,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0187",
@@ -12922,7 +14038,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0188",
@@ -12971,7 +14093,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Net AC has no printed minimum; no guessed minimum. Under d20 capture, modifier conversion/rounding requires explicit mechanic selection."
+      }
     },
     {
       "id": "r04-r0189",
@@ -13031,7 +14159,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0190",
@@ -13093,7 +14227,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0191",
@@ -13155,7 +14295,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0192",
@@ -13215,7 +14361,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0193",
@@ -13268,16 +14420,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "implementation-design-05",
         "details": [
-          "Do not silently remove saved Live and Learn/Instant Analysis or stack two complete fields. Determine replacement/acquisition UI in 05."
+          "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
         ]
       },
       "generationEligibility": "in-scope source topic (Generations 1–6 era); record-level mappings not approved",
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
+      }
     },
     {
       "id": "r04-r0194",
@@ -13328,7 +14486,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "May specifies AP Drain and September Medic specifies Binding. Owner/GM must choose lifecycle for combined use; catalog does not invent a correction."
+      }
     },
     {
       "id": "r04-r0195",
@@ -13377,7 +14541,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0196",
@@ -13426,7 +14596,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0197",
@@ -13475,7 +14651,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0198",
@@ -13524,7 +14706,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0199",
@@ -13573,7 +14761,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0200",
@@ -13622,7 +14816,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0201",
@@ -13671,7 +14871,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0202",
@@ -13720,7 +14926,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0203",
@@ -13769,7 +14981,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0204",
@@ -13818,7 +15036,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0205",
@@ -13867,7 +15091,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0206",
@@ -13916,7 +15146,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0207",
@@ -13965,7 +15201,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0208",
@@ -14014,7 +15256,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0209",
@@ -14063,7 +15311,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0210",
@@ -14112,7 +15366,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0211",
@@ -14161,7 +15421,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0212",
@@ -14223,7 +15489,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0213",
@@ -14285,7 +15557,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0214",
@@ -14347,7 +15625,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0215",
@@ -14409,7 +15693,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0216",
@@ -14469,7 +15759,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0217",
@@ -14529,7 +15825,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0218",
@@ -14589,7 +15891,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0219",
@@ -14649,7 +15957,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0220",
@@ -14717,7 +16031,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0221",
@@ -14781,7 +16101,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0222",
@@ -14845,7 +16171,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0223",
@@ -14909,7 +16241,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0224",
@@ -14973,7 +16311,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0225",
@@ -15037,7 +16381,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0226",
@@ -15101,7 +16451,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0227",
@@ -15165,7 +16521,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0228",
@@ -15220,16 +16582,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "implementation-design-05",
         "details": [
-          "Saved omitted features require explicit replacement choice, not silent deletion. Mixed old consumable cheers and new protection require manual resolution."
+          "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
         ]
       },
       "generationEligibility": "in-scope source topic (Generations 1–6 era); record-level mappings not approved",
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
+      }
     },
     {
       "id": "r04-r0229",
@@ -15291,7 +16659,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0230",
@@ -15344,16 +16718,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "implementation-design-05",
         "details": [
-          "Source does not define migration/refund for saved Heavy Shields; preserve them pending explicit owner replacement."
+          "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
         ]
       },
       "generationEligibility": "in-scope source topic (Generations 1–6 era); record-level mappings not approved",
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Explicit replacement/nonstacking and saved-choice handling are already-authorized section05 design once that chat is started. They do not require additional permission to catalog readable current source text. "
+      }
     },
     {
       "id": "r04-r0231",
@@ -15415,7 +16795,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Packet adjusts DR but does not expressly resolve retained Heavy Armor Speed penalty or new Special Armor price. Require ruling for omitted fields."
+      }
     },
     {
       "id": "r04-r0232",
@@ -15477,7 +16863,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0233",
@@ -15539,7 +16931,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0234",
@@ -15590,7 +16988,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Medic says Binding rank-1 Books; May Books use Drain. Select explicit resource lifecycle before automation."
+      }
     },
     {
       "id": "r04-r0235",
@@ -15639,7 +17043,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0236",
@@ -15688,7 +17098,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0237",
@@ -15737,7 +17153,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0238",
@@ -15786,7 +17208,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0239",
@@ -15835,7 +17263,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0240",
@@ -15897,7 +17331,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "No authoritative exhaustive retrospective Gift-tag list is supplied; do not tag all grants by pattern/name alone."
+      }
     },
     {
       "id": "r04-r0241",
@@ -15959,7 +17399,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0242",
@@ -16006,7 +17452,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0243",
@@ -16053,7 +17505,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0244",
@@ -16115,7 +17573,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Hyper Cures on core p.141 requires Medical Techniques; replacement does not explicitly rewrite that prerequisite. Owner/GM must choose cross-version qualification."
+      }
     },
     {
       "id": "r04-r0245",
@@ -16177,7 +17641,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "New packet does not explicitly resolve old throw natural20 modifier, natural100 exception replacement or rounding of level decades; define these before coding."
+      }
     },
     {
       "id": "r04-r0246",
@@ -16245,7 +17715,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Nonmultiple-of-five modifiers and percentage/variable effects need explicit rounding/conversion decisions."
+      }
     },
     {
       "id": "r04-r0247",
@@ -16307,7 +17783,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0248",
@@ -16367,7 +17849,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0249",
@@ -16429,7 +17917,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0250",
@@ -16491,7 +17985,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0251",
@@ -16542,7 +18042,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Resolve each species/form by authoritative page/profile and UUID relationships; do not rewrite slots from name list."
+      }
     },
     {
       "id": "r04-r0252",
@@ -16591,7 +18097,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0253",
@@ -16653,7 +18165,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0254",
@@ -16702,7 +18220,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0255",
@@ -16772,7 +18296,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Apply to feature-tutored and Inheritance Moves as stated; blanket TM/shop conversion is not stated. Define interaction with September/May Book earlier inheritance and special frequencies."
+      }
     },
     {
       "id": "r04-r0256",
@@ -16834,7 +18364,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0257",
@@ -16896,7 +18432,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0258",
@@ -16958,7 +18500,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0259",
@@ -17020,7 +18568,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0260",
@@ -17082,7 +18636,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0261",
@@ -17144,7 +18704,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0262",
@@ -17207,7 +18773,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0263",
@@ -17270,7 +18842,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0264",
@@ -17333,7 +18911,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0265",
@@ -17396,7 +18980,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0266",
@@ -17459,7 +19049,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0267",
@@ -17522,7 +19118,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0268",
@@ -17585,7 +19187,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0269",
@@ -17648,7 +19256,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0270",
@@ -17711,7 +19325,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0271",
@@ -17774,7 +19394,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0272",
@@ -17837,7 +19463,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0273",
@@ -17900,7 +19532,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0274",
@@ -17963,7 +19601,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0275",
@@ -18026,7 +19670,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0276",
@@ -18089,7 +19739,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0277",
@@ -18152,7 +19808,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0278",
@@ -18215,7 +19877,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0279",
@@ -18280,7 +19948,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "rule-ambiguity",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "February p1 calls Twisted Power a Poké Edge, while September p9 Mixed Power grants the old ability. No new edge block is supplied in February. Specify canonical edge effect/identity and nonstacking interaction before implementation; old Trainer class grants expressly remain old abilities."
+      }
     },
     {
       "id": "r04-r0280",
@@ -18342,7 +20016,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0281",
@@ -18402,7 +20082,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0282",
@@ -18462,7 +20148,13 @@
       "ruleVersionApproval": "optional-source-interpretation-only",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Printed source interpretation is sufficient; exact runtime relationships, version selection and behavior verification remain separate."
+      }
     },
     {
       "id": "r04-r0283",
@@ -18500,16 +20192,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "optional-campaign-selection",
         "details": [
-          "Approve scope of source-specific versus global conversion; no legacy moveset rewrite."
+          "Hisui merges its own Move Shop entries into Tutors. Its suggestion to merge all historical TM/Tutor lists is an independent optional setting, not an automatic global rewrite."
         ]
       },
       "generationEligibility": "Generation8 source guidance; inherited records remain unclassified",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "optional-campaign-selection",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Hisui merges its own Move Shop entries into Tutors. Its suggestion to merge all historical TM/Tutor lists is an independent optional setting, not an automatic global rewrite."
+      }
     },
     {
       "id": "r04-r0284",
@@ -18547,16 +20245,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "optional-campaign-selection",
         "details": [
-          "Approve these optional campaign choices per content/version; no deletion of saved items or original requirements."
+          "Hisui advice about freer regional evolution selection is optional campaign configuration. Specific Origin form items remain printed in profiles27/28; preserve saved items and original requirements."
         ]
       },
       "generationEligibility": "Generation8 source guidance; inherited records remain unclassified",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "optional-campaign-selection",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Hisui advice about freer regional evolution selection is optional campaign configuration. Specific Origin form items remain printed in profiles27/28; preserve saved items and original requirements."
+      }
     },
     {
       "id": "r04-r0285",
@@ -18594,16 +20298,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "inherited-relationship-evidence-separate",
         "details": [
-          "Approve exact additions and forms using source pages and stable identities. Author recommendation to consult newer games is not permission to import modern/Gen9 mechanics."
+          "All27 Hisui source profiles are now interpreted in regional-dex-catalog.json. Exact inherited IDs/relationships and acceptance of added content remain separate; no newer-game or Gen9 lookup is required for this source catalog."
         ]
       },
       "generationEligibility": "Generation8 source guidance; inherited records remain unclassified",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "All27 Hisui source profiles are now interpreted in regional-dex-catalog.json. Exact inherited IDs/relationships and acceptance of added content remain separate; no newer-game or Gen9 lookup is required for this source catalog."
+      }
     },
     {
       "id": "r04-r0286",
@@ -18643,16 +20353,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "historical-edition-evidence-missing-current-source-complete",
         "details": [
-          "Need original earlier edition for historical delta comparison, and owner adoption of optional current module. Current1.02 can be cataloged as addition without pretending to know predecessor."
+          "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
         ]
       },
       "generationEligibility": "pre-Generation9 optional supplement; record-level approval pending",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
+      }
     },
     {
       "id": "r04-r0287",
@@ -18692,16 +20408,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "historical-edition-evidence-missing-current-source-complete",
         "details": [
-          "Need original earlier edition for historical delta comparison, and owner adoption of optional current module. Current1.02 can be cataloged as addition without pretending to know predecessor."
+          "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
         ]
       },
       "generationEligibility": "pre-Generation9 optional supplement; record-level approval pending",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
+      }
     },
     {
       "id": "r04-r0288",
@@ -18741,16 +20463,22 @@
         "stacking": "Alternate versions of one canonical benefit cannot stack. Preserve saved selections; require explicit reviewed replacement."
       },
       "conflict": {
-        "disposition": "manual-adjudication-required",
+        "disposition": "historical-edition-evidence-missing-current-source-complete",
         "details": [
-          "Need original earlier edition for historical delta comparison, and owner adoption of optional current module. Current1.02 can be cataloged as addition without pretending to know predecessor."
+          "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
         ]
       },
       "generationEligibility": "pre-Generation9 optional supplement; record-level approval pending",
       "ruleVersionApproval": "supporting-source-pending-approval",
       "dataReview": "catalog-summary; pack record not approved",
       "behavioralVerification": "not-run",
-      "implemented": false
+      "implemented": false,
+      "reviewDisposition": {
+        "category": "missing-source-identity-evidence",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "The earlier1.01 edition is not supplied, so historical changes cannot be reconstructed. Current1.02 rules are interpreted in supplement-rules-catalog.json; optional campaign adoption does not block cataloging."
+      }
     },
     {
       "id": "r04-r0289",
@@ -18832,7 +20560,19 @@
           "connection": null
         },
         "limitation": "Printed field facts supplement summaries; they are not parsed runtime instructions."
+      },
+      "reviewDisposition": {
+        "category": "implementation-design-05",
+        "blocksCurrentSourceCatalog": false,
+        "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
+        "question": "Keep distinct canonical identities and stable IDs even though February prints one combined entry."
       }
     }
-  ]
+  ],
+  "reviewCategoryCounts": {
+    "implementation-design-05": 267,
+    "rule-ambiguity": 14,
+    "missing-source-identity-evidence": 6,
+    "optional-campaign-selection": 2
+  }
 }

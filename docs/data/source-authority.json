@@ -141,6 +141,14 @@
         [
           2,
           4
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          36,
+          71
         ]
       ],
       "pdfPages": 71,
@@ -148,7 +156,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Unfinished item-level source catalog: auras36–40, ascension41–43, classes44–52 and gifts/blessings53–71. Exact edition lineage/earlier versions absent; no campaign-wide divine assumptions approved.",
+      "coverageLimitation": "All required current-source units on36–71 are interpreted in supplement-rules-catalog.json. Earlier editions and referenced legacy definitions remain unavailable where specifically recorded. Optional adoption is not a cataloging prerequisite.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -196,6 +204,14 @@
           4
         ],
         [
+          21,
+          39
+        ],
+        [
+          41,
+          87
+        ],
+        [
           156,
           156
         ]
@@ -205,7 +221,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Unfinished item-level source catalog: setting mechanics21–27, variants/glitches28–39, gear/technology41–75, edges/nonhuman rules76–78, Researcher79–84 and Glitch Bender85–87. Prior-edition PDFs are not supplied to reconstruct 1.01→1.02 deltas.",
+      "coverageLimitation": "All required current-source units21–39/41–87 interpreted, including reprints, tables and contradictory Digital Avatar definitions. Pages75/87 are chapter covers. Earlier1.01 unavailable only for historical comparisons.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -228,7 +244,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Generation8 candidate. Individual records and inherited revisions remain unapproved; do not import later-game balance silently.",
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -246,6 +262,22 @@
         [
           2,
           4
+        ],
+        [
+          31,
+          45
+        ],
+        [
+          47,
+          93
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          120,
+          120
         ]
       ],
       "pdfPages": 121,
@@ -253,7 +285,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Unfinished item-level source catalog: fantasy variants31–36, alchemy37–43, arcane moves44–45, edges/features47–93 and campaign-specific creation105/120. Need owner-selected optional modules; no blanket core override.",
+      "coverageLimitation": "All required current-source units31–45/47–93 and setting-specific creation105/120 interpreted. Specific rule omissions/conflicts retained; optional campaign selection does not block cataloging.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -276,7 +308,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Profile additions are Gen8 candidates. Global tutor/evolution recommendations are separate optional mechanics, not instructions or automatic amendments.",
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -336,7 +368,7 @@
           }
         ]
       },
-      "coverageLimitation": "Machine profile deltas are not full source-record approval; unchanged profiles have no semantic certification.",
+      "coverageLimitation": "All747 shared page positions compared against supplied plus; all450 changed candidates substantively interpreted. Unchanged profiles are not behavior-certified. Old Vullaby/Mandibuzz evolution conflict is recorded.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -351,6 +383,14 @@
       "role": "standard-baseline",
       "authorityBasis": "Owner-selected standard. Existing skill/starter evidence retained; this review compares affected packet baselines, not all core gameplay.",
       "reviewedPdfPageRanges": [
+        [
+          33,
+          34
+        ],
+        [
+          55,
+          55
+        ],
         [
           60,
           64
@@ -444,8 +484,12 @@
           399
         ],
         [
+          419,
+          419
+        ],
+        [
           435,
-          435
+          436
         ]
       ],
       "pdfPages": 508,
@@ -546,7 +590,7 @@
           }
         ]
       },
-      "coverageLimitation": "450 changed page/profile positions accounted; each candidate requires field/dependency review before promotion.",
+      "coverageLimitation": "All450 changed candidates have field-level source interpretations, including Bellossom duplicate slot labels, Scizor editorial correction, tail additions and nine inconsistent evolution chains. Runtime ID/data acceptance remains separate.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     },
@@ -587,7 +631,7 @@
         "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
         "verifiedSamples": []
       },
-      "coverageLimitation": "Generation7 source module candidate, not whole-record approval. Individual forms, moves, abilities and UUID dependencies still need accepted classifications.",
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
       "dataApproval": "no implicit pack/policy promotion",
       "behavioralVerification": "not-run"
     }

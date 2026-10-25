@@ -17,13 +17,18 @@ pack UUID resolution; it does not produce a certified supported release.
 
 ### Source catalog checks
 
-Run `node tools/rules-catalog.mjs` and the focused `tests/rules-catalog.test.mjs` batch
+Run `node tools/rules-catalog.mjs` and the 11-test `tests/rules-catalog.test.mjs` batch
 after catalog changes. CI includes these tests in the normal suite. They check citation
 hashes/page bounds, source coverage, independent review states, canonical identities,
 stable species hashes and historical dispositions; they do not certify rules behavior.
 With local originals and `pypdf`, run `python tools/reference-catalog.py --check` to
 check the physical inventory without overwriting review metadata. See
 [the source guide](RULES_SOURCES.md) for catalog coverage and manual conflicts.
+
+The focused batch also rejects missing required supplemental pages, regional profile/combined-page gaps,
+uninterpreted dex fields, lost repeated printed slots, split/merged prose defects, duplicate reprint identities
+and accidental source-to-runtime approval. It checks catalog consistency; it does not parse PDFs in CI or
+certify the interpreted rules, inherited record mappings or gameplay.
 
 ## Foundry v13.351 batch
 Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.

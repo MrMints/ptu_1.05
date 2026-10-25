@@ -7,9 +7,11 @@ The owner-selected PTU 1.05 core remains the standard baseline. Supported conten
 | Artifact | Evidence and limits |
 | --- | --- |
 | [Reference inventory](data/references.json) | The existing 26 paths, SHA-256 hashes, page counts and review metadata are preserved. There are 18 unique hashes and eight duplicate paths. |
-| [Source authority and coverage](data/source-authority.json) | One coverage/disposition per unique hash, aliases, edition limits, page conventions and precise unfinished supplemental ranges. |
+| [Source authority and coverage](data/source-authority.json) | One coverage/disposition per unique hash, aliases, edition limits, page conventions and completed required supplemental ranges. |
 | [Revision catalog](data/rules-revisions.json) | 283 playtest entries: 56 May 2015, 35 September 2015 and 192 February 2016. Six additional entries record Hisui guidance and Porygon edition limitations. Each has baseline/revised interpretation, source hashes/pages, precedence, proposed selection unit and conflict disposition. Summaries do not replace full rules text. |
-| [Dex comparison](data/dex-source-comparison.json) | All 747 old-versus-plus page positions compared. 450 changed positions are accounted for: 448 contain extracted field differences/additions and two retain text/layout or unparsed differences. These are candidates requiring manual record review, not 450 approved species. |
+| [Supplemental source units](data/supplement-rules-catalog.json) | 699 current-source units: Blessed 235, Porygon 241, Throhs 223. Each has source hash/pages, interpretation, core relationship or optional addition/variant, dependencies, selection unit and a specific disposition. Tables retain their options. |
+| [Dex comparison](data/dex-source-comparison.json) | All 747 old-versus-plus positions and all 450 changed candidates have substantive source interpretations. Field deltas distinguish optional changes, editorial corrections, wrapping and appended form rules. Bellossom's duplicate printed slot labels survive extraction; Scizor is punctuation only. These are not 450 approved inherited species. |
+| [Regional profiles](data/regional-dex-catalog.json) | All 259 profiles: Alola 114, Galar 118, Hisui 27. Profile facts, acquisition-table fingerprints/counts, form-rule interpretations, source/combined coordinates, edition limits and selection implications are recorded; covers, contents and Hisui guidance account for all other pages. Whole movelists remain local. |
 | [Bulbasaur review](data/bulbasaur-source-review.json) | Exact stable species/ability relationships, standard/plus attribution, remaining field mismatches and finite historical evidence. |
 | [Reconciliation ledger](data/content-reconciliation-search.json) | Prior searches preserved; section-04 dispositions cover all 12 earlier-only IDs and missing enhancement/Carbon evidence. |
 
@@ -40,7 +42,7 @@ All PDF references are one-based. Use printed and PDF numbers separately. On the
 
 ## Conflicts and manual choices
 
-The revision catalog records 26 manual dispositions, including six supporting-source entries. The important decisions are:
+Review categories separate rule ambiguity, missing source/identity evidence, optional campaign selection and implementation design for 05. All 289 revision/guidance entries have this classification: 14 rule questions, six source/identity evidence limits, two optional campaign choices and 267 implementation-design dispositions. The supplemental catalog records 106 rule questions, 41 source/identity evidence limits, 89 optional campaign choices, 462 implementation-design dispositions and one source-label correction. These are unit counts, not distinct questions or gameplay approvals. Important decisions include:
 
 | Source issue | Required disposition before affected implementation |
 | --- | --- |
@@ -48,21 +50,29 @@ The revision catalog records 26 manual dispositions, including six supporting-so
 | May Books / September Medic | Specify AP Drain versus Binding lifecycle for combined use. Retain rank prerequisites and rest behavior. |
 | September p.7 Affliction Techniques | Decide how core Hyper Cures' old Medical Techniques prerequisite qualifies after replacement. |
 | September capture | Specify conversion/rounding for nonmultiples of five, milestone/level handling and omitted natural-roll interactions; never mix d100 targets and d20 modifiers. |
-| September shields/armor and class/field replacements | Decide omitted fields, costs and replacement/refund handling. Preserve saved items/features pending explicit selection. |
+| September armor | Resolve omitted Heavy Armor Speed penalty and Special Armor price before affected implementation. |
+| General Research, Cheerleader and shield replacements | Explicit replacement, nonstacking, saved choices and refund UI belong to already-authorized 05 design after owner start. They are not requests for extra permission to read/catalog the source. |
 | February p.7 Mummy | Printed effect names the user's own Ability. Choose literal behavior or a documented correction; no silent attacker-target substitution. |
 | February p.8 Sap Sipper | Resolve bare Scene frequency, missing action/trigger and immunity timing. |
 | February p.12 Combo Striker | Resolve recursive free Struggle chains before automation; no invented cap. |
 | Core p.330 Solid Rock / core p.236 chart | Record the standard multiplier ruling; February DR does not retroactively correct standard. |
 | February p.1 Twisted Power / September p.9 Mixed Power | February calls it a Poké Edge but supplies no new edge block. Specify identity/effect and nonstacking treatment; old class grants explicitly retain old abilities. |
 | Optional combinations | Review Defense Curl/Withdraw connections, changed conditions, Books/Inheritance timing and source-specific species slots. Undefined combinations remain manual. |
+| Porygon pp.70/77 Digital Avatar | Same edition gives 2d6 Technology versus 3d6 only if no prior skill; page order is not explicit errata. |
+| Porygon p.58 augmentation example | Medical Nanobots capacity2 plus Dermal Plating3 totals5; example says6. Resolve the example without silently changing item costs. |
+| Porygon pp.65–66 vehicle example | Aggregate calculation reaches46 Breach, then prose calls34 the disabling threshold. Preserve the general formula and conflicting worked example separately. |
+| Blessed pp.29–30/37 Concept Aura | Eight gods/sixteen Types conflicts with nine/eighteen examples; no complete unmatched-concept-to-aura map is supplied. Legacy Body/Mind/Spirit and some Feature references also lack a current counterpart. |
+| Dex evolution chains | Old Vullaby/Mandibuzz and nine plus chains disagree internally, including Gurdurr's printed minimum 250 versus 20 on adjacent line profiles. Source order supplies no precedence. |
 
 Manual disposition is not an implementation blocker for every unrelated topic. It is a requirement to keep the affected behavior visibly unverified until resolved. The catalog does not claim standard/revised variants, settings or automatic compatibility checks exist.
 
-## Missing evidence and unfinished coverage
+## Completed readable coverage and remaining evidence
 
 Core supports the rule concepts behind all 12 earlier-only Poké Edge IDs. That does not establish a destination UUID or authority to undo later removals. Preserve their historical exports. The owner must choose retention/reintroduction with an exact relationship map before implementation. A manifest declaration cannot reconstruct the missing enhancements database; the four previously selected Carbon snapshots still lack their matching manifests. Needed evidence remains original complete DB/JSON exports with IDs and relationships. No Generation 9-only recovery resumed.
 
-The source coverage ledger accounts for every document, but **full section-04 acceptance is not complete**. Item-by-item supplemental interpretation/mapping remains for Game of Throhs pp. 31–45, 47–93 and campaign creation pp.105/120; Porygon pp. 21–39, 41–87; and Blessed pp. 36–71. Their optional module adoption is not established by the inventory. Owner decisions must name the adopted modules/content, not approve a mixed document wholesale. Earlier Porygon editions and Blessed's referenced edition notes are also missing, so historical deltas cannot be invented. Regional dex profiles and all machine-assisted dex candidates still need exact per-record identity/data/dependency review. The source-ledger coverage ranges do not certify every paragraph's mechanics.
+All required readable supplemental coverage is complete: Throhs pp. 31–45,47–93 and creation 105/120; Porygon pp. 21–39,41–87; Blessed pp. 36–71. Class introductions are tied to their rules units; Porygon75/87 are chapter covers. Optional module adoption is an in-game configuration decision and never a prerequisite to cataloging. Type Sync is a shared reprint with a consistent core rank formula; Weapon of Choice reprints core p.55. Neither creates a new permission/rules blocker.
+
+Earlier Porygon editions, Blessed's referenced edition notes/legacy definitions and exact missing exports remain unavailable for their specific historical/identity questions. This limits those comparisons, not current-source interpretation. All dex candidates and regional source profiles are interpreted; inherited record/UUID relationships, whole-record data approval and behavioral verification remain separate downstream work. No newer-game lookup or Generation9 recovery is needed to finish this catalog. Final section acceptance is for owner review with these finite rulings/evidence limits visible.
 
 ## Implementation handoff and validation
 
