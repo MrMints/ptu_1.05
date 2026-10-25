@@ -1,6 +1,6 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: Reference classification/investigation batch completed on 2026-10-25. Remaining section acceptance work needs a new explicit batch start. Stop with the handoff below; do not start other sections.
+Status: Reference classification/investigation batch completed on 2026-10-25. The remaining-work instructions below are prepared, but implementation is paused until the owner explicitly starts it. Do not start other sections.
 
 ## On explicit start
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
@@ -19,6 +19,42 @@ A clean checkout builds and installs; every declared pack loads in v13.351; miss
 
 ## Outside this scope
 Certification of move rules, standard/revised selection, broad automation or overwriting user campaigns.
+
+## Remaining-work instruction — prepared 2026-10-25
+
+This is a parked instruction update, not a start signal. When the owner says "Start the remaining PTU 02 work," complete the addressable work below in related batches. That start authorizes continuation across these batches without asking for routine permission again. Do not stop after each batch merely to request another start. Stop at the final handoff, a user pause, or a genuine blocker that prevents further independent progress. No scheduled or automatic future runs.
+
+### 1. Confirm and reuse the current baseline
+
+Check the current branch, dirty files, active chat ownership and Foundry process/port before mutations. Read the latest handoff and reference investigation rather than repeating the full audit. Verify which inputs have changed since recorded passing tests. Work only in this repository and its disposable world; do not restart or overwrite a server/data directory owned by another chat. Preserve all original supplied references locally.
+
+### 2. Bounded recovery of the 24 active missing targets
+
+Use the existing target/occurrence/disposition ledgers and record a finite search inventory of relevant, previously uninspected repository commits, pack transitions and repository-owned historical artifacts. Search exact UUIDs and original export relationships first; skip the two snapshots already checked unless new evidence justifies returning to them. Record searched revisions and outcomes once. Do not repeatedly extract the same databases or expand into unrelated repositories.
+
+Recover or retarget only when authoritative identity evidence supports the mapping. Same names or stored slugs alone are insufficient. Preserve document IDs and relationships; edit readable sources, rebuild affected packs, verify semantic round trips and exercise the affected generator/TemporarySpecies paths in v13.351. Preserve the 658 provenance targets; they are not a cleanup backlog.
+
+If the bounded inventory yields no sufficient identity evidence, record the exact missing evidence and affected behavior in issue #1 and the handoff. Leave unresolved records honestly classified, without guessing replacements or silently removing content. Continue independent acceptance work. A separate defensive fix may prevent a reproduced crash or silent omission if it reports the missing dependency and leaves consequential state unchanged; this does not count as recovering or verifying the missing content.
+
+### 3. Fix reproduced legacy source-reference compatibility
+
+Trace the documented legacy sourceId accessor/import issue through actual v13 import, refresh and related consumers. Implement the smallest evidence-backed compatibility fix if reproducible. Preserve historical provenance and custom content; never rewrite metadata or use displayed names as identity. Test current core source identity, supported legacy identity, missing/deleted source, custom items, repeated import/refresh and relevant saved/reloaded state. Record any migration implications explicitly. Do not extend this into broad campaign migration certification owned by chat 09.
+
+### 4. Finish the installation and integration baseline
+
+Address the setup-helper risk of merging stale database files: require the disposable server to be stopped, validate resolved paths within the intended test area, preserve a recoverable copy, and refresh generated packs without mixing old/new database files. Verify repeated setup and clean archive installation where inputs changed. Do not delete campaign data or manipulate a live database.
+
+In one coordinated v13.351 session, test basic trainer/Pokémon sheets, compendium acquisition, representative full generation and level-up UI, saved/reloaded actor state, linked/unlinked tokens, and GM/player ownership boundaries. Inspect bundled macro code before executing it and use only disposable actors/scenes. Verify basic macro execution and reference integrity without claiming move-rule correctness. Include the affected missing-reference paths separately from an unaffected baseline.
+
+Fix reproducible content-loading/startup/integration defects within section 02; for failures owned by another section, capture a minimal case and explicit disposition without silently taking over that section. Chat 03 owns complete skill terminology acceptance, chats 04–08 own rules/behavior/automation, and chat 09 owns comprehensive upgrade/release acceptance. Record manifest warnings, V1 deprecations, viewport limitations and the unpublished update URL with their actual severity. Do not publish a release or raise compatibility claims merely to silence warnings.
+
+### 5. Validate, document and hand off
+
+Maintain an acceptance matrix with passed, failed, blocked and not-run outcomes, tested commits, reproducible steps and source/evidence links. Run affected test batches after changes; rerun packaging and live affected scenarios when runtime/content/build inputs change. Reuse unchanged evidence and keep output concise. A full fresh packaging/integration batch is required if the existing evidence no longer covers the final inputs.
+
+Update this handoff, docs/STATUS.md, relevant audit/validation reports, issue #1, the Unreleased changelog and the current PR description together. Reuse draft PR #4 if it remains the appropriate branch/PR; inspect current state first. Commit/push documented work and check its CI. Do not merge, release, start another chat or send cross-chat messages without explicit owner authorization.
+
+At the final handoff, state: what was implemented; what actually passed; unresolved failures and exact external evidence needed; whether chat 03 can proceed on unaffected paths; tested commit/PR; and shared-world/server state. Stop the server you started safely. Distinguish "all addressable work finished with blockers" from "all section acceptance gates passed." Missing content must never be represented as repaired simply because its limitation is documented.
 
 ## Latest handoff — reference classification, 2026-10-25
 

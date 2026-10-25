@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Prepare PTU 02's remaining acceptance instructions: bounded identity-backed recovery, legacy source-reference compatibility, safe disposable setup, grouped integration checks, and an explicit completed-versus-blocked handoff. Implementation remains paused until an explicit start.
+
 ### Compendium reference investigation
 - Classify all 682 unresolved targets with field-level evidence: 658 historical provenance targets and 24 active rule/species targets across three records; preserve the legacy sourceId runtime caveat.
 - Confirm the 24 active targets are missing in v13.351, reproduce omitted generator content and a TemporarySpecies null dereference, and record explicit unresolved dispositions after checking two historical snapshots.
