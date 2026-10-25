@@ -1,3 +1,5 @@
+import { EDUCATION_SKILLS } from "../../../util/skills.js";
+
 function calculateSkills(skills, speciesData, background, bonus = 0) {
     if (speciesData == null) return skills;
     if (speciesData._id == "ARCEUS") {
@@ -10,7 +12,7 @@ function calculateSkills(skills, speciesData, background, bonus = 0) {
 
     let speciesSkills = speciesData["Skills"];
 
-    for (let [key, skill] of Object.entries(skills).filter(x => x[1].label.includes("Ed"))) {
+    for (let [key, skill] of Object.entries(skills).filter(([key]) => EDUCATION_SKILLS.includes(key))) {
         skill.value.value = 1;
     };
 

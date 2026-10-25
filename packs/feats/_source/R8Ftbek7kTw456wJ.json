@@ -1,0 +1,56 @@
+{
+  "name": "Commander [CR]",
+  "system": {
+    "origin": "Class Rework",
+    "effect": "Effect: You may use [Orders] that have targets to target any Ally, even if normally those [Orders] would only let you apply the effect to your own Pokemon. Any other conditions still apply.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Class",
+      "Playtest",
+      "Class Rework"
+    ],
+    "prerequisites": [
+      "Novice Command"
+    ],
+    "frequency": "Static",
+    "notes": "",
+    "free": false,
+    "class": "Commander [CR]",
+    "name": "Commander [CR]"
+  },
+  "img": "/systems/ptu/css/images/icons/class_feat_icon.png",
+  "type": "feat",
+  "folder": "g4rkUfI9kme8LqBH",
+  "_id": "R8Ftbek7kTw456wJ",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1699736627730,
+    "modifiedTime": 1707827243445,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!R8Ftbek7kTw456wJ"
+}

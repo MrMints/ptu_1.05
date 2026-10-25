@@ -4,6 +4,7 @@ import { PTUPartySheet } from "../../apps/party/sheet.js";
 import { Statistic } from "../../system/statistic/index.js";
 import { PTUDexSheet } from "../../apps/dex/sheet.js";
 import { PTUActorSheet } from "../sheet.js";
+import { presentSkills } from "../../../util/skills.js";
 
 export class PTUCharacterSheet extends PTUActorSheet {
 
@@ -124,7 +125,7 @@ export class PTUCharacterSheet extends PTUActorSheet {
 	 * @return {undefined}
 	 */
 	async _prepareCharacterItems(sheetData) {
-		sheetData['skills'] = this.actor.system.skills
+		sheetData['skills'] = presentSkills(this.actor.system.skills)
 
 		const actor = sheetData.actor;
 

@@ -1,0 +1,78 @@
+{
+  "folder": "8tcCd3dOnqridsEG",
+  "name": "G-Max Meltdown",
+  "type": "move",
+  "_id": "ovU9oEmssG7T9Hrr",
+  "img": "systems/ptu/static/css/images/types2/SteelIC_Icon.png",
+  "system": {
+    "origin": "Regional Phenomena",
+    "effect": "All Targets become Suppressed.\nRequirement: Melmetal is Gigantamaxed and has a Steel Type Move.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ApplyEffect",
+        "predicate": [],
+        "selectors": "{item|id}-damage-received",
+        "uuid": "Compendium.ptu.effects.Item.uxkB2vhF5HGjQAZY",
+        "range": "1",
+        "value": "",
+        "affects": "target"
+      }
+    ],
+    "enabled": true,
+    "slug": "g-max-meltdown",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Max"
+    ],
+    "sheerForce": false,
+    "toughClaws": false,
+    "technician": false,
+    "reckless": false,
+    "ironFist": false,
+    "megaLauncher": false,
+    "punkRock": false,
+    "strongJaw": false,
+    "type": "Steel",
+    "category": "Physical",
+    "damageBase": "12",
+    "frequency": "At-Will",
+    "ac": "0",
+    "range": "Close Blast 8",
+    "contestType": "",
+    "stab": false,
+    "damageBonus": 0,
+    "isStruggle": false
+  },
+  "effects": [],
+  "sort": 1500000,
+  "ownership": {
+    "default": 0,
+    "uL2FnS0CT2UJ45hb": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1705335815088,
+    "modifiedTime": 1710782457789,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!ovU9oEmssG7T9Hrr"
+}

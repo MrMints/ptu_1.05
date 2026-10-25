@@ -1,6 +1,7 @@
 import { PokemonGenerator } from "../../actor/pokemon/generator.js";
 import { PTUSkills } from '../../actor/index.js';
 import { Mutex } from '../../../util/mutex.js';
+import { resolveSkillKey, getSkillLabel } from '../../../util/skills.js';
 
 const SINGLE_MIN_SKILL_RANK_RE = /(?<rank>(Pathetic)|(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso)) (?<skill>.+)/i;
 const ANY_N_SKILLS_AT_RE = /(any )?(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) Skills? at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?/i;
@@ -930,11 +931,7 @@ export class NpcQuickBuildData {
         // Check for skills & variations
         //
 
-        const getSkill = function (t) {
-            // TODO: do better, act right :(
-            // this is very gross. Let's add some stuff in index.js so we don't have to rely on the translations
-            return CONFIG.PTU.data.skills.keys.find(k => simplifyString(t) == simplifyString(game.i18n.format(`SKILL.${k}`)));
-        };
+        const getSkill = resolveSkillKey;
 
         // check if it's a single minimum skill rank
         const singleSkillMatch = textPrereq.match(SINGLE_MIN_SKILL_RANK_RE);
@@ -1373,7 +1370,7 @@ export class NpcQuickBuildData {
         const skills = {}
         for (const skill of CONFIG.PTU.data.skills.keys) {
             skills[skill] = {
-                label: game.i18n.format(`SKILL.${skill}`),
+                label: getSkillLabel(skill),
                 modifier: {
                     mod: 0,
                     total: 0,

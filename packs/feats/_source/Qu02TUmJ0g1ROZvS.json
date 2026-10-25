@@ -1,0 +1,59 @@
+{
+  "name": "Idol [CR]",
+  "system": {
+    "origin": "Class Rework",
+    "effect": "Target: A Pokémon with at least 1 Tutor Point.\nEffect: You gain the Cute Charm ability. You may also teach this ability to a Pokemon at the cost of 2 Tutor Points.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "idol-cr",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Playtest",
+      "Class Rework"
+    ],
+    "prerequisites": [
+      "Adaptable Performance"
+    ],
+    "frequency": "Daily – Extended Action",
+    "notes": "",
+    "free": false,
+    "class": "Coordinator [CR]",
+    "name": "Idol [CR]"
+  },
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "type": "feat",
+  "folder": "euLCRrhLfZkTxegt",
+  "_id": "Qu02TUmJ0g1ROZvS",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1699736627730,
+    "modifiedTime": 1707827243445,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!Qu02TUmJ0g1ROZvS"
+}

@@ -1,0 +1,157 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "X-Items",
+  "_id": "lxTuzJBSGZRyBsAA",
+  "img": "systems/ptu/static/images/item_icons/x%20attack.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "X Attack",
+      "documentId": "SJE1aCqXMglgmTNW",
+      "img": "systems/ptu/images/item_icons/x attack.webp",
+      "_id": "rDuGA5WzctsvA3ZB",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.rDuGA5WzctsvA3ZB"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "X Defend",
+      "documentId": "kG8qoD4ueWURGPOt",
+      "img": "systems/ptu/images/item_icons/x defend.webp",
+      "_id": "tbY7hHZdCWI3Hcum",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.tbY7hHZdCWI3Hcum"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "X Special",
+      "documentId": "HPEjXiFe6Av2AItM",
+      "img": "systems/ptu/images/item_icons/x special.webp",
+      "_id": "TthMs7fbYkn7l8ET",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.TthMs7fbYkn7l8ET"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "X Sp. Def.",
+      "documentId": "HFDBaQaQAGJn6KjT",
+      "img": "systems/ptu/images/item_icons/x sp. def..webp",
+      "_id": "42bkuFSGe4T1RyBd",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.42bkuFSGe4T1RyBd"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "X Speed",
+      "documentId": "wBC8ufbk1MnjXquq",
+      "img": "systems/ptu/images/item_icons/x speed.webp",
+      "_id": "Imb2oEVm2OCkbMxC",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.Imb2oEVm2OCkbMxC"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Dire Hit",
+      "documentId": "GRNFFXDGwgfFxqeh",
+      "img": "systems/ptu/images/item_icons/dire hit.webp",
+      "_id": "ecvXUUdQNB5vGoPO",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.ecvXUUdQNB5vGoPO"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "text": "X Accuracy",
+      "documentId": "NwiLizlZ4VbqhoCf",
+      "img": "systems/ptu/images/item_icons/x accuracy.webp",
+      "_id": "30VJm0U1U3J6PdAx",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.30VJm0U1U3J6PdAx"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "text": "Guard Spec",
+      "documentId": "eAgBzYWiZUMOqWwb",
+      "img": "systems/ptu/images/item_icons/guard spec.webp",
+      "_id": "WOuEtWXfK6PgmxZo",
+      "flags": {},
+      "_key": "!tables.results!lxTuzJBSGZRyBsAA.WOuEtWXfK6PgmxZo"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733008874,
+    "modifiedTime": 1710778630487,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d8",
+  "_key": "!tables!lxTuzJBSGZRyBsAA"
+}

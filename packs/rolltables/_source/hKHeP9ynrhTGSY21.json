@@ -1,0 +1,157 @@
+{
+  "folder": "KdbYHm255fVoO8XG",
+  "name": "Herbs",
+  "_id": "hKHeP9ynrhTGSY21",
+  "img": "systems/ptu/static/images/item_icons/revival%20herb.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "Energy Root",
+      "documentId": "7rq6umzCl1cTm5ny",
+      "img": "systems/ptu/images/item_icons/energy root.webp",
+      "_id": "jah4XUcbHDUt6pfu",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.jah4XUcbHDUt6pfu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "Revival Herb",
+      "documentId": "Qr4cNnGJVou1A9yQ",
+      "img": "systems/ptu/images/item_icons/revival herb.webp",
+      "_id": "3cklVvWXWTJZE4r9",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.3cklVvWXWTJZE4r9"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "Mental Herb",
+      "documentId": "cV0b4kZaHh5OuGC8",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "DQObTjMeaoC3mBLq",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.DQObTjMeaoC3mBLq"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "Power Herb",
+      "documentId": "5IJIFPkP9KOMGQvx",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "w8d29Lo3Rlsn4EoO",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.w8d29Lo3Rlsn4EoO"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "White Herb",
+      "documentId": "nk3lnYxEsX1KqeAU",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "KvcTxQ3N4k7HU1wI",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.KvcTxQ3N4k7HU1wI"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Tiny Mushroom",
+      "documentId": "w5F8OjCc7rGRSlXz",
+      "img": "systems/ptu/images/item_icons/tiny mushroom.webp",
+      "_id": "ufoPmlKgNnv4DoJa",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.ufoPmlKgNnv4DoJa"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "text": "Big Mushroom",
+      "documentId": "qjXGxkVxalQcIpuD",
+      "img": "systems/ptu/images/item_icons/big mushroom.webp",
+      "_id": "wNr9Jq8oIWP1iium",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.wNr9Jq8oIWP1iium"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "text": "Balm Mushroom",
+      "documentId": "zwuNF6cJs843IqJj",
+      "img": "systems/ptu/images/item_icons/balm mushroom.webp",
+      "_id": "tS3U9U52XywNhQ4R",
+      "flags": {},
+      "_key": "!tables.results!hKHeP9ynrhTGSY21.tS3U9U52XywNhQ4R"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 400000,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697731485250,
+    "modifiedTime": 1710778630481,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d8",
+  "_key": "!tables!hKHeP9ynrhTGSY21"
+}

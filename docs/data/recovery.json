@@ -1,0 +1,94 @@
+{
+  "repository": "MrMints/ptu_1.05",
+  "commit": "b36aca6a08139594ade65908f4e22ed6227ac85e",
+  "packs": [
+    {
+      "name": "abilities",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "capabilities",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "dex-entries",
+      "manifestPresent": false,
+      "tables": 1
+    },
+    {
+      "name": "edges",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "effects",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "feats",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "habitats",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "items",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "journals",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "macros",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "maneuvers",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "moves",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "references",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "rolltables",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "species",
+      "manifestPresent": true,
+      "tables": 4
+    },
+    {
+      "name": "spirit-actions",
+      "manifestPresent": true,
+      "tables": 1
+    },
+    {
+      "name": "poke-edges",
+      "manifestPresent": true,
+      "tables": 1
+    }
+  ],
+  "overrides": {
+    "poke-edges": "9e6fccd535fbdbe4b410cfbfdb0425b03ebd2d07"
+  }
+}

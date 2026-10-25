@@ -1,0 +1,19 @@
+name: Verification or automation work
+description: Track a bounded behavior family or content batch
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Content and behavior scope
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Rules, variants, and acceptance scenarios
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Dependencies and manual adjudication

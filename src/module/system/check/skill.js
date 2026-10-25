@@ -4,6 +4,7 @@ import { PTUDiceCheck, eventToRollParams } from "./check.js";
 import { CheckDialog } from "./dialogs/dialog.js";
 import { DiceCheckDialog } from "./dialogs/diceDialog.js";
 import { CheckRoll } from "./rolls/roll.js";
+import { getSkillLabel } from "../../../util/skills.js";
 
 class PTUSkillCheck extends PTUDiceCheck {
 
@@ -23,7 +24,7 @@ class PTUSkillCheck extends PTUDiceCheck {
     }
 
     get skillLabel() {
-        return game.i18n.localize(`PTU.Skills.${this.skill}`);
+        return getSkillLabel(this.skill);
     }
 
     /**

@@ -1,7 +1,7 @@
 {
   "id": "ptu",
   "type": "system",
-  "title": "Pokemon Carbon",
+  "title": "Pokémon Tabletop United 1.05",
   "description": "The completion of the Pokemon Tabletop United TTRPG System made for FoundryVTT.",
   "compatibility": {
     "minimum": "13.345",
@@ -21,7 +21,9 @@
       "name": "highmongrel"
     }
   ],
-  "esmodules": ["src/ptr.js"],
+  "esmodules": [
+    "src/ptr.js"
+  ],
   "socket": true,
   "styles": [
     "static/css/fonts.css",
@@ -41,7 +43,12 @@
   ],
   "flags": {
     "hotReload": {
-      "extensions": ["css", "js", "hbs", "json"]
+      "extensions": [
+        "css",
+        "js",
+        "hbs",
+        "json"
+      ]
     }
   },
   "packs": [
@@ -49,100 +56,105 @@
       "label": "Abilities",
       "type": "Item",
       "name": "abilities",
-      "path": "packs/abilities.db",
+      "path": "packs/abilities",
       "system": "ptu"
     },
     {
       "label": "Moves",
       "type": "Item",
       "name": "moves",
-      "path": "packs/moves.db",
+      "path": "packs/moves",
       "system": "ptu"
     },
     {
       "label": "Features",
       "type": "Item",
       "name": "feats",
-      "path": "packs/feats.db",
+      "path": "packs/feats",
       "system": "ptu"
     },
     {
       "label": "Edges",
       "type": "Item",
       "name": "edges",
-      "path": "packs/edges.db",
+      "path": "packs/edges",
       "system": "ptu"
     },
     {
       "label": "Items",
       "type": "Item",
       "name": "items",
-      "path": "packs/items.db",
+      "path": "packs/items",
       "system": "ptu"
     },
     {
       "label": "Capabilities",
       "type": "Item",
       "name": "capabilities",
-      "path": "packs/capabilities.db",
-      "system": "ptu"
-    },
-    {
-      "label": "Enhancements",
-      "type": "Item",
-      "name": "enhancements",
-      "path": "packs/enhancements.db",
+      "path": "packs/capabilities",
       "system": "ptu"
     },
     {
       "label": "Habitats",
       "type": "RollTable",
       "name": "habitats",
-      "path": "packs/habitats.db",
+      "path": "packs/habitats",
       "system": "ptu"
     },
     {
       "label": "Rolltables",
       "type": "RollTable",
       "name": "rolltables",
-      "system": "ptu"
+      "system": "ptu",
+      "path": "packs/rolltables"
     },
     {
       "label": "Effects",
       "type": "Item",
       "name": "effects",
-      "path": "packs/effects.db",
+      "path": "packs/effects",
       "system": "ptu"
     },
     {
       "label": "Species",
       "type": "Item",
       "name": "species",
-      "path": "packs/species.db",
+      "path": "packs/species",
       "system": "ptu"
-    }, 
+    },
     {
       "label": "Macros",
       "type": "Macro",
       "name": "macros",
-      "system": "ptu"
+      "system": "ptu",
+      "path": "packs/macros"
     },
     {
       "label": "References",
       "type": "Item",
       "name": "references",
-      "system": "ptu"
+      "system": "ptu",
+      "path": "packs/references"
     },
     {
       "label": "Spirit Actions",
       "type": "Item",
       "name": "spirit-actions",
-      "system": "ptu"
+      "system": "ptu",
+      "path": "packs/spirit-actions"
     },
     {
       "label": "Journals",
       "type": "JournalEntry",
       "name": "journals",
+      "system": "ptu",
+      "path": "packs/journals"
+    },
+    {
+      "label": "Poké Edges",
+      "type": "Item",
+      "name": "poke-edges",
+      "path": "packs/poke-edges",
       "system": "ptu"
     }
   ],
@@ -163,25 +175,39 @@
       "name": "Rolltables",
       "sorting": "m",
       "color": "#89a380",
-      "packs": ["habitats", "rolltables"]
+      "packs": [
+        "habitats",
+        "rolltables"
+      ]
     },
     {
       "name": "Items",
       "sorting": "a",
       "color": "#9c85b7",
-      "packs": ["abilities", "capabilities", "items", "moves"],
+      "packs": [
+        "abilities",
+        "capabilities",
+        "items",
+        "moves"
+      ],
       "folders": [
         {
           "name": "Trainer",
           "sorting": "a",
           "color": "#4b98d2",
-          "packs": ["edges", "feats"]
+          "packs": [
+            "edges",
+            "feats"
+          ]
         },
         {
           "name": "Pokemon",
           "sorting": "a",
           "color": "#d26565",
-          "packs": ["enhancements", "species", "spirit-actions"]
+          "packs": [
+            "species",
+            "spirit-actions"
+          ]
         }
       ]
     },
@@ -189,11 +215,16 @@
       "name": "Automation & Information",
       "sorting": "m",
       "color": "#89a380",
-      "packs": ["journals", "references", "macros", "effects"]
+      "packs": [
+        "journals",
+        "references",
+        "macros",
+        "effects"
+      ]
     }
   ],
   "background": "systems/ptu/static/images/banner.webp",
-  "url": "https://github.com/animenerdfreddurst/pokemon_carbon",  
-  "manifest": "https://raw.githubusercontent.com/animenerdfreddurst/pokemon_carbon/master/system.json",
-  "download": "https://github.com/animenerdfreddurst/pokemon_carbon/releases/latest/download/ptu.zip"
+  "url": "https://github.com/MrMints/ptu_1.05",
+  "manifest": "https://github.com/MrMints/ptu_1.05/releases/latest/download/system.json",
+  "download": "https://github.com/MrMints/ptu_1.05/releases/download/4.4.3/system.zip"
 }

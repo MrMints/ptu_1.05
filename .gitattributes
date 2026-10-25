@@ -1,1 +1,2 @@
 packs/** binary
+packs/**/_source/*.json text diff eol=lf

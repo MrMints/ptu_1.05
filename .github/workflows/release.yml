@@ -1,0 +1,39 @@
+name: Prepare PTU draft release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version matching system.json and dated CHANGELOG entry
+        required: true
+      integration_evidence:
+        description: Repository-relative completed integration evidence JSON
+        required: true
+permissions:
+  contents: write
+jobs:
+  release:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test && pnpm validate && pnpm packs:verify && pnpm build
+      - name: Verify release metadata and integration evidence
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+          INTEGRATION_EVIDENCE: ${{ inputs.integration_evidence }}
+        run: node tools/release.mjs
+      - name: Create draft for explicit publication review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: gh release create "$RELEASE_VERSION" dist/system.json dist/system.zip --draft --target "$GITHUB_SHA" --title "PTU $RELEASE_VERSION" --notes-file dist/release-notes.md

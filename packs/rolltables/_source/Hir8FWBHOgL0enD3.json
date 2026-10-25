@@ -1,0 +1,2717 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "TMs",
+  "_id": "Hir8FWBHOgL0enD3",
+  "img": "systems/ptu/static/images/item_icons/tm.webp",
+  "description": "",
+  "results": [
+    {
+      "text": "TM82 - Dragon Tail",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0xWbyuCQkWVeCiUj",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "0yggzCBX9csKIwbk",
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.0yggzCBX9csKIwbk"
+    },
+    {
+      "text": "TM167 - Giga Drain",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "131pU3XXrUy5uQe1",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "rHyQD8v4CAbge7dz",
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.rHyQD8v4CAbge7dz"
+    },
+    {
+      "text": "TM49 - Echoed Voice",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1FZBxJMTcfqJGiCN",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "6fcZHVSKMorkONy3",
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.6fcZHVSKMorkONy3"
+    },
+    {
+      "text": "TM161 - Hurricane",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1RzyZMxZo1exfN4f",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "0PTadP3hGT5xiQy6",
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.0PTadP3hGT5xiQy6"
+    },
+    {
+      "text": "TM44 - Rest",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1ayBcSxJDviS0G91",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "stJ65vo1bROGb2xr",
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.stJ65vo1bROGb2xr"
+    },
+    {
+      "text": "TM23 - Smack Down",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1i49mO5ct6q8rrun",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "9U7q6ToXGoBXnL5o",
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.9U7q6ToXGoBXnL5o"
+    },
+    {
+      "text": "TM07 - Hail",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1rX6B08NehuiGzlh",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "kSgxnLuXk3pBPrBf",
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.kSgxnLuXk3pBPrBf"
+    },
+    {
+      "text": "TM25 - Thunder",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2F84tqA7epUNrj8R",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "3Cb1fwHe7BxpuM6R",
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.3Cb1fwHe7BxpuM6R"
+    },
+    {
+      "text": "TM104 - Fake Tears",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2QLd1Mom4NOTXx2x",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "1Tr6H6bcY7vV47J4",
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.1Tr6H6bcY7vV47J4"
+    },
+    {
+      "text": "TM36 - Sludge Bomb",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2d6zJTlLJu1ziezv",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "OT7KYp0YRdoPyx9Z",
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.OT7KYp0YRdoPyx9Z"
+    },
+    {
+      "text": "TM122 - Icy Wind",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2wPwAjkacHvVYwUI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "tGaKuIaND35LJcF0",
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.tGaKuIaND35LJcF0"
+    },
+    {
+      "text": "TM12 - Taunt",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "3HkrxuoRl8DjGQsN",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "pchBxjjJSxTsa0vs",
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.pchBxjjJSxTsa0vs"
+    },
+    {
+      "text": "TM116 - Fire Spin",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "3OZRkshQFHbWwvJ2",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "9ud727AZevx55ukG",
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.9ud727AZevx55ukG"
+    },
+    {
+      "text": "TM72 - Volt Switch",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "3kt0V9xlcikQ4iJF",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "x2RBa2Ie09KNpsXW",
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.x2RBa2Ie09KNpsXW"
+    },
+    {
+      "text": "TM166 - Steel Beam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "48NLMtHsySN2cBC2",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "vzPVxK6L9csfzFit",
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.vzPVxK6L9csfzFit"
+    },
+    {
+      "text": "TM143 - Crunch",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "4D9zZhQBTSVmm2nU",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "DDtsPd8D2BXT94W7",
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.DDtsPd8D2BXT94W7"
+    },
+    {
+      "text": "TM79 - Frost Breath",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "4DBEkAFEP9jt9Xnk",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "r6iZ4GtI52ji0mvL",
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.r6iZ4GtI52ji0mvL"
+    },
+    {
+      "text": "TM150 - Baton Pass",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "5Oobfwm1RilphG3Q",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "lFJZEdsAmeq4tZcX",
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.lFJZEdsAmeq4tZcX"
+    },
+    {
+      "text": "TM86 - Grass Knot",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "65WdytgYoVKJ7Ep0",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "eFcIc9XXTlYljO3m",
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.eFcIc9XXTlYljO3m"
+    },
+    {
+      "text": "TM27 - Return",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "6DX8DwQTLcSBoCKs",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "AWNbnIcn9N678hQx",
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.AWNbnIcn9N678hQx"
+    },
+    {
+      "text": "TM08 - Bulk Up",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "6LLeWBUsvT0Ao9ZY",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Kq0kWq6lXOOOKGW6",
+      "range": [
+        21,
+        21
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Kq0kWq6lXOOOKGW6"
+    },
+    {
+      "text": "TM32 - Double Team",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "6qtDvEzVcTAxnzEk",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ej2CP29D0v6nyQjO",
+      "range": [
+        22,
+        22
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ej2CP29D0v6nyQjO"
+    },
+    {
+      "text": "TM02 - Dragon Claw",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "6r6TumINzGphbJcN",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "bz7WXQz7Hux6LBCf",
+      "range": [
+        23,
+        23
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.bz7WXQz7Hux6LBCf"
+    },
+    {
+      "text": "TM148 - Amnesia",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "7Fwqwd8dGuQolxT9",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "DQ4QVuRuop8Or42s",
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.DQ4QVuRuop8Or42s"
+    },
+    {
+      "text": "TM109 - Struggle Bug",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "7l2JQicSGqzUSWBW",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "bCKM3zhpYw8C5wxF",
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.bCKM3zhpYw8C5wxF"
+    },
+    {
+      "text": "TM59 - Brutal Swing",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "7vpUaKMh224Md8eQ",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Cc64mxxAJ9G9d7fi",
+      "range": [
+        26,
+        26
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Cc64mxxAJ9G9d7fi"
+    },
+    {
+      "text": "TM16 - Light Screen",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "8VrAhTJE1ApFyKbJ",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "KgX7gPwXNSftffrn",
+      "range": [
+        27,
+        27
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.KgX7gPwXNSftffrn"
+    },
+    {
+      "text": "TM141 - Dragon Dance",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "8nI8Gsy0BRivLmJ6",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Taz9njymZrUDUxj8",
+      "range": [
+        28,
+        28
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Taz9njymZrUDUxj8"
+    },
+    {
+      "text": "TM39 - Rock Tomb",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "9iLhWuaY0GqqrMp0",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ghztC36sIvDTQ2Xb",
+      "range": [
+        29,
+        29
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ghztC36sIvDTQ2Xb"
+    },
+    {
+      "text": "TM133 - Electro Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "A4qL4A6RHZZXIm2z",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "8ISkwOoanRrlfSwn",
+      "range": [
+        30,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.8ISkwOoanRrlfSwn"
+    },
+    {
+      "text": "TM55 - Scald",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "AQSN8qXAkyrQxW16",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ncXQf3vBKI9di3Jv",
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ncXQf3vBKI9di3Jv"
+    },
+    {
+      "text": "TM100 - Confide",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "BcSWJ3xP76BCntBA",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ws3wax6MeKQ8MJzg",
+      "range": [
+        32,
+        32
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ws3wax6MeKQ8MJzg"
+    },
+    {
+      "text": "TM30 - Shadow Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "BnzTghWtmfqoVozI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "zgJvj4d0qox0LjZy",
+      "range": [
+        33,
+        33
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.zgJvj4d0qox0LjZy"
+    },
+    {
+      "text": "TM37 - Sandstorm",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "CBIaCCWafa0Bm1ro",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "2gEFLeuy7O5XH2ES",
+      "range": [
+        34,
+        34
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.2gEFLeuy7O5XH2ES"
+    },
+    {
+      "text": "TM66 - Payback",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "CMLdPqgcgeaJxLfG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wC6nKKn6AddT7IXL",
+      "range": [
+        35,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wC6nKKn6AddT7IXL"
+    },
+    {
+      "text": "TM19 - Roost",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "CYRnhJk89FhBh124",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "n0QjTVcYG34ISpiW",
+      "range": [
+        36,
+        36
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.n0QjTVcYG34ISpiW"
+    },
+    {
+      "text": "TM80 - Rock Slide",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Cnq9i6Fs5h3RN0Sm",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Shs6S6CMfw65qzVv",
+      "range": [
+        37,
+        37
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Shs6S6CMfw65qzVv"
+    },
+    {
+      "text": "TM151 - Reversal",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "E9p5rwl81eGneNeY",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "iGbNs2XCq4u23MGK",
+      "range": [
+        38,
+        38
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.iGbNs2XCq4u23MGK"
+    },
+    {
+      "text": "TM132 - Air Slash",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "EQI3mFsX12HJDQyz",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "xtiV2Qn4CbM49jPa",
+      "range": [
+        39,
+        39
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.xtiV2Qn4CbM49jPa"
+    },
+    {
+      "text": "TM99 - Dazzling Gleam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "F19RVXY7bCOyTp2j",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "u1agYeVkZBCGkL4R",
+      "range": [
+        40,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.u1agYeVkZBCGkL4R"
+    },
+    {
+      "text": "TM54 - False Swipe",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "FbUa0fiUb3fKN61X",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "NDBNGRFFuVaEPoI5",
+      "range": [
+        41,
+        41
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.NDBNGRFFuVaEPoI5"
+    },
+    {
+      "text": "TM135 - Stomping Tantrum",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "G31rRyiXQQ9wpJx9",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wqzKPn3kq7fB5gus",
+      "range": [
+        42,
+        42
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wqzKPn3kq7fB5gus"
+    },
+    {
+      "text": "TM149 - Pollen Puff",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "GAxuToFjAhKjHi4J",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "dINKwvFAUV6YQH7X",
+      "range": [
+        43,
+        43
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.dINKwvFAUV6YQH7X"
+    },
+    {
+      "text": "TM84 - Poison Jab",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "GdAEiL6LBGBVwtTb",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "i5u0n4M9Ua5XGRGj",
+      "range": [
+        44,
+        44
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.i5u0n4M9Ua5XGRGj"
+    },
+    {
+      "text": "TM128 - Dig",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "H5EcY8Xz3nUlQDGC",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "HVzf0IVmeqONMv58",
+      "range": [
+        45,
+        45
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.HVzf0IVmeqONMv58"
+    },
+    {
+      "text": "TM160 - Leaf Storm",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Hb51abUiKMzRctMD",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "PpsHocR12804rlIc",
+      "range": [
+        46,
+        46
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.PpsHocR12804rlIc"
+    },
+    {
+      "text": "TM123 - Mud Shot",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "HdBhc3EYYueB9V7N",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "xyiX90P9GzG2v7nu",
+      "range": [
+        47,
+        47
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.xyiX90P9GzG2v7nu"
+    },
+    {
+      "text": "TM41 - Torment",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "I2LCLzAkG4XEKqs7",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "YGmzdWoxWZcuAbPy",
+      "range": [
+        48,
+        48
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.YGmzdWoxWZcuAbPy"
+    },
+    {
+      "text": "TM131 - Psychic Fangs",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "IXdqafYyu6x5BSrP",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "KluZiJlAcCD9m40q",
+      "range": [
+        49,
+        49
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.KluZiJlAcCD9m40q"
+    },
+    {
+      "text": "TM85 - Dream Eater",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "JXG5PYb4tVRxTK9K",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "7Z37xtYTqMDZknBf",
+      "range": [
+        50,
+        50
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.7Z37xtYTqMDZknBf"
+    },
+    {
+      "text": "TM117 - Poison Tail",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "KOkn2klqWYwnYMxp",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "SlIfO5FSEnPzYbqx",
+      "range": [
+        51,
+        51
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.SlIfO5FSEnPzYbqx"
+    },
+    {
+      "text": "TM119 - Metal Claw",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "KZlGQ5TiWwu67oPX",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "jimmFMzo2Wkp0X91",
+      "range": [
+        52,
+        52
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.jimmFMzo2Wkp0X91"
+    },
+    {
+      "text": "TM152 - Electric Terrain",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Kdp5PkP3KazEJyKK",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "hfGZqznzKlkePiRq",
+      "range": [
+        53,
+        53
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.hfGZqznzKlkePiRq"
+    },
+    {
+      "text": "TM120 - Swift",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Lmb51Dy51QFzAeOf",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "5Fs8p3hARi00bD9h",
+      "range": [
+        54,
+        54
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.5Fs8p3hARi00bD9h"
+    },
+    {
+      "text": "TM48 - Round",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "LpA5BBkvs6YzmJLk",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "1ImRbCno4Hz9TgxK",
+      "range": [
+        55,
+        55
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.1ImRbCno4Hz9TgxK"
+    },
+    {
+      "text": "TM142 - Power Gem",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Lyr7HnA1DuJCT41V",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "oy2li6ws1CEQJZYs",
+      "range": [
+        56,
+        56
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.oy2li6ws1CEQJZYs"
+    },
+    {
+      "text": "TM139 - Imprison",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "M2VDGCKp4ZaK23cL",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "BB7UJo2YZxxNFFb6",
+      "range": [
+        57,
+        57
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.BB7UJo2YZxxNFFb6"
+    },
+    {
+      "text": "TM154 - Psychic Terrain",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "MECs7M2kUr2e6bwP",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ByGVt0avzVsfFg0J",
+      "range": [
+        58,
+        58
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ByGVt0avzVsfFg0J"
+    },
+    {
+      "text": "TM26 - Earthquake",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "MkgP81tFpw1qF90K",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "BuHbmkX1jlOXNHSq",
+      "range": [
+        59,
+        59
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.BuHbmkX1jlOXNHSq"
+    },
+    {
+      "text": "TM83 - Infestation",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "MqIHr1FfbsVWtbx8",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "q7oIWEuC7pcxpLnB",
+      "range": [
+        60,
+        60
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.q7oIWEuC7pcxpLnB"
+    },
+    {
+      "text": "TM155 - Misty Terrain",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "N2Kon8qlcjEJTNiE",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wCAiaz6D2yHjORZo",
+      "range": [
+        61,
+        61
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wCAiaz6D2yHjORZo"
+    },
+    {
+      "text": "TM95 - Snarl",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "N4c5EWW4PjsWuIEb",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wIiWYeasc531ICyl",
+      "range": [
+        62,
+        62
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wIiWYeasc531ICyl"
+    },
+    {
+      "text": "TM68 - Giga Impact",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "NRCTQ1SwPmqmQVA4",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "NoqGwg1xe2y1P7hK",
+      "range": [
+        63,
+        63
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.NoqGwg1xe2y1P7hK"
+    },
+    {
+      "text": "TM51 - Steel Wing",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Njs5yOoCXZ37l877",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ZFWcU65HPzkfBeJ7",
+      "range": [
+        64,
+        64
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ZFWcU65HPzkfBeJ7"
+    },
+    {
+      "text": "TM52 - Focus Blast",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "O773KUV0Auqf8ik5",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "oRYRkdMC7aV5BUOA",
+      "range": [
+        65,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.oRYRkdMC7aV5BUOA"
+    },
+    {
+      "text": "TM76 - Fly",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "OApCU55eBcabKWJl",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "IUnp5hWJLvvAW9Xj",
+      "range": [
+        66,
+        66
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.IUnp5hWJLvvAW9Xj"
+    },
+    {
+      "text": "TM17 - Protect",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "OMoEqCefejEqpGmR",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "FmzFgvrqtDDx59yE",
+      "range": [
+        67,
+        67
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.FmzFgvrqtDDx59yE"
+    },
+    {
+      "text": "TM58 - Sky Drop",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "PpGkSFpsXzUrvEzy",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ILdMPSLJYn4ncsR1",
+      "range": [
+        68,
+        68
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ILdMPSLJYn4ncsR1"
+    },
+    {
+      "text": "TM35 - Flamethrower",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Q2ntWFJ7jXmcxLgU",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "FWMpitNp3fBA6Fhw",
+      "range": [
+        69,
+        69
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.FWMpitNp3fBA6Fhw"
+    },
+    {
+      "text": "TM158 - Play Rough",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "QHLVFDHGpwk7LgGd",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "P9VHNiZJS25ssLbb",
+      "range": [
+        70,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.P9VHNiZJS25ssLbb"
+    },
+    {
+      "text": "TM67 - Smart Strike",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "QwbJWIpa8LAyo0C4",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "k6sfCLdFVaQzTutd",
+      "range": [
+        71,
+        71
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.k6sfCLdFVaQzTutd"
+    },
+    {
+      "text": "TM60 - Quash",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "RV6sLj8M19qo8VfW",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "YJ0qQoIYXmqDfK7g",
+      "range": [
+        72,
+        72
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.YJ0qQoIYXmqDfK7g"
+    },
+    {
+      "text": "TM165 - Close Combat",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "RvqvmJEVIDoIEANf",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "RjbwPskzOo4xxP34",
+      "range": [
+        73,
+        73
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.RjbwPskzOo4xxP34"
+    },
+    {
+      "text": "TM38 - Fire Blast",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "S4L4NX54l4DKyLzE",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "PNNFDeTv4Dvgng5V",
+      "range": [
+        74,
+        74
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.PNNFDeTv4Dvgng5V"
+    },
+    {
+      "text": "TM46 - Thief",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "SrN21FV9ZTRTz3j7",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "dtadLDf6AKp7mpnN",
+      "range": [
+        75,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.dtadLDf6AKp7mpnN"
+    },
+    {
+      "text": "TM138 - Toxic Spikes",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "T7D04XHblb3P128I",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "CdtOf4gyvs7hQ9UI",
+      "range": [
+        76,
+        76
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.CdtOf4gyvs7hQ9UI"
+    },
+    {
+      "text": "TM101 - Take Down",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TEBARu0ura8S8rgg",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "hGEDYVeLmWyeFn1V",
+      "range": [
+        77,
+        77
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.hGEDYVeLmWyeFn1V"
+    },
+    {
+      "text": "TM87 - Swagger",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TFVzyqEPnHrnrgBu",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "JhcsSPFuzjYrbjK7",
+      "range": [
+        78,
+        78
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.JhcsSPFuzjYrbjK7"
+    },
+    {
+      "text": "TM45 - Attract",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TN6deBdrzBPTKoCY",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "CqXDxRzbqRxnmaCy",
+      "range": [
+        79,
+        79
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.CqXDxRzbqRxnmaCy"
+    },
+    {
+      "text": "TM28 - Leech Life",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TqX81PtJTrMk0MBf",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "zkteyJe4YNQhnfY8",
+      "range": [
+        80,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.zkteyJe4YNQhnfY8"
+    },
+    {
+      "text": "TM136 - Body Press",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TtreWdQPEc3oQVng",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wHR9Y90886rl1IPJ",
+      "range": [
+        81,
+        81
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wHR9Y90886rl1IPJ"
+    },
+    {
+      "text": "TM163 - Brave Bird",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "TvgzWdo7EGTKDsNJ",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "8OBSEWWtCyYZPDVs",
+      "range": [
+        82,
+        82
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.8OBSEWWtCyYZPDVs"
+    },
+    {
+      "text": "TM134 - Rock Blast",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "U0M7lYMsVrCV8JG0",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Il3J0FcDytjXBl2h",
+      "range": [
+        83,
+        83
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Il3J0FcDytjXBl2h"
+    },
+    {
+      "text": "TM33 - Reflect",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "U1w7sos9nZtWphlX",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "1HB0HHxch5xqAoRn",
+      "range": [
+        84,
+        84
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.1HB0HHxch5xqAoRn"
+    },
+    {
+      "text": "TM115 - Chilling Water",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UWfxI5GcVkn1LDcU",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "2cIHuU8gJrgeGAAr",
+      "range": [
+        85,
+        85
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.2cIHuU8gJrgeGAAr"
+    },
+    {
+      "text": "TM21 - Frustration",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UdtsCMC7jJEbpA6z",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "RcfI2wWc2R66B9oD",
+      "range": [
+        86,
+        86
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.RcfI2wWc2R66B9oD"
+    },
+    {
+      "text": "TM145 - Heavy Slam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UeTSacTZmeyworDJ",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "gN4TkUeHWU6UUzlI",
+      "range": [
+        87,
+        87
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.gN4TkUeHWU6UUzlI"
+    },
+    {
+      "text": "TM63 - Embargo",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UzGzVKczjIy79jn1",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "c1pBDvz27YTHJn8I",
+      "range": [
+        88,
+        88
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.c1pBDvz27YTHJn8I"
+    },
+    {
+      "text": "TM125 - Stored Power",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "VpoShCtjnkUZqz5e",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "NTVyqz0CpIBXwiEG",
+      "range": [
+        89,
+        89
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.NTVyqz0CpIBXwiEG"
+    },
+    {
+      "text": "TM94 - Surf",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "VxR0ApsRpOgB0nJo",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Gzzb15V7fmVZGBHO",
+      "range": [
+        90,
+        90
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Gzzb15V7fmVZGBHO"
+    },
+    {
+      "text": "TM01 - Work Up",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "WVJq12fVOCzz8RjA",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "7IacvSrelm2oM5Un",
+      "range": [
+        91,
+        91
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.7IacvSrelm2oM5Un"
+    },
+    {
+      "text": "TM118 - Hex",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "XCN2Hm0J0hp74qaM",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "PrJMdE7I1N2bwTz8",
+      "range": [
+        92,
+        92
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.PrJMdE7I1N2bwTz8"
+    },
+    {
+      "text": "TM130 - Zen Headbutt",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "YD7XhxQZjMpZDjju",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "I7a8Vopr4cpYUIeB",
+      "range": [
+        93,
+        93
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.I7a8Vopr4cpYUIeB"
+    },
+    {
+      "text": "TM10 - Hidden Power",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "YHZDGxyPuePyDXFO",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "CPMuf0g8t5A0ezHA",
+      "range": [
+        94,
+        94
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.CPMuf0g8t5A0ezHA"
+    },
+    {
+      "text": "TM13 - Ice Beam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "YcwxA66CheurmNwM",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Tw6JjAxc7TPojZUa",
+      "range": [
+        95,
+        95
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Tw6JjAxc7TPojZUa"
+    },
+    {
+      "text": "TM24 - Thunderbolt",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Yx28OfZ2RT6xPNsG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "JhSrBHSvEz7j1xMe",
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.JhSrBHSvEz7j1xMe"
+    },
+    {
+      "text": "TM107 - Scary Face",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Zhhjn6ibwkfGGxca",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "euG5bXDMBOlnfM2O",
+      "range": [
+        97,
+        97
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.euG5bXDMBOlnfM2O"
+    },
+    {
+      "text": "TM09 - Venoshock",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ZuxlcbpzAqbiQRCj",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "CFRJbLGDNWtLdnRZ",
+      "range": [
+        98,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.CFRJbLGDNWtLdnRZ"
+    },
+    {
+      "text": "TM14 - Blizzard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "aO6sXV9eCdlKTtoV",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "virQgkWXcGJMzidr",
+      "range": [
+        99,
+        99
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.virQgkWXcGJMzidr"
+    },
+    {
+      "text": "TM78 - Bulldoze",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "aOylKXC4azG44eBO",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "tKx69oF9yh9aTHc6",
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.tKx69oF9yh9aTHc6"
+    },
+    {
+      "text": "TM50 - Overheat",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "b9QGGwaLsV0spnyU",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "1phGMiIvxUMylNsW",
+      "range": [
+        101,
+        101
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.1phGMiIvxUMylNsW"
+    },
+    {
+      "text": "TM97 - Dark Pulse",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bDAYimzqfBTg0wcy",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "7zxEauVNbyV6YHSV",
+      "range": [
+        102,
+        102
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.7zxEauVNbyV6YHSV"
+    },
+    {
+      "text": "TM20 - Safeguard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bJMzYAQSKNQTLVDH",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "DObx3iGiweXbkDg3",
+      "range": [
+        103,
+        103
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.DObx3iGiweXbkDg3"
+    },
+    {
+      "text": "TM05 - Roar",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bjI6woaD8SyvqIdT",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "o8wQKzhpittzMkYf",
+      "range": [
+        104,
+        104
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.o8wQKzhpittzMkYf"
+    },
+    {
+      "text": "TM11 - Sunny Day",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bjr1UgZr6dpDtS51",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "8gLj2V2gjtoTpHH1",
+      "range": [
+        105,
+        105
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.8gLj2V2gjtoTpHH1"
+    },
+    {
+      "text": "TM113 - Trailblaze",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bmorbUNlcYHvkckh",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "KrXtON0CvxMvaob9",
+      "range": [
+        106,
+        106
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.KrXtON0CvxMvaob9"
+    },
+    {
+      "text": "TM18 - Rain Dance",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "cXywneBseC0dt4Dx",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ykUXUKUTla6aldld",
+      "range": [
+        107,
+        107
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ykUXUKUTla6aldld"
+    },
+    {
+      "text": "TM108 - Acid Spray",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "cam7e3RrBcPR6lCm",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "GH9hxYINIOdq4g23",
+      "range": [
+        108,
+        108
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.GH9hxYINIOdq4g23"
+    },
+    {
+      "text": "TM98 - Waterfall",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "cfIY8n8UqYGojdtg",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "YuRztdjVsmCLIzNp",
+      "range": [
+        109,
+        109
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.YuRztdjVsmCLIzNp"
+    },
+    {
+      "text": "TM146 - Encore",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "clZghqgjIR8PUb4i",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "NQA8a8vOBaf3vYUu",
+      "range": [
+        110,
+        110
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.NQA8a8vOBaf3vYUu"
+    },
+    {
+      "text": "TM81 - X-Scissor",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "cowPFecMaO4jdMta",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ApQT6N0wdOenXgsq",
+      "range": [
+        111,
+        111
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ApQT6N0wdOenXgsq"
+    },
+    {
+      "text": "TM90 - Substitute",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "dNSCp9vQejk3D17L",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "a5eVqQtl87pcU9oL",
+      "range": [
+        112,
+        112
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.a5eVqQtl87pcU9oL"
+    },
+    {
+      "text": "TM110 - Psybeam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "da6sPIkzrfnMyhWl",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Vkl1JOfp4iEtu2CH",
+      "range": [
+        113,
+        113
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Vkl1JOfp4iEtu2CH"
+    },
+    {
+      "text": "TM103 - Confide",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "e5yHOYhPrWQb7TuJ",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "0HuhxCMRWp1kllER",
+      "range": [
+        114,
+        114
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.0HuhxCMRWp1kllER"
+    },
+    {
+      "text": "TM93 - Wild Charge",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "eLgM91urT5nhu2WE",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "LmXCckyF1XaA7gaq",
+      "range": [
+        115,
+        115
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.LmXCckyF1XaA7gaq"
+    },
+    {
+      "text": "TM96 - Nature Power",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "fBVjPShi1HBJDR1s",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "3EWa7WbyjSSwKrGB",
+      "range": [
+        116,
+        116
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.3EWa7WbyjSSwKrGB"
+    },
+    {
+      "text": "TM56 - Fling",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ffwtpVB8jGW0IurY",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "WcujrwdwBDpX4gax",
+      "range": [
+        117,
+        117
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.WcujrwdwBDpX4gax"
+    },
+    {
+      "text": "TM04 - Calm Mind",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "gt0ZRSTN2M7iifO9",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "MysakTMbOMXBFTX4",
+      "range": [
+        118,
+        118
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.MysakTMbOMXBFTX4"
+    },
+    {
+      "text": "TM102 - Charm",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "guthrGVB40xaLltI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Jtc8RhraoutiDOfq",
+      "range": [
+        119,
+        119
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Jtc8RhraoutiDOfq"
+    },
+    {
+      "text": "TM114 - Pounce",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "gyhkKo6MA67Y8iGt",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "xAp30zQw7G8XmdHx",
+      "range": [
+        120,
+        120
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.xAp30zQw7G8XmdHx"
+    },
+    {
+      "text": "TM61 - Will-O-Wisp",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "hKrG8R6SxU8q6dj4",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "V4k3CGNP1JpckXGI",
+      "range": [
+        121,
+        121
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.V4k3CGNP1JpckXGI"
+    },
+    {
+      "text": "TM75 - Swords Dance",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "hgkrz8qjylSq8ibP",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "ITRhu30ujlcP8Bvj",
+      "range": [
+        122,
+        122
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.ITRhu30ujlcP8Bvj"
+    },
+    {
+      "text": "TM62 - Acrobatics",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "iEMxA2FlKnZzuOoF",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "hsHquxWQr5dRFHPm",
+      "range": [
+        123,
+        123
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.hsHquxWQr5dRFHPm"
+    },
+    {
+      "text": "TM57 - Charge Beam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "io2a9YrD3vNnmxW1",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "dWGmXFqV4CC818Gn",
+      "range": [
+        124,
+        124
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.dWGmXFqV4CC818Gn"
+    },
+    {
+      "text": "TM147 - Ice Spinner",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "iotD7gttcdrWqHX5",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "2wr8tfnNquoFZPlM",
+      "range": [
+        125,
+        125
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.2wr8tfnNquoFZPlM"
+    },
+    {
+      "text": "TM88 - Sleep Talk",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "j1XDtdxdcxPFuYay",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "mClbEkPct92GxC9Z",
+      "range": [
+        126,
+        126
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.mClbEkPct92GxC9Z"
+    },
+    {
+      "text": "TM112 - Disarming Voice",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "jUZF2AAidcE3CVHA",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "R5imR3SEbM0pUZTL",
+      "range": [
+        127,
+        127
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.R5imR3SEbM0pUZTL"
+    },
+    {
+      "text": "TM164 - Flare Blitz",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "jbvImGn35cctcDdf",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "zNAC9aosqWKSbE3Y",
+      "range": [
+        128,
+        128
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.zNAC9aosqWKSbE3Y"
+    },
+    {
+      "text": "TM92 - Trick Room",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "jv78lgML7azgfnfE",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "zgK0yoduHiVx5ajh",
+      "range": [
+        129,
+        129
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.zgK0yoduHiVx5ajh"
+    },
+    {
+      "text": "TM73 - Thunder Wave",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "k65RhVlytba6dH4d",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "oBkoOUkwcyJ2juTi",
+      "range": [
+        130,
+        130
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.oBkoOUkwcyJ2juTi"
+    },
+    {
+      "text": "TM126 - Avalanche",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "kGR82T6Yf2zbFghi",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "yenMItQeSs1W7VLx",
+      "range": [
+        131,
+        131
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.yenMItQeSs1W7VLx"
+    },
+    {
+      "text": "TM03 - Psyshock",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "kIGooP6bINTUNtJI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "qnC5lSJxYqC6BUqB",
+      "range": [
+        132,
+        132
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.qnC5lSJxYqC6BUqB"
+    },
+    {
+      "text": "TM91 - Flash Cannon",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "kVDolCVLHPC9J0KC",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "qwVOzGpiQrOoj24H",
+      "range": [
+        133,
+        133
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.qwVOzGpiQrOoj24H"
+    },
+    {
+      "text": "TM47 - Low Sweep",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "lkdVzrIUDCQIwf1t",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "N2kl35YVA4rxcuQH",
+      "range": [
+        134,
+        134
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.N2kl35YVA4rxcuQH"
+    },
+    {
+      "text": "TM106 - Mud-Slap",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "m7fMCZKqiqkRG2v3",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "oqUsYI4GjXJMtfyU",
+      "range": [
+        135,
+        135
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.oqUsYI4GjXJMtfyU"
+    },
+    {
+      "text": "TM15 - Hyper Beam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "mjM1usOPzfGUa65U",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "uaatJ62oSbEkNDVK",
+      "range": [
+        136,
+        136
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.uaatJ62oSbEkNDVK"
+    },
+    {
+      "text": "TM156 - Nasty Plot",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "nW3LV9bBcUVFcut2",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "dSzTfcGM5iVEMxGL",
+      "range": [
+        137,
+        137
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.dSzTfcGM5iVEMxGL"
+    },
+    {
+      "text": "TM105 - Agility",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "p4Zqq2Xd6iprdtXh",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "VqQed6SUNhPxWpjS",
+      "range": [
+        138,
+        138
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.VqQed6SUNhPxWpjS"
+    },
+    {
+      "text": "TM140 - Eerie Impulse",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "p62mgCMbc28lwX0x",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "eM475vxVaWRVwgQF",
+      "range": [
+        139,
+        139
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.eM475vxVaWRVwgQF"
+    },
+    {
+      "text": "TM34 - Sludge Wave",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "pLgHZvuPDTK65usc",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "QnYxImH5pSD8MT2V",
+      "range": [
+        140,
+        140
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.QnYxImH5pSD8MT2V"
+    },
+    {
+      "text": "TM71 - Stone Edge",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "pMYueIOkXp16JPYL",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "eXM8KTm41engGKBO",
+      "range": [
+        141,
+        141
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.eXM8KTm41engGKBO"
+    },
+    {
+      "text": "TM40 - Aerial Ace",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "pcjiCKIv0Y01ZImG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "UQklr8K2ew7CmeIk",
+      "range": [
+        142,
+        142
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.UQklr8K2ew7CmeIk"
+    },
+    {
+      "text": "TM137 - Spikes",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "qLJ1BPGgKHm6nwio",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "MhI4DsQSv1egFLsd",
+      "range": [
+        143,
+        143
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.MhI4DsQSv1egFLsd"
+    },
+    {
+      "text": "TM65 - Shadow Claw",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "qSpFxYd5tUAxdNtx",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "egAaXVfsep9bQdC0",
+      "range": [
+        144,
+        144
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.egAaXVfsep9bQdC0"
+    },
+    {
+      "text": "TM70 - Aurora Veil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "qmBIECfNhw4N4j3v",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "LUJagrgCrfbNlm8C",
+      "range": [
+        145,
+        145
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.LUJagrgCrfbNlm8C"
+    },
+    {
+      "text": "TM64 - Explosion",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "qus3pVXIMTwuNcbL",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Wo2IGqhqFgLM1u6S",
+      "range": [
+        146,
+        146
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Wo2IGqhqFgLM1u6S"
+    },
+    {
+      "text": "TM144 - Aura Sphere",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "rDENDdyFKVSg0kHb",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "nysuFctXLHjuhbdn",
+      "range": [
+        147,
+        147
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.nysuFctXLHjuhbdn"
+    },
+    {
+      "text": "TM53 - Energy Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "rPGPcI7CGWx8jLos",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "CQRPt2NuGcw7RINR",
+      "range": [
+        148,
+        148
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.CQRPt2NuGcw7RINR"
+    },
+    {
+      "text": "TM121 - Magical Leaf",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "rRU0B4R16dGNDHjP",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "iG93hB57h22rwi2K",
+      "range": [
+        149,
+        149
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.iG93hB57h22rwi2K"
+    },
+    {
+      "text": "TM129 - Bullet Seed",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "rphY9wBbWnJlFXgI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "c8NWwnBstv0pSNWV",
+      "range": [
+        150,
+        150
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.c8NWwnBstv0pSNWV"
+    },
+    {
+      "text": "TM124 - Draining Kiss",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ruZWyjqDQScnocj8",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "164v3Q9xD0O1MlNg",
+      "range": [
+        151,
+        151
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.164v3Q9xD0O1MlNg"
+    },
+    {
+      "text": "TM22 - Solar Beam",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "sBhdwNXQ1l9gtFUG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "kVmMmHaPd4Sj77vF",
+      "range": [
+        152,
+        152
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.kVmMmHaPd4Sj77vF"
+    },
+    {
+      "text": "TM06 - Toxic",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "t6ZG9SFPRlgOIflT",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "eZmB144DLzKhT4cJ",
+      "range": [
+        153,
+        153
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.eZmB144DLzKhT4cJ"
+    },
+    {
+      "text": "TM127 - Snowscape",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "tER2npPTe5arMFdv",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "uMuOZaATSM3izW3V",
+      "range": [
+        154,
+        154
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.uMuOZaATSM3izW3V"
+    },
+    {
+      "text": "TM31 - Brick Break",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "u3Yyg2IrtT1IvJPR",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "EuoGeS1eLaFp5lIq",
+      "range": [
+        155,
+        155
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.EuoGeS1eLaFp5lIq"
+    },
+    {
+      "text": "TM29 - Psychic",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "uJizA2xW6QoW7LjL",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "zLvtbN3bARfF5c5I",
+      "range": [
+        156,
+        156
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.zLvtbN3bARfF5c5I"
+    },
+    {
+      "text": "TM43 - Flame Charge",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "uhbVz2xEJXipVjgI",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "fc8trBwdNOZYBsm9",
+      "range": [
+        157,
+        157
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.fc8trBwdNOZYBsm9"
+    },
+    {
+      "text": "TM69 - Rock Polish",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "v2ErFSr3SFDIsbJV",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "Jl0JpGHW0Y2V0uRV",
+      "range": [
+        158,
+        158
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.Jl0JpGHW0Y2V0uRV"
+    },
+    {
+      "text": "TM159 - Phantom Force",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "vlfSGMHKFStsFCH3",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "9jIV3aeJ2Bhsdwol",
+      "range": [
+        159,
+        159
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.9jIV3aeJ2Bhsdwol"
+    },
+    {
+      "text": "TM74 - Gyro Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "wImrU6UDEGOmd32T",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "NkUSSGScs22ECOsj",
+      "range": [
+        160,
+        160
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.NkUSSGScs22ECOsj"
+    },
+    {
+      "text": "TM168 - Tera Blast",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "wMhw92g1mTyhhgUG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "gwQxtvJKrgdosRmF",
+      "range": [
+        161,
+        161
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.gwQxtvJKrgdosRmF"
+    },
+    {
+      "text": "TM77 - Psych Up",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "wluG83meukHzf4cG",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "bqOrcpkps6SuDpi9",
+      "range": [
+        162,
+        162
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.bqOrcpkps6SuDpi9"
+    },
+    {
+      "text": "TM153 - Grassy Terrain",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "x4PTg8GmrJ04XISh",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "wnxS44UvLRV2h9Lf",
+      "range": [
+        163,
+        163
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.wnxS44UvLRV2h9Lf"
+    },
+    {
+      "text": "TM162 - Bug Buzz",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "x5DRODIUii6sd9Br",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "c0NaleeVum34pqQF",
+      "range": [
+        164,
+        164
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.c0NaleeVum34pqQF"
+    },
+    {
+      "text": "TM157 - Hydro Pump",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "xW875OzIMtmWoBZy",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "hFcnYfJ8vVVebgds",
+      "range": [
+        165,
+        165
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.hFcnYfJ8vVVebgds"
+    },
+    {
+      "text": "TM111 - Confuse Ray",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "xpBHKkPGFpgnEReX",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "tQB1YDfdQe1eLxhR",
+      "range": [
+        166,
+        166
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.tQB1YDfdQe1eLxhR"
+    },
+    {
+      "text": "TM89 - U-Turn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "y2Bmjp6p9zm7TeqB",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "xrmD9zNjjLVTR8ro",
+      "range": [
+        167,
+        167
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.xrmD9zNjjLVTR8ro"
+    },
+    {
+      "text": "TM42 - Facade",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "zdnHttTxprmcFQqN",
+      "img": "systems/ptu/static/images/item_icons/tm.webp",
+      "_id": "KFzJRiughQDZtoUf",
+      "range": [
+        168,
+        168
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!Hir8FWBHOgL0enD3.KFzJRiughQDZtoUf"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733058858,
+    "modifiedTime": 1710778630597,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d168",
+  "_key": "!tables!Hir8FWBHOgL0enD3"
+}

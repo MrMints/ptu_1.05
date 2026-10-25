@@ -1,0 +1,62 @@
+{
+  "name": "Archival Training Rank 1",
+  "system": {
+    "origin": "",
+    "effect": "You gain an Archive you have not previously obtained.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Ranked 2"
+    ],
+    "prerequisites": [
+      "Chronicler"
+    ],
+    "frequency": "Static",
+    "notes": "",
+    "free": false,
+    "class": "Chronicler",
+    "name": "Archival Training Rank 1",
+    "useCount": 0,
+    "automation": []
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.CZUe20dp5FTqT33a"
+    },
+    "ptu": {
+      "prereqBackup": "Chronicler"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368079062,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.CZUe20dp5FTqT33a",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 45500000,
+  "_id": "etkDopBVSecxDE1i",
+  "_key": "!items!etkDopBVSecxDE1i"
+}

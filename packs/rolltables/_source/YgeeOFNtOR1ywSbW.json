@@ -1,0 +1,253 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Restoratives",
+  "_id": "YgeeOFNtOR1ywSbW",
+  "img": "systems/ptu/static/images/item_icons/potion.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        1,
+        2
+      ],
+      "drawn": false,
+      "text": "Energy Powder",
+      "documentId": "AbfaIrLufx5RwVvv",
+      "img": "systems/ptu/images/item_icons/energy powder.webp",
+      "_id": "aY7nAlP93sYyYzXs",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.aY7nAlP93sYyYzXs"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        3,
+        4
+      ],
+      "drawn": false,
+      "text": "Potion",
+      "documentId": "2kQmUgVMnwb8JfW4",
+      "img": "systems/ptu/images/item_icons/potion.webp",
+      "_id": "cBhS2FuZB9p8A4oh",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.cBhS2FuZB9p8A4oh"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "text": "Antidote",
+      "documentId": "HzoRdjFC7xbRj460",
+      "img": "systems/ptu/images/item_icons/antidote.webp",
+      "_id": "d0u2HyajvfPmG1kH",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.d0u2HyajvfPmG1kH"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "text": "Paralyze Heal",
+      "documentId": "qlgi2CMVsHbNLJqI",
+      "img": "systems/ptu/images/item_icons/paralyze heal.webp",
+      "_id": "Z6OcDT9OwbwX49uY",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.Z6OcDT9OwbwX49uY"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "text": "Burn Heal",
+      "documentId": "WgG0d3bNUMElJxk5",
+      "img": "systems/ptu/images/item_icons/burn heal.webp",
+      "_id": "Efhn6ToDYaJU6u0w",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.Efhn6ToDYaJU6u0w"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 2,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "text": "Ice Heal",
+      "documentId": "7he7IuXJJDfvWhyC",
+      "img": "systems/ptu/images/item_icons/ice heal.webp",
+      "_id": "aJaWkfliCz5g3gQk",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.aJaWkfliCz5g3gQk"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "text": "Revive",
+      "documentId": "1HkqyxFShtqF6wac",
+      "img": "systems/ptu/images/item_icons/revive.webp",
+      "_id": "Wlb9m1FGEwKm9Lyl",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.Wlb9m1FGEwKm9Lyl"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "text": "Heal Powder",
+      "documentId": "QKBzIqjfqHls2ivw",
+      "img": "systems/ptu/images/item_icons/heal powder.webp",
+      "_id": "dnehuAIMgQ9NroRN",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.dnehuAIMgQ9NroRN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "text": "Revival Herb",
+      "documentId": "Qr4cNnGJVou1A9yQ",
+      "img": "systems/ptu/images/item_icons/revival herb.webp",
+      "_id": "PARrDtIKnisrwgGq",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.PARrDtIKnisrwgGq"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "text": "Super Potion",
+      "documentId": "SpizuCWOBHGbyOyd",
+      "img": "systems/ptu/images/item_icons/super potion.webp",
+      "_id": "g81E6Tagtgm9SvAF",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.g81E6Tagtgm9SvAF"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "text": "Full Heal",
+      "documentId": "5P6ANxofYLtykhvN",
+      "img": "systems/ptu/images/item_icons/full heal.webp",
+      "_id": "f4wUWGXsAZCOFghx",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.f4wUWGXsAZCOFghx"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "text": "Energy Root",
+      "documentId": "7rq6umzCl1cTm5ny",
+      "img": "systems/ptu/images/item_icons/energy root.webp",
+      "_id": "kdvU4nihJXl48B3E",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.kdvU4nihJXl48B3E"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "text": "Hyper Potion",
+      "documentId": "4m1zVnoahZHlSVcd",
+      "img": "systems/ptu/images/item_icons/hyper potion.webp",
+      "_id": "bTBDDsy5Bhi8ziPs",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.bTBDDsy5Bhi8ziPs"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "text": "Full Restore",
+      "documentId": "Tb8yKIXVEcWvhmvk",
+      "img": "systems/ptu/images/item_icons/full restore.webp",
+      "_id": "gMNqjFKV4GGp4dVx",
+      "flags": {},
+      "_key": "!tables.results!YgeeOFNtOR1ywSbW.gMNqjFKV4GGp4dVx"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733035976,
+    "modifiedTime": 1710778630512,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d20",
+  "_key": "!tables!YgeeOFNtOR1ywSbW"
+}

@@ -1,0 +1,68 @@
+{
+  "name": "Telekinetic+",
+  "type": "move",
+  "img": "/systems/ptu/css/images/types2/NormalIC_Icon.png",
+  "folder": "lWQOqDm2AOGwGM16",
+  "system": {
+    "origin": "",
+    "effect": "--",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "telekinetic",
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Target 1"
+    ],
+    "sheerForce": false,
+    "toughClaws": false,
+    "technician": false,
+    "reckless": false,
+    "ironFist": false,
+    "megaLauncher": false,
+    "punkRock": false,
+    "strongJaw": false,
+    "type": "Normal",
+    "category": "Physical",
+    "damageBase": "5",
+    "frequency": "At-Will",
+    "ac": "3",
+    "range": "Range [Focus Rank]",
+    "contestType": "--",
+    "stab": false,
+    "damageBonus": 0,
+    "isStruggle": false,
+    "automation": []
+  },
+  "_id": "5gWOPh2ijVumjqwz",
+  "effects": [],
+  "sort": 7400000,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1692963260348,
+    "modifiedTime": 1707823746105,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!5gWOPh2ijVumjqwz"
+}
