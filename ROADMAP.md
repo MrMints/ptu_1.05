@@ -13,6 +13,12 @@ All work belongs to MrMints/ptu_1.05. Target Foundry v13.351 first. Preserve `Co
 
 Prioritize data loss/startup errors, incorrect gameplay, missing automation, then cosmetics. Defer newer Foundry majors.
 
+## Focused chats
+Execute this roadmap through the nine scoped chats in [the chat plan](docs/CHAT_PLAN.md).
+Milestones 4–6 are split into source catalog/selection, shared gameplay/move review, and automation/release validation.
+Each chat starts idle and needs an explicit owner start instruction. Only one chat edits the shared checkout at a time.
+Use its section brief and concise dependency handoffs instead of copying the full planning conversation.
+
 ## Rules policy
 The core book is the standard baseline. Catalog May/September 2015 and February 2016 revisions separately.
 Later explicit revisions supersede earlier ones only in the revised version. Supplements and newer Pokédex
@@ -31,6 +37,6 @@ Cancellation changes no state. Undefined interactions require visible manual adj
 
 ## Evidence
 `docs/data/references.json` inventories supplied documents. `docs/data/recovery.json` identifies recovered databases.
-`docs/data/moves.json` tracks each recovered move; `docs/data/content-audit.json` records structural findings.
+`docs/data/move-verification.json` tracks each recovered move; `docs/data/content-audit.json` records structural findings.
 Implemented, verified and automated are different statuses. Structural validation is not gameplay verification.
 See `docs/TESTING.md` for release gates and `docs/STATUS.md` for actual results.

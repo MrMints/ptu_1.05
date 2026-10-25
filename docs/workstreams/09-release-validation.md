@@ -1,0 +1,25 @@
+# PTU 09 - Upgrade validation and releases
+
+Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
+
+## On explicit start
+Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
+
+## Dependencies
+All included subsystem gates from chats 01–08, with explicit release scope and unresolved limitations. Starting this chat does not authorize public publication.
+
+## Scope
+Own final integration, fresh-install/upgrade/migration/custom-content tests, packaged-release smoke tests and evidence. Confirm documentation, compatibility, working install/update links, version/tag/Release agreement and dated changelog promotion. Use the gated draft workflow; publish only after an explicit release decision. Routine merges do not bump versions or publish.
+
+## Targeted context
+docs/TESTING.md; docs/STATUS.md; subsystem handoffs; tools/release.mjs; .github/workflows/release.yml; system.json; package.json; CHANGELOG.md. GitHub issue #3.
+
+## Completion gate
+Tested release artifact and evidence are tied to the correct commit; upgrades preserve campaign/custom data and selections; notes disclose limitations/migrations/manual steps; installation and update instructions work.
+
+## Outside this scope
+Treating green structural CI as complete gameplay certification, bypassing branch/release gates or public publication without explicit authorization.
+
+## Handoff
+When an authorized batch ends, record its commit/PR, changed files, source decisions, exact tests and outcomes, unresolved issues, next bounded action and downstream interface changes here. Keep this concise; link larger evidence instead of copying it. Update relevant status/ledger/changelog documentation in the same PR. Report implemented, verified and automated separately. Do not start or message another chat automatically.
+

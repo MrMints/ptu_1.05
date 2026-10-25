@@ -2,6 +2,9 @@
 
 Current batch: project foundation, historical pack recovery, and core skill terminology. Work pauses after this batch at the owner's request. The six-milestone roadmap is not complete.
 
+The next work is organized into nine idle local project chats in [CHAT_PLAN.md](CHAT_PLAN.md).
+Each chat must wait for an explicit start; creating the chats does not resume implementation.
+
 ## Implemented
 
 - Repository rules, contribution guidance, issue/PR templates, changelog, CI documentation/validation jobs and a gated draft-release workflow.

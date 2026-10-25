@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Project foundation
+- Split the roadmap into nine scoped, initially idle project chats with dependency gates, focused context, shared-checkout coordination and concise handoffs; correct the move-ledger path in the roadmap.
 - Establish repository-local documentation, source provenance, verification tracking, build tooling, and PR documentation checks.
 - Replace inherited publishing and cross-repository data-sync workflows with PR validation and an explicit draft-release workflow.
 - Recover historical compendium sources with stable IDs. Recovery establishes a starting point, not PTU 1.05 rules correctness; see the recovery report.

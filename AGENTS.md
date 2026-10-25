@@ -7,6 +7,7 @@
 - Display names and translations must never determine persistent identifiers or rules behavior. Preserve `ptu`, skill keys, UUIDs, macro paths, user content, and campaign selections.
 - Edit JSON compendium sources in `packs/*/_source/`; generate databases. Do not edit live databases. Test migrations on disposable copies, including repeated runs.
 - Work and test in focused subsystem batches. Summarize passing checks; investigate failures. Repeat only affected batches unless preparing a release.
+- Follow docs/CHAT_PLAN.md and the assigned docs/workstreams brief for scoped chats. New section chats remain idle until explicitly started. Only one chat may mutate the shared checkout or use the shared test-world data at a time; do not automatically start or message other chats. Read targeted context and maintain concise dependency handoffs.
 - Distinguish implemented, verified, and automated. Report tests not run and manual limitations explicitly.
 - Every PR must update `CHANGELOG.md` and document changes, validation, compatibility, limitations, and references. Update user documentation when workflows change.
 - Default-branch updates require documented PRs and passing checks. Squash merge; no direct pushes, force pushes, or automatic releases. Report missing branch enforcement honestly.
