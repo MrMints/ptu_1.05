@@ -1,10 +1,3 @@
-[![foundry-shield]][foundry-url]
-[![foundry-shield-old]][foundry-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![All Release Downloads](https://img.shields.io/github/downloads/animenerdfreddurst/pokemon_carbon/total.svg)]()
-
 # Pokemon Tabletop United 1.05
 This is a forked version of the Pokemon Carbon system from [![animenerdfreddurst](https://github.com/animenerdfreddurst/pokemon_carbon)]()
 
