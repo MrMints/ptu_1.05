@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 02 integration and compatibility
+- Read current Foundry compendium identity before legacy sourceId flags without rewriting provenance or deriving identity from names. Preserve owned quantity (including zero), disabled state, labels and custom SVG images during refresh; leave missing/custom sources unchanged.
+- Replace disposable setup merging with a locked, staged system replacement and a recoverable backup. Refuse active Foundry data and unsafe paths; preserve licensing, configuration and worlds.
+- Report missing starter training instead of throwing during trainer creation; the original `edges.xiZydXM8sex5CP7O` identity remains unresolved. Avoid observer-sheet initialization writes.
+- Add focused compatibility/setup tests and a Generation 1 integration runner. Record the acceptance matrix and remaining content/release blockers in `docs/validation/2026-10-25-foundry-integration.md`; this is not rules, campaign-upgrade or release certification.
+
 - Limit the project plan and all nine chat instructions to approved Generations 1–8 content; exclude Generation 9 and later from supported recovery, variants, verification, automation and releases. Reclassify the current 24-target consumer-only recovery backlog as outside acceptance while preserving historical evidence and shared older-content dependencies. Physical pack/UI exclusion remains pending; no campaign data or content IDs are removed.
 
 - Prepare PTU 02's remaining acceptance instructions: bounded identity-backed recovery, legacy source-reference compatibility, safe disposable setup, grouped integration checks, and an explicit completed-versus-blocked handoff. Implementation remains paused until an explicit start.

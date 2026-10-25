@@ -13,6 +13,7 @@ import { PTUDamage } from "../system/damage/damage.js";
 import { PTUMoveDamage } from "../system/damage/move.js";
 import { ActorConditions } from "./conditions.js";
 import { IWRData, ImmunityData, ResistanceData, WeaknessData } from "./iwr.js";
+import { getDocumentSourceId } from "../../util/document-source.js";
 import { PTUModifier, StatisticModifier } from "./modifiers.js";
 
 /** @typedef {import('../../module/rules/rule-element/base').RuleElementPTU} RuleElementPTU */
@@ -36,7 +37,7 @@ class PTUActor extends Actor {
     }
 
     get sourceId() {
-        return this.flags.core?.sourceId ?? null;
+        return getDocumentSourceId(this) ?? null;
     }
 
     get schemaVersion() {
@@ -470,7 +471,14 @@ class PTUActor extends Actor {
             if(!data.items.some(i => i.name.endsWith("Training"))) {
                 // Grant lvl 1 training
                 fromUuid('Compendium.ptu.edges.Item.xiZydXM8sex5CP7O').then((effect) => {
-                    this.createEmbeddedDocuments('Item', [effect.toObject()]);
+                    if (!effect) {
+                        ui.notifications.warn('PTU | Starter training source is missing (Compendium.ptu.edges.Item.xiZydXM8sex5CP7O). No training was granted; review this trainer manually.');
+                        return;
+                    }
+                    return this.createEmbeddedDocuments('Item', [effect.toObject()]);
+                }).catch(error => {
+                    console.error('PTU | Could not grant starter training', error);
+                    ui.notifications.warn('PTU | Could not grant starter training. Review this trainer manually.');
                 });
             }
         }

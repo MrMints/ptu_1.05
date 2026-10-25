@@ -2,11 +2,12 @@ import { RuleElements } from "../rules/index.js";
 import { processGrantDeletions } from "../rules/rule-element/grant-item/helper.js";
 import { sluggify } from "../../util/misc.js"
 import { GrantItemRuleElement } from "../rules/rule-element/grant-item/rule-element.js";
+import { getDocumentSourceId, createCompendiumRefreshUpdate } from "../../util/document-source.js";
 
 class PTUItem extends Item {
 
     get sourceId() {
-        return this.flags?.core?.sourceId ?? undefined;
+        return getDocumentSourceId(this);
     }
 
     get schemaVersion() {
@@ -368,21 +369,16 @@ class PTUItem extends Item {
         }
 
         const currentSource = this.toObject();
-        const latestSource = (await fromUuid(this.sourceId))?.toObject();
+        let latestSource;
+        try { latestSource = (await fromUuid(this.sourceId))?.toObject(); }
+        catch (error) {
+            console.warn("PTU | Could not resolve compendium source", this.sourceId, error);
+            return ui.notifications.error("PTU | Could not find latest source for item");
+        }
         if (!latestSource) return ui.notifications.error("PTU | Could not find latest source for item");
         else if (latestSource.type !== this.type) return ui.notifications.error("PTU | Item type must match latest source type");
 
-        const updatedImage = currentSource.img.endsWith(".svg") ? latestSource.img : currentSource.img;
-        const updates = {
-            img: updatedImage,
-            system: latestSource.system,
-        }
-
-        if (this.type === "item") {
-            // Preserve the current quantity
-            const { quantity } = currentSource.data;
-            updates.system.quantity = quantity;
-        }
+        const updates = createCompendiumRefreshUpdate(currentSource, latestSource, this.constructor.DEFAULT_ICON);
 
         await this.update(updates, { diff: false, recursive: false });
         ui.notifications.info(`PTU | Item ${this.name} updated from compendium`);

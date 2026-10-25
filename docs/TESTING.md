@@ -29,11 +29,32 @@ Save the JSON result as batch evidence. Repeat after a client reload when checki
 The macro reads packs; it does not import documents, execute pack macros or test rules behavior.
 Its fixture is served from the disposable data directory and is excluded from the archive.
 
-`test:foundry:setup` merges into the disposable system copy and can leave obsolete database files.
+`test:foundry:setup` now holds Foundry v13.351's Config/options.json data-directory lock,
+stages a fresh system copy, and swaps directories without mixing database files. It refuses
+a held lock, unsafe manifest paths and directory junctions. The previous installation stays
+recoverable under `.foundry-test/.setup-backups/`; licensing, Config and worlds are preserved.
+Build generated packs first. Stop the world through Return to Setup, then stop the server
+before setup. Do not remove a held lock or refresh a campaign installation.
 For a clean archive test, stop Foundry, preserve the previous disposable `Data/systems/ptu`
 directory outside `Data/systems`, and extract `dist/system.zip` into a new `Data/systems/ptu`.
 Keep the disposable Config and world directories intact. Never replace a campaign installation.
 The [2026-10-24 pack baseline](validation/2026-10-24-foundry-packs.md) records the tested scope and limitations.
+
+### Basic integration and source compatibility
+
+Serve `tools/foundry-integration-check.mjs` from `.foundry-test/Data/ptu02-checks/` only.
+The [integration evidence](validation/2026-10-25-foundry-integration.md) records the plan
+phases, exact fixture UUIDs, Script macro command and manual UI steps. This runner creates
+disposable actors, a player and a scene; it is restricted to GM in `ptu-verification` and
+is excluded from the system archive. Read the runner before executing it. Save each result
+dialog's JSON and inspect the actual sheet, level-up and player UI. Do not rerun the
+Generation 9 reference fixtures as a supported-content acceptance test.
+
+Current `_stats.compendiumSource` takes precedence over legacy `flags.core.sourceId`.
+Neither field is migrated or rewritten by the source accessor. A missing modern source
+does not fall back to historical metadata or a matching label. Refresh updates source
+system data while preserving owned quantity, enabled state, custom name/image and source
+identity; comprehensive campaign and rule-selection migrations remain with chat 09.
 
 ### Reference classification and targeted probes
 

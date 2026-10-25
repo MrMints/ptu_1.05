@@ -60,7 +60,7 @@ export class PTUCharacterSheet extends PTUActorSheet {
 		// Setup Item Columns
 		if (this.actor.getFlag("ptu", "itemColumns") === undefined) {
 			const columns = { one: ["Culinary items", "Medicinal items", "Poke balls", "Training items"], two: ["Equipment", "Travel items", "Money"], available: [] };
-			this.actor.setFlag("ptu", "itemColumns", columns)
+			if (this.isEditable) await this.actor.setFlag("ptu", "itemColumns", columns);
 			data.columns = columns;
 		}
 		else data.columns = this.actor.getFlag("ptu", "itemColumns");

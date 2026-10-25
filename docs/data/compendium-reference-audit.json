@@ -6,19 +6,20 @@
     "import-provenance": {
       "classification": "historical-metadata",
       "disposition": "preserve-provenance",
-      "consumer": "Core import provenance; not a gameplay content link.",
+      "consumer": "Historical core provenance. Core import preparation replaces it with the acquired UUID; the modern-first source accessor can read it on existing/raw documents. Preserve it; do not guess replacements.",
       "evidence": [
         "Foundry v13.351 common/data/fields.mjs:3203",
-        "Foundry v13.351 client/documents/abstract/world-collection.mjs:118"
+        "Foundry v13.351 client/documents/abstract/world-collection.mjs:118",
+        "src/util/document-source.js:2"
       ]
     },
     "legacy-import-provenance": {
       "classification": "historical-metadata",
       "disposition": "preserve-provenance-with-runtime-caveat",
-      "consumer": "Legacy provenance also read by PTUItem.sourceId, refreshFromCompendium and migration fallback code. Do not treat it as proven inert.",
+      "consumer": "Legacy provenance is the source accessor fallback when current core identity is absent; refresh and migration consumers still read it. Do not treat it as proven inert.",
       "evidence": [
-        "src/module/item/base.js:8",
-        "src/module/item/base.js:362",
+        "src/util/document-source.js:2",
+        "src/module/item/base.js:359",
         "src/module/migration/migrations/111-prereq-items.js:32"
       ]
     },
