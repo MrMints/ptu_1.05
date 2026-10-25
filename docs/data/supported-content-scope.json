@@ -10,7 +10,17 @@
   "enforcement": {
     "runtimeFilteringImplemented": false,
     "releasePackExclusionImplemented": false,
-    "completeContentClassification": false
+    "completeContentClassification": false,
+    "partialNewAcquisitionGuardImplemented": true,
+    "guardedIdentities": [
+      "effects.3w7uQfBvzzxATXis",
+      "species.dkQPNz0RLbgzWMLq",
+      "species.jAIJeRtRc1sUekjO"
+    ],
+    "developmentPackagePreservesOriginalUuids": true,
+    "supportedBuildRefusesIncompleteApproval": true,
+    "evidence": "docs/validation/2026-10-25-corrective02.md",
+    "stagedOwners": ["04", "05", "09"]
   },
   "basis": "Owner project-scope decision and the recorded stable-ID consumer inventory; labels below are explanatory, never identity or classification rules.",
   "auditReference": "docs/data/compendium-reference-audit.json",
@@ -351,7 +361,7 @@
     "supportedSourceRecordCount": null
   },
   "limitations": [
-    "This is a scope annotation, not a repaired-reference or runtime-exclusion report.",
+    "This ledger annotates reference scope and records partial exact-ID acquisition guards; complete runtime filtering and supported-package exclusion remain false.",
     "The current audit covers explicit missing UUIDs in declared source records, not all possible runtime/dynamic or custom consumers.",
     "Historical diagnostics and original ledgers are retained unchanged.",
     "Unclassified source content still needs authoritative generation/version attribution.",

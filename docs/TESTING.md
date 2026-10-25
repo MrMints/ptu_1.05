@@ -1,11 +1,19 @@
 # Batch testing
 
-All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Future release validation must check exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns; this exclusion is not implemented by the documentation update.
+All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Partial guards cover three reviewed identities; future release validation must check complete exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns. Complete release exclusion is not implemented.
 
 ## Automated batch
 Run `pnpm test`, `pnpm validate`, `pnpm packs:verify`, and `pnpm build`.
 The pack round trip checks semantic equality and stable IDs. It is not a rules audit.
 Run `node tools/audit-content.mjs` to refresh the structural audit and move inventory without losing recorded review status.
+
+Run `node tools/content-scope.mjs` to regenerate the all-record ID/hash inventory from
+the source-linked review ledger. Generation eligibility, rule-version approval and
+verification are independent fields; folders are included in source counts. The commands
+`node tools/content-scope.mjs --require-complete` and `node tools/build.mjs --supported`
+currently **must refuse** incomplete catalog/dependency approval. Normal `pnpm build`
+produces a development candidate with `content-scope-status.json` and preserves original
+pack UUID resolution; it does not produce a certified supported release.
 
 ## Foundry v13.351 batch
 Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.
@@ -55,6 +63,40 @@ Neither field is migrated or rewritten by the source accessor. A missing modern 
 does not fall back to historical metadata or a matching label. Refresh updates source
 system data while preserving owned quantity, enabled state, custom name/image and source
 identity; comprehensive campaign and rule-selection migrations remain with chat 09.
+
+### Starting Training and acquisition preservation
+
+A newly created empty trainer opens the four-choice core Training prompt. Choose one;
+the starting prerequisite exception applies and four ordinary Features/four Edges remain
+available. Cancel creates no item and leaves **Choose Starter Training** on the editable
+owner sheet for explicit retry. Existing populated/imported/duplicated trainers are not
+retrofitted. A completed choice must survive rename/reload and refuse another helper grant.
+
+Serve `tools/foundry-corrective02-check.mjs` as `Data/ptu02-correction/check.mjs` only.
+In the disposable GM world, use a Script macro:
+
+```javascript
+const {runCorrective02Check}=await import('/ptu02-correction/check.mjs?v='+Date.now());
+await runCorrective02Check();
+```
+
+Read the runner before use. Set `Data/ptu02-correction/plan.json` to a phase object.
+The recorded sequence is `begin`; `create` with case `choice-0` through `choice-3`
+(choose through real UI); `choice` with the corresponding case/index 0–3; `create`
+with case `cancel` (cancel UI); `cancel`; `permissions`; `open-sheet` with case;
+`acquisition`; `browser`; and `reload`. See the [matrix/raw results](validation/2026-10-25-corrective02.md)
+for exact fixtures, manual owner/observer/retry steps and scenario boundaries. Creation
+refuses an existing case: inspect preserved fixtures rather than blindly repeating it.
+The runner writes disposable actors/Items/flags and temporarily uses original advancement;
+the final phase restores the captured setting and checks pre-existing actor hashes.
+
+New acquisitions use actual pack Documents and stable UUIDs. Saved raw Items may retain
+excluded provenance: verify actual JSON import, `clone` with save/addSource, owned/world-folder
+copy and original-ID restoration without deleting user fields. This is deliberately distinct
+from rejecting the three known excluded pack imports/drops, new grants and generator input.
+The pack-folder diagnostic intercepts final creation to avoid executing unclassified form
+behavior. No Generation 9 gameplay probe is authorized by these boundary checks. The runner
+is excluded from packages; full catalog approval and migration acceptance remain staged.
 
 ### Skill terminology acceptance
 

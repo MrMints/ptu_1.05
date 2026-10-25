@@ -40,7 +40,9 @@ export async function runCorrective02Check(){
  else if(plan.phase==='cancel')await record('cancel-leaves-no-grants',async()=>{const actor=find(plan.case);check(actor?.items.size===0&&actor.flags.ptu.starterTraining.status==='pending','Cancellation changed item/selection state.');return{actor:actor.id,items:actor.items.size,status:actor.flags.ptu.starterTraining.status};});
  else if(plan.phase==='permissions')await record('owner-and-observer',async()=>{
   const player=game.users.get('iVkqwxalI3cGJahD');check(player,'Original disposable player missing.');
-  const owner=find('cancel'),observer=find('choice-1');await owner.update({[`ownership.${player.id}`]:3});await observer.update({[`ownership.${player.id}`]:2});
+  const owner=find('cancel');let observer=find('observer-pending');
+  observer??=await Actor.create({name:'PTU 02 observer pending selection',type:'character',flags:{ptu:{starterTraining:{status:'pending'},corrective02:{batch,case:'observer-pending'}}}});
+  await owner.update({[`ownership.${player.id}`]:3});await observer.update({[`ownership.${player.id}`]:2});
   check(owner.canUserModify(player,'update')&&!observer.canUserModify(player,'update'),'Ownership boundary changed.');
   return{player:player.id,owner:owner.id,observer:observer.id};
  });
@@ -81,6 +83,26 @@ export async function runCorrective02Check(){
    check(folderCopy?.length===1&&folderCopy[0].sourceId===provenance&&JSON.stringify(folderCopy[0].flags.user)===JSON.stringify(custom),'Saved world-folder copy was filtered or rewritten.');
    return{restored:restored.id,duplicate:duplicate.id,owned:owned[0].id,folderCopy:folderCopy[0].id,provenance,customFieldsPreserved:true,coreImportApi:'importFromJSON',coreDuplicateApi:'clone(save:true,addSource:true)',creationApi:'Item.create(keepId:true)',metadataLimit:'Core timestamps and duplicateSource update normally; stable original ID/provenance and user fields are preserved.'};
   });
+  await record('new-rule-grant-exclusion-preserves-existing-items',async()=>{
+   const actor=find('choice-0'),before=actor.items.contents.map(item=>({id:item.id,hash:null}));
+   for(const row of before)row.hash=await hash(actor.items.get(row.id).toObject());
+   const count=actor.items.size;
+   const [wrapper]=await actor.createEmbeddedDocuments('Item',[{name:'PTU 02 blocked grant stub',type:'effect',system:{rules:[{key:'GrantItem',uuid:'Compendium.ptu.effects.Item.3w7uQfBvzzxATXis'}]},flags:{ptu:{corrective02BlockedGrant:true}}}]);
+   check(wrapper&&actor.items.size===count+1,'Excluded rule grant added an item.');
+   for(const row of before)check(await hash(actor.items.get(row.id).toObject())===row.hash,'Existing item changed during blocked grant.');
+   return{wrapper:wrapper.id,noGranteeCreated:true,existingItemsPreserved:before.length,noExcludedBehaviorExecuted:true};
+  });
+  await record('actual-pack-folder-filter-before-creation',async()=>{
+   const actor=find('choice-0'),folder=game.packs.get('ptu.effects').folders.get('DJzDYBNllxgyeiok');
+   check(folder,'Recorded source folder missing.');
+   const sheet=actor.sheet,original=sheet._onDropItemCreate;let received;
+   // Observe the real folder boundary without creating any unclassified/excluded form effects.
+   sheet._onDropItemCreate=async data=>{received=data;return[];};
+   try{await sheet._onDropFolder(null,{type:'Folder',uuid:folder.uuid});}finally{sheet._onDropItemCreate=original;}
+   check(received&&!received.some(row=>row._id==='3w7uQfBvzzxATXis'),'Known excluded source passed the folder boundary.');
+   check(received.length===folder.contents.length-1,'Unexpected additional folder filtering.');
+   return{folder:folder.uuid,sourceRecords:folder.contents.length,forwardedRecords:received.length,knownExcludedRemoved:1,creationIntercepted:true,noUnclassifiedOrExcludedBehaviorExecuted:true};
+  });
  }
  else if(plan.phase==='browser')await record('browser-filter-and-notice',async()=>{
   const browser=game.ptu.compendiumBrowser;
@@ -93,7 +115,10 @@ export async function runCorrective02Check(){
  else if(plan.phase==='reload'){
   await record('all-choices-and-cancel-retry-persist',async()=>{
    const rows=[];for(let index=0;index<4;index++){const actor=find('choice-'+index),selected=actor?.items.filter(i=>i.flags.ptu?.starterTrainingGrant===grant);check(selected?.length===1&&selected[0].sourceId===choices[index],'Saved choice changed.');check(actor.system.feats.total===5&&actor.system.edges.total===4,'Saved allocations changed.');rows.push({actor:actor.id,sourceId:selected[0].sourceId});}
-   const retry=find('cancel');check(retry.flags.ptu.starterTraining.status==='complete'&&retry.items.filter(i=>i.flags.ptu?.starterTrainingGrant===grant).length===1,'Owner retry did not persist.');return{choices:rows,cancelRetry:retry.id};
+   const retry=find('cancel'),retryItems=retry.items.filter(i=>i.flags.ptu?.starterTrainingGrant===grant);
+   check(retry.flags.ptu.starterTraining.status==='complete'&&retryItems.length===1,'Owner retry did not persist.');
+   const observer=find('observer-pending');check(observer.flags.ptu.starterTraining.status==='pending'&&observer.items.size===0,'Observer changed the pending selection.');
+   return{choices:rows,cancelRetry:{actor:retry.id,sourceId:retryItems[0].sourceId,lastModifiedBy:retryItems[0]._stats.lastModifiedBy},observerPendingUnchanged:true};
   });
   await record('existing-trainers-untouched-and-settings-restored',async()=>{
    const state=game.user.flags.ptu.corrective02State;await game.settings.set('ptu','variant.trainerAdvancement',state.originalAdvancement);

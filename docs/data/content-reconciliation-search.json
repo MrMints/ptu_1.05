@@ -138,7 +138,8 @@
         "xs1Spe04OMhOSARp",
         "ybZJ0nAa5nVWBokc"
       ],
-      "addedToAuthoritativeSources": false
+      "addedToAuthoritativeSources": false,
+      "comparisonScope": "Full JSON semantic comparison includes provenance/metadata differences; no mechanical delta or identity replacement inferred."
     },
     {
       "family": "carbon",

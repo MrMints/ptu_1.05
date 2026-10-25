@@ -8,7 +8,7 @@
       "contentHash": "524cfec59afc799cc3275313539d30f429075f5d49e31fa086fc30015a77a63c",
       "generationEligibility": "eligible",
       "ruleVersionApproval": "approved-starter-selection-only",
-      "verification": "static-rule-comparison-complete-live-creation-pending",
+      "verification": "verified-starter-creation-only",
       "sourceReferences": [
         {
           "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
@@ -30,14 +30,15 @@
       "limitations": [
         "Selection/starting exception only; linked effect activation and broad automation not certified.",
         "Ordinary starting budgets remain unchanged."
-      ]
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
     },
     {
       "identity": "feats.MolTHMn3UrNiIZ3h",
       "contentHash": "27825436e9b7513cae6032ad3f9c01e9321b1a1715788940b86a64f527f68f5b",
       "generationEligibility": "eligible",
       "ruleVersionApproval": "approved-starter-selection-only",
-      "verification": "static-rule-comparison-complete-live-creation-pending",
+      "verification": "verified-starter-creation-only",
       "sourceReferences": [
         {
           "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
@@ -59,14 +60,15 @@
       "limitations": [
         "Selection/starting exception only; linked effect activation and broad automation not certified.",
         "Ordinary starting budgets remain unchanged."
-      ]
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
     },
     {
       "identity": "feats.FLSt79Zix8j69T07",
       "contentHash": "e8470e7459a0ac0ee744d0f71cd39d04dcf7d8809107cb4cd2e52581c9718dfe",
       "generationEligibility": "eligible",
       "ruleVersionApproval": "approved-starter-selection-only",
-      "verification": "static-rule-comparison-complete-live-creation-pending",
+      "verification": "verified-starter-creation-only",
       "sourceReferences": [
         {
           "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
@@ -88,14 +90,15 @@
       "limitations": [
         "Selection/starting exception only; linked effect activation and broad automation not certified.",
         "Ordinary starting budgets remain unchanged."
-      ]
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
     },
     {
       "identity": "feats.WfLcIrUmRwblAaYr",
       "contentHash": "18cc17ac0dbab3d129184d58ccd36f4a516bcf15b277d3a936b332b2066fbe51",
       "generationEligibility": "eligible",
       "ruleVersionApproval": "approved-starter-selection-only",
-      "verification": "static-rule-comparison-complete-live-creation-pending",
+      "verification": "verified-starter-creation-only",
       "sourceReferences": [
         {
           "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
@@ -117,14 +120,15 @@
       "limitations": [
         "Selection/starting exception only; linked effect activation and broad automation not certified.",
         "Ordinary starting budgets remain unchanged."
-      ]
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
     },
     {
       "identity": "effects.fm0TZUuQK0uRhkJA",
       "contentHash": "382a420e4feebdde90a04099cc778928ed7e1de1417d3b1d7ade7e173b52eed0",
       "generationEligibility": "eligible",
       "ruleVersionApproval": "approved-creation-helper-only",
-      "verification": "static-rule-comparison-complete-live-creation-pending",
+      "verification": "verified-starter-creation-only",
       "sourceReferences": [
         {
           "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
@@ -143,7 +147,8 @@
       "limitations": [
         "Selection/starting exception only; linked effect activation and broad automation not certified.",
         "Ordinary starting budgets remain unchanged."
-      ]
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
     },
     {
       "identity": "species.QE7WhquxeuebiEVQ",
@@ -251,7 +256,11 @@
           ]
         }
       },
-      "ownerDecisionNeeded": "Identify accepted Pokédex edition/source precedence and disposition of inherited ability revisions before rule-version approval; do not choose by title or assume all Gen1-8 content is approved."
+      "assignedSourceTask": {
+        "owner": "04",
+        "nextFiniteAction": "Compare the remaining supplied Pokédex/errata profiles and the inherited UUID history using the approved standard-core-first policy. Resolve version attribution; request an owner authority decision only if the accepted references leave a real conflict.",
+        "scope": "No ability-list rewrite or new source precedence chosen in section 02."
+      }
     },
     {
       "identity": "effects.3w7uQfBvzzxATXis",
