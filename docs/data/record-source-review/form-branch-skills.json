@@ -3840,11 +3840,6 @@
               "level": null
             },
             {
-              "target": "moves.7Gi57ZcOWjyjhU0A",
-              "resolvedLabel": "Double-Edge",
-              "level": null
-            },
-            {
               "target": "moves.JwDy34HQ8GT4v6Jv",
               "resolvedLabel": "Focus Punch",
               "level": null
@@ -3878,7 +3873,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Multiform",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 32,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -4405,11 +4409,6 @@
                 "level": null
               },
               {
-                "target": "moves.7Gi57ZcOWjyjhU0A",
-                "resolvedLabel": "Double-Edge",
-                "level": null
-              },
-              {
                 "target": "moves.JwDy34HQ8GT4v6Jv",
                 "resolvedLabel": "Focus Punch",
                 "level": null
@@ -4443,7 +4442,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Multiform",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 32,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -7233,6 +7241,36 @@
           "status": "unavailable",
           "recordNormalizedSha256": "dc3bae14b1ababe6b57a4bd201d45c6987bc87eda5b408be785056737c55a6ad",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Dragon Fusion",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Dragon Fusion",
+            "source": {
+              "path": "Core System/Pokedex 1.05+.pdf",
+              "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+              "pdfPages": [
+                735
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 73,
+              "endLine": 81,
+              "contextNormalizedSha256": "b61d48c154eb5102908623cdb214b76bb7e552823799cb78305fcce120d4555f"
+            },
+            "interpretation": "A willing Zekrom or Reshiram merges through an Extended Action into its respective fusion. The partner is absent until an Extended Action separates them; fused experience is divided equally. Static fusion stats/slots do not establish partner/state/experience handling.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.capabilities.other",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -7241,6 +7279,14 @@
           "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
           "pdfPages": [
             736
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            735
           ],
           "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
         }
@@ -7793,6 +7839,36 @@
             "status": "unavailable",
             "recordNormalizedSha256": "dc3bae14b1ababe6b57a4bd201d45c6987bc87eda5b408be785056737c55a6ad",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Dragon Fusion",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Dragon Fusion",
+              "source": {
+                "path": "Core System/Pokedex 1.05+.pdf",
+                "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+                "pdfPages": [
+                  735
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 73,
+                "endLine": 81,
+                "contextNormalizedSha256": "b61d48c154eb5102908623cdb214b76bb7e552823799cb78305fcce120d4555f"
+              },
+              "interpretation": "A willing Zekrom or Reshiram merges through an Extended Action into its respective fusion. The partner is absent until an Extended Action separates them; fused experience is divided equally. Static fusion stats/slots do not establish partner/state/experience handling.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.capabilities.other",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -7810,6 +7886,16 @@
           "old-dex:735",
           "plus-dex:737",
           "old-dex:737"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/Pokedex 1.05+.pdf",
+            "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+            "pdfPages": [
+              735
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -7840,7 +7926,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Dragon Fusion"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -7996,7 +8083,16 @@
           "sourceTableNormalizedSha256": "49e7569a069a321ce6648c65438ca2408108ae65a1947e6e0eb71d65472ec899",
           "unsupportedCurrentEntries": [],
           "missingSourceEntries": [],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Origin Forme",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 15,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -8415,7 +8511,16 @@
             "sourceTableNormalizedSha256": "49e7569a069a321ce6648c65438ca2408108ae65a1947e6e0eb71d65472ec899",
             "unsupportedCurrentEntries": [],
             "missingSourceEntries": [],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Origin Forme",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 15,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -13274,9 +13379,35 @@
           "sourceTableNormalizedSha256": "835c8e95aaa57f651a40b72b8faa2dbe4c5867b24d23d10cdbcef5c0739fc35f",
           "unsupportedCurrentEntries": [],
           "missingSourceEntries": [
-            "attracttmmovelist06toxic"
+            "toxic"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [
+              "TM Move List"
+            ],
+            "separateNormativeSection": null,
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 15,
+            "sourceDuplicateKeys": [
+              {
+                "key": "attract",
+                "occurrences": 2
+              }
+            ]
+          },
+          "duplicateCurrentEntries": [
+            {
+              "target": "moves.0VI0E6oSQYULcSUU",
+              "resolvedLabel": "Attract",
+              "count": 2,
+              "paths": [
+                "$.system.moves.machine[0].uuid",
+                "$.system.moves.machine[8].uuid"
+              ]
+            }
+          ]
         },
         {
           "field": "system.moves.egg",
@@ -13726,9 +13857,35 @@
             "sourceTableNormalizedSha256": "835c8e95aaa57f651a40b72b8faa2dbe4c5867b24d23d10cdbcef5c0739fc35f",
             "unsupportedCurrentEntries": [],
             "missingSourceEntries": [
-              "attracttmmovelist06toxic"
+              "toxic"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [
+                "TM Move List"
+              ],
+              "separateNormativeSection": null,
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 15,
+              "sourceDuplicateKeys": [
+                {
+                  "key": "attract",
+                  "occurrences": 2
+                }
+              ]
+            },
+            "duplicateCurrentEntries": [
+              {
+                "target": "moves.0VI0E6oSQYULcSUU",
+                "resolvedLabel": "Attract",
+                "count": 2,
+                "paths": [
+                  "$.system.moves.machine[0].uuid",
+                  "$.system.moves.machine[8].uuid"
+                ]
+              }
+            ]
           },
           {
             "field": "system.moves.egg",
@@ -14174,7 +14331,7 @@
         },
         {
           "field": "system.abilities exact UUID-resolved slot order",
-          "status": "contradictory",
+          "status": "source-conditional-alternatives",
           "recordValue": [
             "Keen Eye",
             "Infiltrator",
@@ -14182,11 +14339,50 @@
             "Own Tempo",
             "Competitive"
           ],
-          "sourceValue": [
+          "sourceValue": null,
+          "unqualifiedHeaderExtraction": [
             "Keen Eye",
             "Infiltrator",
             "Own Tempo"
-          ]
+          ],
+          "sourceConditionalSlots": [
+            {
+              "printedSlot": "Basic Ability 1",
+              "qualifier": null,
+              "printedAbility": "Keen Eye"
+            },
+            {
+              "printedSlot": "Basic Ability 2",
+              "qualifier": null,
+              "printedAbility": "Infiltrator"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": "F",
+              "printedAbility": "Sorcery"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": "M",
+              "printedAbility": "Prankster"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": null,
+              "printedAbility": "Own Tempo"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": "F",
+              "printedAbility": "Competitive"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": "M",
+              "printedAbility": "Magic Guard"
+            }
+          ],
+          "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
         },
         {
           "field": "system.evolutions levels",
@@ -14302,7 +14498,7 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "manual-question",
           "recordEntryCount": 23,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "f2a32e7531aca95712df11722aa3f7c30f2a2aaa22702bb248cadbe1ebcc2cde",
@@ -14326,17 +14522,110 @@
               "target": "moves.tNexDVIwrtPBsV0u",
               "resolvedLabel": "Telekinesis",
               "level": null
+            },
+            {
+              "target": "moves.bbYMsmddMV20isEx",
+              "resolvedLabel": "Zen Headbutt",
+              "level": null
             }
           ],
           "missingSourceEntries": [
-            "zenheadbuttmhelpinghand",
-            "mmeanlook",
-            "mquickguard",
-            "fmagicalleaf",
-            "fmefirst",
-            "fstoredpower"
+            "zenheadbuttmhelpinghand"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+          "conditionalSourceEntries": [
+            {
+              "key": "meanlook",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": false
+            },
+            {
+              "key": "quickguard",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": false
+            },
+            {
+              "key": "magicalleaf",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": true
+            },
+            {
+              "key": "mefirst",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": true
+            },
+            {
+              "key": "storedpower",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": true
+            }
+          ],
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": null,
+            "retainedAnnotations": [
+              {
+                "key": "zenheadbuttmhelpinghand",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "meanlook",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ]
+              },
+              {
+                "key": "quickguard",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ]
+              },
+              {
+                "key": "magicalleaf",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              },
+              {
+                "key": "mefirst",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 21,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -14614,6 +14903,73 @@
           "status": "unavailable",
           "recordNormalizedSha256": "d0b53cfb1d905d7d2981daed707544bb6c5902a4fae11d7af1aa9897da6235e3",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Conditional Ability slots",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Conditional Ability slots",
+            "source": {
+              "path": "Core System/Pokedex 1.05+.pdf",
+              "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+              "pdfPages": [
+                511
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 13,
+              "endLine": 82,
+              "contextNormalizedSha256": "1daf1f1688b5e2e815408ffe2d0e61cc9e77cdfb97052482a84b86f47b8505b8"
+            },
+            "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+            "printedConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Keen Eye"
+              },
+              {
+                "printedSlot": "Basic Ability 2",
+                "qualifier": null,
+                "printedAbility": "Infiltrator"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "F",
+                "printedAbility": "Sorcery"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "M",
+                "printedAbility": "Prankster"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": null,
+                "printedAbility": "Own Tempo"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "F",
+                "printedAbility": "Competitive"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "M",
+                "printedAbility": "Magic Guard"
+              }
+            ]
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -14671,7 +15027,7 @@
           },
           {
             "field": "system.abilities exact UUID-resolved slot order",
-            "status": "contradictory",
+            "status": "source-conditional-alternatives",
             "recordValue": [
               "Keen Eye",
               "Infiltrator",
@@ -14679,11 +15035,50 @@
               "Own Tempo",
               "Competitive"
             ],
-            "sourceValue": [
+            "sourceValue": null,
+            "unqualifiedHeaderExtraction": [
               "Keen Eye",
               "Infiltrator",
               "Own Tempo"
-            ]
+            ],
+            "sourceConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Keen Eye"
+              },
+              {
+                "printedSlot": "Basic Ability 2",
+                "qualifier": null,
+                "printedAbility": "Infiltrator"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "F",
+                "printedAbility": "Sorcery"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "M",
+                "printedAbility": "Prankster"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": null,
+                "printedAbility": "Own Tempo"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "F",
+                "printedAbility": "Competitive"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "M",
+                "printedAbility": "Magic Guard"
+              }
+            ],
+            "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
           },
           {
             "field": "system.evolutions levels",
@@ -14799,7 +15194,7 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "manual-question",
             "recordEntryCount": 23,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "f2a32e7531aca95712df11722aa3f7c30f2a2aaa22702bb248cadbe1ebcc2cde",
@@ -14823,17 +15218,110 @@
                 "target": "moves.tNexDVIwrtPBsV0u",
                 "resolvedLabel": "Telekinesis",
                 "level": null
+              },
+              {
+                "target": "moves.bbYMsmddMV20isEx",
+                "resolvedLabel": "Zen Headbutt",
+                "level": null
               }
             ],
             "missingSourceEntries": [
-              "zenheadbuttmhelpinghand",
-              "mmeanlook",
-              "mquickguard",
-              "fmagicalleaf",
-              "fmefirst",
-              "fstoredpower"
+              "zenheadbuttmhelpinghand"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+            "conditionalSourceEntries": [
+              {
+                "key": "meanlook",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": false
+              },
+              {
+                "key": "quickguard",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": false
+              },
+              {
+                "key": "magicalleaf",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": true
+              },
+              {
+                "key": "mefirst",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": true
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": true
+              }
+            ],
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": null,
+              "retainedAnnotations": [
+                {
+                  "key": "zenheadbuttmhelpinghand",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "meanlook",
+                  "qualifiers": [
+                    "M",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "quickguard",
+                  "qualifiers": [
+                    "M",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "magicalleaf",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "mefirst",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "storedpower",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 21,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -15111,6 +15599,73 @@
             "status": "unavailable",
             "recordNormalizedSha256": "d0b53cfb1d905d7d2981daed707544bb6c5902a4fae11d7af1aa9897da6235e3",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Conditional Ability slots",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Conditional Ability slots",
+              "source": {
+                "path": "Core System/Pokedex 1.05+.pdf",
+                "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+                "pdfPages": [
+                  511
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 13,
+                "endLine": 82,
+                "contextNormalizedSha256": "1daf1f1688b5e2e815408ffe2d0e61cc9e77cdfb97052482a84b86f47b8505b8"
+              },
+              "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+              "printedConditionalSlots": [
+                {
+                  "printedSlot": "Basic Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Keen Eye"
+                },
+                {
+                  "printedSlot": "Basic Ability 2",
+                  "qualifier": null,
+                  "printedAbility": "Infiltrator"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": "F",
+                  "printedAbility": "Sorcery"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": "M",
+                  "printedAbility": "Prankster"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": null,
+                  "printedAbility": "Own Tempo"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": "F",
+                  "printedAbility": "Competitive"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": "M",
+                  "printedAbility": "Magic Guard"
+                }
+              ]
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -15124,6 +15679,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "old-dex:511"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/Pokedex 1.05+.pdf",
+            "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+            "pdfPages": [
+              511
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -15154,7 +15719,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Conditional Ability slots"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -17397,7 +17963,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 13,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -17983,7 +18558,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 13,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -22465,19 +23049,47 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 21,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "3f36187daef78f0a039d7eae443115b6978ce0fc6258cca06bfd63d2c61640ca",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats1atk",
-            "3def",
-            "6spatk",
-            "1spdef",
-            "5speed"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Ultra Burst",
+            "retainedAnnotations": [
+              {
+                "key": "chargebeam",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "mirrorshot",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "moonlight",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "morningsun",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 21,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -22992,19 +23604,47 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 21,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "3f36187daef78f0a039d7eae443115b6978ce0fc6258cca06bfd63d2c61640ca",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats1atk",
-              "3def",
-              "6spatk",
-              "1spdef",
-              "5speed"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Ultra Burst",
+              "retainedAnnotations": [
+                {
+                  "key": "chargebeam",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "mirrorshot",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "moonlight",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "morningsun",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 21,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -23591,7 +24231,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 24,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -24172,7 +24821,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 24,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -24747,7 +25405,21 @@
             "mudsport",
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 29,
+            "sourceDuplicateKeys": [
+              {
+                "key": "lowkick",
+                "occurrences": 2
+              }
+            ]
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -25249,7 +25921,21 @@
               "mudsport",
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 29,
+              "sourceDuplicateKeys": [
+                {
+                  "key": "lowkick",
+                  "occurrences": 2
+                }
+              ]
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -38290,6 +38976,36 @@
           "status": "unavailable",
           "recordNormalizedSha256": "596a7c8b3ef23284f3e828466360cb6181e16a7f9969ed2fe812fb8f5b884040",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Confined",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Confined",
+            "source": {
+              "path": "Core System/Pokedex 1.05+.pdf",
+              "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+              "pdfPages": [
+                747
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 38,
+              "endLine": 54,
+              "contextNormalizedSha256": "c1fb4642b24d34eee34cf17dc6042391d4e61b197e616f6d54cafc338307e1c1"
+            },
+            "interpretation": "Opening the Prison Bottle while exposing Confined Hoopa produces Unbound for three days, followed by three days of bottle cooldown. Destroying the bottle leaves Unbound until resealing with a new bottle. Unbound has persistent incurable Enraged and three stated substitutions: Hyperspace Hole→Hyperspace Fury, Shadow Ball→Dark Pulse, Phantom Force→Knock Off. These conditions are independent of a static species record.",
+            "relevantCurrentFields": [
+              "system.moves",
+              "system.capabilities.other",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -39132,6 +39848,36 @@
             "status": "unavailable",
             "recordNormalizedSha256": "596a7c8b3ef23284f3e828466360cb6181e16a7f9969ed2fe812fb8f5b884040",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Confined",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Confined",
+              "source": {
+                "path": "Core System/Pokedex 1.05+.pdf",
+                "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+                "pdfPages": [
+                  747
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 38,
+                "endLine": 54,
+                "contextNormalizedSha256": "c1fb4642b24d34eee34cf17dc6042391d4e61b197e616f6d54cafc338307e1c1"
+              },
+              "interpretation": "Opening the Prison Bottle while exposing Confined Hoopa produces Unbound for three days, followed by three days of bottle cooldown. Destroying the bottle leaves Unbound until resealing with a new bottle. Unbound has persistent incurable Enraged and three stated substitutions: Hyperspace Hole→Hyperspace Fury, Shadow Ball→Dark Pulse, Phantom Force→Knock Off. These conditions are independent of a static species record.",
+              "relevantCurrentFields": [
+                "system.moves",
+                "system.capabilities.other",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -39145,6 +39891,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "plus-dex:746"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/Pokedex 1.05+.pdf",
+            "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+            "pdfPages": [
+              747
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -39175,7 +39931,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Confined"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -42291,19 +43048,47 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 21,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "3f36187daef78f0a039d7eae443115b6978ce0fc6258cca06bfd63d2c61640ca",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats1atk",
-            "3def",
-            "6spatk",
-            "1spdef",
-            "5speed"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Ultra Burst",
+            "retainedAnnotations": [
+              {
+                "key": "chargebeam",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "mirrorshot",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "moonlight",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "morningsun",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 21,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -42840,19 +43625,47 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 21,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "3f36187daef78f0a039d7eae443115b6978ce0fc6258cca06bfd63d2c61640ca",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats1atk",
-              "3def",
-              "6spatk",
-              "1spdef",
-              "5speed"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Ultra Burst",
+              "retainedAnnotations": [
+                {
+                  "key": "chargebeam",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "mirrorshot",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "moonlight",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "morningsun",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 21,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -43807,6 +44620,36 @@
           "status": "unavailable",
           "recordNormalizedSha256": "5433b24fdea6f88d534c116033fe6306d33ab611c6214c2af1deab39aa82f6d3",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Note",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Note",
+            "source": {
+              "path": "Core System/HisuiDex.pdf",
+              "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+              "pdfPages": [
+                25
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 60,
+              "endLine": 67,
+              "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+            },
+            "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -43815,6 +44658,14 @@
           "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
           "pdfPages": [
             596
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        {
+          "path": "Core System/HisuiDex.pdf",
+          "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+          "pdfPages": [
+            25
           ],
           "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
         }
@@ -44394,6 +45245,36 @@
             "status": "unavailable",
             "recordNormalizedSha256": "5433b24fdea6f88d534c116033fe6306d33ab611c6214c2af1deab39aa82f6d3",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Note",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Note",
+              "source": {
+                "path": "Core System/HisuiDex.pdf",
+                "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+                "pdfPages": [
+                  25
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 60,
+                "endLine": 67,
+                "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+              },
+              "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -44407,6 +45288,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "old-dex:596"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/HisuiDex.pdf",
+            "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+            "pdfPages": [
+              25
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -44437,7 +45328,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Note"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -48478,7 +49370,7 @@
         },
         {
           "field": "system.abilities exact UUID-resolved slot order",
-          "status": "contradictory",
+          "status": "source-conditional-alternatives",
           "recordValue": [
             "Keen Eye",
             "Infiltrator",
@@ -48486,11 +49378,50 @@
             "Own Tempo",
             "Magic Guard"
           ],
-          "sourceValue": [
+          "sourceValue": null,
+          "unqualifiedHeaderExtraction": [
             "Keen Eye",
             "Infiltrator",
             "Own Tempo"
-          ]
+          ],
+          "sourceConditionalSlots": [
+            {
+              "printedSlot": "Basic Ability 1",
+              "qualifier": null,
+              "printedAbility": "Keen Eye"
+            },
+            {
+              "printedSlot": "Basic Ability 2",
+              "qualifier": null,
+              "printedAbility": "Infiltrator"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": "F",
+              "printedAbility": "Sorcery"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": "M",
+              "printedAbility": "Prankster"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": null,
+              "printedAbility": "Own Tempo"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": "F",
+              "printedAbility": "Competitive"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": "M",
+              "printedAbility": "Magic Guard"
+            }
+          ],
+          "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
         },
         {
           "field": "system.evolutions levels",
@@ -48606,7 +49537,7 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "manual-question",
           "recordEntryCount": 22,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "f2a32e7531aca95712df11722aa3f7c30f2a2aaa22702bb248cadbe1ebcc2cde",
@@ -48630,17 +49561,110 @@
               "target": "moves.tNexDVIwrtPBsV0u",
               "resolvedLabel": "Telekinesis",
               "level": null
+            },
+            {
+              "target": "moves.bbYMsmddMV20isEx",
+              "resolvedLabel": "Zen Headbutt",
+              "level": null
             }
           ],
           "missingSourceEntries": [
-            "zenheadbuttmhelpinghand",
-            "mmeanlook",
-            "mquickguard",
-            "fmagicalleaf",
-            "fmefirst",
-            "fstoredpower"
+            "zenheadbuttmhelpinghand"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+          "conditionalSourceEntries": [
+            {
+              "key": "meanlook",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": true
+            },
+            {
+              "key": "quickguard",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": true
+            },
+            {
+              "key": "magicalleaf",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": false
+            },
+            {
+              "key": "mefirst",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": false
+            },
+            {
+              "key": "storedpower",
+              "qualifiers": [
+                "F",
+                "N"
+              ],
+              "currentContains": false
+            }
+          ],
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": null,
+            "retainedAnnotations": [
+              {
+                "key": "zenheadbuttmhelpinghand",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "meanlook",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ]
+              },
+              {
+                "key": "quickguard",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ]
+              },
+              {
+                "key": "magicalleaf",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              },
+              {
+                "key": "mefirst",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 21,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -48918,6 +49942,73 @@
           "status": "unavailable",
           "recordNormalizedSha256": "d0b53cfb1d905d7d2981daed707544bb6c5902a4fae11d7af1aa9897da6235e3",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Conditional Ability slots",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Conditional Ability slots",
+            "source": {
+              "path": "Core System/Pokedex 1.05+.pdf",
+              "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+              "pdfPages": [
+                511
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 13,
+              "endLine": 82,
+              "contextNormalizedSha256": "1daf1f1688b5e2e815408ffe2d0e61cc9e77cdfb97052482a84b86f47b8505b8"
+            },
+            "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+            "printedConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Keen Eye"
+              },
+              {
+                "printedSlot": "Basic Ability 2",
+                "qualifier": null,
+                "printedAbility": "Infiltrator"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "F",
+                "printedAbility": "Sorcery"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "M",
+                "printedAbility": "Prankster"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": null,
+                "printedAbility": "Own Tempo"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "F",
+                "printedAbility": "Competitive"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "M",
+                "printedAbility": "Magic Guard"
+              }
+            ]
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -48975,7 +50066,7 @@
           },
           {
             "field": "system.abilities exact UUID-resolved slot order",
-            "status": "contradictory",
+            "status": "source-conditional-alternatives",
             "recordValue": [
               "Keen Eye",
               "Infiltrator",
@@ -48983,11 +50074,50 @@
               "Own Tempo",
               "Magic Guard"
             ],
-            "sourceValue": [
+            "sourceValue": null,
+            "unqualifiedHeaderExtraction": [
               "Keen Eye",
               "Infiltrator",
               "Own Tempo"
-            ]
+            ],
+            "sourceConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Keen Eye"
+              },
+              {
+                "printedSlot": "Basic Ability 2",
+                "qualifier": null,
+                "printedAbility": "Infiltrator"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "F",
+                "printedAbility": "Sorcery"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": "M",
+                "printedAbility": "Prankster"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": null,
+                "printedAbility": "Own Tempo"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "F",
+                "printedAbility": "Competitive"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": "M",
+                "printedAbility": "Magic Guard"
+              }
+            ],
+            "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
           },
           {
             "field": "system.evolutions levels",
@@ -49103,7 +50233,7 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "manual-question",
             "recordEntryCount": 22,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "f2a32e7531aca95712df11722aa3f7c30f2a2aaa22702bb248cadbe1ebcc2cde",
@@ -49127,17 +50257,110 @@
                 "target": "moves.tNexDVIwrtPBsV0u",
                 "resolvedLabel": "Telekinesis",
                 "level": null
+              },
+              {
+                "target": "moves.bbYMsmddMV20isEx",
+                "resolvedLabel": "Zen Headbutt",
+                "level": null
               }
             ],
             "missingSourceEntries": [
-              "zenheadbuttmhelpinghand",
-              "mmeanlook",
-              "mquickguard",
-              "fmagicalleaf",
-              "fmefirst",
-              "fstoredpower"
+              "zenheadbuttmhelpinghand"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+            "conditionalSourceEntries": [
+              {
+                "key": "meanlook",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": true
+              },
+              {
+                "key": "quickguard",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": true
+              },
+              {
+                "key": "magicalleaf",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": false
+              },
+              {
+                "key": "mefirst",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": false
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "F",
+                  "N"
+                ],
+                "currentContains": false
+              }
+            ],
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": null,
+              "retainedAnnotations": [
+                {
+                  "key": "zenheadbuttmhelpinghand",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "meanlook",
+                  "qualifiers": [
+                    "M",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "quickguard",
+                  "qualifiers": [
+                    "M",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "magicalleaf",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "mefirst",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                },
+                {
+                  "key": "storedpower",
+                  "qualifiers": [
+                    "F",
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 21,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -49415,6 +50638,73 @@
             "status": "unavailable",
             "recordNormalizedSha256": "d0b53cfb1d905d7d2981daed707544bb6c5902a4fae11d7af1aa9897da6235e3",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Conditional Ability slots",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Conditional Ability slots",
+              "source": {
+                "path": "Core System/Pokedex 1.05+.pdf",
+                "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+                "pdfPages": [
+                  511
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 13,
+                "endLine": 82,
+                "contextNormalizedSha256": "1daf1f1688b5e2e815408ffe2d0e61cc9e77cdfb97052482a84b86f47b8505b8"
+              },
+              "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+              "printedConditionalSlots": [
+                {
+                  "printedSlot": "Basic Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Keen Eye"
+                },
+                {
+                  "printedSlot": "Basic Ability 2",
+                  "qualifier": null,
+                  "printedAbility": "Infiltrator"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": "F",
+                  "printedAbility": "Sorcery"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": "M",
+                  "printedAbility": "Prankster"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": null,
+                  "printedAbility": "Own Tempo"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": "F",
+                  "printedAbility": "Competitive"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": "M",
+                  "printedAbility": "Magic Guard"
+                }
+              ]
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -49428,6 +50718,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "old-dex:511"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/Pokedex 1.05+.pdf",
+            "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+            "pdfPages": [
+              511
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -49458,7 +50758,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Conditional Ability slots"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -52244,7 +53545,41 @@
             "sleeptalk",
             "workup"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [
+              {
+                "key": "closecombat",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "leafblade",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "nightslash",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 37,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -52754,7 +54089,41 @@
               "sleeptalk",
               "workup"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [
+                {
+                  "key": "closecombat",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "leafblade",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "nightslash",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "storedpower",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 37,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -58965,11 +60334,6 @@
               "level": null
             },
             {
-              "target": "moves.7Gi57ZcOWjyjhU0A",
-              "resolvedLabel": "Double-Edge",
-              "level": null
-            },
-            {
               "target": "moves.JwDy34HQ8GT4v6Jv",
               "resolvedLabel": "Focus Punch",
               "level": null
@@ -59003,7 +60367,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Multiform",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 29,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -59530,11 +60903,6 @@
                 "level": null
               },
               {
-                "target": "moves.7Gi57ZcOWjyjhU0A",
-                "resolvedLabel": "Double-Edge",
-                "level": null
-              },
-              {
                 "target": "moves.JwDy34HQ8GT4v6Jv",
                 "resolvedLabel": "Focus Punch",
                 "level": null
@@ -59568,7 +60936,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Multiform",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 29,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -66287,7 +67664,7 @@
         },
         {
           "field": "system.abilities exact UUID-resolved slot order",
-          "status": "contradictory",
+          "status": "source-conditional-alternatives",
           "recordValue": [
             "Aqua Bullet",
             "Shackle",
@@ -66297,12 +67674,51 @@
             "Adaptability",
             "Mold Breaker"
           ],
-          "sourceValue": [
+          "sourceValue": null,
+          "unqualifiedHeaderExtraction": [
             "Aqua Bullet",
             "Shackle",
             "Adaptability",
             "Mold Breaker"
-          ]
+          ],
+          "sourceConditionalSlots": [
+            {
+              "printedSlot": "Basic Ability 1",
+              "qualifier": null,
+              "printedAbility": "Aqua Bullet"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": null,
+              "printedAbility": "Shackle"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "Red",
+              "printedAbility": "Reckless"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "Blue",
+              "printedAbility": "Rock Head"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "White",
+              "printedAbility": "Rattled"
+            },
+            {
+              "printedSlot": "Adv Ability 3",
+              "qualifier": null,
+              "printedAbility": "Adaptability"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": null,
+              "printedAbility": "Mold Breaker"
+            }
+          ],
+          "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
         },
         {
           "field": "system.evolutions levels",
@@ -66468,17 +67884,22 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 14,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "a9603a931da2333b584f2a7e18e33248f04e768c53baea308915a13a575dac87",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "zenheadbuttnotebasculegions2ndadvancedabilitydependsonthecolourofthebasculinitevolvesfrominaddition",
-            "basculinnowhasawhitecolourationthatgrantsitrattledasits2ndadvancedability",
-            "inadditiontotheexistingredandblueoptions"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Note:",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 14,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -66771,6 +68192,103 @@
           "status": "unavailable",
           "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Note",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Note",
+            "source": {
+              "path": "Core System/HisuiDex.pdf",
+              "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+              "pdfPages": [
+                26
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 60,
+              "endLine": 67,
+              "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+            },
+            "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
+        },
+        {
+          "field": "source profile note: Conditional Ability slots",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Conditional Ability slots",
+            "source": {
+              "path": "Core System/HisuiDex.pdf",
+              "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+              "pdfPages": [
+                26
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 12,
+              "endLine": 67,
+              "contextNormalizedSha256": "88703aa78d4973be58c2ee890ba6f6ffd7311021999f5950d5ef9ca3d642c199"
+            },
+            "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+            "printedConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Aqua Bullet"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": null,
+                "printedAbility": "Shackle"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Red",
+                "printedAbility": "Reckless"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Blue",
+                "printedAbility": "Rock Head"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "White",
+                "printedAbility": "Rattled"
+              },
+              {
+                "printedSlot": "Adv Ability 3",
+                "qualifier": null,
+                "printedAbility": "Adaptability"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": null,
+                "printedAbility": "Mold Breaker"
+              }
+            ]
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -66830,7 +68348,7 @@
           },
           {
             "field": "system.abilities exact UUID-resolved slot order",
-            "status": "contradictory",
+            "status": "source-conditional-alternatives",
             "recordValue": [
               "Aqua Bullet",
               "Shackle",
@@ -66840,12 +68358,51 @@
               "Adaptability",
               "Mold Breaker"
             ],
-            "sourceValue": [
+            "sourceValue": null,
+            "unqualifiedHeaderExtraction": [
               "Aqua Bullet",
               "Shackle",
               "Adaptability",
               "Mold Breaker"
-            ]
+            ],
+            "sourceConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Aqua Bullet"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": null,
+                "printedAbility": "Shackle"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Red",
+                "printedAbility": "Reckless"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Blue",
+                "printedAbility": "Rock Head"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "White",
+                "printedAbility": "Rattled"
+              },
+              {
+                "printedSlot": "Adv Ability 3",
+                "qualifier": null,
+                "printedAbility": "Adaptability"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": null,
+                "printedAbility": "Mold Breaker"
+              }
+            ],
+            "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
           },
           {
             "field": "system.evolutions levels",
@@ -67011,17 +68568,22 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 14,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "a9603a931da2333b584f2a7e18e33248f04e768c53baea308915a13a575dac87",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "zenheadbuttnotebasculegions2ndadvancedabilitydependsonthecolourofthebasculinitevolvesfrominaddition",
-              "basculinnowhasawhitecolourationthatgrantsitrattledasits2ndadvancedability",
-              "inadditiontotheexistingredandblueoptions"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Note:",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 14,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -67314,6 +68876,103 @@
             "status": "unavailable",
             "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Note",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Note",
+              "source": {
+                "path": "Core System/HisuiDex.pdf",
+                "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+                "pdfPages": [
+                  26
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 60,
+                "endLine": 67,
+                "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+              },
+              "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
+          },
+          {
+            "field": "source profile note: Conditional Ability slots",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Conditional Ability slots",
+              "source": {
+                "path": "Core System/HisuiDex.pdf",
+                "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+                "pdfPages": [
+                  26
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 12,
+                "endLine": 67,
+                "contextNormalizedSha256": "88703aa78d4973be58c2ee890ba6f6ffd7311021999f5950d5ef9ca3d642c199"
+              },
+              "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+              "printedConditionalSlots": [
+                {
+                  "printedSlot": "Basic Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Aqua Bullet"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Shackle"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "Red",
+                  "printedAbility": "Reckless"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "Blue",
+                  "printedAbility": "Rock Head"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "White",
+                  "printedAbility": "Rattled"
+                },
+                {
+                  "printedSlot": "Adv Ability 3",
+                  "qualifier": null,
+                  "printedAbility": "Adaptability"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": null,
+                  "printedAbility": "Mold Breaker"
+                }
+              ]
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -67327,6 +68986,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "hisui:25"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/HisuiDex.pdf",
+            "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+            "pdfPages": [
+              26
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -67357,7 +69026,9 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Note",
+          "source profile note: Conditional Ability slots"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -68441,7 +70112,16 @@
           "sourceTableNormalizedSha256": "3637e8e6392bea3a57e0d608eb4e6c70e079d38ba6d55989223a617b89d9228c",
           "unsupportedCurrentEntries": [],
           "missingSourceEntries": [],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Origin Forme",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 18,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -68843,7 +70523,16 @@
             "sourceTableNormalizedSha256": "3637e8e6392bea3a57e0d608eb4e6c70e079d38ba6d55989223a617b89d9228c",
             "unsupportedCurrentEntries": [],
             "missingSourceEntries": [],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Origin Forme",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 18,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -70403,11 +72092,6 @@
               "level": null
             },
             {
-              "target": "moves.7Gi57ZcOWjyjhU0A",
-              "resolvedLabel": "Double-Edge",
-              "level": null
-            },
-            {
               "target": "moves.JwDy34HQ8GT4v6Jv",
               "resolvedLabel": "Focus Punch",
               "level": null
@@ -70441,7 +72125,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Multiform",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 30,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -70986,11 +72679,6 @@
                 "level": null
               },
               {
-                "target": "moves.7Gi57ZcOWjyjhU0A",
-                "resolvedLabel": "Double-Edge",
-                "level": null
-              },
-              {
                 "target": "moves.JwDy34HQ8GT4v6Jv",
                 "resolvedLabel": "Focus Punch",
                 "level": null
@@ -71024,7 +72712,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Multiform",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 30,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -73363,7 +75060,41 @@
             "sleeptalk",
             "workup"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [
+              {
+                "key": "closecombat",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "leafblade",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "nightslash",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "storedpower",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 37,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -73844,7 +75575,41 @@
               "sleeptalk",
               "workup"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [
+                {
+                  "key": "closecombat",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "leafblade",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "nightslash",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "storedpower",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 37,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -76126,7 +77891,28 @@
             "kinesis",
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [
+              {
+                "key": "kinesis",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 34,
+            "sourceDuplicateKeys": [
+              {
+                "key": "magiccoat",
+                "occurrences": 2
+              }
+            ]
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -76595,7 +78381,28 @@
               "kinesis",
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [
+                {
+                  "key": "kinesis",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 34,
+              "sourceDuplicateKeys": [
+                {
+                  "key": "magiccoat",
+                  "occurrences": 2
+                }
+              ]
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -78460,6 +80267,36 @@
           "status": "unavailable",
           "recordNormalizedSha256": "dc3bae14b1ababe6b57a4bd201d45c6987bc87eda5b408be785056737c55a6ad",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Dragon Fusion",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Dragon Fusion",
+            "source": {
+              "path": "Core System/Pokedex 1.05+.pdf",
+              "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+              "pdfPages": [
+                735
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 73,
+              "endLine": 81,
+              "contextNormalizedSha256": "b61d48c154eb5102908623cdb214b76bb7e552823799cb78305fcce120d4555f"
+            },
+            "interpretation": "A willing Zekrom or Reshiram merges through an Extended Action into its respective fusion. The partner is absent until an Extended Action separates them; fused experience is divided equally. Static fusion stats/slots do not establish partner/state/experience handling.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.capabilities.other",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -78468,6 +80305,14 @@
           "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
           "pdfPages": [
             737
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            735
           ],
           "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
         }
@@ -79020,6 +80865,36 @@
             "status": "unavailable",
             "recordNormalizedSha256": "dc3bae14b1ababe6b57a4bd201d45c6987bc87eda5b408be785056737c55a6ad",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Dragon Fusion",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Dragon Fusion",
+              "source": {
+                "path": "Core System/Pokedex 1.05+.pdf",
+                "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+                "pdfPages": [
+                  735
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 73,
+                "endLine": 81,
+                "contextNormalizedSha256": "b61d48c154eb5102908623cdb214b76bb7e552823799cb78305fcce120d4555f"
+              },
+              "interpretation": "A willing Zekrom or Reshiram merges through an Extended Action into its respective fusion. The partner is absent until an Extended Action separates them; fused experience is divided equally. Static fusion stats/slots do not establish partner/state/experience handling.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.capabilities.other",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -79037,6 +80912,16 @@
           "old-dex:735",
           "plus-dex:736",
           "old-dex:736"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/Pokedex 1.05+.pdf",
+            "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+            "pdfPages": [
+              735
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -79067,7 +80952,8 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Dragon Fusion"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -83636,19 +85522,47 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 21,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "d65fb3f90ee3c3e1c8f8e262abd99e8d39cb702e5bdc91b6faf13c290c944911",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats6atk",
-            "1def",
-            "1spatk",
-            "3spdef",
-            "5speed"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Ultra Burst",
+            "retainedAnnotations": [
+              {
+                "key": "chargebeam",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "mirrorshot",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "moonlight",
+                "qualifiers": [
+                  "N"
+                ]
+              },
+              {
+                "key": "morningsun",
+                "qualifiers": [
+                  "N"
+                ]
+              }
+            ],
+            "enumeratedSourceEntryCount": 21,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -84163,19 +86077,47 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 21,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "d65fb3f90ee3c3e1c8f8e262abd99e8d39cb702e5bdc91b6faf13c290c944911",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "telekinesisultrabursttypepsychicdragonabilityneuroforceadvability1becomesilluminategainsglowstats6atk",
-              "1def",
-              "1spatk",
-              "3spdef",
-              "5speed"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Ultra Burst",
+              "retainedAnnotations": [
+                {
+                  "key": "chargebeam",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "mirrorshot",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "moonlight",
+                  "qualifiers": [
+                    "N"
+                  ]
+                },
+                {
+                  "key": "morningsun",
+                  "qualifiers": [
+                    "N"
+                  ]
+                }
+              ],
+              "enumeratedSourceEntryCount": 21,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -92190,7 +94132,7 @@
         },
         {
           "field": "system.abilities exact UUID-resolved slot order",
-          "status": "contradictory",
+          "status": "source-conditional-alternatives",
           "recordValue": [
             "Aqua Bullet",
             "Shackle",
@@ -92200,12 +94142,51 @@
             "Adaptability",
             "Mold Breaker"
           ],
-          "sourceValue": [
+          "sourceValue": null,
+          "unqualifiedHeaderExtraction": [
             "Aqua Bullet",
             "Shackle",
             "Adaptability",
             "Mold Breaker"
-          ]
+          ],
+          "sourceConditionalSlots": [
+            {
+              "printedSlot": "Basic Ability 1",
+              "qualifier": null,
+              "printedAbility": "Aqua Bullet"
+            },
+            {
+              "printedSlot": "Adv Ability 1",
+              "qualifier": null,
+              "printedAbility": "Shackle"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "Red",
+              "printedAbility": "Reckless"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "Blue",
+              "printedAbility": "Rock Head"
+            },
+            {
+              "printedSlot": "Adv Ability 2",
+              "qualifier": "White",
+              "printedAbility": "Rattled"
+            },
+            {
+              "printedSlot": "Adv Ability 3",
+              "qualifier": null,
+              "printedAbility": "Adaptability"
+            },
+            {
+              "printedSlot": "High Ability",
+              "qualifier": null,
+              "printedAbility": "Mold Breaker"
+            }
+          ],
+          "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
         },
         {
           "field": "system.evolutions levels",
@@ -92371,17 +94352,22 @@
         },
         {
           "field": "system.moves.tutor",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 14,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "a9603a931da2333b584f2a7e18e33248f04e768c53baea308915a13a575dac87",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "zenheadbuttnotebasculegions2ndadvancedabilitydependsonthecolourofthebasculinitevolvesfrominaddition",
-            "basculinnowhasawhitecolourationthatgrantsitrattledasits2ndadvancedability",
-            "inadditiontotheexistingredandblueoptions"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Note:",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 14,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -92674,6 +94660,103 @@
           "status": "unavailable",
           "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
           "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "source profile note: Note",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Note",
+            "source": {
+              "path": "Core System/HisuiDex.pdf",
+              "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+              "pdfPages": [
+                25
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 60,
+              "endLine": 67,
+              "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+            },
+            "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
+        },
+        {
+          "field": "source profile note: Conditional Ability slots",
+          "status": "manual-question",
+          "sourceProfileNote": {
+            "heading": "Conditional Ability slots",
+            "source": {
+              "path": "Core System/HisuiDex.pdf",
+              "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+              "pdfPages": [
+                25
+              ],
+              "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+            },
+            "anchor": {
+              "startLine": 12,
+              "endLine": 67,
+              "contextNormalizedSha256": "4794d7f336929b97575ca9f27469a82f371c5335f233ad4073a186884ff8bd24"
+            },
+            "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+            "relevantCurrentFields": [
+              "system.abilities",
+              "system.evolutions",
+              "system.rules"
+            ],
+            "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+            "printedConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Aqua Bullet"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": null,
+                "printedAbility": "Shackle"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Red",
+                "printedAbility": "Reckless"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Blue",
+                "printedAbility": "Rock Head"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "White",
+                "printedAbility": "Rattled"
+              },
+              {
+                "printedSlot": "Adv Ability 3",
+                "qualifier": null,
+                "printedAbility": "Adaptability"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": null,
+                "printedAbility": "Mold Breaker"
+              }
+            ]
+          },
+          "recordFieldPath": "system.rules",
+          "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
         }
       ],
       "sources": [
@@ -92733,7 +94816,7 @@
           },
           {
             "field": "system.abilities exact UUID-resolved slot order",
-            "status": "contradictory",
+            "status": "source-conditional-alternatives",
             "recordValue": [
               "Aqua Bullet",
               "Shackle",
@@ -92743,12 +94826,51 @@
               "Adaptability",
               "Mold Breaker"
             ],
-            "sourceValue": [
+            "sourceValue": null,
+            "unqualifiedHeaderExtraction": [
               "Aqua Bullet",
               "Shackle",
               "Adaptability",
               "Mold Breaker"
-            ]
+            ],
+            "sourceConditionalSlots": [
+              {
+                "printedSlot": "Basic Ability 1",
+                "qualifier": null,
+                "printedAbility": "Aqua Bullet"
+              },
+              {
+                "printedSlot": "Adv Ability 1",
+                "qualifier": null,
+                "printedAbility": "Shackle"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Red",
+                "printedAbility": "Reckless"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "Blue",
+                "printedAbility": "Rock Head"
+              },
+              {
+                "printedSlot": "Adv Ability 2",
+                "qualifier": "White",
+                "printedAbility": "Rattled"
+              },
+              {
+                "printedSlot": "Adv Ability 3",
+                "qualifier": null,
+                "printedAbility": "Adaptability"
+              },
+              {
+                "printedSlot": "High Ability",
+                "qualifier": null,
+                "printedAbility": "Mold Breaker"
+              }
+            ],
+            "limitation": "Qualified printed Ability slots are explicit alternatives/conditions, not absent headers or one flat unconditional ordered list. Current exact UUID-resolved values remain; selecting and enforcing the source condition is not certified."
           },
           {
             "field": "system.evolutions levels",
@@ -92914,17 +95036,22 @@
           },
           {
             "field": "system.moves.tutor",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 14,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "a9603a931da2333b584f2a7e18e33248f04e768c53baea308915a13a575dac87",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "zenheadbuttnotebasculegions2ndadvancedabilitydependsonthecolourofthebasculinitevolvesfrominaddition",
-              "basculinnowhasawhitecolourationthatgrantsitrattledasits2ndadvancedability",
-              "inadditiontotheexistingredandblueoptions"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Note:",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 14,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
@@ -93217,6 +95344,103 @@
             "status": "unavailable",
             "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "source profile note: Note",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Note",
+              "source": {
+                "path": "Core System/HisuiDex.pdf",
+                "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+                "pdfPages": [
+                  25
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 60,
+                "endLine": 67,
+                "contextNormalizedSha256": "54121690da6215baeac2b3071a698d3ece4059d7d816b2a6cd79174e9a0bbfcd"
+              },
+              "interpretation": "Basculegion’s second Advanced Ability depends on its prior Basculin colour. The source also introduces White Basculin with Rattled as its second Advanced option. A flat list of all possible Ability UUIDs does not encode the ancestry-conditioned choice.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution."
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
+          },
+          {
+            "field": "source profile note: Conditional Ability slots",
+            "status": "manual-question",
+            "sourceProfileNote": {
+              "heading": "Conditional Ability slots",
+              "source": {
+                "path": "Core System/HisuiDex.pdf",
+                "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+                "pdfPages": [
+                  25
+                ],
+                "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+              },
+              "anchor": {
+                "startLine": 12,
+                "endLine": 67,
+                "contextNormalizedSha256": "4794d7f336929b97575ca9f27469a82f371c5335f233ad4073a186884ff8bd24"
+              },
+              "interpretation": "The source prints qualified Ability-slot alternatives. Their complete slot/qualifier/value facts are retained beside the current UUID-resolved list; a plain-header extraction cannot establish a literal contradiction or unconditional slot approval.",
+              "relevantCurrentFields": [
+                "system.abilities",
+                "system.evolutions",
+                "system.rules"
+              ],
+              "disposition": "Precise printed condition/internal-source question retained; current static data and configured elements do not certify actor-level execution.",
+              "printedConditionalSlots": [
+                {
+                  "printedSlot": "Basic Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Aqua Bullet"
+                },
+                {
+                  "printedSlot": "Adv Ability 1",
+                  "qualifier": null,
+                  "printedAbility": "Shackle"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "Red",
+                  "printedAbility": "Reckless"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "Blue",
+                  "printedAbility": "Rock Head"
+                },
+                {
+                  "printedSlot": "Adv Ability 2",
+                  "qualifier": "White",
+                  "printedAbility": "Rattled"
+                },
+                {
+                  "printedSlot": "Adv Ability 3",
+                  "qualifier": null,
+                  "printedAbility": "Adaptability"
+                },
+                {
+                  "printedSlot": "High Ability",
+                  "qualifier": null,
+                  "printedAbility": "Mold Breaker"
+                }
+              ]
+            },
+            "recordFieldPath": "system.rules",
+            "recordJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+            "limitation": "Source condition and exact current configured rules are recorded; no implementation absence/presence or gameplay certification is inferred from a static record."
           }
         ],
         "independentGroups": {
@@ -93230,6 +95454,16 @@
         "correspondenceSupported": true,
         "otherCandidateProfiles": [
           "hisui:26"
+        ],
+        "additionalSources": [
+          {
+            "path": "Core System/HisuiDex.pdf",
+            "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+            "pdfPages": [
+              25
+            ],
+            "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+          }
         ]
       },
       "coverageState": "reviewed",
@@ -93260,7 +95494,9 @@
           "system.evolutions requirements",
           "system.number",
           "system.form",
-          "system.dexentry"
+          "system.dexentry",
+          "source profile note: Note",
+          "source profile note: Conditional Ability slots"
         ],
         "notCertified": [
           "unprinted secondary-form facts and schema defaults",
@@ -94500,7 +96736,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 32,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -95120,7 +97365,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 32,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",

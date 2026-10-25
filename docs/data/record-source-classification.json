@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "startingHead": "a35cec20817c73ed27d71f85a99bc33df45ce365",
-  "status": "in-progress; starter relationships, extraction regressions and finite95 form/branch/skill dispositions recorded; remaining source/helper inventory review continues",
+  "status": "in-progress; frozen sequential source work queues; completed source slices remain separate from production approval and full04 acceptance",
   "scope": "PTU1.05 Generations1–8 only; source classification does not approve a record or implementation",
   "inventory": "docs/data/content-eligibility.json",
   "sourceFingerprint": "9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a",
@@ -9,26 +9,31 @@
     "record-source-review/starter-dependencies.json",
     "record-source-review/reading-order-regressions.json",
     "record-source-review/known-exclusions.json",
-    "record-source-review/form-branch-skills.json"
+    "record-source-review/form-branch-skills.json",
+    "record-source-review/species-classic-early.json",
+    "record-source-review/species-classic-middle.json",
+    "record-source-review/species-classic-late.json",
+    "record-source-review/species-classic-final.json",
+    "record-source-review/species-regional.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 190,
+    "explicitRecordDispositions": 1163,
     "counts": {
-      "reviewed": 173,
+      "reviewed": 1145,
       "excluded": 3,
-      "unresolved": 14,
-      "unreviewed": 7205
+      "unresolved": 15,
+      "unreviewed": 6232
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
     "sourceClassCounts": {
       "standard": 55,
       "optional-version": 1,
-      "mixed": 108,
+      "mixed": 1080,
       "supporting": 9,
       "excluded": 3,
-      "examined-source-variant-conflict": 14
+      "examined-source-variant-conflict": 15
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -669,5 +674,13 @@
         "coverageState": "unresolved"
       }
     ]
+  },
+  "batchManifest": "record-source-review-batches.json",
+  "priorityGate": {
+    "batch": "A",
+    "status": "corrected extraction evidence validated locally; corrected-revision CI and substantive review pending",
+    "originalRevision": "c4c3299330ddfad5d63e7db72fe34225f05f7cae",
+    "correction": "Galar33 repeated TM heading: retain real Toxic omission and exact duplicate Attract paths; preserve all bounded normative tail/conditional/stat content.",
+    "remainingBatchScope": "B-scope113 and B-unmatched616 unstarted until passing correction checkpoint"
   }
 }

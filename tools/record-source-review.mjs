@@ -23,6 +23,20 @@ const normalizedText = value => (cleanText(value).toLowerCase().match(/[a-z0-9]+
 // evidence error, not an invitation to compare individual characters.
 const normalizedLabels = values => Array.isArray(values) ? values.map(labelKey).sort() : values == null || values === '' ? [] : null;
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
+export function parseSourceAcquisition(value, machine = false) {
+    let text = cleanText(value);
+    if (/\bMew can learn any TM\s*\/\s*HM\b/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'universal-machine'};
+    if (/\bMew can be tutored to learn any Move\b/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'universal-tutoring'};
+    const footer = text.match(/\*?(?:\bMega Evolution\b|\bUltra Burst\b|\bMultiform\b|\bTherian Forme\b|\bConfined\b|\bDragon Fusion\b|\bForme Change\b|\bOrigin Forme\b|\bSky Forme\b|\bZygarde Cube Move List\b|\bNote\s*:|\bSmall\s+HP\s*:)/i);
+    const boundary = footer?.[0]?.replace(/^\*/, '') ?? null;
+    if (footer) text = text.slice(0, footer.index);
+    const repeatedHeadings = [...text.matchAll(/\b(?:TM(?:\s*\/\s*HM)?|HM|TR|Egg|Tutor)\s+Move\s+List\b/gi)].map(match => match[0]);
+    text = text.replace(/\b(?:TM(?:\s*\/\s*HM)?|HM|TR|Egg|Tutor)\s+Move\s+List\b/gi, ',');
+    const tokens = text.split(',').map(entry => (machine ? entry.replace(/^\s*(?:A\d+|\d+)\s*/, '') : entry).trim()).filter(Boolean);
+    const annotatedEntries = tokens.map(entry => ({key: labelKey(entry.replace(/^\([MF]\)\s*/, '').replace(/\(N\)/g, '')),
+        qualifiers: [...(entry.match(/^\(([MF])\)/)?.slice(1) ?? []), ...(/\(N\)/.test(entry) ? ['N'] : [])]}));
+    return {entries: annotatedEntries.map(entry => entry.key), annotatedEntries: annotatedEntries.filter(entry => entry.qualifiers.length), repeatedHeadings, boundary};
+}
 const referencePaths = (value, target, path = '$') => {
     if (Array.isArray(value)) return value.flatMap((child, index) => referencePaths(child, target, `${path}[${index}]`));
     if (value && typeof value === 'object') return Object.entries(value).flatMap(([key, child]) => referencePaths(child, target, `${path}.${key}`));
@@ -42,12 +56,12 @@ export async function loadRecordSourceReview() {
     ]);
     const source = await readPackSources(manifest);
     const protectedHashes = Object.fromEntries(await Promise.all(index.protectedPolicyArtifacts.map(async item => [item.path, hash(await json(item.path))])));
-    return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json')};
+    return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null};
 }
 
 export function recordSourceReviewErrors(bundle) {
     const errors = [], fail = (ok, message) => { if (!ok) errors.push(message); };
-    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex} = bundle;
+    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex, regional, batchManifest} = bundle;
     const inventoryMap = new Map(inventory.records.map(row => [row.identity, row]));
     const actualMap = new Map(source.rows.map(row => [row.identity, row]));
     const links = values => (values ?? []).map(link => {
@@ -57,6 +71,15 @@ export function recordSourceReviewErrors(bundle) {
     const currentFieldEvidence = (row, actual, field) => {
         const system = actual?.data.system ?? {}, name = field.field;
         const check = ok => fail(ok, `Declared field evidence does not describe exact current record: ${row.identity} ${name}`);
+        if (field.recordFieldPath && field.recordJsonSha256) {
+            const value = field.recordFieldPath.split('.').reduce((object, key) => object?.[key], actual?.data);
+            check(field.recordJsonSha256 === hash(value ?? null));
+        }
+        if (field.sourceProfileNote) {
+            const note = field.sourceProfileNote;
+            fail(note.heading && note.interpretation && note.disposition && note.relevantCurrentFields?.length && Number.isInteger(note.anchor?.startLine) && note.anchor.startLine >= 1
+                && Number.isInteger(note.anchor.endLine) && note.anchor.endLine >= note.anchor.startLine && /^[a-f0-9]{64}$/.test(note.anchor.contextNormalizedSha256), `Profile note lacks bounded source context/disposition: ${row.identity}`);
+        }
         if (Object.hasOwn(field, 'recordValue')) {
             if (['type', 'frequency', 'ac', 'damageBase', 'category', 'prerequisites', 'keywords', 'cost', 'origin'].includes(name)) check(equal(field.recordValue, system[name] ?? null));
             else if (name === 'range+keywords') check(field.recordValue === `${Object.hasOwn(system, 'range') ? system.range === null ? 'None' : system.range : ''}, ${(system.keywords ?? []).join(', ')}`);
@@ -75,6 +98,8 @@ export function recordSourceReviewErrors(bundle) {
             check(field.recordNormalizedSha256 === textHash(text));
         }
         if (actual?.data.type !== 'species') return;
+        if (field.sourceRange) check(Number.isFinite(field.sourceRange.minimum) && Number.isFinite(field.sourceRange.maximum) && field.sourceRange.minimum <= field.sourceRange.maximum
+            && field.withinPrintedRange === (typeof field.recordValue === 'number' && field.recordValue >= field.sourceRange.minimum && field.recordValue <= field.sourceRange.maximum));
         if (field.status === 'supported' && Object.hasOwn(field, 'recordValue') && Object.hasOwn(field, 'sourceValue') && !['system.types', 'system.abilities exact UUID-resolved slot order'].includes(name)) check(equal(field.recordValue, field.sourceValue));
         if (name === 'system.skills six printed entries') {
             check(field.values?.length === 6 && new Set(field.values.map(value => value.key)).size === 6);
@@ -94,10 +119,18 @@ export function recordSourceReviewErrors(bundle) {
             if (field.currentBranches) check(equal(field.currentBranches, links(system.evolutions).map((value, ordinal) => ({ordinal, target: value.target, resolvedLabelForReview: value.label, level: value.level, restrictions: (system.evolutions[ordinal].other?.restrictions ?? []).filter(Boolean)}))));
         } else if (['system.number', 'system.form', 'system.dexentry'].includes(name)) check(field.recordNormalizedSha256 === textHash(normalizedText(system[name.split('.')[1]])));
         else if (/^system\.moves\.(level|machine|egg|tutor)$/.test(name)) {
-            const entries = links(system.moves?.[name.split('.')[2]]);
+            const group = name.split('.')[2], entries = links(system.moves?.[group]);
             check(field.recordEntryCount === entries.length);
             for (const value of field.unsupportedCurrentEntries ?? []) check(entries.some(entry => entry.target === value.target && entry.label === value.resolvedLabel && (entry.level ?? null) === (value.level ?? null)));
             if (field.status === 'supported') check(!field.unsupportedCurrentEntries?.length && !field.missingSourceEntries?.length);
+            for (const key of field.missingSourceEntries ?? []) if (typeof key === 'string') fail(!/(?:tmmovelist|tmhmmovelist|eggmovelist|tutormovelist|zygardecubemovelist|mewcanlearnanytmhm|mewcanbetutoredtolearnanymove|smallhp\d+attack)/i.test(key), `Acquisition heading/rule became a fictitious Move: ${row.identity} ${name}`);
+            if (field.duplicateCurrentEntries) {
+                const targets = new Map();
+                entries.forEach((entry, index) => { if (entry.target) { const list = targets.get(entry.target) ?? []; list.push(index); targets.set(entry.target, list); } });
+                const duplicates = [...targets].filter(([, positions]) => positions.length > 1).map(([target, positions]) => ({target, resolvedLabel: actualMap.get(target)?.data.name, count: positions.length, paths: positions.map(index => `$.system.moves.${group}[${index}].uuid`)}));
+                check(equal(field.duplicateCurrentEntries, duplicates));
+            }
+            for (const entry of field.conditionalSourceEntries ?? []) check(entry.currentContains === entries.some(value => labelKey(value.label) === entry.key));
         }
     };
     fail(index.sourceFingerprint === inventory.sourceFingerprint && source.sourceFingerprint === inventory.sourceFingerprint, 'Record source inventory fingerprint is stale');
@@ -142,6 +175,7 @@ export function recordSourceReviewErrors(bundle) {
                 fail(equal(stats?.recordValue, actual?.data.system.stats) && equal(types?.recordValue, actual?.data.system.types)
                     && equal(abilities?.recordValue, currentAbilityLabels) && equal(evolution?.recordValue, actual?.data.system.evolutions.map(entry => entry.level)), `Species comparison does not describe current record fields: ${row.identity}`);
                 if (expectedGroups.baseStats) fail(equal(stats.recordValue, stats.sourceValue), `Supported species stats differ from source evidence: ${row.identity}`);
+                if (stats?.sourceStatVariants && stats.status === 'supported') fail(Object.keys(stats.sourceStatVariants).length === 4 && equal(stats.sourceValue, stats.sourceStatVariants[stats.sourceStatVariant]), `Printed size/stat variant evidence disagrees: ${row.identity}`);
                 if (expectedGroups.types) fail(equal(types.recordValue.map(labelKey).sort(), types.sourceValue.map(labelKey).sort()), `Supported species Types differ from source evidence: ${row.identity}`);
                 if (expectedGroups.abilitySlots) fail(equal(abilities.recordValue.map(labelKey), abilities.sourceValue.map(labelKey)), `Supported species slots differ from source evidence: ${row.identity}`);
                 if (expectedGroups.evolutionLevels) fail(equal(evolution.recordValue, evolution.sourceValue), `Supported evolution levels differ from source evidence: ${row.identity}`);
@@ -152,9 +186,28 @@ export function recordSourceReviewErrors(bundle) {
                     fail(equal(comparison.supplementalCorrespondence.fieldNames, extra) && extra.every(name => fields.get(name)?.status === 'supported') && (expectedGroups.types || expectedGroups.evolutionLevels), `Supplemental species correspondence lacks metric/skill evidence: ${row.identity}`);
                 }
                 if (comparison.derivedFormEvidence?.kind === 'printed-mega-table') fail(row.sources.some(citation => citation.path === 'Core System/Pokemon Tabletop United 1.05 Core.pdf' && citation.pdfPages?.includes(206)), `Derived Mega evidence lost the additional-Ability rule citation: ${row.identity}`);
+                const [book, pageText] = comparison.sourceProfile.split(':'), page = Number(pageText), notes = comparison.fields.filter(field => field.sourceProfileNote).map(field => field.sourceProfileNote.heading);
+                if (['old-dex', 'plus-dex'].includes(book) && [735, 736, 737].includes(page)) fail(notes.includes('Dragon Fusion'), `Printed fusion condition note lost: ${row.identity}`);
+                if (book === 'plus-dex' && [746, 747].includes(page)) fail(notes.includes('Confined'), `Printed Confined condition note lost: ${row.identity}`);
+                if (book === 'hisui' && [25, 26].includes(page) || row.identity === 'species.SDC4tyMN9t0C2ULR') fail(notes.includes('Note'), `Printed Basculin ancestry condition lost: ${row.identity}`);
+                if (book === 'alola' && page === 23) fail(notes.includes('Forme Change'), `Printed nectar/form condition lost: ${row.identity}`);
+                if (['old-dex', 'plus-dex'].includes(book) && page === 683) fail(notes.includes('Universal machine learning') && notes.includes('Universal tutoring'), `Printed Mew acquisition permissions lost: ${row.identity}`);
+                if (['old-dex', 'plus-dex'].includes(book) && [558, 559].includes(page)) fail(notes.includes('Size/stat variants'), `Printed size/stat table disposition lost: ${row.identity}`);
+                if (['old-dex', 'plus-dex'].includes(book) && [719, 720].includes(page)) fail(notes.includes('Sky Forme'), `Printed Sky Forme condition lost: ${row.identity}`);
+                if (book === 'alola' && [100, 101, 102].includes(page) || ['old-dex', 'plus-dex'].includes(book) && page === 744) fail(notes.includes('Zygarde Cube Move List'), `Printed separate Cube acquisition list lost: ${row.identity}`);
+                if (book === 'alola' && page === 23) {
+                    fail(types?.status === 'source-conditional-variable' && equal(types.sourceValue, ['Special', 'Flying'])
+                        && equal(types.sourceConditionalPrimaryTypes, {red: 'Fire', yellow: 'Electric', pink: 'Psychic', purple: 'Ghost'}), `Printed nectar condition and Type evidence disagree: ${row.identity}`);
+                }
+                if (book === 'plus-dex' && [22, 55, 59, 356].includes(page)) fail(abilities?.status === 'source-internal-ambiguity' && abilities.additionalPrintedHighAbilities && notes.includes('High Abilities'), `Additional printed High Abilities cannot be silently discarded: ${row.identity}`);
             }
             if (comparison?.sourceUnit && !['move', 'ability'].includes(actual?.data.type)) fail(comparison.anchor?.definitionContextNormalizedSha256 && comparison.anchor.heading && comparison.anchor.startLine >= 1, `Record source lacks anchored definition context: ${row.identity}`);
             if (row.coverageState === 'excluded') fail(expected?.generationEligibility === 'excluded' || row.generationReview.exclusionEvidence?.independentRecordFields, `Excluded consumer/name alone cannot exclude target: ${row.identity}`);
+            for (const reference of row.catalogReferences ?? []) {
+                const entry = reference.artifact === 'docs/data/dex-source-comparison.json' ? dex.profileDeltas.find(value => value.id === reference.entryId)
+                    : reference.artifact === 'docs/data/regional-dex-catalog.json' ? regional.entries.find(value => value.id === reference.entryId) : null;
+                fail(entry && row.sources.some(citation => entry.sources.some(source => source.path === citation.path && source.sha256 === citation.sha256 && equal(source.pdfPages, citation.pdfPages))), `Profile edition/region catalog reference is missing or unrelated: ${row.identity}`);
+            }
             citations(row);
         }
     }
@@ -201,6 +254,55 @@ export function recordSourceReviewErrors(bundle) {
             if (row.coverageState === 'unresolved') fail(row.missingEvidence?.examinedSourceProfile === row.sourceComparison?.sourceProfile && row.missingEvidence.neededArtifact && row.missingEvidence.differingFields?.length, `Examined variant conflict lacks a precise evidence limit: ${row.identity}`);
         }
         fail(equal(batch.counts, batchCounts), 'Finite form/branch/skill batch coverage counts differ');
+    }
+    if (index.batchManifest) {
+        const expected = {
+            A: [95, '641a2a3b83dc514217cd1aed95835e0a53041e44751cb586658996dec727e44b'], B: [1702, '62dcf6e7a97297623b5634e9ad1143f87226c0b646f2127c76b3638be23d2b9c'],
+            C: [626, 'fb8df981d10192adcc72421ac6d39b03b4c4b5204a7dac5d4ba0fff50996f7da'], D: [1228, 'ea02c8c451a1c7f9a1b163e0f6d2790ff39ab0ab8e2f619357ebb264956ee26d'],
+            E1: [1443, '60db69771fd299bf4618c8e6f228a7eddb01590adaa81377cd535103e7e7a1e5'], E2: [1020, 'e013adf47a526f4df852de1b353c5f504a9a143b37604cd5df06ad1360b6a6cd'],
+            F: [939, '791f002be4cff6961167f4f01b9847efaa21a97c8c40755335f3bd8dd5bf8da6'], G: [245, 'd869b57527f08370214f974601820047f3fcee593edecedf0d43544e2c8360c9'],
+            H: [2, '731e0b0fe3a3e6a08cf5726d56f7cc86139c837098e4b8bc9a62d095372054b6']
+        };
+        const membershipHash = members => textHash([...members].sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0).map(([identity, contentHash]) => `${identity}\t${contentHash}\n`).join(''));
+        fail(batchManifest?.sourceFingerprint === inventory.sourceFingerprint && batchManifest.inventory.semanticSha256 === hash(inventory) && batchManifest.productionPolicyPromotion === false && batchManifest.behavioralVerification === 'not-run', 'Frozen batch inputs or policy boundary changed');
+        fail(batchManifest.candidateSnapshot.sha256 === '1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90' && equal(batchManifest.sequence, Object.keys(expected)), 'Frozen candidate snapshot or batch sequence changed');
+        const assigned = new Set();
+        const inspectMembers = (members, title) => {
+            for (const [identity, contentHash] of members) {
+                fail(!assigned.has(identity) && inventoryMap.get(identity)?.contentHash === contentHash && actualMap.get(identity)?.contentHash === contentHash, `Frozen batch duplicate/stale identity/hash: ${title} ${identity}`);
+                assigned.add(identity);
+            }
+        };
+        inspectMembers(batchManifest.baseline.members, 'baseline');
+        fail(batchManifest.baseline.count === 95 && batchManifest.baseline.members.length === 95 && membershipHash(batchManifest.baseline.members) === batchManifest.baseline.membershipSha256, 'Frozen baseline membership changed');
+        let predecessorClosed = true;
+        for (const batch of batchManifest.batches) {
+            const shape = expected[batch.id];
+            fail(shape && batch.count === shape[0] && batch.members.length === shape[0] && batch.membershipSha256 === shape[1] && membershipHash(batch.members) === shape[1], `Frozen batch membership changed: ${batch.id}`);
+            inspectMembers(batch.members, batch.id);
+            if (batch.status !== 'not-started') fail(predecessorClosed, `Frozen batch sequence skipped unfinished predecessor: ${batch.id}`);
+            const batchIds = new Set(batch.members.map(([identity]) => identity)), sliced = new Set();
+            for (const slice of batch.slices) {
+                fail(slice.members.length === slice.records && membershipHash(slice.members) === slice.membershipSha256, `Frozen slice membership changed: ${slice.id}`);
+                for (const [identity, contentHash] of slice.members) {
+                    fail(batchIds.has(identity) && !sliced.has(identity) && inventoryMap.get(identity)?.contentHash === contentHash, `Frozen slice duplicate/stale/outside batch: ${slice.id} ${identity}`);
+                    sliced.add(identity);
+                    if (slice.status === 'source-comparisons-complete') fail(['reviewed', 'excluded', 'unresolved'].includes(rows.get(identity)?.coverageState), `Closed slice retains unfinished record: ${slice.id} ${identity}`);
+                }
+                if (slice.recordFile) {
+                    const evidence = files[slice.recordFile];
+                    fail(evidence?.frozenSlice === slice.id && equal(evidence.records.map(row => [row.identity, row.contentHash]), slice.members)
+                        && evidence.records.every(row => row.frozenQueue?.batch === batch.id && row.frozenQueue.slice === slice.id && row.frozenQueue.membershipSha256 === slice.membershipSha256), `Frozen slice evidence file/membership disagrees: ${slice.id}`);
+                    if (slice.status === 'source-comparisons-complete') fail(slice.closure?.evidenceSemanticSha256 === hash(evidence), `Closed slice evidence changed without a recorded review: ${slice.id}`);
+                }
+            }
+            if (batch.status === 'source-comparisons-complete') {
+                fail(batch.closure && batch.members.every(([identity]) => ['reviewed', 'excluded', 'unresolved'].includes(rows.get(identity)?.coverageState)), `Closed batch retains unfinished records/evidence: ${batch.id}`);
+                if (batch.id !== 'A') fail(sliced.size === batch.count && batch.slices.every(slice => slice.status === 'source-comparisons-complete'), `Closed batch lacks complete frozen slices: ${batch.id}`);
+            }
+            predecessorClosed = predecessorClosed && batch.status === 'source-comparisons-complete';
+        }
+        fail(batchManifest.batches.length === 9 && assigned.size === inventoryMap.size && batchManifest.totalQueuedRecords === 7300 && batchManifest.remainingAfterA === 7205, 'Frozen batches do not partition the full inventory');
     }
     const learning = dex.profileDeltas.find(row => row.id === 'r04-d0418')?.changes.find(change => change.field === 'levelMoves');
     fail(learning && learning.sourceInterpretation.category === 'editorial-correction' && hash({standardSourceValue: learning.standardSourceValue, revisedSourceValue: learning.revisedSourceValue}) === index.acceptedSourceInvariants.darmanitanLearningValuesSha256, 'Darmanitan unchanged learning schedule must retain values and editorial classification');

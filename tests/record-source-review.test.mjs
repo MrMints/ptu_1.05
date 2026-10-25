@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {loadRecordSourceReview, recordSourceReviewErrors} from '../tools/record-source-review.mjs';
+import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
-const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex})});
+const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest})});
 const records = data => Object.values(data.files).flatMap(file => file.records);
 test('record source snapshot keeps exact inventory, separate field axes and complete first dependency coverage', () => {
     assert.deepEqual(recordSourceReviewErrors(original), []);
@@ -70,6 +70,59 @@ test('all 95 form/branch/skill cases retain examined dispositions and required f
     assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Derived Mega evidence lost the additional-Ability rule citation')));
     data.files[batch.recordFile].records[0].coverageState = 'unreviewed';
     assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Finite available-source case became pending or stale')));
+});
+
+test('frozen work queues reject stale memberships, duplicates and skipped predecessor closure', () => {
+    const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'B');
+    batch.members[0][1] = '0'.repeat(64);
+    batch.members[1] = [...batch.members[2]];
+    data.batchManifest.batches.find(value => value.id === 'G').status = 'in-progress';
+    const errors = recordSourceReviewErrors(data);
+    assert.ok(errors.some(value => value.includes('Frozen batch membership changed: B')));
+    assert.ok(errors.some(value => value.includes('Frozen batch duplicate/stale identity/hash')));
+    assert.ok(errors.some(value => value.includes('Frozen batch sequence skipped unfinished predecessor: G')));
+});
+
+test('printed species slices retain exact membership and related edition catalog references', () => {
+    const data = copy(), slice = data.batchManifest.batches.find(value => value.id === 'B').slices.find(value => value.recordFile);
+    const file = data.files[slice.recordFile], row = file.records.find(value => value.catalogReferences.length);
+    row.catalogReferences[0].entryId = 'nonexistent-source-entry';
+    file.records[0].frozenQueue.membershipSha256 = '0'.repeat(64);
+    const errors = recordSourceReviewErrors(data);
+    assert.ok(errors.some(value => value.includes('edition/region catalog reference is missing or unrelated')));
+    assert.ok(errors.some(value => value.includes('Frozen slice evidence file/membership disagrees')));
+});
+
+test('additional High Abilities and form-condition notes preserve ambiguity and exact configured-rule evidence', () => {
+    const data = copy(), row = records(data).find(value => value.sourceComparison?.fields.some(field => field.additionalPrintedHighAbilities));
+    for (const fields of [row.fieldReview, row.sourceComparison.fields]) fields.find(value => value.field === 'system.abilities exact UUID-resolved slot order').status = 'supported';
+    row.sourceComparison.independentGroups.abilitySlots = true;
+    row.sourceComparison.equalMechanicalGroups += 1;
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Additional printed High Abilities cannot be silently discarded')));
+    const changed = copy(), hoopa = records(changed).find(value => value.identity === 'species.QAUxFV2raCCHWsHU');
+    for (const fields of [hoopa.fieldReview, hoopa.sourceComparison.fields]) fields.find(value => value.sourceProfileNote?.heading === 'Confined').recordJsonSha256 = '0'.repeat(64);
+    assert.ok(recordSourceReviewErrors(changed).some(value => value.includes('Declared field evidence does not describe exact current record: species.QAUxFV2raCCHWsHU')));
+    const nectar = copy(), oricorio = records(nectar).find(value => value.identity === 'species.TAgWXcWZQDxvvKt2');
+    for (const fields of [oricorio.fieldReview, oricorio.sourceComparison.fields]) fields.find(value => value.field === 'system.types').sourceConditionalPrimaryTypes.yellow = 'Fire';
+    assert.ok(recordSourceReviewErrors(nectar).some(value => value.includes('Printed nectar condition and Type evidence disagree')));
+});
+
+test('repeated acquisition headings and normative tails cannot become fictitious Move names', () => {
+    assert.deepEqual(parseSourceAcquisition('45 Attract TM Move List 06 Toxic, 10 Hidden Power', true).entries, ['attract', 'toxic', 'hiddenpower']);
+    assert.deepEqual(parseSourceAcquisition('Mew can learn any TM/HM', true), {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'universal-machine'});
+    assert.equal(parseSourceAcquisition('Mew can be tutored to learn any Move.').boundary, 'universal-tutoring');
+    for (const tail of ['Small HP: 4 Attack: 7', '*Sky Forme Shaymin can transform', 'Zygarde Cube Move List Core Enforcer', 'Note: second Advanced Ability', 'Ultra Burst Type: Psychic/Dragon']) {
+        assert.deepEqual(parseSourceAcquisition(`Worry Seed ${tail}`).entries, ['worryseed']);
+    }
+    const applin = records(original).find(value => value.identity === 'species.A0sBewaxj0epSaUU'), machine = applin.fieldReview.find(value => value.field === 'system.moves.machine');
+    assert.ok(machine.missingSourceEntries.includes('toxic'));
+    assert.ok(!machine.missingSourceEntries.includes('attracttmmovelist06toxic'));
+    assert.ok(machine.duplicateCurrentEntries.some(value => value.resolvedLabel === 'Attract' && value.count === 2 && value.paths.length === 2));
+    const mew = records(original).find(value => value.identity === 'species.FYhHsV9BRatX7zQH');
+    for (const group of ['machine', 'tutor']) assert.equal(mew.fieldReview.find(value => value.field === `system.moves.${group}`).status, 'source-universal-acquisition');
+    const changed = copy(), corrupt = records(changed).find(value => value.identity === applin.identity);
+    for (const fields of [corrupt.fieldReview, corrupt.sourceComparison.fields]) fields.find(value => value.field === 'system.moves.machine').duplicateCurrentEntries[0].paths[0] = '$.system.moves.machine[999].uuid';
+    assert.ok(recordSourceReviewErrors(changed).some(value => value.includes('Declared field evidence does not describe exact current record: species.A0sBewaxj0epSaUU')));
 });
 test('available Phione, Tentacruel, Magneton and Torchic profiles cannot become unavailable through heading parsing', () => {
     const data = copy();

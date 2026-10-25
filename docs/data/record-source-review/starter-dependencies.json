@@ -14695,7 +14695,16 @@
           "missingSourceEntries": [
             "sleeptalk"
           ],
-          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "Mega Evolution",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 20,
+            "sourceDuplicateKeys": []
+          },
+          "duplicateCurrentEntries": []
         },
         {
           "field": "system.capabilities numeric fields",
@@ -15141,7 +15150,16 @@
             "missingSourceEntries": [
               "sleeptalk"
             ],
-            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "Mega Evolution",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 20,
+              "sourceDuplicateKeys": []
+            },
+            "duplicateCurrentEntries": []
           },
           {
             "field": "system.capabilities numeric fields",
