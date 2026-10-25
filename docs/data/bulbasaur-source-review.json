@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "identity": "species.QE7WhquxeuebiEVQ",
+  "contentHash": "0d5f9de85ec18c8c3d0fde75d82286f0aad18bac86441e5c43a1568c8339b14b",
+  "sourceReferences": [
+    {
+      "path": "Core System/Pokedex 1.05 Old.pdf",
+      "sha256": "f6e37647b7450fa7602ff28080adb1bda31f148e1901f6d8b0b6d92b64b7b8ca",
+      "edition": "Supplied old 1.05 dex; release date unstated",
+      "pdfPages": [
+        12
+      ],
+      "printedPages": [
+        12
+      ],
+      "pageConvention": "one-based; printed=PDF on cited pages"
+    },
+    {
+      "path": "Core System/Pokedex 1.05+.pdf",
+      "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+      "edition": "Supplied 1.05+ dex; exact publication date unstated",
+      "pdfPages": [
+        12
+      ],
+      "printedPages": [
+        12
+      ],
+      "pageConvention": "one-based; printed=PDF on cited pages"
+    },
+    {
+      "path": "Core System/Complete Pokedex Gen 1-8.pdf",
+      "sha256": "d9dc1bdd7cfac93b50ae85860bcd493e7f197886e4cb02e3f415b5e70c6ab056",
+      "edition": "Supplied combined 1–8 dex; assembly date unstated",
+      "pdfPages": [
+        12
+      ],
+      "printedPages": [
+        12
+      ],
+      "pageConvention": "one-based; printed=PDF on cited pages"
+    },
+    {
+      "path": "Core System/1.05 Errata/February 2016 Playtest Packet.pdf",
+      "sha256": "bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916",
+      "edition": "February 2016 playtest",
+      "pdfPages": [
+        1,
+        4,
+        12
+      ],
+      "printedPages": [
+        1,
+        4,
+        12
+      ],
+      "pageConvention": "one-based; printed=PDF on cited pages"
+    }
+  ],
+  "decision": "Ability-list conflict resolved as standard-versus-supplied1.05+ source difference. No ability/species data or rule approval changed.",
+  "sourceProfileIdentities": {
+    "standard": "r04-dex-profile-0012 (old source side)",
+    "revised": "r04-dex-profile-0012 (plus source side)"
+  },
+  "fieldAttribution": [
+    {
+      "fields": [
+        "system.stats",
+        "system.types",
+        "system.evolutions levels",
+        "system.size",
+        "system.breeding",
+        "system.diet",
+        "system.habitats",
+        "system.capabilities",
+        "six printed system.skills entries",
+        "system.moves.level",
+        "system.moves.egg"
+      ],
+      "finding": "Compared data agrees across all three p12 profiles; old versus plus change is ability slots only. Extra default skills are schema data, not additional source-certified values."
+    },
+    {
+      "fields": [
+        "system.abilities.basic",
+        "system.abilities.advanced",
+        "system.abilities.high"
+      ],
+      "standard": {
+        "basic": [
+          "Confidence",
+          "Photosynthesis"
+        ],
+        "advanced": [
+          "Chlorophyll",
+          "Leaf Guard"
+        ],
+        "high": [
+          "Courage"
+        ]
+      },
+      "revisedAndInherited": {
+        "basic": [
+          {
+            "slug": "chlorophyll",
+            "uuid": "Compendium.ptu.abilities.Item.ZiTUZHmZaIq0K2na"
+          },
+          {
+            "slug": "overgrow",
+            "uuid": "Compendium.ptu.abilities.Item.HSv89TejG6adprHJ"
+          }
+        ],
+        "advanced": [
+          {
+            "slug": "confidence",
+            "uuid": "Compendium.ptu.abilities.Item.dnokBxCkJAn5nqHN"
+          },
+          {
+            "slug": "discipline",
+            "uuid": "Compendium.ptu.abilities.Item.kHDxnwsm7KNgQuQY"
+          }
+        ],
+        "high": [
+          {
+            "slug": "empower",
+            "uuid": "Compendium.ptu.abilities.Item.w5xfL4tul12d4MVp"
+          }
+        ]
+      },
+      "finding": "Each inherited slot agrees with plus p12. February removes Photosynthesis and introduces Empower, supporting revised lineage; exact pairing/publication date is not asserted."
+    },
+    {
+      "fields": [
+        "system.moves.machine"
+      ],
+      "finding": "Inherited source differs from all compared p12 profiles: Work Up is present, Cut/Strength/Flash/Rock Smash are absent. No supplied Bulbasaur profile supports this complete inherited machine list. No later-generation game data imported.",
+      "disposition": "manual-record-review-required; need authoritative same-species version/export explaining list."
+    },
+    {
+      "fields": [
+        "system.moves.tutor"
+      ],
+      "finding": "Inherited source omits Sleep Talk from tutor list compared with all three p12 profiles; it remains in inherited machine list. Cross-method deduplication is possible but unproved.",
+      "disposition": "manual-record-review-required; source/list transformation evidence needed."
+    },
+    {
+      "fields": [
+        "system.dexentry",
+        "system.source.value"
+      ],
+      "finding": "Narrative dexentry is absent from compared profile pages. PTR Core Dex label alone does not prove an edition or authorize any mechanic.",
+      "disposition": "preserve inherited provenance; do not treat label as approval."
+    }
+  ],
+  "stableRelationshipEvidence": {
+    "currentAbilityUuids": {
+      "basic": [
+        {
+          "slug": "chlorophyll",
+          "uuid": "Compendium.ptu.abilities.Item.ZiTUZHmZaIq0K2na"
+        },
+        {
+          "slug": "overgrow",
+          "uuid": "Compendium.ptu.abilities.Item.HSv89TejG6adprHJ"
+        }
+      ],
+      "advanced": [
+        {
+          "slug": "confidence",
+          "uuid": "Compendium.ptu.abilities.Item.dnokBxCkJAn5nqHN"
+        },
+        {
+          "slug": "discipline",
+          "uuid": "Compendium.ptu.abilities.Item.kHDxnwsm7KNgQuQY"
+        }
+      ],
+      "high": [
+        {
+          "slug": "empower",
+          "uuid": "Compendium.ptu.abilities.Item.w5xfL4tul12d4MVp"
+        }
+      ]
+    },
+    "recoveryCommit": "b36aca6a08139594ade65908f4e22ed6227ac85e",
+    "readableImportCommit": "a38f7f5c13db408d4bb28febffe921589039dd9e",
+    "reusedSnapshots": [
+      "059ffdc5bd47cb0531e95936de5319736c043721",
+      "17ccf810c77f71d3ce3a0a9fc53067d1f8c3fddd",
+      "5bf20d15dc244eab54dbad283d137c0a316ccedd",
+      "be63a651ad65ba09d1e4d9344b3d2973f739cc75"
+    ],
+    "finding": "Exact original species ID and five linked ability UUIDs persist in reused exports; no display-name retarget. Earliest cached export lacks source label, later snapshots/current include PTR Core Dex.",
+    "earliestTreeAttempt": {
+      "revision": "02517e8f042787b9eb951764283655557fc967f1",
+      "result": "unavailable-local-promisor-blob",
+      "blob": "d88bcac93161e4412da83b9aef27e19203f4018b",
+      "limitation": "Local git tried unavailable network fetch; no alternate access or complete extraction claimed."
+    }
+  },
+  "generationEligibility": "eligible",
+  "ruleVersionApproval": "unclassified",
+  "dataReview": "field attribution only; whole record withheld",
+  "behavioralVerification": "existing integration-fixture-only; no gameplay recertification",
+  "requiredOwnerDecision": "None needed to identify ability-list source. Any preference for standard/revised profile is an explicit future selection, not retroactive approval of the complete inherited record.",
+  "implementationHandoff": [
+    "Keep QE7WhquxeuebiEVQ and all linked IDs/campaign choices.",
+    "Create explicit standard/revised profile/ability selection with compatibility review in05, rather than rewriting source record in04.",
+    "Do not approve machine/tutor/narrative fields by extrapolating ability-list match."
+  ],
+  "runtimePolicyPromotion": false,
+  "reviewAxisNote": "Existing eligibility/approval/behavior review values are preserved; source attribution is an additional independent review."
+}

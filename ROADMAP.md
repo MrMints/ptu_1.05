@@ -24,6 +24,9 @@ Each chat starts idle and needs an explicit owner start instruction. Only one ch
 Use its section brief and concise dependency handoffs instead of copying the full planning conversation.
 
 ## Rules policy
+The [section-04 source guide](docs/RULES_SOURCES.md) and its linked catalogs record source interpretations,
+manual conflicts and unfinished coverage. Source review does not promote runtime/build approval or implement variants.
+
 The core book is the standard baseline. Catalog May/September 2015 and February 2016 revisions separately.
 Later explicit revisions supersede earlier ones only in the revised version. Supplements and newer Pokédex
 material do not silently override core. Conflicts need a documented ruling before verification.

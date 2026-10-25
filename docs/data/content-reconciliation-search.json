@@ -208,5 +208,376 @@
     "allAuthoritativeSourceRecordsPreserved": true,
     "retargets": 0,
     "gen9OnlySearchResumed": false
+  },
+  "section04SourceDisposition": {
+    "baseline": "9d678f05cbdc864aeab205fdecc7eb6950bd9d22",
+    "earlierOnlyRecords": [
+      {
+        "originalIdentity": "poke-edges.04UCY4s8EF3iZnCN",
+        "historicalLabel": "Advanced Mobility (Swim)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.A5vd7uVoHsDe1rv1",
+        "historicalLabel": "Advanced Mobility (Sky)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.BaqO5DcawBJDEkGD",
+        "historicalLabel": "Advanced Mobility (Teleporter)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.bh4QW9C9ET1UMKFe",
+        "historicalLabel": "Capability Training",
+        "sourceTopic": "Capability Training",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.ivcsrqmsnzMIHJ70",
+        "historicalLabel": "Advanced Mobility (Levitate)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.kBGHCDA6MOi8BcSa",
+        "historicalLabel": "Capability Training (High Jump)",
+        "sourceTopic": "Capability Training",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.kztgoIe4qRH8Sz5w",
+        "historicalLabel": "Capability Training (Long Jump)",
+        "sourceTopic": "Capability Training",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.PFhBN57rq6xggNfK",
+        "historicalLabel": "Advanced Mobility",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.RBDzkC6NGvsRxaVB",
+        "historicalLabel": "Capability Training (Power)",
+        "sourceTopic": "Capability Training",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.Tj3prcXEjZhCC43m",
+        "historicalLabel": "Advanced Mobility (Overland)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.Wugj5EeHHy8TorfA",
+        "historicalLabel": "Attack Conflict",
+        "sourceTopic": "Attack Conflict",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              204
+            ],
+            "printedPages": [
+              204
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      },
+      {
+        "originalIdentity": "poke-edges.ZHh8IGFp6V8pa0dM",
+        "historicalLabel": "Advanced Mobility (Burrow)",
+        "sourceTopic": "Advanced Mobility",
+        "sources": [
+          {
+            "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+            "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+            "edition": "PTU 1.05 supplied core",
+            "pdfPages": [
+              205
+            ],
+            "printedPages": [
+              205
+            ],
+            "pageConvention": "one-based; printed=PDF on cited pages"
+          }
+        ],
+        "fieldEvidence": {
+          "prerequisites": "Level 20",
+          "cost": "1 TP",
+          "effectSummary": "One TP, level20 for movement/jump/power improvement, or one TP offense Base Relations exception; per-capability restrictions match core topic."
+        },
+        "sourceAuthority": "core supports rule concept; exact original ID/source fields are preserved evidence",
+        "retention": "retain historical export evidence; do not reintroduce removed IDs or map to current variants automatically",
+        "generationEligibility": "core topic is in scope; current record identity not remapped",
+        "ruleVersionApproval": "historical core-aligned candidate only",
+        "disposition": "manual-retention-decision-required",
+        "neededDecision": "Choose whether generic original plus specialized UI copies should be reintroduced, retained as history only, or mapped with exact original-to-current relationship evidence. Same title/effect alone cannot establish destination UUID."
+      }
+    ],
+    "enhancements": "No supplied PDF can reconstruct missing enhancements DB identity/relationships. Retain declaration evidence; need exact original export.",
+    "carbon": "Four prior incomplete selected snapshots remain incomplete; absence of referenced manifest is not evidence of missing records. Remaining candidate trees do not authorize Gen9 recovery.",
+    "authority": "Core supports the12 earlier-only rule concepts; source support is not authority to undo historical removals or guess runtime destinations.",
+    "runtimePolicyPromotion": false,
+    "newDatabaseExtractions": 0,
+    "gen9OnlySearchResumed": false
   }
 }

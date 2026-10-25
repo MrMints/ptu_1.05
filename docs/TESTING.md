@@ -15,6 +15,16 @@ currently **must refuse** incomplete catalog/dependency approval. Normal `pnpm b
 produces a development candidate with `content-scope-status.json` and preserves original
 pack UUID resolution; it does not produce a certified supported release.
 
+### Source catalog checks
+
+Run `node tools/rules-catalog.mjs` and the focused `tests/rules-catalog.test.mjs` batch
+after catalog changes. CI includes these tests in the normal suite. They check citation
+hashes/page bounds, source coverage, independent review states, canonical identities,
+stable species hashes and historical dispositions; they do not certify rules behavior.
+With local originals and `pypdf`, run `python tools/reference-catalog.py --check` to
+check the physical inventory without overwriting review metadata. See
+[the source guide](RULES_SOURCES.md) for catalog coverage and manual conflicts.
+
 ## Foundry v13.351 batch
 Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.
 Launch the installed Foundry application using `.foundry-test` as its data path, or use:

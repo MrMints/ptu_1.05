@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### PTU 04 source and revision catalog
+- Account for all 26 supplied reference paths by 18 unique hashes, preserving original files and prior review metadata. Record editions, duplicate aliases, page conventions, source precedence and unfinished supplemental coverage.
+- Catalog 283 May/September 2015 and February 2016 playtest entries plus six supporting-source guidance/edition entries. Record baseline/revised interpretations, per-item or mechanic selection proposals and explicit manual conflict dispositions; no runtime variants/settings are implemented.
+- Compare the combined dex with its four component sources and record 450 old/plus profile comparisons as manual review candidates. Resolve Bulbasaur's inherited ability-list attribution to the supplied 1.05+ profile while retaining unclassified whole-record approval and other field mismatches.
+- Add core source/retention dispositions for all 12 earlier-only Poké Edge IDs; preserve missing-export/incomplete-Carbon evidence without guessed retargeting or Generation 9 recovery.
+- Add focused catalog integrity checks and guard reference refresh against lost review metadata, changed hashes and missing reviewed files. Production packs, IDs, campaign selections and eligibility policy remain unchanged.
+
 ### PTU 02 bounded correction
 - Restore new empty-trainer Training Feature selection from the exact predecessor effect and four core feature UUIDs, under PTU 1.05 pp. 13, 18 and 60. Add an explicit retry after cancellation, ownership checks and repeat protection; preserve existing trainers and ordinary starting allocations. This does not recover the missing replacement edge.
 - Record a finite enhancement/Carbon search and a source-linked identity inventory separating generation eligibility, rule approval and verification. Record the conflicting Pokédex ability profiles without choosing source precedence.
