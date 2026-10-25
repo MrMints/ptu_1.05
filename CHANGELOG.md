@@ -5,6 +5,8 @@
 ### PTU 04 inherited-record source classification
 - Record exact source/target data and dispositions for the six eligible roots’ 87 relationships, plus four available-profile extraction regressions. The initial source snapshot keeps remaining inventory explicitly unreviewed; production approval and behavior verification remain separate.
 - Classify Darmanitan's unchanged learning schedule as editorial without changing either source value. Add checks for hashes, finite relationship coverage, independent evidence, policy boundaries and false completion. Full 04 remains held while addressable review continues.
+- Complete the finite 95 form/branch/skill comparisons: 81 supported source correspondences and 14 examined variant conflicts, with exact field differences and manual questions retained. Distinguish regional and conditional blocks, missing printed secondary-form facts and unapproved added evolution branches.
+- Check duplicated review evidence and declared Move/Ability/species values against current source records. Validate every exact UUID path, including acquisition paths whose true target also appears elsewhere. Add corruption coverage for those cases while preserving the Phione group-count regression.
 
 ### PTU 04 source and revision catalog
 - Account for all 26 supplied reference paths by 18 unique hashes, preserving original files and prior review metadata. Record editions, duplicate aliases, page conventions and source precedence.

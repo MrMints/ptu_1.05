@@ -1,32 +1,34 @@
 {
   "schemaVersion": 1,
   "startingHead": "a35cec20817c73ed27d71f85a99bc33df45ce365",
-  "status": "in-progress; first eligible/dependency batch and four extraction regressions recorded; remaining inventory review continues",
+  "status": "in-progress; starter relationships, extraction regressions and finite95 form/branch/skill dispositions recorded; remaining source/helper inventory review continues",
   "scope": "PTU1.05 Generations1–8 only; source classification does not approve a record or implementation",
   "inventory": "docs/data/content-eligibility.json",
   "sourceFingerprint": "9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a",
   "recordFiles": [
     "record-source-review/starter-dependencies.json",
     "record-source-review/reading-order-regressions.json",
-    "record-source-review/known-exclusions.json"
+    "record-source-review/known-exclusions.json",
+    "record-source-review/form-branch-skills.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 95,
+    "explicitRecordDispositions": 190,
     "counts": {
-      "reviewed": 92,
+      "reviewed": 173,
       "excluded": 3,
-      "unreviewed": 7300,
-      "unresolved": 0
+      "unresolved": 14,
+      "unreviewed": 7205
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
     "sourceClassCounts": {
       "standard": 55,
       "optional-version": 1,
-      "mixed": 27,
+      "mixed": 108,
       "supporting": 9,
-      "excluded": 3
+      "excluded": 3,
+      "examined-source-variant-conflict": 14
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -86,5 +88,586 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "Continue the focused source/pack family diagnostic, definition anchors, secondary forms, source comparisons and precise evidence limitations. Do not treat diagnostic defaults or missing parser candidates as completed review."
+  "remainingAddressableWork": "Continue the focused source/pack family diagnostic, definition anchors, secondary forms, source comparisons and precise evidence limitations. Do not treat diagnostic defaults or missing parser candidates as completed review.",
+  "finiteFormBranchBatch": {
+    "recordFile": "record-source-review/form-branch-skills.json",
+    "records": 95,
+    "counts": {
+      "reviewed": 81,
+      "unresolved": 14
+    },
+    "noPendingExtraction": true,
+    "cases": [
+      {
+        "identity": "species.07WB0Vrk99UxQz8W",
+        "contentHash": "068a2460c0c11c58167a78260b468ec2f8bee888eb15b7d8e6518067281e2cf3",
+        "sourceProfile": "galar:56",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.0DnVp6TazfQRxtfY",
+        "contentHash": "49bcb551e5c9c3ba62242ff688915857a20b756821c9cec430dbef0c620ff759",
+        "sourceProfile": "galar:83",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.185j6g6x8ZMUKJiR",
+        "contentHash": "ffc16d1dfb60f05209225b308e5c944dfbe32316ef3208dad7a0a8b59371a697",
+        "sourceProfile": "alola:77",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.1GLfiepJEnwOCDAz",
+        "contentHash": "78572cafbcbd7be4ba0cb2ddb639db96b66319aac8c06d35569781f248ebeca8",
+        "sourceProfile": "plus-dex:93",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.314dn40yNggGzPEd",
+        "contentHash": "e87017260d1b12d1bae566eeb4e09ea4568deff7f8b02880da44cbc6e528198a",
+        "sourceProfile": "plus-dex:727",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.3YOF5FQPSUpsPaYm",
+        "contentHash": "b13d7f0d1c0aa80a907929e0c922e0f5cd016941704563f9d0dcf9d30d64bc4c",
+        "sourceProfile": "plus-dex:475",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.4Dr7JAB0OHRipou3",
+        "contentHash": "1eebf9dc2aeaf0a927fb88654efa71cf902fdb28147e01b90d25b48d6302f099",
+        "sourceProfile": "plus-dex:414",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.4cg6ktB2a02gDY5W",
+        "contentHash": "1581af82c831adbf37893ce0ce28d8a5dcac263596fdc65fe84786b89f117ee6",
+        "sourceProfile": "plus-dex:736",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.7ZDem3DGK7vBzFJ4",
+        "contentHash": "b19acce0e888a7b19364a2dc3110ee09fd5834a7fb792f5c0e93208ff28cd8c9",
+        "sourceProfile": "hisui:28",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.7bqyaxjFyQviSdSu",
+        "contentHash": "34e01bb7398129d3a4848e3458a6fb96794aff44cfeb32396e182f041ce1f4c4",
+        "sourceProfile": "plus-dex:574",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.7eLKZ3KNV4T24wZR",
+        "contentHash": "6de72d1c277353fe8d438f40bb0381e137580baacb7d2b2a763a037ae69e4a57",
+        "sourceProfile": "galar:80",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.85lAlLiWKEMMoi5H",
+        "contentHash": "9f582111a21daeca7fc17858f96e525b7dbfd1bb3a4cda2b258cb889ed334e3d",
+        "sourceProfile": "plus-dex:697",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.8YJiFSF29HFr69QU",
+        "contentHash": "bb31a7402100c6fd636ed67e938b88c7ef5470765db753d3656a7c9b997faefe",
+        "sourceProfile": "plus-dex:337",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.A0sBewaxj0epSaUU",
+        "contentHash": "8dc6243682126425df72b1cf3d400d561a991647d63f183c307dee70632309b6",
+        "sourceProfile": "galar:33",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.B56tEVSEIVOBj6n0",
+        "contentHash": "0cf6db009d8e2598f0d81761f59f3b566a4437384b4d6bd10dff669dcd25a33d",
+        "sourceProfile": "plus-dex:511",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.BursQnUnaoTjwJ7D",
+        "contentHash": "c2e049bddcf50cae074a6a4636526a71d444d106aa96a9154964d6c3fdc49795",
+        "sourceProfile": "plus-dex:479",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.COcn86YZyNQvYEt6",
+        "contentHash": "43e45f0abce9b17ea619e02bb67c803d6ad22d041e2d3c160db5e7a5125437a9",
+        "sourceProfile": "plus-dex:510",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.D1lX6nxPVLGxUJ21",
+        "contentHash": "9fc56129074f16a04a10579cb53e0937319019c456d40bd41fdb9f0039f451cb",
+        "sourceProfile": "plus-dex:730:mega",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.DS9ztGc1otikvdEL",
+        "contentHash": "973b04be0361f0e31a55a867b4f718f783d27d7c0efcdb77b1182f8c0b9cb6eb",
+        "sourceProfile": "hisui:24",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.EJqz8EZbabLMvdtu",
+        "contentHash": "a4e8dd96c0e7791d62f6d2130a7faaddf78543b2c0688819d1ac8a2b67ad849d",
+        "sourceProfile": "alola:81",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.GhACTAIZ8snCaBcm",
+        "contentHash": "b1e0feb0c5747d39fd81508f3de5ff48adf3554c43d9e8acf3067d59585e11a8",
+        "sourceProfile": "plus-dex:452",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.GjOpPtslrLmd2qad",
+        "contentHash": "aa6818946802dcf4168d1b97c0ce8609e78f2cf19fc18ee4336eb6b99ad2e8bc",
+        "sourceProfile": "alola:76",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.HhY6hTJ9XJAFSSGQ",
+        "contentHash": "933359038a5d7c9c5f8c56957e9641c7a60095667de620ccfda0107f70da9002",
+        "sourceProfile": "alola:98",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.HkPe3fKle9E1jp4M",
+        "contentHash": "e1dae11d0507b59e350e8e9bb8b9796129ca3750164d8a52dffb288498ffaeb3",
+        "sourceProfile": "plus-dex:731:mega",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.HrQCqjyE07TN5937",
+        "contentHash": "733dffde34a784cdf5edcc311f8e3d7b1b0df3896efb524d461011c14ee0583f",
+        "sourceProfile": "plus-dex:56:mega",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.IU9ad1lTyNy3kptz",
+        "contentHash": "ca80ed7d9ebcd5ec01dc22e7fb6a52f3d33dc42857c76823dd516bbd2acfb290",
+        "sourceProfile": "galar:89",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.IfS8pHPxIqyAhE92",
+        "contentHash": "2acef5174cc189ebdce483d26d68f4177bf8a2ef50227922b3669024e818074d",
+        "sourceProfile": "galar:81",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.KHUUSzLEi6WfYaZW",
+        "contentHash": "a48e7d8192c2cb22abaf422fa2ca58f91e37073a48647494ede173c8088fe4cd",
+        "sourceProfile": "plus-dex:338",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.KIYAOBpeAd7UwekS",
+        "contentHash": "8555b97719620679f1f749a40d92df7e5a242454502c8a5f394745651abc0777",
+        "sourceProfile": "galar:94",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.KbP1j9TqW7adXNiN",
+        "contentHash": "ac5257b6e9be5d5b831705a3e8e8932291198b63bf8adf552c8f92f756f14dd5",
+        "sourceProfile": "plus-dex:285",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.KoyQemrV6HDKqBUk",
+        "contentHash": "f7f301c41e9bbde2cb24cfedf26bd118d10cd07974e249e8356afb27a09c4e77",
+        "sourceProfile": "galar:77",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.L8GHywmbFX9zWPtv",
+        "contentHash": "58cf611108ee2d0e7ad2c23f6f1f3712d67a0890c6604673f60202d9c3f6c9f2",
+        "sourceProfile": "galar:55",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.LOh4h9ZiwIBF9mHN",
+        "contentHash": "77a004d24e2bcc7403fff651211e73355dc45371dfbb85a35aaee1728ca5881e",
+        "sourceProfile": "plus-dex:94",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.LqhsHGAI4SfgLBeh",
+        "contentHash": "ac9daee33bffb9c3c6ddb38a4f075a8856d6176f1c2d6b2c7e94ab85f657a633",
+        "sourceProfile": "alola:74",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.OX6M10uqJ3lo56oC",
+        "contentHash": "7ea7ed15d3d38c306a7af11b09356b92f87f97d59812befef36a2fd29265a46d",
+        "sourceProfile": "galar:96",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.OYderFX8NpTCkWzu",
+        "contentHash": "5adf98057d422273e16d3098118069cfd9d1251289e3aa2e3d73b3e051873c53",
+        "sourceProfile": "alola:42",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.OryRh4Kr0wae5WBM",
+        "contentHash": "96abc23f21a0f28509ecb00d7fffe53273a5cc2a5dff5f533b44b24aa9e0c524",
+        "sourceProfile": "plus-dex:418:zen",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.Q9yoRMtkrcgvylHr",
+        "contentHash": "706311403416dbd44d4018dd2fc331c577cd9b05918497b33bce5e6101784b77",
+        "sourceProfile": "plus-dex:622",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.QAUxFV2raCCHWsHU",
+        "contentHash": "1c4cd5f0f3dc8fc3817ea8c952c5d2972d592e9093ee33176bcb0f71f75af88e",
+        "sourceProfile": "plus-dex:747",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.QO26nVznJW7B7Ern",
+        "contentHash": "488280222f5a66ec85256542390ca14ff0c08d76ca6c7bb7924460026827b870",
+        "sourceProfile": "galar:84",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.R4ViKuUcOBDgyzBX",
+        "contentHash": "209287013cbec005facf5a17b28216e8ec659e55e7a4a1c7323dffa12bccfae0",
+        "sourceProfile": "plus-dex:289",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.RjCZYVFREI6AVnuu",
+        "contentHash": "eb333f3f0934b66a79565641193e75f7a4785f129fc3960cccc46e1018948563",
+        "sourceProfile": "plus-dex:310",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.RwHro4aauXatQAI1",
+        "contentHash": "cf8f6f94c0572a62b0f7738ae837ab26620af7ad414d4ebb651a16859ef39d57",
+        "sourceProfile": "alola:98:ultra",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.SDC4tyMN9t0C2ULR",
+        "contentHash": "69846e862b204c5055f26c7e9685a859fe9bd07428e8513335c624cc1dcf877b",
+        "sourceProfile": "plus-dex:596",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.SFV30PZyR8Nhvb4W",
+        "contentHash": "d096f2f176d0fcc233e62ae72ec07a1397d116c07d9679c78e0a0e498c714184",
+        "sourceProfile": "alola:87",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.SFWSyAb1Dz33bxqH",
+        "contentHash": "d341f98cfbf1ac954bbf84e7e5b3e9e2b2bc27eda5d99ef4cd2055284c3530d5",
+        "sourceProfile": "plus-dex:438",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.SlPY02boB6sEFkJ0",
+        "contentHash": "46c5fed4cb89ca35d2cbba12ded0ac030d4acfab343a545ba40c68a1d440ced5",
+        "sourceProfile": "galar:79",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.UcLiFGXTP0jIsYk8",
+        "contentHash": "37365c0d0897a293330bf0d06e16100d73a6c299e8ba938bb888a94925d33a9b",
+        "sourceProfile": "plus-dex:743",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.UdauaTVa0WtKqKAh",
+        "contentHash": "a774963e0469c409c434cc54e58ce4513e7810eae203a8138c433965436a0663",
+        "sourceProfile": "plus-dex:511",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.UoCTuhDG9MiiZ0hP",
+        "contentHash": "43383e383f0160b3016c9c56af378f6dff74e465fad3cbce6eb96932215b1c82",
+        "sourceProfile": "galar:91",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.XJrUKr0uRKkecKGZ",
+        "contentHash": "07df5e9642b39cf84ce0f0554940150e53db23103c00114352c99efa296a6d1c",
+        "sourceProfile": "galar:35",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.Zz8nPS2kEmrNtJCR",
+        "contentHash": "a83ac69ab928609e9edc19589bd42eef86148da9738991f416e401c54fccdeb5",
+        "sourceProfile": "galar:111",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.a6MPUGzfQUQB8S7F",
+        "contentHash": "c50a45b5dd9cba0f848ccc6ad6606595a25cd0edaeb61de5167a647b2bf4335a",
+        "sourceProfile": "plus-dex:187:mega",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.aEM0aICjk2T8rUwF",
+        "contentHash": "c5cd34aec5806c65db645c24da333a7ed467fb8cb7e3ce07e8a84f23b18f237d",
+        "sourceProfile": "plus-dex:598",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.ahRkajGh59G4yQW5",
+        "contentHash": "7e742644f53794f991b4b5e29210251c6f0a5228fd641d1b8ccbf2af6b91f711",
+        "sourceProfile": "plus-dex:477",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.b6bjS8boLNmWy2vu",
+        "contentHash": "c4ab7aea4a4d5a055b3a74a55f66d38057ba0a0169b1506d6a57bdfd5e514cf7",
+        "sourceProfile": "alola:75",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.b9K7E1FAtWKNtmsU",
+        "contentHash": "200096010fea2cea44dcdfad95adf9f86e241aaeea8f09b2deda9ab059a33e1f",
+        "sourceProfile": "galar:86",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.cLsrP7g1A4IDQ1Xu",
+        "contentHash": "56d85e85757855907e0e1d6baf8086e2ed1df6c51f90557670b8e9ab7b62c0e4",
+        "sourceProfile": "alola:80",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.cYf0TwVdwmucdHQj",
+        "contentHash": "2bb36bcab6235878b89953e90f9df234f58e7610e5951b6aab55394f684c4285",
+        "sourceProfile": "galar:98",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.cmUM1ZChQn9GJueW",
+        "contentHash": "9bab69fd668b939ca08d47daba0b5aced4a988fff1250bb4e1be71923007e107",
+        "sourceProfile": "plus-dex:725",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.cnVdBvXHugD1Ex8o",
+        "contentHash": "cdb0ef63dd0e0949746d9b4ea69957c095e5d2a4a10a332299b7853f91b4c9d8",
+        "sourceProfile": "plus-dex:94",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.crY12dYznPKvMZl9",
+        "contentHash": "29c0c20ee444b68eb6ead9903e0968728fb953e246ab3f6db3ead70401c36ebc",
+        "sourceProfile": "plus-dex:185",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.diBAC21V6gm5XfDr",
+        "contentHash": "cb1877d4be37d8e10446d6d07ffe914a989e4c0d00882fc3bdf5a3808635e691",
+        "sourceProfile": "plus-dex:92",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.fJKNyK61GHOQMSU5",
+        "contentHash": "ea8cbd873acbb97e8c49537c47c17774946e7a7ba34d7ceca2b7e83885226dd7",
+        "sourceProfile": "galar:113",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.feDBZxZshBX1cBIb",
+        "contentHash": "2140c8631743e94a5873a3063d4760ecf911d5661c1948ac8eec660246778ee1",
+        "sourceProfile": "galar:92",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.g67wyLF5lqEwNgr9",
+        "contentHash": "70ebcd9dabf33ed739c525a7803d4a2ab86a38fb4e863768f6d04ce8d7b5499a",
+        "sourceProfile": "alola:78",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.gmtsp8sJHuZo0DP6",
+        "contentHash": "b66be31bf755afc0e5983f0bc86493490c743fae3aed3edaa3b04b18af2abbbe",
+        "sourceProfile": "plus-dex:309",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.hYBcyYMgnfvAK2DR",
+        "contentHash": "6237a0a0e88bb5b76b3a19a647a7aae5104d9b33f6103a7b48361b33efe4ed68",
+        "sourceProfile": "hisui:26",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.hrwooVLlYNqpSrV5",
+        "contentHash": "0b3399295ecb53b2a4f91559b2d78a4c2b971ebb2b801e73c8f0878094c804c2",
+        "sourceProfile": "plus-dex:184",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.iGHOjwJMUvS0NlFy",
+        "contentHash": "b232f4445cd75949f43b2c64f9f05e4f16120994e90f4a367d0b54c087e45aca",
+        "sourceProfile": "hisui:27",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.iiCeIz76MFeOyHye",
+        "contentHash": "b869a8314d21ab8028d4fc241e1c3f9325b922c1c59334ec9c29783450022ea9",
+        "sourceProfile": "plus-dex:268",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.jRXpKWFUuHTZXn84",
+        "contentHash": "0d4bec203cdb094d22d1a06ec6ba071972f8d041205b3a4467b777674a9c4fda",
+        "sourceProfile": "plus-dex:726",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.jXtmKsXKasKNpZUS",
+        "contentHash": "7b18c39ba406c4d2dc25b31b1a5b8d3a1d9487ea987c7a27d6fe4c976b952210",
+        "sourceProfile": "alola:43",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.n76SnZWqYOgVKqfu",
+        "contentHash": "e4e86acbbc97d29162f93d2a9301cdb6399c797b5d09115398e1bc9873554d51",
+        "sourceProfile": "alola:86",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.oKHg7c26tS2MFSNa",
+        "contentHash": "90a8a6825adbd18dfe39e7b62861fb98ac4d64628f544d087a8084ed130a190c",
+        "sourceProfile": "plus-dex:187",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.pJhg5jm1IL4GChjp",
+        "contentHash": "9f309a52e207837c22b4bbc3e25d16b610c0bc63feb13984c09fb31b6fbfe32c",
+        "sourceProfile": "galar:99",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.qREc2YB4qerJX7O9",
+        "contentHash": "8fc586546927fbd14457e53d997e5a97249b3ae3eae91a41feb7726939f5b1d1",
+        "sourceProfile": "alola:73",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.qUWABJUMukXo7YMR",
+        "contentHash": "373da8d34ada4c4e68ead6d3a66e83a8891682107eec29bfa738ccd1ebf4afdc",
+        "sourceProfile": "plus-dex:190:mega",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.qktaQNYZRNF8TFGr",
+        "contentHash": "2c6f34e966aec117bb49a58a5fe0396b67b6f2797b73b2331201cadcac2311d8",
+        "sourceProfile": "galar:48",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.r0mKujRIxStNo8FM",
+        "contentHash": "655aa547887d616f29f4dacbc0f1055f28cf5a8ecaa41c677daf660fa0691535",
+        "sourceProfile": "plus-dex:737",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.rARAQMSQ46wVBD10",
+        "contentHash": "c7b4187e5a5c4cd75d2c628e85b5631969b93520b05504c618e8010cd1ccbf31",
+        "sourceProfile": "plus-dex:103",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.rM3WJkGLydXkMe8n",
+        "contentHash": "4271a5dbf64fda7fcb3a1c3c1b1ef528ebc2d6c606ce41d8bfec14bce6fb0f5f",
+        "sourceProfile": "alola:79",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.rf4v91RJmfWMcKI7",
+        "contentHash": "52b51410bce812fcf85de19465868d96aa11c9704af579e25fc89cc2f4f6e837",
+        "sourceProfile": "plus-dex:574",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.sRbLRu0MvKoD8NhR",
+        "contentHash": "35d45f40742f76c74f374586c13d2bb8c5388f3efcc1c475d49a5791397dcb75",
+        "sourceProfile": "galar:112",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.sVfIdTSPqPddcSgw",
+        "contentHash": "b0e9d7bbbaeecce1e06028809028de620f1d3294ea0ebae358afa3be6d2edd5c",
+        "sourceProfile": "alola:99",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.syx7XwocO1Ddlakp",
+        "contentHash": "b4d45aa23cb55039e1174b400f687b25f1733d896339ebe6988f3df466e14018",
+        "sourceProfile": "plus-dex:692",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.ty8LAkRKQjmhsvqY",
+        "contentHash": "8553c3916e3027d8e88727294209874ba8969da8f9099edcb1113e39a57120fa",
+        "sourceProfile": "plus-dex:574",
+        "coverageState": "unresolved"
+      },
+      {
+        "identity": "species.u0vJNmW9NyFphsjE",
+        "contentHash": "4489596f8f3b1fce6be55122b0d7e5cb22aeb2eb31ca079adeea8c53ec530f46",
+        "sourceProfile": "plus-dex:631",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.uFGnCiEY7OkMr6bu",
+        "contentHash": "558b0eea29468e85ef1d00db6f40fe4d1ab5f5aa0b77586fc0c44e96997ba59d",
+        "sourceProfile": "alola:85",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.vXVPDhpqhp3Orli6",
+        "contentHash": "041e0e2e7ac300949de5ec3807376d3e44537e28de2a86755c0ebb89baa6f5e3",
+        "sourceProfile": "galar:97",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.vqQ5Ozh3ZXd5xiZr",
+        "contentHash": "69bd3b24703b8d7a2eca450a7113e99925ad5d39db5b3a843cf16e7a699fe76e",
+        "sourceProfile": "galar:47",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.w26bbvB0ag2aT1cA",
+        "contentHash": "5257a3f59bd3a2935ab417c761aaa19019c22aef50ebca0831d4b41bef72c600",
+        "sourceProfile": "galar:34",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.xzQWimC6xzSA0xWr",
+        "contentHash": "f54710b5658404f01197335574e87c59a8702a53cb17bb17defccedefde69e71",
+        "sourceProfile": "hisui:25",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.zGnBYIF48DX7DhBz",
+        "contentHash": "dfb376858f278e4433541ba78d892b683f15618a91e48156780347f828874d4d",
+        "sourceProfile": "galar:93",
+        "coverageState": "reviewed"
+      },
+      {
+        "identity": "species.zSkBKwzQzN1aLa0P",
+        "contentHash": "acc5ae8cfd227a621a709aede7dc0c39803971e91fed7e97f8f920388e727a83",
+        "sourceProfile": "plus-dex:684:megaX",
+        "coverageState": "unresolved"
+      }
+    ]
+  }
 }

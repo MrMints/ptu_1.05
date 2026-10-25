@@ -21,10 +21,55 @@ test('all 87 relationships require exact reviewed source and target evidence', (
     data.dependencyReview.relationships.pop();
     data.dependencyReview.relationships[0].targetContentHash = '0'.repeat(64);
     data.dependencyReview.relationships[1].relationshipData = [];
+    data.dependencyReview.relationships[2].paths = ['$.system.nonexistent'];
     const errors = recordSourceReviewErrors(data);
     assert.ok(errors.some(x => x.includes('Missing required dependency disposition')));
     assert.ok(errors.some(x => x.includes('source/target review or hash missing')));
     assert.ok(errors.some(x => x.includes('separate source/target field evidence')));
+    assert.ok(errors.some(x => x.includes('UUID paths do not describe exact current source')));
+});
+
+test('duplicated record evidence cannot disagree in fieldReview alone', () => {
+    const data = copy(), row = records(data).find(value => value.identity === 'moves.50Vtl0u0jPevwY4K');
+    row.fieldReview.find(value => value.field === 'type').sourceValue = 'Fire';
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Duplicated fieldReview/sourceComparison evidence disagrees')));
+});
+
+test('Tackle damageBase evidence must equal the unchanged current record', () => {
+    const data = copy(), row = records(data).find(value => value.identity === 'moves.50Vtl0u0jPevwY4K');
+    for (const fields of [row.fieldReview, row.sourceComparison.fields]) fields.find(value => value.field === 'damageBase').recordValue = 5;
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Declared field evidence does not describe exact current record: moves.50Vtl0u0jPevwY4K damageBase')));
+});
+
+test('capability and skill evidence must equal the unchanged current species fields', () => {
+    for (const kind of ['capability', 'skill']) {
+        const data = copy(), row = records(data).find(value => value.identity === 'species.04HUofEWMHdMr0Ya');
+        for (const fields of [row.fieldReview, row.sourceComparison.fields]) {
+            if (kind === 'capability') fields.find(value => value.field === 'system.capabilities numeric fields').values[0].record += 1;
+            else fields.find(value => value.field === 'system.skills six printed entries').values[0].record.value += 1;
+        }
+        assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Declared field evidence does not describe exact current record: species.04HUofEWMHdMr0Ya')), kind);
+    }
+});
+
+test('an acquisition path must contain its exact UUID even when that target remains elsewhere', () => {
+    const data = copy(), relation = data.dependencyReview.relationships.find(value => value.paths.some(path => path.includes('.moves.machine[')) && value.paths.length > 1);
+    const other = data.dependencyReview.relationships.find(value => value.source === relation.source && value.target !== relation.target && value.paths.some(path => path.includes('.moves.machine[')));
+    assert.ok(relation && other);
+    const trueOtherPath = relation.paths.find(path => !path.includes('.moves.machine['));
+    relation.paths = relation.paths.map(path => path.includes('.moves.machine[') ? other.paths.find(path => path.includes('.moves.machine[')) : path);
+    assert.ok(relation.paths.includes(trueOtherPath));
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Dependency UUID paths do not describe exact current source')));
+});
+
+test('all 95 form/branch/skill cases retain examined dispositions and required form citations', () => {
+    const data = copy(), batch = data.index.finiteFormBranchBatch, row = data.files[batch.recordFile].records.find(value => value.sourceComparison.derivedFormEvidence?.kind === 'printed-mega-table');
+    assert.equal(batch.records, 95);
+    assert.deepEqual(batch.counts, {reviewed: 81, unresolved: 14});
+    row.sources = row.sources.filter(value => !value.pdfPages.includes(206));
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Derived Mega evidence lost the additional-Ability rule citation')));
+    data.files[batch.recordFile].records[0].coverageState = 'unreviewed';
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Finite available-source case became pending or stale')));
 });
 test('available Phione, Tentacruel, Magneton and Torchic profiles cannot become unavailable through heading parsing', () => {
     const data = copy();
