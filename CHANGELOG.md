@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### PTU 04 inherited-record source classification
+- Record exact source/target data and dispositions for the six eligible roots’ 87 relationships, plus four available-profile extraction regressions. The initial source snapshot keeps remaining inventory explicitly unreviewed; production approval and behavior verification remain separate.
+- Classify Darmanitan's unchanged learning schedule as editorial without changing either source value. Add checks for hashes, finite relationship coverage, independent evidence, policy boundaries and false completion. Full 04 remains held while addressable review continues.
+
 ### PTU 04 source and revision catalog
 - Account for all 26 supplied reference paths by 18 unique hashes, preserving original files and prior review metadata. Record editions, duplicate aliases, page conventions and source precedence.
 - Catalog 283 May/September 2015 and February 2016 playtest entries plus six supporting-source guidance/edition entries. Record baseline/revised interpretations, per-item or mechanic selection proposals and explicit manual conflict dispositions; no runtime variants/settings are implemented.

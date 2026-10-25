@@ -1,6 +1,6 @@
 # PTU 04 - Rules sources and revision catalog
 
-Status: Owner-authorized required readable source work completed on 2026-10-25, including the continuation after initial commit `eb7e89c`. Final section acceptance is for owner review with specific rulings and evidence limits documented. No automatic restart or section 05 start.
+Status: Readable-source subgate accepted at `a35cec20`. Owner-authorized inherited-record correction is active with sole checkout ownership; full 04 remains held. Section 05 stays idle.
 
 ## On explicit start
 
@@ -29,6 +29,14 @@ Runtime coding, content-ID migrations, uploading supplied PDFs, treating documen
 When an authorized batch ends, record its commit/PR, changed files, source decisions, exact tests and outcomes, unresolved issues, next bounded action and downstream interface changes here. Keep this concise; link larger evidence instead of copying it. Update relevant status/ledger/changelog documentation in the same PR. Report implemented, verified and automated separately. Do not start or message another chat automatically.
 
 ## Source/catalog handoff — 2026-10-25
+
+### Active inherited-record correction checkpoint
+
+- Starting head `a35cec20817c73ed27d71f85a99bc33df45ce365`, correct origin and clean tree confirmed on authorization; other numbered chats idle. Prior 01–03 and readable-source acceptance is preserved. The older ownership-release paragraph below describes the readable batch, not this active correction.
+- [Record snapshot](../data/record-source-classification.json): 92 reviewed,3 preserved owner exclusions, 0 unresolved record identities in this checkpoint, 7,300 unreviewed. First 88 distinct records and all 87 relationships from six eligible roots retain exact hashes, UUID paths, review axes, acquisition findings and source citations. Four reading-order regressions find Phione p.714/Tentacruel p.442/Magneton p.148/Torchic p.36 in plus with independent field corroboration.
+- [Validation/remaining work](../validation/2026-10-25-record-sources.md): 19 focused tests pass. Darmanitan's unchanged learning schedule is editorial with source values preserved. Production policy, packs/runtime/IDs/campaigns/originals are unchanged; helper timing and gameplay are not certified.
+- Addressable work continues: definition/prose anchors and competing versions; secondary/regional/conditional forms; full relevant field/branch comparisons; helpers, tables, macros and embedded journals; precise unmatched-source limitations. Exact working/resume state is in ignored `.cache/rules04/CLASSIFICATION_RESUME.md`. Diagnostic defaults/candidates do not count as reviewed. Preserve Books/Digital Avatar/Twisted Power/legacy/evolution questions; optional selection/nonstacking needs no new cataloging permission.
+- Ownership remains 04 during this correction. 05 stays held; no other chat is started/messaged. Exact checkpoint commit/CI evidence is recorded in the existing PR/issue handoff; no merge or release.
 
 - Branch `codex/ptu-foundation`, clean starting head `9d678f05cbdc864aeab205fdecc7eb6950bd9d22`, draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4), [issue #2](https://github.com/MrMints/ptu_1.05/issues/2). Final pushed commit/CI metadata are recorded in the completion comment; this source commit adds no production inputs. Owner/coordinator confirmed planner acceptance of currently due 01–03 gates and sole 04 checkout ownership.
 - Implemented artifacts: [source guide](../RULES_SOURCES.md), six source/catalog JSON artifacts, appended reconciliation decisions, reference-refresh metadata safeguards, catalog validator and 11 corruption/consistency tests. [Full validation](../validation/2026-10-25-rules-catalog.md). Original reference inventory/review metadata preserved; originals remain local.

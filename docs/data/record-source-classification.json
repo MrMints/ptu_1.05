@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "startingHead": "a35cec20817c73ed27d71f85a99bc33df45ce365",
+  "status": "in-progress; first eligible/dependency batch and four extraction regressions recorded; remaining inventory review continues",
+  "scope": "PTU1.05 Generations1–8 only; source classification does not approve a record or implementation",
+  "inventory": "docs/data/content-eligibility.json",
+  "sourceFingerprint": "9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a",
+  "recordFiles": [
+    "record-source-review/starter-dependencies.json",
+    "record-source-review/reading-order-regressions.json",
+    "record-source-review/known-exclusions.json"
+  ],
+  "coverage": {
+    "totalInventoryRecords": 7395,
+    "explicitRecordDispositions": 95,
+    "counts": {
+      "reviewed": 92,
+      "excluded": 3,
+      "unreviewed": 7300,
+      "unresolved": 0
+    },
+    "completeAddressableClassification": false,
+    "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
+    "sourceClassCounts": {
+      "standard": 55,
+      "optional-version": 1,
+      "mixed": 27,
+      "supporting": 9,
+      "excluded": 3
+    }
+  },
+  "dependencyReview": "record-dependency-review.json",
+  "firstBatch": {
+    "eligibleRoots": 6,
+    "records": 88,
+    "relationships": 87,
+    "sourceEligibilityApprovalPreserved": true
+  },
+  "readingOrderRegressions": [
+    {
+      "identity": "species.04HUofEWMHdMr0Ya",
+      "contentHash": "304637227bac4b9814a00acba733296921b9aec2e256a642470d5984b3e79561",
+      "sourceProfile": "plus-dex:714"
+    },
+    {
+      "identity": "species.07C1xktkoENBPgjs",
+      "contentHash": "7cb91f57f979e2fd344878d6f4a413594187ccd00194b03370288a1e8bcaceed",
+      "sourceProfile": "plus-dex:442"
+    },
+    {
+      "identity": "species.07CjMJ4qMxK0ZaEk",
+      "contentHash": "984d5931eae627647d729f7a697f206ca74074384fbd384b0502bfb816cd1ae6",
+      "sourceProfile": "plus-dex:148"
+    },
+    {
+      "identity": "species.08vVg10BhDfQUn87",
+      "contentHash": "ee92976be370863a9810f06d11a9d9b0ebcd93b49c607a8f2aa8cd402ce7c4ce",
+      "sourceProfile": "plus-dex:36"
+    }
+  ],
+  "protectedPolicyArtifacts": [
+    {
+      "path": "docs/data/content-eligibility.json",
+      "semanticSha256": "57e42a6a2cfc0a8df754980be288e5581514646adb7d0848fa6c1bd104a867ad"
+    },
+    {
+      "path": "docs/data/content-eligibility-review.json",
+      "semanticSha256": "e661ff729692f48878ad76b82fc9814788157d9a95f540bbce17d5e6bf2df14f"
+    },
+    {
+      "path": "docs/data/supported-content-scope.json",
+      "semanticSha256": "aea47ea3eb39bca17869816832805dff7b446bce3a62e8d718c922fe94f72161"
+    },
+    {
+      "path": "docs/data/content-reconciliation-search.json",
+      "semanticSha256": "5051bf2ab6890e0220d0ab91e907d37fe6afb7ab7ce8f3595d316dbab69d5606"
+    },
+    {
+      "path": "docs/data/references.json",
+      "semanticSha256": "8aa029ddb35d85f16ae96d402ac3bdada661ca17404f2668dda6d8381e4b4548"
+    }
+  ],
+  "acceptedSourceInvariants": {
+    "darmanitanLearningValuesSha256": "fa8d8002e2920f519dfd206e6aa47e69fa6b0648937e00dc90eb77b1cd518217",
+    "darmanitanLearningCategory": "editorial-correction"
+  },
+  "productionPolicyPromotion": false,
+  "behavioralVerification": "not-run",
+  "remainingAddressableWork": "Continue the focused source/pack family diagnostic, definition anchors, secondary forms, source comparisons and precise evidence limitations. Do not treat diagnostic defaults or missing parser candidates as completed review."
+}

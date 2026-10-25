@@ -31,6 +31,11 @@ and accidental source-to-runtime approval. It checks catalog consistency; it doe
 certify the interpreted rules, inherited record mappings or gameplay.
 
 ## Foundry v13.351 batch
+
+Inherited source classifications have a separate check: `node tools/record-source-review.mjs` and
+`node --test --test-isolation=none tests/record-source-review.test.mjs tests/rules-catalog.test.mjs`.
+The current 19-test batch checks source evidence and finite coverage, not gameplay. A valid snapshot may
+remain incomplete; unreviewed inventory and protected production approvals must remain visible.
 Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.
 Launch the installed Foundry application using `.foundry-test` as its data path, or use:
 

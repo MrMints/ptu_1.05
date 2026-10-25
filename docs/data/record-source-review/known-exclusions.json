@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "identity": "effects.3w7uQfBvzzxATXis",
+      "contentHash": "a67cd7ce4dcb623fa52d991fdceb6dbf3e9860faa98a94500a17a20a65b07a5f",
+      "coverageState": "excluded",
+      "recordClass": "excluded",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Existing exact-ID owner-reviewed scope decision preserved; no inference from an excluded consumer."
+      },
+      "generationReview": {
+        "status": "excluded",
+        "basis": "docs/data/content-eligibility-review.json exact identity/hash decision"
+      },
+      "ruleVersionReview": {
+        "status": "not-applicable",
+        "basis": "Excluded source record retained unchanged, not reviewed as supported gameplay."
+      },
+      "fieldReview": [],
+      "sources": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ],
+      "priorPolicyEvidence": {
+        "identity": "effects.3w7uQfBvzzxATXis",
+        "contentHash": "a67cd7ce4dcb623fa52d991fdceb6dbf3e9860faa98a94500a17a20a65b07a5f",
+        "generationEligibility": "excluded",
+        "ruleVersionApproval": "owner-excluded",
+        "verification": "excluded-no-new-behavior-verification",
+        "sourceReferences": [
+          {
+            "path": "docs/data/supported-content-scope.json",
+            "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+          }
+        ]
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "species.dkQPNz0RLbgzWMLq",
+      "contentHash": "edcb734b2ef2ae8bbbc2beb53b42c2630eee83aeb8cee7cfd67cf2431e4928ff",
+      "coverageState": "excluded",
+      "recordClass": "excluded",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Existing exact-ID owner-reviewed scope decision preserved; no inference from an excluded consumer."
+      },
+      "generationReview": {
+        "status": "excluded",
+        "basis": "docs/data/content-eligibility-review.json exact identity/hash decision"
+      },
+      "ruleVersionReview": {
+        "status": "not-applicable",
+        "basis": "Excluded source record retained unchanged, not reviewed as supported gameplay."
+      },
+      "fieldReview": [],
+      "sources": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ],
+      "priorPolicyEvidence": {
+        "identity": "species.dkQPNz0RLbgzWMLq",
+        "contentHash": "edcb734b2ef2ae8bbbc2beb53b42c2630eee83aeb8cee7cfd67cf2431e4928ff",
+        "generationEligibility": "excluded",
+        "ruleVersionApproval": "owner-excluded",
+        "verification": "excluded-no-new-behavior-verification",
+        "sourceReferences": [
+          {
+            "path": "docs/data/supported-content-scope.json",
+            "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+          }
+        ]
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "species.jAIJeRtRc1sUekjO",
+      "contentHash": "7a9109f9b81cc8ca4369527afb839355160d804a5a0e8ea790c5ad26be9db974",
+      "coverageState": "excluded",
+      "recordClass": "excluded",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Existing exact-ID owner-reviewed scope decision preserved; no inference from an excluded consumer."
+      },
+      "generationReview": {
+        "status": "excluded",
+        "basis": "docs/data/content-eligibility-review.json exact identity/hash decision"
+      },
+      "ruleVersionReview": {
+        "status": "not-applicable",
+        "basis": "Excluded source record retained unchanged, not reviewed as supported gameplay."
+      },
+      "fieldReview": [],
+      "sources": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ],
+      "priorPolicyEvidence": {
+        "identity": "species.jAIJeRtRc1sUekjO",
+        "contentHash": "7a9109f9b81cc8ca4369527afb839355160d804a5a0e8ea790c5ad26be9db974",
+        "generationEligibility": "excluded",
+        "ruleVersionApproval": "owner-excluded",
+        "verification": "excluded-no-new-behavior-verification",
+        "sourceReferences": [
+          {
+            "path": "docs/data/supported-content-scope.json",
+            "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+          }
+        ]
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    }
+  ],
+  "productionPolicyPromotion": false
+}

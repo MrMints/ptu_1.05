@@ -33183,7 +33183,7 @@
         "interpretation": "Standard companion values remain the baseline. Compared with the same source-page profile in plus; exact field meanings are recorded in each change.sourceInterpretation."
       },
       "revised": {
-        "interpretation": "Optional current supplied plus profile; apply only explicitly selected, reviewed differences. Explicit ability-slot replacement: Adv Ability 1: Zen Mode → Inner Focus; High Ability: Celebrate → Zen Mode; Optional source capabilities delta: Warmer → Warmer, Forme Change*; Plus lays the same level/Move pairs into two columns and omits their Type labels. Extracted reading order interleaves columns; this does not establish a changed learning schedule.; Optional source machineMoves delta: Only line-wrap hyphenation differs.; Tutor list is unchanged apart from wrapping. The appended Zen Mode profile adds Levitate6 and changes Jump1 to1/1; these are form-capability changes, not Tutor Moves."
+        "interpretation": "Optional current supplied plus profile; apply only explicitly selected, reviewed differences. Explicit ability-slot replacement: Adv Ability 1: Zen Mode → Inner Focus; High Ability: Celebrate → Zen Mode; Optional source capabilities delta: Warmer → Warmer, Forme Change*; The same level/Move pairs are printed in two columns in plus, with Type labels omitted. Extracted reading order interleaves columns; learning schedule is unchanged. Appended Zen Mode capability changes are separate.; Optional source machineMoves delta: Only line-wrap hyphenation differs.; Tutor list is unchanged apart from wrapping. The appended Zen Mode profile adds Levitate6 and changes Jump1 to1/1; these are form-capability changes, not Tutor Moves."
       },
       "changes": [
         {
@@ -33247,8 +33247,8 @@
           "standardSourceValue": "3 Rollout - Rock 6 Incinerate - Fire 9 Rage - Normal 11 Fire Fang - Fire 14 Headbutt - Normal 17 Swagger - Normal 19 Facade - Normal 22 Fire Punch - Fire 25 Work Up - Normal 27 Thrash - Normal 30 Belly Drum - Normal 33 Flare Blitz - Fire 35 Hammer Arm - Fighting 39 Taunt - Dark 47 Superpower - Fighting 54 Overheat - Fire",
           "revisedSourceValue": "3 Rollout 25 Work Up 6 Incinerate 27 Thrash 9 Rage 30 Belly Drum 11 Fire Fang 33 Flare Blitz 14 Headbutt 35 Hammer Arm 17 Swagger 39 Taunt 19 Facade 47 Superpower 22 Fire Punch 54 Overheat",
           "sourceInterpretation": {
-            "category": "optional-profile-rule-change",
-            "summary": "Plus lays the same level/Move pairs into two columns and omits their Type labels. Extracted reading order interleaves columns; this does not establish a changed learning schedule.",
+            "category": "editorial-correction",
+            "summary": "The same level/Move pairs are printed in two columns in plus, with Type labels omitted. Extracted reading order interleaves columns; learning schedule is unchanged. Appended Zen Mode capability changes are separate.",
             "tokenChanges": [
               {
                 "before": "- Rock",
@@ -33347,10 +33347,11 @@
         "status": "substantive-current-source-comparison-complete",
         "method": "All changed field values and complete page-token deltas reviewed; formatting, omitted headings, multi-column extraction and appended form notes are distinguished from rules changes.",
         "categories": [
+          "editorial-correction",
           "optional-profile-rule-change",
           "wrapping-only"
         ],
-        "summary": "Explicit ability-slot replacement: Adv Ability 1: Zen Mode → Inner Focus; High Ability: Celebrate → Zen Mode; Optional source capabilities delta: Warmer → Warmer, Forme Change*; Plus lays the same level/Move pairs into two columns and omits their Type labels. Extracted reading order interleaves columns; this does not establish a changed learning schedule.; Optional source machineMoves delta: Only line-wrap hyphenation differs.; Tutor list is unchanged apart from wrapping. The appended Zen Mode profile adds Levitate6 and changes Jump1 to1/1; these are form-capability changes, not Tutor Moves."
+        "summary": "Explicit ability-slot replacement: Adv Ability 1: Zen Mode → Inner Focus; High Ability: Celebrate → Zen Mode; Optional source capabilities delta: Warmer → Warmer, Forme Change*; The same level/Move pairs are printed in two columns in plus, with Type labels omitted. Extracted reading order interleaves columns; learning schedule is unchanged. Appended Zen Mode capability changes are separate.; Optional source machineMoves delta: Only line-wrap hyphenation differs.; Tutor list is unchanged apart from wrapping. The appended Zen Mode profile adds Levitate6 and changes Jump1 to1/1; these are form-capability changes, not Tutor Moves."
       },
       "selectionDependencies": [
         {
@@ -58584,8 +58585,8 @@
     ]
   },
   "reviewCounts": {
-    "optional-profile-rule-change": 541,
-    "editorial-correction": 38,
+    "optional-profile-rule-change": 540,
+    "editorial-correction": 39,
     "rule-ambiguity": 1,
     "wrapping-only": 1
   }
