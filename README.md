@@ -1,5 +1,5 @@
 # Pokemon Tabletop United 1.05
-This is a forked version of the Pokemon Carbon system from [![animenerdfreddurst]([https://github.com/animenerdfreddurst/pokemon_carbon](https://github.com/animenerdfreddurst/pokemon_carbon))]()
+This is a forked version of the Pokemon Carbon system from [[animenerdfreddurst](https://github.com/animenerdfreddurst/pokemon_carbon)]()
 
 The intention of this fork is to bug fix, increase automation, and work on the newest foundry version.
 
