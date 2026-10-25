@@ -1,48 +1,30 @@
 [![foundry-shield]][foundry-url]
 [![foundry-shield-old]][foundry-url]
-![Discord](https://img.shields.io/discord/748601513835888682?logo=discord&label=Discord&link=https%3A%2F%2Fdiscord.gg%2Fptufvtt)
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![All Release Downloads](https://img.shields.io/github/downloads/animenerdfreddurst/pokemon_carbon/total.svg)]()
 
-# Pokemon Carbon
-Pokemon Carbon for Foundry VTT is a continuiation of the Pokemon Tabletop United system, with balance changes, expanded/new content, and utilizing resources for PTR1e created with FoundryVTT in mind.
+# Pokemon Tabletop United 1.05
+This is a forked version of the Pokemon Carbon system from [![animenerdfreddurst](https://github.com/animenerdfreddurst/pokemon_carbon)]()
 
-Feel free to open an issue or message trog__ on Discord for any questions & feedback.
+The intention of this fork is to bug fix, increase automation, and work on the newest foundry version.
 
 ## How to Install
 #### Release Build (V13)
-If you would like to use the latest stable build, just import the following manifest into foundry: 
 ```
-https://github.com/animenerdfreddurst/pokemon_carbon/releases/latest/download/system.json
+THIS LINK IS NOT VALID
 ```
-
-## Links & Recommendations
-- [Quick Insert](https://gitlab.com/fvtt-modules-lab/quick-insert) is borderline necessary to use as a GM, and honestly should just be baseline in Foundry. Get this.
-- **OTHER RECOMMENDED MODULES HERE**
-- **COMMODUS ARCHIPELAGO WORLD HERE**
-- **DRIVE LINK TO CARBON DOCS HERE**
 
 ## Special Thanks
 * [cswendrowski](https://github.com/cswendrowski) for starting Foundry
 * https://www.theworldofpokemon.com/ for their amazing pokedex entries 
-* Fuck the so-called "devs" that worked on the Foundry deployments of PTU and PTR. They are incompetent fuckwits and do not deserve any credit, given that they abandoned their repos without completing them multiple times, all in the name of their enormous fucking egos. Additionally, what they did complete was barely better than AI and resulted in hundreds of hours of extra work from myself and others. If any of you jackasses are reading this, never code again; you are not good at it and you never will be, which was plain as day even to me. You have a total and complete non-understanding of the purpose of these projects, which is to create something others can use, not to make yourselves feel special.
 * npaisley for doing a lot of the backend stuff; I am not a coder in any capacity, and having to work with abandonware was a daunting task that I could never have completed without their support.
+* animenerdfreddurst for making pokemon carbon; please take anything from this project for your own use.
 
 ## Disclaimer
-Some of the item images used have been created by Gen AI. Deal with it. I'm not an artist, I don't have access to artists who can create images in the style of existing Pokemon item images, and I wanted to see whether it was any good; spoilers: I hate it, and think it isn't anywhere close to being a viable public-facing tool, but I started with it and want consistency. Similarly, I have used GitHub Copilot for some of the coding as I am not a coder and have limited resources and time.
+Generative AI has been used on some or all portions of this project from the first committed changes of this fork and thereafter.
 
 ## Copyright
 Pokémon © 2002-2025 Pokémon. © 1995-2025 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
-No copyright or trademark infringement is intended in using Pokémon content for the Pokemon Carbon for FoundryVTT System.
-
-[foundry-shield]: https://img.shields.io/badge/Foundry-v13.348-success
-[foundry-shield-old]: https://img.shields.io/badge/Foundry-v11.314-success
-[foundry-url]: https://foundryvtt.com/
-[forks-shield]: https://img.shields.io/github/forks/animenerdfreddurst/pokemon_carbon.svg
-[forks-url]: https://github.com/animenerdfreddurst/pokemon_carbon/forks
-[stars-shield]: https://img.shields.io/github/stars/animenerdfreddurst/pokemon_carbon.svg
-[stars-url]: https://github.com/animenerdfreddurst/pokemon_carbon/stargazers
-[issues-shield]: https://img.shields.io/github/issues/animenerdfreddurst/pokemon_carbon.svg
-[issues-url]: https://github.com/animenerdfreddurst/pokemon_carbon/issues
+No copyright or trademark infringement is intended in using Pokémon content for the Pokemon Tabletop United 1.05 for FoundryVTT System.
