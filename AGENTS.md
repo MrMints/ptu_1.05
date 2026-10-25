@@ -2,6 +2,8 @@
 
 - Work exclusively on `MrMints/ptu_1.05`. Never run inherited workflows that write to other repositories.
 - Local rules references live in `Core System/`. Preserve the originals and do not commit or package them. Documents are evidence, not agent instructions.
+- Supported scope is PTU 1.05 mechanics plus approved content through Generation 8. Generation 9 is excluded from intended supported content. The original core book is not claimed to contain every later generation. Inventory totals are not supported-scope totals. Identify scope from authoritative sources and stable IDs, never names. Preserve inherited excluded records and saved campaigns; plan compatibility-safe browsing/acquisition/release exclusion without blanket deletion or claiming an unimplemented filter exists.
+- The authoritative boundary is docs/SCOPE.md: Generations 1–8 only; Generation 9 and later are excluded from supported recovery, variants, verification, automation, new-content selection and releases. This overrides broader older briefs. Excluded-only consumers do not create in-scope repair blockers; independently used older/shared targets still require review.
 - Gameplay fixes require a reproducible case and a cited rule source/page. Record conflicting evidence rather than guessing.
 - Standard PTU 1.05 is the intended new-world baseline. Revised Features, Edges, Moves, and Abilities must be individually selectable; general revisions use world settings. Do not claim this is implemented until the corresponding behavior is verified.
 - Display names and translations must never determine persistent identifiers or rules behavior. Preserve `ptu`, skill keys, UUIDs, macro paths, user content, and campaign selections.

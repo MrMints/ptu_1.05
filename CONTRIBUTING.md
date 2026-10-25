@@ -1,5 +1,7 @@
 # Contributing
 
+Follow [docs/SCOPE.md](docs/SCOPE.md): approved Generations 1–8 content only; Generation 9 and later are excluded from supported recovery, rules variants, verification, automation and releases. Preserve historical records and campaign data; inventory totals are not supported-scope totals. Do not infer a shared target's generation from an excluded consumer.
+
 Use Node 22 or newer and pnpm 11.25.0. Run `pnpm install --frozen-lockfile`.
 Run a related batch with `pnpm test` and `pnpm validate`. Before a release also run
 `pnpm packs:verify` and `pnpm build`, then the Foundry integration batch in `docs/TESTING.md`.

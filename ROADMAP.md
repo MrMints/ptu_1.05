@@ -2,14 +2,18 @@
 
 All work belongs to MrMints/ptu_1.05. Target Foundry v13.351 first. Preserve `Core System/` locally.
 
+Supported content stops at **Generation 8**, using PTU 1.05 mechanics and approved supporting material. This does not mean the original core book contains every later generation. Generation 9 inherited data is excluded from intended support, and inventory totals are not supported-content totals. Preserve existing IDs, user content and campaigns; the compatibility-safe exclusion from new-content browsing/acquisition and release scope is planned in [the scope ledger](docs/data/supported-content-scope.json), not yet implemented.
+
+[The scope policy](docs/SCOPE.md) governs all milestones: **Generations 1–8 only; Generation 9 and later excluded**. The saved plan and all chat briefs must be interpreted within this boundary.
+
 | Milestone | Gate |
 | --- | --- |
 | 1. Foundation and documentation | Documented PRs, required checks, Issues, squash-only merges and default-branch protections |
-| 2. Reproducible content and testing | Complete source packs, stable IDs, clean install, isolated test world |
+| 2. Reproducible content and testing | Complete in-scope source packs, stable IDs, clean install, isolated test world and explicit excluded-content inventory |
 | 3. Skill terminology | Eight restored core labels; unchanged numeric behavior and old-name prerequisite compatibility |
 | 4. Rules revisions | Sourced individually selectable content versions, independent mechanic switches, standard new-world defaults |
-| 5. Gameplay and move verification | Shared calculations verified; every move/version has an explicit outcome and automation coverage |
-| 6. Automation and releases | Assisted outcome application, documented limitations, tested installation and upgrades |
+| 5. Gameplay and move verification | Shared calculations verified; every in-scope move/version through Generation 8 has an explicit outcome and automation coverage |
+| 6. Automation and releases | In-scope assisted actions, Generation 9 excluded from shipped playable content/new acquisition, documented limitations, tested installation and upgrades |
 
 Prioritize data loss/startup errors, incorrect gameplay, missing automation, then cosmetics. Defer newer Foundry majors.
 

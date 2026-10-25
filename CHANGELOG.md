@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Limit the project plan and all nine chat instructions to approved Generations 1–8 content; exclude Generation 9 and later from supported recovery, variants, verification, automation and releases. Reclassify the current 24-target consumer-only recovery backlog as outside acceptance while preserving historical evidence and shared older-content dependencies. Physical pack/UI exclusion remains pending; no campaign data or content IDs are removed.
+
 - Prepare PTU 02's remaining acceptance instructions: bounded identity-backed recovery, legacy source-reference compatibility, safe disposable setup, grouped integration checks, and an explicit completed-versus-blocked handoff. Implementation remains paused until an explicit start.
 
 ### Compendium reference investigation

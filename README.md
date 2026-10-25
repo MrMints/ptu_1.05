@@ -3,6 +3,8 @@ This is a forked version of the Pokemon Carbon system from [animenerdfreddurst](
 
 This fork restores standard PTU 1.05 terminology, repairs inherited content and bugs, and develops verified, assisted automation. The initial integration target is Foundry v13.351.
 
+Supported scope is **Generations 1–8 only**, using PTU 1.05 mechanics and approved supporting material. **Generation 9 and later are excluded.** Inherited development packs still contain excluded records; physical packaging/UI exclusion is pending. See the [scope policy](docs/SCOPE.md) for classification, compatibility and release requirements.
+
 Development is staged. Historical content recovery is not rules verification. Standard/revised selection and the complete move audit are not implemented yet. See [current status](docs/STATUS.md), the [roadmap](ROADMAP.md), and [changelog](CHANGELOG.md).
 
 ## How to Install

@@ -3,12 +3,17 @@
 Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
 
 ## On explicit start
+
+Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.
+
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
 
 ## Dependencies
 Accepted source decisions from chat 04 and installable content baseline from chat 02. Ambiguous rules remain blocked pending adjudication.
 
 ## Scope
+
+Boundary: PTU 1.05 mechanics plus approved content through Generation 8. Generation 9 is excluded from intended support. Use accepted source/ID classifications rather than names, preserve inherited records and campaigns, and coordinate compatibility-safe exclusion from new acquisition/browsing without treating inventory counts as supported totals.
 Implement individually selectable standard/revised Features, Edges, Moves and Abilities with distinct document IDs, shared canonical identity and source metadata. Add visible version labels/filters, safe explicit replacement preserving actor state and prerequisites, and duplicate-benefit protection. Implement independent mechanic settings plus bulk presets, standard defaults for new worlds, centralized effective-rule lookup and repeatable versioned migrations preserving existing selections.
 
 ## Targeted context

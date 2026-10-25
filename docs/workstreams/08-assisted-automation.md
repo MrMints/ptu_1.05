@@ -3,12 +3,17 @@
 Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
 
 ## On explicit start
+
+Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.
+
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
 
 ## Dependencies
 Verified calculations and applicable content/rules from chats 04–07. Automate only behavior whose authority and inputs are established.
 
 ## Scope
+
+Boundary: automate only accepted PTU 1.05 mechanics and approved content through Generation 8. Generation 9 inherited material is excluded from intended support; inventory counts and labels do not establish scope. Preserve existing campaign data and do not expand support through automation.
 Extend existing rule elements to abilities, Features, Edges, equipment, capture, training, advancement and other repeatable actions. Implement calculate/review/apply with permission checks, duplicate-application protection and a chat record. Cancellation leaves state unchanged. Preserve game.ptu interfaces and document relationships. Surface undefined interactions for manual adjudication.
 
 ## Targeted context

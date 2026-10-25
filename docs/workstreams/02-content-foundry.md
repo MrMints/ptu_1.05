@@ -1,8 +1,11 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: Reference classification/investigation batch completed on 2026-10-25. The remaining-work instructions below are prepared, but implementation is paused until the owner explicitly starts it. Do not start other sections.
+Status: Remaining work started by the owner on 2026-10-25, then paused at the planning chat's writer checkpoint. Scope is now Generations 1–8 only, with Generation 9 excluded. The corrected remainder is ready for an explicit resume; do not start other sections.
 
 ## On explicit start
+
+Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.
+
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
 
 ## Dependencies
@@ -28,9 +31,11 @@ This is a parked instruction update, not a start signal. When the owner says "St
 
 Check the current branch, dirty files, active chat ownership and Foundry process/port before mutations. Read the latest handoff and reference investigation rather than repeating the full audit. Verify which inputs have changed since recorded passing tests. Work only in this repository and its disposable world; do not restart or overwrite a server/data directory owned by another chat. Preserve all original supplied references locally.
 
-### 2. Bounded recovery of the 24 active missing targets
+### 2. Scope triage, then bounded recovery of independently in-scope targets
 
-Use the existing target/occurrence/disposition ledgers and record a finite search inventory of relevant, previously uninspected repository commits, pack transitions and repository-owned historical artifacts. Search exact UUIDs and original export relationships first; skip the two snapshots already checked unless new evidence justifies returning to them. Record searched revisions and outcomes once. Do not repeatedly extract the same databases or expand into unrelated repositories.
+**Scope correction, 2026-10-25:** Supported content is PTU 1.05 mechanics plus approved material through Generation 8. Stop Generation 9 recovery/verification. The current 24-target consumer set is Dipplin, Hydrapple and the Terapagos effect, all explicitly excluded by the owner. Preserve earlier evidence, but repairs used only by those excluded consumers are outside current acceptance and do not block Generation 1–8. Do not label a shared/older target itself Generation 9 or exclude it if an independent in-scope consumer exists. Use stable-ID consumer evidence in `docs/data/supported-content-scope.json`; do not infer generation from names. Four additional historical transitions were inspected before this correction; retain that finite search evidence and do not continue the Generation 9 search.
+
+For any independently demonstrated in-scope missing target, use the existing target/occurrence/disposition ledgers and record a finite search inventory of relevant, previously uninspected repository commits, pack transitions and repository-owned historical artifacts. Search exact UUIDs and original export relationships first; skip snapshots already checked unless new evidence justifies returning to them. Record searched revisions and outcomes once. Do not repeatedly extract the same databases or expand into unrelated repositories.
 
 Recover or retarget only when authoritative identity evidence supports the mapping. Same names or stored slugs alone are insufficient. Preserve document IDs and relationships; edit readable sources, rebuild affected packs, verify semantic round trips and exercise the affected generator/TemporarySpecies paths in v13.351. Preserve the 658 provenance targets; they are not a cleanup backlog.
 
@@ -44,7 +49,7 @@ Trace the documented legacy sourceId accessor/import issue through actual v13 im
 
 Address the setup-helper risk of merging stale database files: require the disposable server to be stopped, validate resolved paths within the intended test area, preserve a recoverable copy, and refresh generated packs without mixing old/new database files. Verify repeated setup and clean archive installation where inputs changed. Do not delete campaign data or manipulate a live database.
 
-In one coordinated v13.351 session, test basic trainer/Pokémon sheets, compendium acquisition, representative full generation and level-up UI, saved/reloaded actor state, linked/unlinked tokens, and GM/player ownership boundaries. Inspect bundled macro code before executing it and use only disposable actors/scenes. Verify basic macro execution and reference integrity without claiming move-rule correctness. Include the affected missing-reference paths separately from an unaffected baseline.
+In one coordinated v13.351 session, test basic trainer/Pokémon sheets, compendium acquisition, representative full generation and level-up UI using Generation 1–8 fixtures, saved/reloaded actor state, linked/unlinked tokens, and GM/player ownership boundaries. Inspect bundled macro code before executing it and use only disposable actors/scenes. Verify basic macro execution and reference integrity without claiming move-rule correctness. Excluded Generation 9 failures do not block this baseline; preserve their earlier diagnostics without new Generation 9 verification.
 
 Fix reproducible content-loading/startup/integration defects within section 02; for failures owned by another section, capture a minimal case and explicit disposition without silently taking over that section. Chat 03 owns complete skill terminology acceptance, chats 04–08 own rules/behavior/automation, and chat 09 owns comprehensive upgrade/release acceptance. Record manifest warnings, V1 deprecations, viewport limitations and the unpublished update URL with their actual severity. Do not publish a release or raise compatibility claims merely to silence warnings.
 
@@ -56,7 +61,9 @@ Update this handoff, docs/STATUS.md, relevant audit/validation reports, issue #1
 
 At the final handoff, state: what was implemented; what actually passed; unresolved failures and exact external evidence needed; whether chat 03 can proceed on unaffected paths; tested commit/PR; and shared-world/server state. Stop the server you started safely. Distinguish "all addressable work finished with blockers" from "all section acceptance gates passed." Missing content must never be represented as repaired simply because its limitation is documented.
 
-## Latest handoff — reference classification, 2026-10-25
+## Earlier handoff — reference classification, 2026-10-25
+
+The recovery next-action below predates the Generation 1–8 decision. Preserve its diagnostic findings, but apply the current scope triage above; Generation 9-only recovery is no longer required. Additional pre-checkpoint search artifacts are preserved in `.cache/remaining-02`; they are not evidence of a repaired link.
 
 - Runtime/content baseline: `5e4946a7a09a0ab3605b3b33b27f4f1624617e0d`, branch `codex/ptu-foundation`, draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). This follow-up changes audit/test tools and documentation only. Source packs, IDs and runtime code are unchanged.
 - Implemented: reference classification in `tools/compendium-references.mjs` and the existing audit command; JSON occurrence/disposition ledgers; fixture preparation and GM reference diagnostic; five focused tests. See the [investigation/evidence](../validation/2026-10-25-compendium-references.md).

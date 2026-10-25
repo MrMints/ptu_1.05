@@ -4,6 +4,10 @@ All nine section chats start idle in the local **PTU 1.05 on Foundry** project a
 
 ## Section ownership
 
+All sections use PTU 1.05 mechanics plus approved content through Generation 8. Generation 9 is excluded from intended support; inherited inventory counts do not establish supported scope. Preserve historical data and campaigns. The [scope ledger](data/supported-content-scope.json) records known excluded consumers and the planned compatibility-safe browsing/acquisition/release boundary; no physical exclusion is claimed yet.
+
+The [scope policy](SCOPE.md) is authoritative for every chat: **Generations 1–8 only; Generation 9 and later excluded**. It supersedes broader wording in initial chat messages and older handoffs. Source records retained for history are not supported release content. This correction does not start an idle chat.
+
 | Chat | Roadmap milestone | Dependency and deliverable |
 | --- | --- | --- |
 | [PTU 01 - Foundation and documentation gates](workstreams/01-foundation.md) | 1 | Maintain documented PR/CI/protection gates; do not repeat completed setup. |
@@ -19,7 +23,7 @@ All nine section chats start idle in the local **PTU 1.05 on Foundry** project a
 ## Start and context protocol
 
 1. The initial chat message is a parked brief. It requests only a one-line acknowledgement and forbids tool calls or project work. There are no goals, timers, automations or automatic handoffs.
-2. Start a section by telling that chat to begin a bounded batch. An example is: “Start PTU 02: validate the isolated Foundry startup and pack-loading baseline; stop with a concise handoff.”
+2. Start a section by telling that chat to begin the next scoped batch. An example is: “Resume PTU 02: complete the remaining Generations 1–8 acceptance work in the updated brief; reuse completed checks and stop with a concise handoff.”
 3. On start, read the repository rules, shared status and assigned brief first. Read only dependency handoffs and files needed for the next bounded batch. Do not import this planning conversation, all other chats, the full PDF corpus or the full move ledger into every context.
 4. Reuse recorded provenance and passing checks when inputs and the tested commit remain applicable. Search for specific rules/pages and ledger entries. Run related tests once per batch; rerun affected checks after changes. Release validation remains comprehensive.
 5. Preserve user-provided model guidance in AGENTS.md. Keep a model stable through a coherent batch; do not claim instruction text changed a model setting. No model recommendation or override is introduced by this split.
@@ -36,7 +40,7 @@ Draft PR [#4](https://github.com/MrMints/ptu_1.05/pull/4), original implementati
 
 The subsequent [PTU 02 pack baseline](validation/2026-10-24-foundry-packs.md) records owner activation, world startup and all-pack loading in v13.351. Gameplay, permissions and content repairs remain open; use the section handoff for the current shared-session state.
 
-The [reference investigation](validation/2026-10-25-compendium-references.md) now records dispositions for all 682 targets: 658 provenance targets retained with a legacy runtime caveat and 24 active missing targets awaiting authoritative identity evidence. Source content and UUIDs are unchanged.
+The [reference investigation](validation/2026-10-25-compendium-references.md) records all 682 targets: 658 provenance targets with a legacy runtime caveat and 24 active missing targets. Under the corrected scope, their currently recorded active consumers are excluded Generation 9 content; those consumer-only repairs no longer block Generations 1–8. Preserve the diagnostic results and investigate any independently evidenced in-scope consumer. Source content and UUIDs remain unchanged.
 
 Track integration/content/skills under [#1](https://github.com/MrMints/ptu_1.05/issues/1), rules/catalog/selection under [#2](https://github.com/MrMints/ptu_1.05/issues/2), and gameplay/moves/automation/releases under [#3](https://github.com/MrMints/ptu_1.05/issues/3). Narrower issues may be created during authorized work when useful.
 

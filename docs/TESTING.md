@@ -1,5 +1,7 @@
 # Batch testing
 
+All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Future release validation must check exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns; this exclusion is not implemented by the documentation update.
+
 ## Automated batch
 Run `pnpm test`, `pnpm validate`, `pnpm packs:verify`, and `pnpm build`.
 The pack round trip checks semantic equality and stable IDs. It is not a rules audit.
@@ -50,6 +52,8 @@ all affected feats and core import preparation, exercises generator `create` wit
 or compendium records. Creating/saving the test macro itself changes only the disposable world.
 The generator fixture bypasses random preparation and does not certify full generation
 or gameplay. See the [reference investigation](validation/2026-10-25-compendium-references.md).
+
+The recorded generator/TemporarySpecies reference fixtures use now-excluded Generation 9 consumers. Do not rerun them as a required Generations 1–8 acceptance batch. Preserve the original report, and select independently in-scope fixtures before further behavior checks. Structural reference coverage may continue to inventory excluded records without certifying them.
 
 In one session check clean startup, all declared packs, trainer and Pokémon sheets, species data,
 background selectors, all 17 skills, old/new prerequisite aliases, contested rolls, macro selectors,
