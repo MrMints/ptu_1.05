@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### PTU 03 skill compatibility
+- Accept the core Technology Edu abbreviation and normalize NPC prerequisite spacing; reject rank phrases embedded in unknown text and unknown skill names in skill lists.
+- Resolve core/Carbon names in the legacy species helper through stable skill keys, and use consistent labels for skill modifier helpers without changing numerical calculations.
+- Wrap the longer core Education labels between words in existing actor skill columns.
+- Correct nine explicit skill text fields in eight inherited source documents; preserve proper titles, class names, IDs, rules and provenance. Record the selective review and unchanged-data hashes; content approval remains separate.
+- Add all-17 skill numeric/presentation checks, source-change guards and a disposable Foundry acceptance runner. See the section-03 handoff for verified runtime coverage and remaining limitations.
+
 ### PTU 02 integration and compatibility
 - Read current Foundry compendium identity before legacy sourceId flags without rewriting provenance or deriving identity from names. Preserve owned quantity (including zero), disabled state, labels and custom SVG images during refresh; leave missing/custom sources unchanged.
 - Replace disposable setup merging with a locked, staged system replacement and a recoverable backup. Refuse active Foundry data and unsafe paths; preserve licensing, configuration and worlds.

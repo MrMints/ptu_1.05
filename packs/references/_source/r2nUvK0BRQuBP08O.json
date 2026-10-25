@@ -4,7 +4,7 @@
   "img": "/systems/ptu/static/css/images/icons/reference_icon.png",
   "system": {
     "origin": "Branded",
-    "effect": "Effect: Your very being becomes warped, taking on aspects of the one who Branded you. You gain the Elemental Types they possess as well as a +4 to Intimidation checks, but receive a -4 penalty on Charm and Guile checks, as these deformations are unsettling to most people and Pokémon.",
+    "effect": "Effect: Your very being becomes warped, taking on aspects of the one who Branded you. You gain the Elemental Types they possess as well as a +4 to Intimidate checks, but receive a -4 penalty on Charm and Guile checks, as these deformations are unsettling to most people and Pokémon.",
     "snippet": "",
     "rules": [],
     "enabled": true,

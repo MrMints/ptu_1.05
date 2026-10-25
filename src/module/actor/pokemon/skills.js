@@ -1,4 +1,4 @@
-import { EDUCATION_SKILLS } from "../../../util/skills.js";
+import { EDUCATION_SKILLS, resolveSkillKey } from "../../../util/skills.js";
 
 function calculateSkills(skills, speciesData, background, bonus = 0) {
     if (speciesData == null) return skills;
@@ -17,13 +17,10 @@ function calculateSkills(skills, speciesData, background, bonus = 0) {
     };
 
     for (let [key, skill] of Object.entries(speciesSkills)) {
-        if (key == "TechEd") {
-            skills["techEd"].value.value = skill.Dice;
-            skills["techEd"].modifier.value = skill.Mod;
-        } else {
-            skills[key.toLowerCase()].value.value = skill.Dice;
-            skills[key.toLowerCase()].modifier.value = skill.Mod;
-        }
+        const skillKey = resolveSkillKey(key);
+        if (!skillKey || !skills[skillKey]) continue;
+        skills[skillKey].value.value = skill.Dice;
+        skills[skillKey].modifier.value = skill.Mod;
     }
 
     for(let skill of Object.values(background.increased)) {

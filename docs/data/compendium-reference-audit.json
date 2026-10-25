@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "Explicit missing Compendium.ptu targets in declared pack source strings; field-level classification, not proof of rules correctness.",
-  "sourceFingerprint": "82370d1749f655ea3fd70ec1dbcbf144eceebfb47dd535043a98647cc9945685",
+  "sourceFingerprint": "df9fe41332a28a3a7af2e37026853c2588da01c30c9697a5ba7b82634d35a49f",
   "profiles": {
     "import-provenance": {
       "classification": "historical-metadata",

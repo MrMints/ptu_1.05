@@ -357,7 +357,7 @@
       "+Attack or Special Attack"
     ],
     "prerequisites": [
-      "Expert Intimidation or Combat"
+      "Expert Intimidate or Combat"
     ],
     "frequency": "Static",
     "notes": "",

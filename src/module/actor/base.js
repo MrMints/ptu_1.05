@@ -14,6 +14,7 @@ import { PTUMoveDamage } from "../system/damage/move.js";
 import { ActorConditions } from "./conditions.js";
 import { IWRData, ImmunityData, ResistanceData, WeaknessData } from "./iwr.js";
 import { getDocumentSourceId } from "../../util/document-source.js";
+import { getSkillLabel } from "../../util/skills.js";
 import { PTUModifier, StatisticModifier } from "./modifiers.js";
 
 /** @typedef {import('../../module/rules/rule-element/base').RuleElementPTU} RuleElementPTU */
@@ -1272,7 +1273,7 @@ class PTUActor extends Actor {
         const statistic = new StatisticModifier(skill, []);
 
         const action = foundry.utils.mergeObject(statistic, {
-            label: game.i18n.format("PTU.Check.SkillCheck", { skill: game.i18n.localize(`PTU.Skills.${skill}`) }),
+            label: game.i18n.format("PTU.Check.SkillCheck", { skill: getSkillLabel(skill) }),
             domains: selectors,
             type: "skill",
             options,

@@ -1,6 +1,7 @@
 import { sluggify } from "../../util/misc.js";
 import { extractModifierAdjustments } from "../rules/helpers.js";
 import { PTUPredicate } from "../system/predication.js";
+import { getSkillLabel } from "../../util/skills.js";
 
 // Add signedString method to Number prototype for Foundry VTT v13 compatibility
 if (!Number.prototype.signedString) {
@@ -153,7 +154,7 @@ function createSkillModifier({actor, skill, domains}) {
     const {value, mod} = actor.system.skills[skill].modifier;
     return new PTUModifier({
         slug: skill,
-        label: game.i18n.localize(`Skill.${skill}`),
+        label: getSkillLabel(skill),
         modifier: (isNaN(Number(value)) ? 0 : Number(value)) + (isNaN(Number(mod)) ? 0 : Number(mod)),
         adjustments: extractModifierAdjustments(actor.synthetics.modifierAdjustments, withSkillBased, skill),
     });

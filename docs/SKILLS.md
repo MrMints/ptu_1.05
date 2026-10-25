@@ -17,4 +17,16 @@ Evidence: local `Core System/Pokemon Tabletop United 1.05 Core.pdf`, PDF pages 3
 
 `src/util/skills.js` owns labels and exact name resolution. Parsing accepts stable keys, core names, established abbreviations and Carbon aliases, normalizing case, whitespace and accents. Unknown names return null. A sheet presentation copy corrects built-in names without updating saved values. Both English translation namespaces and new-actor defaults use core names. Education classification uses the five explicit keys.
 
-No database-key migration is introduced. Macro selectors and calculation paths remain stable. Historical chat and user-authored prose are not rewritten. Recovered compendium descriptions and legacy generator data still need selective review; full actor/generator integration is tracked in issue #1.
+No database-key migration is introduced. Macro selectors and calculation paths remain stable. Historical chat and user-authored prose are not rewritten. The legacy species helper resolves known core/Carbon input names into the existing keys; it ignores unknown names without creating new skill entries. The current species generator already consumes stable skill keys.
+
+The NPC prerequisite parser normalizes whitespace before evaluating exact skill names. Core abbreviations include `Medicine Edu` and `Technology Edu` (core pp. 42, 45). A rank embedded in unknown text is not a valid skill prerequisite. Known alternatives and minimum ranks retain their existing meaning.
+
+The [selective terminology review](data/skill-terminology-review.json) records all 17 inherited documents containing the eight former labels. Nine text fields in eight documents change only an unambiguous `Intimidation` skill reference to `Intimidate` (core p. 38). Proper names such as **Flustering Charisma**, **DIY Engineering**, **Researcher (Occultism)**, the **Willpower** aura and Azelf's narrative title remain intact. Numeric rules, UUIDs, slugs, class names and historical provenance are unchanged. These inherited records remain unclassified for content/version approval; a terminology correction does not approve their gameplay or expand supported scope.
+
+## Supported skill macro interfaces
+
+Use stable keys for actor properties and selectors. For example, `actor.attributes.skills.pokemonEd.roll({targets: []})` rolls Pokémon Education; `actor.prepareSkill('focus').roll()` rolls Focus. Existing callbacks, targets, DCs, options and selectors such as `skill-pokemonEd` remain supported. Display names and translated strings are not actor-property keys. Name aliases are accepted at the documented parsing boundary, not as new persistent properties.
+
+The exported legacy `PTUSkills.calculate({actor, context: {skill: 'pokemonEd', options: []}})` and `createSkillModifier({actor, skill: 'pokemonEd', domains: []})` retain stable keys, dice and modifiers. Their labels use the same core/localized presentation. The inherited Transform macro explicitly marks itself unreviewed; its optional skill-copying mode is outside supported skill-macro acceptance.
+
+Foundry acceptance results and limitations are recorded in the section-03 validation report and handoff. Supported gameplay fixtures use Generation 1 species identities under [SCOPE.md](SCOPE.md); no Generation 9 behavior is certified.

@@ -1,6 +1,6 @@
 # PTU 03 - Core skill terminology compatibility
 
-Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
+Status: STARTED by the owner on 2026-10-25. This chat is the sole shared-checkout/disposable-world writer for the section-03 batch. Other chats remain idle. See the final handoff below for completion state when recorded.
 
 ## On explicit start
 

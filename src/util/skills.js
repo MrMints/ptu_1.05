@@ -9,7 +9,7 @@ export const SKILLS = Object.freeze({
     medicineEd: { name: "Medicine Education", aliases: ["Biochemistry", "Medicine Ed", "Medicine Edu", "Medicine"] },
     occultEd: { name: "Occult Education", aliases: ["Occultism", "Occult Ed", "Occult Edu", "Occult"] },
     pokemonEd: { name: "Pokémon Education", aliases: ["Zoology", "Pokemon Ed", "Pokemon Edu", "Pokemon"] },
-    techEd: { name: "Technology Education", aliases: ["Engineering", "Tech Education", "Technology Ed", "Tech Ed", "Technology", "Tech"] },
+    techEd: { name: "Technology Education", aliases: ["Engineering", "Tech Education", "Technology Ed", "Technology Edu", "Tech Ed", "Tech Edu", "Technology", "Tech"] },
     focus: { name: "Focus", aliases: ["Willpower"] },
     guile: { name: "Guile", aliases: [] },
     intimidate: { name: "Intimidate", aliases: ["Intimidation"] },

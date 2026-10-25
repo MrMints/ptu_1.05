@@ -3,9 +3,9 @@ import { PTUSkills } from '../../actor/index.js';
 import { Mutex } from '../../../util/mutex.js';
 import { resolveSkillKey, getSkillLabel } from '../../../util/skills.js';
 
-const SINGLE_MIN_SKILL_RANK_RE = /(?<rank>(Pathetic)|(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso)) (?<skill>.+)/i;
-const ANY_N_SKILLS_AT_RE = /(any )?(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) Skills? at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?/i;
-const N_SKILLS_AT_FROM_LIST_RE = /(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine))( Skills?)? of (?<skills>.+) at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?( or higher)?/i;
+const SINGLE_MIN_SKILL_RANK_RE = /^(?<rank>(Pathetic)|(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso)) (?<skill>.+)$/i;
+const ANY_N_SKILLS_AT_RE = /^(any )?(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) Skills? at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?$/i;
+const N_SKILLS_AT_FROM_LIST_RE = /^(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine))( Skills?)? of (?<skills>.+) at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?( or higher)?$/i;
 
 const FEAT_WITH_SUB_RE = /(?<main>[^\(\)]+) (\((?<sub>.+)\)) ?(?<cr>\[CR\])?/i;
 const N_FEATS_FROM_LIST_RE = /(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) of (?<features>.+)?/i;
@@ -828,6 +828,7 @@ export class NpcQuickBuildData {
      * @returns { met, newFeatures, newEdges, newSkills, skillRank, subOption, unknown } 
      */
     async checkTextPrereq(textPrereq, { level, allComputed, skillsComputed, previousSkillRank=null}) {
+        textPrereq = textPrereq.trim().replace(/\s+/g, " ");
         const originalPrereq = textPrereq;
         const RETURN = {
             met: false,
@@ -972,7 +973,7 @@ export class NpcQuickBuildData {
             const rank = [1, 2, 3, 4, 5, 6, 8].find(r => CONFIG.PTU.data.skills.PTUSkills.getRankSlug(r) == nSkillMatch.groups.rank.toLowerCase());
             const n = parseIntA(nSkillMatch.groups.n || "100");
             const skills = nSkillMatch.groups.skills.split(/ or /gi).map(getSkill);
-            if (rank && n) {
+            if (rank && n && skills.every(Boolean)) {
                 if (skills.filter(k => rank <= skillsComputed[k] ?? 0).length >= n) {
                     RETURN.met = true;
                     return RETURN;
