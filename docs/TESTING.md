@@ -33,6 +33,24 @@ directory outside `Data/systems`, and extract `dist/system.zip` into a new `Data
 Keep the disposable Config and world directories intact. Never replace a campaign installation.
 The [2026-10-24 pack baseline](validation/2026-10-24-foundry-packs.md) records the tested scope and limitations.
 
+### Reference classification and targeted probes
+
+Run `node tools/audit-content.mjs` to regenerate the structural audit, move inventory
+and `docs/data/compendium-reference-audit.json`. This preserves the existing unresolved
+target list and records every occurrence's source, JSON pointer, UUID and field profile.
+Unknown profiles stop the refresh for review. Reviewed runtime dispositions are reused
+only while their occurrence fingerprints still match; changed occurrences need revalidation.
+The review ledger is `docs/data/reference-investigations.json`. Classification does not repair links.
+
+For the targeted v13.351 reproduction, run `node tools/prepare-foundry-reference-check.mjs`,
+then save and execute `tools/foundry-reference-check.macro.js` as a Script macro in
+`ptu-verification` as GM. Save the result JSON. It resolves active target UUIDs, inspects
+all affected feats and core import preparation, exercises generator `create` with
+`generate:false`, and constructs one temporary owned effect/rule. It writes no actor
+or compendium records. Creating/saving the test macro itself changes only the disposable world.
+The generator fixture bypasses random preparation and does not certify full generation
+or gameplay. See the [reference investigation](validation/2026-10-25-compendium-references.md).
+
 In one session check clean startup, all declared packs, trainer and Pokémon sheets, species data,
 background selectors, all 17 skills, old/new prerequisite aliases, contested rolls, macro selectors,
 linked/unlinked tokens, permissions, save/reload and console errors. Check labels for clipping.

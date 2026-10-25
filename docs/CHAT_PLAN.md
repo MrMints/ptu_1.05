@@ -34,7 +34,9 @@ Keep cross-chat state in short versioned handoffs in each section file: tested c
 
 Draft PR [#4](https://github.com/MrMints/ptu_1.05/pull/4), original implementation commit `a38f7f5c13db408d4bb28febffe921589039dd9e`: project rules/gates, eight skill-label corrections, 7,395 source documents in 15 packs, source checksums and a 1,184-move ledger. The original CI run passed. Structural checks do not establish rules correctness. Foundry reached license activation; no in-world scenario was certified. There are 682 unresolved explicit compendium targets to investigate, including historical metadata. This baseline is not a completed release.
 
-The subsequent [PTU 02 pack baseline](validation/2026-10-24-foundry-packs.md) records owner activation, world startup and all-pack loading in v13.351. Gameplay, permissions and unresolved-reference dispositions remain open; use the section handoff for the current shared-session state.
+The subsequent [PTU 02 pack baseline](validation/2026-10-24-foundry-packs.md) records owner activation, world startup and all-pack loading in v13.351. Gameplay, permissions and content repairs remain open; use the section handoff for the current shared-session state.
+
+The [reference investigation](validation/2026-10-25-compendium-references.md) now records dispositions for all 682 targets: 658 provenance targets retained with a legacy runtime caveat and 24 active missing targets awaiting authoritative identity evidence. Source content and UUIDs are unchanged.
 
 Track integration/content/skills under [#1](https://github.com/MrMints/ptu_1.05/issues/1), rules/catalog/selection under [#2](https://github.com/MrMints/ptu_1.05/issues/2), and gameplay/moves/automation/releases under [#3](https://github.com/MrMints/ptu_1.05/issues/3). Narrower issues may be created during authorized work when useful.
 

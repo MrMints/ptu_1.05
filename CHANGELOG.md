@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Compendium reference investigation
+- Classify all 682 unresolved targets with field-level evidence: 658 historical provenance targets and 24 active rule/species targets across three records; preserve the legacy sourceId runtime caveat.
+- Confirm the 24 active targets are missing in v13.351, reproduce omitted generator content and a TemporarySpecies null dereference, and record explicit unresolved dispositions after checking two historical snapshots.
+- Add a repeatable reference audit, coverage tests and disposable-world diagnostics. Preserve all source records, UUIDs and historical metadata pending authoritative identity evidence.
+
 ### Foundry installation and packs
 - Verify owner-activated Foundry v13.351 startup and all 15 declared packs in the disposable world; record the clean archive installation and pack-loading evidence.
 - Add a repeatable GM diagnostic that compares pack indexes, loaded documents and folders against source IDs and reports invalid records. Gameplay, permissions and unresolved reference targets remain separate acceptance work.

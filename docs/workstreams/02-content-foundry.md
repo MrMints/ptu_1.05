@@ -1,6 +1,6 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: Initial isolated setup and pack-loading batch completed on 2026-10-24. Remaining section acceptance work needs a new explicit batch start. Stop with the handoff below; do not start other sections.
+Status: Reference classification/investigation batch completed on 2026-10-25. Remaining section acceptance work needs a new explicit batch start. Stop with the handoff below; do not start other sections.
 
 ## On explicit start
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
@@ -20,7 +20,17 @@ A clean checkout builds and installs; every declared pack loads in v13.351; miss
 ## Outside this scope
 Certification of move rules, standard/revised selection, broad automation or overwriting user campaigns.
 
-## Handoff
+## Latest handoff — reference classification, 2026-10-25
+
+- Runtime/content baseline: `5e4946a7a09a0ab3605b3b33b27f4f1624617e0d`, branch `codex/ptu-foundation`, draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). This follow-up changes audit/test tools and documentation only. Source packs, IDs and runtime code are unchanged.
+- Implemented: reference classification in `tools/compendium-references.mjs` and the existing audit command; JSON occurrence/disposition ledgers; fixture preparation and GM reference diagnostic; five focused tests. See the [investigation/evidence](../validation/2026-10-25-compendium-references.md).
+- Verified: all 682 targets and 1,380 occurrences covered. Preserve 658 provenance targets (667 feats, 1,334 occurrences) with a legacy runtime caveat. All 24 active targets (46 occurrences in Dipplin, Hydrapple and the Terapagos Normal Forme effect) fail live resolution. Dry runs omit selected missing items; TemporarySpecies throws on a null target. Core import preparation stamps current UUIDs for all 667 affected feats, with legacy flags absent.
+- Dispositions: every target is recorded. The 24 content targets remain `unresolved-no-identity-evidence`; two complete historical snapshots contain none of their exact IDs, and 10 same-stored-slug candidates do not establish identity. No recovery, retargeting, rule adjudication or provenance cleanup was performed. The total remains 682.
+- Validation: five reference tests, generated-inventory/occurrence coverage, audit determinism, syntax checks and live v13.351 probes. Reuse the earlier pack/build baseline because runtime/content/build inputs are unchanged; CI results are attached to PR #4. This does not certify full generation, level-up UI, persistent actor effect application or campaign upgrades.
+- Next bounded action: obtain authoritative UUID/export history for the 24 active targets, then make evidence-backed recovery or reference repairs. Track the separate v13 legacy `sourceId` accessor/import compatibility issue; do not fix it by changing historical metadata or matching display names.
+- Shared session: the world returned to Setup; the managed server handle is terminal and port 30001 refused connections after stop. No actor or compendium records were written by probes. A new disposable diagnostic macro remains available. No other chat was started or messaged.
+
+## Earlier handoff — isolated setup and pack loading, 2026-10-24
 
 - Tested runtime/content/build baseline: `7d6bfefe80bfe9fe919505d90634f6cad2244a07`, branch `codex/ptu-foundation`, draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). Follow-up changes add diagnostics and evidence only; no runtime, source pack, identifier, selection or rule changes.
 - Implemented: `tools/prepare-foundry-pack-check.mjs` and `tools/foundry-pack-check.macro.js`; updated testing instructions, status and Unreleased changelog. Detailed [evidence](../validation/2026-10-24-foundry-packs.md) links the machine-readable results.

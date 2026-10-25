@@ -4127,6 +4127,18 @@
       ]
     }
   ],
+  "referenceClassification": {
+    "report": "docs/data/compendium-reference-audit.json",
+    "targetCounts": {
+      "runtime-reference": 24,
+      "historical-metadata": 658
+    },
+    "occurrenceCounts": {
+      "runtime-reference": 46,
+      "historical-metadata": 1334
+    },
+    "caveat": "Historical provenance includes legacy sourceId fields read by refresh/migration code; it is not certified inert."
+  },
   "missingContent": [
     "enhancements has no complete recovered snapshot; original poke-edges restored under its stable pack name",
     "later Carbon edits and source/version attribution require reconciliation"
