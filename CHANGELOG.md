@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 02 bounded correction
+- Restore new empty-trainer Training Feature selection from the exact predecessor effect and four core feature UUIDs, under PTU 1.05 pp. 13, 18 and 60. Add an explicit retry after cancellation, ownership checks and repeat protection; preserve existing trainers and ordinary starting allocations. This does not recover the missing replacement edge.
+- Record a finite enhancement/Carbon search and a source-linked identity inventory separating generation eligibility, rule approval and verification. Record the conflicting Pokédex ability profiles without choosing source precedence.
+- Block the three owner-excluded identities in new acquisition, browser selection and species generation. Preserve original pack records/UUID resolution for saved campaigns pending a compatibility decision. Development archives disclose incomplete scope; supported builds and releases refuse incomplete classification/dependencies. Full supported-content exclusion remains blocked.
+
 ### PTU 03 skill compatibility
 - Accept the core Technology Edu abbreviation and normalize NPC prerequisite spacing; reject rank phrases embedded in unknown text and unknown skill names in skill lists.
 - Resolve core/Carbon names in the legacy species helper through stable skill keys, and use consistent labels for skill modifier helpers without changing numerical calculations.

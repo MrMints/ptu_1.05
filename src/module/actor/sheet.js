@@ -1,4 +1,5 @@
 import { ActorConfig } from "./sheet/actor-config.js";
+import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
 
 class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
     /** @override */
@@ -11,6 +12,10 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (this.isEditable) {
+            if (this.actor.flags.ptu?.starterTraining?.status === 'pending') buttons.unshift({
+                label:'Choose Starter Training', class:'starter-training', icon:'fas fa-graduation-cap',
+                onclick:() => this.actor.selectStarterTraining()
+            });
             const index = buttons.findIndex((b) => b.class === "close");
             buttons.splice(index, 0, {
                 label: "Configure", // Top-level foundry localization key
@@ -84,6 +89,16 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
     /** Emulate a sheet item drop from the canvas */
     async emulateItemDrop(data) {
         return this._onDropItem({ preventDefault: () => { } }, data);
+    }
+
+    async _onDropFolder(event, data) {
+        if (!this.actor.isOwner) return [];
+        const folder = await Folder.implementation.fromDropData(data);
+        if (folder.type !== 'Item') return [];
+        const items = await Promise.all(folder.contents.map(item => item instanceof Item ? item : fromUuid(item.uuid)));
+        const allowed = items.filter(item => !isExcludedAcquisitionDocument(item));
+        if (allowed.length !== items.length) ui.notifications.warn('PTU | Excluded compendium entries were not acquired from this folder.');
+        return this._onDropItemCreate(allowed.map(item => item.toObject()), event);
     }
 
     async openNotes() {

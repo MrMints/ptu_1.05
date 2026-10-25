@@ -1,0 +1,211 @@
+{
+  "plan": {
+    "scope": "Exact enhancement manifest/path transition and bounded later Carbon reconciliation; no Gen 9-only target search",
+    "baseline": "aaf9d9f34281e7ac3d9662d4f1ac96bebd81f7a6",
+    "newUniqueTreeLimits": {
+      "enhancements": 4,
+      "carbon": 4
+    },
+    "selected": [
+      {
+        "family": "enhancements",
+        "revision": "02517e8f042787b9eb951764283655557fc967f1",
+        "pack": "poke-edges",
+        "tree": "a449e900bb5fb24bcc1ca2b0079360f96b6bb612",
+        "reason": "First available original pack; compare exact records without assuming enhancement identity"
+      },
+      {
+        "family": "carbon",
+        "revision": "907adef5",
+        "pack": "edges",
+        "tree": "bf050e20da67e1965a3c0c9e5d8fb97be26ec786",
+        "reason": "First Carbon transition edge database"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "feats",
+        "tree": "f1471d9d0680aa56f7e78d330c41a7eeee9c1c1b",
+        "reason": "Last tracked pack update before recovery baseline"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "effects",
+        "tree": "3711ff1b4e1feba7d8132b57f5de04c0c4db9725",
+        "reason": "Last tracked effects update before recovery baseline"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "items",
+        "tree": "b90b2e82e2559399613d206552f1daf3a3f68f23",
+        "reason": "Last tracked items update; inspect exact records/type relationships, not label substitutions"
+      }
+    ],
+    "remainingCandidates": [
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "abilities",
+        "tree": "86c6691d4d1c9b61ca0198977965ffff1d205387"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "capabilities",
+        "tree": "3d079dac4d4182e3796b77e21b6fe89760f2101e"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "species",
+        "tree": "e91826904935a28b14051335692df40b9e054b2b",
+        "restriction": "Do not search Gen 9-only targets; require independent in-scope reason"
+      },
+      {
+        "family": "carbon",
+        "revision": "e918b42f",
+        "pack": "moves",
+        "tree": "81e6b2340e7e816a7b2b14f924f48978846247b6",
+        "restriction": "Do not search Gen 9-only targets; require independent in-scope reason"
+      }
+    ],
+    "reused": [
+      {
+        "family": "enhancements",
+        "revision": "9e6fccd535fbdbe4b410cfbfdb0425b03ebd2d07",
+        "pack": "poke-edges",
+        "tree": "d24b9d9e47f62f8d108f0f2e8022577a372c80ae",
+        "reason": "Already recovered as original poke-edges source; reuse, no extraction."
+      }
+    ]
+  },
+  "results": [
+    {
+      "family": "enhancements",
+      "revision": "02517e8f042787b9eb951764283655557fc967f1",
+      "pack": "poke-edges",
+      "tree": "a449e900bb5fb24bcc1ca2b0079360f96b6bb612",
+      "reason": "First available original pack; compare exact records without assuming enhancement identity",
+      "current": "MANIFEST-000146",
+      "result": "extracted",
+      "records": 40,
+      "types": {
+        "pokeedge": 40
+      },
+      "newStableIds": [
+        "04UCY4s8EF3iZnCN",
+        "A5vd7uVoHsDe1rv1",
+        "BaqO5DcawBJDEkGD",
+        "bh4QW9C9ET1UMKFe",
+        "ivcsrqmsnzMIHJ70",
+        "kBGHCDA6MOi8BcSa",
+        "kztgoIe4qRH8Sz5w",
+        "PFhBN57rq6xggNfK",
+        "RBDzkC6NGvsRxaVB",
+        "Tj3prcXEjZhCC43m",
+        "Wugj5EeHHy8TorfA",
+        "ZHh8IGFp6V8pa0dM"
+      ],
+      "sameIdChanged": [
+        "0ErdEammXLOX0UpC",
+        "28bJoXppeZ9CxDvr",
+        "3zctOoe62pxqMspU",
+        "6heZonoFLwi1f3MV",
+        "9H5bRyrOeb5PyIHR",
+        "c7F8qKq2J5DqcB6V",
+        "CnGM8br6blYjvk1x",
+        "cyO53Jv3qVlwrVYJ",
+        "DnYmGXzYAu5ErvbS",
+        "ecZWvsBldvQABdsJ",
+        "ETu0f0LwOGOG57H5",
+        "F6F8l717rLFJtLkO",
+        "HTsjsc9xsx1OFZ8h",
+        "kkYUmPp7yyHBVlk2",
+        "mJ7vDWbSbc0jN751",
+        "Mye0UTdJzbF2D4Nn",
+        "p892P7zaK5mhdU8u",
+        "pmAlIedygO6Z5ZSR",
+        "SbXEZfNHCNhLFN53",
+        "siTvIDr0LU5oq0hF",
+        "T035rG6LQwqekkhm",
+        "T8Unk7KdVRkoinYo",
+        "USLnQPfAyIKDFw1z",
+        "W7ypEWqITFqNk6WK",
+        "WkzCUjTOCTI60Uwg",
+        "xIRaO706mDCXDG1t",
+        "xs1Spe04OMhOSARp",
+        "ybZJ0nAa5nVWBokc"
+      ],
+      "addedToAuthoritativeSources": false
+    },
+    {
+      "family": "carbon",
+      "revision": "907adef5",
+      "pack": "edges",
+      "tree": "bf050e20da67e1965a3c0c9e5d8fb97be26ec786",
+      "reason": "First Carbon transition edge database",
+      "current": "MANIFEST-001175",
+      "result": "incomplete-database",
+      "missingManifest": "MANIFEST-001175"
+    },
+    {
+      "family": "carbon",
+      "revision": "e918b42f",
+      "pack": "feats",
+      "tree": "f1471d9d0680aa56f7e78d330c41a7eeee9c1c1b",
+      "reason": "Last tracked pack update before recovery baseline",
+      "current": "MANIFEST-003515",
+      "result": "incomplete-database",
+      "missingManifest": "MANIFEST-003515"
+    },
+    {
+      "family": "carbon",
+      "revision": "e918b42f",
+      "pack": "effects",
+      "tree": "3711ff1b4e1feba7d8132b57f5de04c0c4db9725",
+      "reason": "Last tracked effects update before recovery baseline",
+      "current": "MANIFEST-003483",
+      "result": "incomplete-database",
+      "missingManifest": "MANIFEST-003483"
+    },
+    {
+      "family": "carbon",
+      "revision": "e918b42f",
+      "pack": "items",
+      "tree": "b90b2e82e2559399613d206552f1daf3a3f68f23",
+      "reason": "Last tracked items update; inspect exact records/type relationships, not label substitutions",
+      "current": "MANIFEST-003487",
+      "result": "incomplete-database",
+      "missingManifest": "MANIFEST-003487"
+    }
+  ],
+  "exhaustive": false,
+  "enhancementManifestHistory": {
+    "firstTransition": "cac202abb44b2a3a1df0a1302d12814dbd2249b2",
+    "nextManifest": "907adef5c99fd2e591d0f03889e7f06519ede90a",
+    "declaredPath": "packs/enhancements.db",
+    "trackedDatabaseHistory": [],
+    "reusedOriginalPackRevision": "9e6fccd535fbdbe4b410cfbfdb0425b03ebd2d07",
+    "reusedOriginalPackTree": "d24b9d9e47f62f8d108f0f2e8022577a372c80ae"
+  },
+  "disposition": {
+    "enhancements": "missing-export-not-recoverable-from-manifest-declaration",
+    "earlierOnlyRecords": "12 exact original IDs are candidates from the first snapshot, not evidence of missing enhancements or authorized reintroduction after later removals.",
+    "carbon": "selected-snapshots-incomplete; do not claim absent records or complete Carbon reconciliation",
+    "requiredEvidence": [
+      "Complete original enhancements.db/export with embedded IDs and original-to-new pack relationships.",
+      "Consistent complete CURRENT/MANIFEST/table/WAL exports for the four selected Carbon trees or exact-ID JSON exports.",
+      "Owner source-version/retention decision for earlier-only records and conflicting revisions."
+    ],
+    "newUniqueTrees": {
+      "enhancements": 1,
+      "carbon": 4
+    },
+    "remainingCandidatesListed": true,
+    "allAuthoritativeSourceRecordsPreserved": true,
+    "retargets": 0,
+    "gen9OnlySearchResumed": false
+  }
+}

@@ -1,6 +1,7 @@
 import { sluggify } from "../../../util/misc.js";
 import { Progress } from "../../../util/progress.js";
 import * as browserTabs from "./tabs/index.js";
+import {filterNewContent} from '../../../util/content-scope.js';
 import noUiSlider from "../../../../static/js/nouislider.mjs"
 class PackLoader {
 
@@ -50,7 +51,7 @@ class PackLoader {
                 const index = await pack.getIndex({ fields: indexFields });
                 const firstResult = index.contents.at(0) ?? {};
                 if (firstResult.system) {
-                    const filteredIndex = this.#createFilteredIndex(index, sources);
+                    const filteredIndex = filterNewContent(this.#createFilteredIndex(index, sources), row => `Compendium.${pack.collection}.${row._id}`);
                     data = { pack, index: filteredIndex };
                     this.loadedPacks[documentType][packId] = data;
                 }

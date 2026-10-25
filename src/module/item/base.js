@@ -3,8 +3,17 @@ import { processGrantDeletions } from "../rules/rule-element/grant-item/helper.j
 import { sluggify } from "../../util/misc.js"
 import { GrantItemRuleElement } from "../rules/rule-element/grant-item/rule-element.js";
 import { getDocumentSourceId, createCompendiumRefreshUpdate } from "../../util/document-source.js";
+import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
+import {isStarterTrainingGrant} from '../../util/starter-training.js';
 
 class PTUItem extends Item {
+
+    static async fromDropData(data) {
+        const document = await super.fromDropData(data);
+        if (isExcludedAcquisitionDocument(document)) throw new Error('PTU | This compendium record is excluded from new acquisition by the Generations 1–8 scope.');
+        if (document.pack && isStarterTrainingGrant(document)) throw new Error('PTU | Use Choose Starter Training on a newly created trainer.');
+        return document;
+    }
 
     get sourceId() {
         return getDocumentSourceId(this);

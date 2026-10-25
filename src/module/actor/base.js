@@ -14,6 +14,7 @@ import { PTUMoveDamage } from "../system/damage/move.js";
 import { ActorConditions } from "./conditions.js";
 import { IWRData, ImmunityData, ResistanceData, WeaknessData } from "./iwr.js";
 import { getDocumentSourceId } from "../../util/document-source.js";
+import { shouldOfferStarterTraining, selectStarterTraining } from "../../util/starter-training.js";
 import { getSkillLabel } from "../../util/skills.js";
 import { PTUModifier, StatisticModifier } from "./modifiers.js";
 
@@ -468,21 +469,17 @@ class PTUActor extends Actor {
     _onCreate(data, options, user) {
         super._onCreate(data, options, user);
         if(user !== game.user.id) return;
-        if(data.type === 'character') {
-            if(!data.items.some(i => i.name.endsWith("Training"))) {
-                // Grant lvl 1 training
-                fromUuid('Compendium.ptu.edges.Item.xiZydXM8sex5CP7O').then((effect) => {
-                    if (!effect) {
-                        ui.notifications.warn('PTU | Starter training source is missing (Compendium.ptu.edges.Item.xiZydXM8sex5CP7O). No training was granted; review this trainer manually.');
-                        return;
-                    }
-                    return this.createEmbeddedDocuments('Item', [effect.toObject()]);
-                }).catch(error => {
-                    console.error('PTU | Could not grant starter training', error);
-                    ui.notifications.warn('PTU | Could not grant starter training. Review this trainer manually.');
-                });
-            }
+        if (shouldOfferStarterTraining(data, options)) {
+            this.setFlag('ptu','starterTraining',{status:'pending'}).then(() => this.selectStarterTraining()).catch(error => {
+                console.error('PTU | Could not select starter training', error);
+                ui.notifications.warn('PTU | Could not select starter training. Review this trainer manually.');
+            });
         }
+    }
+
+    selectStarterTraining() {
+        return selectStarterTraining(this, {load:uuid => fromUuid(uuid),
+            copy:document => game.items.fromCompendium(document,{ptuStarterTraining:true}), warn:message => ui.notifications.info(message)});
     }
 
     /** @override */

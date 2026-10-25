@@ -2,6 +2,8 @@ import { PTUItem } from "../../../item/index.js";
 import { MigrationList } from "../../../migration/index.js";
 import { MigrationRunner } from "../../../migration/runner/index.js";
 import { RuleElementPTU } from "../base.js";
+import {isStarterTrainingGrant, hasStarterTraining} from '../../../../util/starter-training.js';
+import {isExcludedContent} from '../../../../util/content-scope.js';
 
 class GrantItemRuleElement extends RuleElementPTU {
     constructor(source, item, options = {}) {
@@ -39,12 +41,22 @@ class GrantItemRuleElement extends RuleElementPTU {
     async preCreate(args) {
         const { itemSource, pendingItems, context, ruleSource } = args;
 
+        if (context.ptuStarterTraining && isStarterTrainingGrant(this.item) && hasStarterTraining(this.actor)) {
+            const index = pendingItems.indexOf(itemSource);
+            if (index >= 0) pendingItems.splice(index, 1);
+            return;
+        }
+
         if (this.reevaluateOnUpdate && this.predicate.length === 0) {
             ruleSource.ignored = true;
             return this.failValidation("`reevaluateOnUpdate` may only be used with a predicate.");
         }
 
         const uuid = this.resolveInjectedProperties(this.uuid);
+        if (isExcludedContent(uuid)) {
+            ui.notifications.warn('PTU | A new grant targets excluded compendium content and was not acquired.');
+            return;
+        }
         const grantedItem = await (async () => {
             try {
                 return (await fromUuid(uuid))?.clone(this.overwrites ?? {}) ?? null;
@@ -78,7 +90,8 @@ class GrantItemRuleElement extends RuleElementPTU {
         const existingItem = this.actor.items.find((i) => i.sourceId === uuid || (grantedItem.type === "condition" && i.slug === grantedItem.slug));
         if (!this.allowduplicate && existingItem) {
             if (this.replaceSelf) {
-                pendingItems.splice(pendingItems.indexOf(existingItem), 1);
+                const index = pendingItems.indexOf(isStarterTrainingGrant(this.item) ? itemSource : existingItem);
+                if (index >= 0) pendingItems.splice(index, 1);
             }
             //this.#setGrantFlags(itemSource, existingItem);
 
@@ -94,8 +107,14 @@ class GrantItemRuleElement extends RuleElementPTU {
         const grantedSource = grantedItem.toObject();
         grantedSource._id = foundry.utils.randomID();
 
-        if (["feat", "edge"].includes(grantedSource.type) && this.item?.slug !== 'grant-training-feature') {
+        if (["feat", "edge"].includes(grantedSource.type) && !isStarterTrainingGrant(this.item)) {
             grantedSource.system.free = true;
+        }
+        if (isStarterTrainingGrant(this.item)) {
+            // Trainer max already includes the extra slot; retain four ordinary starting choices.
+            grantedSource.system.free = false;
+            grantedSource._stats ??= {};
+            grantedSource._stats.compendiumSource = uuid;
         }
 
         // Guarantee future alreadyGranted checks pass in all cases by re-assigning sourceId

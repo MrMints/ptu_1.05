@@ -61,7 +61,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
     }
 
     /** @override */
-    async preCreate({ itemSource, ruleSource }) {
+    async preCreate({ itemSource, ruleSource, context }) {
         const rollOptions = [this.actor.getRollOptions(), this.item.getRollOptions("item")].flat();
 
         const predicate = this.resolveInjectedProperties(this.predicate);
@@ -128,7 +128,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
             }
         } else {
             if(!this.allowNoSelection) {
-                ui.notifications.error(game.i18n.format("PTU.RuleElement.ChoiceSet.NoSelectionNotAllowed", { item: this.item.name}));
+                if (!context?.ptuStarterTraining) ui.notifications.error(game.i18n.format("PTU.RuleElement.ChoiceSet.NoSelectionNotAllowed", { item: this.item.name}));
                 throw new Error("PTU | ChoiceSetRuleElement | No selection made.");
             }
             ruleSource.ignored = true;
