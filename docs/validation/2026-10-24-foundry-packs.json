@@ -1,0 +1,1375 @@
+{
+  "scope": "PTU 02 isolated startup and pack loading only; not release acceptance",
+  "result": "pass-with-warnings",
+  "runtimeContentCommit": "7d6bfefe80bfe9fe919505d90634f6cad2244a07",
+  "pullRequest": "https://github.com/MrMints/ptu_1.05/pull/4",
+  "systemVersion": "4.4.3",
+  "foundryVersion": "13.351",
+  "nodeVersion": "v24.19.0",
+  "date": "2026-10-24",
+  "timezone": "America/Indianapolis",
+  "archive": {
+    "path": "dist/system.zip",
+    "bytes": 1108932439,
+    "sha256": "360668f3a1b167a6556f957982245075279db7dd9b54b11a140479dcf04d07c8",
+    "runtimeFilesCompared": 6735,
+    "mismatches": [],
+    "forbiddenFiles": []
+  },
+  "sourceFixtureSha256": "6be045acd8cd0b4d727c106934202c53ec740f5ba32b8a6eaf527a82c372e22e",
+  "counts": {
+    "packs": 15,
+    "documents": 7198,
+    "folders": 197,
+    "sourceRecords": 7395
+  },
+  "server": {
+    "license": "owner completed normal activation",
+    "cleanStartPackConnections": [
+      "ptu.abilities",
+      "ptu.moves",
+      "ptu.feats",
+      "ptu.edges",
+      "ptu.items",
+      "ptu.capabilities",
+      "ptu.habitats",
+      "ptu.rolltables",
+      "ptu.effects",
+      "ptu.species",
+      "ptu.macros",
+      "ptu.references",
+      "ptu.spirit-actions",
+      "ptu.journals",
+      "ptu.poke-edges"
+    ],
+    "errors": [],
+    "finalSession": "stopped; exec handle terminal and port 30001 refused connections",
+    "shutdownMethod": "Clean-install session stopped with Ctrl+C; final graceful-shutdown log not observed. Initial session logged Shut-down success after Return to Setup."
+  },
+  "checks": [
+    {
+      "command": "pnpm test",
+      "result": "environment-limited",
+      "details": "Node test-worker spawning failed with spawn EPERM in the sandbox."
+    },
+    {
+      "command": "node --test --test-isolation=none tests/*.test.mjs",
+      "result": "pass",
+      "tests": 7
+    },
+    {
+      "command": "pnpm validate",
+      "result": "pass",
+      "packs": 15,
+      "sourceRecords": 7395,
+      "skillMappings": 17
+    },
+    {
+      "command": "pnpm packs:verify",
+      "result": "pass",
+      "details": "All 15 packs compiled, extracted and compared semantically with stable IDs."
+    },
+    {
+      "command": "pnpm build",
+      "result": "pass"
+    },
+    {
+      "command": "pnpm test:foundry:setup",
+      "result": "pass",
+      "limitation": "Merges into an existing disposable copy. Obsolete database files were observed; a separate clean archive extraction was tested."
+    },
+    {
+      "command": "node tools/prepare-foundry-pack-check.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node --check tools/foundry-pack-check.macro.js",
+      "result": "pass"
+    }
+  ],
+  "runs": [
+    {
+      "installation": "setup-helper refresh",
+      "report": {
+        "systemId": "ptu",
+        "systemVersion": "4.4.3",
+        "foundryVersion": "13.351",
+        "world": "ptu-verification",
+        "checkedAt": "2026-10-25T03:52:26.180Z",
+        "packs": [
+          {
+            "pack": "ptu.abilities",
+            "expectedDocuments": 631,
+            "expectedFolders": 3,
+            "index": 631,
+            "documents": 631,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.moves",
+            "expectedDocuments": 1294,
+            "expectedFolders": 16,
+            "index": 1294,
+            "documents": 1294,
+            "folders": 16,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.feats",
+            "expectedDocuments": 1324,
+            "expectedFolders": 78,
+            "index": 1324,
+            "documents": 1324,
+            "folders": 78,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.edges",
+            "expectedDocuments": 85,
+            "expectedFolders": 1,
+            "index": 85,
+            "documents": 85,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.items",
+            "expectedDocuments": 843,
+            "expectedFolders": 11,
+            "index": 843,
+            "documents": 843,
+            "folders": 11,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.capabilities",
+            "expectedDocuments": 144,
+            "expectedFolders": 4,
+            "index": 144,
+            "documents": 144,
+            "folders": 4,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.habitats",
+            "expectedDocuments": 25,
+            "expectedFolders": 0,
+            "index": 25,
+            "documents": 25,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.rolltables",
+            "expectedDocuments": 17,
+            "expectedFolders": 5,
+            "index": 17,
+            "documents": 17,
+            "folders": 5,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.effects",
+            "expectedDocuments": 614,
+            "expectedFolders": 59,
+            "index": 614,
+            "documents": 614,
+            "folders": 59,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.species",
+            "expectedDocuments": 1806,
+            "expectedFolders": 8,
+            "index": 1806,
+            "documents": 1806,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.macros",
+            "expectedDocuments": 6,
+            "expectedFolders": 0,
+            "index": 6,
+            "documents": 6,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Macro",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.references",
+            "expectedDocuments": 335,
+            "expectedFolders": 1,
+            "index": 335,
+            "documents": 335,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.spirit-actions",
+            "expectedDocuments": 34,
+            "expectedFolders": 8,
+            "index": 34,
+            "documents": 34,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.journals",
+            "expectedDocuments": 2,
+            "expectedFolders": 0,
+            "index": 2,
+            "documents": 2,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "JournalEntry",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.poke-edges",
+            "expectedDocuments": 38,
+            "expectedFolders": 3,
+            "index": 38,
+            "documents": 38,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          }
+        ],
+        "result": "pass"
+      }
+    },
+    {
+      "installation": "clean archive extraction",
+      "report": {
+        "systemId": "ptu",
+        "systemVersion": "4.4.3",
+        "foundryVersion": "13.351",
+        "world": "ptu-verification",
+        "checkedAt": "2026-10-25T03:56:52.197Z",
+        "packs": [
+          {
+            "pack": "ptu.abilities",
+            "expectedDocuments": 631,
+            "expectedFolders": 3,
+            "index": 631,
+            "documents": 631,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.moves",
+            "expectedDocuments": 1294,
+            "expectedFolders": 16,
+            "index": 1294,
+            "documents": 1294,
+            "folders": 16,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.feats",
+            "expectedDocuments": 1324,
+            "expectedFolders": 78,
+            "index": 1324,
+            "documents": 1324,
+            "folders": 78,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.edges",
+            "expectedDocuments": 85,
+            "expectedFolders": 1,
+            "index": 85,
+            "documents": 85,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.items",
+            "expectedDocuments": 843,
+            "expectedFolders": 11,
+            "index": 843,
+            "documents": 843,
+            "folders": 11,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.capabilities",
+            "expectedDocuments": 144,
+            "expectedFolders": 4,
+            "index": 144,
+            "documents": 144,
+            "folders": 4,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.habitats",
+            "expectedDocuments": 25,
+            "expectedFolders": 0,
+            "index": 25,
+            "documents": 25,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.rolltables",
+            "expectedDocuments": 17,
+            "expectedFolders": 5,
+            "index": 17,
+            "documents": 17,
+            "folders": 5,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.effects",
+            "expectedDocuments": 614,
+            "expectedFolders": 59,
+            "index": 614,
+            "documents": 614,
+            "folders": 59,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.species",
+            "expectedDocuments": 1806,
+            "expectedFolders": 8,
+            "index": 1806,
+            "documents": 1806,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.macros",
+            "expectedDocuments": 6,
+            "expectedFolders": 0,
+            "index": 6,
+            "documents": 6,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Macro",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.references",
+            "expectedDocuments": 335,
+            "expectedFolders": 1,
+            "index": 335,
+            "documents": 335,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.spirit-actions",
+            "expectedDocuments": 34,
+            "expectedFolders": 8,
+            "index": 34,
+            "documents": 34,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.journals",
+            "expectedDocuments": 2,
+            "expectedFolders": 0,
+            "index": 2,
+            "documents": 2,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "JournalEntry",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.poke-edges",
+            "expectedDocuments": 38,
+            "expectedFolders": 3,
+            "index": 38,
+            "documents": 38,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          }
+        ],
+        "result": "pass"
+      }
+    },
+    {
+      "installation": "clean archive after client reload",
+      "report": {
+        "systemId": "ptu",
+        "systemVersion": "4.4.3",
+        "foundryVersion": "13.351",
+        "world": "ptu-verification",
+        "checkedAt": "2026-10-25T03:57:54.998Z",
+        "packs": [
+          {
+            "pack": "ptu.abilities",
+            "expectedDocuments": 631,
+            "expectedFolders": 3,
+            "index": 631,
+            "documents": 631,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.moves",
+            "expectedDocuments": 1294,
+            "expectedFolders": 16,
+            "index": 1294,
+            "documents": 1294,
+            "folders": 16,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.feats",
+            "expectedDocuments": 1324,
+            "expectedFolders": 78,
+            "index": 1324,
+            "documents": 1324,
+            "folders": 78,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.edges",
+            "expectedDocuments": 85,
+            "expectedFolders": 1,
+            "index": 85,
+            "documents": 85,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.items",
+            "expectedDocuments": 843,
+            "expectedFolders": 11,
+            "index": 843,
+            "documents": 843,
+            "folders": 11,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.capabilities",
+            "expectedDocuments": 144,
+            "expectedFolders": 4,
+            "index": 144,
+            "documents": 144,
+            "folders": 4,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.habitats",
+            "expectedDocuments": 25,
+            "expectedFolders": 0,
+            "index": 25,
+            "documents": 25,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.rolltables",
+            "expectedDocuments": 17,
+            "expectedFolders": 5,
+            "index": 17,
+            "documents": 17,
+            "folders": 5,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "RollTable",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.effects",
+            "expectedDocuments": 614,
+            "expectedFolders": 59,
+            "index": 614,
+            "documents": 614,
+            "folders": 59,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.species",
+            "expectedDocuments": 1806,
+            "expectedFolders": 8,
+            "index": 1806,
+            "documents": 1806,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.macros",
+            "expectedDocuments": 6,
+            "expectedFolders": 0,
+            "index": 6,
+            "documents": 6,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Macro",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.references",
+            "expectedDocuments": 335,
+            "expectedFolders": 1,
+            "index": 335,
+            "documents": 335,
+            "folders": 1,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.spirit-actions",
+            "expectedDocuments": 34,
+            "expectedFolders": 8,
+            "index": 34,
+            "documents": 34,
+            "folders": 8,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.journals",
+            "expectedDocuments": 2,
+            "expectedFolders": 0,
+            "index": 2,
+            "documents": 2,
+            "folders": 0,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "JournalEntry",
+            "result": "pass"
+          },
+          {
+            "pack": "ptu.poke-edges",
+            "expectedDocuments": 38,
+            "expectedFolders": 3,
+            "index": 38,
+            "documents": 38,
+            "folders": 3,
+            "indexIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "documentIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "folderIds": {
+              "missing": [],
+              "unexpected": [],
+              "duplicateCount": 0
+            },
+            "invalidDocuments": [],
+            "invalidFolders": [],
+            "documentType": "Item",
+            "result": "pass"
+          }
+        ],
+        "result": "pass"
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "kind": "manifest",
+      "message": "Unknown system manifest keys: type, templateVersion."
+    },
+    {
+      "kind": "deprecated-api",
+      "message": "V1 Application framework warnings from TokenPanel, CompendiumBrowser, TypeMatrix and the diagnostic Dialog; initial migration summary also uses V1."
+    },
+    {
+      "kind": "update-manifest",
+      "message": "No system manifest found at the configured latest-release URL. No public release was created."
+    },
+    {
+      "kind": "viewport",
+      "message": "Client logged viewport size errors. Hidden clean/reload tab was 1280x720; no layout certification. No other client error messages were observed in captured startup/diagnostic logs."
+    }
+  ],
+  "notTested": [
+    "player permissions",
+    "trainer/Pokemon sheets",
+    "generators and prerequisites",
+    "pack macro execution",
+    "rules or move correctness",
+    "standard/revised selection",
+    "campaign upgrade/migration preservation",
+    "682 unresolved-reference dispositions"
+  ],
+  "unchangedUnresolvedReferenceTargets": 682
+}

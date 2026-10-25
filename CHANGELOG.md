@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Foundry installation and packs
+- Verify owner-activated Foundry v13.351 startup and all 15 declared packs in the disposable world; record the clean archive installation and pack-loading evidence.
+- Add a repeatable GM diagnostic that compares pack indexes, loaded documents and folders against source IDs and reports invalid records. Gameplay, permissions and unresolved reference targets remain separate acceptance work.
+- Document setup warnings and the setup helper's merge behavior, including how to test a clean archive copy.
+
 ### Project foundation
 - Split the roadmap into nine scoped, initially idle project chats with dependency gates, focused context, shared-checkout coordination and concise handoffs; correct the move-ledger path in the roadmap.
 - Establish repository-local documentation, source provenance, verification tracking, build tooling, and PR documentation checks.

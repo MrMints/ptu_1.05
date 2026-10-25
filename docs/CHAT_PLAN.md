@@ -7,7 +7,7 @@ All nine section chats start idle in the local **PTU 1.05 on Foundry** project a
 | Chat | Roadmap milestone | Dependency and deliverable |
 | --- | --- | --- |
 | [PTU 01 - Foundation and documentation gates](workstreams/01-foundation.md) | 1 | Maintain documented PR/CI/protection gates; do not repeat completed setup. |
-| [PTU 02 - Content recovery and Foundry integration](workstreams/02-content-foundry.md) | 2 | Establish installed v13.351 baseline and reconcile content; licensing remains a prerequisite. |
+| [PTU 02 - Content recovery and Foundry integration](workstreams/02-content-foundry.md) | 2 | Reuse the installed v13.351 pack baseline and reconcile content; owner activation is complete. |
 | [PTU 03 - Core skill terminology compatibility](workstreams/03-skills.md) | 3 | Finish terminology compatibility using 02 for in-world validation. |
 | [PTU 04 - Rules sources and revision catalog](workstreams/04-rules-catalog.md) | 4 (sources) | Catalog source precedence and revisions; may proceed independently when started. |
 | [PTU 05 - Rule variants and selection migrations](workstreams/05-revision-selection.md) | 4 (implementation) | Use accepted 04 decisions and 02 baseline for variants/settings/migrations. |
@@ -33,6 +33,8 @@ Keep cross-chat state in short versioned handoffs in each section file: tested c
 ## Existing baseline to reuse
 
 Draft PR [#4](https://github.com/MrMints/ptu_1.05/pull/4), original implementation commit `a38f7f5c13db408d4bb28febffe921589039dd9e`: project rules/gates, eight skill-label corrections, 7,395 source documents in 15 packs, source checksums and a 1,184-move ledger. The original CI run passed. Structural checks do not establish rules correctness. Foundry reached license activation; no in-world scenario was certified. There are 682 unresolved explicit compendium targets to investigate, including historical metadata. This baseline is not a completed release.
+
+The subsequent [PTU 02 pack baseline](validation/2026-10-24-foundry-packs.md) records owner activation, world startup and all-pack loading in v13.351. Gameplay, permissions and unresolved-reference dispositions remain open; use the section handoff for the current shared-session state.
 
 Track integration/content/skills under [#1](https://github.com/MrMints/ptu_1.05/issues/1), rules/catalog/selection under [#2](https://github.com/MrMints/ptu_1.05/issues/2), and gameplay/moves/automation/releases under [#3](https://github.com/MrMints/ptu_1.05/issues/3). Narrower issues may be created during authorized work when useful.
 
