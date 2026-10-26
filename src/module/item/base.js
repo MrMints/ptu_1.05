@@ -8,7 +8,7 @@ import {isStarterTrainingGrant} from '../../util/starter-training.js';
 import {resolvePreservationSource} from '../../util/preservation.js';
 import {prerequisiteView} from '../../util/acquisition.js';
 
-const preparedCreations=new WeakSet();
+const preparedCreations=new WeakMap();
 
 class PTUItem extends Item {
 
@@ -223,13 +223,21 @@ class PTUItem extends Item {
         let sources;
         try {
             sources=preparedCreations.has(data)?data:await this.prepareCreation(data,context);
-            preparedCreations.delete(sources);
         }catch(error){actor?.reset();throw error;}
+        const plan=preparedCreations.get(sources);
+        preparedCreations.delete(sources);
+        if(plan?.conditionIncrements.length&&plan.parent!==actor)throw Error('PTU | Staged condition changes belong to a different actor.');
+        for(const id of plan?.conditionIncrements??[])if(!actor.items.get(id)?.system.value.isValued)throw Error('PTU | A staged condition changed; retry the acquisition.');
+        if(actor)context.keepId=true;
+        const created=await super.createDocuments(sources,context);
+        if(plan?.conditionIncrements.length&&created?.length!==sources.length)throw Error('PTU | Item creation did not complete; staged condition increments were not applied.');
+        // No saved effects run until every cancellable choice and Item creation succeeds.
+        for(const id of plan?.conditionIncrements??[])await actor.items.get(id)?.increase();
         if (game.combat && sources.some(i => i.type === "condition" && sluggify(i.name) === "fainted")) {
             const combatant = game.combat.getCombatantByActor(actor);
             if (combatant && !combatant.defeated) await combatant.update({ defeated: true });
         }
-        return super.createDocuments(sources,context);
+        return created;
     }
 
     /** Resolve genuine/nested choices before any Item write; NPC generation uses a temporary actor. */
@@ -243,6 +251,30 @@ class PTUItem extends Item {
         const validTypes = actor.allowedItemTypes;
         const items = [];
         const outputSources = [];
+        const conditionIncrements=[];
+        const keepIds=context.keepId||context.keepEmbeddedIds;
+        const counts=new Map();
+        for(const source of sources)if(source._id)counts.set(source._id,(counts.get(source._id)??0)+1);
+        const ids=new Map();
+        for(const source of sources){const oldId=source._id;source._id=keepIds?(oldId??foundry.utils.randomID()):foundry.utils.randomID();if(oldId&&counts.get(oldId)===1)ids.set(oldId,source._id);}
+        // Only exact IDs supplied together can be remapped; external/ambiguous links are never guessed.
+        for(const source of sources){
+            const ptu=source.flags?.ptu;
+            for(const grant of Object.values(ptu?.itemGrants??{}))if(grant?.id){if(counts.get(grant.id)>1)throw Error('PTU | Ambiguous saved grant IDs; restore the complete distinct graph.');if(ids.has(grant.id))grant.id=ids.get(grant.id);}
+            if(ptu?.grantedBy?.id&&ids.has(ptu.grantedBy.id))ptu.grantedBy.id=ids.get(ptu.grantedBy.id);
+        }
+        const restoredRules=new Map(),graphChildren=new Set();
+        for(const source of sources){
+            for(const [index,rule] of (source.system?.rules??[]).entries()){
+                const saved=rule.key==='GrantItem'&&typeof rule.flag==='string'?source.flags?.ptu?.itemGrants?.[rule.flag]:null;
+                if(!saved?.id)continue;
+                const target=sources.find(s=>s._id===saved.id)??(keepIds?actor.items.get(saved.id)?._source:null);
+                if(!target||target.flags?.ptu?.grantedBy?.id!==source._id)throw Error('PTU | Saved grant relationship is incomplete or inconsistent; include its exact parent and child for restoration/copy.');
+                if(!restoredRules.has(source._id))restoredRules.set(source._id,new Set());
+                restoredRules.get(source._id).add(index);graphChildren.add(target._id);
+            }
+        }
+        if(keepIds)for(const source of sources)if((restoredRules.has(source._id)||graphChildren.has(source._id))&&actor.items.get(source._id))throw Error('PTU | Saved graph ID already exists; use an ordinary copy for independent IDs.');
 
         for (const source of sources) {
             source.system??={};
@@ -251,18 +283,14 @@ class PTUItem extends Item {
                 return [];
             }
 
-            if (!(context.keepId || context.keepEmbeddedIds)) {
-                source._id = foundry.utils.randomID();
-            }
-
-            if (source.system.stackSlugs) source.system.slug = sluggify(source.name + foundry.utils.randomID());
+            if (source.system.stackSlugs&&!restoredRules.has(source._id)&&!graphChildren.has(source._id)) source.system.slug = sluggify(source.name + foundry.utils.randomID());
 
             const item = new CONFIG.Item.documentClass(source, { parent: actor });
 
-            if (item.type === "condition") {
+            if (item.type === "condition"&&!graphChildren.has(source._id)) {
                 const existing = actor.itemTypes.condition.find(c => c.slug === sluggify(item.name.replaceAll(/\d/g, '')));
                 if (existing) {
-                    if (existing.system.value.isValued) existing.increase();
+                    if (existing.system.value.isValued) conditionIncrements.push(existing.id);
                     continue;
                 }
             }
@@ -295,24 +323,18 @@ class PTUItem extends Item {
         for (const item of items) {
             item.prepareActorData?.();
 
-            const itemSource = (() => {
-                if (item.type !== "condition") return item._source;
-
-                const existing = actor.itemTypes.condition.find(c => c.slug === sluggify(item.name));
-                if (existing) {
-                    return existing._source;
-                }
-                return item._source
-            })();
+            const itemSource=item._source;
 
             const rules = item.prepareRuleElements();
             for (let i = 0; i < rules.length; i++) {
-                const ruleSource = itemSource.system.rules[i];
+                const index=rules[i].sourceIndex??i;
+                if(restoredRules.get(item.id)?.has(index))continue;
+                const ruleSource = itemSource.system.rules[index];
                 await rules[i].preCreate?.({ itemSource, ruleSource, pendingItems: outputSources, context });
             }
         }
 
-        preparedCreations.add(outputSources);
+        preparedCreations.set(outputSources,{conditionIncrements,parent:actor});
         return outputSources;
     }
 

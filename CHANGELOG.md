@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### P02-A advisory acquisition and display
+- Correct the reviewed mixed-batch cancellation gap: existing valued conditions are staged and increment only after choices and Item creation succeed. Preserve exact saved reciprocal grant graphs, saved custom slugs/fields and version context; ordinary complete-graph copies remap only supplied internal IDs. Incomplete/ambiguous graphs require review instead of grant replay. New grants and legitimate repeat acquisitions remain active.
 - Accept and display Features, Edges and Poké Edges on trainers and Pokémon. Derive persistent itemized unmet/unverifiable reports from owned raw requirements and explicit selected-version context, without changing ranks, requirements, choices or enabled state.
 - Keep ownership/scope, effect predicates, genuine choices and cancellation distinct. Stage NPC choices before creating folders/actors, prevent non-owner pre-creation work, and keep Feature/Edge drops out of inventory quantity merging.
 - Preserve exact class/grant relationships during creation/restoration; deliberate sheet grouping uses owned IDs rather than class-label matching. Normalize only exact new compendium-grant provenance and retain legitimate repeat additions and starter entitlement.
