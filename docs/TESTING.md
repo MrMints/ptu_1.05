@@ -114,6 +114,13 @@ rolled back as a cross-document transaction; retain a backup and verify affected
 No user campaign or live database is a test fixture. P02-A acquisition/display tests remain
 held until substantive P02-P review.
 
+For the document/persistence boundary, serve `tools/foundry-p02p-check.mjs` only under
+`Data/ptu02-preservation/check.mjs` in `ptu-verification`. Follow the [P02-P reproduction](validation/2026-10-26-p02p.md)
+for its normal Script macro, `check` then actual-client `reload` phases, saved expectations,
+flagged fixture lifecycle, exact case results and limits. It reads source packs and hashes
+pre-existing actors/Items; it writes only named disposable fixtures. It does not run a
+forced whole-world migration or certify the later acquisition/variant framework.
+
 ### Starting Training and acquisition preservation
 
 A newly created empty trainer opens the four-choice core Training prompt. Choose one;
