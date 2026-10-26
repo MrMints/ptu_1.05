@@ -21,7 +21,7 @@ test('refresh preserves zero quantity, disabled state, custom image, metadata, f
     const latest={_id:'source-id',name:'Source label',type:'item',img:'source.png',system:{quantity:1,enabled:true,description:'new'},flags:{},_stats:{compendiumSource:'historical'}};
     const before=[structuredClone(current),structuredClone(latest)];
     const updates=createCompendiumRefreshUpdate(current,latest);
-    assert.deepEqual(updates,{img:'custom.png',system:{quantity:0,enabled:false,description:'new'}});
+    assert.deepEqual(updates,{img:'custom.png',system:{quantity:0,enabled:false,description:'old'}});
     assert.deepEqual([current,latest],before);
     assert.deepEqual(Object.keys(updates).sort(),['img','system']);
     const repeated=createCompendiumRefreshUpdate({...current,...updates},latest);

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P02-P preservation foundation
+- Resolve migration/refresh sources only through complete exact compendium provenance, with modern identity before legacy metadata. Preserve missing/ambiguous/custom records without name, slug or partial-ID substitution.
+- Preserve existing prerequisites, keywords, range, automation, grants and selected-version data in migrations 0.111/0.113/0.115. Populate absent fields only; retain local legacy tags and never append source automation to a saved payload.
+- Make owned source refresh conservative: fill absent system fields and update a default image while retaining existing values and selections. Refresh does not certify a schema migration or perform version replacement.
+- Propagate transformation/persistence failures through migration completion, retain retryable schema versions, and stamp only completed supplied migrations. Add repeated-run, failure/recovery and exact-identity regression coverage. P02-A and the full variant framework remain separate gates.
+
 ### P03 advisory prerequisite foundation
 - Add a pure actor/item/version diagnostic interface with separate satisfied, unmet and unverifiable results, retained raw requirements and stable skill aliases. Missing fields, custom conditions, ambiguous comma compounds and unevidenced GM approval remain unverifiable; item relationships require exact evidenced identities.
 - Replace the explicit NPC prerequisite solver with itemized advisory reports. Refresh preserves selected content and skill ranks instead of granting dependencies, raising ranks or choosing options to satisfy prerequisites. Keep legitimate choice handling and optional randomization distinct.

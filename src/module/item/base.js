@@ -5,6 +5,7 @@ import { GrantItemRuleElement } from "../rules/rule-element/grant-item/rule-elem
 import { getDocumentSourceId, createCompendiumRefreshUpdate } from "../../util/document-source.js";
 import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
 import {isStarterTrainingGrant} from '../../util/starter-training.js';
+import {resolvePreservationSource} from '../../util/preservation.js';
 
 class PTUItem extends Item {
 
@@ -371,6 +372,7 @@ class PTUItem extends Item {
 
     async refreshFromCompendium() {
         if (!this.isOwned) return ui.notifications.error("PTU | Item must be owned to refresh from compendium");
+        if (!this.isOwner) return ui.notifications.error('PTU | Item ownership is required to refresh.');
 
         if (!this.sourceId?.startsWith("Compendium.")) {
             console.warn("PTU | Item must be from a compendium to refresh from compendium");
@@ -379,7 +381,7 @@ class PTUItem extends Item {
 
         const currentSource = this.toObject();
         let latestSource;
-        try { latestSource = (await fromUuid(this.sourceId))?.toObject(); }
+        try { latestSource = (await resolvePreservationSource(this))?.toObject(); }
         catch (error) {
             console.warn("PTU | Could not resolve compendium source", this.sourceId, error);
             return ui.notifications.error("PTU | Could not find latest source for item");
@@ -390,7 +392,7 @@ class PTUItem extends Item {
         const updates = createCompendiumRefreshUpdate(currentSource, latestSource, this.constructor.DEFAULT_ICON);
 
         await this.update(updates, { diff: false, recursive: false });
-        ui.notifications.info(`PTU | Item ${this.name} updated from compendium`);
+        ui.notifications.info(`PTU | ${this.name}: missing source fields refreshed; existing values and selections preserved. Version replacement requires explicit review.`);
     }
 
     async use(options = {}) {

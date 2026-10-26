@@ -6,13 +6,16 @@ export function getDocumentSourceId(document) {
     return typeof legacy === 'string' && legacy.length ? legacy : undefined;
 }
 
-/** Source-controlled refresh data. Identity, flags, name and owned state remain local. */
+/** Conservative refresh: fill absent system fields; existing values need explicit replacement review. */
 export function createCompendiumRefreshUpdate(current, latest, defaultImage) {
     if (!latest || current.type !== latest.type) throw new Error('Compendium item type must match.');
-    const system = structuredClone(latest.system);
-    if (Object.hasOwn(current.system, 'enabled')) system.enabled = current.system.enabled;
-    if (current.type === 'item' && Object.hasOwn(current.system, 'quantity')) {
-        system.quantity = current.system.quantity;
+    const system = structuredClone(current.system);
+    const hasAutomation = Object.hasOwn(system, 'rules') || Object.hasOwn(system, 'referenceEffect');
+    for (const [field, value] of Object.entries(latest.system)) {
+        // Refresh is not a schema migration and must not declare one completed.
+        if (hasAutomation && ['rules', 'referenceEffect'].includes(field)) continue;
+        if (field === 'keywords' && Object.hasOwn(system, 'tags')) continue;
+        if (field !== 'schema' && !Object.hasOwn(system, field)) system[field] = structuredClone(value);
     }
     return {
         img: defaultImage && current.img === defaultImage ? latest.img : current.img,

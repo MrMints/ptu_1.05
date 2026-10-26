@@ -92,9 +92,27 @@ Generation 9 reference fixtures as a supported-content acceptance test.
 
 Current `_stats.compendiumSource` takes precedence over legacy `flags.core.sourceId`.
 Neither field is migrated or rewritten by the source accessor. A missing modern source
-does not fall back to historical metadata or a matching label. Refresh updates source
-system data while preserving owned quantity, enabled state, custom name/image and source
+does not fall back to historical metadata or a matching label. Refresh fills absent source
+system fields while preserving existing values, owned quantity, custom name/image and source
 identity; comprehensive campaign and rule-selection migrations remain with chat 09.
+
+P02-P changes refresh to **fill absent system fields only**. Existing raw prerequisites,
+keywords/range, automation payload, schema, custom values and selected-version data remain.
+Empty/null values are intentional; they are not permission to copy a source default.
+Default images may refresh, but custom images remain. Exact source identity/type must
+resolve; missing or ambiguous sources require manual review. Refresh is not a version
+replacement or schema migration. Migrations 0.111/0.113/0.115 follow the same preservation
+boundary; local legacy tag arrays can populate missing keywords without deleting tags.
+Source rules/reference effects are one payload and must not be blended with saved automation.
+
+Run `node --test --test-isolation=none tests/preservation.test.mjs tests/document-source.test.mjs`
+for actual migration/runner entrypoints with controlled IO. Test older snapshots, both exact
+same-name identities, conflicts, missing/custom records, repeat calls and injected
+transformation/write/embedded/free-form failures. A failed run must retain the prior
+world/document schema and be retryable. Earlier successfully persisted records are not
+rolled back as a cross-document transaction; retain a backup and verify affected values.
+No user campaign or live database is a test fixture. P02-A acquisition/display tests remain
+held until substantive P02-P review.
 
 ### Starting Training and acquisition preservation
 

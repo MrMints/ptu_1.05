@@ -117,7 +117,10 @@ class MigrationRunnerBase {
         }
 
         if(itemSource.type === "dexentry") return current;
-        if (migrations.length > 0) this.updateSchemaRecord(current.system.schema, migrations.at(-1));
+        if (migrations.length > 0) {
+            current.system.schema ??= {version:null, lastMigration:null};
+            this.updateSchemaRecord(current.system.schema, migrations.at(-1));
+        }
         
         return current;
     }
@@ -134,6 +137,7 @@ class MigrationRunnerBase {
                 await migration.updateTable?.(current);
             } catch (err) {
                 console.error(err);
+                throw err;
             }
         }
 
@@ -152,6 +156,7 @@ class MigrationRunnerBase {
                 await migration.updateMacro?.(current);
             } catch (err) {
                 console.error(err);
+                throw err;
             }
         }
 
@@ -170,6 +175,7 @@ class MigrationRunnerBase {
                 await migration.updateJournalEntry?.(clone);
             } catch (err) {
                 console.error(err);
+                throw err;
             }
         }
 
@@ -200,6 +206,7 @@ class MigrationRunnerBase {
                 await migration.updateUser?.(current);
             } catch (err) {
                 console.error(err);
+                throw err;
             }
         }
 
@@ -221,6 +228,7 @@ class MigrationRunnerBase {
         if (!("game" in globalThis && latestMigration)) return;
 
         const fromVersion = typeof schema.version === "number" ? schema.version : null;
+        if (fromVersion !== null && fromVersion >= latestMigration.version) return;
         schema.version = latestMigration.version;
         schema.lastMigration = {
             datetime: new Date().toISOString(),
