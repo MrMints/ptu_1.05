@@ -48,12 +48,14 @@ same escaped, itemized reports; no report flags are persisted. Existing saved
 Trainer and Pokémon collections include all three distinct Item types, without inventing
 new budgets. Ownership/scope checks and genuine effect/choice predicates remain separate.
 Creating/importing an Item with a class label does not guess a class grant; deliberate
-same-sheet grouping uses exact owned IDs. JSON/inline restoration preserves supplied
-choices without replaying their grants. NPC generation resolves choices on a temporary
+same-sheet grouping uses exact owned IDs. Complete reciprocal JSON/inline restoration preserves supplied choices; incomplete or
+unestablished saved graphs refuse unchanged rather than guessing/replaying grants. NPC generation resolves choices on a temporary
 actor before creating folders/actors, and leaves its normal starter entitlement pending
 for explicit selection rather than opening a competing prompt during generation.
 
-The [P02-A matrix and raw observations](validation/2026-10-26-p02a.md) bind the final installed runtime/archive to actual routes, player permissions and reloads, pending substantive acceptance. Focused acquisition/prerequisite/preservation/starter checks pass 43/43; the full local suite passes 120/120. These are implementation checks, not content/rules approval.
+The [earlier P02-A matrix](validation/2026-10-26-p02a.md) retains its bounded route/UI observations; subsequent review reproduced mixed cancellation and saved-grant gaps. The [correction matrix and raw evidence](validation/2026-10-26-p02a-correction.md) supersedes broad cancellation/no-replay claims: runtime `416c645e`, 34 focused/140 final full local passes, actual source-aware clone/drop/folder consent and cancellation, raw complete/ambiguous graphs, player security and reload proof. The first 2/3 reload and exact ordinary core stamp/derived-attribution difference remain explicit; stable reload is 3/3. Pending substantive acceptance; implementation tests do not approve content/rules.
+
+For a saved Item with reciprocal linked Items, Duplicate/save and cross-actor sheet drops collect the full component only from its actual accessible source collection. An explicit Copy linked Items prompt lists additional Items and the destination, with No as default. Confirm to create independent IDs and internal relationships; No or Close changes nothing. A partial raw payload without an established origin cannot infer partners from names, provenance or other actors. Malformed linked components require review; unrelated null metadata must not block ordinary unlinked copying. Ordinary core unlinked drop provenance can be transient in memory and affect report identity.sourceId after reload; the correction evidence isolates that limit.
 
 On a trainer, open Features & Edges to inspect Features, Edges and Poké Edges. On a Pokémon, open Enhancements & Items: the existing Enhancements collection uses the distinct `pokeedge` type, with Features and Edges alongside it. Both the actor and the individual Item show non-blocking unmet and unverifiable/custom requirements. Missing version attribution is separate from prerequisite truth; it does not authorize choosing a different source. Reports update from actor and embedded inputs, including species skills. Ordinary read-only sheets retain diagnostics; their visible Add anchors do not grant permission.
 

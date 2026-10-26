@@ -48,12 +48,40 @@ export async function runP02ACorrectionCheck(){
                 assert(!getActor(plan.group,type,role),'Copy fixture already exists.');
                 const actor=await Actor.create(await actorData(plan.group,type,type+':'+role));
                 await actor.update({['ownership.'+player.id]:3});
-                if(role==='copy-origin')await actor.createEmbeddedDocuments('Item',graph('condition'),{keepId:true});
+                if(role==='copy-origin'){
+                    await actor.createEmbeddedDocuments('Item',graph('condition'),{keepId:true});
+                    const [ordinary,malformed]=await actor.createEmbeddedDocuments('Item',[{name:'P02AC ordinary unlinked',type:'edge',flags:{ptu:{p02acOrdinary:true}},system:{notes:'Custom ordinary',rules:[]}},{name:'P02AC unrelated malformed metadata',type:'edge',system:{rules:[]}}]);
+                    await malformed.update({'flags.ptu.itemGrants':{custom:null}});
+                }
                 rows.push({actor:actor.uuid,role,items:actor.items.map(protectedItem)});
             }
             const sources=graph('condition');for(const source of sources){source._id=foundry.utils.randomID();source.ownership={default:2};source.flags.ptu.p02ac={batch,group:plan.group,role:'world-copy-'+source.type};}
             sources[0].flags.ptu.itemGrants.savedEdge.id=sources[1]._id;sources[1].flags.ptu.grantedBy.id=sources[0]._id;
-            const world=await Item.createDocuments(sources,{keepId:true});return{rows,world:world.map(protectedItem)};
+            const world=await Item.createDocuments(sources,{keepId:true});
+            const hidden=graph('condition');for(const source of hidden){source._id=foundry.utils.randomID();source.ownership={default:source.type==='feat'?2:0};source.flags.ptu.p02ac={batch,group:plan.group,role:'hidden-copy-'+source.type};}hidden[0].flags.ptu.itemGrants.savedEdge.id=hidden[1]._id;hidden[1].flags.ptu.grantedBy.id=hidden[0]._id;
+            const inaccessible=await Item.createDocuments(hidden,{keepId:true});return{rows,world:world.map(protectedItem),inaccessible:inaccessible.map(protectedItem)};
+        });
+    }else if(plan.phase==='ordinary-copy'){
+        for(const type of ['character','pokemon'])for(const route of ['clone','drop'])await record(type+':unlinked-'+route+'-with-unrelated-null-grant',async()=>{
+            const origin=getActor(plan.group,type,'copy-origin'),target=getActor(plan.group,type,'copy-target'),source=origin.items.find(i=>i.flags.ptu?.p02acOrdinary),before=source.toObject();
+            const result=route==='clone'?await source.clone({},{save:true}):(await target.sheet._onDropItem({preventDefault(){}},{type:'Item',uuid:source.uuid}))?.[0];
+            assert(result?.id!==source.id&&result?.type===source.type&&same(result.system.notes,before.system.notes),'Unrelated null grant blocked ordinary copy/drop.');return{source:source.uuid,before,after:source.toObject(),created:protectedItem(result)};
+        });
+    }else if(plan.phase==='inaccessible-copy'){
+        assert(!game.user.isGM,'Actual player only.');for(const type of ['character','pokemon'])await record(type+':inaccessible-world-child-refused',async()=>{const target=getActor(plan.group,type,'copy-target'),source=game.items.find(i=>marked(i)&&i.flags.ptu.p02ac.group===plan.group&&i.flags.ptu.p02ac.role==='hidden-copy-feat'),before=target.toObject();let error;try{await target.sheet._onDropItem({preventDefault(){}},{type:'Item',uuid:source.uuid});}catch(e){error=e.message;}assert(error&&/inaccessible|missing/.test(error)&&same(before,target.toObject()),'Inaccessible graph changed destination.');return{source:source.uuid,destination:target.uuid,error,beforeHash:await hash(before),afterHash:await hash(target.toObject())};});
+    }else if(plan.phase==='linked-malformed'){
+        for(const type of ['character','pokemon'])for(const route of ['clone','drop'])await record(type+':linked-malformed-'+route+'-refused',async()=>{const origin=getActor(plan.group,type,'copy-origin'),target=getActor(plan.group,type,'copy-target'),source=origin.items.find(i=>i.flags.ptu?.itemGrants?.custom===null),before=origin.toObject(),destination=target.toObject();let error;try{if(route==='clone')await source.clone({},{save:true});else await target.sheet._onDropItem({preventDefault(){}},{type:'Item',uuid:source.uuid});}catch(e){error=e.message;}assert(error?.includes('malformed saved grant metadata')&&same(before,origin.toObject())&&same(destination,target.toObject()),'Malformed selected graph did not refuse unchanged.');return{source:source.uuid,error,beforeHash:await hash(before),afterHash:await hash(origin.toObject()),destinationBeforeHash:await hash(destination),destinationAfterHash:await hash(target.toObject())};});
+    }else if(plan.phase==='folder-copy'){
+        assert(game.user.isGM,'GM disposable folder setup only.');
+        await record(plan.actorType+':expanded-folder-'+plan.selected,async()=>{
+            const originals=game.items.filter(i=>marked(i)&&i.flags.ptu.p02ac.group===plan.group&&i.flags.ptu.p02ac.role.startsWith('world-copy-'));
+            const source=originals.find(i=>i.type===(plan.selected==='parent'?'feat':'condition'));
+            let folder=game.folders.find(f=>f.flags.ptu?.p02acFolder===plan.group+':'+plan.selected);
+            if(!folder){folder=await Folder.create({name:'P02AC linked folder '+plan.selected,type:'Item',flags:{ptu:{p02acFolder:plan.group+':'+plan.selected}}});await source.update({folder:folder.id});}
+            assert(folder.contents.length===1&&folder.contents[0].id===source.id,'Folder must select exactly one actual graph member.');
+            const target=getActor(plan.group,plan.actorType,'copy-target'),protectedSources=originals.map(i=>({id:i.id,hash:null,raw:i.toObject()})),runs=[];
+            for(let repeat=0;repeat<2;repeat++){const before=target.toObject(),added=await target.sheet._onDropFolder({preventDefault(){}},{type:'Folder',uuid:folder.uuid});assert(added.length===2&&added[0].type===source.type,'Folder expansion lost selected interface or replayed a child.');const parent=added.find(i=>i.type==='feat'),savedChild=added.find(i=>i.type==='condition');assert(parent.flags.ptu.itemGrants.savedEdge.id===savedChild.id&&savedChild.flags.ptu.grantedBy.id===parent.id&&savedChild.value===4,'Folder graph data changed.');assert(protectedSources.every(row=>same(row.raw,game.items.get(row.id).toObject())),'Folder copy changed a source Item.');assert(same(numeric({toObject:()=>before}),numeric(target)),'Folder copy changed actor values.');runs.push({beforeHash:await hash(before),afterHash:await hash(target.toObject()),added:added.map(protectedItem)});}
+            return{folder:folder.toObject(),selected:source.uuid,target:target.uuid,protectedSources,runs};
         });
     }else if(plan.phase==='source-copy'){
         await record([plan.actorType,plan.route,plan.selected,plan.action??'select',plan.observer?'observer':'owner'].join(':'),async()=>{
@@ -147,6 +175,15 @@ export async function runP02ACorrectionCheck(){
             const parent=actor.items.get('p02acparent00001'),savedChild=actor.items.get('p02acchild000001'),before=actor.toObject();assert(parent&&savedChild,'Missing recorded graph.');let error=null;
             try{await actor.createEmbeddedDocuments('Item',[parent.toObject(),savedChild.toObject()],{keepId:true});}catch(e){error=e.message;}
             assert(error?.includes('ID already exists')&&same(before,actor.toObject()),'Saved-ID repeat changed the actor after reload.');return{actor:actor.uuid,error,beforeHash:await hash(before),afterHash:await hash(actor.toObject()),parent:protectedItem(parent),child:protectedItem(savedChild)};
+        });
+    }else if(plan.phase==='reload-differences'){
+        assert(game.user.isGM,'GM exact reload diagnosis only.');const expected=await(await fetch('/ptu02-correction/expected.json',{cache:'no-store'})).json();
+        for(const row of expected.actors)if(await hash(game.actors.get(row.id).toObject())!==row.hash)await record('exact-reload-difference:'+row.id,async()=>{
+            const actor=game.actors.get(row.id),actual=actor.toObject(),reconstructed=clone(actual),changes=[];
+            for(const source of plan.sources.filter(source=>source.actor===actor.uuid)){const item=reconstructed.items.find(item=>item._id===source.item);changes.push({item:source.item,field:'_stats.compendiumSource',beforeReload:source.value,afterReload:item._stats.compendiumSource});item._stats.compendiumSource=source.value;}
+            const reconstructedHash=await hash(reconstructed),protectedItems=await persistedItems(actor),reconstructedItems=clone(protectedItems),reports=[];
+            for(const change of changes){const item=new CONFIG.Item.documentClass(reconstructed.items.find(item=>item._id===change.item),{parent:actor});reconstructedItems.find(item=>item.id===change.item).reportHash=await hash(item.prerequisiteDiagnostic);reports.push({item:change.item,beforeReload:item.prerequisiteDiagnostic,afterReload:actor.items.get(change.item).prerequisiteDiagnostic});}
+            report.reloadDifferences??=[];report.reloadDifferences.push({actor:actor.uuid,expectedHash:row.hash,actualHash:await hash(actual),reconstructedHash,changes,reports,actual,expectedItems:row.items,actualItems:protectedItems});assert(reconstructedHash===row.hash&&same(reconstructedItems,row.items),'Reload difference exceeds the ordinary-drop core stamp and its derived attribution.');return{actor:actor.uuid,expectedHash:row.hash,actualHash:await hash(actual),reconstructedHash,changes,reports,protectedFieldsAndOtherReportsExact:true,items:protectedItems};
         });
     }else if(plan.phase==='checkpoint'){
         assert(game.user.isGM,'GM checkpoint only.');report.expected={actors:await Promise.all(game.actors.filter(marked).map(async a=>({id:a.id,hash:await hash(a.toObject()),items:await persistedItems(a)})))};
