@@ -119,9 +119,30 @@ test('ID-preserving saved Condition-child graph retains its custom slug and reci
 });
 
 test('unestablished saved rule-to-edge associations stop unchanged for restore and copy',async()=>{
-    for(const keepId of [true,false])for(const flag of [undefined,'','changed-unproven-flag']){
-        const h=await harness(),input=graph();if(flag===undefined)delete input[0].system.rules[0].flag;else input[0].system.rules[0].flag=flag;
+    for(const keepId of [true,false])for(const type of ['edge','condition'])for(const flag of [undefined,'','changed-unproven-flag']){
+        const h=await harness(),input=graph();input[1].type=type;if(type==='condition')input[1].system.value={isValued:true,value:4};if(flag===undefined)delete input[0].system.rules[0].flag;else input[0].system.rules[0].flag=flag;
         const raw=clone(input),before=h.snapshot();await assert.rejects(h.ItemClass.createDocuments(input,{parent:h.actor,keepId}),/association/);
         assert.deepEqual(h.snapshot(),before);assert.deepEqual(input,raw);assert.deepEqual(h.counts(),{creates:0,increments:0,ruleCalls:0});
+    }
+});
+
+test('partial or non-reciprocal saved graphs never attach by a name or coincident ID',async()=>{
+    for(const keepId of [true,false])for(const kind of ['child-only','wrong-parent','manual-partial']){
+        const h=await harness(),input=kind==='child-only'?[graph()[1]]:graph();
+        if(kind==='wrong-parent')input[1].flags.ptu.grantedBy.id='unprovenparent01';
+        if(kind==='manual-partial'){input.pop();input[0].system.rules=[];}
+        const before=h.snapshot(),raw=clone(input);await assert.rejects(h.ItemClass.createDocuments(input,{parent:h.actor,keepId}),/Saved grant/);assert.deepEqual(h.snapshot(),before);assert.deepEqual(input,raw);
+    }
+    const h=await harness(),manual=graph();manual[0].system.rules=[];const result=await h.ItemClass.createDocuments(manual,{parent:h.actor});assert.equal(result.length,2);assert.equal(result[0].flags.ptu.itemGrants.savedEdge.id,result[1].id);assert.equal(result[1].flags.ptu.grantedBy.id,result[0].id);
+});
+
+test('complete link metadata without a GrantItem rule preserves a same-slug saved Condition child',async()=>{
+    for(const keepId of [true,false])for(const hasRule of [true,false]){
+        const h=await harness(),input=graph();if(!hasRule)input[0].system.rules=[];
+        input[1]={...h.condition.toObject(),_id:childId,flags:input[1].flags};input[1].system.value.value=4;input[1].system.stackSlugs=true;
+        const before=clone(input),result=await h.ItemClass.createDocuments(input,{parent:h.actor,keepId});assert.equal(result.length,2);
+        const [parent,child]=result;assert.equal(parent.flags.ptu.itemGrants.savedEdge.id,child.id);assert.equal(child.flags.ptu.grantedBy.id,parent.id);assert.equal(child.system.value.value,4);assert.equal(h.condition.system.value.value,1);assert.equal(h.counts().increments,0);
+        assert.deepEqual(child.system,before[1].system);assert.deepEqual(child.flags.ptu.selectedVersion,before[1].flags.ptu.selectedVersion);assert.deepEqual(input,before);
+        if(keepId){assert.equal(parent.id,parentId);assert.equal(child.id,childId);}else{assert.notEqual(parent.id,parentId);assert.notEqual(child.id,childId);}
     }
 });

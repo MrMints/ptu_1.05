@@ -20,13 +20,14 @@ function graph(kind='edge'){const parent='p02acparent00001',childId='p02acchild0
     {_id:childId,name:'P02AC saved child',type:kind,flags:{ptu:{selectedVersion:{id:'synthetic-revised'},grantedBy:{id:parent,onDelete:'cascade'}}},system:{prerequisites:['Custom child requirement'],notes:'Custom child notes',slug:'p02ac-saved-child',stackSlugs:true,rules:[],...(kind==='condition'?{value:{isValued:true,value:4}}:{})}}
 ];}
 const protectedItem=i=>{const d=i.toObject();return{id:i.id,uuid:i.uuid,name:d.name,type:d.type,system:d.system,flags:d.flags,diagnostic:i.prerequisiteDiagnostic};};
+const persistedItems=actor=>Promise.all(actor.items.map(async i=>({id:i.id,uuid:i.uuid,type:i.type,systemHash:await hash(i.toObject().system),flagsHash:await hash(i.toObject().flags),raw:i.system.prerequisites,version:i.flags.ptu?.selectedVersion,slug:i.system.slug,value:i.type==='condition'?i.value:undefined,grantedBy:i.flags.ptu?.grantedBy,itemGrants:i.flags.ptu?.itemGrants,reportHash:await hash(i.prerequisiteDiagnostic)})));
 
 export async function runP02ACorrectionCheck(){
     assert(game.world.id==='ptu-verification','Disposable world only.');
     const plan=await(await fetch('/ptu02-correction/plan.json',{cache:'no-store'})).json();
     const report={batch,phase:plan.phase,group:plan.group,runtime:plan.runtime,executionId:crypto.randomUUID(),user:game.user.id,isGM:game.user.isGM,foundry:game.version,scenarios:[]};
     report.servedItemBaseSha256=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',await(await fetch('/systems/ptu/src/module/item/base.js',{cache:'no-store'})).arrayBuffer()))).map(n=>n.toString(16).padStart(2,'0')).join('');
-    const record=async(id,fn)=>{try{report.scenarios.push({id,result:'pass',observed:await fn()});}catch(e){report.scenarios.push({id,result:'fail',error:e.message,stack:e.stack});}};
+    const record=async(id,fn)=>{try{const observed=await fn();report.scenarios.push({id,result:'pass',observed});if(observed?.runs)report.graphObservations=report.graphObservations?.filter(row=>row.actor!==observed.actor);}catch(e){report.scenarios.push({id,result:'fail',error:e.message,stack:e.stack});}};
     if(plan.phase==='init'){
         assert(game.user.isGM,'GM setup only.');
         report.baseline={actors:await Promise.all(game.actors.map(async d=>({id:d.id,hash:await hash(d.toObject())}))),items:await Promise.all(game.items.map(async d=>({id:d.id,hash:await hash(d.toObject())}))),scenes:await Promise.all(game.scenes.map(async d=>({id:d.id,hash:await hash(d.toObject())}))),schema:game.settings.get('ptu','worldSchemaVersion')};
@@ -51,18 +52,22 @@ export async function runP02ACorrectionCheck(){
         });
     }else if(plan.phase==='graphs'){
         assert(game.user.isGM,'GM fresh graph actors only.');
-        for(const type of ['character','pokemon'])for(const mode of ['keep','condition-keep','copy','prepared','new-rule'])await record(type+':graph:'+mode,async()=>{
-            const keep=mode==='keep'||mode==='condition-keep',actor=await Actor.create(await actorData(plan.group,type,type+':graph:'+mode+':'+report.executionId)),input=graph(mode==='condition-keep'?'condition':'edge'),original=clone(input),runs=[];
+        for(const type of ['character','pokemon'])for(const mode of ['keep','condition-keep','copy','condition-copy','manual-keep','manual-copy','manual-condition-keep','manual-condition-copy','prepared','new-rule'])await record(type+':graph:'+mode,async()=>{
+            const keep=mode.endsWith('keep'),actor=await Actor.create(await actorData(plan.group,type,type+':graph:'+mode+':'+report.executionId)),input=graph(mode.includes('condition')?'condition':'edge'),runs=[];
+            if(mode.startsWith('manual'))input[0].system.rules=[];
+            if(mode.startsWith('manual-condition')){const flags=input[1].flags;input[1]={...counter(actor).toObject(),_id:input[1]._id,flags};input[1].system.value.value=4;input[1].system.prerequisites=['Custom same-slug condition'];input[1].system.notes='Custom child notes';input[1].system.stackSlugs=true;}
+            const original=clone(input);
             if(mode==='new-rule')input[0].system.rules.push({key:'GrantItem',uuid:child().uuid,flag:'newEdge',allowduplicate:true});
-            for(let run=0;run<(mode==='copy'?2:1);run++){
-                const before=actor.toObject();const added=mode==='prepared'?await CONFIG.Item.documentClass.createDocuments(await CONFIG.Item.documentClass.prepareCreation(input,{parent:actor}),{parent:actor}):await actor.createEmbeddedDocuments('Item',input,keep?{keepId:true}:{});
-                const row={before,after:actor.toObject(),added:added.map(protectedItem)};runs.push(row);report.graphObservations??=[];report.graphObservations.push({actor:actor.uuid,mode,run,...row});
+            for(let run=0;run<(mode.endsWith('copy')?2:1);run++){
+                const before=actor.toObject(),beforeItems=actor.items.map(i=>i.toObject());const added=mode==='prepared'?await CONFIG.Item.documentClass.createDocuments(await CONFIG.Item.documentClass.prepareCreation(input,{parent:actor}),{parent:actor}):await actor.createEmbeddedDocuments('Item',input,keep?{keepId:true}:{});
+                const row={beforeHash:await hash(before),afterHash:await hash(actor.toObject()),numericBefore:numeric({toObject:()=>before}),numericAfter:numeric(actor),itemIdsBefore:before.items.map(i=>i._id),itemIdsAfter:actor.items.map(i=>i.id),existingItems:await Promise.all(beforeItems.map(async i=>({id:i._id,beforeHash:await hash(i),afterHash:await hash(actor.items.get(i._id).toObject())}))),added:added.map(protectedItem)};runs.push(row);report.graphObservations??=[];report.graphObservations.push({actor:actor.uuid,mode,run,...row});
+                assert(row.existingItems.every(i=>i.beforeHash===i.afterHash),'Graph acquisition changed an existing Item.');
                 assert(added.length===(mode==='new-rule'?3:2),'Saved graph replayed or lost a child.');const [parent,savedChild]=added;
                 assert(parent.flags.ptu.itemGrants.savedEdge.id===savedChild.id&&savedChild.flags.ptu.grantedBy.id===parent.id,'Reciprocal saved relationship changed.');
                 if(keep)assert(parent.id===input[0]._id&&savedChild.id===input[1]._id,'ID-preserving restore changed IDs.');else assert(parent.id!==input[0]._id&&savedChild.id!==input[1]._id,'Copy did not assign independent IDs.');
                 for(const [index,item] of [parent,savedChild].entries())for(const key of ['prerequisites','notes','slug','stackSlugs'])assert(same(item.toObject().system[key],original[index].system[key]),'Saved custom '+key+' changed.');
                 for(const [index,item] of [parent,savedChild].entries())assert(same(item.flags.ptu.selectedVersion,original[index].flags.ptu.selectedVersion),'Saved version context changed.');
-                if(mode==='condition-keep')assert(savedChild.value===4&&counter(actor).value===1,'Saved condition value was merged or incremented.');
+                if(mode.includes('condition'))assert(savedChild.value===4&&counter(actor).value===1,'Saved condition value was merged or incremented.');
                 if(mode==='new-rule')assert(parent.flags.ptu.itemGrants.newEdge.id===added[2].id&&added[2].flags.ptu.grantedBy.id===parent.id,'Genuine new grant was suppressed.');
                 assert(same(numeric({toObject:()=>before}),numeric(actor)),'Graph copy changed numeric actor state.');
             }
@@ -71,11 +76,11 @@ export async function runP02ACorrectionCheck(){
         });
     }else if(plan.phase==='ambiguous-graphs'){
         assert(game.user.isGM,'GM fresh ambiguity fixtures.');
-        for(const type of ['character','pokemon'])for(const keep of [true,false])await record(type+':unestablished-rule-association:'+(keep?'keep':'copy'),async()=>{
-            const actor=await Actor.create(await actorData(plan.group,type,type+':ambiguous:'+keep+':'+report.executionId)),input=graph(),before=actor.toObject();delete input[0].system.rules[0].flag;let error=null,added;
+        for(const type of ['character','pokemon'])for(const keep of [true,false])for(const kind of ['missing-flag','blank-flag','one-sided','duplicate-id'])await record(type+':unestablished-rule-association:'+(keep?'keep':'copy')+':'+kind,async()=>{
+            const actor=await Actor.create(await actorData(plan.group,type,type+':ambiguous:'+keep+':'+kind+':'+report.executionId)),input=graph(kind==='blank-flag'?'condition':'edge'),before=actor.toObject();if(kind==='missing-flag')delete input[0].system.rules[0].flag;if(kind==='blank-flag')input[0].system.rules[0].flag='';if(kind==='one-sided')input[1].flags.ptu.grantedBy.id='unprovenparent01';if(kind==='duplicate-id')input.push(clone(input[1]));let error=null,added;
             try{added=await actor.createEmbeddedDocuments('Item',input,keep?{keepId:true}:{});}catch(e){error=e.message;}
             const observed={actor:actor.uuid,input,before,after:actor.toObject(),error,added:added?.map(protectedItem)};report.ambiguousObservations??=[];report.ambiguousObservations.push(observed);
-            assert(error?.includes('association')&&same(before,actor.toObject()),'Unestablished saved association replayed or changed the saved actor.');return observed;
+            assert(error&&/association|incomplete|inconsistent|Ambiguous saved grant/.test(error)&&same(before,actor.toObject()),'Unestablished saved association replayed or changed the saved actor.');return observed;
         });
     }else if(plan.phase==='nested'){
         await record(plan.actorType+':fresh-nested-choice-and-grant',async()=>{
@@ -96,11 +101,11 @@ export async function runP02ACorrectionCheck(){
             assert(same(before,actor.toObject())&&(!result||result.length===0),'Non-owner changed actor or staged an acquisition.');return{actor:actor.uuid,before,after:actor.toObject(),denied,empty:!result?.length};
         });
     }else if(plan.phase==='checkpoint'){
-        assert(game.user.isGM,'GM checkpoint only.');report.expected={actors:await Promise.all(game.actors.filter(marked).map(async a=>({id:a.id,hash:await hash(a.toObject()),items:a.items.map(protectedItem)})))};
+        assert(game.user.isGM,'GM checkpoint only.');report.expected={actors:await Promise.all(game.actors.filter(marked).map(async a=>({id:a.id,hash:await hash(a.toObject()),items:await persistedItems(a)})))};
         await record('nonempty-saved-correction-fixtures',async()=>{assert(report.expected.actors.length>=12,'Missing correction fixtures.');return{actors:report.expected.actors.length};});
     }else if(plan.phase==='reload'){
         assert(game.user.isGM,'GM reload comparison only.');const expected=await(await fetch('/ptu02-correction/expected.json',{cache:'no-store'})).json(),baseline=await(await fetch('/ptu02-correction/baseline.json',{cache:'no-store'})).json();
-        await record('exact-correction-actors-graphs-custom-data-and-reports-after-reload',async()=>{assert(expected.actors.length>=12,'Empty expected fixtures.');for(const row of expected.actors){const actor=game.actors.get(row.id);assert(actor&&await hash(actor.toObject())===row.hash,'Saved correction actor changed: '+row.id);assert(same(actor.items.map(protectedItem),row.items),'Saved graph/custom/report changed: '+row.id);}return{actors:expected.actors.length,items:expected.actors.reduce((n,a)=>n+a.items.length,0),rows:expected.actors};});
+        await record('exact-correction-actors-graphs-custom-data-and-reports-after-reload',async()=>{assert(expected.actors.length>=12,'Empty expected fixtures.');for(const row of expected.actors){const actor=game.actors.get(row.id);assert(actor&&await hash(actor.toObject())===row.hash,'Saved correction actor changed: '+row.id);assert(same(await persistedItems(actor),row.items),'Saved graph/custom/report changed: '+row.id);}return{actors:expected.actors.length,items:expected.actors.reduce((n,a)=>n+a.items.length,0),rows:expected.actors};});
         await record('preexisting-actors-items-scenes-and-world-schema-unchanged',async()=>{for(const [key,collection] of [['actors',game.actors],['items',game.items],['scenes',game.scenes]])for(const row of baseline[key])assert(await hash(collection.get(row.id).toObject())===row.hash,'Protected '+key+' changed: '+row.id);assert(game.settings.get('ptu','worldSchemaVersion')===baseline.schema,'World schema changed.');return{actors:baseline.actors.length,items:baseline.items.length,scenes:baseline.scenes.length,schema:baseline.schema};});
     }else throw Error('Unknown correction phase');
     new Dialog({title:'P02-A correction result',content:`<h2>${report.scenarios.filter(s=>s.result==='pass').length}/${report.scenarios.length} passed</h2><textarea id="p02ac-result" style="width:100%;height:330px">${foundry.utils.escapeHTML(JSON.stringify(report,null,2))}</textarea>`,buttons:{close:{label:'Close'}}},{width:1000,height:650}).render(true);return report;

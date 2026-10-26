@@ -263,7 +263,17 @@ class PTUItem extends Item {
             for(const grant of Object.values(ptu?.itemGrants??{}))if(grant?.id){if(counts.get(grant.id)>1)throw Error('PTU | Ambiguous saved grant IDs; restore the complete distinct graph.');if(ids.has(grant.id))grant.id=ids.get(grant.id);}
             if(ptu?.grantedBy?.id&&ids.has(ptu.grantedBy.id))ptu.grantedBy.id=ids.get(ptu.grantedBy.id);
         }
-        const restoredRules=new Map(),graphChildren=new Set();
+        const restoredRules=new Map(),graphChildren=new Set(),graphMembers=new Set();
+        const graphTarget=id=>sources.find(s=>s._id===id)??(keepIds?actor.items.get(id)?._source:null);
+        for(const source of sources){
+            for(const edge of Object.values(source.flags?.ptu?.itemGrants??{})){
+                const target=typeof edge?.id==='string'?graphTarget(edge.id):null;
+                if(!target||target.flags?.ptu?.grantedBy?.id!==source._id)throw Error('PTU | Saved grant relationship is incomplete or inconsistent; include its exact parent and child for restoration/copy.');
+                graphMembers.add(source._id);graphMembers.add(target._id);graphChildren.add(target._id);
+            }
+            const parentId=source.flags?.ptu?.grantedBy?.id;
+            if(parentId){const parent=graphTarget(parentId);if(!parent||!Object.values(parent.flags?.ptu?.itemGrants??{}).some(edge=>edge?.id===source._id))throw Error('PTU | Saved grant parent is incomplete or inconsistent; include the complete reciprocal graph.');graphMembers.add(source._id);graphMembers.add(parentId);}
+        }
         for(const source of sources){
             const savedEdges=Object.entries(source.flags?.ptu?.itemGrants??{});
             const grantRules=(source.system?.rules??[]).filter(rule=>rule.key==='GrantItem');
@@ -274,13 +284,13 @@ class PTUItem extends Item {
             for(const [index,rule] of (source.system?.rules??[]).entries()){
                 const saved=rule.key==='GrantItem'&&typeof rule.flag==='string'?source.flags?.ptu?.itemGrants?.[rule.flag]:null;
                 if(!saved?.id)continue;
-                const target=sources.find(s=>s._id===saved.id)??(keepIds?actor.items.get(saved.id)?._source:null);
+                const target=graphTarget(saved.id);
                 if(!target||target.flags?.ptu?.grantedBy?.id!==source._id)throw Error('PTU | Saved grant relationship is incomplete or inconsistent; include its exact parent and child for restoration/copy.');
                 if(!restoredRules.has(source._id))restoredRules.set(source._id,new Set());
                 restoredRules.get(source._id).add(index);graphChildren.add(target._id);
             }
         }
-        if(keepIds)for(const source of sources)if((restoredRules.has(source._id)||graphChildren.has(source._id))&&actor.items.get(source._id))throw Error('PTU | Saved graph ID already exists; use an ordinary copy for independent IDs.');
+        if(keepIds)for(const source of sources)if(graphMembers.has(source._id)&&actor.items.get(source._id))throw Error('PTU | Saved graph ID already exists; use an ordinary copy for independent IDs.');
 
         for (const source of sources) {
             source.system??={};
@@ -289,7 +299,7 @@ class PTUItem extends Item {
                 return [];
             }
 
-            if (source.system.stackSlugs&&!restoredRules.has(source._id)&&!graphChildren.has(source._id)) source.system.slug = sluggify(source.name + foundry.utils.randomID());
+            if (source.system.stackSlugs&&!graphMembers.has(source._id)) source.system.slug = sluggify(source.name + foundry.utils.randomID());
 
             const item = new CONFIG.Item.documentClass(source, { parent: actor });
 
