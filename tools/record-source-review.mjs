@@ -3,6 +3,8 @@ import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {readPackSources} from './pack-sources.mjs';
 import {checkUnmatchedSpecies} from './species-unmatched-review.mjs';
+import {parseAbilityRuleClauses} from './ability-source-parsing.mjs';
+import {checkAbilitySourceReview} from './ability-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -24,6 +26,7 @@ const normalizedText = value => (cleanText(value).toLowerCase().match(/[a-z0-9]+
 // evidence error, not an invitation to compare individual characters.
 const normalizedLabels = values => Array.isArray(values) ? values.map(labelKey).sort() : values == null || values === '' ? [] : null;
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
+export function parseSourceAbilityRules(value) { return parseAbilityRuleClauses(value, cleanText); }
 export function parseSourceAcquisition(value, machine = false) {
     let text = cleanText(value);
     if (/^None[.!]?$/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'empty-list'};
@@ -122,7 +125,8 @@ export async function loadRecordSourceReview() {
     const protectedHashes = Object.fromEntries(await Promise.all(index.protectedPolicyArtifacts.map(async item => [item.path, hash(await json(item.path))])));
     return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
         acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
-        unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null};
+        unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null,
+        abilitySource: index.abilitySourceEvidence ? await json(`docs/data/${index.abilitySourceEvidence}`) : null};
 }
 
 export function recordSourceReviewErrors(bundle) {
@@ -295,6 +299,7 @@ export function recordSourceReviewErrors(bundle) {
     }
     counts.unreviewed += inventoryMap.size - rows.size;
     checkUnmatchedSpecies(bundle, {fail, rows, actualMap, hash, equal, labelKey, currentFieldEvidence, citations});
+    checkAbilitySourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseAbilityRules: parseSourceAbilityRules, citations});
     if (index.generationScopeEvidence) {
         const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
             'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],

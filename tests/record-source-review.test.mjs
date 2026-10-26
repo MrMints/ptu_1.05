@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys, parseCompactSourceProfiles} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
-const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest, acquisitionAudit: original.acquisitionAudit, generationScope: original.generationScope, unmatchedSpecies: original.unmatchedSpecies})});
+const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest, acquisitionAudit: original.acquisitionAudit, generationScope: original.generationScope, unmatchedSpecies: original.unmatchedSpecies, abilitySource: original.abilitySource})});
 const records = data => Object.values(data.files).flatMap(file => file.records);
 test('record source snapshot keeps exact inventory, separate field axes and complete first dependency coverage', () => {
     assert.deepEqual(recordSourceReviewErrors(original), []);
@@ -289,6 +289,7 @@ test('unmatched available counterparts, literals and current/history fields cann
 
 test('completed B comparisons do not bypass its required predecessor review before C', () => {
     const data = copy();
+    data.batchManifest.batches.find(value => value.id === 'B').acceptance.status = 'pending-substantive-review';
     data.batchManifest.batches.find(value => value.id === 'C').status = 'in-progress';
     assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Frozen family review gate not cleared: C')));
     const wrongCounts = copy();
