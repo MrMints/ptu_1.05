@@ -2,6 +2,8 @@
 
 Owner decision, 2026-10-25: this project uses **PTU 1.05 mechanics plus approved Pokémon content from Generations 1–8 only. Generation 9 and later are excluded.** This is a project scope boundary, not a claim that the original core book contains every generation or that every inherited fan-made record is approved.
 
+The [content-selection amendment](PRE_05_RECONCILIATION.md) applies to every section. Original/non-errata and revised alternatives for Moves, Abilities, Features and Edges remain separately selectable when source-backed, with accurate edition/status labels. Features/Edges are addable to any supported trainer/Pokémon despite unmet game-rule prerequisites, with persistent itemized non-blocking unmet/unverifiable diagnostics. This owner policy does not rewrite printed prerequisite facts, approve unclassified content, bypass permissions, change effect-use conditions or expand Generation scope. Earlier ambiguous “check prerequisites” or “before acquisition” policy wording cannot impose a game-prerequisite veto.
+
 ## Applies to every section
 
 - Recovery, source interpretation, standard/revised variants, skill/gameplay fixtures, move verification, automation, browsing/acquisition and release acceptance must stay within Generations 1–8.

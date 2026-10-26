@@ -6,6 +6,8 @@ Supported content stops at **Generation 8**, using PTU 1.05 mechanics and approv
 
 [The scope policy](docs/SCOPE.md) governs all milestones: **Generations 1–8 only; Generation 9 and later excluded**. The saved plan and all chat briefs must be interpreted within this boundary.
 
+The [owner amendment and pre-05 correction ledger](docs/PRE_05_RECONCILIATION.md) govern selectable original/revised content and non-blocking Feature/Edge prerequisites. Affected prior gates reopen without invalidating unchanged historical evidence. Sequential corrections run 03 evaluator/solver → 02 preservation/acquisition/display → 01 evidence checks → 04 remaining source review, each only on explicit assignment. 05 remains blocked until those corrections and full original 04 are substantively accepted. D is held under this amended dependency order.
+
 | Milestone | Gate |
 | --- | --- |
 | 1. Foundation and documentation | Documented PRs, required checks, Issues, squash-only merges and default-branch protections |
@@ -32,9 +34,15 @@ The core book is the standard baseline. Catalog May/September 2015 and February 
 Later explicit revisions supersede earlier ones only in the revised version. Supplements and newer Pokédex
 material do not silently override core. Conflicts need a documented ruling before verification.
 
-Features, Edges, Moves and Abilities need distinct variant document IDs, shared canonical identities,
-revision/source metadata and visible filters. Replacements must preserve relevant actor state and
-check prerequisites; alternate versions cannot silently stack duplicate benefits. General mechanics
+Features, Edges, Moves and Abilities retain separately selectable source-backed original/non-errata and
+revised alternatives where applicable, with distinct variant document IDs, evidenced shared canonical
+identities, accurate official-errata/optional-playtest labels and visible filters. Do not invent counterparts
+or use chronology to remove an available original. Replacements preserve relevant actor state and saved/custom
+selections; alternate versions cannot silently stack duplicate benefits. Features and Edges, including Poké Edges,
+are addable to supported trainers and Pokémon despite unmet game-rule prerequisites. Show visible persistent
+itemized non-blocking warnings for the selected version, distinguishing unmet from unverifiable/custom requirements.
+Do not silently raise ranks/add dependencies or retain a contradictory rejection on another add route. Ownership,
+scope and actual effect-use conditions remain separate. General mechanics
 need individual world switches and bulk presets. World settings never silently replace chosen items.
 Existing-world choices need versioned, repeatable migrations; ambiguous legacy rules require review.
 

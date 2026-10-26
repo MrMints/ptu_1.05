@@ -8,6 +8,8 @@ All sections use PTU 1.05 mechanics plus approved content through Generation 8. 
 
 The [scope policy](SCOPE.md) is authoritative for every chat: **Generations 1–8 only; Generation 9 and later excluded**. It supersedes broader wording in initial chat messages and older handoffs. Source records retained for history are not supported release content. This correction does not start an idle chat.
 
+The [owner amendment and pre-05 ledger](PRE_05_RECONCILIATION.md) are also authoritative for all nine chats. Preserve source-backed original/revised choices and advisory, itemized Feature/Edge prerequisites across supported characters/routes. All nine read-only assessments at `49561d92` identified concrete impact; they are not implementation acceptance. Historical 01–03 passes retain their limits. The next corrective assignment is existing **03**, then **02** preservation/acquisition, **01** evidence checks, and **04** remaining source review, with substantive acceptance between owners. **05 is blocked** until all amended prior gates and full original 04 pass. D remains held under that order. No brief update starts a chat.
+
 | Chat | Roadmap milestone | Dependency and deliverable |
 | --- | --- | --- |
 | [PTU 01 - Foundation and documentation gates](workstreams/01-foundation.md) | 1 | Maintain documented PR/CI/protection gates; do not repeat completed setup. |

@@ -2,6 +2,10 @@
 
 Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
 
+## Owner amendment
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md). Existing add-route/prerequisite/preservation gaps must be corrected before 05; they are not deferred to this section. After explicit start and accepted dependencies, use the same selected version and advisory prerequisite report in preview, application and chat. Feature/Edge additions remain possible with visible itemized unmet/unverifiable diagnostics, without silent prerequisite grants/rank changes. Preserve actual permissions, scope, effect predicates and explicit cancellation. Test assisted grants/choices, renamed/versioned items, custom state, duplicate applications/nonstacking, reload and linked/unlinked tokens. Missing authority or undefined behavior stays manual; acquisition permission is not automation approval.
+
 ## On explicit start
 
 Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.

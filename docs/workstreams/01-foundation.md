@@ -1,6 +1,10 @@
 # PTU 01 - Foundation and documentation gates
 
-Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
+Status: Earlier inherited foundation acceptance remains bounded to its recorded evidence; the numbered implementation chat has not performed the amended correction. Contract/evidence acceptance is REOPENED under the owner amendment. Read-only assessment is complete. Wait for explicit corrective assignment; no automatic implementation or next-chat start.
+
+## Owner amendment and pre-05 gate
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md). After the documentation amendment and accepted 03/02 corrections, own P01: review all nine briefs/claims and add focused evidence-contract checks where missing. Reject omitted supported routes, missing expected/observed results, failed/not-run required cases and unsupported completion claims; accept a structurally complete evidence fixture without claiming its accuracy is automated. Preserve existing PR/changelog/branch protections and report enforcement not actually reverified. No runtime acquisition or source-catalog rewrite belongs here. Record implementation, tests and substantive acceptance before OPEN-05; acknowledgment is insufficient.
 
 ## On explicit start
 

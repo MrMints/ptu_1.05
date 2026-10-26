@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Content selection and prerequisite-policy amendment
+- Retain separately selectable source-backed original/non-errata and revised Moves, Abilities, Features and Edges, with accurate official-errata/optional-playtest labels and preserved identities/selections. Require visible persistent itemized non-blocking Feature/Edge prerequisite diagnostics for supported trainers and Pokémon, separating unmet from unverifiable conditions.
+- Reconcile all nine section assessments into an explicit pre-05 ledger: 03 evaluator/solver correction, 02 preservation/acquisition/display, 01 evidence checks and full remaining 04 source work. Reopen affected prior gates while preserving historical passes within their limits; 05 and D remain held. Assign bounded legacy migration/refresh/failure safeguards before 05 rather than deferring existing gaps.
+- Record C source-examination acceptance at `49561d92` after substantive review and exact-commit CI; retain frozen source evidence and production limits. Correct Hero's Journey's catalog policy wording without resolving its printed rank conflict or changing source facts.
+- This batch changes documentation/catalog policy only. It does not implement variants/warnings, modify runtime/packs/migrations/worlds, or certify new gameplay. Validation and limitations are recorded in the [amendment report](docs/validation/2026-10-26-plan-amendment.md); no version increase, merge or release.
+
 ### PTU 04 inherited-record source classification
 - Record acceptance of A and B source-examination gates after exact-commit CI and substantive review. Preserve all 1,702 B outcomes and complete the frozen 626-Ability C queue: 304 source correspondences and 322 precise conflicts/authoring limits. Hold D for C’s own passing CI and substantive review.
 - Compare complete Ability definitions and competing core/packet versions, retaining literal source spelling, frequency/action differences, triggers, targets, numerical clauses, exceptions and referenced mechanics. Separate printed Range/Keywords headers and explicit Defensive/Immune markers; retain 66 word-equal cases with different typed-role boundaries without claiming equivalence or behavior.

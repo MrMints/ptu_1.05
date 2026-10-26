@@ -1,6 +1,14 @@
 # PTU 04 - Rules sources and revision catalog
 
-Status: Readable-source subgate accepted at `a35cec20`. Owner-authorized inherited-record correction is active with sole checkout ownership; full 04 remains held. Section 05 stays idle.
+Status: Readable-source subgate accepted at `a35cec20`; A/B and C source-examination gates accepted, C at `49561d92` after exact-commit CI and substantive review. 04 released checkout ownership for the documentation amendment and remains idle/read-only. D and full 04 are held under the amended prerequisite order; 05 is blocked. Earlier ownership/pending-review statements in historical handoffs below describe their original checkpoints.
+
+## Owner amendment and pre-05 gate
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md). Own P04 after accepted P03/P02/P01 and explicit reassignment. Finish the original frozen D/E1/E2/F/G/H sequence with substantive predecessor acceptance and documented-revision CI between families; do not change original memberships or turn diagnostic counts into approval. Reconcile C's earlier pending-review machine metadata when next authorized, preserving its frozen evidence.
+
+Retain every source-backed original/non-errata and revised Move, Ability, Feature and Edge alternative, accurate official-errata versus optional-playtest status, exact citations/complete definitions, version-specific prerequisite facts, dependent conditions and evidenced inherited-ID relationships or precise missing limits. Catalog coordinates are not runtime variant IDs; summaries are not executable prerequisites. Do not invent originals for revision-only additions. Review affected prior source policies, including Hero's Journey, so printed conflicts remain unresolved/manual without becoming an acquisition veto. The owner warning policy does not rewrite printed rules or settle rank/effect conflicts.
+
+Acceptance needs complete addressable source examination for all original queues plus this version/prerequisite reconciliation; exact unresolved authoring/identity/rule limits may remain, but unexamined candidates/parser failures may not masquerade as closure. Source acceptance remains distinct from runtime variant/acquisition/gameplay approval. Full 04 and amended prior corrections must pass before 05; no automatic start.
 
 ## On explicit start
 

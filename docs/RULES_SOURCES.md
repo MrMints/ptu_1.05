@@ -2,6 +2,8 @@
 
 The owner-selected PTU 1.05 core remains the standard baseline. Supported content ends at Generation 8 under [SCOPE.md](SCOPE.md). An optional source interpretation does not approve an inherited pack record, certify gameplay, or change a campaign selection.
 
+The [owner selection/prerequisite amendment](PRE_05_RECONCILIATION.md) preserves every evidenced original/revised alternative with accurate source status. Catalog summaries are not complete executable prerequisites or runtime variant IDs. Printed prerequisite facts remain literal, but unmet/unverifiable Feature/Edge requirements produce advisory diagnostics and cannot veto acquisition. Keep unresolved rank/effect questions visible for affected behavior; do not silently resolve them or block adding the item. Full 04 and amended earlier corrections remain prerequisites to 05.
+
 ## Catalog artifacts
 
 | Artifact | Evidence and limits |
@@ -50,7 +52,7 @@ Review categories separate rule ambiguity, missing source/identity evidence, opt
 
 | Source issue | Required disposition before affected implementation |
 | --- | --- |
-| May p.3 Hero's Journey | Choose three or four ranks; the printed header and prerequisite list disagree. |
+| May p.3 Hero's Journey | Retain the three-versus-four-rank conflict as unverifiable/manual for affected rank behavior; it does not prevent adding the Feature. Do not choose a rank count by policy. |
 | May Books / September Medic | Specify AP Drain versus Binding lifecycle for combined use. Retain rank prerequisites and rest behavior. |
 | September p.7 Affliction Techniques | Decide how core Hyper Cures' old Medical Techniques prerequisite qualifies after replacement. |
 | September capture | Specify conversion/rounding for nonmultiples of five, milestone/level handling and omitted natural-roll interactions; never mix d100 targets and d20 modifiers. |

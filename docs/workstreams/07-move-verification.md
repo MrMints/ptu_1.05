@@ -2,6 +2,10 @@
 
 Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
 
+## Owner amendment
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md); no Move version is newly verified by the read-only assessment. After amended prior gates and accepted 05/06 dependencies, test each approved source-backed original/revised Move separately, with exact document/version/canonical relationships, citations, dependency fingerprints and tested revision. Descriptions, rolls, effects, targets, duration and relevant Feature/Edge/Ability interactions must agree on the selected version. Acquisition warnings remain advisory; effect-use conditions remain independent. Repeated selection/reload and renamed/custom records must not choose another version. Invalidate affected evidence when source mapping, dependencies or calculation behavior changes even if the Move's own hash is unchanged. Report data, behavior and automation separately; inherited totals are not the supported denominator.
+
 ## On explicit start
 
 Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.

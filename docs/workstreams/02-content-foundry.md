@@ -1,6 +1,14 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: Bounded correction completed locally on 2026-10-25; original milestone-02 install/declared-pack-load/missing-inventory gate verified, pending planner review. Final pushed-SHA CI is recorded in PR/issue/handoff. Starting Training selection is restored with authoritative relationship/core evidence. Full catalog approval and supported-release exclusion remain staged 04/05/09 work, not new exhaustive 02 prerequisites. Generations 1–8 only; Generation 9 excluded. Do not start other sections automatically.
+Status: Original milestone-02 install/pack-load/missing-inventory gate was accepted within its recorded limits. The owner amendment REOPENS bounded preservation and general Feature/Edge acquisition/display acceptance. Read-only assessment is complete; implementation waits for explicit assignment after P03. Older handoffs below retain their historical pending/recovery states. Generations 1–8 only; do not start other sections automatically.
+
+## Owner amendment and pre-05 gates
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md). Own sequential P02-P then P02-A after accepted P03. Reproduce and correct the existing 0.111 prerequisite, 0.113 keyword/range, 0.115 automation, source-refresh and failure/schema-stamping risks on disposable fixtures. Use exact stable provenance, preserve custom/saved fields and choices, retain ambiguity without forced conversion, and prove repeat runs/failure recovery. These are inspected risks, not observed campaign corruption; no unrelated migration redesign.
+
+Integrate 03's non-mutating item/version-aware diagnostics across every supported add route in the ledger, including inline/import/copy, generator/starter and nested grant/choice paths. Permit and visibly display Features, Edges and Poké Edges on supported trainers and Pokémon. Authorized additions with unmet prerequisites succeed with persistent itemized non-blocking unmet/unverifiable reports, without silent rank/dependency changes. Classify acquisition predicates separately from ownership/security, scope, effect use and explicit cancellation. Keep the one-time starter entitlement and legitimate repeatable-item semantics intact.
+
+Acceptance requires route-level automated tests and actual v13.351 UI/permissions/persistence observations tied to the tested inputs/artifact, with original/revised diagnostic fixtures, same-name/renamed/custom cases, mixed folders, repeated add/reload, changed prerequisites and preservation/failure cases. Existing 32-test/starter evidence does not establish this gate. P02-P/P02-A must be substantively accepted before 05; the full new variant framework and comprehensive release certification remain 05/09 work. Do not publish new external issue/PR metadata without the applicable authorization.
 
 ## On explicit start
 

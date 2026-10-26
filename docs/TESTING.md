@@ -2,6 +2,12 @@
 
 All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Partial guards cover three reviewed identities; future release validation must check complete exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns. Complete release exclusion is not implemented.
 
+## Amended pre-05 acceptance
+
+The required observed matrix and correction owners are in [PRE_05_RECONCILIATION.md](PRE_05_RECONCILIATION.md#required-observed-acceptance). These are open acceptance requirements, not passing scenarios. Record initial inputs, exact actor/item/source/version identity, action/route, expected and observed results, persisted values, tested commit and evidence. Test non-mutating satisfied/unmet/unverifiable reporting, every supported trainer/Pokémon add route, persistent visible reports, same-name/renamed/version-specific records, repeat add/reload, ownership denial and separate effect/scope conditions. Single/multiple/mixed and custom/unknown requirements must not be hidden by automatic dependency grants or skill increases.
+
+Before 05, reproduce and correct the bounded 0.111/0.113/0.115, refresh and migration-failure preservation risks on disposable fixtures, including repeated runs, modern/legacy identity conflicts, custom fields/automation and failure without a false successful schema stamp. Existing starter/skill evidence remains limited to its historical cases. P01 must test that incomplete/failed/not-run required evidence cannot pass the amended gate; human review checks actual accuracy. After 05, repeat against real accepted variant pairs across all four categories; 09 binds the complete matrix to the tested archive digest and commit. Do not treat scenario names alone as evidence.
+
 ## Automated batch
 Run `pnpm test`, `pnpm validate`, `pnpm packs:verify`, and `pnpm build`.
 The pack round trip checks semantic equality and stable IDs. It is not a rules audit.

@@ -2,6 +2,10 @@
 
 Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
 
+## Owner amendment
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md); read-only impact assessment does not start implementation. Consume accepted chosen-version identity/effective rules from 05 after all amended prior gates pass. Tests must distinguish owned-item presence and advisory acquisition diagnostics from actual effect-use conditions. Adding a Feature/Edge despite unmet/unverifiable prerequisites must neither silently disable it for that reason nor falsely satisfy separate effect conditions. Verify source-cited original/revised calculations independently, including missing actor inputs, custom items, nonstacking, reload, linked/unlinked tokens, permissions and turn boundaries. No version substitution or diagnostic mutation belongs in pure calculations.
+
 ## On explicit start
 
 Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.

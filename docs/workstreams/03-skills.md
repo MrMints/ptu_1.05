@@ -1,6 +1,14 @@
 # PTU 03 - Core skill terminology compatibility
 
-Status: Section-03 terminology acceptance completed on 2026-10-25 within the documented interfaces/limits. Stopped at final handoff. Other chats remain idle; no section, merge or release is started automatically.
+Status: Section-03 terminology acceptance completed on 2026-10-25 within the documented interfaces/limits. The owner amendment REOPENS prerequisite evaluator/solver acceptance (P03); read-only assessment is complete. This is the next corrective assignment after the documentation amendment is reviewed, but remains idle until explicitly started. No section, merge or release starts automatically.
+
+## Owner amendment and pre-05 gate
+
+Follow [PRE_05_RECONCILIATION.md](../PRE_05_RECONCILIATION.md). Own P03: provide a non-mutating actor/item-aware prerequisite diagnostic interface that retains selected record/source/version attribution and distinguishes satisfied, known unmet and unverifiable/custom conditions. Preserve raw prerequisites, stable skill keys, core/Carbon aliases and exact syntax handling. Do not treat unevidenced textual GM approval as satisfied or use display-name equality as persistent identity. Missing actor fields and unresolved custom/source identity remain explicit diagnostics.
+
+Correct explicit NPC selection/solver behavior so deficiencies remain visible without automatically raising ranks or adding prerequisite items to suppress warnings. Inventory related randomizer filters and preserve a permitted explicit-add path; optional assistance must not silently change explicit selections. Keep game-rule prerequisites advisory while retaining actual permissions, content scope and separate effect/choice conditions. The common route/display integration belongs to 02 after this interface is accepted.
+
+Acceptance: actual input/output assertions for all 17 skill aliases, OR/list/count and single/multiple/mixed/satisfied/unverifiable/custom requirements, missing actor fields, same-name/renamed/version-specific records, raw-text retention and no input mutation. Exercise real NPC selection refresh/computation with content, proving selections and ranks/dependencies are preserved and warnings correctly enumerate deficiencies. The previous no-content NPC fixture and 183 parser cases remain useful but do not pass this gate. Supply callable interface/fixtures and tests to 02; complete documented commit/CI and substantive review before handing off. Do not implement 05's variant framework or start 02 automatically.
 
 ## On explicit start
 

@@ -12976,7 +12976,7 @@
       "conflict": {
         "disposition": "manual-adjudication-required",
         "details": [
-          "Header says Ranked 3 but lists rank 4 prerequisites. Owner/GM must choose rank count before acquisition."
+          "Header says Ranked 3 but lists rank 4 prerequisites. Preserve this unresolved rank conflict for manual adjudication of affected rank behavior; report it as unverifiable without blocking Feature acquisition."
         ]
       },
       "generationEligibility": "in-scope source topic (Generations 1–6 era); record-level mappings not approved",
@@ -12988,7 +12988,7 @@
         "category": "rule-ambiguity",
         "blocksCurrentSourceCatalog": false,
         "nextOwner": "05 for explicit selections/replacements; 06/07/08 only for verified behavior",
-        "question": "Header says Ranked 3 but lists rank 4 prerequisites. Owner/GM must choose rank count before acquisition."
+        "question": "Header says Ranked 3 but lists rank 4 prerequisites. Preserve this unresolved rank conflict for manual adjudication of affected rank behavior; report it as unverifiable without blocking Feature acquisition."
       }
     },
     {
