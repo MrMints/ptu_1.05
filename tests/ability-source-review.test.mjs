@@ -119,6 +119,7 @@ test('C3 fixed Type selectors and linked Weather pages retain their source limit
 
 test('complete C dispositions still require substantive acceptance before D', () => {
     const data = copy(), batch = data.batchManifest.batches.find(batch => batch.id === 'C');
+    batch.acceptance.status = 'pending-substantive-review';
     assert.equal(batch.acceptance.status, 'pending-substantive-review');
     assert.equal(rows(data).length, 626);
     data.batchManifest.batches.find(batch => batch.id === 'D').status = 'in-progress';

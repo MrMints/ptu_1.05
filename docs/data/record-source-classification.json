@@ -19,16 +19,17 @@
     "record-source-review/species-unmatched.json",
     "record-source-review/abilities-core.json",
     "record-source-review/abilities-packet.json",
-    "record-source-review/abilities-remaining.json"
+    "record-source-review/abilities-remaining.json",
+    "record-source-review/moves-contest.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 2518,
+    "explicitRecordDispositions": 2628,
     "counts": {
-      "reviewed": 1459,
+      "reviewed": 1549,
       "excluded": 123,
-      "unresolved": 936,
-      "unreviewed": 4877
+      "unresolved": 956,
+      "unreviewed": 4767
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -43,7 +44,9 @@
       "examined-custom-authoring-source-unavailable": 387,
       "examined-scope-identity-conflict": 6,
       "examined-ability-source-correspondence": 304,
-      "examined-ability-version-or-authority-conflict": 322
+      "examined-ability-version-or-authority-conflict": 322,
+      "examined-move-source-correspondence": 90,
+      "examined-move-version-or-authority-limit": 20
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -709,5 +712,6 @@
   "acquisitionBoundaryAudit": "acquisition-boundary-audit.json",
   "generationScopeEvidence": "generation-scope-evidence.json",
   "unmatchedSpeciesEvidence": "species-unmatched-evidence.json",
-  "abilitySourceEvidence": "ability-source-evidence.json"
+  "abilitySourceEvidence": "ability-source-evidence.json",
+  "moveSourceEvidence": "move-source-evidence.json"
 }

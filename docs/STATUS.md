@@ -1,5 +1,13 @@
 # Implementation status
 
+Partial D1 checkpoint: 110 frozen Contest Effect records have 90 source correspondences / 20 precise unresolved dispositions. D2 (581) and D3 (537) remain unstarted; preparatory caches do not close their source searches. [Evidence, exact memberships, validation and limits](validation/2026-10-26-d1-source-checkpoint.md). Full D/full04/05 remain incomplete. Section 04 retains sole checkout ownership while held; no world work or other-chat dispatch. E1 also requires substantive review of the parked P03-NPC correction.
+
+Current P04 D source batch, 2026-10-26: P01 is substantively accepted at `70f651ead54f868bec354f45d263a2243d2fce6e` after planner review turn `01a177db-510e-7c33-ae19-0f8619935cd3` and [CI 40310640951](https://github.com/MrMints/ptu_1.05/actions/runs/40310640951) (Documentation 121530663463, Validation 121530663898). Accepted P03/P02-P/P02-A remain bounded. The coordinator explicitly assigned 04 sole checkout ownership for the original frozen D’s1,228 source records only, with no shared-world work. C’s earlier pending machine metadata is reconciled to its acceptance at49561d92/CI40263649999 without changing its626 members or304/322 outcomes. D’s original fingerprint and every remaining membership are preserved. E1 and later families/full04/OPEN-05 remain held for substantive predecessor review. No runtime, pack, ID, campaign or original-source changes are authorized.
+
+Narrow reopened dependency: P03-NPC is OPEN/PARKED after the planner reproduced an ordinary NPC Tagify same-name identity collision (Medical Techniques WscZukROrNeC7Ayp resolves as bNVcfm2VHWfhEQGi with different prerequisites). Existing exact-UUID/evaluator and P02 acceptance remains bounded. Only existing03 may implement its separately assigned correction after D releases and guards permit; no NPC runtime/tests are part of D. E1 and OPEN-05 require the applicable D and NPC substantive reviews.
+
+## Historical P01 checkpoint
+
 Current P01 checkpoint, 2026-10-26: P02-A was substantively accepted at evidence head `48f05f2e6dbcdb210384cbb83cc9c39c21df7ec6`, tested runtime `416c645eb73e92a4778bac486ab3b830bdf33718`, after planner review turn `01a177ac-456d-7121-9d66-b3dc525a8ddf` and passing [CI 40303951797](https://github.com/MrMints/ptu_1.05/actions/runs/40303951797). P03/P02-P remain accepted within their matrices. P01 adds separate runtime bindings and an auditable route/evidence contract; [validation and limits](validation/2026-10-26-p01.md). Focused documentation/evidence tests pass; P01 still requires substantive review. No Foundry/world/runtime/pack/version changes. Remaining 04/D and 05 stay held. Prior pending/ownership statements below describe historical checkpoints.
 
 ## Earlier checkpoints

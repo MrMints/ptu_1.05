@@ -1,5 +1,9 @@
 # Batch testing
 
+## Partial D1 source checks
+
+Run `node --test --test-isolation=none tests/record-source-review.test.mjs tests/ability-source-parsing.test.mjs tests/ability-source-review.test.mjs tests/move-source-parsing.test.mjs tests/move-source-review.test.mjs` and `node tools/record-source-review.mjs`. The Move regressions exercise actual Curse, compact Glitch, Gravity, source-boundary and Contest counter/identity evidence. Corrupt literal dice, current/history fields, source words or frozen memberships must fail. Equal ordered words do not establish typed-role or behavioral equivalence. [Checkpoint coverage and pending work](validation/2026-10-26-d1-source-checkpoint.md) distinguish D1 closure from unstarted D2/D3; CI does not read local PDFs or certify gameplay.
+
 ## P01 evidence-contract checks
 
 Run `node --test --test-isolation=none tests/documentation.test.mjs tests/evidence-contract.test.mjs` and `node tools/evidence-contract.mjs` after evidence-contract changes. The existing Documentation entrypoint runs the contract; the Validation test glob includes its negative tests. The [contract](data/p01-evidence-contract.json) links all 16 supported routes to observed cases and distinguishes current from reused evidence. The [runtime binding](validation/2026-10-26-p02a-runtime-binding.json) resolves 26 label contradictions through reviewed installation/client/hash evidence without editing raw reports. Exact indices distinguish repeated scenario labels.

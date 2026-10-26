@@ -1,6 +1,8 @@
 # PTU 04 - Rules sources and revision catalog
 
-Status: Readable-source subgate accepted at `a35cec20`; A/B and C source-examination gates accepted, C at `49561d92` after exact-commit CI and substantive review. 04 released checkout ownership for the documentation amendment and remains idle/read-only. D and full 04 are held under the amended prerequisite order; 05 is blocked. Earlier ownership/pending-review statements in historical handoffs below describe their original checkpoints.
+Partial D1 checkpoint: [110 dispositions, exact memberships and remaining work](../validation/2026-10-26-d1-source-checkpoint.md), comprising 90 correspondences / 20 precise unresolved cases. D2/D3 remain unstarted; preparatory caches are not source closure. Full D requires its remaining work, documented-revision CI and substantive review. Section 04 retains sole checkout ownership while held; no shared-world use or automatic NPC/E1 dispatch. Full04/05 remain incomplete.
+
+Status: Explicitly assigned sole checkout writer for original frozen D only, starting from clean `70f651ea` after P01 substantive acceptance and CI40310640951. A/B/C source gates and accepted P03/P02 foundations remain within their recorded limits. No shared Foundry-world assignment. E1 and later families/full04/05 remain held. Earlier ownership/pending-review statements below are historical.
 
 ## Owner amendment and pre-05 gate
 
@@ -10,6 +12,8 @@ Retain every source-backed original/non-errata and revised Move, Ability, Featur
 
 Acceptance needs complete addressable source examination for all original queues plus this version/prerequisite reconciliation; exact unresolved authoring/identity/rule limits may remain, but unexamined candidates/parser failures may not masquerade as closure. Source acceptance remains distinct from runtime variant/acquisition/gameplay approval. Full 04 and amended prior corrections must pass before 05; no automatic start.
 
+P03-NPC is now an OPEN/PARKED pre-05 dependency for the ordinary same-name NPC selection route; its exact-UUID/evaluator baseline remains accepted within limits. D remains independently assigned. Do not touch NPC runtime/tests or start another chat; release at the D handoff. E1 requires both the D predecessor disposition and the required NPC correction review.
+
 ## On explicit start
 
 Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation 9 and later excluded**. This overrides broader earlier prompts and handoffs. Do not recover, verify, automate or ship excluded content as supported. Preserve historical evidence, campaign data and IDs; assess older/shared targets independently. Inventory counts are not supported-scope totals, and physical exclusion is not yet complete. An instruction update alone does not start this chat.
@@ -17,7 +21,7 @@ Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
 
 ## Dependencies
-Existing reference inventory plus accepted P03/P02/P01 under the amended sequence. P03/P02-P/P02-A are accepted; P01 review is pending. D and remaining families require explicit assignment after that review; Foundry activation does not waive this gate.
+Existing reference inventory plus accepted P03/P02/P01 under the amended sequence. P03/P02-P/P02-A and P01 are accepted; P01 at70f651ead54f868bec354f45d263a2243d2fce6e after CI40310640951 and substantive review. D only is explicitly assigned. E1 and later families require substantive predecessor review and new assignment; Foundry activation does not waive these gates.
 
 ## Scope
 

@@ -1,5 +1,7 @@
 # PTU work split across focused chats
 
+Current partial D checkpoint: 04 retains sole checkout ownership while held after D1's 110 source dispositions (90 correspondences / 20 unresolved). D2/D3 remain unstarted and full D requires completion, passing documented-revision CI and substantive review. [Checkpoint and limits](validation/2026-10-26-d1-source-checkpoint.md). E1/full04/05 remain held; P03-NPC is parked for separately assigned work and review. No other chat is started or messaged by this checkpoint.
+
 All nine section chats start idle in the local **PTU 1.05 on Foundry** project at `D:\Projects\PTU 1.05 on Foundry`. The owner must explicitly start each chat. This is organizational preparation, not authorization to resume implementation. The app tool creates local project chats but does not expose a ChatGPT Work-mode selector; the owner accepted idle local project chats as the fallback. Model and effort settings inherit the app default and are not changed by these instructions.
 
 ## Section ownership
@@ -8,14 +10,14 @@ All sections use PTU 1.05 mechanics plus approved content through Generation 8. 
 
 The [scope policy](SCOPE.md) is authoritative for every chat: **Generations 1–8 only; Generation 9 and later excluded**. It supersedes broader wording in initial chat messages and older handoffs. Source records retained for history are not supported release content. This correction does not start an idle chat.
 
-The [owner amendment and pre-05 ledger](PRE_05_RECONCILIATION.md) are also authoritative for all nine chats. Preserve source-backed original/revised choices and advisory, itemized Feature/Edge prerequisites across supported characters/routes. All nine read-only assessments at `49561d92` identified concrete impact; they are not implementation acceptance. Historical 01–03 passes retain their limits. P03/P02-P are accepted at `c547e3ac`/`d7dc7f0b`; P02-A is substantively accepted at evidence head `48f05f2e`, runtime `416c645e`, with CI 40303951797. Assigned **01** supplies the bounded evidence-contract correction and runtime binding, pending its own substantive review. Only after that review and explicit assignment may **04** resume remaining source work. **05 is blocked** until all amended prior gates and full original 04 pass. D remains held under that order. No brief update starts a chat.
+The [owner amendment and pre-05 ledger](PRE_05_RECONCILIATION.md) are also authoritative for all nine chats. Preserve source-backed original/revised choices and advisory, itemized Feature/Edge prerequisites across supported characters/routes. All nine read-only assessments at `49561d92` identified concrete impact; they are not implementation acceptance. Historical 01–03 passes retain their limits. P03/P02-P are accepted at `c547e3ac`/`d7dc7f0b`; P02-A is substantively accepted at evidence head `48f05f2e`, runtime `416c645e`, with CI 40303951797. P01 is substantively accepted at `70f651ea` after CI40310640951 and planner review. Explicitly assigned **04** now owns the checkout for frozen D source examination only, with no shared-world work. **05 is blocked** until all amended prior gates and full original 04 pass; E1 and later families remain held for D review. No brief update starts a chat.
 
 | Chat | Roadmap milestone | Dependency and deliverable |
 | --- | --- | --- |
 | [PTU 01 - Foundation and documentation gates](workstreams/01-foundation.md) | 1 | Maintain documented PR/CI/protection gates; do not repeat completed setup. |
 | [PTU 02 - Content recovery and Foundry integration](workstreams/02-content-foundry.md) | 2 | Reuse the installed v13.351 pack baseline and reconcile content; owner activation is complete. |
 | [PTU 03 - Core skill terminology compatibility](workstreams/03-skills.md) | 3 | Finish terminology compatibility using 02 for in-world validation. |
-| [PTU 04 - Rules sources and revision catalog](workstreams/04-rules-catalog.md) | 4 (sources) | Finish source/version review after accepted P01 and explicit assignment; D remains held. |
+| [PTU 04 - Rules sources and revision catalog](workstreams/04-rules-catalog.md) | 4 (sources) | Sole writer explicitly assigned to frozen D after accepted P01; stop for D review before E1. |
 | [PTU 05 - Rule variants and selection migrations](workstreams/05-revision-selection.md) | 4 (implementation) | Use accepted 04 decisions and 02 baseline for variants/settings/migrations. |
 | [PTU 06 - Core gameplay calculations](workstreams/06-core-gameplay.md) | 5 (shared behavior) | Use 02 and 04, coordinating effective-rule interfaces with 05. |
 | [PTU 07 - Move data and behavior verification](workstreams/07-move-verification.md) | 5 (moves) | Audit bounded move families using accepted 04–06 behavior. |

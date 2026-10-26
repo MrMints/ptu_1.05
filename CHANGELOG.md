@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Partial PTU 04 D source checkpoint
+- Complete D1 source examination for 110 Contest Effect records: 90 source correspondences and 20 precise counter/identity conflicts. Preserve complete core table reprints, contextual formula explanations, native playtest authority limits and current/export field hashes.
+- Add shared complete Move/Contest source parsing and integrity regressions, including See Text frequency, compact Glitch definitions, partial Gravity replacement and true source boundaries. Preparatory source units do not close D2/D3; their 581/537 records remain unstarted.
+- Reconcile C acceptance metadata without changing its frozen evidence. Preserve the parked P03-NPC dependency and hold E1/full04/05 for required substantive reviews. See [validation and limits](docs/validation/2026-10-26-d1-source-checkpoint.md); no runtime, pack, policy, campaign, original-source or version changes.
+
 ### P01 evidence-contract reconciliation
 - Record bounded P03/P02-P/P02-A acceptance and review all nine briefs. P01 remains pending substantive review; remaining 04/D and 05 stay held.
 - Preserve raw P02-A reports; add 26 runtime bindings to `416c645e`, reviewed installation/fresh-client history, served source hash, archive identity and actual fixture context. Retain the first reload failure, exact diagnosis and separate stable pass.
