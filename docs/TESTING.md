@@ -1,5 +1,16 @@
 # Batch testing
 
+## P03-NPC identity checks
+
+Run `node --test --test-isolation=none tests/npc-selection.test.mjs tests/prerequisites.test.mjs tests/skills.test.mjs tests/acquisition.test.mjs` (38 passing). Tests execute the actual bundled dropdown and actual NPC preload/refresh/generation with controlled Foundry IO. Retained failing baseline evidence and Node/live boundaries are in [the validation report](validation/2026-10-26-p03-npc.md).
+
+Run `node tools/check-npc-identity-evidence.mjs --current` to replay 13 captured scenario families, verify 55 raw-file hashes and compare the four current production files with tested commit text. Omit `--current` only when reviewing historical evidence after later runtime changes; raw assertions/hashes still run. This read-only checker does not launch Foundry or certify a new runtime.
+
+For fresh live work, install the candidate only after stopping the disposable server, copy `tools/foundry-npc-identity-check.mjs` to `.foundry-test/Data/p03-checks/`, and use a saved Script macro importing `/p03-checks/foundry-npc-identity-check.mjs` and calling `openNpcIdentityProbe({phase:'final-matrix'})` in `ptu-verification`. This creates/reuses 8 synthetic compendium Items and opens actual controls; select through normal dropdown clicks, capture state/refresh, remove/re-add/rename and Submit. Do not inject selection arrays. Keep distinct phase snapshots, clicked UUID/order, generated raw data and installed/served/archive hashes. The runner's `final-cancel` phase supports actual unresolved-choice cancellation; a player probe requires access to its macro and real ACTOR_CREATE denial. The recorded owner-approved temporary Observer grant was restored to Default; world roles/core permissions were unchanged. Do not assume that grant authorizes future access changes.
+
+Reload generated actors and compare exact selected owned IDs/source IDs, full system/flags/choices and diagnostics. Check ordinary actor-sheet display. Return world to Setup and stop the owned server, verify port/lock and restore temporary UI/access changes. Synthetic source/version labels do not approve production variants. No unsaved builder-draft persistence or general species rules certification is implied.
+
+
 ## Partial D1 source checks
 
 Run `node --test --test-isolation=none tests/record-source-review.test.mjs tests/ability-source-parsing.test.mjs tests/ability-source-review.test.mjs tests/move-source-parsing.test.mjs tests/move-source-review.test.mjs` and `node tools/record-source-review.mjs`. The Move regressions exercise actual Curse, compact Glitch, Gravity, source-boundary and Contest counter/identity evidence. Corrupt literal dice, current/history fields, source words or frozen memberships must fail. Equal ordered words do not establish typed-role or behavioral equivalence. [Checkpoint coverage and pending work](validation/2026-10-26-d1-source-checkpoint.md) distinguish D1 closure from unstarted D2/D3; CI does not read local PDFs or certify gameplay.

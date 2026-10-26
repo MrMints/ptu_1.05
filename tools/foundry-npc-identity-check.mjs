@@ -8,13 +8,17 @@ export async function openNpcIdentityProbe({phase='baseline'}={}) {
         return {path,sha256:Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('')};
     }));
     const sheet=new PTUNpcQuickBuild();
-    sheet.data.trainer.partySize=phase==='baseline'?0:1;sheet.data.party={};sheet.data.trainer.name=`P03 NPC ${phase}`;
-    if(sheet.data.trainer.partySize)sheet.data.resetPokemonSlot('slot1');
+    sheet.data.trainer.partySize=phase==='baseline'?0:phase==='final-matrix'?2:1;sheet.data.party={};sheet.data.trainer.name=`P03 NPC ${phase}`;
+    for(let n=1;n<=sheet.data.trainer.partySize;n++)sheet.data.resetPokemonSlot(`slot${n}`);
     await sheet.data.preload();
-    let fixtures=[];
+    let fixtures=[],fixtureResetBefore=null;
     if(phase!=='baseline'&&game.user.isGM) {
         const pack=game.packs.get('world.p03-npc-identity')??await CompendiumCollection.createCompendium({name:'p03-npc-identity',label:'P03 NPC identity fixtures (disposable)',type:'Item'});
         fixtures=await pack.getDocuments();
+        if(phase==='final-matrix') {
+            const b=fixtures.find(i=>i.getFlag('ptu','npcIdentityRole')==='feat-B');
+            if(b&&b.name!=='NPC Identity feat'){fixtureResetBefore=b.toObject();await b.update({name:'NPC Identity feat'});}
+        }
         for(const kind of ['class','feat','edge','species'])for(const version of ['A','B']) {
             const role=`${kind}-${version}`;if(fixtures.some(i=>i.getFlag('ptu','npcIdentityRole')===role))continue;
             let input;
@@ -39,11 +43,13 @@ export async function openNpcIdentityProbe({phase='baseline'}={}) {
     const hook=Hooks.on('ptu.preTrainerGenerated',(actorData,data)=>{if(data===sheet.data){actorData.flags.ptu.npcIdentityProbe={phase,session:sheet.appId};}});
     await sheet.renderAsync(true);
     const snapshot=()=>({phase,foundry:game.version,runtimeBindings,user:{id:game.user.id,isGM:game.user.isGM,canCreateActor:game.user.can('ACTOR_CREATE')},
+        testUserPermissions:game.user.isGM?game.users.map(u=>({id:u.id,name:u.name,role:u.role,actorCreate:u.can('ACTOR_CREATE'),scriptMacro:u.can('MACRO_SCRIPT')})):null,
+        testMacroOwnership:game.macros.get('vHL1XMvT4Oc5l867')?.ownership??null,
         rendered:sheet.rendered,page:sheet.data.page,selections:{classes:sheet.data.trainer.classes.selected,features:sheet.data.trainer.features.selected,edges:sheet.data.trainer.edges.selected},
         computed:[...sheet.data.trainer.features.computed,...sheet.data.trainer.edges.computed],subSelectables:sheet.data.trainer.subSelectables,
         party:Object.fromEntries(Object.entries(sheet.data.party).map(([key,p])=>[key,{configured:p.configured,uuid:p.species.uuid,selected:p.species.selected,name:p.species.name}])),
         sex:sheet.data.trainer.sex,selectionIssues:sheet.data.selectionIssues,
-        fixtureSources:fixtures.map(i=>({uuid:i.uuid,source:i.toObject()})),
+        fixtureSources:fixtures.map(i=>({uuid:i.uuid,source:i.toObject()})),fixtureResetBefore,
         ranks:Object.fromEntries(Object.entries(sheet.data.trainer.skills).map(([k,s])=>[k,s.value])),warnings:sheet.data.warnings,
         reports:sheet.data.prerequisiteReports,actorIds:game.actors.map(a=>a.id),folderIds:game.folders.map(f=>f.id),
         newActors:game.actors.filter(a=>!probe.initialActorIds.includes(a.id)).map(a=>({uuid:a.uuid,source:a.toObject()})),
