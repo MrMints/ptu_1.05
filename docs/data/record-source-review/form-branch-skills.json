@@ -8040,7 +8040,15 @@
               "moveKeyForComparison": "spatialrend"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.7ZDem3DGK7vBzFJ4:level:literal:spatialrend",
+              "parsedKey": "spatialrend",
+              "printedLiteral": "Spatial Rend",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -8468,7 +8476,15 @@
                 "moveKeyForComparison": "spatialrend"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.7ZDem3DGK7vBzFJ4:level:literal:spatialrend",
+                "parsedKey": "spatialrend",
+                "printedLiteral": "Spatial Rend",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -14522,18 +14538,19 @@
               "target": "moves.tNexDVIwrtPBsV0u",
               "resolvedLabel": "Telekinesis",
               "level": null
-            },
-            {
-              "target": "moves.bbYMsmddMV20isEx",
-              "resolvedLabel": "Zen Headbutt",
-              "level": null
             }
           ],
-          "missingSourceEntries": [
-            "zenheadbuttmhelpinghand"
-          ],
-          "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+          "missingSourceEntries": [],
+          "limitation": "The ordinary Tutor list ends with Zen Headbutt. A separate gender-qualified Natural paragraph begins with (M) Helping Hand (N). The ordinary Helping Hand occurrence remains independently counted; qualified entries do not erase unqualified entries. Current UUID membership is retained; actor gender/learning selection remains unverified.",
           "conditionalSourceEntries": [
+            {
+              "key": "helpinghand",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": true
+            },
             {
               "key": "meanlook",
               "qualifiers": [
@@ -14581,8 +14598,9 @@
             "separateNormativeSection": null,
             "retainedAnnotations": [
               {
-                "key": "zenheadbuttmhelpinghand",
+                "key": "helpinghand",
                 "qualifiers": [
+                  "M",
                   "N"
                 ]
               },
@@ -14622,8 +14640,13 @@
                 ]
               }
             ],
-            "enumeratedSourceEntryCount": 21,
-            "sourceDuplicateKeys": []
+            "enumeratedSourceEntryCount": 22,
+            "sourceDuplicateKeys": [
+              {
+                "key": "helpinghand",
+                "occurrences": 2
+              }
+            ]
           },
           "duplicateCurrentEntries": []
         },
@@ -15218,18 +15241,19 @@
                 "target": "moves.tNexDVIwrtPBsV0u",
                 "resolvedLabel": "Telekinesis",
                 "level": null
-              },
-              {
-                "target": "moves.bbYMsmddMV20isEx",
-                "resolvedLabel": "Zen Headbutt",
-                "level": null
               }
             ],
-            "missingSourceEntries": [
-              "zenheadbuttmhelpinghand"
-            ],
-            "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+            "missingSourceEntries": [],
+            "limitation": "The ordinary Tutor list ends with Zen Headbutt. A separate gender-qualified Natural paragraph begins with (M) Helping Hand (N). The ordinary Helping Hand occurrence remains independently counted; qualified entries do not erase unqualified entries. Current UUID membership is retained; actor gender/learning selection remains unverified.",
             "conditionalSourceEntries": [
+              {
+                "key": "helpinghand",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": true
+              },
               {
                 "key": "meanlook",
                 "qualifiers": [
@@ -15277,8 +15301,9 @@
               "separateNormativeSection": null,
               "retainedAnnotations": [
                 {
-                  "key": "zenheadbuttmhelpinghand",
+                  "key": "helpinghand",
                   "qualifiers": [
+                    "M",
                     "N"
                   ]
                 },
@@ -15318,8 +15343,13 @@
                   ]
                 }
               ],
-              "enumeratedSourceEntryCount": 21,
-              "sourceDuplicateKeys": []
+              "enumeratedSourceEntryCount": 22,
+              "sourceDuplicateKeys": [
+                {
+                  "key": "helpinghand",
+                  "occurrences": 2
+                }
+              ]
             },
             "duplicateCurrentEntries": []
           },
@@ -44341,7 +44371,15 @@
             "thrash",
             "zenheabutt"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.SDC4tyMN9t0C2ULR:tutor:literal:zenheabutt",
+              "parsedKey": "zenheabutt",
+              "printedLiteral": "Zen Heabutt",
+              "disposition": "source-literal-definition-limit"
+            }
+          ]
         },
         {
           "field": "system.capabilities numeric fields",
@@ -44966,7 +45004,15 @@
               "thrash",
               "zenheabutt"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.SDC4tyMN9t0C2ULR:tutor:literal:zenheabutt",
+                "parsedKey": "zenheabutt",
+                "printedLiteral": "Zen Heabutt",
+                "disposition": "source-literal-definition-limit"
+              }
+            ]
           },
           {
             "field": "system.capabilities numeric fields",
@@ -49561,18 +49607,19 @@
               "target": "moves.tNexDVIwrtPBsV0u",
               "resolvedLabel": "Telekinesis",
               "level": null
-            },
-            {
-              "target": "moves.bbYMsmddMV20isEx",
-              "resolvedLabel": "Zen Headbutt",
-              "level": null
             }
           ],
-          "missingSourceEntries": [
-            "zenheadbuttmhelpinghand"
-          ],
-          "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+          "missingSourceEntries": [],
+          "limitation": "The ordinary Tutor list ends with Zen Headbutt. A separate gender-qualified Natural paragraph begins with (M) Helping Hand (N). The ordinary Helping Hand occurrence remains independently counted; qualified entries do not erase unqualified entries. Current UUID membership is retained; actor gender/learning selection remains unverified.",
           "conditionalSourceEntries": [
+            {
+              "key": "helpinghand",
+              "qualifiers": [
+                "M",
+                "N"
+              ],
+              "currentContains": true
+            },
             {
               "key": "meanlook",
               "qualifiers": [
@@ -49620,8 +49667,9 @@
             "separateNormativeSection": null,
             "retainedAnnotations": [
               {
-                "key": "zenheadbuttmhelpinghand",
+                "key": "helpinghand",
                 "qualifiers": [
+                  "M",
                   "N"
                 ]
               },
@@ -49661,8 +49709,13 @@
                 ]
               }
             ],
-            "enumeratedSourceEntryCount": 21,
-            "sourceDuplicateKeys": []
+            "enumeratedSourceEntryCount": 22,
+            "sourceDuplicateKeys": [
+              {
+                "key": "helpinghand",
+                "occurrences": 2
+              }
+            ]
           },
           "duplicateCurrentEntries": []
         },
@@ -50257,18 +50310,19 @@
                 "target": "moves.tNexDVIwrtPBsV0u",
                 "resolvedLabel": "Telekinesis",
                 "level": null
-              },
-              {
-                "target": "moves.bbYMsmddMV20isEx",
-                "resolvedLabel": "Zen Headbutt",
-                "level": null
               }
             ],
-            "missingSourceEntries": [
-              "zenheadbuttmhelpinghand"
-            ],
-            "limitation": "Gender-qualified entries are source alternatives, not separate Move names or unconditional omissions. Current UUID membership is retained; selecting the relevant source state remains explicit.",
+            "missingSourceEntries": [],
+            "limitation": "The ordinary Tutor list ends with Zen Headbutt. A separate gender-qualified Natural paragraph begins with (M) Helping Hand (N). The ordinary Helping Hand occurrence remains independently counted; qualified entries do not erase unqualified entries. Current UUID membership is retained; actor gender/learning selection remains unverified.",
             "conditionalSourceEntries": [
+              {
+                "key": "helpinghand",
+                "qualifiers": [
+                  "M",
+                  "N"
+                ],
+                "currentContains": true
+              },
               {
                 "key": "meanlook",
                 "qualifiers": [
@@ -50316,8 +50370,9 @@
               "separateNormativeSection": null,
               "retainedAnnotations": [
                 {
-                  "key": "zenheadbuttmhelpinghand",
+                  "key": "helpinghand",
                   "qualifiers": [
+                    "M",
                     "N"
                   ]
                 },
@@ -50357,8 +50412,13 @@
                   ]
                 }
               ],
-              "enumeratedSourceEntryCount": 21,
-              "sourceDuplicateKeys": []
+              "enumeratedSourceEntryCount": 22,
+              "sourceDuplicateKeys": [
+                {
+                  "key": "helpinghand",
+                  "occurrences": 2
+                }
+              ]
             },
             "duplicateCurrentEntries": []
           },

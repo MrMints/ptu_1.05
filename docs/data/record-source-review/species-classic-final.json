@@ -77706,7 +77706,15 @@
               "moveKeyForComparison": "judgment"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.TLHT26ZX5UmoyVZH:level:literal:judgment",
+              "parsedKey": "judgment",
+              "printedLiteral": "Judgment",
+              "disposition": "defined-source-label-current-spelling-conflict"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -78301,7 +78309,15 @@
                 "moveKeyForComparison": "judgment"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.TLHT26ZX5UmoyVZH:level:literal:judgment",
+                "parsedKey": "judgment",
+                "printedLiteral": "Judgment",
+                "disposition": "defined-source-label-current-spelling-conflict"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -103775,15 +103791,21 @@
         },
         {
           "field": "system.moves.egg",
-          "status": "contradictory",
+          "status": "supported",
           "recordEntryCount": 0,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "140bedbf9c3f6d56a9846d2ba7088798683f4da0c248231336e6a05679e4fdfe",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
-            "none"
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": "empty-list",
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 0,
+            "sourceDuplicateKeys": []
+          }
         },
         {
           "field": "system.moves.tutor",
@@ -104188,15 +104210,21 @@
           },
           {
             "field": "system.moves.egg",
-            "status": "contradictory",
+            "status": "supported",
             "recordEntryCount": 0,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "140bedbf9c3f6d56a9846d2ba7088798683f4da0c248231336e6a05679e4fdfe",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
-              "none"
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": "empty-list",
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 0,
+              "sourceDuplicateKeys": []
+            }
           },
           {
             "field": "system.moves.tutor",
@@ -160446,7 +160474,7 @@
           "status": "contradictory",
           "recordEntryCount": 34,
           "sourceTablePresent": true,
-          "sourceTableNormalizedSha256": "fe18ce2f5b6911be2644de68bc1821c251beddc0378e092375b36f3e47343261",
+          "sourceTableNormalizedSha256": "f5b51ab25faaecc4e6f6031b04665b4f6321841d334707d345d59589e8bfccac",
           "unsupportedCurrentEntries": [
             {
               "target": "moves.43i757GW8pptWB5j",
@@ -160460,10 +160488,24 @@
             "honeclaws",
             "dig",
             "xscissor",
-            "rocksmash",
-            "naturepowers"
+            "rocksmash"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": null,
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 39,
+            "sourceDuplicateKeys": []
+          },
+          "sourceSectionBoundary": {
+            "startLine": 52,
+            "endLine": 64,
+            "openingHeading": "TM/HM Move List",
+            "closingHeading": "sTutor Move List",
+            "repeatedHeadings": []
+          }
         },
         {
           "field": "system.moves.egg",
@@ -160904,7 +160946,7 @@
             "status": "contradictory",
             "recordEntryCount": 34,
             "sourceTablePresent": true,
-            "sourceTableNormalizedSha256": "fe18ce2f5b6911be2644de68bc1821c251beddc0378e092375b36f3e47343261",
+            "sourceTableNormalizedSha256": "f5b51ab25faaecc4e6f6031b04665b4f6321841d334707d345d59589e8bfccac",
             "unsupportedCurrentEntries": [
               {
                 "target": "moves.43i757GW8pptWB5j",
@@ -160918,10 +160960,24 @@
               "honeclaws",
               "dig",
               "xscissor",
-              "rocksmash",
-              "naturepowers"
+              "rocksmash"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": null,
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 39,
+              "sourceDuplicateKeys": []
+            },
+            "sourceSectionBoundary": {
+              "startLine": 52,
+              "endLine": 64,
+              "openingHeading": "TM/HM Move List",
+              "closingHeading": "sTutor Move List",
+              "repeatedHeadings": []
+            }
           },
           {
             "field": "system.moves.egg",

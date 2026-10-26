@@ -133375,9 +133375,17 @@
             }
           ],
           "missingSourceEntries": [
-            "bulkup10hiddenpower"
+            "hiddenpower"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceAcquisitionParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+            "repeatedHeadings": [],
+            "separateNormativeSection": null,
+            "retainedAnnotations": [],
+            "enumeratedSourceEntryCount": 38,
+            "sourceDuplicateKeys": []
+          }
         },
         {
           "field": "system.moves.egg",
@@ -133765,9 +133773,17 @@
               }
             ],
             "missingSourceEntries": [
-              "bulkup10hiddenpower"
+              "hiddenpower"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceAcquisitionParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceAcquisition",
+              "repeatedHeadings": [],
+              "separateNormativeSection": null,
+              "retainedAnnotations": [],
+              "enumeratedSourceEntryCount": 38,
+              "sourceDuplicateKeys": []
+            }
           },
           {
             "field": "system.moves.egg",

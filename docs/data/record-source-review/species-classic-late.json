@@ -86,18 +86,26 @@
         },
         {
           "field": "system.moves.level",
-          "status": "contradictory",
+          "status": "manual-question",
           "recordEntryCount": 17,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "395c9ce639731f18b19250840de295b184f420f814c6c7e17263ce52d16ba16a",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceLevelParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+            "sourceRowsWithAnnotations": [],
+            "sourceTypeColumnRetained": true
+          },
+          "sourceTokenDispositions": [
             {
-              "level": 46,
-              "moveKeyForComparison": "heavyslameteel"
+              "auditFlag": "species.0rs2oVA5JRvDTLQE:level:type:Eteel",
+              "parsedKey": "heavyslam",
+              "printedLiteral": "Eteel",
+              "disposition": "source-type-column-conflict"
             }
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -521,18 +529,26 @@
           },
           {
             "field": "system.moves.level",
-            "status": "contradictory",
+            "status": "manual-question",
             "recordEntryCount": 17,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "395c9ce639731f18b19250840de295b184f420f814c6c7e17263ce52d16ba16a",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceLevelParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+              "sourceRowsWithAnnotations": [],
+              "sourceTypeColumnRetained": true
+            },
+            "sourceTokenDispositions": [
               {
-                "level": 46,
-                "moveKeyForComparison": "heavyslameteel"
+                "auditFlag": "species.0rs2oVA5JRvDTLQE:level:type:Eteel",
+                "parsedKey": "heavyslam",
+                "printedLiteral": "Eteel",
+                "disposition": "source-type-column-conflict"
               }
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -2001,7 +2017,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.1LlTsQbjBBmhPWUB:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -2440,7 +2464,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.1LlTsQbjBBmhPWUB:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -5792,7 +5824,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.1dKtQn2RkngUfodL:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -6298,7 +6338,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.1dKtQn2RkngUfodL:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -15097,7 +15145,15 @@
             "thrash",
             "zenheabutt"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.3JmvGkYk2TtkGqUj:tutor:literal:zenheabutt",
+              "parsedKey": "zenheabutt",
+              "printedLiteral": "Zen Heabutt",
+              "disposition": "source-literal-definition-limit"
+            }
+          ]
         },
         {
           "field": "system.capabilities numeric fields",
@@ -15675,7 +15731,15 @@
               "thrash",
               "zenheabutt"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.3JmvGkYk2TtkGqUj:tutor:literal:zenheabutt",
+                "parsedKey": "zenheabutt",
+                "printedLiteral": "Zen Heabutt",
+                "disposition": "source-literal-definition-limit"
+              }
+            ]
           },
           {
             "field": "system.capabilities numeric fields",
@@ -36269,18 +36333,26 @@
         },
         {
           "field": "system.moves.level",
-          "status": "contradictory",
+          "status": "manual-question",
           "recordEntryCount": 13,
           "sourceTablePresent": true,
           "sourceTableNormalizedSha256": "d8569f0136b8c309d720a0a7f959b6ff254e65d9c68fadcef5a991e7cf20cd5a",
           "unsupportedCurrentEntries": [],
-          "missingSourceEntries": [
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceLevelParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+            "sourceRowsWithAnnotations": [],
+            "sourceTypeColumnRetained": true
+          },
+          "sourceTokenDispositions": [
             {
-              "level": 47,
-              "moveKeyForComparison": "endeavornormalone"
+              "auditFlag": "species.BPcMz3z4z6gQwHms:level:type:NormalOne",
+              "parsedKey": "endeavor",
+              "printedLiteral": "NormalOne",
+              "disposition": "source-type-column-conflict"
             }
-          ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -36727,18 +36799,26 @@
           },
           {
             "field": "system.moves.level",
-            "status": "contradictory",
+            "status": "manual-question",
             "recordEntryCount": 13,
             "sourceTablePresent": true,
             "sourceTableNormalizedSha256": "d8569f0136b8c309d720a0a7f959b6ff254e65d9c68fadcef5a991e7cf20cd5a",
             "unsupportedCurrentEntries": [],
-            "missingSourceEntries": [
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceLevelParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+              "sourceRowsWithAnnotations": [],
+              "sourceTypeColumnRetained": true
+            },
+            "sourceTokenDispositions": [
               {
-                "level": 47,
-                "moveKeyForComparison": "endeavornormalone"
+                "auditFlag": "species.BPcMz3z4z6gQwHms:level:type:NormalOne",
+                "parsedKey": "endeavor",
+                "printedLiteral": "NormalOne",
+                "disposition": "source-type-column-conflict"
               }
-            ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -42146,7 +42226,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.CqXN6bP2aI09i2Wf:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -42597,7 +42685,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.CqXN6bP2aI09i2Wf:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -59934,7 +60030,15 @@
               "moveKeyForComparison": "headsmash"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.GeN5IzdJl3cE9pUN:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -60471,7 +60575,15 @@
                 "moveKeyForComparison": "headsmash"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.GeN5IzdJl3cE9pUN:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -62984,7 +63096,15 @@
             "thrash",
             "zenheabutt"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.H3Ttrv8RcdHTOeuO:tutor:literal:zenheabutt",
+              "parsedKey": "zenheabutt",
+              "printedLiteral": "Zen Heabutt",
+              "disposition": "source-literal-definition-limit"
+            }
+          ]
         },
         {
           "field": "system.capabilities numeric fields",
@@ -63562,7 +63682,15 @@
               "thrash",
               "zenheabutt"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.H3Ttrv8RcdHTOeuO:tutor:literal:zenheabutt",
+                "parsedKey": "zenheabutt",
+                "printedLiteral": "Zen Heabutt",
+                "disposition": "source-literal-definition-limit"
+              }
+            ]
           },
           {
             "field": "system.capabilities numeric fields",
@@ -72830,7 +72958,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.Jx6lwUZcIWbnhHVl:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -73308,7 +73444,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.Jx6lwUZcIWbnhHVl:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -80721,7 +80865,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.MM3i1wcCYrQx9e2l:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -81178,7 +81330,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.MM3i1wcCYrQx9e2l:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -145793,7 +145953,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.fp0wvzLrfkKmTpRJ:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -146222,7 +146390,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.fp0wvzLrfkKmTpRJ:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -155639,7 +155815,15 @@
           "missingSourceEntries": [
             "hijumpkick"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.hRHqju5msqZvwwip:egg:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.tutor",
@@ -156094,7 +156278,15 @@
             "missingSourceEntries": [
               "hijumpkick"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.hRHqju5msqZvwwip:egg:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.tutor",
@@ -185098,7 +185290,15 @@
           "missingSourceEntries": [
             "hijumpkick"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.r0TEuEzZX95X9TXc:egg:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.tutor",
@@ -185546,7 +185746,15 @@
             "missingSourceEntries": [
               "hijumpkick"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.r0TEuEzZX95X9TXc:egg:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.tutor",
@@ -192676,7 +192884,15 @@
               "moveKeyForComparison": "hijumpkick"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.t0Zujg7TN2b8212R:level:literal:hijumpkick",
+              "parsedKey": "hijumpkick",
+              "printedLiteral": "Hi Jump Kick",
+              "disposition": "source-literal-identity-limit"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -193173,7 +193389,15 @@
                 "moveKeyForComparison": "hijumpkick"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.t0Zujg7TN2b8212R:level:literal:hijumpkick",
+                "parsedKey": "hijumpkick",
+                "printedLiteral": "Hi Jump Kick",
+                "disposition": "source-literal-identity-limit"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",

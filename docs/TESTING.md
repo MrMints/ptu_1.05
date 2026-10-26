@@ -34,10 +34,10 @@ certify the interpreted rules, inherited record mappings or gameplay.
 
 Inherited source classifications have a separate check: `node tools/record-source-review.mjs` and
 `node --test --test-isolation=none tests/record-source-review.test.mjs tests/rules-catalog.test.mjs`.
-The current source batch has17 passing affected record tests and11 unchanged reusable catalog results; normal CI repeats configured checks on the documented correction. These check source evidence and finite coverage, not gameplay. It rejects disagreements
+The current source batch has21 passing affected record tests and11 unchanged reusable catalog results; normal CI repeats configured checks on the documented correction. These check source evidence and finite coverage, not gameplay. It rejects disagreements
 between duplicated evidence, declared values that differ from the current Move/Ability/species fields and
 wrong exact acquisition UUID paths even when the real target appears elsewhere. It retains all 95 examined
-form/branch/skill cases and the Phione four-group regression. The shared acquisition parser is exercised directly for repeated TM headings, Mew machine/tutoring permissions and normative table tails. Source notes retain conditions/stat variants; duplicate acquisition paths and actual Oricorio conditional Type facts have corruption coverage. A valid snapshot may
+form/branch/skill cases and the Phione four-group regression. The shared acquisition parser is exercised directly for repeated TM headings, Mew machine/tutoring permissions and normative table tails. The finite acquisition audit binds 1,075 identity/hash members and4,300 sections to their field evidence, source context and all flagged literal/Type dispositions. Actual Meowstic paragraph, sTutor, numbered-period, None and malformed Type-column/vertical-bar cases have regressions; missing sections, erased literals, unexamined flags and altered current candidate fields are rejected. Source notes retain conditions/stat variants; duplicate acquisition paths and actual Oricorio conditional Type facts have corruption coverage. A valid snapshot may
 remain incomplete; unreviewed inventory and protected production approvals must remain visible.
 Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.
 Launch the installed Foundry application using `.foundry-test` as its data path, or use:

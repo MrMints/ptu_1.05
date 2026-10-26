@@ -25,6 +25,7 @@ const normalizedLabels = values => Array.isArray(values) ? values.map(labelKey).
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
 export function parseSourceAcquisition(value, machine = false) {
     let text = cleanText(value);
+    if (/^None[.!]?$/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'empty-list'};
     if (/\bMew can learn any TM\s*\/\s*HM\b/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'universal-machine'};
     if (/\bMew can be tutored to learn any Move\b/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'universal-tutoring'};
     const footer = text.match(/\*?(?:\bMega Evolution\b|\bUltra Burst\b|\bMultiform\b|\bTherian Forme\b|\bConfined\b|\bDragon Fusion\b|\bForme Change\b|\bOrigin Forme\b|\bSky Forme\b|\bZygarde Cube Move List\b|\bNote\s*:|\bSmall\s+HP\s*:)/i);
@@ -32,10 +33,53 @@ export function parseSourceAcquisition(value, machine = false) {
     if (footer) text = text.slice(0, footer.index);
     const repeatedHeadings = [...text.matchAll(/\b(?:TM(?:\s*\/\s*HM)?|HM|TR|Egg|Tutor)\s+Move\s+List\b/gi)].map(match => match[0]);
     text = text.replace(/\b(?:TM(?:\s*\/\s*HM)?|HM|TR|Egg|Tutor)\s+Move\s+List\b/gi, ',');
+    // A qualified sublist can begin on a new line without a preceding comma.
+    // The printed M/F prefix is its own entry boundary, never part of the
+    // preceding Move name; N remains an annotation on the following entry.
+    text = text.replace(/([^,\s])\s+(?=\([MF]\)\s+[A-Za-z])/g, '$1, ');
+    if (machine) text = text.replace(/([^,\s])\s+(?=(?:A\d+|\d{2,3})\s+[A-Za-z])/g, '$1, ');
     const tokens = text.split(',').map(entry => (machine ? entry.replace(/^\s*(?:A\d+|\d+)\s*/, '') : entry).trim()).filter(Boolean);
     const annotatedEntries = tokens.map(entry => ({key: labelKey(entry.replace(/^\([MF]\)\s*/, '').replace(/\(N\)/g, '')),
         qualifiers: [...(entry.match(/^\(([MF])\)/)?.slice(1) ?? []), ...(/\(N\)/.test(entry) ? ['N'] : [])]}));
     return {entries: annotatedEntries.map(entry => entry.key), annotatedEntries: annotatedEntries.filter(entry => entry.qualifiers.length), repeatedHeadings, boundary};
+}
+export function extractSourceAcquisitionSection(pageText, group) {
+    const text = String(pageText ?? ''), headings = [...text.matchAll(/^[ \t]*(s?)(Level\s+Up|TM(?:\s*\/\s*HM)?|HM|TR|Egg|Tutor)\s+Move\s+List[ \t]*\r?$/gmi)];
+    const kind = match => /^(?:TM|HM|TR)/i.test(match[2]) ? 'machine' : /^Level/i.test(match[2]) ? 'level' : match[2].toLowerCase();
+    const first = headings.findIndex(match => kind(match) === group);
+    if (first < 0) return null;
+    const start = headings[first], following = headings.slice(first + 1), nextList = following.find(match => kind(match) !== group);
+    // A secondary Zen Mode stat block follows the tutor list on plus p.418.
+    // Keep that independently reviewed block outside the acquisition section.
+    const statBlock = [...text.matchAll(/^[ \t]*[A-Z][A-Z \t-]+[ \t]+Zen Mode[ \t]*\r?\n(?=\s*Base Stats:)/gm)].find(match => match.index > start.index);
+    const end = statBlock && (!nextList || statBlock.index < nextList.index) ? statBlock : nextList, stop = end?.index ?? text.length;
+    return {raw: text.slice(start.index + start[0].length, stop), startLine: text.slice(0, start.index).split('\n').length,
+        endLine: text.slice(0, stop).split('\n').length, openingHeading: start[0].trim(), closingHeading: end?.[0].trim() ?? null,
+        repeatedHeadings: following.filter(match => match.index < stop).map(match => match[0].trim())};
+}
+export function parseSourceLevelAcquisition(value) {
+    const text = cleanText(value), entries = [];
+    const rows = /(?:^|\s)(?:([§*])\s*)?(?:\(([MF])\)\s*)?(Evo|\d+)\s+([A-Za-z].*?)(?=\s+(?:[§*]\s*)?(?:\([MF]\)\s*)?(?:Evo|\d+)\s+[A-Za-z]|$)/g;
+    for (const match of text.matchAll(rows)) {
+        const qualifiers = [...(match[2] ? [match[2]] : []), ...[...match[4].matchAll(/\(([MFN])\)/g)].map(value => value[1])];
+        const trailingMarkers = /\|\s*$/.test(match[4]) ? ['|'] : [];
+        let body = match[4].replace(/\(([MFN])\)/g, '').replace(/\s*\|\s*$/, '').trim(), printedType = null;
+        const type = body.match(/^(.*?)\s+-\s*([A-Za-z]+)\s*$/) ?? body.match(/^(.*?)-\s*(Normal|Fire|Water|Grass|Electric|Ice|Fighting|Poison|Ground|Flying|Psychic|Bug|Rock|Ghost|Dragon|Dark|Steel|Fairy)\s*$/i);
+        if (type) { body = type[1].trim(); printedType = type[2]; }
+        entries.push({level: /^\d+$/.test(match[3]) ? Number(match[3]) : 'evolution-event', key: labelKey(body), printedType, qualifiers,
+            leadingMarkers: match[1] ? [match[1]] : [], trailingMarkers});
+    }
+    return entries;
+}
+export function unqualifiedAcquisitionKeys(parsed) {
+    const counts = new Map();
+    for (const entry of parsed.annotatedEntries) if (entry.qualifiers.some(value => ['M', 'F'].includes(value))) counts.set(entry.key, (counts.get(entry.key) ?? 0) + 1);
+    // Subtract qualified occurrences, not every occurrence of their label.
+    // Meowstic prints Helping Hand both normally and in its male Natural list.
+    return [...parsed.entries].reverse().filter(key => {
+        if (!counts.get(key)) return true;
+        counts.set(key, counts.get(key) - 1); return false;
+    }).reverse();
 }
 const referencePaths = (value, target, path = '$') => {
     if (Array.isArray(value)) return value.flatMap((child, index) => referencePaths(child, target, `${path}[${index}]`));
@@ -56,12 +100,13 @@ export async function loadRecordSourceReview() {
     ]);
     const source = await readPackSources(manifest);
     const protectedHashes = Object.fromEntries(await Promise.all(index.protectedPolicyArtifacts.map(async item => [item.path, hash(await json(item.path))])));
-    return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null};
+    return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
+        acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json')};
 }
 
 export function recordSourceReviewErrors(bundle) {
     const errors = [], fail = (ok, message) => { if (!ok) errors.push(message); };
-    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex, regional, batchManifest} = bundle;
+    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex, regional, batchManifest, acquisitionAudit} = bundle;
     const inventoryMap = new Map(inventory.records.map(row => [row.identity, row]));
     const actualMap = new Map(source.rows.map(row => [row.identity, row]));
     const links = values => (values ?? []).map(link => {
@@ -254,6 +299,60 @@ export function recordSourceReviewErrors(bundle) {
             if (row.coverageState === 'unresolved') fail(row.missingEvidence?.examinedSourceProfile === row.sourceComparison?.sourceProfile && row.missingEvidence.neededArtifact && row.missingEvidence.differingFields?.length, `Examined variant conflict lacks a precise evidence limit: ${row.identity}`);
         }
         fail(equal(batch.counts, batchCounts), 'Finite form/branch/skill batch coverage counts differ');
+    }
+    if (index.acquisitionBoundaryAudit) {
+        const audit = acquisitionAudit, groups = ['level', 'machine', 'egg', 'tutor'];
+        const scoped = (audit?.recordFiles ?? []).flatMap(path => files[path]?.records ?? []).filter(row => row.sourceComparison?.sourceProfile);
+        const expected = scoped.map(row => [row.identity, row.contentHash]).sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0);
+        const membership = textHash(expected.map(([identity, contentHash]) => `${identity}\t${contentHash}\n`).join(''));
+        fail(index.acquisitionBoundaryAudit === 'acquisition-boundary-audit.json' && audit?.sourceFingerprint === inventory.sourceFingerprint
+            && audit.productionPolicyPromotion === false && audit.behavioralVerification === 'not-run', 'Acquisition audit inputs or policy boundary changed');
+        fail(expected.length === 1075 && equal(audit?.members, expected) && audit.membershipSha256 === membership, 'Acquisition audit finite identity/hash membership changed');
+        const memberIds = new Set(expected.map(([identity]) => identity)), sections = new Map(), flagUses = new Map(), flagMap = new Map((audit?.flagDispositions ?? []).map(flag => [flag.id, flag]));
+        fail(flagMap.size === audit?.flagDispositions?.length, 'Acquisition audit repeats a flag disposition');
+        for (const section of audit?.sections ?? []) {
+            const key = `${section.identity}:${section.group}`, row = rows.get(section.identity), field = row?.fieldReview.find(value => value.field === `system.moves.${section.group}`);
+            fail(!sections.has(key) && groups.includes(section.group) && memberIds.has(section.identity), `Acquisition audit duplicate/outside section: ${key}`);
+            sections.set(key, section);
+            fail(section.sourceProfile === row?.sourceComparison?.sourceProfile && section.evidenceSemanticSha256 === hash(field ?? null)
+                && /^[a-f0-9]{64}$/.test(section.rawNormalizedSha256) && /^[a-f0-9]{64}$/.test(section.parsedSha256)
+                && Number.isInteger(section.entryCount) && section.entryCount >= 0, `Acquisition audit evidence changed: ${key}`);
+            if (section.anchor) fail(Number.isInteger(section.anchor.startLine) && section.anchor.startLine >= 1 && section.anchor.endLine >= section.anchor.startLine
+                && section.anchor.contextNormalizedSha256 === section.rawNormalizedSha256, `Acquisition audit source context invalid: ${key}`);
+            else fail(field?.sourceTablePresent !== true && field?.sourceTableNormalizedSha256 === textHash('') && section.entryCount === 0, `Acquisition audit omitted an available source section: ${key}`);
+            const issues = field?.sourceTokenDispositions ?? [];
+            fail(equal(section.flagIds, issues.map(issue => issue.auditFlag)), `Acquisition audit flag coverage disagrees: ${key}`);
+            for (const id of section.flagIds) {
+                flagUses.set(id, (flagUses.get(id) ?? 0) + 1);
+                const flag = flagMap.get(id), issue = issues.find(value => value.auditFlag === id);
+                fail(flag && id.startsWith(`${key}:`) && issue?.parsedKey === flag.parsedKey && issue?.printedLiteral === flag.printedLiteral
+                    && issue?.disposition === flag.disposition && flag.sourceProfile === section.sourceProfile, `Acquisition audit flag evidence disagrees: ${id}`);
+            }
+        }
+        for (const [identity] of expected) for (const group of groups) fail(sections.has(`${identity}:${group}`), `Acquisition audit section missing: ${identity}:${group}`);
+        const dispositions = new Set(['source-internal-label-conflict', 'source-literal-identity-limit', 'defined-source-label-current-spelling-conflict', 'source-punctuation-conflict', 'source-literal-definition-limit', 'source-type-column-conflict']);
+        for (const flag of flagMap.values()) {
+            fail(flagUses.get(flag.id) === 1 && dispositions.has(flag.disposition) && flag.interpretation?.length > 80
+                && flag.productionPolicyPromotion === false, `Acquisition audit flag lacks a precise retained disposition: ${flag.id}`);
+            const [identity, group] = flag.id.split(':'), row = rows.get(identity), field = row?.fieldReview.find(value => value.field === `system.moves.${group}`);
+            if (flag.kind === 'literal-source-token') {
+                fail(field?.missingSourceEntries.some(value => (typeof value === 'string' ? value : value.moveKeyForComparison) === flag.parsedKey), `Acquisition audit erased a literal source token: ${flag.id}`);
+                const candidate = flag.candidateComparison, actual = actualMap.get(candidate?.target);
+                fail(actual?.contentHash === candidate?.contentHash && candidate?.fields.length === 8 && candidate.productionPolicyPromotion === false, `Acquisition audit candidate identity/fields changed: ${flag.id}`);
+                for (const value of candidate?.fields ?? []) currentFieldEvidence({identity: candidate.target}, actual, value);
+            } else {
+                fail(flag.kind === 'printed-type-column' && flag.disposition === 'source-type-column-conflict' && field?.status === 'manual-question', `Acquisition audit lost the printed Type conflict: ${flag.id}`);
+                for (const target of flag.currentTargets ?? []) fail(actualMap.get(target.target)?.data.system.type === target.currentType, `Acquisition audit current Type evidence changed: ${flag.id}`);
+            }
+        }
+        const counts = {species: expected.length, sections: sections.size, literalTokenFlags: [...flagMap.values()].filter(flag => flag.kind === 'literal-source-token').length,
+            typeColumnFlags: [...flagMap.values()].filter(flag => flag.kind === 'printed-type-column').length};
+        fail(sections.size === expected.length * 4 && equal(audit?.counts, counts), 'Acquisition audit coverage counts disagree');
+        for (const correction of audit?.syntaxCorrections ?? []) {
+            const field = rows.get(correction.identity)?.fieldReview.find(value => value.field === `system.moves.${correction.group}`);
+            fail(equal(correction.afterMissing, field?.missingSourceEntries) && equal(correction.afterUnsupported, field?.unsupportedCurrentEntries), `Acquisition audit correction evidence disagrees: ${correction.identity}`);
+        }
+        citations(audit);
     }
     if (index.batchManifest) {
         const expected = {

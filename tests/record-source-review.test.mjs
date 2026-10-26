@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition} from '../tools/record-source-review.mjs';
+import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
-const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest})});
+const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest, acquisitionAudit: original.acquisitionAudit})});
 const records = data => Object.values(data.files).flatMap(file => file.records);
 test('record source snapshot keeps exact inventory, separate field axes and complete first dependency coverage', () => {
     assert.deepEqual(recordSourceReviewErrors(original), []);
@@ -165,4 +165,60 @@ test('Darmanitan learning schedule is editorial without changing either source v
     const change = data.dex.profileDeltas.find(x => x.id === 'r04-d0418').changes.find(x => x.field === 'levelMoves');
     change.sourceInterpretation.category = 'optional-profile-rule-change';
     assert.ok(recordSourceReviewErrors(data).some(x => x.includes('Darmanitan unchanged learning schedule')));
+});
+
+test('Meowstic paragraph boundary preserves Zen Headbutt and both Helping Hand occurrences', () => {
+    const parsed = parseSourceAcquisition('Helping Hand, Zen Headbutt\n(M) Helping Hand (N), (M) Mean Look (N), (F) Magical Leaf (N)');
+    assert.deepEqual(parsed.entries, ['helpinghand', 'zenheadbutt', 'helpinghand', 'meanlook', 'magicalleaf']);
+    assert.deepEqual(parsed.annotatedEntries[0], {key: 'helpinghand', qualifiers: ['M', 'N']});
+    assert.deepEqual(unqualifiedAcquisitionKeys(parsed), ['helpinghand', 'zenheadbutt']);
+    for (const identity of ['species.B56tEVSEIVOBj6n0', 'species.UdauaTVa0WtKqKAh']) {
+        const row = records(original).find(value => value.identity === identity), tutor = row.fieldReview.find(value => value.field === 'system.moves.tutor');
+        assert.deepEqual(row.fieldReview, row.sourceComparison.fields);
+        assert.ok(!tutor.missingSourceEntries.includes('zenheadbuttmhelpinghand'));
+        assert.ok(!tutor.unsupportedCurrentEntries.some(value => value.target === 'moves.bbYMsmddMV20isEx'));
+        assert.ok(tutor.conditionalSourceEntries.some(value => value.key === 'helpinghand' && value.qualifiers.join(',') === 'M,N'));
+        assert.ok(tutor.sourceAcquisitionParsing.sourceDuplicateKeys.some(value => value.key === 'helpinghand' && value.occurrences === 2));
+        assert.ok(row.fieldReview.find(value => value.field === 'system.moves.level').missingSourceEntries.some(value => value.sourceGenderQualifier === 'M'));
+        assert.ok(row.fieldReview.find(value => value.field === 'system.abilities exact UUID-resolved slot order').sourceConditionalSlots);
+    }
+});
+
+test('actual numbered, empty, malformed-heading and secondary-stat boundaries stay separate', () => {
+    assert.deepEqual(parseSourceAcquisition('06 Toxic, 08 Bulk Up. 10 Hidden Power', true).entries, ['toxic', 'bulkup', 'hiddenpower']);
+    assert.equal(parseSourceAcquisition('None').boundary, 'empty-list');
+    assert.deepEqual(parseSourceAcquisition('Unknown Source Move, Wise Guard').entries, ['unknownsourcemove', 'wiseguard']);
+    const page = 'TM/HM Move List\n96 Nature Power\nsTutor Move List\nZen Headbutt\nDARMANITAN Zen Mode\n\nBase Stats:\nHP: 11';
+    const machine = extractSourceAcquisitionSection(page, 'machine'), tutor = extractSourceAcquisitionSection(page, 'tutor');
+    assert.equal(machine.closingHeading, 'sTutor Move List');
+    assert.deepEqual(parseSourceAcquisition(machine.raw, true).entries, ['naturepower']);
+    assert.deepEqual(parseSourceAcquisition(tutor.raw).entries, ['zenheadbutt']);
+    const repeated = extractSourceAcquisitionSection('TM Move List\n45 Attract\nTM Move List\n06 Toxic\nTutor Move List\nSnore', 'machine');
+    assert.deepEqual(parseSourceAcquisition(repeated.raw, true).entries, ['attract', 'toxic']);
+});
+
+test('level grammar separates literal Type errors and retains gender and printed markers', () => {
+    const rows = parseSourceLevelAcquisition('45 Wild Charge - Charge\n47 Endeavor - NormalOne\n46 Heavy Slam - Eteel\n60 Outrage - Dragon |\n(M) 55 Quick Guard - Fighting');
+    assert.deepEqual(rows.map(value => [value.key, value.printedType]), [['wildcharge', 'Charge'], ['endeavor', 'NormalOne'], ['heavyslam', 'Eteel'], ['outrage', 'Dragon'], ['quickguard', 'Fighting']]);
+    assert.deepEqual(rows[3].trailingMarkers, ['|']);
+    assert.deepEqual(rows[4].qualifiers, ['M']);
+    assert.deepEqual(parseSourceLevelAcquisition('Evo Unknown Move - Unprinted')[0], {level: 'evolution-event', key: 'unknownmove', printedType: 'Unprinted', qualifiers: [], leadingMarkers: [], trailingMarkers: []});
+});
+
+test('finite acquisition audit rejects lost sections, erased literals and unexamined flags', () => {
+    assert.deepEqual(original.acquisitionAudit.counts, {species: 1075, sections: 4300, literalTokenFlags: 21, typeColumnFlags: 3});
+    for (const defect of ['section', 'flag', 'literal', 'context', 'candidate']) {
+        const data = copy(), audit = data.acquisitionAudit;
+        if (defect === 'section') audit.sections.pop();
+        if (defect === 'flag') audit.flagDispositions[0].disposition = 'unreviewed';
+        if (defect === 'context') audit.sections.find(value => value.anchor).anchor.contextNormalizedSha256 = '0'.repeat(64);
+        if (defect === 'candidate') audit.flagDispositions.find(value => value.candidateComparison).candidateComparison.fields[0].recordValue = 'Unprinted';
+        if (defect === 'literal') {
+            const flag = audit.flagDispositions.find(value => value.parsedKey === 'wiseguard'), row = records(data).find(value => value.identity === flag.id.split(':')[0]);
+            for (const fields of [row.fieldReview, row.sourceComparison.fields]) fields.find(value => value.field === 'system.moves.egg').missingSourceEntries = [];
+        }
+        const errors = recordSourceReviewErrors(data);
+        const messages = {section: 'Acquisition audit section missing', flag: 'flag lacks a precise retained disposition', literal: 'erased a literal source token', context: 'source context invalid', candidate: 'Declared field evidence does not describe exact current record'};
+        assert.ok(errors.some(value => value.includes(messages[defect])), defect);
+    }
 });

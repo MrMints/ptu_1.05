@@ -874,7 +874,7 @@
         ]
       },
       "slices": [],
-      "acceptance": "not accepted: corrected extraction evidence requires focused regression, affected validation and CI on the corrected documented revision, then substantive planner review"
+      "acceptance": "not accepted: Meowstic paragraph extraction corrected; finite boundary audit, actual regressions, corrected-revision CI and substantive planner review required"
     },
     {
       "id": "B",
@@ -8457,8 +8457,8 @@
             "counts": {
               "reviewed": 188
             },
-            "evidenceSemanticSha256": "453fab9aedb2d78c43081e4cabcd45b7e48130132c988fcc9658e0ef4cd39679",
-            "checks": "Record source validator passes exact frozen membership/ID/hash, current/duplicated field evidence, bounded rule/stat/conditional-slot notes, shared acquisition-parser boundaries, citations/catalog references, UUID paths and protected-policy boundaries.17 affected record tests pass; unchanged11 catalog test results are reused. New source evidence remains draft pending its documented CI/substantive review.",
+            "evidenceSemanticSha256": "0f0a2373bf1fe6a9c2b5bed22f20edbedc66672c96f56f0d7927aa748e89964a",
+            "checks": "21 affected record-source tests pass, including actual grammar boundaries and finite audit corruption cases; 11 unchanged catalog results reused. Exact frozen/source/current/duplicated evidence, citations and protected-policy checks pass. Corrected-revision normal CI and substantive planner review remain required.",
             "sourceDecision": "Available printed profile fields and applicable competing editions are compared; precise literal conflicts, unprinted values and manual branch/actor questions remain. These are source dispositions, not production approval or gameplay verification.",
             "limitations": "Untraced inherited differences, new/custom/conditional form authority and target definition versions remain separately unapproved.",
             "ci": "Batch A c4c32993 passed CI40239815504. New slice work requires normal CI on its documented commit before final handoff.",
@@ -8507,6 +8507,17 @@
               ],
               "reason": "Repeated acquisition headings and non-Move normative tails/conditional qualifiers are separated; printed rules/stat variants remain structured source-note evidence. Current packs and frozen memberships are unchanged.",
               "priorEvidenceSemanticSha256": "4e617e973d1399101139aa8c151fb7c42b151c1a9238f631c6053731c989409c"
+            },
+            {
+              "reason": "Finite 1075-species/4300-section boundary audit; actual grammar defects corrected and all literal/type flags given precise source dispositions. Existing memberships/outcomes retained.",
+              "audit": "acquisition-boundary-audit.json",
+              "priorEvidenceSemanticSha256": "453fab9aedb2d78c43081e4cabcd45b7e48130132c988fcc9658e0ef4cd39679",
+              "affectedIdentities": [
+                "species.Cu9MqzGmnSlgozbm",
+                "species.UvhOKvj6cQjre15B",
+                "species.xSBxy5du2LfGp9Yz",
+                "species.xYMcDRTQo5icwBKf"
+              ]
             }
           ]
         },
@@ -9330,8 +9341,8 @@
             "counts": {
               "reviewed": 202
             },
-            "evidenceSemanticSha256": "d12d7dbebebb5cb4687a2b4541ba9350807545b48bef7e42ce588329ab9d4cc4",
-            "checks": "Record source validator passes exact frozen membership/ID/hash, current/duplicated field evidence, bounded rule/stat/conditional-slot notes, shared acquisition-parser boundaries, citations/catalog references, UUID paths and protected-policy boundaries.17 affected record tests pass; unchanged11 catalog test results are reused. New source evidence remains draft pending its documented CI/substantive review.",
+            "evidenceSemanticSha256": "55c4f791926444d18dcd01542101749f30f24469f5e7b50cb5e22647cc45374e",
+            "checks": "21 affected record-source tests pass, including actual grammar boundaries and finite audit corruption cases; 11 unchanged catalog results reused. Exact frozen/source/current/duplicated evidence, citations and protected-policy checks pass. Corrected-revision normal CI and substantive planner review remain required.",
             "sourceDecision": "Available printed profile fields and applicable competing editions are compared; precise literal conflicts, unprinted values and manual branch/actor questions remain. These are source dispositions, not production approval or gameplay verification.",
             "limitations": "Untraced inherited differences, new/custom/conditional form authority and target definition versions remain separately unapproved.",
             "ci": "Batch A c4c32993 passed CI40239815504. New slice work requires normal CI on its documented commit before final handoff.",
@@ -9370,6 +9381,17 @@
               ],
               "reason": "Repeated acquisition headings and non-Move normative tails/conditional qualifiers are separated; printed rules/stat variants remain structured source-note evidence. Current packs and frozen memberships are unchanged.",
               "priorEvidenceSemanticSha256": "4144fbab1640c2f672565f222ab3277478d36d258c869160edba0dd5e0d275b5"
+            },
+            {
+              "reason": "Finite 1075-species/4300-section boundary audit; actual grammar defects corrected and all literal/type flags given precise source dispositions. Existing memberships/outcomes retained.",
+              "audit": "acquisition-boundary-audit.json",
+              "priorEvidenceSemanticSha256": "d12d7dbebebb5cb4687a2b4541ba9350807545b48bef7e42ce588329ab9d4cc4",
+              "affectedIdentities": [
+                "species.ANq4Bj4a7wPVVcTG",
+                "species.HiEQxariUFPOyqMD",
+                "species.UqRO8NE6Zf06HfSA",
+                "species.caVLNx4IkIX5nBxt"
+              ]
             }
           ]
         },
@@ -10245,8 +10267,8 @@
             "counts": {
               "reviewed": 215
             },
-            "evidenceSemanticSha256": "0cb0065554cb16d8b013a871ff12c8a5f24467c12e675c1a865fcd2f591d63bd",
-            "checks": "Record source validator passes exact frozen membership/ID/hash, current/duplicated field evidence, bounded rule/stat/conditional-slot notes, shared acquisition-parser boundaries, citations/catalog references, UUID paths and protected-policy boundaries.17 affected record tests pass; unchanged11 catalog test results are reused. New source evidence remains draft pending its documented CI/substantive review.",
+            "evidenceSemanticSha256": "7a00e3eda8ea6585793815bddbb17b45833f34373fdbf1f29240ce4b95f44d7b",
+            "checks": "21 affected record-source tests pass, including actual grammar boundaries and finite audit corruption cases; 11 unchanged catalog results reused. Exact frozen/source/current/duplicated evidence, citations and protected-policy checks pass. Corrected-revision normal CI and substantive planner review remain required.",
             "sourceDecision": "Available printed profile fields and applicable competing editions are compared; precise literal conflicts, unprinted values and manual branch/actor questions remain. These are source dispositions, not production approval or gameplay verification.",
             "limitations": "Untraced inherited differences, new/custom/conditional form authority and target definition versions remain separately unapproved.",
             "ci": "Batch A c4c32993 passed CI40239815504. New slice work requires normal CI on its documented commit before final handoff.",
@@ -10304,6 +10326,27 @@
               ],
               "reason": "Repeated acquisition headings and non-Move normative tails/conditional qualifiers are separated; printed rules/stat variants remain structured source-note evidence. Current packs and frozen memberships are unchanged.",
               "priorEvidenceSemanticSha256": "01d11640e395506c03480e74de248066c603842b81d428a61ef01cba68cf88d1"
+            },
+            {
+              "reason": "Finite 1075-species/4300-section boundary audit; actual grammar defects corrected and all literal/type flags given precise source dispositions. Existing memberships/outcomes retained.",
+              "audit": "acquisition-boundary-audit.json",
+              "priorEvidenceSemanticSha256": "0cb0065554cb16d8b013a871ff12c8a5f24467c12e675c1a865fcd2f591d63bd",
+              "affectedIdentities": [
+                "species.0rs2oVA5JRvDTLQE",
+                "species.1LlTsQbjBBmhPWUB",
+                "species.1dKtQn2RkngUfodL",
+                "species.3JmvGkYk2TtkGqUj",
+                "species.BPcMz3z4z6gQwHms",
+                "species.CqXN6bP2aI09i2Wf",
+                "species.GeN5IzdJl3cE9pUN",
+                "species.H3Ttrv8RcdHTOeuO",
+                "species.Jx6lwUZcIWbnhHVl",
+                "species.MM3i1wcCYrQx9e2l",
+                "species.fp0wvzLrfkKmTpRJ",
+                "species.hRHqju5msqZvwwip",
+                "species.r0TEuEzZX95X9TXc",
+                "species.t0Zujg7TN2b8212R"
+              ]
             }
           ]
         },
@@ -10935,8 +10978,8 @@
             "counts": {
               "reviewed": 154
             },
-            "evidenceSemanticSha256": "00aa7b19bd702012b86efaeb2d63405b848f0b325a07ec5c95bf4beac380018b",
-            "checks": "Record source validator passes exact frozen membership/ID/hash, current/duplicated field evidence, bounded rule/stat/conditional-slot notes, shared acquisition-parser boundaries, citations/catalog references, UUID paths and protected-policy boundaries.17 affected record tests pass; unchanged11 catalog test results are reused. New source evidence remains draft pending its documented CI/substantive review.",
+            "evidenceSemanticSha256": "340680cd7723ce9a79ae2d30225b42239017a016d8dced61daffb3e96dbb5e86",
+            "checks": "21 affected record-source tests pass, including actual grammar boundaries and finite audit corruption cases; 11 unchanged catalog results reused. Exact frozen/source/current/duplicated evidence, citations and protected-policy checks pass. Corrected-revision normal CI and substantive planner review remain required.",
             "sourceDecision": "Available printed profile fields and applicable competing editions are compared; precise literal conflicts, unprinted values and manual branch/actor questions remain. These are source dispositions, not production approval or gameplay verification.",
             "limitations": "Untraced inherited differences, new/custom/conditional form authority and target definition versions remain separately unapproved.",
             "ci": "Batch A c4c32993 passed CI40239815504. New slice work requires normal CI on its documented commit before final handoff.",
@@ -11016,6 +11059,16 @@
               ],
               "reason": "Repeated acquisition headings and non-Move normative tails/conditional qualifiers are separated; printed rules/stat variants remain structured source-note evidence. Current packs and frozen memberships are unchanged.",
               "priorEvidenceSemanticSha256": "1cf7d1a0420ed80dd570f59ec5d95bef80d57c5595212704d5aabf5845d97ef4"
+            },
+            {
+              "reason": "Finite 1075-species/4300-section boundary audit; actual grammar defects corrected and all literal/type flags given precise source dispositions. Existing memberships/outcomes retained.",
+              "audit": "acquisition-boundary-audit.json",
+              "priorEvidenceSemanticSha256": "00aa7b19bd702012b86efaeb2d63405b848f0b325a07ec5c95bf4beac380018b",
+              "affectedIdentities": [
+                "species.TLHT26ZX5UmoyVZH",
+                "species.dXmCowCGSz3ociEW",
+                "species.zFyzWHW6FVKaQc0F"
+              ]
             }
           ]
         },
@@ -11888,8 +11941,8 @@
               "reviewed": 213,
               "unresolved": 1
             },
-            "evidenceSemanticSha256": "a732a138bf29ae264a70978325b7053fa9713fa0eaa5c79c87b3dd71da156dbb",
-            "checks": "Record source validator passes exact frozen membership/ID/hash, current/duplicated field evidence, bounded rule/stat/conditional-slot notes, shared acquisition-parser boundaries, citations/catalog references, UUID paths and protected-policy boundaries.17 affected record tests pass; unchanged11 catalog test results are reused. New source evidence remains draft pending its documented CI/substantive review.",
+            "evidenceSemanticSha256": "0dfa0cfe3da337d0ca5c7bd70d31e48d39f2533e0aca3f8e9881b564ad7d79d7",
+            "checks": "21 affected record-source tests pass, including actual grammar boundaries and finite audit corruption cases; 11 unchanged catalog results reused. Exact frozen/source/current/duplicated evidence, citations and protected-policy checks pass. Corrected-revision normal CI and substantive planner review remain required.",
             "sourceDecision": "Available printed profile fields and applicable competing editions are compared; precise literal conflicts, unprinted values and manual branch/actor questions remain. These are source dispositions, not production approval or gameplay verification.",
             "limitations": "Untraced inherited differences, new/custom/conditional form authority and target definition versions remain separately unapproved.",
             "ci": "Batch A c4c32993 passed CI40239815504. New slice work requires normal CI on its documented commit before final handoff."
@@ -11909,6 +11962,14 @@
               ],
               "reason": "Repeated acquisition headings and non-Move normative tails/conditional qualifiers are separated; printed rules/stat variants remain structured source-note evidence. Current packs and frozen memberships are unchanged.",
               "priorEvidenceSemanticSha256": null
+            },
+            {
+              "reason": "Finite 1075-species/4300-section boundary audit; actual grammar defects corrected and all literal/type flags given precise source dispositions. Existing memberships/outcomes retained.",
+              "audit": "acquisition-boundary-audit.json",
+              "priorEvidenceSemanticSha256": "a732a138bf29ae264a70978325b7053fa9713fa0eaa5c79c87b3dd71da156dbb",
+              "affectedIdentities": [
+                "species.cPQl42lu8ZCCCnno"
+              ]
             }
           ]
         },

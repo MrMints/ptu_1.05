@@ -682,5 +682,6 @@
     "originalRevision": "c4c3299330ddfad5d63e7db72fe34225f05f7cae",
     "correction": "Galar33 repeated TM heading: retain real Toxic omission and exact duplicate Attract paths; preserve all bounded normative tail/conditional/stat content.",
     "remainingBatchScope": "B-scope113 and B-unmatched616 unstarted until passing correction checkpoint"
-  }
+  },
+  "acquisitionBoundaryAudit": "acquisition-boundary-audit.json"
 }

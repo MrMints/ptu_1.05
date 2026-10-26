@@ -33404,7 +33404,15 @@
               "moveKeyForComparison": "guillotine"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.ANq4Bj4a7wPVVcTG:level:literal:doublechop",
+              "parsedKey": "doublechop",
+              "printedLiteral": "Double Chop",
+              "disposition": "source-internal-label-conflict"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -33867,7 +33875,15 @@
                 "moveKeyForComparison": "guillotine"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.ANq4Bj4a7wPVVcTG:level:literal:doublechop",
+                "parsedKey": "doublechop",
+                "printedLiteral": "Double Chop",
+                "disposition": "source-internal-label-conflict"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -61423,7 +61439,15 @@
               "moveKeyForComparison": "doublechop"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.HiEQxariUFPOyqMD:level:literal:doublechop",
+              "parsedKey": "doublechop",
+              "printedLiteral": "Double Chop",
+              "disposition": "source-internal-label-conflict"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -61887,7 +61911,15 @@
                 "moveKeyForComparison": "doublechop"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.HiEQxariUFPOyqMD:level:literal:doublechop",
+                "parsedKey": "doublechop",
+                "printedLiteral": "Double Chop",
+                "disposition": "source-internal-label-conflict"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
@@ -101035,7 +101067,21 @@
             "sleeptalk",
             "workup"
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.UqRO8NE6Zf06HfSA:tutor:literal:knock",
+              "parsedKey": "knock",
+              "printedLiteral": "Knock, Off",
+              "disposition": "source-punctuation-conflict"
+            },
+            {
+              "auditFlag": "species.UqRO8NE6Zf06HfSA:tutor:literal:off",
+              "parsedKey": "off",
+              "printedLiteral": "Knock, Off",
+              "disposition": "source-punctuation-conflict"
+            }
+          ]
         },
         {
           "field": "system.capabilities numeric fields",
@@ -101498,7 +101544,21 @@
               "sleeptalk",
               "workup"
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.UqRO8NE6Zf06HfSA:tutor:literal:knock",
+                "parsedKey": "knock",
+                "printedLiteral": "Knock, Off",
+                "disposition": "source-punctuation-conflict"
+              },
+              {
+                "auditFlag": "species.UqRO8NE6Zf06HfSA:tutor:literal:off",
+                "parsedKey": "off",
+                "printedLiteral": "Knock, Off",
+                "disposition": "source-punctuation-conflict"
+              }
+            ]
           },
           {
             "field": "system.capabilities numeric fields",
@@ -127068,13 +127128,33 @@
             {
               "level": 13,
               "moveKeyForComparison": "doublechop"
-            },
-            {
-              "level": 60,
-              "moveKeyForComparison": "outragedragon"
             }
           ],
-          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+          "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+          "sourceLevelParsing": {
+            "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+            "sourceRowsWithAnnotations": [
+              {
+                "level": 60,
+                "key": "outrage",
+                "printedType": "Dragon",
+                "qualifiers": [],
+                "leadingMarkers": [],
+                "trailingMarkers": [
+                  "|"
+                ]
+              }
+            ],
+            "sourceTypeColumnRetained": true
+          },
+          "sourceTokenDispositions": [
+            {
+              "auditFlag": "species.caVLNx4IkIX5nBxt:level:literal:doublechop",
+              "parsedKey": "doublechop",
+              "printedLiteral": "Double Chop",
+              "disposition": "source-internal-label-conflict"
+            }
+          ]
         },
         {
           "field": "system.moves.machine",
@@ -127532,13 +127612,33 @@
               {
                 "level": 13,
                 "moveKeyForComparison": "doublechop"
-              },
-              {
-                "level": 60,
-                "moveKeyForComparison": "outragedragon"
               }
             ],
-            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate."
+            "limitation": "Exact current links are resolved; both current membership and missing printed entries are compared. Printed Evo is retained as an evolution event, not invented level0/1. Target definition versions and actor behavior remain separate.",
+            "sourceLevelParsing": {
+              "parser": "tools/record-source-review.mjs#parseSourceLevelAcquisition",
+              "sourceRowsWithAnnotations": [
+                {
+                  "level": 60,
+                  "key": "outrage",
+                  "printedType": "Dragon",
+                  "qualifiers": [],
+                  "leadingMarkers": [],
+                  "trailingMarkers": [
+                    "|"
+                  ]
+                }
+              ],
+              "sourceTypeColumnRetained": true
+            },
+            "sourceTokenDispositions": [
+              {
+                "auditFlag": "species.caVLNx4IkIX5nBxt:level:literal:doublechop",
+                "parsedKey": "doublechop",
+                "printedLiteral": "Double Chop",
+                "disposition": "source-internal-label-conflict"
+              }
+            ]
           },
           {
             "field": "system.moves.machine",
