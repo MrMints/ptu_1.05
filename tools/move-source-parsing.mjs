@@ -33,6 +33,7 @@ export function extractMoveDefinitions(book, pages, ranges, options = {}) {
             const lines = String(pages[page] ?? '').split(/\r?\n/);
             for (let ordinal = 0; ordinal < lines.length; ordinal++) {
                 const line = lines[ordinal], text = line.trim();
+                if (/^(?:(?:Adept|Master) Weapon Moves|(?:Novice|Expert) Arcane Weapon Moves)$/.test(text)) { if (active) active.nextBoundary = text; finish(); continue; }
                 if ((options.boundaries ?? []).some(pattern => pattern.test(text))) { if (active) active.nextBoundary = ordinary(line); finish(); continue; }
                 if (!text || /^(?:\d+|Indices and Reference|Gear and Items|Gear and Alchemy|Genre and Setting|Sept 2015 Playtest|Master Weapon Moves|(?:Bug|Dark|Dragon|Electric|Fairy|Fighting|Fire|Flying|Ghost|Grass|Ground|Ice|Normal|Poison|Psychic|Rock|Steel|Water) Moves)$/.test(text)) continue;
                 const heading = line.match(/^\s*Move:\s*(.+)$/) ?? ((options.extraHeadings ?? []).includes(text) ? [line, text] : null);
@@ -61,6 +62,51 @@ export function parseMoveRuleClauses(value, clean = ordinary) {
         }
     }
     return {clauses, representation: {literalParagraphEscapes: (raw.match(/\\n/g) ?? []).length, basis: 'Literal backslash-n is a paragraph representation only. Typed labels and every ordered rule word remain separate; raw field hashes retain stored strings and no source spelling is repaired.'}};
+}
+
+export function moveSourceNumericTokens(structure) {
+    const text = structure.clauses.map(clause => clause.text).join(' ').normalize('NFKC').replace(/\u2212/g, '-').replace(/\u2044/g, '/');
+    const tokens = (text.match(/[+-]?\s*\d+(?:\.\d+)?(?:d\d+)?(?:%|rd|th)?|\//g) ?? []).map(token => token.replace(/\s/g, ''));
+    // Do not let an unrecognized operator disappear through the word view.
+    // Ordinary formatting asterisks are distinct from arithmetic next to digits.
+    const unknown = [...text.matchAll(/[\p{Sm}\u2010-\u2015\u2043\u2796]/gu)].map(match => match[0]).filter(symbol => !['+', '-'].includes(symbol));
+    if (/\d\s*\*|\*\s*\d/.test(text)) unknown.push('*');
+    return [...tokens, ...unknown.map(symbol => `unrecognized-sign:${symbol}`)];
+}
+
+export function extractMoveUseConditions(value) {
+    const text = String(value ?? '').replace(/\\n/g, '\n'), results = [];
+    const masked = text.replace(/@(?:UUID|Embed)\[[^\]]*\](?:\{[^}]*\})?/g, reference => '_'.repeat(reference.length));
+    const markers = [...masked.matchAll(/\b(Requirements?|Prerequisites?|Cost)\s*:\s*/gi)];
+    for (const marker of markers) {
+        const tail = text.slice(marker.index + marker[0].length), end = masked.slice(marker.index + marker[0].length).search(/\n|\b(?:Effect|Special|Trigger|Target|Requirements?|Prerequisites?|Cost)\s*:/i);
+        results.push({kind: marker[1].toLowerCase(), text: tail.slice(0, end < 0 ? tail.length : end).trim(), startOffset: marker.index});
+    }
+    for (const marker of masked.matchAll(/\bRequires?\s+(?!:)[^\n]+/gi)) results.push({kind: 'inline-requires', text: text.slice(marker.index, marker.index + marker[0].length).trim(), startOffset: marker.index});
+    return results.sort((a, b) => a.startOffset - b.startOffset);
+}
+
+// Bounded wording/representation observations. Never rewrites stored/source text,
+// approves other fields, equates typed roles, or supplies missing version authority.
+export function moveSourceWordingProof(current, unit, norm) {
+    const record = current.clauses.map(clause => norm(clause.text)).join(' '), source = unit.ruleStructure.clauses.map(clause => norm(clause.text)).join(' ');
+    if (record === source) return null;
+    const recordNumbers = moveSourceNumericTokens(current), sourceNumbers = moveSourceNumericTokens(unit.ruleStructure);
+    const sameNumbers = ![...recordNumbers, ...sourceNumbers].some(token => token.startsWith('unrecognized-sign:')) && JSON.stringify(recordNumbers) === JSON.stringify(sourceNumbers);
+    if (sameNumbers && /\b(?:raise|lower)\b.*\bcombat stages?\b/.test(record) && record.split(' ').filter(word => word !== 'by').join(' ') === source) return 'stat-change-by-insertion';
+    const abbreviations = text => text.replace(/\bhp\b/g, 'hit points').replace(/\bhit point value\b/g, 'hit points').replace(/\bhit point\b(?!s)/g, 'hit points').replace(/\bdb\b/g, 'damage base').replace(/\bcs\b/g, 'combat stages');
+    if (sameNumbers && abbreviations(record) === abbreviations(source)) return 'printed-health-damage-stat-abbreviation';
+    const limitations = (unit.dependentConditions ?? []).filter(clause => /^limitations?$/.test(clause.kind)), marker = record.match(/\blimitations?\b/);
+    if (limitations.length === 1 && marker) {
+        const body = record.slice(0, marker.index).trim(), condition = record.slice(marker.index + marker[0].length).trim();
+        const combinedNumbers = moveSourceNumericTokens({clauses: [...unit.ruleStructure.clauses, {text: limitations[0].value}]}), recordNumbers = moveSourceNumericTokens(current);
+        const sameCombinedNumbers = ![...combinedNumbers, ...recordNumbers].some(token => token.startsWith('unrecognized-sign:')) && JSON.stringify(combinedNumbers) === JSON.stringify(recordNumbers);
+        if (sameCombinedNumbers && condition === norm(limitations[0].value) && (body === source || ['', 'none'].includes(body) && ['', 'none'].includes(source))) return 'printed-weapon-limitation-stored-in-effect';
+    }
+    const clauses = unit.ruleStructure.clauses;
+    if (sameNumbers && clauses.length > 1 && clauses[0].kind === 'effect' && norm(clauses[0].text) === 'none' && clauses.slice(1).every(clause => clause.kind === 'special')
+        && record === clauses.slice(1).map(clause => norm(clause.text)).join(' ')) return 'printed-no-effect-plus-capability-representation';
+    return null;
 }
 
 export function extractContestDefinitions(book, pages, selectedPages) {

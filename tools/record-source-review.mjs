@@ -126,11 +126,16 @@ export async function loadRecordSourceReview() {
     ]);
     const source = await readPackSources(manifest);
     const protectedHashes = Object.fromEntries(await Promise.all(index.protectedPolicyArtifacts.map(async item => [item.path, hash(await json(item.path))])));
+    const moveSource = index.moveSourceEvidence ? await json(`docs/data/${index.moveSourceEvidence}`) : null;
+    const moveSearch = Object.fromEntries(await Promise.all((moveSource?.sourceSearchArtifacts ?? []).map(async item => {
+        if (!/^move-source-search-d[23]\.json$/.test(item.path)) throw new Error(`Invalid Move search artifact path: ${item.path}`);
+        return [item.path, await json(`docs/data/${item.path}`)];
+    })));
     return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
         acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
         unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null,
         abilitySource: index.abilitySourceEvidence ? await json(`docs/data/${index.abilitySourceEvidence}`) : null,
-        moveSource: index.moveSourceEvidence ? await json(`docs/data/${index.moveSourceEvidence}`) : null};
+        moveSource, moveSearch};
 }
 
 export function recordSourceReviewErrors(bundle) {

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Remaining PTU 04 D source examination
+- Complete remaining frozen D2/D3 source examination: D2 371 correspondences / 210 unresolved; D3 1 / 536. With accepted D1, all 1,228 original D members have 462 source correspondences and 766 precise source/version/authoring limits. Preserve every frozen identity, complete original/optional candidates, current fields, executable data, exact UUID paths and cached lineage.
+- Record finite approved-corpus/native searches and separately retain Innovation/Dance templates and general Move/weapon/Arcane use conditions. Correct two source rank boundaries without changing accepted D1 evidence.
+- Retain full Struggle/capability/Maneuver/Song rules, permanent Hidden Power selection, exact native Weather page links and stored Move-use conditions without inventing wrapper identities or fixed counterparts. Preserve the core p.264/p.504 scoring conflict without adjudication.
+- Guard spaced/Unicode minus signs, uncertain arithmetic and dice/average slash formatting; add actual-source, finite-search, condition/UUID and field-corruption regressions. Full D requires documented-revision CI and substantive review before E1; full04/OPEN-05 stay held. [Validation and limits](docs/validation/2026-10-26-move-source-review.md); no runtime, compendium, policy, campaign, original-source or version change.
+
 ### P03-NPC and D1 substantive acceptance
 - Record bounded P03-NPC acceptance at evidence head `511df486` after code/raw-evidence review, independent 8-test/13-family/55-hash checks, archive/runtime bindings and successful exact-head CI. Preserve earlier runtime labels, local Windows EPERM and synthetic-fixture/production limitations; no new Foundry session or runtime change.
 - Reconcile D1 source-only acceptance, retain its 90/20 dispositions and the unresolved core pp.264/504 Center of Attention scoring conflict. Prepare existing04's frozen D2/D3 continuation without starting it; all later source/release gates remain. [Acceptance and validation](docs/validation/2026-10-26-p03-npc.md), [next handoff](docs/workstreams/04-rules-catalog.md#prepared-remaining-d-prompt-idle). Documentation changes are checked in the same PR; no pack, original, campaign, policy or version changes.

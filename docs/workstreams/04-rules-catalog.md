@@ -1,8 +1,10 @@
 # PTU 04 - Rules sources and revision catalog
 
-Status: **idle, awaiting explicit coordinator assignment** after planner bookkeeping release. P04 explicitly released ownership after accepted D1; P03-NPC is now substantively accepted at evidence head `511df486`, runtime `78aa74b2`, CI40408933823, and its worker released checkout/world. [NPC acceptance and limits](../validation/2026-10-26-p03-npc.md). No source/world work starts from this brief.
+Current full D source handoff: all 1,228 original frozen records have source-examination dispositions: 462 correspondences / 766 precise unresolved limits (D1 90/20, D2 371/210, D3 1/536). [Complete evidence, exact memberships and limitations](../validation/2026-10-26-move-source-review.md). Full D still requires passing documented-revision CI and substantive planner review before E1. Full 04 and OPEN-05 remain held. Section 04 releases checkout ownership at its final successful-CI chat handoff; no shared-world work was assigned or performed. Earlier progress and ownership paragraphs below describe historical checkpoints.
 
-D1 source-only acceptance at `8d282248`/CI40318303888 preserves [110 dispositions](../validation/2026-10-26-d1-source-checkpoint.md): 90 correspondences / 20 unresolved, with 35 bounded interpretations. D2 (581) and D3 (537) remain unstarted; preparatory caches are not closure. A/B/C and prior P03/P02/P01 acceptance retain their limits. Full D needs complete remaining examination, documented-revision CI and substantive review before E1. Full04/OPEN-05 remain held. Earlier assignments/pending handoffs below are historical.
+Status: Remaining frozen D source examination is complete, pending final documented-revision CI and substantive full D review. This does not accept full04 or OPEN-05. No shared-world work was assigned.
+
+Historical D1 checkpoint: source-only acceptance at `8d282248`/CI40318303888 preserves [110 dispositions](../validation/2026-10-26-d1-source-checkpoint.md): 90 correspondences / 20 unresolved, with 35 bounded interpretations. D2 (581) and D3 (537) remain unstarted; preparatory caches are not closure. A/B/C and prior P03/P02/P01 acceptance retain their limits. Full D needs complete remaining examination, documented-revision CI and substantive review before E1. Full04/OPEN-05 remain held. Earlier assignments/pending handoffs below are historical.
 
 ## Owner amendment and pre-05 gate
 
@@ -15,6 +17,8 @@ Acceptance needs complete addressable source examination for all original queues
 P03-NPC's bounded correction is accepted; do not reopen its runtime/tests or infer production-variant approval. Full D remains the next source gate. The separate core pp.264/504 Center of Attention roll-of-3 scoring conflict remains unresolved; preserve both printed alternatives before any scoring approval. E1 requires full D review and explicit assignment.
 
 ## Prepared remaining D prompt (idle)
+
+Historical dispatch text: the coordinator explicitly assigned and 04 completed the remaining D source examination. This text does not authorize restarting frozen/closed slices or E1; use the current full D handoff above.
 
 This prompt is prepared for the coordinator; it does not start work or confer checkout ownership. Dispatch only after the planner's explicit release, passing documented-revision checks and fresh operating guards. Keep the saved model/effort settings. Do not begin or resume during the daily 08:00–16:00 Indianapolis exclusion or a latched usage hold; an already-running turn may finish safely under the existing protocol.
 

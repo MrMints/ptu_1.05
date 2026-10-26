@@ -25034,8 +25034,21 @@
           "404513702efc1510ea8b72fb3608cc2febe8de2291cde298ce2b9c8b3904159c"
         ]
       ],
-      "status": "in-progress",
-      "closure": null,
+      "status": "source-comparisons-complete",
+      "closure": {
+        "counts": {
+          "reviewed": 462,
+          "unresolved": 766
+        },
+        "sliceEvidenceSemanticSha256": {
+          "D1": "6ca6c78cda13020a8200b7aea3378d3ed2a92f47a54dab891e8e0c50908d2e6d",
+          "D2": "ccff9d89252604b3abae59b5c46d3d32b86cbc1c6c5cd4d88cde535367245678",
+          "D3": "f045ea975d2ade7a41b9dd09db8d4fc242d51faead3d0912a25fdd3d8349d8eb"
+        },
+        "sourceDecision": "All original1228 D identities/hashes and all frozen slice fingerprints are preserved. D1 90/20,D2 371/210,D3 1/536.462 source correspondences and766 precise unresolved limits complete source examination only.",
+        "validation": "57 affected tests and source validator pass; final documented-revision normal CI and substantive full D review remain required. Earlier CI is not coverage for new evidence.",
+        "limitations": "Source counterparts do not approve every field,source version,generation,executable rule,variant identity or behavior. Core264/504 scoring conflict remains unresolved; no production promotion,world/runtime/pack/ID/campaign/original change. Full04/OPEN05 remain incomplete."
+      },
       "slices": [
         {
           "id": "D1",
@@ -25501,6 +25514,13 @@
           "preparedCounts": {
             "reviewed": 90,
             "unresolved": 20
+          },
+          "acceptance": {
+            "status": "accepted-source-examination-only",
+            "commit": "8d282248280004ce5d98e826364acad5168be04c",
+            "reviewTurn": "01a179dd-15e5-73c0-9b39-65ef4112d42d",
+            "ciRun": 40318303888,
+            "limitations": "110 records:90 correspondences(55 full effect/dice matches plus35 bounded interpretations),20 unresolved. Original closure evidence retained. Core264/504 Center of Attention roll3 awards1/0 Appeal respectively; scoring conflict remains unresolved. No production or behavioral approval."
           }
         },
         {
@@ -27833,10 +27853,29 @@
               "364f2bf314179cd6476b0eca94531ea2db1fb98d5c07a79f134cca34296896c6"
             ]
           ],
-          "status": "not-started",
-          "closure": null,
+          "status": "source-comparisons-complete",
+          "closure": {
+            "counts": {
+              "reviewed": 371,
+              "unresolved": 210
+            },
+            "evidenceSemanticSha256": "ccff9d89252604b3abae59b5c46d3d32b86cbc1c6c5cd4d88cde535367245678",
+            "checks": "52 affected local tests passed:13 Move parser/evidence plus39 earlier record/Ability regressions. Source validator, manifest/source, catalog, all26original-reference hash/page/duplicate checks and diff checks pass. Normal full-D documented-revision CI remains required.",
+            "sourceDecision": "All581 exact D2 records and598 candidates have full field/condition/typed-clause comparisons and finite approved-corpus/native/profile/lineage search evidence. 322 full effect/no-effect source correspondences plus49 bounded wording observations;210 precise examined authority/version/authoring limits. No source absence from no-hit or empty extraction.",
+            "limitations": "Current scalar, keyword, Contest, target/version and executable differences remain separate even on a source correspondence. Core templates are parameterized evidence, not invented inherited-ID counterparts. Actual Move/equipment-use conditions are unchanged. D3/fullD/full04/05 remain incomplete.",
+            "ci": "Full D requires its own documented revision, required exact-head CI and substantive review before E1."
+          },
           "partitionBasis": "Frozen move type with a nonempty saved primary sourceUnit in the immutable diagnostic; locator only.",
-          "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+          "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
+          "start": {
+            "startingHead": "506b47181f5526a0b5e26c6a5e570064c376ca1e",
+            "basis": "Explicit coordinator reassignment after accepted P03-NPC and planner ownership release. Remaining frozen D only; no shared-world assignment."
+          },
+          "recordFile": "record-source-review/moves-anchored.json",
+          "preparedCounts": {
+            "reviewed": 371,
+            "unresolved": 210
+          }
         },
         {
           "id": "D3",
@@ -29992,18 +30031,37 @@
               "4e78413009d728ffbe6d0e8aface1f93757d2902d87f004b40da57c264faa710"
             ]
           ],
-          "status": "not-started",
-          "closure": null,
+          "status": "source-comparisons-complete",
+          "closure": {
+            "counts": {
+              "unresolved": 536,
+              "reviewed": 1
+            },
+            "evidenceSemanticSha256": "f045ea975d2ade7a41b9dd09db8d4fc242d51faead3d0912a25fdd3d8349d8eb",
+            "checks": "Complete57-test record/Ability/Move batch passes on allD evidence. Source validator passes, including exact finite corpus/current/native/dependency/use-condition/underlying-rule and signed arithmetic integrity. Final docs/source checks and exact-head required CI must pass on the documented revision.",
+            "sourceDecision": "All537 frozen D3 members have complete candidate/underlying-rule or precise authoring/identity/representation dispositions.41 standalone candidate comparisons include18 generic Hidden Power parameter baselines;40 underlying source rules support85 comparisons. Full linked native pages and current requirement/cost cues remain exact. No source absence from empty extraction or no-hit.",
+            "limitations": "1 source correspondence and536 unresolved. Core/capability/Maneuver/Song rules are available but do not invent independent Move wrappers, unprinted fields or selected state. Profile/native copies are not independent authoring authority; actual linked Tier1 facts are retained. Scope,variant and behavior approval remain separate.",
+            "ci": "Full D documented-revision required CI and substantive existing-planner review before E1; no automatic advancement."
+          },
           "partitionBasis": "Frozen move type with no saved primary sourceUnit in the immutable diagnostic; no source-absence finding implied.",
-          "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+          "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
+          "start": {
+            "startingHead": "506b47181f5526a0b5e26c6a5e570064c376ca1e",
+            "basis": "Explicit remaining-D reassignment; D2 complete after52affected local passes and source validator, fresh operating guards verified. No shared-world assignment."
+          },
+          "recordFile": "record-source-review/moves-remaining.json",
+          "preparedCounts": {
+            "unresolved": 536,
+            "reviewed": 1
+          }
         }
       ],
       "acceptance": {
         "status": "pending-substantive-review",
-        "requires": "All1228 frozen D dispositions, affected checks and passing documented-revision CI followed by substantive review before E1; full04/05 remain held.",
+        "requires": "Complete original D source examination is recorded; required documented-revision CI and substantive full D existing-planner review remain before E1. No automatic E1/full04/05 acceptance.",
         "nextFamilyRequires": [
-          "Substantive D acceptance at its documented revision and passing CI",
-          "Substantive acceptance of separately assigned P03-NPC correction; currently OPEN/PARKED and not started"
+          "Substantive full D acceptance at its documented revision and passing CI",
+          "P03-NPC accepted within its matrix at511df486cf7632cecf3dcc0bc0894bafa64888b3, runtime78aa74b277376d5af168eb323c36ff95c07255b5; prior limits remain"
         ]
       }
     },

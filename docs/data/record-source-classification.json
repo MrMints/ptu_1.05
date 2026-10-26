@@ -20,16 +20,18 @@
     "record-source-review/abilities-core.json",
     "record-source-review/abilities-packet.json",
     "record-source-review/abilities-remaining.json",
-    "record-source-review/moves-contest.json"
+    "record-source-review/moves-contest.json",
+    "record-source-review/moves-anchored.json",
+    "record-source-review/moves-remaining.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 2628,
+    "explicitRecordDispositions": 3746,
     "counts": {
-      "reviewed": 1549,
+      "reviewed": 1921,
       "excluded": 123,
-      "unresolved": 956,
-      "unreviewed": 4767
+      "unresolved": 1702,
+      "unreviewed": 3649
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -45,8 +47,8 @@
       "examined-scope-identity-conflict": 6,
       "examined-ability-source-correspondence": 304,
       "examined-ability-version-or-authority-conflict": 322,
-      "examined-move-source-correspondence": 90,
-      "examined-move-version-or-authority-limit": 20
+      "examined-move-source-correspondence": 462,
+      "examined-move-version-or-authority-limit": 766
     }
   },
   "dependencyReview": "record-dependency-review.json",
