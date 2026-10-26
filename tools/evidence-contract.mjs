@@ -130,6 +130,11 @@ export function evidenceContractErrors({contract: c, binding: b, correction, his
         check(present(row.observed), `Missing observed outcome: ${row.id}`);
         check(scenario && (present(scenario.observed) || (scenario.result !== 'pass' && present(scenario.error))), `Missing raw observed outcome: ${row.id}`);
         check(row.result === scenario?.result && ['pass', 'fail', 'not-run'].includes(row.result), `Result contradicts raw observation: ${row.id}`);
+        // A diagnostic's caller-supplied character prefix is not an Actor destination.
+        if (scenario?.observed?.destination === 'World Items') {
+            check(row.scope === 'world-only' && Array.isArray(row.actors) && row.actors.length === 0,
+                `World-only observation cannot establish actor coverage: ${row.id}`);
+        }
         check(row.executionId === run?.executionId && present(row.executionId), `Execution identity mismatch: ${row.id}`);
         const rawRuntime = run?.runtime ?? run?.testedRuntime;
         const effective = row.source === 'correction' && bindings.has(row.run) ? bindings.get(row.run).verifiedRuntime : rawRuntime;
@@ -161,7 +166,8 @@ export function evidenceContractErrors({contract: c, binding: b, correction, his
             check(Array.isArray(ids) && ids.length > 0, `Omitted supported route/actor: ${id}/${actor}`);
             for (const reference of ids ?? []) {
                 const target = cases.get(reference);
-                check(target?.result === 'pass' && target.routes?.includes(id) && target.actors?.includes(actor), `Unsupported route coverage: ${id}/${actor}/${reference}`);
+                check(target?.result === 'pass' && target.scope !== 'world-only'
+                    && target.routes?.includes(id) && target.actors?.includes(actor), `Unsupported route coverage: ${id}/${actor}/${reference}`);
             }
         }
         check(present(row?.limitations), `Missing route limitations: ${id}`);

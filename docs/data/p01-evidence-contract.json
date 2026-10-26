@@ -296,14 +296,10 @@
           "historical/routes-final#8:character:item-duplicate",
           "correction/final416-gm-cancel-character-owned-clone-child.json#0:character:owned-clone:child:cancel:owner",
           "correction/final416-gm-cancel-character-owned-clone-parent.json#0:character:owned-clone:parent:cancel:owner",
-          "correction/final416-gm-cancel-world-clone-child.json#0:character:world-clone:child:cancel:owner",
-          "correction/final416-gm-cancel-world-clone-parent.json#0:character:world-clone:parent:cancel:owner",
           "correction/final416-gm-character-clone-child.json#0:character:owned-clone:child:select:owner",
           "correction/final416-gm-character-clone-parent.json#0:character:owned-clone:parent:select:owner",
           "correction/final416-gm-linked-malformed.json#0:character:linked-malformed-clone-refused",
           "correction/final416-gm-ordinary-copy.json#0:character:unlinked-clone-with-unrelated-null-grant",
-          "correction/final416-gm-world-clone-child.json#0:character:world-clone:child:select:owner",
-          "correction/final416-gm-world-clone-parent.json#0:character:world-clone:parent:select:owner",
           "correction/final416-player-cancel-character-owned-clone-child.json#0:character:owned-clone:child:cancel:owner",
           "correction/final416-player-cancel-character-owned-clone-parent.json#0:character:owned-clone:parent:cancel:owner",
           "correction/final416-player-character-clone-child.json#0:character:owned-clone:child:select:owner",
@@ -1093,10 +1089,9 @@
       "routes": [
         "item-duplicate"
       ],
-      "actors": [
-        "character"
-      ],
-      "scenarioIndex": 0
+      "actors": [],
+      "scenarioIndex": 0,
+      "scope": "world-only"
     },
     {
       "id": "correction/final416-gm-cancel-world-clone-parent.json#0:character:world-clone:parent:cancel:owner",
@@ -1112,10 +1107,9 @@
       "routes": [
         "item-duplicate"
       ],
-      "actors": [
-        "character"
-      ],
-      "scenarioIndex": 0
+      "actors": [],
+      "scenarioIndex": 0,
+      "scope": "world-only"
     },
     {
       "id": "correction/final416-gm-character-clone-child.json#0:character:owned-clone:child:select:owner",
@@ -1523,10 +1517,9 @@
       "routes": [
         "item-duplicate"
       ],
-      "actors": [
-        "character"
-      ],
-      "scenarioIndex": 0
+      "actors": [],
+      "scenarioIndex": 0,
+      "scope": "world-only"
     },
     {
       "id": "correction/final416-gm-world-clone-parent.json#0:character:world-clone:parent:select:owner",
@@ -1542,10 +1535,9 @@
       "routes": [
         "item-duplicate"
       ],
-      "actors": [
-        "character"
-      ],
-      "scenarioIndex": 0
+      "actors": [],
+      "scenarioIndex": 0,
+      "scope": "world-only"
     },
     {
       "id": "correction/final416-graphs.json#0:character:graph:keep",

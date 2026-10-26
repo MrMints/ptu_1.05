@@ -34,6 +34,24 @@ test('evidence/status annotation cannot silently change route text or predicate 
 test('routes must reference a passing case for that actor and route', () => {
     rejects(x => x.contract.routes[0].coverage.character = ['invented-observation'], /Unsupported route coverage/);
 });
+test('world-only clone results retain raw labels but cannot satisfy actor-route coverage', () => {
+    const rows = baseline.contract.cases.filter(c => c.scope === 'world-only');
+    assert.equal(rows.length, 4);
+    for (const row of rows) {
+        assert.deepEqual(row.actors, []);
+        assert.equal(baseline.files[row.run].scenarios[row.scenarioIndex].observed.destination, 'World Items');
+        assert.match(row.scenario, /^character:/); // Preserve the original diagnostic parameter.
+    }
+    rejects(x => {
+        const row = x.contract.cases.find(c => c.scope === 'world-only' && c.result === 'pass');
+        row.scope = 'actor'; row.actors = ['character']; row.routes = ['item-duplicate'];
+        x.contract.routes.find(r => r.id === 'item-duplicate').coverage.character = [row.id];
+    }, /World-only observation cannot establish actor coverage/);
+    rejects(x => {
+        const row = x.contract.cases.find(c => c.scope === 'world-only');
+        x.contract.routes.find(r => r.id === 'item-duplicate').coverage.character.push(row.id);
+    }, /Unsupported route coverage/);
+});
 test('missing expected, observed and raw observed outcomes are rejected separately', () => {
     rejects(x => delete x.contract.cases[0].expected, /Missing expected outcome/);
     rejects(x => delete x.contract.cases[0].observed, /Missing observed outcome/);

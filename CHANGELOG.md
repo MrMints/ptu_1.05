@@ -5,6 +5,7 @@
 ### P01 evidence-contract reconciliation
 - Record bounded P03/P02-P/P02-A acceptance and review all nine briefs. P01 remains pending substantive review; remaining 04/D and 05 stay held.
 - Preserve raw P02-A reports; add 26 runtime bindings to `416c645e`, reviewed installation/fresh-client history, served source hash, archive identity and actual fixture context. Retain the first reload failure, exact diagnosis and separate stable pass.
+- Classify four actual world-only copies separately from trainer/Pokémon coverage while preserving their raw diagnostic prefixes; add a regression against false actor coverage.
 - Add route/outcome/runtime/disposition/completion checks to the existing Documentation entrypoint and focused negative tests. Structure checks do not automate substantive accuracy review. No gameplay, compendium, world, version or protection changes.
 
 ### P02-A advisory acquisition and display
