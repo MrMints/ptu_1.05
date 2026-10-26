@@ -1,6 +1,6 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: Original milestone-02 gate remains accepted within its recorded limits. P03 was substantively accepted at `c547e3ac`; explicitly assigned **P02-P preservation only** is implemented and verified within [its matrix](../validation/2026-10-26-p02p.md), pending substantive planner acceptance and final pushed-head CI in the handoff. P02-A is held for review/explicit assignment. Older handoffs retain historical states. Generations 1–8 only; do not start other sections automatically.
+Status: P03 accepted at `c547e3ac`; P02-P substantively accepted at `d7dc7f0b4002110f0e44ab09decaebf5ec5bcf38` after actual code/test/hash/live/reload review and passing CI 40273719106 (Documentation 121411886073, Validation 121411886447). The coordinator assigned P02-A only after writer release. P02-A implementation/route verification is active; no later section is started. Older pending/recovery handoffs remain historical. Generations 1–8 only.
 
 ## Owner amendment and pre-05 gates
 

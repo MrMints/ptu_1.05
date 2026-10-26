@@ -7,7 +7,7 @@ import { sluggify } from "../../../util/misc.js";
 class PTUTrainerActor extends PTUActor {
 
     get allowedItemTypes() {
-        return ["feat", "edge", "move", "contestmove", "ability", "item", "capability", "effect", "condition", "dexentry"]
+        return ["feat", "edge", "pokeedge", "move", "contestmove", "ability", "item", "capability", "effect", "condition", "dexentry"]
     }
 
     /**

@@ -4,6 +4,7 @@ import { PTUPredicate } from "../../../system/predication.js";
 import { PredicateField } from "../../../system/schema-data-fields.js";
 import { RuleElementPTU } from "../base.js";
 import { ChoiceSetPrompt } from "./prompt.js";
+import {isExcludedContent} from '../../../../util/content-scope.js';
 
 class ChoiceSetRuleElement extends RuleElementPTU {
     constructor(data, item, options) {
@@ -137,7 +138,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
 
     async inflateChoices() {
         const choices = Array.isArray(this.choices)
-            ? this.choices.map(c => ({...c, value: this.resolveInjectedProperties(c.value)})).filter(c => c.value !== 'undefined')
+            ? this.choices.map(c => ({...c, value: this.resolveInjectedProperties(c.value)})).filter(c => c.value !== 'undefined' && !isExcludedContent(c.value))
             : typeof this.choices === "string"
             ? this.#choicesFromPath(this.choices)
             : [];

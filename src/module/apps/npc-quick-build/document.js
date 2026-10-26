@@ -1064,20 +1064,7 @@ export class NpcQuickBuildData {
     }
 
     async generate() {
-        // build the folders
-        const mainFolder = await Folder.create({
-            name: this.trainer.name || "Unnamed Trainer",
-            type: "Actor",
-            parent: null,
-        });
-        const partyFolder = !Object.values(this.party).find(p => p.configured) ? null : await Folder.create({
-            name: "Party",
-            type: "Actor",
-            parent: null,
-            folder: mainFolder._id,
-            sorting: "m",
-        });
-
+        if(!game.user.can('ACTOR_CREATE'))throw Error('PTU | Actor creation permission is required.');
         // build the NPC
         const skills = {}
         for (const skill of CONFIG.PTU.data.skills.keys) {
@@ -1116,7 +1103,9 @@ export class NpcQuickBuildData {
         const allItems = [...this.trainer.features.computed, ...this.trainer.edges.computed]
         const items = [];
         for (const item of allItems) {
-            const iobj = (await fromUuid(item.uuid))?.toObject(); // TODO do we actually need to do this? or is item sufficient?
+            const document=await fromUuid(item.uuid);
+            if(!document)throw Error(`PTU | Selected source is unavailable: ${item.uuid}`);
+            const iobj=document.pack?game.items.fromCompendium(document):document.toObject();
             iobj.flags ??= {}
             iobj.flags.core ??= {};
             iobj.flags.core.sourceId = item.uuid;
@@ -1127,7 +1116,8 @@ export class NpcQuickBuildData {
                 for (const [idx, choiceSet] of choiceSets.entries()) {
                     const label = item.label ?? item.name;
                     const key = `${label}-${idx}`.replaceAll(".", "-");
-                    choiceSet.selection = this.trainer.subSelectables[key]?.selected ?? null;
+                    const selected=this.trainer.subSelectables[key]?.selected;
+                    if(selected!=null)choiceSet.selection=selected;
                 }
             }
             items.push(iobj);
@@ -1137,6 +1127,7 @@ export class NpcQuickBuildData {
             name: this.trainer.name || "Unnamed Trainer",
             img: this.trainer.img,
             type: "character",
+            ownership:{default:0,[game.user.id]:3},
             system: {
                 age: `${5 + Math.floor(this.trainer.level / 2) + Math.floor(Math.random() * (this.trainer.level + 10))}`,
                 alliance: this.alliance,
@@ -1151,26 +1142,34 @@ export class NpcQuickBuildData {
                 sex: this.trainer.sex.length > 0 ? this.trainer.sex[0].label : "",
             },
             // items,
-            folder: mainFolder?._id ?? null,
+            flags:{ptu:{starterTraining:{status:'pending'}}},
         };
 
         Hooks.callAll("ptu.preTrainerGenerated", trainerData, this);
+        const temporary=new CONFIG.PTU.Actor.documentClasses.character(trainerData);
+        const prepared=await CONFIG.Item.documentClass.prepareCreation(items,{parent:temporary,keepId:true});
+        // build the folders
+        const mainFolder = await Folder.create({
+            name: this.trainer.name || "Unnamed Trainer",
+            type: "Actor",
+            parent: null,
+        });
+        const partyFolder = !Object.values(this.party).find(p => p.configured) ? null : await Folder.create({
+            name: "Party",
+            type: "Actor",
+            parent: null,
+            folder: mainFolder._id,
+            sorting: "m",
+        });
+
+
+        trainerData.folder=mainFolder._id;
 
         // create trainer
         const createdTrainer = (await CONFIG.PTU.Actor.documentClasses.character.createDocuments([trainerData]))?.[0];
 
-        // create items
-        // createdTrainer.createDocuments(items, {parent: createdTrainer});
-        // TODO: auto-pick choices first
-        for (const itemType of Object.keys(CONFIG.PTU.Item.documentClasses)) {
-            const itemsOfType = items.filter(f => f.type == itemType);
-            if (itemsOfType) {
-                await CONFIG.PTU.Item.documentClasses[itemType]?.createDocuments(itemsOfType, { parent: createdTrainer });
-            }
-        }
-
-
-
+        // Choices have completed before folders/actors exist. Persist through the normal Item entrypoint once.
+        await CONFIG.Item.documentClass.createDocuments(prepared,{parent:createdTrainer,keepId:true});
 
         // generate pokemon
         const monActorsToGenerate = [];
@@ -1205,11 +1204,12 @@ export class NpcQuickBuildData {
 
             monActorsToGenerate.push(actorData);
         }
-        if (monActorsToGenerate) {
+        if (monActorsToGenerate.length) {
             await CONFIG.PTU.Actor.documentClasses.pokemon.createDocuments(monActorsToGenerate).catch((err)=>{
                 ui.notifications.error("Error creating party pokemon, some automations may not function properly; view console error log for details");
             });
         }
+        return createdTrainer;
     }
 
     get ready() {

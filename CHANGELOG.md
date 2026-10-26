@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P02-A advisory acquisition and display
+- Accept and display Features, Edges and Poké Edges on trainers and Pokémon. Derive persistent itemized unmet/unverifiable reports from owned raw requirements and explicit selected-version context, without changing ranks, requirements, choices or enabled state.
+- Keep ownership/scope, effect predicates, genuine choices and cancellation distinct. Stage NPC choices before creating folders/actors, prevent non-owner pre-creation work, and keep Feature/Edge drops out of inventory quantity merging.
+- Preserve exact class/grant relationships during creation/restoration; deliberate sheet grouping uses owned IDs rather than class-label matching. Normalize only exact new compendium-grant provenance and retain legitimate repeat additions and starter entitlement.
+- Treat blank/empty/unsupported version context as unverifiable without mutating saved flags or marking satisfied prerequisites unmet. Full production variant selection remains 05 work.
+
 ### P02-P preservation foundation
 - Resolve migration/refresh sources only through complete exact compendium provenance, with modern identity before legacy metadata. Preserve missing/ambiguous/custom records without name, slug or partial-ID substitution.
 - Preserve existing prerequisites, keywords, range, automation, grants and selected-version data in migrations 0.111/0.113/0.115. Populate absent fields only; retain local legacy tags and never append source automation to a saved payload.

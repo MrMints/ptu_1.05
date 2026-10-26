@@ -1,6 +1,7 @@
 import { PTUItem } from "../../../item/index.js";
 import { MigrationList } from "../../../migration/index.js";
 import { MigrationRunner } from "../../../migration/runner/index.js";
+import {compendiumItemIdentity} from '../../../../util/preservation.js';
 import { RuleElementPTU } from "../base.js";
 import {isStarterTrainingGrant, hasStarterTraining} from '../../../../util/starter-training.js';
 import {isExcludedContent} from '../../../../util/content-scope.js';
@@ -87,7 +88,8 @@ class GrantItemRuleElement extends RuleElementPTU {
             await MigrationRunner.ensureSchemaVersion(grantedItem, migrations);
         }
 
-        const existingItem = this.actor.items.find((i) => i.sourceId === uuid || (grantedItem.type === "condition" && i.slug === grantedItem.slug));
+        const acquiredUuid=compendiumItemIdentity(uuid);
+        const existingItem = this.actor.items.find((i) => i.sourceId === uuid || (acquiredUuid&&compendiumItemIdentity(i.sourceId)===acquiredUuid) || (grantedItem.type === "condition" && i.slug === grantedItem.slug));
         if (!this.allowduplicate && existingItem) {
             if (this.replaceSelf) {
                 const index = pendingItems.indexOf(isStarterTrainingGrant(this.item) ? itemSource : existingItem);
@@ -99,13 +101,17 @@ class GrantItemRuleElement extends RuleElementPTU {
         }
 
         if (!this.actor?.allowedItemTypes.includes(grantedItem.type)) {
-            ui.notifications.error(`PTU | ${source.type.capitalize()}s cannot be added to ${actor.name}`);
+            ui.notifications.error(`PTU | ${grantedItem.type} cannot be added to ${this.actor?.name}`);
             return [];
         }
 
         itemSource._id ??= foundry.utils.randomID();
         const grantedSource = grantedItem.toObject();
         grantedSource._id = foundry.utils.randomID();
+        if(acquiredUuid){
+            grantedSource._stats??={};
+            grantedSource._stats.compendiumSource=acquiredUuid;
+        }
 
         if (["feat", "edge"].includes(grantedSource.type) && !isStarterTrainingGrant(this.item)) {
             grantedSource.system.free = true;

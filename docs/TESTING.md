@@ -41,6 +41,18 @@ certify the interpreted rules, inherited record mappings or gameplay.
 
 ## Foundry v13.351 batch
 
+P02-A exposes `actor.prerequisiteDiagnostics` and `item.prerequisiteDiagnostic` as derived
+views of the accepted P03 interface. Actor and Feature/Edge/Poké Edge sheets display the
+same escaped, itemized reports; no report flags are persisted. Existing saved
+`flags.ptu.selectedVersion` is reported as supplied and shape-validated, never inferred.
+Trainer and Pokémon collections include all three distinct Item types, without inventing
+new budgets. Ownership/scope checks and genuine effect/choice predicates remain separate.
+Creating/importing an Item with a class label does not guess a class grant; deliberate
+same-sheet grouping uses exact owned IDs. JSON/inline restoration preserves supplied
+choices without replaying their grants. NPC generation resolves choices on a temporary
+actor before creating folders/actors, and leaves its normal starter entitlement pending
+for explicit selection rather than opening a competing prompt during generation.
+
 Inherited source classifications have a separate check: `node tools/record-source-review.mjs` and
 `node --test --test-isolation=none tests/record-source-review.test.mjs tests/ability-source-parsing.test.mjs tests/ability-source-review.test.mjs`.
 The current C checkpoint has 39 passing focused tests and 11 unchanged reusable catalog results; normal CI repeats the full configured suite on the documented revision. These check source evidence and finite coverage, not gameplay. Ability checks cover complete source boundaries, Defensive/Immune marker spelling and punctuation, Range/Keywords headers, literal Heatproof wording, different typed-role boundaries despite equal words, exact current fields/UUID paths, missing triggers/numeric conflicts, profile/compiled-copy authority limits and the required C-to-D review gate. B additionally checks cached negative-scope numeric/Type/two-metric identity, compact Porygon blocks, every current unmatched field/hash and dependency path, competing source/profile coverage, recorded historical lineage and the mandatory predecessor review before C. It rejects disagreements

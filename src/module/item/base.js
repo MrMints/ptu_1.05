@@ -6,8 +6,15 @@ import { getDocumentSourceId, createCompendiumRefreshUpdate } from "../../util/d
 import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
 import {isStarterTrainingGrant} from '../../util/starter-training.js';
 import {resolvePreservationSource} from '../../util/preservation.js';
+import {prerequisiteView} from '../../util/acquisition.js';
+
+const preparedCreations=new WeakSet();
 
 class PTUItem extends Item {
+
+    get prerequisiteDiagnostic() {
+        return prerequisiteView(this);
+    }
 
     static async fromDropData(data) {
         const document = await super.fromDropData(data);
@@ -211,10 +218,27 @@ class PTUItem extends Item {
 
     /** @override */
     static async createDocuments(data = [], context = {}) {
-        const sources = data.map((d) => (d instanceof PTUItem ? d.toObject() : d));
+        const actor=context.parent;
+        if(actor&&!actor.isOwner){ui.notifications.error('PTU | Ownership is required to add items.');return [];}
+        let sources;
+        try {
+            sources=preparedCreations.has(data)?data:await this.prepareCreation(data,context);
+            preparedCreations.delete(sources);
+        }catch(error){actor?.reset();throw error;}
+        if (game.combat && sources.some(i => i.type === "condition" && sluggify(i.name) === "fainted")) {
+            const combatant = game.combat.getCombatantByActor(actor);
+            if (combatant && !combatant.defeated) await combatant.update({ defeated: true });
+        }
+        return super.createDocuments(sources,context);
+    }
+
+    /** Resolve genuine/nested choices before any Item write; NPC generation uses a temporary actor. */
+    static async prepareCreation(data = [], context = {}) {
+        const sources = data.map(d=>foundry.utils.deepClone(d.toObject?.()??d));
 
         const actor = context.parent;
-        if (!actor) return super.createDocuments(sources, context);
+        if (!actor) return sources;
+        if(!actor.isOwner)throw Error('PTU | Ownership is required to prepare item creation.');
 
         const validTypes = actor.allowedItemTypes;
         const items = [];
@@ -222,7 +246,7 @@ class PTUItem extends Item {
 
         for (const source of sources) {
             if (!validTypes.includes(source.type)) {
-                ui.notifications.error(`PTU | ${source.type.capitalize()}s cannot be added to ${actor.name}`);
+                ui.notifications.error(`PTU | ${source.type} cannot be added to ${actor.name}`);
                 return [];
             }
 
@@ -287,12 +311,8 @@ class PTUItem extends Item {
             }
         }
 
-        if (game.combat && outputSources.some(i => i.type === "condition" && sluggify(i.name) === "fainted")) {
-            const combatant = game.combat.getCombatantByActor(actor)
-            if (combatant && !combatant.defeated) await combatant.update({ defeated: true })
-        }
-
-        return super.createDocuments(outputSources, context);
+        preparedCreations.add(outputSources);
+        return outputSources;
     }
 
     /** @override */

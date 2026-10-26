@@ -14,6 +14,7 @@ import { PTUMoveDamage } from "../system/damage/move.js";
 import { ActorConditions } from "./conditions.js";
 import { IWRData, ImmunityData, ResistanceData, WeaknessData } from "./iwr.js";
 import { getDocumentSourceId } from "../../util/document-source.js";
+import {actorPrerequisiteViews} from '../../util/acquisition.js';
 import { shouldOfferStarterTraining, selectStarterTraining } from "../../util/starter-training.js";
 import { getSkillLabel } from "../../util/skills.js";
 import { PTUModifier, StatisticModifier } from "./modifiers.js";
@@ -48,6 +49,10 @@ class PTUActor extends Actor {
 
     get allowedItemTypes() {
         return ["effect"]
+    }
+
+    get prerequisiteDiagnostics() {
+        return actorPrerequisiteViews(this);
     }
 
     get origins() {
@@ -904,6 +909,8 @@ class PTUActor extends Actor {
     /** @override */
     _onUpdate(data, options, userId) {
         super._onUpdate(data, options, userId);
+        // Owned Item sheets also depend on actor ranks/level, without saving derived reports.
+        for(const item of this.items)for(const app of Object.values(item.apps??{}))if(app.rendered)app.render(false);
 
         if (data.system?.health?.value !== undefined) {
             if (data.system.health.value <= 0 && game.settings.get("ptu", "automation.autoFaint")) {

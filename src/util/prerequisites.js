@@ -9,6 +9,12 @@ const list = new RegExp(`^(?:any )?(\\w+)(?: Skills?)? of (.+) at (${rankPattern
 const words = ['zero','one','two','three','four','five','six','seven','eight','nine'];
 const number = text => /^\d+$/.test(text) ? Number(text) : text.toLowerCase() === 'a' ? 1 : words.indexOf(text.toLowerCase());
 const copy = value => value === undefined ? undefined : structuredClone(value);
+const versionText=value=>typeof value==='string'&&value.trim().length>0;
+/** Validate attribution shape only; this does not approve the supplied rules version. */
+export const hasVersionAttribution=value=>versionText(value)||(
+    value!==null&&typeof value==='object'&&!Array.isArray(value)&&
+    (versionText(value.id)||versionText(value.label))
+);
 const result = (status, kind, details = {}) => ({status, kind, ...details});
 const unknown = (reason, details = {}) => result('unverifiable', 'custom', {reason, ...details});
 const finite = value => (typeof value === 'number' || (typeof value === 'string' && value.trim() !== '')) && Number.isFinite(Number(value));
@@ -104,7 +110,7 @@ export function diagnosePrerequisites({actor, item, selectedVersion, references 
         source:copy(data?.system?.source ?? null), selectedVersion:copy(selectedVersion ?? null)};
     const attributionIssues = [];
     if (!(identity.uuid || identity.id || identity.sourceId)) attributionIssues.push('item-identity-unestablished');
-    if (selectedVersion == null) attributionIssues.push('rule-version-unestablished');
+    if (!hasVersionAttribution(selectedVersion)) attributionIssues.push('rule-version-unestablished');
     const raw = copy(data?.system?.prerequisites);
     const requirements = Array.isArray(raw) ? raw.map(value=>evaluatePrerequisite(value,{actor,references})) :
         [{...unknown('prerequisite-list-missing-or-invalid'),raw}];
@@ -125,7 +131,8 @@ function detail(requirement) {
 export function formatPrerequisiteDiagnostics(report) {
     const id = report.identity;
     const version = id.selectedVersion;
-    const attribution = `${id.name || 'Selected item'} [${id.uuid ?? id.sourceId ?? id.id ?? 'identity unestablished'}; source ${typeof id.source === 'string' ? id.source : id.source?.value ?? 'unestablished'}; version ${typeof version === 'string' ? version : version?.label ?? version?.id ?? 'unestablished'}]`;
+    const versionLabel=hasVersionAttribution(version)?typeof version==='string'?version:versionText(version.label)?version.label:version.id:'unestablished';
+    const attribution = `${id.name || 'Selected item'} [${id.uuid ?? id.sourceId ?? id.id ?? 'identity unestablished'}; source ${typeof id.source === 'string' ? id.source : id.source?.value ?? 'unestablished'}; version ${versionLabel}]`;
     const format = (r, label) => `${attribution}: ${label} ${typeof r.raw === 'string' ? r.raw : JSON.stringify(r.raw) ?? '(missing requirement)'} (${detail(r)}).`;
     return {unmet:report.unmet.map(r=>format(r,'Unmet:')),
         unknown:[...report.unverifiable.map(r=>format(r,'Unverifiable:')), ...report.attributionIssues.map(reason=>`${attribution}: Unverifiable: ${reason}.`)]};
