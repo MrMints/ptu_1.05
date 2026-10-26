@@ -14,7 +14,7 @@ export const DropCanvasData = {
         // Handle dropping items onto tokens
         Hooks.on("dropCanvasData", (_canvas, data) => {
             const rect = new PIXI.Rectangle(data.x, data.y, 0, 0);
-            const dropTarget = Array.from(canvas.tokens.quadtree.getObjects(rect, {collisionTest: o => o.t.hitArea.contains(data.x - o.t.x, data.y - o.t.y)})).at(0);
+            const dropTarget = Array.from(canvas.tokens.quadtree.getObjects(rect, {collisionTest: o => o.t.bounds.contains(data.x, data.y)})).at(0);
 
             const actor = dropTarget?.actor;
             if (actor && data.type === "Item" && data.uuid) {

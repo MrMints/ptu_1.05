@@ -245,6 +245,7 @@ class PTUItem extends Item {
         const outputSources = [];
 
         for (const source of sources) {
+            source.system??={};
             if (!validTypes.includes(source.type)) {
                 ui.notifications.error(`PTU | ${source.type} cannot be added to ${actor.name}`);
                 return [];

@@ -1,6 +1,7 @@
 // GM-only diagnostic for the named disposable world. Synthetic fixtures are not approved variants.
 const batch='P02-A-2026-10-26';
 const packFeature='Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT';
+const canonical=uuid=>uuid?.replace(/^(Compendium\.[\w-]+\.[\w-]+)\.([A-Za-z0-9]{16})$/,'$1.Item.$2');
 const speciesId='Compendium.ptu.species.Item.QE7WhquxeuebiEVQ';
 const copy=value=>foundry.utils.deepClone(value);
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
@@ -57,8 +58,8 @@ export async function runP02ACheck(){
             await route('direct-embedded',()=>actor.createEmbeddedDocuments('Item',[source('feature').toObject()]));
             await route('sheet-new',async()=>{const items=await actor.sheet._onItemCreate({preventDefault(){},currentTarget:{dataset:{type:'edge'}}});await items[0].update({'system.prerequisites':['Level 99','Custom condition'],'flags.ptu.selectedVersion':{id:'synthetic-new'}});return items;});
             await route('sheet-drop',()=>actor.sheet._onDropItem({preventDefault(){},target:document.createElement('div')},{type:'Item',uuid:source('feature').uuid}));
-            await route('browser',async()=>{const browser=game.ptu.compendiumBrowser;await browser.loadTab('feats');check(browser.tabs.feats.indexData.some(i=>i.uuid===packFeature),'Real browser entry unavailable.');await browser.close();return actor.sheet.emulateItemDrop({type:'Item',uuid:packFeature});});
-            await route('native-compendium',async()=>{const doc=await game.items.importFromCompendium('ptu.feats',packFeature.split('.').at(-1),{name:'P02A native import'});return actor.sheet.emulateItemDrop({type:'Item',uuid:doc.uuid});});
+            await route('browser',async()=>{const browser=game.ptu.compendiumBrowser;await browser.loadTab('feats');const entry=browser.tabs.feats.indexData.find(i=>canonical(i.uuid)===packFeature);check(entry,'Real browser entry unavailable.');await browser.close();return actor.sheet.emulateItemDrop({type:'Item',uuid:entry.uuid});});
+            await route('native-compendium',async()=>{const doc=await game.items.importFromCompendium(game.packs.get('ptu.feats'),packFeature.split('.').at(-1),{name:'P02A native import'});return actor.sheet.emulateItemDrop({type:'Item',uuid:doc.uuid});});
             await route('owned-world-copy',()=>actor.createEmbeddedDocuments('Item',[source('revised').toObject()]));
             await route('mixed-folder',async()=>{let folder=game.folders.find(f=>f.flags.ptu?.p02aFolder===batch);if(!folder)folder=await Folder.create({name:'P02A mixed source folder',type:'Item',flags:{ptu:{p02aFolder:batch}}});for(const role of ['feature','edge','pokeedge'])await source(role).update({folder:folder.id});return actor.sheet._onDropFolder(null,{type:'Folder',uuid:folder.uuid});},3);
             await route('json-restore',async()=>{const [item]=await actor.createEmbeddedDocuments('Item',[{name:'P02A restore destination',type:'feat'}]);await item.importFromJSON(JSON.stringify(source('feature').toObject()));check(same(item.system.prerequisites,source('feature').system.prerequisites),'JSON restore changed raw requirements.');return[item];});
@@ -84,10 +85,12 @@ export async function runP02ACheck(){
             for(const type of ['character','pokemon'])for(const linked of [true,false]){
                 const actor=fixtureActor(type);let token=scene.tokens.find(t=>t.flags.ptu?.p02aToken===type+':'+linked);
                 if(!token)[token]=await scene.createEmbeddedDocuments('Token',[{name:'P02A '+type+' '+linked,actorId:actor.id,actorLink:linked,x,y:200,width:1,height:1,flags:{ptu:{p02aToken:type+':'+linked}}}]);x+=220;
+                await canvas.tokens.draw();
                 const target=token.actor,key='canvas:'+type+':'+linked,before=numerics(target);let created;
+                const point=token.object.center;
                 {
                     const wait=new Promise((resolve,reject)=>{const listener=Hooks.on('createItem',item=>{if(item.parent?.uuid===target.uuid){Hooks.off('createItem',listener);clearTimeout(timer);resolve(item);}});const timer=setTimeout(()=>{Hooks.off('createItem',listener);reject(Error('Canvas drop timed out'));},10000);});
-                    Hooks.call('dropCanvasData',canvas,{type:'Item',uuid:source('feature').uuid,x:token.x+50,y:token.y+50});created=await wait;await addMarker([created],key);
+                    Hooks.call('dropCanvasData',canvas,{type:'Item',uuid:source('feature').uuid,x:point.x,y:point.y});created=await wait;await addMarker([created],key);
                 }
                 check(views(target).some(v=>v.id===created.id),'Token actor diagnostics missing.');check(same(before,numerics(target)),'Canvas drop changed numeric state.');rows.push({actor:target.uuid,token:token.uuid,linked,executed:true,numericBefore:before,numericAfter:numerics(target),item:created.uuid,diagnostic:created.prerequisiteDiagnostic});
             }
@@ -129,17 +132,20 @@ export async function runP02ACheck(){
     }else if(plan.phase==='shape'){
         await record('version-attribution-shapes-on-actual-item-and-actor-views',async()=>{
             const actor=fixtureActor('character'),item=owned(actor).find(i=>i.type==='edge'),before=item.toObject(),rows=[];
-            await item.update({'system.prerequisites':['Untrained Focus']});
+            try{await item.update({'system.prerequisites':['Untrained Focus']});
             for(const value of [{},'   ',[],42,true,{unrelated:'version'},null,'synthetic-original',{id:'synthetic-original'},{label:'Explicit synthetic label'}]){
-                await item.update({'flags.ptu.selectedVersion':value});const snapshot=item.toObject(),view=item.prerequisiteDiagnostic,actorView=views(actor).find(v=>v.id===item.id);
+                await item.unsetFlag('ptu','selectedVersion');await item.setFlag('ptu','selectedVersion',value);const snapshot=item.toObject(),view=item.prerequisiteDiagnostic,actorView=views(actor).find(v=>v.id===item.id);
                 const meaningful=typeof value==='string'&&value.trim()||value&&typeof value==='object'&&!Array.isArray(value)&&(value.id||value.label);
-                check(view.report.satisfied.length===1&&view.report.unmet.length===0,'Attribution changed prerequisite truth.');check(view.clear===Boolean(meaningful)&&actorView.clear===view.clear,'Empty/unsupported attribution reported as clear.');check(same(snapshot,item.toObject()),'Diagnostic mutated saved values.');rows.push({value,clear:view.clear,attribution:view.report.attributionIssues});
+                const row={requested:value,stored:copy(item.flags.ptu.selectedVersion),itemDiagnostic:copy(view),actorDiagnostic:copy(actorView)};rows.push(row);report.shapeObservations=rows;
+                check(same(row.requested,row.stored),'Fixture flag value was merged or normalized.');
+                check(view.report.satisfied.length===1&&view.report.unmet.length===0,'Attribution changed prerequisite truth.');check(view.clear===Boolean(meaningful)&&actorView.clear===view.clear,'Empty/unsupported attribution reported as clear.');check(same(snapshot,item.toObject()),'Diagnostic mutated saved values.');
             }
-            await item.update({'system.prerequisites':before.system.prerequisites,'flags.ptu.selectedVersion':before.flags.ptu.selectedVersion});return{item:item.uuid,rows,rawRestored:true};
+            return{item:item.uuid,rows,rawRestored:true};
+            }finally{await item.update({'system.prerequisites':before.system.prerequisites});await item.unsetFlag('ptu','selectedVersion');if(before.flags.ptu.selectedVersion!==undefined)await item.setFlag('ptu','selectedVersion',before.flags.ptu.selectedVersion);}
         });
     }else if(plan.phase==='preserve'){
         await record('accepted-p02p-boundaries-after-acquisition',async()=>{
-            const actor=game.actors.find(a=>a.flags.ptu?.p02a?.batch===batch&&owned(a).some(i=>i.sourceId===packFeature)),item=actor&&owned(actor).find(i=>i.sourceId===packFeature);check(item,'Actual acquired pack fixture missing.');
+            const actor=game.actors.find(a=>a.flags.ptu?.p02a?.batch===batch&&owned(a).some(i=>canonical(i.sourceId)===packFeature)),item=actor&&owned(actor).find(i=>canonical(i.sourceId)===packFeature);check(item,'Actual acquired pack fixture missing.');
             await item.update({'system.prerequisites':['GM Permission','Custom saved requirement'],'system.keywords':['Custom saved keyword'],'system.range':'Custom saved range','system.rules':[],'system.referenceEffect':null});
             const before=item.toObject();await item.refreshFromCompendium();await item.refreshFromCompendium();const after=item.toObject();
             for(const field of Object.keys(before.system))check(same(before.system[field],after.system[field]),'Refresh changed protected '+field);check(same(before.flags,after.flags),'Refresh changed grants/selections.');
@@ -156,9 +162,34 @@ export async function runP02ACheck(){
             }
             check(same(actor.toObject(),before),'Excluded guard input changed actor.');return{blocked,noExcludedBehaviorExecuted:true};
         });
+    }else if(plan.phase==='identity'){
+        await record('same-name-distinct-version-and-rename',async()=>{
+            const rows=[];
+            for(const type of ['character','pokemon']){
+                const actor=fixtureActor(type),[original,revised]=await actor.createEmbeddedDocuments('Item',[source('feature').toObject(),source('revised').toObject()]);
+                const before=[original,revised].map(i=>({id:i.id,raw:copy(i.system.prerequisites),version:copy(i.flags.ptu.selectedVersion),diagnostic:i.prerequisiteDiagnostic}));
+                check(original.name===revised.name&&!same(before[0].raw,before[1].raw),'Distinct same-name fixture not established.');
+                await original.update({name:'Localized <b>Feature</b>'});
+                check(same(before[0].raw,original.system.prerequisites)&&same(before[0].version,original.flags.ptu.selectedVersion),'Rename changed selected requirements/version.');
+                check(original.prerequisiteDiagnostic.unmet.length===2&&revised.prerequisiteDiagnostic.unmet.length===0,'Selected versions share prerequisite results.');
+                rows.push({actor:actor.uuid,before,after:[original,revised].map(i=>({uuid:i.uuid,name:i.name,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))});
+            }return{rows,syntheticVersions:true};
+        });
+    }else if(plan.phase==='display'){
+        const actor=fixtureActor(plan.actorType);await actor.sheet.render(true);
+        if(plan.itemSheet)await owned(actor).find(i=>i.type==='feat').sheet.render(true);
+        return;
+    }else if(plan.phase==='checkpoint'){
+        report.persisted=await Promise.all(game.actors.filter(a=>a.flags.ptu?.p02a?.batch===batch).map(async a=>({id:a.id,role:a.flags.ptu.p02a.role,hash:await digest(a.toObject()),reportsHash:await digest(views(a)),itemIds:a.items.map(i=>i.id)})));
+        await record('pre-reload-saved-fixture-checkpoint',async()=>({actors:report.persisted.length,items:report.persisted.reduce((n,a)=>n+a.itemIds.length,0)}));
     }else if(plan.phase==='reload'){
         const baseline=await(await fetch('/ptu02-acquisition/baseline.json',{cache:'no-store'})).json();
         await record('preexisting-data-and-persisted-reports',async()=>{for(const row of baseline.actors)check(await digest(game.actors.get(row.id).toObject())===row.hash,'Pre-existing actor changed: '+row.id);for(const row of baseline.items)check(await digest(game.items.get(row.id).toObject())===row.hash,'Pre-existing world Item changed: '+row.id);check(game.settings.get('ptu','worldSchemaVersion')===baseline.worldSchema,'World schema changed.');return{actors:baseline.actors.length,items:baseline.items.length,unchanged:true,fixtures:['character','pokemon','npc','starter'].map(role=>{const actor=fixtureActor(role);return{role,actor:actor.uuid,reports:views(actor),numeric:numerics(actor)};})};});
+        const expected=await(await fetch('/ptu02-acquisition/expected.json',{cache:'no-store'})).json();
+        await record('every-recorded-task-fixture-and-report-after-reload',async()=>{
+            for(const row of expected){const actor=game.actors.get(row.id);check(actor&&await digest(actor.toObject())===row.hash,'Saved task actor changed: '+row.id);check(await digest(views(actor))===row.reportsHash,'Derived saved report changed: '+row.id);}
+            return{actors:expected.length,items:expected.reduce((n,a)=>n+a.itemIds.length,0),exactHashes:true,rows:expected};
+        });
     }else throw Error('Unknown acquisition phase');
     const escaped=foundry.utils.escapeHTML(JSON.stringify(report,null,2));
     new Dialog({title:'P02-A acquisition result',content:`<h2>${report.scenarios.filter(s=>s.result==='pass').length}/${report.scenarios.length} P02-A checks passed</h2><ul>${report.scenarios.map(s=>`<li>${s.result}: ${s.id}</li>`).join('')}</ul><textarea id="p02a-result" style="width:100%;height:350px">${escaped}</textarea>`,buttons:{close:{label:'Close'}}},{width:1000,height:760}).render(true);

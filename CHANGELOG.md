@@ -7,6 +7,8 @@
 - Keep ownership/scope, effect predicates, genuine choices and cancellation distinct. Stage NPC choices before creating folders/actors, prevent non-owner pre-creation work, and keep Feature/Edge drops out of inventory quantity merging.
 - Preserve exact class/grant relationships during creation/restoration; deliberate sheet grouping uses owned IDs rather than class-label matching. Normalize only exact new compendium-grant provenance and retain legitimate repeat additions and starter entitlement.
 - Treat blank/empty/unsupported version context as unverifiable without mutating saved flags or marking satisfied prerequisites unmet. Full production variant selection remains 05 work.
+- Accept minimal owned Item creation data through normal Foundry defaults; the live JSON-restoration setup reproduced an absent-system-object crash, now covered by regression tests.
+- Restore v13 canvas-to-token acquisition using token bounds; v13 tokens may have a null hit area. Linked and unlinked actor drops retain normal acquisition checks.
 
 ### P02-P preservation foundation
 - Resolve migration/refresh sources only through complete exact compendium provenance, with modern identity before legacy metadata. Preserve missing/ambiguous/custom records without name, slug or partial-ID substitution.

@@ -19,7 +19,7 @@ async function load(path,name,globals){
 async function itemClass(){
     const writes=[];let id=0,ruleCalls=0,fail=false;
     class CoreItem {
-        constructor(source,options){this._source=structuredClone(source);Object.assign(this,this._source);this.actor=options.parent;}
+        constructor(source,options){this._source=structuredClone(source);this._source.system={rules:[],...this._source.system};Object.assign(this,this._source);this.actor=options.parent;}
         prepareActorData(){}
         prepareRuleElements(){return this.system.rules.map(rule=>({preCreate:async({pendingItems})=>{ruleCalls++;if(fail)throw Error('No selection made');if(rule.key==='SyntheticGrant')pendingItems.push(fixture('edge','grant00000000001'));}}));}
         static async createDocuments(sources,context){writes.push(structuredClone(sources));return sources;}
@@ -32,6 +32,19 @@ async function itemClass(){
     const ItemClass=await load('src/module/item/base.js','PTUItem',globals);globals.CONFIG.Item.documentClass=ItemClass;
     return{ItemClass,writes,getRuleCalls:()=>ruleCalls,setFailure:value=>{fail=value;}};
 }
+
+test('actual canvas drop uses v13 token bounds when hitArea is null',async()=>{
+    const hooks=[],drops=[];
+    const target={hitArea:null,bounds:{contains:(x,y)=>x>=100&&x<200&&y>=200&&y<300},actor:{sheet:{emulateItemDrop:data=>drops.push(data)}}};
+    const canvas={tokens:{quadtree:{getObjects:(_rect,{collisionTest})=>collisionTest({t:target})?[target]:[]}}};
+    const handler=await load('src/scripts/hooks/drop-canvas-data.js','DropCanvasData',{
+        Hooks:{on:(_name,fn)=>hooks.push(fn)},PIXI:{Rectangle:class{}},canvas,fromUuid:async()=>null
+    });
+    handler.listen();
+    const data={type:'Item',uuid:'Item.example000000001',x:150,y:250};
+    assert.equal(hooks[1](canvas,data),false);assert.equal(drops[0],data);
+    assert.equal(hooks[1](canvas,{...data,x:250}),true);assert.equal(drops.length,1);
+});
 
 test('every advisory type derives persistent itemized statuses without saving or mutating inputs',()=>{
     for(const type of ADVISORY_ITEM_TYPES){const a=actor(),i=fixture(type);a.items=[i];const before=structuredClone({system:a.system,items:a.items});
@@ -93,6 +106,8 @@ test('actual embedded creation accepts unmet/custom/satisfied prerequisites and 
     }
     await ItemClass.createDocuments([fixture(),fixture()],{parent:a});assert.equal(writes.at(-1).length,2);
     assert.equal(a.system.skills.focus.value.total,2);assert.equal(a.items.length,0);
+    const minimal={name:'Minimal core creation',type:'feat'},before=structuredClone(minimal);
+    assert.equal((await ItemClass.createDocuments([minimal],{parent:a})).length,1);assert.deepEqual(minimal,before);
 });
 
 test('actual permission guard precedes rule execution and all writes; raw world creation still uses core',async()=>{
