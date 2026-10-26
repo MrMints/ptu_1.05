@@ -1,6 +1,12 @@
 # PTU 03 - Core skill terminology compatibility
 
-Status: P03 was substantively accepted at `c547e3ac86855e61c52ecd7816fdd23ac17c1c2c` after code/test/hash/reload review and CI 40270536333. Terminology and evaluator/solver acceptance retain their limits. 03 is idle; later P02-P/P02-A acceptance is in the shared ledger. P01 review, remaining P04/D and 05 stay held. Older handoffs below retain their original pending status.
+Status: P03 terminology/evaluator acceptance at `c547e3ac86855e61c52ecd7816fdd23ac17c1c2c` retains its exact-UUID limits. P03-NPC is explicitly active after D1 source-examination acceptance at `8d282248280004ce5d98e826364acad5168be04c` and P04's explicit checkout/world release. This chat is sole writer for the ordinary same-name NPC selector correction only; P02 interfaces remain accepted within their recorded limits. D2/D3, E1/full04 and OPEN-05 remain held. No production variant framework or external metadata changes are assigned.
+
+## Narrow reopened P03-NPC gate
+
+Planner scope audit `01a177e6-de8a-7901-accd-656c613e07b5` identified the bundled dropdown first-name match: selecting Medical Techniques `WscZukROrNeC7Ayp` (Apothecary; Expert Medicine Education) resolves as `bNVcfm2VHWfhEQGi` (Medic; Adept Medicine Education). Reproduce with the actual bundled component and ordinary disposable v13.351 UI before correction. Restrict production edits to NPC options and coupled refresh/generation/subchoice handling; use stable document/selection-instance identities while preserving labels/search/context, plain-text options, repeats, cancellation, permissions and advisory diagnostics. Do not infer ambiguous legacy identity from a name.
+
+Acceptance requires retained failing baseline evidence, passing affected regressions, ordinary same-name/renamed UI selections through preview/repeated refresh/generation, independent same-name subchoices, repeat/remove and plain-text checks, affected cancellation/permission checks and actual generated-Item reload inspection. Bind observations to installed revision/artifact hashes. Synthetic fixtures do not approve production variants; no unsaved draft persistence is claimed. Stop at exact revision/CI and writer/world release for substantive review.
 
 ## Owner amendment and pre-05 gate
 

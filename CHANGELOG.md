@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P03-NPC selector identity correction
+- Replace display-name option identity in the existing NPC class/Feature/Edge/species widgets with exact document UUIDs. Keep readable labels, searchable source context and ordinary plain-text options; do not modify the bundled vendor library.
+- Give repeated selections distinct local instance values and use those values for independent subchoice keys through refresh and generation. Keep raw requirements, saved version/custom data and advisory warnings; report ambiguous legacy selections without guessing a source.
+- Correct coupled species reselection/removal and the party-generation hook's undefined argument. Retain failing bundled-component/live baseline evidence and affected regressions. [Validation and remaining checks](docs/validation/2026-10-26-p03-npc.md) distinguish current observations from pending substantive acceptance. No authoritative pack/source changes, production variants or release.
+
 ### Partial PTU 04 D source checkpoint
 - Complete D1 source examination for 110 Contest Effect records: 90 source correspondences and 20 precise counter/identity conflicts. Preserve complete core table reprints, contextual formula explanations, native playtest authority limits and current/export field hashes.
 - Add shared complete Move/Contest source parsing and integrity regressions, including See Text frequency, compact Glitch definitions, partial Gravity replacement and true source boundaries. Preparatory source units do not close D2/D3; their 581/537 records remain unstarted.

@@ -1,4 +1,5 @@
 import { NpcQuickBuildData } from "./document.js";
+import {documentSelections, documentDropdownItem, documentTagify} from './selection.js';
 // import {tagify} from "../../../util/tags.js";
 
 export class PTUNpcQuickBuild extends FormApplication {
@@ -94,17 +95,24 @@ export class PTUNpcQuickBuild extends FormApplication {
             // await tagify(element);
             const data = this.data.multiselects[multiselect.dataset.filterName];
             const savePath = multiselect.name;
+            const documentBacked = ['classes','features','edges','species'].includes(multiselect.dataset.filterName);
+            if (documentBacked) {
+                // Normalize only the widget copy. Exact UUIDs can identify legacy entries;
+                // an ambiguous old label is left for visible review, never a name lookup.
+                multiselect.value = JSON.stringify(documentSelections(JSON.parse(multiselect.value||'[]')).filter(s=>!s.identityIssue));
+            }
             const tagifyOptions = {
                 enforceWhitelist: true,
                 keepInvalidTags: false,
                 editTags: false,
                 tagTextProp: "label",
+                ...(documentBacked ? {pasteAsTags:false,addTagOnBlur:false} : {}),
                 dropdown: {
                     enabled: 0,
                     fuzzySearch: true,
                     mapValueTo: "label",
                     maxItems: data.options.length,
-                    searchKeys: ["label"],
+                    searchKeys: documentBacked ? ["label", "sourceContext"] : ["label"],
                 },
                 whitelist: data.options,
                 maxTags: data.maxTags,
@@ -114,14 +122,13 @@ export class PTUNpcQuickBuild extends FormApplication {
                 tagifyOptions.enforceWhitelist = false;
             }
 
-            if (multiselect.matches(".trainer-features")) {
+            if (documentBacked) {
                 tagifyOptions.templates ??= {};
-                tagifyOptions.templates.dropdownItem = function(tagData) {
-                    return `<div label="${tagData.label}" value="${tagData.value}" uuid="${tagData.uuid}" mappedvalue="${tagData.mappedValue}" class="tagify__dropdown__item ${tagData.label} ${tagData.crossClass ? "crossclass" : ""}" tabindex="0" role="option">${tagData.label}</div>`
-                };
+                tagifyOptions.templates.dropdownItem = documentDropdownItem;
             }
 
-            const tagify = new Tagify(multiselect, tagifyOptions);
+            const Widget = documentBacked ? documentTagify(Tagify) : Tagify;
+            const tagify = new Widget(multiselect, tagifyOptions);
 
             // // Add the name to the tags html as an indicator for refreshing
             // if (multiselect.name) {

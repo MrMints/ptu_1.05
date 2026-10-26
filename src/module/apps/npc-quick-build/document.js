@@ -3,6 +3,7 @@ import { PTUSkills } from '../../actor/index.js';
 import { Mutex } from '../../../util/mutex.js';
 import { getSkillLabel } from '../../../util/skills.js';
 import {evaluatePrerequisite, diagnosePrerequisites, formatPrerequisiteDiagnostics} from '../../../util/prerequisites.js';
+import {documentOption, documentSelections, repeatDocumentOptions, subchoiceKey} from './selection.js';
 
 const COMPENDIUM_ITEM_RE = /Compendium\.([\w\.]+).Item.[a-zA-Z0-9]+/;
 
@@ -175,18 +176,13 @@ export class NpcQuickBuildData {
         }
 
         // get classes/features
+        for (const key of ['classes','features','edges','species']) this._staticMultiselects[key].options = [];
         for (const compendium of featureCompendiums) {
             for (const feature of game.packs.get(compendium).index) {
                 if (feature.type !== "feat") continue;
                 let bucket = "features";
                 if (feature?.system?.keywords?.includes("Class")) bucket = "classes";
-                this._staticMultiselects[bucket].options.push({
-                    label: feature.name,
-                    value: feature.name,
-                    uuid: feature.uuid,
-                    prerequisites: feature?.system?.prerequisites ?? [],
-                    class: feature?.system?.class,
-                })
+                this._staticMultiselects[bucket].options.push(documentOption(feature,game.packs.get(compendium).metadata?.label??compendium));
             }
         }
         this._staticMultiselects.classes.options.sort((a, b) => a.label.localeCompare(b.label));
@@ -196,12 +192,7 @@ export class NpcQuickBuildData {
         for (const compendium of edgeCompendiums) {
             for (const edge of game.packs.get(compendium).index) {
                 if (edge.type !== "edge") continue;
-                this._staticMultiselects.edges.options.push({
-                    label: edge.name,
-                    value: edge.name,
-                    uuid: edge.uuid,
-                    prerequisites: edge?.system?.prerequisites ?? [],
-                })
+                this._staticMultiselects.edges.options.push(documentOption(edge,game.packs.get(compendium).metadata?.label??compendium));
             }
         }
         this._staticMultiselects.edges.options.sort((a, b) => a.label.localeCompare(b.label));
@@ -214,11 +205,7 @@ export class NpcQuickBuildData {
                 if (species.name.includes("-Terrastal")) continue; // Same with 
                 if (species.name.includes("-Eternamax")) continue; // Same with Terrastalized
                 if (species.name.startsWith("Delta ")) continue; // What even is this?
-                this._staticMultiselects.species.options.push({
-                    label: species.name,
-                    value: species.name,
-                    uuid: species.uuid,
-                })
+                this._staticMultiselects.species.options.push(documentOption(species,game.packs.get(compendium).metadata?.label??compendium));
             }
         }
         this._staticMultiselects.species.options.sort((a, b) => a.label.localeCompare(b.label));
@@ -697,7 +684,7 @@ export class NpcQuickBuildData {
         }
 
         // Check if species is valid before proceeding
-        if (!species) {
+        if (!species || species.type !== 'species') {
             console.warn(`PTU NPC Quick Build: Could not find species for UUID: ${uuid}`);
             return;
         }
@@ -705,6 +692,7 @@ export class NpcQuickBuildData {
         pkmn.species.uuid = uuid;
         pkmn.species.object = species;
         pkmn.species.name = species.name;
+        if (!pkmn.species.selected?.length) pkmn.species.selected = [documentOption(species)];
         // set available genders
         const genders = [];
         const genderRatio = species.system?.breeding?.genderRatio ?? 50; // Default to 50/50 if undefined
@@ -833,38 +821,22 @@ export class NpcQuickBuildData {
         const subSelectables = {};
         const skillsComputed = {};
 
-        for (const feature of Object.values(this.trainer.classes.selected)) {
-            if (!feature.uuid) continue;
-            const item = (await fromUuid(feature.uuid))?.toObject();
-            if (!item) continue;
-            Object.assign(item, {
-                uuid: feature.uuid,
-                label: feature.label,
-            });
-            featuresComputed.push(item);
-            allComputed.push(item);
-        }
-        for (const feature of Object.values(this.trainer.features.selected)) {
-            if (!feature.uuid) continue;
-            const item = (await fromUuid(feature.uuid))?.toObject();
-            if (!item) continue;
-            Object.assign(item, {
-                uuid: feature.uuid,
-                label: feature.label,
-            });
-            featuresComputed.push(item);
-            allComputed.push(item);
-        }
-        for (const edge of Object.values(this.trainer.edges.selected)) {
-            if (!edge.uuid) continue;
-            const item = (await fromUuid(edge.uuid))?.toObject();
-            if (!item) continue;
-            Object.assign(item, {
-                uuid: edge.uuid,
-                label: edge.label,
-            });
-            edgesComputed.push(item);
-            allComputed.push(item);
+        this.selectionIssues = [];
+        for (const [bucket,computed] of [['classes',featuresComputed],['features',featuresComputed],['edges',edgesComputed]]) {
+            for (const selection of documentSelections(this.trainer[bucket].selected)) {
+                if (selection.identityIssue) {
+                    this.selectionIssues.push(`${selection.label??selection.value??'Selected item'}: Unverifiable: ${selection.identityIssue}.`);
+                    continue;
+                }
+                const document = await fromUuid(selection.uuid);
+                if (!document) {
+                    this.selectionIssues.push(`Selected source is unavailable: ${selection.uuid}.`);
+                    continue;
+                }
+                const item = document.toObject();
+                Object.assign(item,{uuid:selection.uuid,label:document.name??selection.label,selectionId:selection.value});
+                computed.push(item);allComputed.push(item);
+            }
         }
 
         // populate skillsComputed
@@ -877,7 +849,7 @@ export class NpcQuickBuildData {
         const actor = this.prerequisiteActor({level:this.trainer.level, allComputed, skillsComputed});
         this.prerequisiteReports = allComputed.map(item=>diagnosePrerequisites({actor,item,
             references:this.prerequisiteContext.references,
-            selectedVersion:this.prerequisiteContext.selectedVersions[item.uuid]}));
+            selectedVersion:this.prerequisiteContext.selectedVersions[item.uuid] ?? item.flags?.ptu?.selectedVersion}));
 
         // get selectable choices from the computed features/edges
         for (const choice of allComputed) {
@@ -890,13 +862,16 @@ export class NpcQuickBuildData {
                 const choices = choiceSet.choices.map(c => ({ ...c }));
                 const uuid = choice.uuid;
                 const label = choice.label ?? choice.name;
-                const key = `${label}-${idx}`.replaceAll(".", "-");
+                const key = subchoiceKey(choice.selectionId,idx);
                 const original = this.trainer?.subSelectables?.[key];
                 const selected = original?.visible ? original?.selected ?? null : null;
                 const subSelectable = {
                     key,
                     uuid,
                     label,
+                    selectionId: choice.selectionId,
+                    context: [choice.flags?.ptu?.selectedVersion?.label ?? choice.flags?.ptu?.selectedVersion?.id ?? choice.flags?.ptu?.selectedVersion,
+                        uuid, choice.selectionId !== uuid ? choice.selectionId : null].filter(Boolean).join(' | '),
                     idx,
                     choices,
                     selected,
@@ -934,7 +909,7 @@ export class NpcQuickBuildData {
         this.trainer.subSelectables = subSelectables;
 
         const warningLists = this.prerequisiteReports.map(formatPrerequisiteDiagnostics);
-        this.warnings = {unmet:warningLists.flatMap(r=>r.unmet),unknown:warningLists.flatMap(r=>r.unknown)};
+        this.warnings = {unmet:warningLists.flatMap(r=>r.unmet),unknown:[...warningLists.flatMap(r=>r.unknown),...this.selectionIssues]};
         this.warnings.num = this.warnings.unmet.length + this.warnings.unknown.length;
 
         // Refresh rank controls without changing explicit skill values.
@@ -971,12 +946,21 @@ export class NpcQuickBuildData {
 
         // check if any pokemon have been newly configured
         for (const slot of Object.keys(this.party)) {
-            if (!this.party[slot].configured) {
-                // get the uuid of the pokemon
-                const uuid = this.party[slot]?.species?.uuid || this.party[slot]?.species?.selected?.at(0)?.uuid;
-                if (!uuid) continue;
-                await this.configurePokemonSpecies(slot, { uuid });
-            };
+            const current = this.party[slot];
+            const selected = documentSelections(current.species.selected)[0];
+            const explicit = current.species.selected?.length || this.manuallyUpdatedFields?.has(`party.${slot}.species.selected`);
+            const uuid = explicit ? selected?.uuid : current.species.uuid;
+            if (!uuid || uuid !== current.species.uuid) {
+                current.configured = false;
+                Object.assign(current.species,{uuid:'',object:null,name:'',img:'icons/svg/mystery-man.svg'});
+            }
+            if (selected?.identityIssue) this.selectionIssues.push(`Party ${slot}: Unverifiable: ${selected.identityIssue}.`);
+            if (!uuid) continue;
+            if (!current.configured) await this.configurePokemonSpecies(slot, {uuid});
+            if (!current.configured) {
+                this.selectionIssues.push(`Selected species source is unavailable: ${uuid}.`);
+                continue;
+            }
             const pkmn = foundry.utils.deepClone(this.party[slot]);
             if (!pkmn?.species?.object) continue;
             // get image
@@ -999,28 +983,12 @@ export class NpcQuickBuildData {
             delete this.party[slot];
         }
 
-        // update the multiselects to account for all pre-selected features/edges
+        // Keep repeat instances distinct within each exact document identity.
         for (const key of ["features", "edges"]) {
-            const multiselectOptions = foundry.utils.deepClone(this._staticMultiselects[key].options);
-            for (const selOption of this.trainer[key].selected) {
-                let n = 2;
-                let nsfLabel;
-                do {
-                    nsfLabel = `${selOption.originalLabel ?? selOption.label} (${n++})`;
-                    if (multiselectOptions.find(f=>f.label == nsfLabel) == null) {
-                        multiselectOptions.push({
-                            ...selOption,
-                            originalLabel: selOption.originalLabel ?? selOption.label,
-                            label: nsfLabel,
-                            value: nsfLabel,
-                        });
-                    }
-                } while (this.trainer[key].selected.find(f=>f.label == nsfLabel) != null)
-            }
-            this.multiselects[key].options = multiselectOptions;
+            this.multiselects[key].options = repeatDocumentOptions(this._staticMultiselects[key].options,this.trainer[key].selected);
         }
-        // Sort the features and add classifiers (from currently selected classes, etc)
-        const selectedClasses = this.trainer.classes.selected.map(c=>c.value);
+        // Class names are inherited cosmetic grouping text, never document lookup keys.
+        const selectedClasses = this.trainer.classes.selected.map(c=>c.label);
         for (const featureOption of this.multiselects.features.options) {
             featureOption.crossClass = (selectedClasses.length > 0 && featureOption?.class) ? !selectedClasses.includes(featureOption.class) : false;
         }
@@ -1060,11 +1028,14 @@ export class NpcQuickBuildData {
     }
 
     async finalize() {
-        // TODO: fill unfilled required fields
+        await this.refresh();
     }
 
     async generate() {
         if(!game.user.can('ACTOR_CREATE'))throw Error('PTU | Actor creation permission is required.');
+        if(this.selectionIssues?.length || ['classes','features','edges'].some(key=>documentSelections(this.trainer[key]?.selected).some(s=>s.identityIssue))) {
+            throw Error('PTU | Selected document identities require review before generation.');
+        }
         // build the NPC
         const skills = {}
         for (const skill of CONFIG.PTU.data.skills.keys) {
@@ -1114,8 +1085,7 @@ export class NpcQuickBuildData {
             if ((iobj?.system?.rules ?? []).length > 0) {
                 const choiceSets = iobj.system.rules.filter(r => r.key == "ChoiceSet");
                 for (const [idx, choiceSet] of choiceSets.entries()) {
-                    const label = item.label ?? item.name;
-                    const key = `${label}-${idx}`.replaceAll(".", "-");
+                    const key = subchoiceKey(item.selectionId,idx);
                     const selected=this.trainer.subSelectables[key]?.selected;
                     if(selected!=null)choiceSet.selection=selected;
                 }
@@ -1200,7 +1170,7 @@ export class NpcQuickBuildData {
                 boxed: false,
             }
 
-            Hooks.callAll("ptu.preTrainerPokemonGenerated", actor, mon, this);
+            Hooks.callAll("ptu.preTrainerPokemonGenerated", actorData, mon, this);
 
             monActorsToGenerate.push(actorData);
         }

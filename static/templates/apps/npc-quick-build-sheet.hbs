@@ -89,6 +89,7 @@
             <div class="sub-choices">
                 {{!-- <a class="content-link{{#if edge.auto}} auto{{/if}}" draggable="true" data-link="" data-uuid="{{edge.uuid}}" data-id="{{edge._id}}" data-type="Item" data-tooltip="Edge Item"><i class="fas fa-suitcase"></i>{{edge.name}}</a> --}}
                 <h4>Selection for {{sub.label}}</h4>
+                <small class="sub-choice-source">{{sub.context}}</small>
                 <div class="options">
                 {{#each sub.choices as | choice |}}
                     <label class="sub-choice {{#if (eq sub.selected choice.value)}}checked{{/if}} {{#if choice.disabled}}disabled{{/if}}">{{choice.label}} <input type="radio" name="trainer.subSelectables.{{sub.key}}.selected" value="{{choice.value}}" {{#if (eq sub.selected choice.value)}}checked{{/if}} {{#if choice.disabled}}disabled{{/if}} /></label>

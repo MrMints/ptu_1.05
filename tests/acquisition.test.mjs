@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import {ADVISORY_ITEM_TYPES,prerequisiteView,actorPrerequisiteViews,assignFeatureGroup} from '../src/util/acquisition.js';
 import {isExcludedAcquisitionDocument} from '../src/util/content-scope.js';
 import {SKILLS} from '../src/util/skills.js';
+import * as npcSelection from '../src/module/apps/npc-quick-build/selection.js';
 
 const actor=()=>({isOwner:true,canHostRuleElements:true,name:'Synthetic actor',uuid:'Actor.actor00000000001',allowedItemTypes:['feat','edge','pokeedge','effect','condition'],
     flags:{},system:{level:{current:5},skills:Object.fromEntries(Object.keys(SKILLS).map(key=>[key,{value:{total:2}}]))},
@@ -174,6 +175,7 @@ test('actual NPC generation resolves choices before folders/actor writes and pre
     const h=await itemClass(),writes=[];const selected=fixture();selected.system.rules=[{key:'SyntheticGrant'}];
     class Trainer{constructor(data){Object.assign(this,actor(),data);}static async createDocuments(data){writes.push({actor:structuredClone(data[0])});return[{...data[0],_id:'actor00000000001',isOwner:true}];}}
     const Class=await load('src/module/apps/npc-quick-build/document.js','NpcQuickBuildData',{
+        ...npcSelection,
         CONFIG:{Item:{documentClass:h.ItemClass},PTU:{Actor:{documentClasses:{character:Trainer}},data:{skills:{keys:['focus'],PTUSkills:{getRankSlug:()=> 'untrained'}},stats:{keys:['hp']}}}},
         game:{user:{id:'owner',can:()=>true},i18n:{format:key=>key}},Hooks:{callAll:()=>{}},
         getSkillLabel:key=>key,fromUuid:async()=>({toObject:()=>structuredClone(selected)}),

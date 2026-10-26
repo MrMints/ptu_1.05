@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import {SKILLS} from '../src/util/skills.js';
 import {Mutex} from '../src/util/mutex.js';
 import {evaluatePrerequisite,diagnosePrerequisites,formatPrerequisiteDiagnostics} from '../src/util/prerequisites.js';
+import * as npcSelection from '../src/module/apps/npc-quick-build/selection.js';
 
 const actor = (overrides={}) => ({uuid:'Actor.actor00000000001',system:{level:{current:5},
     skills:Object.fromEntries(Object.keys(SKILLS).map(key=>[key,{value:{total:2}}]))},items:[],...overrides});
@@ -131,7 +132,7 @@ async function npcClass(documents) {
     const source=(await readFile('src/module/apps/npc-quick-build/document.js','utf8'))
         .replace(/^import .*;\r?\n/gm,'').replace('export class NpcQuickBuildData','class NpcQuickBuildData');
     return vm.runInNewContext(source+'\nNpcQuickBuildData;', {
-        evaluatePrerequisite,diagnosePrerequisites,formatPrerequisiteDiagnostics,Mutex,structuredClone,
+        evaluatePrerequisite,diagnosePrerequisites,formatPrerequisiteDiagnostics,Mutex,structuredClone,...npcSelection,
         CONFIG:{PTU:{data:{skills:{keys:Object.keys(SKILLS)}}}},foundry:{utils:{deepClone:structuredClone}},
         fromUuid:async uuid=>documents.get(uuid),PTUSkills:{getRankSlug:value=>({1:'pathetic',2:'untrained',3:'novice',4:'adept',5:'expert',6:'master',8:'virtuoso'})[value]},
         PokemonGenerator:{},getSkillLabel:key=>SKILLS[key]?.name, Set
