@@ -46,6 +46,16 @@ test('actual canvas drop uses v13 token bounds when hitArea is null',async()=>{
     assert.equal(hooks[1](canvas,{...data,x:250}),true);assert.equal(drops.length,1);
 });
 
+test('actor and embedded updates refresh open owned Item reports without document writes',async()=>{
+    class CoreActor{_onUpdate(){}_onUpdateDescendantDocuments(){}_onCreateDescendantDocuments(){}_onDeleteDescendantDocuments(){}}
+    const Class=await load('src/module/actor/base.js','PTUActor',{Actor:CoreActor,game:{combat:null}});
+    const a=Object.create(Class.prototype);let renders=0;
+    a.items=[{apps:{open:{rendered:true,render:force=>{assert.equal(force,false);renders++;}},closed:{rendered:false,render:()=>assert.fail('Closed report was opened')}}}];
+    const before=Object.keys(a);
+    a._onUpdate({},{});a._onUpdateDescendantDocuments();a._onCreateDescendantDocuments();a._onDeleteDescendantDocuments();
+    assert.equal(renders,4);assert.deepEqual(Object.keys(a),before);
+});
+
 test('every advisory type derives persistent itemized statuses without saving or mutating inputs',()=>{
     for(const type of ADVISORY_ITEM_TYPES){const a=actor(),i=fixture(type);a.items=[i];const before=structuredClone({system:a.system,items:a.items});
         const view=actorPrerequisiteViews(a)[0];assert.equal(view.unmet.length,1);assert.equal(view.unknown.length,2);assert.equal(view.report.satisfied.length,1);

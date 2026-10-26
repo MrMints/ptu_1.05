@@ -62,7 +62,7 @@ export async function runP02ACheck(){
             await route('native-compendium',async()=>{const doc=await game.items.importFromCompendium(game.packs.get('ptu.feats'),packFeature.split('.').at(-1),{name:'P02A native import'});return actor.sheet.emulateItemDrop({type:'Item',uuid:doc.uuid});});
             await route('owned-world-copy',()=>actor.createEmbeddedDocuments('Item',[source('revised').toObject()]));
             await route('mixed-folder',async()=>{let folder=game.folders.find(f=>f.flags.ptu?.p02aFolder===batch);if(!folder)folder=await Folder.create({name:'P02A mixed source folder',type:'Item',flags:{ptu:{p02aFolder:batch}}});for(const role of ['feature','edge','pokeedge'])await source(role).update({folder:folder.id});return actor.sheet._onDropFolder(null,{type:'Folder',uuid:folder.uuid});},3);
-            await route('json-restore',async()=>{const [item]=await actor.createEmbeddedDocuments('Item',[{name:'P02A restore destination',type:'feat'}]);await item.importFromJSON(JSON.stringify(source('feature').toObject()));check(same(item.system.prerequisites,source('feature').system.prerequisites),'JSON restore changed raw requirements.');return[item];});
+            await route('json-restore',async()=>{const restored=await Item.create({name:'P02A JSON restore destination',type:'feat'});await restored.importFromJSON(JSON.stringify(source('feature').toObject()));check(same(restored.system.prerequisites,source('feature').system.prerequisites),'JSON restore changed raw requirements.');return actor.createEmbeddedDocuments('Item',[restored.toObject()]);});
             await route('item-duplicate',async()=>[await owned(actor)[0].clone({},{save:true,addSource:true})]);
             await route('repeat-add',()=>actor.createEmbeddedDocuments('Item',[source('feature').toObject(),source('feature').toObject()]),2);
             for(const kind of plan.routes?[]:['inline-actor','actor-duplicate'])await record(type+':'+kind,async()=>{
@@ -128,7 +128,23 @@ export async function runP02ACheck(){
     }else if(plan.phase==='permissions'){
         await record('owner-observer-and-recompute-setup',async()=>{const rows=[];for(const type of ['character','pokemon']){const actor=fixtureActor(type);await actor.update({['ownership.'+player().id]:3});let observer=fixtureActor(type+':observer');if(!observer)observer=await Actor.create(await actorData(type,type+':observer',['feature','edge','pokeedge'].map(role=>source(role).toObject())));await observer.update({['ownership.'+player().id]:2});check(actor.canUserModify(player(),'update')&&!observer.canUserModify(player(),'update'),'Ownership boundary incorrect.');rows.push({type,owner:actor.uuid,observer:observer.uuid,ownerAllowed:true,observerDenied:true});}return{player:player().id,rows};});
     }else if(plan.phase==='recompute'){
-        await record('rank-and-prerequisite-change-recompute',async()=>{const rows=[];for(const type of ['character','pokemon']){const actor=fixtureActor(type),item=owned(actor).find(i=>i.type==='feat'),before=copy(item.prerequisiteDiagnostic);await actor.update({'system.skills.focus.value.value':6});const ranked=copy(item.prerequisiteDiagnostic);check(ranked.report.unmet.length===before.report.unmet.length-1,'Rank change did not recompute.');const raw=copy(item.system.prerequisites);await item.update({'system.prerequisites':['Level 999','Custom changed requirement']});const changed=copy(item.prerequisiteDiagnostic);check(changed.unmet.length===1&&changed.unknown.length===1,'Changed raw prerequisite report incorrect.');await item.update({'system.prerequisites':raw});rows.push({actor:actor.uuid,item:item.uuid,before,ranked,changed,restored:item.prerequisiteDiagnostic});}return{rows};});
+        await record('rank-and-prerequisite-change-recompute',async()=>{
+            const rows=[];report.recomputeObservations=rows;
+            for(const type of ['character','pokemon']){
+                const actor=fixtureActor(type),item=owned(actor).find(i=>i.type==='feat'),raw=copy(item.system.prerequisites),rankDocument=type==='pokemon'?actor.species:actor,rankPath=type==='pokemon'?'system.skills.focus.value':'system.skills.focus.value.value',rank=foundry.utils.getProperty(rankDocument.toObject(),rankPath);
+                const row={actor:actor.uuid,item:item.uuid};rows.push(row);
+                try{
+                    row.rankInput={document:rankDocument.uuid,path:rankPath,original:rank};
+                    await rankDocument.update({[rankPath]:2});row.before=copy(item.prerequisiteDiagnostic);
+                    await rankDocument.update({[rankPath]:6});row.ranked=copy(item.prerequisiteDiagnostic);
+                    check(row.before.report.unmet.some(r=>r.skillKey==='focus'&&r.actual===2)&&row.ranked.report.satisfied.some(r=>r.skillKey==='focus'&&r.actual===6),'Rank change did not recompute.');
+                    await item.update({'system.prerequisites':['Level 999','Custom changed requirement']});row.changed=copy(item.prerequisiteDiagnostic);
+                    check(row.changed.unmet.length===1&&row.changed.unknown.length===1,'Changed raw prerequisite report incorrect.');
+                }finally{await item.update({'system.prerequisites':raw});if(!plan.keepRank)await rankDocument.update({[rankPath]:rank});row.restored=copy(item.prerequisiteDiagnostic);}
+            }return{rows};
+        });
+    }else if(plan.phase==='rank-change'){
+        await record('single-species-rank-change-with-open-feature-sheet',async()=>{const actor=fixtureActor('pokemon'),item=owned(actor).find(i=>i.type==='feat'),before=copy(item.prerequisiteDiagnostic);await actor.species.update({'system.skills.focus.value':plan.rank});return{actor:actor.uuid,item:item.uuid,before,after:item.prerequisiteDiagnostic};});
     }else if(plan.phase==='shape'){
         await record('version-attribution-shapes-on-actual-item-and-actor-views',async()=>{
             const actor=fixtureActor('character'),item=owned(actor).find(i=>i.type==='edge'),before=item.toObject(),rows=[];
@@ -171,8 +187,10 @@ export async function runP02ACheck(){
                 check(original.name===revised.name&&!same(before[0].raw,before[1].raw),'Distinct same-name fixture not established.');
                 await original.update({name:'Localized <b>Feature</b>'});
                 check(same(before[0].raw,original.system.prerequisites)&&same(before[0].version,original.flags.ptu.selectedVersion),'Rename changed selected requirements/version.');
-                check(original.prerequisiteDiagnostic.unmet.length===2&&revised.prerequisiteDiagnostic.unmet.length===0,'Selected versions share prerequisite results.');
-                rows.push({actor:actor.uuid,before,after:[original,revised].map(i=>({uuid:i.uuid,name:i.name,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))});
+                const row={actor:actor.uuid,before,after:[original,revised].map(i=>({uuid:i.uuid,name:i.name,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))};rows.push(row);report.identityObservations=rows;
+                const first=original.prerequisiteDiagnostic.report,second=revised.prerequisiteDiagnostic.report;
+                check(same(first.rawRequirements,before[0].raw)&&same(second.rawRequirements,before[1].raw),'Selected raw requirements were substituted.');
+                check(first.unmet.some(r=>r.skillKey==='focus'&&r.required===6&&r.actual===2)&&second.unmet.some(r=>r.skillKey==='charm'&&r.required===3&&r.actual===2),'Selected version skill reports were substituted.');
             }return{rows,syntheticVersions:true};
         });
     }else if(plan.phase==='display'){

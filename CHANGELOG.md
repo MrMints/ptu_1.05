@@ -9,6 +9,7 @@
 - Treat blank/empty/unsupported version context as unverifiable without mutating saved flags or marking satisfied prerequisites unmet. Full production variant selection remains 05 work.
 - Accept minimal owned Item creation data through normal Foundry defaults; the live JSON-restoration setup reproduced an absent-system-object crash, now covered by regression tests.
 - Restore v13 canvas-to-token acquisition using token bounds; v13 tokens may have a null hit area. Linked and unlinked actor drops retain normal acquisition checks.
+- Refresh open owned Item reports when species skills or other embedded dependencies change, as well as when actor ranks/level change.
 
 ### P02-P preservation foundation
 - Resolve migration/refresh sources only through complete exact compendium provenance, with modern identity before legacy metadata. Preserve missing/ambiguous/custom records without name, slug or partial-ID substitution.

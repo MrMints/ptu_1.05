@@ -909,8 +909,7 @@ class PTUActor extends Actor {
     /** @override */
     _onUpdate(data, options, userId) {
         super._onUpdate(data, options, userId);
-        // Owned Item sheets also depend on actor ranks/level, without saving derived reports.
-        for(const item of this.items)for(const app of Object.values(item.apps??{}))if(app.rendered)app.render(false);
+        this._renderPrerequisiteItemSheets();
 
         if (data.system?.health?.value !== undefined) {
             if (data.system.health.value <= 0 && game.settings.get("ptu", "automation.autoFaint")) {
@@ -933,19 +932,27 @@ class PTUActor extends Actor {
     /** @override */
     _onUpdateDescendantDocuments(parent, collection, documents, changes, options, userId) {
         super._onUpdateDescendantDocuments(parent, collection, documents, changes, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
     }
 
     /** @override */
     _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
         super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
     }
 
     /** @override */
     _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
         super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
+    }
+
+    _renderPrerequisiteItemSheets() {
+        // Species ranks and owned dependencies also affect other open Item reports.
+        for(const item of this.items)for(const app of Object.values(item.apps??{}))if(app.rendered)app.render(false);
     }
 
     async #updateInitiative() {
