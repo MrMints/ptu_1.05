@@ -1,45 +1,10 @@
 import { PokemonGenerator } from "../../actor/pokemon/generator.js";
 import { PTUSkills } from '../../actor/index.js';
 import { Mutex } from '../../../util/mutex.js';
-import { resolveSkillKey, getSkillLabel } from '../../../util/skills.js';
+import { getSkillLabel } from '../../../util/skills.js';
+import {evaluatePrerequisite, diagnosePrerequisites, formatPrerequisiteDiagnostics} from '../../../util/prerequisites.js';
 
-const SINGLE_MIN_SKILL_RANK_RE = /^(?<rank>(Pathetic)|(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso)) (?<skill>.+)$/i;
-const ANY_N_SKILLS_AT_RE = /^(any )?(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) Skills? at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?$/i;
-const N_SKILLS_AT_FROM_LIST_RE = /^(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine))( Skills?)? of (?<skills>.+) at (?<rank>(Untrained)|(Novice)|(Adept)|(Expert)|(Master)|(Virtuoso))( Rank)?( or higher)?$/i;
-
-const FEAT_WITH_SUB_RE = /(?<main>[^\(\)]+) (\((?<sub>.+)\)) ?(?<cr>\[CR\])?/i;
-const N_FEATS_FROM_LIST_RE = /(?<n>([0-9]+)|(A)|(One)|(Two)|(Three)|(Four)|(Five)|(Six)|(Seven)|(Eight)|(Nine)) of (?<features>.+)?/i;
 const COMPENDIUM_ITEM_RE = /Compendium\.([\w\.]+).Item.[a-zA-Z0-9]+/;
-
-const LEVEL_RE = /Level (?<lv>[0-9]+)/i
-
-// REGULAR EXPRESSIONS WITH global (/g) flag are NOT safe to use async
-// They cause very very weird bugs if you try
-
-function parseIntA(s) {
-    let i = parseInt(s);
-    if (!Number.isNaN(i)) return i;
-    if (s.toLowerCase() == "a") return 1;
-    i = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"].indexOf(s.toLowerCase());
-    if (i >= 0) return i;
-    return Number.NaN;
-}
-
-function simplifyString(s) {
-    const replacements = {
-        "pokemon": "pokemon",
-        "general education": "general",
-        "tech education": "technology",
-        "technology education": "technology",
-        "medicine education": "medicine",
-        "medicine edu": "medicine",
-        "pokemon education": "pokemon",
-        "occult education": "occult",
-        "intimidation": "intimidate",
-    };
-    return Object.keys(replacements).reduce(((a, b)=>a?.replaceAll(b, replacements[b])), s?.toLowerCase());
-}
-
 
 function chooseFrom(list) {
     return list[Math.random() * list.length | 0];
@@ -179,6 +144,7 @@ export class NpcQuickBuildData {
             unknown: [],
         };
 
+        this.prerequisiteContext = {references:{}, selectedVersions:{}};
         this._refreshMutex = new Mutex();
     }
 
@@ -827,250 +793,35 @@ export class NpcQuickBuildData {
      * @param {*} param1 
      * @returns { met, newFeatures, newEdges, newSkills, skillRank, subOption, unknown } 
      */
-    async checkTextPrereq(textPrereq, { level, allComputed, skillsComputed, previousSkillRank=null}) {
-        textPrereq = textPrereq.trim().replace(/\s+/g, " ");
-        const originalPrereq = textPrereq;
-        const RETURN = {
-            met: false,
-            newFeatures: [],
-            newEdges: [],
-            newSkills: {},
-            skillRank: null,
-            subOption: null,
-            unknown: false,
-        };
+    prerequisiteActor({level, allComputed, skillsComputed}) {
+        return {system:{level:{current:level}, skills:Object.fromEntries(Object.entries(skillsComputed).map(([key,value])=>[key,{value:{total:value}}]))}, items:allComputed};
+    }
 
-        const compareName = function (t) {
-            return (f) => simplifyString(f.name) == simplifyString(t);
-        };
-        const compareLabel = function (t) {
-            return (f) => simplifyString(f.label) == simplifyString(t);
-        };
+    async checkTextPrereq(textPrereq, context) {
+        const diagnostic = evaluatePrerequisite(textPrereq, {actor:this.prerequisiteActor(context),
+            references:this.prerequisiteContext?.references, previousRank:context.previousSkillRank});
+        // Compatibility shape remains callable; diagnostics never propose grants or rank changes.
+        return {met:diagnostic.status === 'satisfied', unknown:diagnostic.status === 'unverifiable',
+            newFeatures:[], newEdges:[], newSkills:{}, skillRank:diagnostic.kind === 'skill' ? diagnostic.required : null,
+            subOption:null, diagnostic};
+    }
 
-        // check if this has a parenthesized section (for selection of feat, for instance)
-        const withSub = textPrereq.match(FEAT_WITH_SUB_RE);
-        if (withSub?.groups?.sub) {
-            RETURN.subOption = {
-                main: withSub.groups.main,
-                subvalue: withSub.groups.sub,
-            };
-            textPrereq = withSub.groups.main;
+    async allItemPrereqs(prereqs, context) {
+        const allNewUnmet = [], allNewUnknown = [];
+        for (const raw of Array.isArray(prereqs) ? prereqs : [prereqs]) {
+            const diagnostic = await this.checkTextPrereq(raw,context);
+            if (diagnostic.unknown) allNewUnknown.push(raw);
+            else if (!diagnostic.met) allNewUnmet.push(raw);
         }
-
-        // check if the prereq is GM Permission
-        if (originalPrereq == "GM Permission") {
-            RETURN.met = true;
-            RETURN.subOption = null; // the suboption doesn't matter, GM Permission is all that's needed
-            return RETURN;
-        }
-
-        // check if the prereq is a minimum level
-        const levelRequirement = textPrereq.match(LEVEL_RE);
-        if (levelRequirement) {
-            const lvRequired = parseInt(levelRequirement.groups.lv);
-            RETURN.met = level >= lvRequired;
-            RETURN.subOption = null; // the suboption doesn't matter
-            return RETURN;
-        };
-
-        // check if this is the name of a class, feature, or edge we already have
-        const existingItem = allComputed.find(compareName(textPrereq));
-        if (existingItem) {
-            RETURN.met = true;
-            if (RETURN.subOption) RETURN.subOption.uuid = existingItem.uuid;
-            return RETURN;
-        }
-
-        // check if it's the name of a class, feature or edge we don't already have
-        const featureClass = await this._findFromMultiselect("classes", compareLabel(textPrereq));
-        if (featureClass) {
-            RETURN.newFeatures.push(featureClass);
-            if (RETURN.subOption) RETURN.subOption.uuid = featureClass.uuid;
-            return RETURN;
-        }
-        const feature = await this._findFromMultiselect("features", compareLabel(textPrereq));
-        if (feature) {
-            RETURN.newFeatures.push(feature);
-            if (RETURN.subOption) RETURN.subOption.uuid = feature.uuid;
-            return RETURN;
-        }
-        const edge = await this._findFromMultiselect("edges", compareLabel(textPrereq));
-        if (edge) {
-            RETURN.newEdges.push(edge);
-            if (RETURN.subOption) RETURN.subOption.uuid = edge.uuid;
-            return RETURN;
-        }
-
-        if (withSub) {
-            // this is clearly not a feat/edge with a sub
-            textPrereq = originalPrereq;
-            RETURN.subOption = null;
-        }
-
-        // check if it's "any X of list" features
-        const nFeaturesOf = textPrereq.match(N_FEATS_FROM_LIST_RE)
-        if (nFeaturesOf) {
-            const n = parseIntA(nFeaturesOf.groups.n || "100");
-            const items = nFeaturesOf.groups.features.split(/ or /gi).map(name=>{
-                for (const bucket of ["classes", "features", "edges"]) {
-                    const result = this.multiselects[bucket]?.options?.find(compareLabel(name))
-                    if (result) return name;
-                }
-                return null;
-            });
-            if (n && items.filter(item=>item == null).length == 0) {
-                if (items.filter(name=>allComputed.find(compareName(name)) != null).length >= n) {
-                    RETURN.met = true;
-                    return RETURN;
-                }
-                RETURN.met = false;
-                return RETURN;
-            }
-        }
-
-        //
-        // Check for skills & variations
-        //
-
-        const getSkill = resolveSkillKey;
-
-        // check if it's a single minimum skill rank
-        const singleSkillMatch = textPrereq.match(SINGLE_MIN_SKILL_RANK_RE);
-        if (singleSkillMatch) {
-            // TODO: do better, act right :(
-            // this is very gross. Let's add some stuff in index.js so we don't have to rely on the translations
-            const rank = [1, 2, 3, 4, 5, 6, 8].find(r => CONFIG.PTU.data.skills.PTUSkills.getRankSlug(r) == singleSkillMatch.groups.rank.toLowerCase());
-            const skill = getSkill(singleSkillMatch.groups.skill);
-            if (rank && skill) {
-                RETURN.met = (skillsComputed[skill] ?? 1) >= rank;
-                RETURN.skillRank = rank;
-                RETURN.newSkills[skill] = rank;
-                return RETURN;
-            }
-        }
-
-        // check if there's "N Skills at RANK"
-        const anySkillMatch = textPrereq.match(ANY_N_SKILLS_AT_RE);
-        if (anySkillMatch) {
-            // TODO: do better, act right :(
-            // this is somewhat gross. Let's add some stuff in index.js so we don't have to rely on the translations
-            const rank = [1, 2, 3, 4, 5, 6, 8].find(r => CONFIG.PTU.data.skills.PTUSkills.getRankSlug(r) == anySkillMatch.groups.rank.toLowerCase());
-            const n = parseIntA(anySkillMatch.groups.n || "100");
-            if (rank && n) {
-                if (CONFIG.PTU.data.skills.keys.filter(k => rank <= skillsComputed[k] ?? 0).length >= n) {
-                    RETURN.met = true;
-                    return RETURN;
-                }
-                else return RETURN;
-            }
-        }
-
-        // check if there's "any N of SKILLS at RANK"
-        const nSkillMatch = textPrereq.match(N_SKILLS_AT_FROM_LIST_RE);
-        if (nSkillMatch) {
-            // TODO: do better, act right :(
-            // this is somewhat gross. Let's add some stuff in index.js so we don't have to rely on the translations
-            const rank = [1, 2, 3, 4, 5, 6, 8].find(r => CONFIG.PTU.data.skills.PTUSkills.getRankSlug(r) == nSkillMatch.groups.rank.toLowerCase());
-            const n = parseIntA(nSkillMatch.groups.n || "100");
-            const skills = nSkillMatch.groups.skills.split(/ or /gi).map(getSkill);
-            if (rank && n && skills.every(Boolean)) {
-                if (skills.filter(k => rank <= skillsComputed[k] ?? 0).length >= n) {
-                    RETURN.met = true;
-                    return RETURN;
-                } 
-                else return RETURN;
-            }
-        }
-
-        // if its just a skill by itself and we have a non-null "previousSkillRank"
-        const loneSkill = getSkill(textPrereq);
-        if (loneSkill && previousSkillRank) {
-            RETURN.met = (skillsComputed[loneSkill] ?? 1) >= previousSkillRank;
-            RETURN.newSkills[loneSkill] = previousSkillRank;
-            return RETURN;
-        }
-
-        // check if it's an OR clause; recurse!
-        if ((/ or /gi).test(textPrereq)) {
-            const terms = textPrereq.split(/ or /gi);
-            let sr = null;
-            RETURN.unknown = false;
-            for (const term of terms) {
-                const { met, skillRank, unknown } = await this.checkTextPrereq(term, { level, allComputed, skillsComputed, previousSkillRank: sr });
-                if (met) {
-                    RETURN.unknown = false;
-                    RETURN.met = true;
-                    return RETURN;
-                }
-                sr = skillRank ?? sr;
-                RETURN.unknown ||= unknown; 
-            }
-            if (!RETURN.unknown) return RETURN;
-        }
-
-        // we can't figure out what this is, return
-        RETURN.unknown = true;
-        return RETURN
-    };
-
-
-    async allItemPrereqs(prereqs, { level, allComputed, skillsComputed }) {
-        const allNewFeatures = [];
-        const allNewEdges = [];
-        const allNewSkills = {};
-        const allNewSubOptions = [];
-        const allNewUnmet = [];
-        const allNewUnknown = [];
-
-        const allNewItems = [{ system: { prerequisites: prereqs } }];
-        const newSkillsComputed = {...skillsComputed};
-
-        for (let n = 0; n < allNewItems.length; n++) {
-            for (const prereq of allNewItems[n].system.prerequisites) {
-                const { met, newFeatures, newEdges, newSkills, subOption, unknown } = await this.checkTextPrereq(prereq, { level, allComputed, skillsComputed: newSkillsComputed });
-
-                // if it's unknown, store it as unknown and move on
-                if (unknown) {
-                    if (!allNewUnknown.includes(prereq)) allNewUnknown.push(prereq);
-                    continue;
-                }
-
-                // if it's unmet, and we're given nothing to meet it with, store the prereq as unmet and move on.
-                if (!met && newFeatures.length == 0 && newEdges.length == 0 && Object.keys(newSkills).length == 0) {
-                    if (!allNewUnmet.includes(prereq)) allNewUnmet.push(prereq);
-                    continue;
-                }
-
-                newFeatures.forEach(x => {
-                    allNewFeatures.push(x);
-                    allNewItems.push(x);
-                });
-                newEdges.forEach(x => {
-                    allNewEdges.push(x);
-                    allNewItems.push(x);
-                });
-                Object.entries(newSkills).forEach(([k, v]) => {
-                    allNewSkills[k] = Math.max(allNewSkills[k] ?? 1, v ?? 1);
-                    newSkillsComputed[k] = Math.max(newSkillsComputed[k] ?? 1, v ?? 1)
-                });
-                if (subOption != null) allNewSubOptions.push(subOption);
-            }
-        }
-        return {
-            allNewFeatures,
-            allNewEdges,
-            allNewSkills,
-            allNewSubOptions,
-            allNewUnmet,
-            allNewUnknown,
-        };
+        return {allNewFeatures:[],allNewEdges:[],allNewSkills:{},allNewSubOptions:[],allNewUnmet,allNewUnknown};
     }
 
 
     /*-----------------------------------------------------------------------*/
 
     async refresh() {
-        const unlock = await this._refreshMutex.lock()
+        const unlock = await this._refreshMutex.lock();
+        try {
 
         this.multiselects = foundry.utils.deepClone(this._staticMultiselects);
 
@@ -1080,11 +831,7 @@ export class NpcQuickBuildData {
         const featuresComputed = [];
         const edgesComputed = [];
         const subSelectables = {};
-        const skillsMinimum = {};
         const skillsComputed = {};
-        const allSuboptions = [];
-        const allUnmet = [];
-        const allUnknown = [];
 
         for (const feature of Object.values(this.trainer.classes.selected)) {
             if (!feature.uuid) continue;
@@ -1122,39 +869,15 @@ export class NpcQuickBuildData {
 
         // populate skillsComputed
         for (const skill of CONFIG.PTU.data.skills.keys) {
-            skillsComputed[skill] = this.trainer.skills[skill].value ?? 1;
+            skillsComputed[skill] = this.trainer.skills[skill]?.value;
         }
 
-        // Get all the prerequisites
-        for (let idx = 0; idx < allComputed.length; idx++) {
-            const item = allComputed[idx];
-
-            // parse all of the regular prerequisites
-            const { allNewFeatures, allNewEdges, allNewSkills, allNewSubOptions, allNewUnmet, allNewUnknown } = await this.allItemPrereqs(item.system.prerequisites, { level: this.trainer.level, allComputed, skillsComputed });
-            allNewFeatures.forEach(x => {
-                Object.assign(x, { auto: true });
-                featuresComputed.push(x);
-                allComputed.push(x);
-            });
-            allNewEdges.forEach(x => {
-                Object.assign(x, { auto: true });
-                edgesComputed.push(x);
-                allComputed.push(x);
-            });
-            Object.entries(allNewSkills).forEach(([k, v]) => {
-                skillsMinimum[k] = Math.max(skillsMinimum[k] ?? 1, v ?? 1);
-                if (skillsComputed[k] ?? 0 < v) skillsComputed[k] = v;
-            });
-            allNewSubOptions.forEach(x => {
-                if (!allSuboptions.includes(x)) allSuboptions.push(x);
-            });
-            allNewUnmet.forEach(x => {
-                if (!allUnmet.includes(x)) allUnmet.push(x);
-            });
-            allNewUnknown.forEach(x => {
-                if (!allUnknown.includes(x)) allUnknown.push(x);
-            });
-        }
+        // Evaluate the complete selected records against explicit current choices only.
+        // This is a diagnostic pass, not the old dependency/rank solver.
+        const actor = this.prerequisiteActor({level:this.trainer.level, allComputed, skillsComputed});
+        this.prerequisiteReports = allComputed.map(item=>diagnosePrerequisites({actor,item,
+            references:this.prerequisiteContext.references,
+            selectedVersion:this.prerequisiteContext.selectedVersions[item.uuid]}));
 
         // get selectable choices from the computed features/edges
         for (const choice of allComputed) {
@@ -1188,13 +911,6 @@ export class NpcQuickBuildData {
                     }));
                 }
 
-                // check if we've got an unmet prerequisite for this still
-                const unmet = allSuboptions.find(s => s.uuid == uuid);
-                if (unmet && !subSelectable.selected && choices.find(c => c.label == unmet.subvalue)) {
-                    subSelectable.selected = choices.find(c => c.label == unmet.subvalue)?.value ?? null;
-                    subSelectable.visible = false;
-                    allSuboptions.splice(allSuboptions.indexOf(unmet), 1);
-                }
                 subSelectables[key] = subSelectable;
                 relatedChanges.push(subSelectable);
                 alreadySelected.add(subSelectable.selected);
@@ -1217,19 +933,14 @@ export class NpcQuickBuildData {
         this.trainer.edges.computed = edgesComputed;
         this.trainer.subSelectables = subSelectables;
 
-        // set warnings
-        this.warnings = {
-            num: allUnmet.length + allUnknown.length,
-            unmet: allUnmet.map(u => `Prerequisite "${u}" not met!`),
-            unknown: allUnknown.map(u => `Unknown prerequisite "${u}"`),
-        }
+        const warningLists = this.prerequisiteReports.map(formatPrerequisiteDiagnostics);
+        this.warnings = {unmet:warningLists.flatMap(r=>r.unmet),unknown:warningLists.flatMap(r=>r.unknown)};
+        this.warnings.num = this.warnings.unmet.length + this.warnings.unknown.length;
 
-        // apply established skill minimums
+        // Refresh rank controls without changing explicit skill values.
         const newSkills = foundry.utils.deepClone(this.trainer.skills);
         for (const [key, skill] of Object.entries(newSkills)) {
-            const min = skillsMinimum[key] ?? 1;
-            skill.min = min;
-            skill.value = Math.max(skill.value, min);
+            skill.min = 1;
 
             skill.rankSlug = PTUSkills.getRankSlug(skill.value);
             skill.valueLabel = `PTU.Skill${skill.rankSlug[0].toUpperCase() + skill.rankSlug.slice(1)}`;
@@ -1345,7 +1056,7 @@ export class NpcQuickBuildData {
             }
         }
 
-        unlock();
+        } finally { unlock(); }
     }
 
     async finalize() {

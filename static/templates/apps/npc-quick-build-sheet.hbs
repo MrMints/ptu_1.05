@@ -14,7 +14,7 @@
         {{!-- Warnings box  --}}
         {{#if (gt data.warnings.num 0)}}
         <div class="warning-box">
-            <h4 class="warning-title"><i class="fa-solid fa-triangle-exclamation"></i> Validation Warnings <span class="warning-num">({{data.warnings.num}})</span></h4>
+            <h4 class="warning-title"><i class="fa-solid fa-triangle-exclamation"></i> Prerequisite Diagnostics (Advisory) <span class="warning-num">({{data.warnings.num}})</span></h4>
             <div class="warnings">
             {{#each data.warnings.unmet as |warning|}}
                 <p class="unmet">{{warning}}</p>

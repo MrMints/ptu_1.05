@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P03 advisory prerequisite foundation
+- Add a pure actor/item/version diagnostic interface with separate satisfied, unmet and unverifiable results, retained raw requirements and stable skill aliases. Missing fields, custom conditions, ambiguous comma compounds and unevidenced GM approval remain unverifiable; item relationships require exact evidenced identities.
+- Replace the explicit NPC prerequisite solver with itemized advisory reports. Refresh preserves selected content and skill ranks instead of granting dependencies, raising ranks or choosing options to satisfy prerequisites. Keep legitimate choice handling and optional randomization distinct.
+- Add focused automated regressions and real Foundry v13.351 selected-content/UI observations. See [P03 evidence and limitations](docs/validation/2026-10-26-p03.md). General actor acquisition/display and migration/refresh preservation remain P02; production variants remain 05. Planner acceptance is pending; no merge or release.
+
 ### Content selection and prerequisite-policy amendment
 - Retain separately selectable source-backed original/non-errata and revised Moves, Abilities, Features and Edges, with accurate official-errata/optional-playtest labels and preserved identities/selections. Require visible persistent itemized non-blocking Feature/Edge prerequisite diagnostics for supported trainers and Pokémon, separating unmet from unverifiable conditions.
 - Reconcile all nine section assessments into an explicit pre-05 ledger: 03 evaluator/solver correction, 02 preservation/acquisition/display, 01 evidence checks and full remaining 04 source work. Reopen affected prior gates while preserving historical passes within their limits; 05 and D remain held. Assign bounded legacy migration/refresh/failure safeguards before 05 rather than deferring existing gaps.

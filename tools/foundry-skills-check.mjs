@@ -90,7 +90,7 @@ export async function runSkillsCheck() {
                 const text = `  NoViCe   ${alias.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replaceAll(' ','   ')}  `;
                 for (const value of [2,3,5]) {
                     const result = await stub.checkTextPrereq(text,{level:5,allComputed:[],skillsComputed:{[key]:value}});
-                    check(!result.unknown && result.met === (value >= 3) && result.newSkills[key] === 3, `${text} at ${value}`);
+                    check(!result.unknown && result.met === (value >= 3) && result.diagnostic.skillKey === key && Object.keys(result.newSkills).length === 0, `${text} at ${value}`);
                     count++;
                 }
                 check(resolveSkillKey(alias) === key, `${alias} exact resolver`);
