@@ -61,7 +61,7 @@ export async function runP02ACheck(){
             await route('browser',async()=>{const browser=game.ptu.compendiumBrowser;await browser.loadTab('feats');const entry=browser.tabs.feats.indexData.find(i=>canonical(i.uuid)===packFeature);check(entry,'Real browser entry unavailable.');await browser.close();return actor.sheet.emulateItemDrop({type:'Item',uuid:entry.uuid});});
             await route('native-compendium',async()=>{const doc=await game.items.importFromCompendium(game.packs.get('ptu.feats'),packFeature.split('.').at(-1),{name:'P02A native import'});return actor.sheet.emulateItemDrop({type:'Item',uuid:doc.uuid});});
             await route('owned-world-copy',()=>actor.createEmbeddedDocuments('Item',[source('revised').toObject()]));
-            await route('mixed-folder',async()=>{let folder=game.folders.find(f=>f.flags.ptu?.p02aFolder===batch);if(!folder)folder=await Folder.create({name:'P02A mixed source folder',type:'Item',flags:{ptu:{p02aFolder:batch}}});for(const role of ['feature','edge','pokeedge'])await source(role).update({folder:folder.id});return actor.sheet._onDropFolder(null,{type:'Folder',uuid:folder.uuid});},3);
+            await route('mixed-folder',async()=>{const folder=await Folder.create({name:'P02A fresh mixed '+type,type:'Item',flags:{ptu:{p02aFolder:batch,executionId:report.executionId}}});for(const role of ['feature','edge','pokeedge'])await source(role).update({folder:folder.id});return actor.sheet._onDropFolder(null,{type:'Folder',uuid:folder.uuid});},3);
             await route('json-restore',async()=>{const restored=await Item.create({name:'P02A JSON restore destination',type:'feat'});await restored.importFromJSON(JSON.stringify(source('feature').toObject()));check(same(restored.system.prerequisites,source('feature').system.prerequisites),'JSON restore changed raw requirements.');return actor.createEmbeddedDocuments('Item',[restored.toObject()]);});
             await route('item-duplicate',async()=>[await owned(actor)[0].clone({},{save:true,addSource:true})]);
             await route('repeat-add',()=>actor.createEmbeddedDocuments('Item',[source('feature').toObject(),source('feature').toObject()]),2);
@@ -126,6 +126,9 @@ export async function runP02ACheck(){
     }else if(plan.phase==='starter-check'){
         await record('one-time-starter-entitlement',async()=>{const actor=fixtureActor('starter'),before=actor.toObject();check(actor.flags.ptu.starterTraining.status==='complete'&&actor.itemTypes.feat.length===1,'Starting choice not completed once.');await actor.selectStarterTraining();check(same(before,actor.toObject()),'Completed starter repeated.');return{actor:actor.uuid,item:actor.itemTypes.feat[0].uuid,raw:actor.itemTypes.feat[0].system.prerequisites,status:actor.flags.ptu.starterTraining};});
     }else if(plan.phase==='permissions'){
+        for(const item of game.items.filter(i=>i.flags.ptu?.p02a?.batch===batch))await item.update({'ownership.default':2});
+        let playerMacro=game.macros.find(m=>m.flags.ptu?.p02aPlayer===batch);if(!playerMacro)playerMacro=await Macro.create({name:'P02-A player boundary check (disposable)',type:'script',command:"const {runP02APlayerCheck}=await import('/ptu02-acquisition/check.mjs?v='+Date.now()); await runP02APlayerCheck();",ownership:{default:2},flags:{ptu:{p02aPlayer:batch}}});
+        report.playerMacro={id:playerMacro.id,role:player().role,script:player().can('MACRO_SCRIPT'),actorCreate:player().can('ACTOR_CREATE')};
         await record('owner-observer-and-recompute-setup',async()=>{const rows=[];for(const type of ['character','pokemon']){const actor=fixtureActor(type);await actor.update({['ownership.'+player().id]:3});let observer=fixtureActor(type+':observer');if(!observer)observer=await Actor.create(await actorData(type,type+':observer',['feature','edge','pokeedge'].map(role=>source(role).toObject())));await observer.update({['ownership.'+player().id]:2});check(actor.canUserModify(player(),'update')&&!observer.canUserModify(player(),'update'),'Ownership boundary incorrect.');rows.push({type,owner:actor.uuid,observer:observer.uuid,ownerAllowed:true,observerDenied:true});}return{player:player().id,rows};});
     }else if(plan.phase==='recompute'){
         await record('rank-and-prerequisite-change-recompute',async()=>{
@@ -197,19 +200,76 @@ export async function runP02ACheck(){
         const actor=fixtureActor(plan.actorType);await actor.sheet.render(true);
         if(plan.itemSheet)await owned(actor).find(i=>i.type==='feat').sheet.render(true);
         return;
+    }else if(plan.phase==='ui-verify'){
+        await record('observer-ui-unchanged-and-owner-ui-created-pokeedge',async()=>{
+            const expected=await(await fetch('/ptu02-acquisition/player-expected.json',{cache:'no-store'})).json(),rows=[];
+            for(const type of ['character','pokemon']){const row=expected.scenarios.find(s=>s.id===type+':observer:direct').observed,actor=fixtureActor(type+':observer'),actual=await digest(actor.toObject());check(actual===row.beforeHash,'Observer UI changed actor '+type);rows.push({actor:actor.uuid,beforeHash:row.beforeHash,afterHash:actual});}
+            const item=fixtureActor('character').items.get(plan.createdItemId);check(item?.type==='pokeedge'&&item.prerequisiteDiagnostic.report.attributionIssues.length===1,'Owner UI Poké Edge creation missing.');
+            return{observers:rows,ownerCreatedItem:{uuid:item.uuid,raw:item.toObject(),diagnostic:item.prerequisiteDiagnostic}};
+        });
+    }else if(plan.phase==='token-audit'){
+        const expected=await(await fetch('/ptu02-acquisition/expected-tokens.json',{cache:'no-store'})).json();
+        await record('original-token-checkpoint-protected-items-and-inherited-base-additions',async()=>{
+            const rows=[];report.tokenAudit=rows;
+            for(const row of expected.tokens){const token=await fromUuid(row.uuid),actual=owned(token.actor).map(i=>({id:i.id,uuid:i.uuid,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic})),observed={uuid:token.uuid,tokenSourceUnchanged:await digest(token.toObject())===row.hash,actorHashUnchanged:await digest(token.actor.toObject())===row.actorHash,reportsHashUnchanged:await digest(views(token.actor))===row.reportsHash,expectedItems:row.items,actualItems:actual,additionalInheritedIds:actual.filter(i=>!row.items.some(e=>e.id===i.id)).map(i=>i.id)};rows.push(observed);check(observed.tokenSourceUnchanged,'Persisted token source changed.');for(const item of row.items){const found=actual.find(i=>i.id===item.id);check(found&&same(found,item),'Previously acquired token Item/report changed: '+item.id);}}
+            for(const row of rows){const token=await fromUuid(row.uuid),base=game.actors.get(token.actorId);row.baseActor=base.uuid;row.additionalItemsMatchBase=row.additionalInheritedIds.every(id=>{const item=token.actor.items.get(id),baseItem=base.items.get(id);return baseItem&&same(item.system.prerequisites,baseItem.system.prerequisites)&&same(item.flags.ptu?.selectedVersion,baseItem.flags.ptu?.selectedVersion);});check(row.additionalItemsMatchBase,'Additional token Items do not match exact base identities.');}
+            return{rows};
+        });
     }else if(plan.phase==='checkpoint'){
-        report.persisted=await Promise.all(game.actors.filter(a=>a.flags.ptu?.p02a?.batch===batch).map(async a=>({id:a.id,role:a.flags.ptu.p02a.role,hash:await digest(a.toObject()),reportsHash:await digest(views(a)),itemIds:a.items.map(i=>i.id)})));
-        await record('pre-reload-saved-fixture-checkpoint',async()=>({actors:report.persisted.length,items:report.persisted.reduce((n,a)=>n+a.itemIds.length,0)}));
-    }else if(plan.phase==='reload'){
+        report.persisted=plan.tokensOnly?[]:await Promise.all(game.actors.filter(a=>a.flags.ptu?.p02a?.batch===batch).map(async a=>({id:a.id,role:a.flags.ptu.p02a.role,hash:await digest(a.toObject()),reportsHash:await digest(views(a)),itemIds:a.items.map(i=>i.id)})));
+        const scene=game.scenes.find(s=>s.flags.ptu?.p02a===batch);check(scene,'Task scene missing.');
+        report.scenePersisted={uuid:scene.uuid,hash:await digest(scene.toObject()),tokens:await Promise.all(scene.tokens.filter(t=>t.flags.ptu?.p02aToken).map(async t=>({uuid:t.uuid,role:t.flags.ptu.p02aToken,linked:t.actorLink,hash:await digest(t.toObject()),actor:t.actor.uuid,actorHash:await digest(t.actor.toObject()),reportsHash:await digest(views(t.actor)),items:owned(t.actor).map(i=>({id:i.id,uuid:i.uuid,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))})))};
+        check(report.scenePersisted.tokens.length===4&&report.scenePersisted.tokens.filter(t=>!t.linked).length===2&&report.scenePersisted.tokens.every(t=>t.items.length>=4),'Nonempty linked/unlinked acquired token fixtures required.');
+        await record(plan.tokensOnly?'stable-token-checkpoint':'pre-reload-saved-fixture-checkpoint',async()=>({actors:report.persisted.length,items:report.persisted.reduce((n,a)=>n+a.itemIds.length,0),tokens:report.scenePersisted.tokens.length}));
+    }else if(plan.phase==='reload'||plan.phase==='token-reload'){
+        if(plan.phase==='reload'){
         const baseline=await(await fetch('/ptu02-acquisition/baseline.json',{cache:'no-store'})).json();
         await record('preexisting-data-and-persisted-reports',async()=>{for(const row of baseline.actors)check(await digest(game.actors.get(row.id).toObject())===row.hash,'Pre-existing actor changed: '+row.id);for(const row of baseline.items)check(await digest(game.items.get(row.id).toObject())===row.hash,'Pre-existing world Item changed: '+row.id);check(game.settings.get('ptu','worldSchemaVersion')===baseline.worldSchema,'World schema changed.');return{actors:baseline.actors.length,items:baseline.items.length,unchanged:true,fixtures:['character','pokemon','npc','starter'].map(role=>{const actor=fixtureActor(role);return{role,actor:actor.uuid,reports:views(actor),numeric:numerics(actor)};})};});
         const expected=await(await fetch('/ptu02-acquisition/expected.json',{cache:'no-store'})).json();
         await record('every-recorded-task-fixture-and-report-after-reload',async()=>{
+            check(expected.length>0,'Empty actor checkpoint.');
             for(const row of expected){const actor=game.actors.get(row.id);check(actor&&await digest(actor.toObject())===row.hash,'Saved task actor changed: '+row.id);check(await digest(views(actor))===row.reportsHash,'Derived saved report changed: '+row.id);}
             return{actors:expected.length,items:expected.reduce((n,a)=>n+a.itemIds.length,0),exactHashes:true,rows:expected};
+        });
+        }
+        const expectedScene=await(await fetch('/ptu02-acquisition/expected-tokens.json',{cache:'no-store'})).json();
+        await record('linked-and-unlinked-token-source-items-and-reports-after-reload',async()=>{
+            check(expectedScene.tokens.length===4&&expectedScene.tokens.filter(t=>!t.linked).length===2,'Four expected token fixtures, including two unlinked, required.');
+            const scene=await fromUuid(expectedScene.uuid);check(scene&&await digest(scene.toObject())===expectedScene.hash,'Task scene source changed.');
+            const rows=[];for(const row of expectedScene.tokens){check(row.items.length>=4,'Empty token acquisition checkpoint.');const token=await fromUuid(row.uuid);check(token&&token.actor.uuid===row.actor&&await digest(token.toObject())===row.hash,'Saved token identity/source changed: '+row.uuid);check(await digest(token.actor.toObject())===row.actorHash&&await digest(views(token.actor))===row.reportsHash,'Saved synthetic/world token actor or report changed: '+row.uuid);rows.push({uuid:token.uuid,linked:token.actorLink,actor:token.actor.uuid,tokenHash:await digest(token.toObject()),actorHash:await digest(token.actor.toObject()),reportsHash:await digest(views(token.actor)),items:owned(token.actor).map(i=>({id:i.id,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))});}
+            return{scene:scene.uuid,sceneHash:await digest(scene.toObject()),rows,exactHashes:true};
         });
     }else throw Error('Unknown acquisition phase');
     const escaped=foundry.utils.escapeHTML(JSON.stringify(report,null,2));
     new Dialog({title:'P02-A acquisition result',content:`<h2>${report.scenarios.filter(s=>s.result==='pass').length}/${report.scenarios.length} P02-A checks passed</h2><ul>${report.scenarios.map(s=>`<li>${s.result}: ${s.id}</li>`).join('')}</ul><textarea id="p02a-result" style="width:100%;height:350px">${escaped}</textarea>`,buttons:{close:{label:'Close'}}},{width:1000,height:760}).render(true);
     return report;
 }
+
+export async function runP02APlayerCheck(){
+    check(!game.user.isGM&&game.world.id==='ptu-verification','Use the existing player in the disposable world only.');
+    const plan=await(await fetch('/ptu02-acquisition/plan.json',{cache:'no-store'})).json();
+    const report={batch,phase:'actual-player',testedRuntime:plan.testedRuntime,executionId:crypto.randomUUID(),user:game.user.id,role:game.user.role,scenarios:[]};
+    const record=async(id,fn)=>{try{report.scenarios.push({id,result:'pass',observed:await fn()});}catch(error){report.scenarios.push({id,result:'fail',error:error.message,stack:error.stack});}};
+    for(const type of ['character','pokemon']){
+        const actor=fixtureActor(type),observer=fixtureActor(type+':observer');
+        const actions={
+            direct:target=>target.createEmbeddedDocuments('Item',[source('feature').toObject()]),
+            sheetNew:target=>target.sheet._onItemCreate({preventDefault(){},currentTarget:{dataset:{type:'edge'}}}),
+            sheetDrop:target=>target.sheet.emulateItemDrop({type:'Item',uuid:source('feature').uuid}),
+            nativePackDrop:target=>target.sheet.emulateItemDrop({type:'Item',uuid:packFeature}),
+            savedJSON:target=>target.createEmbeddedDocuments('Item',[JSON.parse(JSON.stringify(source('revised').toObject()))]),
+            mixedFolder:target=>target.sheet._onDropFolder(null,{type:'Folder',uuid:source('feature').folder.uuid}),
+            duplicate:async target=>[await owned(target)[0].clone({},{save:true,addSource:true})],
+            repeat:target=>target.createEmbeddedDocuments('Item',[source('feature').toObject(),source('feature').toObject()]),
+            nestedGrant:target=>target.createEmbeddedDocuments('Item',[source('nested').toObject()])
+        };
+        for(const [route,action] of Object.entries(actions)){
+            await record(type+':owner:'+route,async()=>{const before=numerics(actor),ids=actor.items.map(i=>i.id);const added=await action(actor);check(added?.length&&same(before,numerics(actor)),'Owner addition denied or changed numeric state.');for(const item of added)if(ADVISORY_TYPES.includes(item.type))check(views(actor).some(v=>v.id===item.id),'Player-owned diagnostic missing.');return{actor:actor.uuid,numericBefore:before,numericAfter:numerics(actor),idsBefore:ids,idsAfter:actor.items.map(i=>i.id),added:added.map(i=>({uuid:i.uuid,type:i.type,raw:i.system.prerequisites,version:i.flags.ptu.selectedVersion,diagnostic:i.prerequisiteDiagnostic}))};});
+            await record(type+':observer:'+route,async()=>{const before=observer.toObject();let denied=false;try{await action(observer);}catch(error){denied=true;}check(same(before,observer.toObject()),'Observer route changed saved actor.');return{actor:observer.uuid,deniedOrEmpty:true,threw:denied,beforeHash:await digest(before),afterHash:await digest(observer.toObject()),reports:views(observer)};});
+        }
+    }
+    await record('npc-generation-ordinary-role-denial',async()=>{check(!game.user.can('ACTOR_CREATE'),'Fixture player unexpectedly has Actor creation permission.');const {NpcQuickBuildData}=await import('/systems/ptu/src/module/apps/npc-quick-build/document.js');let denied=false;const before={actors:game.actors.size,folders:game.folders.size};try{await new NpcQuickBuildData().generate();}catch(error){denied=error.message.includes('permission');}check(denied&&same(before,{actors:game.actors.size,folders:game.folders.size}),'NPC normal role boundary failed.');return{before,after:{actors:game.actors.size,folders:game.folders.size},denied};});
+    const escaped=foundry.utils.escapeHTML(JSON.stringify(report,null,2));new Dialog({title:'P02-A player result',content:`<h2>${report.scenarios.filter(s=>s.result==='pass').length}/${report.scenarios.length} player checks passed</h2><textarea id="p02a-result" style="width:100%;height:350px">${escaped}</textarea>`,buttons:{close:{label:'Close'}}},{width:1000,height:600}).render(true);
+    return report;
+}
+const ADVISORY_TYPES=['feat','edge','pokeedge'];
