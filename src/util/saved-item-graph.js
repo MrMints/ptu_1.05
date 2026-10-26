@@ -3,7 +3,7 @@ import {isStarterTrainingGrant} from './starter-training.js';
 
 const links = item => item.flags?.ptu ?? {};
 const grants = item => Object.values(links(item).itemGrants ?? {});
-const related = (item, id) => links(item).grantedBy?.id === id || grants(item).some(edge => edge.id === id);
+const related = (item, id) => links(item).grantedBy?.id === id || grants(item).some(edge => edge?.id === id);
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fail = message => {throw Error(`PTU | Saved Item copy: ${message}`);};
 
@@ -30,6 +30,8 @@ function validateGraph(items) {
     const byId=new Map(items.map(item => [item._id,item]));
     if (byId.size!==items.length) fail('ambiguous local IDs.');
     for (const item of items) {
+        const metadata=links(item).itemGrants;
+        if ((metadata!=null && (typeof metadata!=='object'||Array.isArray(metadata))) || grants(item).some(edge=>!edge||typeof edge!=='object'||typeof edge.id!=='string'||!edge.id)) fail('malformed saved grant metadata; inspect this source graph.');
         for (const edge of grants(item)) {
             const target=byId.get(edge.id);
             if (!target || links(target).grantedBy?.id!==item._id) fail('incomplete or inconsistent reciprocal links.');
@@ -53,7 +55,7 @@ async function collect(selected) {
             if (!current.testUserPermission(game.user,'OBSERVER')) fail('a linked Item is inaccessible.');
             if (isExcludedAcquisitionDocument(current) || (current.pack && isStarterTrainingGrant(current))) fail('a linked compendium Item is excluded from acquisition.');
             group.documents.add(current);
-            const ids=[links(current).grantedBy?.id,...grants(current).map(edge=>edge.id)].filter(Boolean);
+            const ids=[links(current).grantedBy?.id,...grants(current).map(edge=>edge?.id)].filter(Boolean);
             for (const id of ids) {
                 const next=context.collection.get(id);
                 if (!next) fail('a linked Item is missing from this source collection.');

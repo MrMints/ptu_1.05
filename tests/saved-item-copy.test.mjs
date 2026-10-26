@@ -11,22 +11,26 @@ async function harness(){
     let sequence=0,prompts=0,accept=true,onConfirm=()=>{},creates=0,worldPermission=true;
     const world=new Collection(), game={items:world,packs:new Map(),user:{id:'owner'},combat:null};
     const CONFIG={Item:{documentClass:null}};
-    const actor=(type='character')=>({documentName:'Actor',uuid:'Actor.'+(++sequence),name:'Test '+type,type,isOwner:true,items:new Collection(),canHostRuleElements:true,allowedItemTypes:['feat','edge','condition','item'],rollOptions:{all:{}},reset(){},get itemTypes(){return{condition:this.items.filter(i=>i.type==='condition')};}});
+    const actors=[];
+    const actor=(type='character')=>{const doc={documentName:'Actor',uuid:'Actor.'+(++sequence),name:'Test '+type,type,isOwner:true,items:new Collection(),canHostRuleElements:true,allowedItemTypes:['feat','edge','condition','item'],rollOptions:{all:{}},reset(){},get itemTypes(){return{condition:this.items.filter(i=>i.type==='condition')};}};actors.push(doc);return doc;};
     class CoreItem {
+        static documentName='Item';
+        get documentName(){return 'Item';}
         constructor(data,options={}){this._source=clone(data);this._source.flags??={};this._source.system={rules:[],...this._source.system};Object.assign(this,{id:this._source._id,name:data.name,type:data.type,flags:this._source.flags,system:this._source.system,parent:options.parent??null,actor:options.parent??null,pack:options.pack??null,readable:true});}
         get uuid(){return(this.parent?.uuid??'')+'.Item.'+this.id;}
         testUserPermission(){return this.readable;}
         toObject(){return clone(this._source);}
         clone(data={},context={}){const source=merge(this.toObject(),data);if(!context.keepId)delete source._id;return context.save?this.constructor.create(source,{parent:this.parent,pack:this.pack}):new this.constructor(source,{parent:this.parent,pack:this.pack});}
         static canUserCreate(){return worldPermission;}
-        static async fromDropData(data){return data.document;}
+        static async create(source,context){return (await this.createDocuments([source],context))[0];}
+        static async fromDropData(data){const doc=data.document;doc._source._stats??={};doc._source._stats.compendiumSource=doc.uuid;return doc;}
         static async createDocuments(sources,{parent=null,pack=null,keepId}={}){creates++;const collection=parent?.items??(pack?game.packs.get(pack):world);return sources.map(source=>{source=clone(source);if(!keepId||!source._id)source._id=String(++sequence).padStart(16,'0');assert(!collection.has(source._id));const doc=new CONFIG.Item.documentClass(source,{parent,pack});collection.set(doc.id,doc);return doc;});}
     }
     class CoreSheet{constructor(actor){this.actor=actor;}async _onDropItem(){return 'ordinary';}}
     let folderContents=[];
     const globals={console,Item:CoreItem,CONFIG,game,Folder:{implementation:{fromDropData:async()=>({type:'Item',contents:folderContents})}},Dialog:{confirm:async config=>{prompts++;assert.match(config.content,/linked Item/);await onConfirm();return accept;}},
         isExcludedAcquisitionDocument:()=>false,isStarterTrainingGrant:()=>false,RuleElements:{fromOwnedItem:()=>[]},prerequisiteView:()=>null,sluggify:s=>s.toLowerCase().replaceAll(' ','-'),
-        foundry:{utils:{deepClone:clone,randomID:()=>String(++sequence).padStart(16,'0'),mergeObject:merge},appv1:{sheets:{ActorSheet:CoreSheet}}},ui:{notifications:{error(){},warn(){}}}};
+        foundry:{utils:{fromUuid:async uuid=>[...world.values(),...actors.flatMap(actor=>[...actor.items.values()])].find(item=>item.uuid===uuid),deepClone:clone,randomID:()=>String(++sequence).padStart(16,'0'),mergeObject:merge},appv1:{sheets:{ActorSheet:CoreSheet}}},ui:{notifications:{error(){},warn(){}}}};
     const util=await load('src/util/saved-item-graph.js','({hasSavedItemGraph,copySavedItemDocuments})',globals);Object.assign(globals,util);
     const ItemClass=await load('src/module/item/base.js','PTUItem',globals);CONFIG.Item.documentClass=ItemClass;CoreItem.implementation=ItemClass;
     const BaseSheet=await load('src/module/actor/sheet.js','PTUActorSheet',globals);
@@ -49,7 +53,7 @@ test('actual saved clone/save preserves selected return, independent graphs and 
 test('actual trainer and inherited Pokémon sheet drop copy parent/child and preserve sources on repeats',async()=>{
     for(const type of ['character','pokemon'])for(const selected of [0,1]){
         const h=await harness(),origin=h.actor(type),target=h.actor(type),source=h.seed(origin),before=snapshot(origin.items),sheet=new(type==='character'?h.TrainerSheet:h.BaseSheet)(target);
-        for(let repeat=0;repeat<2;repeat++){const added=await sheet._onDropItem({}, {document:source[selected]});assert.equal(added[0].type,source[selected].type);verifyPair(added,source);}
+        for(let repeat=0;repeat<2;repeat++){const added=await sheet._onDropItem({}, {document:source[selected],uuid:source[selected].uuid});assert.equal(added[0].type,source[selected].type);verifyPair(added,source);}
         assert.deepEqual(snapshot(origin.items),before);assert.equal(target.items.size,4);assert.equal(h.counts().prompts,2);
     }
 });
@@ -57,7 +61,7 @@ test('actual trainer and inherited Pokémon sheet drop copy parent/child and pre
 test('actual world clone and world-to-actor copies use only their established world graph',async()=>{
     for(const selected of [0,1]){const h=await harness(),source=h.seed(),before=snapshot(h.world),target=h.actor('pokemon');
         const copy=await source[selected].clone({}, {save:true});assert.equal(copy.type,source[selected].type);verifyPair([...h.world.values()].slice(2),source);
-        const result=await new h.BaseSheet(target)._onDropItem({}, {document:source[selected]});verifyPair(result,source);assert.deepEqual(snapshot(new Collection([...h.world].slice(0,2))),before);
+        const result=await new h.BaseSheet(target)._onDropItem({}, {document:source[selected],uuid:source[selected].uuid});verifyPair(result,source);assert.deepEqual(snapshot(new Collection([...h.world].slice(0,2))),before);
     }
 });
 
@@ -77,4 +81,14 @@ test('one-sided incoming links refuse, complete selections need no expansion pro
 test('actual folder drop expands missing members once; unrelated contexts with coincident IDs stay independent',async()=>{
     const h=await harness(),worldPair=h.seed(),target=h.actor('pokemon');h.setFolder([worldPair[1]]);const added=await new h.BaseSheet(target)._onDropFolder({},{});assert.equal(added[0].type,'condition');verifyPair(added,worldPair);assert.equal(h.counts().prompts,1);
     const first=h.seed(h.actor()),second=h.seed(h.actor());const result=await h.copySavedItemDocuments([first[0],second[1]],{parent:target});assert.equal(result.length,4);const ids=new Set(result.map(item=>item.id));assert.equal(ids.size,4);for(const root of result.filter(item=>item.type==='feat')){const child=result.find(item=>item.id===root.flags.ptu.itemGrants.saved.id);assert.equal(child.flags.ptu.grantedBy.id,root.id);}
+});
+
+test('unrelated null grant metadata cannot block ordinary clone/drop; malformed linked metadata refuses unchanged',async()=>{
+    const h=await harness(),origin=h.actor(),target=h.actor(),pair=h.seed(origin);
+    const unrelated=new h.ItemClass({_id:'unlinked00000001',name:'Ordinary unlinked',type:'edge',flags:{},system:{rules:[]}},{parent:origin});origin.items.set(unrelated.id,unrelated);
+    pair[0].flags.ptu.itemGrants.custom=null;
+    const before=snapshot(origin.items);assert.equal(h.hasSavedItemGraph(unrelated),false);
+    const ephemeral=unrelated.clone();assert.equal(ephemeral.type,'edge');const saved=await unrelated.clone({},{save:true});assert.equal(saved.type,'edge');assert.notEqual(saved.id,unrelated.id);assert.equal(await new h.BaseSheet(target)._onDropItem({},{document:unrelated,uuid:unrelated.uuid}),'ordinary');
+    // Core's ordinary drop provenance behavior remains independent of saved-graph handling.
+    const afterOrdinary=snapshot(origin.items);await assert.rejects(h.copySavedItemDocuments([pair[0]],{parent:target}),/malformed saved grant metadata/);assert.deepEqual(snapshot(origin.items),afterOrdinary);assert.equal(target.items.size,0);assert.equal(h.counts().prompts,0);assert.equal(before[0].flags.ptu.itemGrants.custom,null);
 });

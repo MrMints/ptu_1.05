@@ -24,7 +24,10 @@ class PTUItem extends Item {
     }
 
     static async fromDropData(data) {
-        const document = await super.fromDropData(data);
+        // Core stamps provenance on the original Document. Saved graph copies must
+        // leave that source intact, including when expanded copying is cancelled.
+        const source=data.uuid&&!data.data?await foundry.utils.fromUuid(data.uuid):null;
+        const document=source?.documentName===this.documentName&&hasSavedItemGraph(source)?source:await super.fromDropData(data);
         if (isExcludedAcquisitionDocument(document)) throw new Error('PTU | This compendium record is excluded from new acquisition by the Generations 1–8 scope.');
         if (document.pack && isStarterTrainingGrant(document)) throw new Error('PTU | Use Choose Starter Training on a newly created trainer.');
         return document;
