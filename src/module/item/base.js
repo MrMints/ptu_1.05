@@ -265,6 +265,12 @@ class PTUItem extends Item {
         }
         const restoredRules=new Map(),graphChildren=new Set();
         for(const source of sources){
+            const savedEdges=Object.entries(source.flags?.ptu?.itemGrants??{});
+            const grantRules=(source.system?.rules??[]).filter(rule=>rule.key==='GrantItem');
+            if(savedEdges.length&&grantRules.length){
+                const flags=grantRules.map(rule=>rule.flag);
+                if(flags.some(flag=>typeof flag!=='string'||!flag.trim())||new Set(flags).size!==flags.length||savedEdges.some(([flag,edge])=>typeof edge?.id!=='string'||!edge.id.trim()||!flags.includes(flag)))throw Error('PTU | Saved grant rule-to-edge association is unestablished or ambiguous; review explicit flags and restore the complete graph.');
+            }
             for(const [index,rule] of (source.system?.rules??[]).entries()){
                 const saved=rule.key==='GrantItem'&&typeof rule.flag==='string'?source.flags?.ptu?.itemGrants?.[rule.flag]:null;
                 if(!saved?.id)continue;

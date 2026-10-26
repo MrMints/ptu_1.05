@@ -62,12 +62,32 @@ export async function runP02ACorrectionCheck(){
                 if(keep)assert(parent.id===input[0]._id&&savedChild.id===input[1]._id,'ID-preserving restore changed IDs.');else assert(parent.id!==input[0]._id&&savedChild.id!==input[1]._id,'Copy did not assign independent IDs.');
                 for(const [index,item] of [parent,savedChild].entries())for(const key of ['prerequisites','notes','slug','stackSlugs'])assert(same(item.toObject().system[key],original[index].system[key]),'Saved custom '+key+' changed.');
                 for(const [index,item] of [parent,savedChild].entries())assert(same(item.flags.ptu.selectedVersion,original[index].flags.ptu.selectedVersion),'Saved version context changed.');
+                if(mode==='condition-keep')assert(savedChild.value===4&&counter(actor).value===1,'Saved condition value was merged or incremented.');
                 if(mode==='new-rule')assert(parent.flags.ptu.itemGrants.newEdge.id===added[2].id&&added[2].flags.ptu.grantedBy.id===parent.id,'Genuine new grant was suppressed.');
                 assert(same(numeric({toObject:()=>before}),numeric(actor)),'Graph copy changed numeric actor state.');
             }
             if(keep){const before=actor.toObject();let denied=false;try{await actor.createEmbeddedDocuments('Item',input,{keepId:true});}catch(e){denied=true;}assert(denied&&same(before,actor.toObject()),'Repeated saved-ID restore changed the owned graph.');}
             return{actor:actor.uuid,mode,input,runs};
         });
+    }else if(plan.phase==='ambiguous-graphs'){
+        assert(game.user.isGM,'GM fresh ambiguity fixtures.');
+        for(const type of ['character','pokemon'])for(const keep of [true,false])await record(type+':unestablished-rule-association:'+(keep?'keep':'copy'),async()=>{
+            const actor=await Actor.create(await actorData(plan.group,type,type+':ambiguous:'+keep+':'+report.executionId)),input=graph(),before=actor.toObject();delete input[0].system.rules[0].flag;let error=null,added;
+            try{added=await actor.createEmbeddedDocuments('Item',input,keep?{keepId:true}:{});}catch(e){error=e.message;}
+            const observed={actor:actor.uuid,input,before,after:actor.toObject(),error,added:added?.map(protectedItem)};report.ambiguousObservations??=[];report.ambiguousObservations.push(observed);
+            assert(error?.includes('association')&&same(before,actor.toObject()),'Unestablished saved association replayed or changed the saved actor.');return observed;
+        });
+    }else if(plan.phase==='nested'){
+        await record(plan.actorType+':fresh-nested-choice-and-grant',async()=>{
+            let nested=game.items.find(i=>marked(i)&&i.flags.ptu.p02ac.role==='nested-source');
+            if(!nested){assert(game.user.isGM,'GM prepares nested source.');nested=await Item.create({name:'P02AC nested Feature',type:'feat',ownership:{default:2},flags:{ptu:{p02ac:{batch,role:'nested-source'},selectedVersion:'synthetic nested'}},system:{prerequisites:['Master Focus','GM Permission'],rules:[{key:'GrantItem',uuid:child().uuid,flag:'child',allowduplicate:true}]}});}
+            const actor=getActor(plan.group,plan.actorType,'feat'),before=actor.toObject(),added=await actor.createEmbeddedDocuments('Item',[{name:'P02AC nested genuine choice',type:'effect',system:{rules:[{key:'ChoiceSet',flag:'chosen',adjustName:false,choices:[{label:'Nested Feature',value:nested.uuid},{label:'Edge only',value:child().uuid}]},{key:'GrantItem',uuid:'{item|flags.ptu.rulesSelections.chosen}',replaceSelf:true,allowduplicate:true}]}}]);
+            assert(added.length===2&&added.some(i=>i.type==='feat')&&added.some(i=>i.type==='edge'),'Nested grant was suppressed or replayed.');assert(same(numeric({toObject:()=>before}),numeric(actor)),'Nested grant changed unrelated actor values.');return{actor:actor.uuid,before,after:actor.toObject(),added:added.map(protectedItem)};
+        });
+    }else if(plan.phase==='starter-start'){
+        assert(game.user.isGM,'GM starter fixture.');assert(!getActor(plan.group,'character','starter'),'Starter fixture exists; inspect rather than recreating.');await Actor.create({name:'P02AC one-time starter',type:'character',system:{health:{value:30}},flags:{ptu:{p02ac:{batch,group:plan.group,role:'character:starter'}}}});return;
+    }else if(plan.phase==='starter-check'){
+        await record('actual-new-starter-choice-and-repeat-denial',async()=>{const actor=getActor(plan.group,'character','starter');assert(actor?.flags.ptu.starterTraining.status==='complete'&&actor.itemTypes.feat.length===1,'New starter did not complete once.');const before=actor.toObject();await actor.selectStarterTraining();assert(same(before,actor.toObject()),'Completed starter repeated.');return{actor:actor.uuid,saved:actor.toObject(),diagnostics:actor.prerequisiteDiagnostics};});
     }else if(plan.phase==='non-owner'){
         assert(!game.user.isGM,'Actual player only.');
         for(const type of ['character','pokemon'])for(const mode of ['mixed','keep','copy','prepared'])await record(type+':observer:'+mode,async()=>{

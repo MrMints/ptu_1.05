@@ -117,3 +117,11 @@ test('ID-preserving saved Condition-child graph retains its custom slug and reci
     const before=clone(input),result=await h.ItemClass.createDocuments(input,{parent:h.actor,keepId:true});
     assert.equal(result.length,2);assert.deepEqual(clone(result.map(i=>i.toObject())),before);assert.equal(h.counts().increments,0);assert.deepEqual(input,before);
 });
+
+test('unestablished saved rule-to-edge associations stop unchanged for restore and copy',async()=>{
+    for(const keepId of [true,false])for(const flag of [undefined,'','changed-unproven-flag']){
+        const h=await harness(),input=graph();if(flag===undefined)delete input[0].system.rules[0].flag;else input[0].system.rules[0].flag=flag;
+        const raw=clone(input),before=h.snapshot();await assert.rejects(h.ItemClass.createDocuments(input,{parent:h.actor,keepId}),/association/);
+        assert.deepEqual(h.snapshot(),before);assert.deepEqual(input,raw);assert.deepEqual(h.counts(),{creates:0,increments:0,ruleCalls:0});
+    }
+});
