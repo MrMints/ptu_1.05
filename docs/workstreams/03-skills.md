@@ -1,6 +1,6 @@
 # PTU 03 - Core skill terminology compatibility
 
-Status: Historical terminology acceptance remains bounded. The explicitly assigned P03 evaluator/solver correction is implemented and tested on 2026-10-26; substantive planner review remains pending. Checkout/world ownership is released at this handoff. P02 and 05 are not started; no section, merge or release starts automatically.
+Status: P03 was substantively accepted at `c547e3ac86855e61c52ecd7816fdd23ac17c1c2c` after code/test/hash/reload review and CI 40270536333. Terminology and evaluator/solver acceptance retain their limits. 03 is idle; later P02-P/P02-A acceptance is in the shared ledger. P01 review, remaining P04/D and 05 stay held. Older handoffs below retain their original pending status.
 
 ## Owner amendment and pre-05 gate
 

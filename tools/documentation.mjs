@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { checkEvidenceContract } from './evidence-contract.mjs';
 
 export function documentationErrors(body, changedFiles) {
     const errors = [];
@@ -20,6 +21,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     const { base, head, body } = event.pull_request;
     const files = execFileSync('git', ['diff', '--name-only', `${base.sha}...${head.sha}`], { encoding: 'utf8' }).trim().split(/\r?\n/);
     const errors = documentationErrors(body, files);
+    errors.push(...await checkEvidenceContract());
     const changelog = await readFile('CHANGELOG.md', 'utf8');
     if (!/^## Unreleased\s*$/m.test(changelog)) errors.push('Keep an Unreleased changelog section.');
     if (errors.length) throw new Error(errors.join('\n'));

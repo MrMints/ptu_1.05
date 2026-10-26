@@ -1,6 +1,6 @@
 # PTU 02 - Content recovery and Foundry integration
 
-Status: accepted P03/P02-P remain unchanged. P02-A correction runtime `416c645eb73e92a4778bac486ab3b830bdf33718` is implemented/observed within its limits, pending substantive planner acceptance. Broad earlier cancellation/no-replay claims are superseded by the correction below. P01, remaining P04/D and 05 remain held. Generations 1–8 only.
+Status: P03/P02-P remain accepted. P02-A is substantively accepted at evidence head `48f05f2e`, runtime `416c645e`, after planner review and CI 40303951797. [P01 binding/evidence notes](../validation/2026-10-26-p01.md) preserve stale labels and bounded reload diagnosis. 02 released ownership and is idle; P01 awaits review, remaining P04/D and 05 stay held. Generations 1–8 only. Historical handoffs below retain original pending/ownership statements.
 
 ## Owner amendment and pre-05 gates
 

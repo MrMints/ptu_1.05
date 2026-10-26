@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P01 evidence-contract reconciliation
+- Record bounded P03/P02-P/P02-A acceptance and review all nine briefs. P01 remains pending substantive review; remaining 04/D and 05 stay held.
+- Preserve raw P02-A reports; add 26 runtime bindings to `416c645e`, reviewed installation/fresh-client history, served source hash, archive identity and actual fixture context. Retain the first reload failure, exact diagnosis and separate stable pass.
+- Add route/outcome/runtime/disposition/completion checks to the existing Documentation entrypoint and focused negative tests. Structure checks do not automate substantive accuracy review. No gameplay, compendium, world, version or protection changes.
+
 ### P02-A advisory acquisition and display
 - Retain the actual source Document in saved-Item Duplicate and trainer/Pokémon sheet-drop routes. Gather its complete reciprocal graph only from that source collection, require read access, and confirm any additional linked Items before creation. Cancellation, unavailable/inconsistent origins and permission failures leave the destination unchanged; independent copies preserve custom fields, selections and internal links without replaying saved grants.
 - Correct the reviewed mixed-batch cancellation gap: existing valued conditions are staged and increment only after choices and Item creation succeed. Preserve exact saved reciprocal grant graphs, saved custom slugs/fields and version context; ordinary complete-graph copies remap only supplied internal IDs. Incomplete/ambiguous graphs require review instead of grant replay. New grants and legitimate repeat acquisitions remain active.

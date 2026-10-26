@@ -9,7 +9,7 @@
       "path": "Item.createDocuments",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -18,7 +18,7 @@
       "path": "Item.fromDropData → Item.createDocuments",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -27,7 +27,7 @@
       "path": "UUID drop → sheet-drop",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -36,7 +36,7 @@
       "path": "actual pack scope guard → world copy/drop",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -45,7 +45,7 @@
       "path": "quadtree token → sheet.emulateItemDrop → sheet-drop",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -54,7 +54,7 @@
       "path": "synthetic token actor → sheet.emulateItemDrop",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -63,7 +63,7 @@
       "path": "resolve Documents → scope filter → inherited _onDropItemCreate",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -72,7 +72,7 @@
       "path": "permission → cloned staging → genuine choices → core persistence",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -81,7 +81,7 @@
       "path": "core actor/inline Item restoration; no choice replay; derived diagnostics",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -90,7 +90,7 @@
       "path": "core world Item.importFromJSON → exact saved data → owned copy; embedded core import API limitation retained",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -99,7 +99,7 @@
       "path": "raw saved copy with preserved source/version → embedded creation",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -108,7 +108,7 @@
       "path": "normal core copy → Item.createDocuments",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -117,7 +117,7 @@
       "path": "inline saved choices preserved; no starter retrofit",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -126,7 +126,7 @@
       "path": "accepted diagnostic → temporary-actor choice staging → normal persistence",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -135,7 +135,7 @@
       "path": "new trainer entitlement only; owner/pending/repeat guards; nested choice/grant",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     },
     {
@@ -144,7 +144,7 @@
       "path": "effect/choice predicates remain; game prerequisite arrays are advisory",
       "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
       "security": "ordinary document permissions retained",
-      "verification": "Observed within the actual P02-A matrix; pending substantive planner acceptance.",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
       "evidence": "docs/validation/2026-10-26-p02a.json"
     }
   ],
@@ -163,5 +163,7 @@
   },
   "boundary": "No blanket predicate disabling; no source variants or rulings invented. Raw restoration does not replay grants/choices or delete saved data. Existing known exclusions stay separate from game-rule diagnostics.",
   "testedRuntime": "077711dbb4c928180483505282b094c8c94eecf0",
-  "acceptance": "pending substantive planner review"
+  "acceptance": "Substantively accepted within historical observations plus final correction at evidence head 48f05f2e; see separate P01 evidence contract.",
+  "evidenceContract": "docs/data/p01-evidence-contract.json",
+  "runtimeBinding": "docs/validation/2026-10-26-p02a-runtime-binding.json"
 }

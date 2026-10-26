@@ -17,7 +17,7 @@ Read [the scope policy](../SCOPE.md) first: **Generations 1–8 only; Generation
 Read `AGENTS.md`, `docs/CHAT_PLAN.md`, `docs/STATUS.md` and this file. Check the current branch, working tree and relevant dependency handoffs. The saved baseline may be stale; do not repeat completed work. Only one chat may edit the shared checkout or use the shared Foundry data directory at a time.
 
 ## Dependencies
-Existing reference inventory. This source-analysis chat need not wait for Foundry activation, but still waits for an explicit start.
+Existing reference inventory plus accepted P03/P02/P01 under the amended sequence. P03/P02-P/P02-A are accepted; P01 review is pending. D and remaining families require explicit assignment after that review; Foundry activation does not waive this gate.
 
 ## Scope
 

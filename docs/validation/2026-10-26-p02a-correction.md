@@ -1,5 +1,7 @@
 # P02-A cancellation and saved-graph correction — 2026-10-26
 
+**Acceptance update — P01, 2026-10-26:** P02-A was substantively accepted at evidence head `48f05f2e6dbcdb210384cbb83cc9c39c21df7ec6`, tested runtime `416c645eb73e92a4778bac486ab3b830bdf33718`, after planner review turn `01a177ac-456d-7121-9d66-b3dc525a8ddf` and passing [CI 40303951797](https://github.com/MrMints/ptu_1.05/actions/runs/40303951797). The [separate runtime binding](2026-10-26-p02a-runtime-binding.json) resolves 26 stale caller-supplied runtime/group labels without editing raw machine observations. [P01 evidence and limits](2026-10-26-p01.md) preserve the first reload failure and separate stable pass. P01 review, remaining 04/D and 05 stay held. Pending/ownership statements below are the original handoff, retained as history.
+
 Implemented and observed within the limits below; **pending substantive planner acceptance**. This corrects the broad cancellation/no-replay claims in the [earlier P02-A report](2026-10-26-p02a.md), rather than accepting that gate. Accepted P03 `c547e3ac` and P02-P `d7dc7f0b` remain unchanged. P01, remaining P04/D and 05 stay held.
 
 Final runtime/build: **`416c645eb73e92a4778bac486ab3b830bdf33718`**, branch `codex/ptu-foundation`, existing draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). Later changes are diagnostic/evidence/documentation only; packaged inputs remain exact. The final pushed head and its CI run/jobs are reported in the completion handoff. No PR/issue metadata edits, merge, release or version change.

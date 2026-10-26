@@ -1,5 +1,12 @@
 # Batch testing
 
+## P01 evidence-contract checks
+
+Run `node --test --test-isolation=none tests/documentation.test.mjs tests/evidence-contract.test.mjs` and `node tools/evidence-contract.mjs` after evidence-contract changes. The existing Documentation entrypoint runs the contract; the Validation test glob includes its negative tests. The [contract](data/p01-evidence-contract.json) links all 16 supported routes to observed cases and distinguishes current from reused evidence. The [runtime binding](validation/2026-10-26-p02a-runtime-binding.json) resolves 26 label contradictions through reviewed installation/client/hash evidence without editing raw reports. Exact indices distinguish repeated scenario labels.
+
+Required failures/not-run cases need accepted dispositions and reciprocal links to passing superseding observations; a later pass never erases the earlier failure. Record expected/observed outcomes, execution/runtime/artifact identities and explicit limits. Structure checks do not establish accuracy, appropriate reuse/dispositions or actual route behavior. See [P01 validation](validation/2026-10-26-p01.md). No new production variants, full 04, OPEN-05 or release readiness is certified.
+
+
 All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Partial guards cover three reviewed identities; future release validation must check complete exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns. Complete release exclusion is not implemented.
 
 ## Amended pre-05 acceptance

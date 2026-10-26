@@ -1,5 +1,7 @@
 # Contributing
 
+Pre-05 evidence changes must pass `node tools/evidence-contract.mjs` and focused documentation/evidence tests. The Documentation CI job runs the same contract. Preserve raw observations; annotate reviewed runtime contradictions separately and link failed expectations to accepted dispositions and exact superseding observations. Reused evidence keeps its original runtime and limits. Structural success never substitutes for substantive review. See [P01 guidance](docs/validation/2026-10-26-p01.md).
+
 Follow [docs/SCOPE.md](docs/SCOPE.md): approved Generations 1–8 content only; Generation 9 and later are excluded from supported recovery, rules variants, verification, automation and releases. Preserve historical records and campaign data; inventory totals are not supported-scope totals. Do not infer a shared target's generation from an excluded consumer.
 
 Follow the owner amendment and sequential gates in [docs/PRE_05_RECONCILIATION.md](docs/PRE_05_RECONCILIATION.md). Retain separately selectable source-backed original/revised Moves, Abilities, Features and Edges with accurate labels and stable identities. Feature/Edge acquisition is advisory with respect to game-rule prerequisites: report each unmet or unverifiable condition for the selected version without blocking an authorized add or silently changing actor values. Security, scope and effect-use conditions remain separate. Reopened existing foundations require implementation, observed test evidence and substantive acceptance before 05; documentation alone is insufficient.
