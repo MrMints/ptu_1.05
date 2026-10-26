@@ -255,6 +255,7 @@ class PTUItem extends Item {
         const keepIds=context.keepId||context.keepEmbeddedIds;
         const counts=new Map();
         for(const source of sources)if(source._id)counts.set(source._id,(counts.get(source._id)??0)+1);
+        for(const source of sources)if(counts.get(source._id)>1&&(source.flags?.ptu?.grantedBy?.id||Object.keys(source.flags?.ptu?.itemGrants??{}).length))throw Error('PTU | Ambiguous saved grant node IDs; restore distinct complete graphs separately.');
         const ids=new Map();
         for(const source of sources){const oldId=source._id;source._id=keepIds?(oldId??foundry.utils.randomID()):foundry.utils.randomID();if(oldId&&counts.get(oldId)===1)ids.set(oldId,source._id);}
         // Only exact IDs supplied together can be remapped; external/ambiguous links are never guessed.

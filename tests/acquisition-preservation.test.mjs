@@ -127,11 +127,12 @@ test('unestablished saved rule-to-edge associations stop unchanged for restore a
 });
 
 test('partial or non-reciprocal saved graphs never attach by a name or coincident ID',async()=>{
-    for(const keepId of [true,false])for(const kind of ['child-only','wrong-parent','manual-partial']){
+    for(const keepId of [true,false])for(const kind of ['child-only','wrong-parent','manual-partial','duplicate-parent']){
         const h=await harness(),input=kind==='child-only'?[graph()[1]]:graph();
         if(kind==='wrong-parent')input[1].flags.ptu.grantedBy.id='unprovenparent01';
         if(kind==='manual-partial'){input.pop();input[0].system.rules=[];}
-        const before=h.snapshot(),raw=clone(input);await assert.rejects(h.ItemClass.createDocuments(input,{parent:h.actor,keepId}),/Saved grant/);assert.deepEqual(h.snapshot(),before);assert.deepEqual(input,raw);
+        if(kind==='duplicate-parent')input.push(clone(input[0]));
+        const before=h.snapshot(),raw=clone(input);await assert.rejects(h.ItemClass.createDocuments(input,{parent:h.actor,keepId}),/Saved grant|Ambiguous saved grant/);assert.deepEqual(h.snapshot(),before);assert.deepEqual(input,raw);
     }
     const h=await harness(),manual=graph();manual[0].system.rules=[];const result=await h.ItemClass.createDocuments(manual,{parent:h.actor});assert.equal(result.length,2);assert.equal(result[0].flags.ptu.itemGrants.savedEdge.id,result[1].id);assert.equal(result[1].flags.ptu.grantedBy.id,result[0].id);
 });

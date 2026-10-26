@@ -5,10 +5,10 @@ const assert=(ok,message)=>{if(!ok)throw Error(message);};
 const hash=async v=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(v))))).map(n=>n.toString(16).padStart(2,'0')).join('');
 const marked=d=>d.flags.ptu?.p02ac?.batch===batch;
 const getActor=(group,type,kind)=>game.actors.find(a=>marked(a)&&a.flags.ptu.p02ac.group===group&&a.flags.ptu.p02ac.role===type+':'+kind);
-const counter=actor=>actor.itemTypes.condition.find(i=>i.system.slug==='cancellation-counter');
+const counter=actor=>actor.itemTypes.condition.find(i=>i.flags.ptu?.p02acCounter)??actor.itemTypes.condition.find(i=>i.system.slug==='cancellation-counter');
 const child=()=>game.items.find(i=>marked(i)&&i.flags.ptu.p02ac.role==='child-source');
 const numeric=a=>{const s=a.toObject().system;return{skills:s.skills,stats:s.stats,level:s.level,health:s.health,money:s.money};};
-function conditionData(){return{name:'Cancellation Counter',type:'condition',system:{slug:'cancellation-counter',value:{isValued:true,value:1},rules:[],description:'Synthetic cancellation counter'}};}
+function conditionData(){return{name:'Cancellation Counter',type:'condition',flags:{ptu:{p02acCounter:true}},system:{slug:'cancellation-counter',value:{isValued:true,value:1},rules:[],description:'Synthetic cancellation counter'}};}
 async function actorData(group,type,role){
     const data={name:'P02AC '+group+' '+role,type,flags:{ptu:{p02ac:{batch,group,role},starterTraining:{status:'pending'}}},system:{health:{value:30}},items:[conditionData()]};
     if(type==='pokemon'){const species=game.items.fromCompendium(await fromUuid('Compendium.ptu.species.Item.QE7WhquxeuebiEVQ'));species.system.rules=[];data.items.unshift(species);}
