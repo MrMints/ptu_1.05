@@ -2,6 +2,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {readPackSources} from './pack-sources.mjs';
+import {checkUnmatchedSpecies} from './species-unmatched-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -51,7 +52,7 @@ export function extractSourceAcquisitionSection(pageText, group) {
     const start = headings[first], following = headings.slice(first + 1), nextList = following.find(match => kind(match) !== group);
     // A secondary Zen Mode stat block follows the tutor list on plus p.418.
     // Keep that independently reviewed block outside the acquisition section.
-    const statBlock = [...text.matchAll(/^[ \t]*[A-Z][A-Z \t-]+[ \t]+Zen Mode[ \t]*\r?\n(?=\s*Base Stats:)/gm)].find(match => match.index > start.index);
+    const statBlock = [...text.matchAll(/^[ \t]*(?:\d+\.\s*)?[A-Z][A-Z \t-]+[ \t]+Zen Mode[ \t]*\r?\n(?=\s*Base Stats:)/gm)].find(match => match.index > start.index);
     const end = statBlock && (!nextList || statBlock.index < nextList.index) ? statBlock : nextList, stop = end?.index ?? text.length;
     return {raw: text.slice(start.index + start[0].length, stop), startLine: text.slice(0, start.index).split('\n').length,
         endLine: text.slice(0, stop).split('\n').length, openingHeading: start[0].trim(), closingHeading: end?.[0].trim() ?? null,
@@ -81,6 +82,25 @@ export function unqualifiedAcquisitionKeys(parsed) {
         counts.set(key, counts.get(key) - 1); return false;
     }).reverse();
 }
+export function parseCompactSourceProfiles(pageText) {
+    const text = String(pageText ?? ''), starts = [...text.matchAll(/^([A-Za-z][A-Za-z -]+)\s+\(([A-Za-z]+)\)\s*\nHP\s+(\d+)\s*\/\s*ATK\s+(\d+)\s*\/\s*DEF\s+(\d+)\s*\/\s*SP\s*\.\s*ATK\s+(\d+)\s*\/\s*SP\s*\.\s*DEF\s+(\d+)\s*\/\s*SPEED\s+(\d+)\s*\n([^\n]+)\n/gm)];
+    return starts.map((match, index) => {
+        const tail = text.indexOf('Building Trainers and Campaigns for Babel', match.index), stop = Math.min(starts[index + 1]?.index ?? text.length, tail < 0 ? text.length : tail);
+        const raw = text.slice(match.index, stop), body = text.slice(match.index + match[0].length, stop), caps = body.indexOf('Capabilities:'), skills = body.indexOf('Skills:');
+        const levelRaw = body.slice(0, caps < 0 ? body.length : caps), levelRows = [], unparsedLevelEntries = [];
+        for (const entry of cleanText(levelRaw).split(',').map(value => value.trim()).filter(Boolean)) {
+            const row = entry.match(/^(.+?)\s+(\d+)$/);
+            if (row) levelRows.push({name: row[1], level: Number(row[2])}); else unparsedLevelEntries.push(entry);
+        }
+        const tiers = match[9].split('/').map(value => value.split(',').map(label => label.trim()).filter(Boolean));
+        return {label: match[1].trim(), stats: Object.fromEntries(['hp', 'atk', 'def', 'spatk', 'spdef', 'spd'].map((key, ordinal) => [key, Number(match[ordinal + 3])])), types: [match[2]],
+            abilitySlots: tiers.flatMap((values, tier) => values.map((label, ordinal) => [tier === 0 ? `Basic Ability ${ordinal + 1}` : tier === 1 ? `Adv Ability ${ordinal + 1}` : 'High Ability', label])),
+            levelRows, levelText: levelRows.map(row => `${row.level} ${row.name}`).join(' '), levelRaw, unparsedLevelEntries,
+            capabilities: caps < 0 ? null : cleanText(body.slice(caps + 13, skills < 0 ? body.length : skills)), skills: skills < 0 ? null : cleanText(body.slice(skills + 7)).replace(/\s*artist unknown.*$/i, '').replace(/\s*art by .*$/i, ''),
+            anchor: {startLine: text.slice(0, match.index).split('\n').length, endLine: text.slice(0, stop).split('\n').length, contextNormalizedSha256: textHash(normalizedText(raw))},
+            raw};
+    });
+}
 const referencePaths = (value, target, path = '$') => {
     if (Array.isArray(value)) return value.flatMap((child, index) => referencePaths(child, target, `${path}[${index}]`));
     if (value && typeof value === 'object') return Object.entries(value).flatMap(([key, child]) => referencePaths(child, target, `${path}.${key}`));
@@ -101,12 +121,13 @@ export async function loadRecordSourceReview() {
     const source = await readPackSources(manifest);
     const protectedHashes = Object.fromEntries(await Promise.all(index.protectedPolicyArtifacts.map(async item => [item.path, hash(await json(item.path))])));
     return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
-        acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json')};
+        acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
+        unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null};
 }
 
 export function recordSourceReviewErrors(bundle) {
     const errors = [], fail = (ok, message) => { if (!ok) errors.push(message); };
-    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex, regional, batchManifest, acquisitionAudit} = bundle;
+    const {index, files, inventory, references, dependencyReview, source, protectedHashes, dex, regional, batchManifest, acquisitionAudit, generationScope} = bundle;
     const inventoryMap = new Map(inventory.records.map(row => [row.identity, row]));
     const actualMap = new Map(source.rows.map(row => [row.identity, row]));
     const links = values => (values ?? []).map(link => {
@@ -119,6 +140,7 @@ export function recordSourceReviewErrors(bundle) {
         if (field.recordFieldPath && field.recordJsonSha256) {
             const value = field.recordFieldPath.split('.').reduce((object, key) => object?.[key], actual?.data);
             check(field.recordJsonSha256 === hash(value ?? null));
+            if (Object.hasOwn(field, 'recordValue')) check(equal(field.recordValue, value ?? null));
         }
         if (field.sourceProfileNote) {
             const note = field.sourceProfileNote;
@@ -166,6 +188,7 @@ export function recordSourceReviewErrors(bundle) {
         else if (/^system\.moves\.(level|machine|egg|tutor)$/.test(name)) {
             const group = name.split('.')[2], entries = links(system.moves?.[group]);
             check(field.recordEntryCount === entries.length);
+            if (field.currentEntries) check(equal(field.currentEntries, entries.map(entry => ({target: entry.target, resolvedLabel: entry.label, level: entry.level ?? null}))));
             for (const value of field.unsupportedCurrentEntries ?? []) check(entries.some(entry => entry.target === value.target && entry.label === value.resolvedLabel && (entry.level ?? null) === (value.level ?? null)));
             if (field.status === 'supported') check(!field.unsupportedCurrentEntries?.length && !field.missingSourceEntries?.length);
             for (const key of field.missingSourceEntries ?? []) if (typeof key === 'string') fail(!/(?:tmmovelist|tmhmmovelist|eggmovelist|tutormovelist|zygardecubemovelist|mewcanlearnanytmhm|mewcanbetutoredtolearnanymove|smallhp\d+attack)/i.test(key), `Acquisition heading/rule became a fictitious Move: ${row.identity} ${name}`);
@@ -247,7 +270,21 @@ export function recordSourceReviewErrors(bundle) {
                 if (book === 'plus-dex' && [22, 55, 59, 356].includes(page)) fail(abilities?.status === 'source-internal-ambiguity' && abilities.additionalPrintedHighAbilities && notes.includes('High Abilities'), `Additional printed High Abilities cannot be silently discarded: ${row.identity}`);
             }
             if (comparison?.sourceUnit && !['move', 'ability'].includes(actual?.data.type)) fail(comparison.anchor?.definitionContextNormalizedSha256 && comparison.anchor.heading && comparison.anchor.startLine >= 1, `Record source lacks anchored definition context: ${row.identity}`);
-            if (row.coverageState === 'excluded') fail(expected?.generationEligibility === 'excluded' || row.generationReview.exclusionEvidence?.independentRecordFields, `Excluded consumer/name alone cannot exclude target: ${row.identity}`);
+            if (row.coverageState === 'excluded') {
+                const proof = row.generationReview.exclusionEvidence;
+                fail(expected?.generationEligibility === 'excluded' || proof?.independentRecordFields, `Excluded consumer/name alone cannot exclude target: ${row.identity}`);
+                if (proof) {
+                    const fact = generationScope?.facts[proof.datasetEvidenceKey], system = actual?.data.system, fields = proof.independentRecordFields;
+                    fail(actual?.data.type === 'species' && Number.isInteger(system?.number) && fact?.speciesId === system.number
+                        && fact.pokemonSpeciesId === fact.speciesId && Number.isInteger(fact.pokemonId) && fact.pokemonId > 0
+                        && proof.datasetEvidenceKey === `${fact.speciesId}:${fact.pokemonId}` && fact.generationId >= 9 && proof.externalGeneration === fact.generationId
+                        && equal(fields, {number: system.number, types: system.types, height: system.size.height, weight: system.size.weight})
+                        && equal(system.types.map(labelKey).sort(), fact.typeSlots.map(slot => labelKey(slot.identifier)).sort())
+                        && fact.typeSlots.every(slot => slot.pokemonId === fact.pokemonId && generationScope.typeDefinitions[slot.typeId] === slot.identifier)
+                        && system.size.height === fact.heightDecimetres / 10 && system.size.weight === fact.weightHectograms / 10
+                        && row.sources.some(cite => cite.path === 'docs/data/generation-scope-evidence.json' && cite.datasetEvidenceKey === proof.datasetEvidenceKey), `Negative-scope proof does not establish exact numeric/Type/two-metric identity: ${row.identity}`);
+                }
+            }
             for (const reference of row.catalogReferences ?? []) {
                 const entry = reference.artifact === 'docs/data/dex-source-comparison.json' ? dex.profileDeltas.find(value => value.id === reference.entryId)
                     : reference.artifact === 'docs/data/regional-dex-catalog.json' ? regional.entries.find(value => value.id === reference.entryId) : null;
@@ -257,6 +294,16 @@ export function recordSourceReviewErrors(bundle) {
         }
     }
     counts.unreviewed += inventoryMap.size - rows.size;
+    checkUnmatchedSpecies(bundle, {fail, rows, actualMap, hash, equal, labelKey, currentFieldEvidence, citations});
+    if (index.generationScopeEvidence) {
+        const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
+            'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],
+            'pokemon_types.csv': ['5567064b22c77c4082c1dfb30674102c669968d8', 'f1fc4bfd657a034ea3bf6972423b10276424aa068577b304a78a08996425ba05'],
+            'types.csv': ['d0ec10c324fb7d1529269ddbffac4778fdf99836', '37f039c8d722f47d51ba1c5c5ecf9b7007235b1a9a1af2827645c777b70307c8']};
+        fail(generationScope?.productionPolicyPromotion === false && generationScope.behavioralVerification === 'not-run' && generationScope.files.length === 4
+            && new Set(generationScope.files.map(file => file.file)).size === 4 && generationScope.files.every(file => equal([file.gitBlobSha, file.canonicalLfSha256], expected[file.file])
+                && file.immutableBlobUrl === `https://api.github.com/repos/PokeAPI/pokeapi/git/blobs/${file.gitBlobSha}`), 'Negative-scope cached source provenance changed');
+    }
     fail(index.coverage.totalInventoryRecords === inventoryMap.size && index.coverage.explicitRecordDispositions === rows.size, 'Record coverage inventory/disposition counts differ');
     for (const [state, count] of Object.entries(counts)) fail((index.coverage.counts[state] ?? 0) === count, `Record coverage count wrong: ${state}`);
     const sourceClasses = {};
@@ -374,12 +421,13 @@ export function recordSourceReviewErrors(bundle) {
         };
         inspectMembers(batchManifest.baseline.members, 'baseline');
         fail(batchManifest.baseline.count === 95 && batchManifest.baseline.members.length === 95 && membershipHash(batchManifest.baseline.members) === batchManifest.baseline.membershipSha256, 'Frozen baseline membership changed');
-        let predecessorClosed = true;
+        let predecessorClosed = true, predecessorReviewHeld = false;
         for (const batch of batchManifest.batches) {
             const shape = expected[batch.id];
             fail(shape && batch.count === shape[0] && batch.members.length === shape[0] && batch.membershipSha256 === shape[1] && membershipHash(batch.members) === shape[1], `Frozen batch membership changed: ${batch.id}`);
             inspectMembers(batch.members, batch.id);
             if (batch.status !== 'not-started') fail(predecessorClosed, `Frozen batch sequence skipped unfinished predecessor: ${batch.id}`);
+            if (batch.status !== 'not-started') fail(!predecessorReviewHeld, `Frozen family review gate not cleared: ${batch.id}`);
             const batchIds = new Set(batch.members.map(([identity]) => identity)), sliced = new Set();
             for (const slice of batch.slices) {
                 fail(slice.members.length === slice.records && membershipHash(slice.members) === slice.membershipSha256, `Frozen slice membership changed: ${slice.id}`);
@@ -398,8 +446,14 @@ export function recordSourceReviewErrors(bundle) {
             if (batch.status === 'source-comparisons-complete') {
                 fail(batch.closure && batch.members.every(([identity]) => ['reviewed', 'excluded', 'unresolved'].includes(rows.get(identity)?.coverageState)), `Closed batch retains unfinished records/evidence: ${batch.id}`);
                 if (batch.id !== 'A') fail(sliced.size === batch.count && batch.slices.every(slice => slice.status === 'source-comparisons-complete'), `Closed batch lacks complete frozen slices: ${batch.id}`);
+                if (batch.id !== 'A') {
+                    const actualCounts = {};
+                    for (const [identity] of batch.members) { const state = rows.get(identity)?.coverageState; actualCounts[state] = (actualCounts[state] ?? 0) + 1; }
+                    fail(equal(batch.closure?.counts, actualCounts) && equal(batch.closure?.sliceEvidenceSemanticSha256, Object.fromEntries(batch.slices.map(slice => [slice.id, slice.closure?.evidenceSemanticSha256]))), `Closed family aggregate counts/evidence disagree: ${batch.id}`);
+                }
             }
             predecessorClosed = predecessorClosed && batch.status === 'source-comparisons-complete';
+            predecessorReviewHeld ||= batch.acceptance?.status === 'pending-substantive-review';
         }
         fail(batchManifest.batches.length === 9 && assigned.size === inventoryMap.size && batchManifest.totalQueuedRecords === 7300 && batchManifest.remainingAfterA === 7205, 'Frozen batches do not partition the full inventory');
     }

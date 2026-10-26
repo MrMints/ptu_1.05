@@ -874,7 +874,14 @@
         ]
       },
       "slices": [],
-      "acceptance": "not accepted: Meowstic paragraph extraction corrected; finite boundary audit, actual regressions, corrected-revision CI and substantive planner review required"
+      "acceptance": "accepted bounded correction at63f66e76b09634e6cc93010045c16922d6ab84ff after exact CI40250336858 and substantive existing-planner source review; full04/05 remain held",
+      "acceptedCorrection": {
+        "revision": "63f66e76b09634e6cc93010045c16922d6ab84ff",
+        "ciRun": 40250336858,
+        "documentationJob": 121340619229,
+        "validationJob": 121340618987,
+        "decision": "Existing planner explicitly accepted bounded A correction and authorized frozen B-scope then B-unmatched; no other family starts before B review."
+      }
     },
     {
       "id": "B",
@@ -7690,8 +7697,27 @@
           "14cdc5c1147be2153741b112241901e322be1fd4278d2d0b44ce96507185e7ac"
         ]
       ],
-      "status": "in-progress",
-      "closure": null,
+      "status": "source-comparisons-complete",
+      "closure": {
+        "counts": {
+          "reviewed": 982,
+          "unresolved": 600,
+          "excluded": 120
+        },
+        "sliceEvidenceSemanticSha256": {
+          "B-classic-early": "0f0a2373bf1fe6a9c2b5bed22f20edbedc66672c96f56f0d7927aa748e89964a",
+          "B-classic-middle": "55c4f791926444d18dcd01542101749f30f24469f5e7b50cb5e22647cc45374e",
+          "B-classic-late": "7a00e3eda8ea6585793815bddbb17b45833f34373fdbf1f29240ce4b95f44d7b",
+          "B-classic-final": "340680cd7723ce9a79ae2d30225b42239017a016d8dced61daffb3e96dbb5e86",
+          "B-regional": "0dfa0cfe3da337d0ca5c7bd70d31e48d39f2533e0aca3f8e9881b564ad7d79d7",
+          "B-scope": "43cd46a5ab888c590b7f59cb8dfd1e44798c4f21bef9630c59469fd64f28bec4",
+          "B-unmatched": "578c3c90b0a0de680023e89f913e1b9f54f2619d7dfd2877c14ba8aa2d8a7bea"
+        },
+        "sourceWork": "All1702 frozen source dispositions complete; five prior printed slices retained unchanged. Later queues stay held for this required family review.",
+        "verification": "27 focused record-source tests pass; affected source-layer/current-field/path/aggregate-review checks pass after the final bounded note. Source/manifest/catalog checks and58 local links pass. Exact-revision normal CI and substantive existing-planner review remain required before C.",
+        "productionPolicyPromotion": false,
+        "behavioralVerification": "not-run"
+      },
       "slices": [
         {
           "id": "B-classic-early",
@@ -12431,9 +12457,22 @@
               "5d65a78aa848d9a32fb5b78b54d9d98c1b3f184aaa035c0be742931f789bee79"
             ]
           ],
-          "status": "not-started",
+          "status": "source-comparisons-complete",
           "scope": "Existing cached generation metadata/provenance only; no excluded-mechanics verification",
-          "closure": null
+          "closure": {
+            "counts": {
+              "excluded": 113
+            },
+            "evidenceSemanticSha256": "43cd46a5ab888c590b7f59cb8dfd1e44798c4f21bef9630c59469fd64f28bec4",
+            "checks": "All113 frozen ID/hash members have exact number/Type/two-metric negative-scope proof. Four cached dataset Git blob identities were recomputed. Affected integrity tests and B checkpoint CI remain required.",
+            "sourceDecision": "Negative-scope metadata only; no excluded rules, content recovery or behavior reviewed.",
+            "limitations": "No production policy is changed; exact same-name/base metadata never approves other variants or older/shared targets.",
+            "ci": "B checkpoint requires its own normal CI and substantive planner review."
+          },
+          "recordFile": "record-source-review/species-scope.json",
+          "preparedCounts": {
+            "excluded": 113
+          }
         },
         {
           "id": "B-unmatched",
@@ -14905,11 +14944,33 @@
               "017a1cc53099f6e348406fd81c6a472b3c2b79a46ca194e284133a6484f95bd6"
             ]
           ],
-          "status": "not-started",
+          "status": "source-comparisons-complete",
           "scope": "Exact current definitions, complete provided profile corpus and recorded export lineage; terminal evidence limits must be specific",
-          "closure": null
+          "closure": {
+            "counts": {
+              "unresolved": 599,
+              "excluded": 7,
+              "reviewed": 10
+            },
+            "evidenceSemanticSha256": "578c3c90b0a0de680023e89f913e1b9f54f2619d7dfd2877c14ba8aa2d8a7bea",
+            "checks": "27 focused record-source tests pass; all affected checks after the Dungeon source-layer note, its compact-profile assertion and the aggregate predecessor guard pass. Source/manifest/catalog checks and58 local links pass. Normal exact-revision CI and substantive existing-planner review remain required before C.",
+            "sourceDecision": "Ten compact Porygon source correspondences; seven cached negative-scope proofs;206 compared custom/base-authority conflicts,387 precise unavailable fangame authoring inputs and six identity metadata conflicts. No generic unknown or unexamined candidate is a terminal disposition.",
+            "limitations": "Original authoring inputs and untraced variant relationships remain precise source limits. Source classification does not approve targets, campaign choices, production policy or behavior. Dungeon Porygon114 explicitly distinguishes complete cached embedded-text values from several obscured/truncated rendered glyphs; values are not guessed or wholly claimed visually confirmed.",
+            "ci": "Exact documented B revision normal CI and substantive existing-planner review required before C."
+          },
+          "recordFile": "record-source-review/species-unmatched.json",
+          "preparedCounts": {
+            "unresolved": 599,
+            "excluded": 7,
+            "reviewed": 10
+          }
         }
-      ]
+      ],
+      "acceptance": {
+        "status": "pending-substantive-review",
+        "requires": "Passing CI on the documented B revision and the existing planner’s predecessor disposition before any C work.",
+        "full04Acceptance": false
+      }
     },
     {
       "id": "C",

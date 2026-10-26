@@ -14,26 +14,31 @@
     "record-source-review/species-classic-middle.json",
     "record-source-review/species-classic-late.json",
     "record-source-review/species-classic-final.json",
-    "record-source-review/species-regional.json"
+    "record-source-review/species-regional.json",
+    "record-source-review/species-scope.json",
+    "record-source-review/species-unmatched.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 1163,
+    "explicitRecordDispositions": 1892,
     "counts": {
-      "reviewed": 1145,
-      "excluded": 3,
-      "unresolved": 15,
-      "unreviewed": 6232
+      "reviewed": 1155,
+      "excluded": 123,
+      "unresolved": 614,
+      "unreviewed": 5503
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
     "sourceClassCounts": {
       "standard": 55,
       "optional-version": 1,
-      "mixed": 1080,
+      "mixed": 1090,
       "supporting": 9,
-      "excluded": 3,
-      "examined-source-variant-conflict": 15
+      "excluded": 123,
+      "examined-source-variant-conflict": 15,
+      "examined-custom-variant-authority-conflict": 206,
+      "examined-custom-authoring-source-unavailable": 387,
+      "examined-scope-identity-conflict": 6
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -93,7 +98,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "Continue the focused source/pack family diagnostic, definition anchors, secondary forms, source comparisons and precise evidence limitations. Do not treat diagnostic defaults or missing parser candidates as completed review.",
+  "remainingAddressableWork": "B’s1702 frozen source dispositions are complete, pending its exact-revision CI/substantive predecessor review. After acceptance, continue the original frozen C626/D1228/E1/E2/F/G/H sequence without changing memberships. Full04/05 and all production/behavior approval remain held.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -683,5 +688,7 @@
     "correction": "Galar33 repeated TM heading: retain real Toxic omission and exact duplicate Attract paths; preserve all bounded normative tail/conditional/stat content.",
     "remainingBatchScope": "B-scope113 and B-unmatched616 unstarted until passing correction checkpoint"
   },
-  "acquisitionBoundaryAudit": "acquisition-boundary-audit.json"
+  "acquisitionBoundaryAudit": "acquisition-boundary-audit.json",
+  "generationScopeEvidence": "generation-scope-evidence.json",
+  "unmatchedSpeciesEvidence": "species-unmatched-evidence.json"
 }

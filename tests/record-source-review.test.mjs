@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys} from '../tools/record-source-review.mjs';
+import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys, parseCompactSourceProfiles} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
-const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest, acquisitionAudit: original.acquisitionAudit})});
+const copy = () => ({...original, ...structuredClone({index: original.index, files: original.files, dependencyReview: original.dependencyReview, dex: original.dex, batchManifest: original.batchManifest, acquisitionAudit: original.acquisitionAudit, generationScope: original.generationScope, unmatchedSpecies: original.unmatchedSpecies})});
 const records = data => Object.values(data.files).flatMap(file => file.records);
 test('record source snapshot keeps exact inventory, separate field axes and complete first dependency coverage', () => {
     assert.deepEqual(recordSourceReviewErrors(original), []);
@@ -193,6 +193,7 @@ test('actual numbered, empty, malformed-heading and secondary-stat boundaries st
     assert.equal(machine.closingHeading, 'sTutor Move List');
     assert.deepEqual(parseSourceAcquisition(machine.raw, true).entries, ['naturepower']);
     assert.deepEqual(parseSourceAcquisition(tutor.raw).entries, ['zenheadbutt']);
+    assert.deepEqual(parseSourceAcquisition(extractSourceAcquisitionSection('Tutor Move List\nZen Headbutt\n375. DARMANITAN Zen Mode\n\nBase Stats:\nHP: 11', 'tutor').raw).entries, ['zenheadbutt']);
     const repeated = extractSourceAcquisitionSection('TM Move List\n45 Attract\nTM Move List\n06 Toxic\nTutor Move List\nSnore', 'machine');
     assert.deepEqual(parseSourceAcquisition(repeated.raw, true).entries, ['attract', 'toxic']);
 });
@@ -221,4 +222,76 @@ test('finite acquisition audit rejects lost sections, erased literals and unexam
         const messages = {section: 'Acquisition audit section missing', flag: 'flag lacks a precise retained disposition', literal: 'erased a literal source token', context: 'source context invalid', candidate: 'Declared field evidence does not describe exact current record'};
         assert.ok(errors.some(value => value.includes(messages[defect])), defect);
     }
+});
+
+test('negative-scope exclusions require exact current numeric, Type and both metric facts', () => {
+    for (const defect of ['height', 'type', 'generation', 'identity']) {
+        const data = copy(), row = records(data).find(value => value.frozenQueue?.slice === 'B-scope'), proof = row.generationReview.exclusionEvidence, fact = data.generationScope.facts[proof.datasetEvidenceKey];
+        if (defect === 'height') fact.heightDecimetres += 1;
+        if (defect === 'type') fact.typeSlots[0].identifier = 'unprinted';
+        if (defect === 'generation') fact.generationId = 8;
+        if (defect === 'identity') proof.independentRecordFields = {name: row.labelForReview};
+        assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Negative-scope proof does not establish exact numeric/Type/two-metric identity')), defect);
+    }
+});
+
+test('negative-scope provenance retains the four previously verified cached Git blob identities', () => {
+    const data = copy();
+    data.generationScope.files[0].gitBlobSha = '0'.repeat(40);
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Negative-scope cached source provenance changed')));
+});
+
+test('compact Porygon stat, slot and reversed Move-Level grammar retains real profiles', () => {
+    const parsed = parseCompactSourceProfiles('Aviateon (Flying)\nHP 10 / ATK 6 / DEF 7 / SP .ATK 11 / SP .DEF 7 / SPEED 13\nCloud Nine, Serene Grace / Windveiled, Blow Away / Confidence\nSand-Attack 5, Gust 9, Unknown Source Move 13\nCapabilities: Overland 6, Swim 3, Sky 7\nSkills: Athl 4d6, Acro 5d6+2\nartist unknown');
+    assert.equal(parsed.length, 1);
+    assert.deepEqual(parsed[0].stats, {hp: 10, atk: 6, def: 7, spatk: 11, spdef: 7, spd: 13});
+    assert.deepEqual(parsed[0].abilitySlots[2], ['Adv Ability 1', 'Windveiled']);
+    assert.deepEqual(parseSourceLevelAcquisition(parsed[0].levelText).map(value => [value.level, value.key, value.printedType]), [[5, 'sandattack', null], [9, 'gust', null], [13, 'unknownsourcemove', null]]);
+    const compact = records(original).filter(row => row.sourceComparison?.compactSourceEvidence);
+    assert.equal(compact.length, 10);
+    for (const row of compact) {
+        assert.equal(row.coverageState, 'reviewed');
+        assert.equal(row.sourceComparison.independentGroups.evolutionLevels, false);
+        for (const group of ['machine', 'egg', 'tutor']) assert.equal(row.fieldReview.find(field => field.field === `system.moves.${group}`).status, 'unavailable-source-omission');
+    }
+    const corroseon = compact.find(row => row.identity === 'species.6p9Aq8JeY7236EW6'), caps = corroseon.fieldReview.find(field => field.field === 'system.capabilities numeric fields');
+    assert.equal(caps.values.find(value => value.field === 'overland').source, null);
+    assert.equal(caps.sourceLiteralIssues[0].literal, 'Oveland 6');
+    const dungeon = compact.find(row => row.identity === 'species.U3wajsyQAAgVpTw4');
+    assert.match(dungeon.sourceComparison.compactSourceEvidence.readabilityLimitation, /embedded PDF text.*obscured/);
+    assert.ok(dungeon.fieldReview.some(field => field.sourceProfileNote?.heading === 'Embedded PDF text and rendered-glyph readability'));
+});
+
+test('unmatched exact dependency paths remain required even when a target occurs elsewhere', () => {
+    const data = copy(), row = records(data).find(value => value.dependencyEvidence?.some(entry => entry.paths.length > 1));
+    row.dependencyEvidence.find(entry => entry.paths.length > 1).paths.pop();
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Unmatched dependency exact paths/target evidence disagrees')));
+});
+
+test('unmatched available counterparts, literals and current/history fields cannot become generic completion', () => {
+    for (const defect of ['candidate', 'literal', 'current', 'history', 'scope']) {
+        const data = copy(), row = records(data).find(value => value.frozenQueue?.slice === 'B-unmatched' && value.competingSourceComparisons?.length);
+        if (defect === 'candidate') row.competingSourceComparisons.pop();
+        if (defect === 'literal') {
+            const source = records(data).find(value => value.identity === 'species.QZeXl01nbodoExGa');
+            for (const fields of [source.fieldReview, source.sourceComparison.fields]) fields.find(field => field.field === 'system.moves.level').missingSourceEntries = [];
+        }
+        if (defect === 'current') {
+            const source = records(data).find(value => value.frozenQueue?.slice === 'B-unmatched' && value.currentRecordEvidence);
+            source.currentRecordEvidence.fieldHashes.stats = '0'.repeat(64);
+        }
+        if (defect === 'history') row.exportLineage.snapshots.find(value => value.recordFound).fieldComparisons[0].currentJsonSha256 = '0'.repeat(64);
+        if (defect === 'scope') data.unmatchedSpecies.members.pop();
+        const expected = {candidate: 'Unmatched available candidate comparisons incomplete', literal: 'Unmatched literal source token erased', current: 'Unmatched current field inventory/value evidence disagrees', history: 'Unmatched export current/changed field evidence disagrees', scope: 'Unmatched species frozen scope/policy changed'};
+        assert.ok(recordSourceReviewErrors(data).some(value => value.includes(expected[defect])), defect);
+    }
+});
+
+test('completed B comparisons do not bypass its required predecessor review before C', () => {
+    const data = copy();
+    data.batchManifest.batches.find(value => value.id === 'C').status = 'in-progress';
+    assert.ok(recordSourceReviewErrors(data).some(value => value.includes('Frozen family review gate not cleared: C')));
+    const wrongCounts = copy();
+    wrongCounts.batchManifest.batches.find(value => value.id === 'B').closure.counts.reviewed++;
+    assert.ok(recordSourceReviewErrors(wrongCounts).some(value => value.includes('Closed family aggregate counts/evidence disagree: B')));
 });
