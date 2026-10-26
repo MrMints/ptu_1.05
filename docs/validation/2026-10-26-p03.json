@@ -2,26 +2,32 @@
   "schemaVersion": 1,
   "batch": "P03-2026-10-26",
   "baselineCommit": "1d560c56bf4e922a615753cc815bc6ac9f957ebf",
-  "testedRuntimeCommit": null,
+  "testedRuntimeCommit": "283c60dcadc22a36c6cf6ca34800aee12094b4d4",
   "status": "Implemented and verified within this matrix; substantive planner acceptance pending.",
   "runtimeBindings": [
     {
       "path": "src/util/prerequisites.js",
       "sha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
       "installedSha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
-      "exactBytesMatch": true
+      "exactBytesMatch": true,
+      "commitBlobSha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
+      "commitTextMatchesTestedWorkingCopy": true
     },
     {
       "path": "src/module/apps/npc-quick-build/document.js",
       "sha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
       "installedSha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
-      "exactBytesMatch": true
+      "exactBytesMatch": true,
+      "commitBlobSha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
+      "commitTextMatchesTestedWorkingCopy": true
     },
     {
       "path": "static/templates/apps/npc-quick-build-sheet.hbs",
       "sha256": "f55669396be65a07e7ea1614ab8f5f9ae05a62f194f6eda5ebe93ff20ee749b5",
       "installedSha256": "f55669396be65a07e7ea1614ab8f5f9ae05a62f194f6eda5ebe93ff20ee749b5",
-      "exactBytesMatch": true
+      "exactBytesMatch": true,
+      "commitBlobSha256": "96caa61b7311623075ae34810376854a723337b7256f997606eaf81d3382299a",
+      "commitTextMatchesTestedWorkingCopy": true
     }
   ],
   "automated": {
@@ -50,7 +56,39 @@
     },
     "sourceValidation": "passed: manifest, 17 skill mappings, 15 packs, 7395 inherited sources",
     "changedJavaScriptSyntax": "passed",
-    "finalHeadCI": "Recorded in final handoff; no UI execution in CI."
+    "finalHeadCI": "Recorded in final handoff; no UI execution in CI.",
+    "runtimeCommitCI": {
+      "commit": "283c60dcadc22a36c6cf6ca34800aee12094b4d4",
+      "runId": 40270180632,
+      "url": "https://github.com/MrMints/ptu_1.05/actions/runs/40270180632",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 121401097184,
+          "name": "Documentation",
+          "conclusion": "success"
+        },
+        {
+          "id": 121401097488,
+          "name": "Validation",
+          "conclusion": "success"
+        }
+      ],
+      "tests": {
+        "total": 91,
+        "passed": 91,
+        "failed": 0
+      },
+      "sourceValidation": "passed",
+      "semanticPackRoundTrips": "passed",
+      "developmentBuild": "passed",
+      "systemZipSizeBytes": 1108921332,
+      "uploadedActionsArtifactZip": {
+        "sha256": "29ad1d07eac5b273169ac622d8c08c5cefc72dd6302d325ae5ae9ab3d97488f6",
+        "sizeBytes": 1108745121,
+        "note": "This hashes the outer GitHub Actions artifact ZIP, not dist/system.zip; no release acceptance."
+      }
+    }
   },
   "clientReload": {
     "action": "Actual browser client reload between two normal installed-module/constructor/form runs; server restart also preceded the first run.",
@@ -3276,5 +3314,12 @@
     "Production original/errata selectors/replacement/effective rules (05)",
     "Release/campaign upgrade/new gameplay certification"
   ],
-  "sharedState": "World returned to Setup, owned server stopped, port refusal and safe stale-lock release are recorded in final handoff; four flagged synthetic Items and one disposable macro retained."
+  "sharedState": {
+    "world": "Returned to Setup and observed /setup before closing temporary client.",
+    "server": "Both owned handles terminal after Ctrl+C (exit 1). No final graceful shutdown log captured.",
+    "port30001": "ECONNREFUSED after stop",
+    "dataLock": "Safely reclaimed after stale interval with proper-lockfile and released; no manual held-lock deletion.",
+    "retained": "Four flagged synthetic world Items and one named disposable macro; no new actors.",
+    "writerOwnership": "Released at final handoff; no other chat started or messaged."
+  }
 }
