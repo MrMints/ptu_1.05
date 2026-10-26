@@ -1,6 +1,7 @@
 import { ActorConfig } from "./sheet/actor-config.js";
 import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
 import {actorPrerequisiteViews} from '../../util/acquisition.js';
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../util/saved-item-graph.js';
 
 class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
     /** @override */
@@ -96,6 +97,13 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
         return this._onDropItem({ preventDefault: () => { } }, data);
     }
 
+    async _onDropItem(event,data) {
+        if (!this.actor.isOwner) return false;
+        const item=await Item.implementation.fromDropData(data);
+        if (this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item)) return copySavedItemDocuments([item],{parent:this.actor});
+        return super._onDropItem(event,data);
+    }
+
     async _onDropFolder(event, data) {
         if (!this.actor.isOwner) return [];
         const folder = await Folder.implementation.fromDropData(data);
@@ -103,6 +111,7 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
         const items = await Promise.all(folder.contents.filter(Boolean).map(item => item instanceof Item ? item : fromUuid(item.uuid)));
         const allowed = items.filter(item => item && !isExcludedAcquisitionDocument(item));
         if (allowed.length !== items.length) ui.notifications.warn('PTU | Excluded or missing compendium entries were not acquired from this folder.');
+        if (allowed.some(hasSavedItemGraph)) return copySavedItemDocuments(allowed,{parent:this.actor});
         return this._onDropItemCreate(allowed.map(item => item.toObject()), event);
     }
 
@@ -202,6 +211,7 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
             const item = await fromUuid(data.uuid);
             if (!item) return ui.notifications.error("Invalid item dropped");
             if(isExcludedAcquisitionDocument(item))return ui.notifications.warn('PTU | This compendium record is excluded from new acquisition.');
+            if(this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item))return this._onDropItem(event,data);
 
             // Special handling for effects and conditions
             if (item.type === "effect" || item.type === "condition") {

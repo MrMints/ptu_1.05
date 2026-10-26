@@ -401,6 +401,8 @@ export class PTUCharacterSheet extends PTUActorSheet {
 		const item = await Item.implementation.fromDropData(data);
 		const itemData = item.toObject();
 
+		if (this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item)) return copySavedItemDocuments([item],{parent:this.actor});
+
 		const category = $(event.target).closest(".color-wrapper").data("category");
 
 		const dropTarget = event.target?.closest("[data-item-id]");
@@ -627,3 +629,4 @@ export class PTUCharacterSheet extends PTUActorSheet {
 	}
 
 }
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../../util/saved-item-graph.js';

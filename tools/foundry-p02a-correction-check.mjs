@@ -40,6 +40,46 @@ export async function runP02ACorrectionCheck(){
             let macro=game.macros.find(m=>m.flags.ptu?.p02ac===batch);if(!macro)macro=await Macro.create({name:'P02-A correction check (disposable)',type:'script',ownership:{default:2},flags:{ptu:{p02ac:batch}},command:"const {runP02ACorrectionCheck}=await import('/ptu02-correction/check.mjs?v='+Date.now());await runP02ACorrectionCheck();"});
             return{actors,macro:macro.uuid,player:player.id};
         });
+    }else if(plan.phase==='copy-init'){
+        assert(game.user.isGM,'GM copy fixture setup only.');
+        await record('copy-actual-document-fixtures',async()=>{
+            const player=game.users.find(user=>!user.isGM),rows=[];
+            for(const type of ['character','pokemon'])for(const role of ['copy-origin','copy-target']){
+                assert(!getActor(plan.group,type,role),'Copy fixture already exists.');
+                const actor=await Actor.create(await actorData(plan.group,type,type+':'+role));
+                await actor.update({['ownership.'+player.id]:3});
+                if(role==='copy-origin')await actor.createEmbeddedDocuments('Item',graph('condition'),{keepId:true});
+                rows.push({actor:actor.uuid,role,items:actor.items.map(protectedItem)});
+            }
+            const sources=graph('condition');for(const source of sources){source._id=foundry.utils.randomID();source.ownership={default:2};source.flags.ptu.p02ac={batch,group:plan.group,role:'world-copy-'+source.type};}
+            sources[0].flags.ptu.itemGrants.savedEdge.id=sources[1]._id;sources[1].flags.ptu.grantedBy.id=sources[0]._id;
+            const world=await Item.createDocuments(sources,{keepId:true});return{rows,world:world.map(protectedItem)};
+        });
+    }else if(plan.phase==='source-copy'){
+        await record([plan.actorType,plan.route,plan.selected,plan.action??'select',plan.observer?'observer':'owner'].join(':'),async()=>{
+            const origin=getActor(plan.group,plan.actorType,'copy-origin'),target=getActor(plan.group,plan.actorType,plan.observer?'observer':'copy-target');
+            const world=plan.route.startsWith('world'),source=world?game.items.find(i=>marked(i)&&i.flags.ptu.p02ac.group===plan.group&&i.flags.ptu.p02ac.role==='world-copy-'+(plan.selected==='parent'?'feat':'condition')):origin.items.get(plan.selected==='parent'?'p02acparent00001':'p02acchild000001');
+            assert(source,'Actual saved source is absent.');
+            const initialSource=source.toObject(),sourceCollection=world?game.items:origin.items,originals=world?sourceCollection.filter(i=>marked(i)&&i.flags.ptu.p02ac.group===plan.group&&i.flags.ptu.p02ac.role.startsWith('world-copy-')):sourceCollection.filter(i=>['p02acparent00001','p02acchild000001'].includes(i.id));
+            const protectedSources=originals.map(i=>({id:i.id,source:i.toObject()})),destination=plan.route.endsWith('clone')?(world?null:origin):target,rows=[];
+            for(let repeat=0;repeat<(plan.action==='cancel'||plan.observer?1:2);repeat++){
+                const collection=destination?.items??game.items,before=destination?.toObject()??collection.map(i=>i.toObject()),oldIds=new Set(collection.map(i=>i.id));let returned,error;
+                try{returned=plan.route.endsWith('clone')?await source.clone({},{save:true,addSource:true}):await target.sheet._onDropItem({preventDefault(){}},{type:'Item',uuid:source.uuid});}catch(e){error=e.message;}
+                const added=collection.filter(i=>!oldIds.has(i.id)),after=destination?.toObject()??collection.map(i=>i.toObject());
+                const row={repeat,beforeHash:await hash(before),afterHash:await hash(after),returned:Array.isArray(returned)?returned.map(i=>i.uuid):returned?.uuid,error,added:added.map(protectedItem),protectedSources:await Promise.all(protectedSources.map(async p=>({id:p.id,before:await hash(p.source),after:await hash(sourceCollection.get(p.id).toObject())})))};rows.push(row);report.sourceCopyObservation={source:source.uuid,initialSource,destination:destination?.uuid??'World Items',rows};
+                assert(row.protectedSources.every(p=>p.before===p.after),'Source graph changed.');
+                if(plan.action==='cancel'||plan.observer){assert(added.length===0&&same(before,after),'Cancelled or denied copy changed destination.');if(plan.route.endsWith('clone'))assert(!returned,'Cancelled clone returned a saved Item.');}
+                else{
+                    assert(!error&&added.length===2,'Copy lost/replayed a saved child: '+error);const parent=added.find(i=>i.type==='feat'),savedChild=added.find(i=>i.type==='condition');
+                    assert(parent.flags.ptu.itemGrants.savedEdge.id===savedChild.id&&savedChild.flags.ptu.grantedBy.id===parent.id,'Copied links are not reciprocal.');
+                    assert(savedChild.value===4,'Condition child was merged or replayed.');
+                    assert((Array.isArray(returned)?returned[0]:returned)?.type===source.type,'Selected Item return interface changed.');
+                    for(const item of added){const original=originals.find(i=>i.type===item.type);for(const key of ['prerequisites','notes','slug','stackSlugs','rules'])assert(same(item.toObject().system[key],original.toObject().system[key]),'Copied custom/rule data changed: '+key);assert(same(item.flags.ptu.selectedVersion,original.flags.ptu.selectedVersion),'Selected version changed.');}
+                    if(destination)assert(same(numeric({toObject:()=>before}),numeric(destination)),'Copy changed unrelated actor values.');
+                }
+            }
+            return report.sourceCopyObservation;
+        });
     }else if(plan.phase==='mixed'){
         const actor=getActor(plan.group,plan.actorType,plan.itemType),existing=counter(actor),before=actor.toObject(),beforeValue=existing.value,input=[existing.toObject(),choiceData(plan.itemType)];
         await record(plan.actorType+':'+plan.itemType+':'+plan.action+(plan.prepared?':prepared':''),async()=>{
@@ -100,12 +140,22 @@ export async function runP02ACorrectionCheck(){
             try{result=mode==='prepared'?await CONFIG.Item.documentClass.prepareCreation(input,{parent:actor}):await actor.createEmbeddedDocuments('Item',input,mode==='keep'?{keepId:true}:{});}catch(e){denied=true;}
             assert(same(before,actor.toObject())&&(!result||result.length===0),'Non-owner changed actor or staged an acquisition.');return{actor:actor.uuid,before,after:actor.toObject(),denied,empty:!result?.length};
         });
+    }else if(plan.phase==='post-reload-repeat'){
+        assert(game.user.isGM,'GM saved-ID repeat verification.');
+        for(const row of plan.actors)await record(row.mode+':post-reload-saved-id-repeat',async()=>{
+            const actor=await fromUuid(row.uuid);assert(marked(actor)&&actor.flags.ptu.p02ac.group===plan.group,'Only recorded correction actors.');
+            const parent=actor.items.get('p02acparent00001'),savedChild=actor.items.get('p02acchild000001'),before=actor.toObject();assert(parent&&savedChild,'Missing recorded graph.');let error=null;
+            try{await actor.createEmbeddedDocuments('Item',[parent.toObject(),savedChild.toObject()],{keepId:true});}catch(e){error=e.message;}
+            assert(error?.includes('ID already exists')&&same(before,actor.toObject()),'Saved-ID repeat changed the actor after reload.');return{actor:actor.uuid,error,beforeHash:await hash(before),afterHash:await hash(actor.toObject()),parent:protectedItem(parent),child:protectedItem(savedChild)};
+        });
     }else if(plan.phase==='checkpoint'){
         assert(game.user.isGM,'GM checkpoint only.');report.expected={actors:await Promise.all(game.actors.filter(marked).map(async a=>({id:a.id,hash:await hash(a.toObject()),items:await persistedItems(a)})))};
+        report.expected.worldItems=await Promise.all(game.items.filter(marked).map(async i=>({id:i.id,hash:await hash(i.toObject()),raw:i.system.prerequisites,version:i.flags.ptu?.selectedVersion})));
         await record('nonempty-saved-correction-fixtures',async()=>{assert(report.expected.actors.length>=12,'Missing correction fixtures.');return{actors:report.expected.actors.length};});
     }else if(plan.phase==='reload'){
         assert(game.user.isGM,'GM reload comparison only.');const expected=await(await fetch('/ptu02-correction/expected.json',{cache:'no-store'})).json(),baseline=await(await fetch('/ptu02-correction/baseline.json',{cache:'no-store'})).json();
         await record('exact-correction-actors-graphs-custom-data-and-reports-after-reload',async()=>{assert(expected.actors.length>=12,'Empty expected fixtures.');for(const row of expected.actors){const actor=game.actors.get(row.id);assert(actor&&await hash(actor.toObject())===row.hash,'Saved correction actor changed: '+row.id);assert(same(await persistedItems(actor),row.items),'Saved graph/custom/report changed: '+row.id);}return{actors:expected.actors.length,items:expected.actors.reduce((n,a)=>n+a.items.length,0),rows:expected.actors};});
+        await record('saved-correction-world-sources-after-reload',async()=>{assert(expected.worldItems.length>=3,'Missing world source checkpoint.');for(const row of expected.worldItems)assert(await hash(game.items.get(row.id).toObject())===row.hash,'Saved world source changed: '+row.id);return{items:expected.worldItems.length,rows:expected.worldItems};});
         await record('preexisting-actors-items-scenes-and-world-schema-unchanged',async()=>{for(const [key,collection] of [['actors',game.actors],['items',game.items],['scenes',game.scenes]])for(const row of baseline[key])assert(await hash(collection.get(row.id).toObject())===row.hash,'Protected '+key+' changed: '+row.id);assert(game.settings.get('ptu','worldSchemaVersion')===baseline.schema,'World schema changed.');return{actors:baseline.actors.length,items:baseline.items.length,scenes:baseline.scenes.length,schema:baseline.schema};});
     }else throw Error('Unknown correction phase');
     new Dialog({title:'P02-A correction result',content:`<h2>${report.scenarios.filter(s=>s.result==='pass').length}/${report.scenarios.length} passed</h2><textarea id="p02ac-result" style="width:100%;height:330px">${foundry.utils.escapeHTML(JSON.stringify(report,null,2))}</textarea>`,buttons:{close:{label:'Close'}}},{width:1000,height:650}).render(true);return report;

@@ -7,10 +7,17 @@ import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
 import {isStarterTrainingGrant} from '../../util/starter-training.js';
 import {resolvePreservationSource} from '../../util/preservation.js';
 import {prerequisiteView} from '../../util/acquisition.js';
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../util/saved-item-graph.js';
 
 const preparedCreations=new WeakMap();
 
 class PTUItem extends Item {
+
+    clone(data={}, context={}) {
+        if (!context.save || !hasSavedItemGraph(this)) return super.clone(data,context);
+        return copySavedItemDocuments([this],{...context,parent:this.parent,pack:this.pack,changes:data})
+            .then(items=>items[0]);
+    }
 
     get prerequisiteDiagnostic() {
         return prerequisiteView(this);

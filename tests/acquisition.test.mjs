@@ -138,7 +138,7 @@ test('actual base sheet data and folder route produce reports and retain support
     const a=actor();a.items=[fixture('feat'),fixture('edge','item000000000002'),fixture('pokeedge','item000000000003')];a.itemTypes={feat:[a.items[0]],edge:[a.items[1]],pokeedge:[a.items[2]]};
     const documents=a.items.map(d=>({...d,toObject:()=>structuredClone(d)}));let data;
     class CoreSheet{async getData(){return{actor:this.actor};}}
-    const Sheet=await load('src/module/actor/sheet.js','PTUActorSheet',{foundry:{appv1:{sheets:{ActorSheet:CoreSheet}}},actorPrerequisiteViews,isExcludedAcquisitionDocument,
+    const Sheet=await load('src/module/actor/sheet.js','PTUActorSheet',{foundry:{appv1:{sheets:{ActorSheet:CoreSheet}}},actorPrerequisiteViews,isExcludedAcquisitionDocument,hasSavedItemGraph:()=>false,
         CONFIG:{PTU:{data:{}}},Item:class{},Folder:{implementation:{fromDropData:async()=>({type:'Item',contents:[...documents,{uuid:'excluded'},null]})}},
         fromUuid:async uuid=>uuid==='excluded'?{pack:'ptu.species',uuid:'Compendium.ptu.species.Item.dkQPNz0RLbgzWMLq'}:documents.find(d=>d.uuid===uuid),
         ui:{notifications:{warn:()=>{}}}});
