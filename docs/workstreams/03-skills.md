@@ -1,6 +1,6 @@
 # PTU 03 - Core skill terminology compatibility
 
-Status: P03-NPC implementation and bounded verification complete at runtime `78aa74b277376d5af168eb323c36ff95c07255b5`, substantive acceptance pending. P03/P02 foundations retain their accepted limits. D1 source-only acceptance and P04 explicit release preceded this assignment. Server stopped/access restored; 03 releases checkout/world at final successful-CI handoff. D2/D3, E1/full04 and OPEN-05 remain held.
+Status: P03-NPC is substantively accepted at evidence head `511df486cf7632cecf3dcc0bc0894bafa64888b3`, runtime `78aa74b277376d5af168eb323c36ff95c07255b5`, after code/raw-evidence review and passing [CI 40408933823](https://github.com/MrMints/ptu_1.05/actions/runs/40408933823). [Acceptance and limits](../validation/2026-10-26-p03-npc.md). P03/P02/P01 foundations retain their accepted limits. 03 explicitly released checkout/world in `01a179e4-f737-7e53-aa67-c50c58bdc518`; it is idle. Earlier pending handoffs remain historical. D2/D3 await explicit coordinator assignment to existing04; E1/full04/OPEN-05 remain held.
 
 ## Narrow reopened P03-NPC gate
 

@@ -1,5 +1,7 @@
 # Partial D source checkpoint — 2026-10-26
 
+Review disposition: **D1 source examination accepted** at `8d282248280004ce5d98e826364acad5168be04c` in planner turn `01a179dd-15e5-73c0-9b39-65ef4112d42d`, with [CI 40318303888](https://github.com/MrMints/ptu_1.05/actions/runs/40318303888) passing. The 90 correspondences (55 complete matches / 35 bounded interpretations) and 20 unresolved cases retain all limits below. Fresh original-PDF extraction matched all 44 saved Contest definitions. This does not approve production eligibility or execution. Separately, core p.264 awards one Appeal on a Center of Attention roll of 3, whereas p.504 awards zero; preserve this unresolved scoring conflict in subsequent source work before any Contest scoring approval. P04 explicitly released ownership after review. The original checkpoint and its then-pending ownership/review statements below remain historical; D2/D3/full D are still incomplete.
+
 ## Changes
 
 Only frozen D1 has complete source-examination dispositions: all 110 Contest Effect records have dispositions, comprising 90 source correspondences and 20 precise unresolved cases. D remains incomplete. D2 (581 records) and D3 (537 records) remain not started; their preparatory candidate caches do not count as source examination. No E1 or NPC work starts from this checkpoint. Section 04 retains sole checkout ownership while held; the shared Foundry world was not used.

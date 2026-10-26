@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### P03-NPC and D1 substantive acceptance
+- Record bounded P03-NPC acceptance at evidence head `511df486` after code/raw-evidence review, independent 8-test/13-family/55-hash checks, archive/runtime bindings and successful exact-head CI. Preserve earlier runtime labels, local Windows EPERM and synthetic-fixture/production limitations; no new Foundry session or runtime change.
+- Reconcile D1 source-only acceptance, retain its 90/20 dispositions and the unresolved core pp.264/504 Center of Attention scoring conflict. Prepare existing04's frozen D2/D3 continuation without starting it; all later source/release gates remain. [Acceptance and validation](docs/validation/2026-10-26-p03-npc.md), [next handoff](docs/workstreams/04-rules-catalog.md#prepared-remaining-d-prompt-idle). Documentation changes are checked in the same PR; no pack, original, campaign, policy or version changes.
+
 ### P03-NPC selector identity correction
 - Replace display-name option identity in the existing NPC class/Feature/Edge/species widgets with exact document UUIDs. Keep readable labels, searchable source context and ordinary plain-text options; do not modify the bundled vendor library.
 - Give repeated selections distinct local instance values and use those values for independent subchoice keys through refresh and generation. Keep raw requirements, saved version/custom data and advisory warnings; report ambiguous legacy selections without guessing a source.
