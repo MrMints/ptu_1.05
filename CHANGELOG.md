@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Full E2 source acceptance
+
+- Accept original E2 source examination at `38154ee9` after independent source, history, current-field/target and negative-test review plus passing CI 40483889241. Preserve all 1,020 identities and 346 partial correspondences / 674 precise unresolved limits; 61 affected tests and 24 document/evidence tests pass independently. [Acceptance and exact validation limits](docs/validation/2026-10-27-e2-source-review.md#substantive-full-e2-acceptance).
+- Record the Type Gem binding defect, foreign Stat Booster targets, Eviolite choices and Mega predicate discrepancies against the accepted foundation contracts. Three controlled binding checks distinguish an item data error from unproven acquisition/preservation failures. Keep the complete Spirit authoring artifact and adoption decision unresolved; no gameplay or variant approval follows.
+- Update only acceptance/status/handoff documentation and E2 acceptance metadata; preserve all closed payloads, previous evidence, source files, IDs, saved campaigns and the terminal plan. Prepare original F without starting it. Exact-head bookkeeping CI and ownership release are reported in the final handoff; no world, migration, release or other chat work is started.
+
 ### Original E2 source examination
 
 - Start the explicitly assigned original E2 source review after accepted E1 and the planner's release at `9dfbc5ab`. Preserve all 1,020 frozen identities/hashes, the original diagnostic and accepted A–E1 evidence; organize source work as 143 capabilities, 167 Technical Machines, 176 capture/food/consumables, 500 equipment/crafting/remaining items and 34 spirit actions.

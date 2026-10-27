@@ -50140,13 +50140,24 @@
         }
       ],
       "acceptance": {
-        "status": "pending-substantive-review",
-        "requires": "All1020 original frozen E2 dispositions, affected checks, exact documented-revision required CI and substantive existing-planner acceptance before F. Full04/OPEN05 remain held."
+        "status": "accepted-source-examination",
+        "revision": "38154ee93798439558ec604af048caeea8a09cc5",
+        "reviewTurn": "01a17cd3-d396-7b12-b6d3-36d4d0cb336a",
+        "ciRun": 40483889241,
+        "documentationJob": 122120721013,
+        "validationJob": 122120721449,
+        "decision": "Existing planner accepts original full E2 source examination after substantive source/code/current-target/history review, 61 independent affected regressions and 24 document/evidence tests. All 1,020 identities and 346/674 outcomes remain. Exact-ID content obligations and missing complete Spirit authoring remain explicit without inferring an unexecuted foundation failure or approving behavior. F alone is prepared but unstarted pending successful bookkeeping CI, explicit release, fresh guards and coordinator assignment. G/H, full04/OPEN05 remain held. Historical closure statements retain their then-pending state; no production or behavior approval."
       },
       "start": {
         "startingHead": "9dfbc5abbc9a93ad97061ebd66259dba3a41b4bd",
         "basis": "Explicit original-E2-only sole-writer assignment after accepted E1, successful planner bookkeeping CI40462411622 and ownership release. No shared-world assignment."
-      }
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "requires": "All1020 original frozen E2 dispositions, affected checks, exact documented-revision required CI and substantive existing-planner acceptance before F. Full04/OPEN05 remain held."
+        }
+      ]
     },
     {
       "id": "F",
