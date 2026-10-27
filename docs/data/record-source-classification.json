@@ -22,16 +22,18 @@
     "record-source-review/abilities-remaining.json",
     "record-source-review/moves-contest.json",
     "record-source-review/moves-anchored.json",
-    "record-source-review/moves-remaining.json"
+    "record-source-review/moves-remaining.json",
+    "record-source-review/edges.json",
+    "record-source-review/pokemon-edges.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 3746,
+    "explicitRecordDispositions": 3869,
     "counts": {
-      "reviewed": 1921,
+      "reviewed": 2012,
       "excluded": 123,
-      "unresolved": 1702,
-      "unreviewed": 3649
+      "unresolved": 1734,
+      "unreviewed": 3526
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -48,7 +50,9 @@
       "examined-ability-source-correspondence": 304,
       "examined-ability-version-or-authority-conflict": 322,
       "examined-move-source-correspondence": 462,
-      "examined-move-version-or-authority-limit": 766
+      "examined-move-version-or-authority-limit": 766,
+      "examined-feature-edge-source-correspondence": 91,
+      "examined-feature-edge-version-or-authoring-limit": 32
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -715,5 +719,6 @@
   "generationScopeEvidence": "generation-scope-evidence.json",
   "unmatchedSpeciesEvidence": "species-unmatched-evidence.json",
   "abilitySourceEvidence": "ability-source-evidence.json",
-  "moveSourceEvidence": "move-source-evidence.json"
+  "moveSourceEvidence": "move-source-evidence.json",
+  "featureSourceEvidence": "feature-source-evidence.json"
 }

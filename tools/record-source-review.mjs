@@ -7,6 +7,8 @@ import {parseAbilityRuleClauses} from './ability-source-parsing.mjs';
 import {checkAbilitySourceReview} from './ability-source-review.mjs';
 import {parseMoveRuleClauses} from './move-source-parsing.mjs';
 import {checkMoveSourceReview} from './move-source-review.mjs';
+import {parseFeatureEffectClauses} from './feature-source-parsing.mjs';
+import {checkFeatureSourceReview} from './feature-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -30,6 +32,9 @@ const normalizedLabels = values => Array.isArray(values) ? values.map(labelKey).
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
 export function parseSourceAbilityRules(value) { return parseAbilityRuleClauses(value, cleanText); }
 export function parseSourceMoveRules(value) { return parseMoveRuleClauses(value, cleanText); }
+export function parseSourceFeatureRules(value) { return parseFeatureEffectClauses(value, cleanText); }
+export const sourceReviewText = cleanText;
+export const sourceReviewWords = normalizedText;
 export function parseSourceAcquisition(value, machine = false) {
     let text = cleanText(value);
     if (/^None[.!]?$/i.test(text)) return {entries: [], annotatedEntries: [], repeatedHeadings: [], boundary: 'empty-list'};
@@ -131,11 +136,16 @@ export async function loadRecordSourceReview() {
         if (!/^move-source-search-d[23]\.json$/.test(item.path)) throw new Error(`Invalid Move search artifact path: ${item.path}`);
         return [item.path, await json(`docs/data/${item.path}`)];
     })));
+    const featureSource=index.featureSourceEvidence?await json(`docs/data/${index.featureSourceEvidence}`):null;
+    const featureSearch=Object.fromEntries(await Promise.all((featureSource?.sourceSearchArtifacts??[]).map(async item=>{
+        if(!/^feature-source-search-e1[a-e]\.json$/.test(item.path))throw new Error(`Invalid Feature search artifact path: ${item.path}`);
+        return [item.path,await json(`docs/data/${item.path}`)];
+    })));
     return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
         acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
         unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null,
         abilitySource: index.abilitySourceEvidence ? await json(`docs/data/${index.abilitySourceEvidence}`) : null,
-        moveSource, moveSearch};
+        moveSource, moveSearch, featureSource, featureSearch};
 }
 
 export function recordSourceReviewErrors(bundle) {
@@ -310,6 +320,7 @@ export function recordSourceReviewErrors(bundle) {
     checkUnmatchedSpecies(bundle, {fail, rows, actualMap, hash, equal, labelKey, currentFieldEvidence, citations});
     checkAbilitySourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseAbilityRules: parseSourceAbilityRules, citations});
     checkMoveSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseMoveRules: parseSourceMoveRules, citations});
+    checkFeatureSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseFeatureRules: parseSourceFeatureRules, citations});
     if (index.generationScopeEvidence) {
         const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
             'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],

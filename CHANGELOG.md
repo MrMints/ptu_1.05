@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Partial E1 source checkpoint
+- Examine 85 Edges and 38 Poké Edges: 91 bounded source correspondences / 32 precise unresolved limits. Preserve all original E1 tuples and both completed payloads; the remaining 1,320 Features stay unpublished/unclosed. This is a checkpoint, not full E1 acceptance.
+- Retain complete literal prerequisites, original/optional versions, use conditions, current fields, UUID paths and four historical exports. Bind duplicated source anchors directly, distinguish native proposal context, and correct seven unclosed definition boundaries without dropping legitimate Notes or parent rules.
+- Add source-integrity regressions and record provisional E1c analysis separately. [Checkpoint, validation and resume limits](docs/validation/2026-10-26-e1-source-checkpoint.md). After required CI and explicit release, pause 04 for the planner's bounded documentation amendment; E1d/E2/full04/05 remain held. No runtime, authoritative pack, campaign, policy, original-source or version change.
+
 ### Full D substantive source acceptance
 - Accept the original 1,228-record D source examination at `6d3a88c9` after actual source/code review, 57 affected regressions, fresh PDF comparisons, cached-history reconciliation and passing exact-revision CI. Preserve 462 correspondences / 766 unresolved limits, all frozen memberships and prior accepted evidence; no production or gameplay approval follows.
 - Record acceptance consistently in the gate ledger and shared handoffs, and prepare only the original 1,443-record E1 continuation without starting it. Full04/OPEN-05 remain held. [Review evidence and limits](docs/validation/2026-10-26-move-source-review.md#substantive-full-d-acceptance); documentation/source checks and required CI cover this bookkeeping revision. No runtime, pack, campaign, policy, original-source or version change.
