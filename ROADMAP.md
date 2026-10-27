@@ -56,3 +56,19 @@ Cancellation changes no state. Undefined interactions require visible manual adj
 `docs/data/move-verification.json` tracks each recovered move; `docs/data/content-audit.json` records structural findings.
 Implemented, verified and automated are different statuses. Structural validation is not gameplay verification.
 See `docs/TESTING.md` for release gates and `docs/STATUS.md` for actual results.
+
+## Terminal cleanup and 1.0.0 publication
+
+Terminal completion belongs to [section 09](docs/workstreams/09-release-validation.md), after accepted sections 01–08 and all required source dispositions. Preserve every existing scope, original/revised selection, advisory-prerequisite, compatibility and pre-05 gate.
+
+First perform a bounded readability pass: clarify non-obvious intent, invariants and compatibility decisions with useful comments. Avoid cosmetic churn, redundant comments and behavior-changing refactors. Remove files only when reference, dynamic-loading, asset, build and compatibility checks demonstrate that they are obsolete; record the rationale and retain recoverable Git history. Preserve licenses/notices, required assets, migrations, IDs, campaign/custom data and audit/source evidence. Supplied originals remain local and unpackaged.
+
+Prepare the fork's terminal release as **1.0.0**, including matching package/system metadata, repository tag convention, manifest/download destinations, dated changelog, release notes and installation instructions. Test and document the transition from inherited **4.4.3** or other higher version numbers without assuming automatic updating or resetting meaningful migration schema numbers or identities. Preserve campaign/custom selections throughout that transition.
+
+After cleanup and release-metadata preparation, run all applicable tests and required CI against the final candidate, including packaged fresh installation, upgrades, repeated migrations, security, selected variants and preservation checks. Bind results to the actual commit and archive digest. Reconcile the final merged/tagged commit after squash merging; changed package inputs require renewed affected validation.
+
+Follow documented PR, default-branch and draft-release gates. Record release eligibility and the owner's conditional terminal publication decision before publishing 1.0.0. This amendment authorizes neither starting 09 nor publication now.
+
+Finish by verifying the remote default-branch documentation, release/tag target, version, public raw installation manifest, download and packaged manifest agree. Replace the actual GitHub installation placeholder/unreleased notice with verified instructions. Under **How to Install**, retain the exact subheading **PTU 1.05 Classic** and description **The original Pokemon Tabletop United 1.05 system.** These are README presentation only; they do not change the Foundry system title/ID, compatibility, schema or saved-data identity. Keep the honest unreleased notice until the terminal release supplies a verified raw manifest link.
+
+The proposed raw entry point while the default branch remains `master` is `https://raw.githubusercontent.com/MrMints/ptu_1.05/master/system.json`; it is not a verified 1.0.0 installer today. Recheck the actual branch, remote JSON and its update/download chain, using only this repository's validated destinations. Do not report publication complete until the public installation route succeeds.

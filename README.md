@@ -8,6 +8,11 @@ Supported scope is **Generations 1–8 only**, using PTU 1.05 mechanics and appr
 Development is staged. Historical content recovery is not rules verification. Standard/revised selection and the complete move audit are not implemented yet. See [current status](docs/STATUS.md), the [roadmap](ROADMAP.md), and [changelog](CHANGELOG.md).
 
 ## How to Install
+
+### PTU 1.05 Classic
+
+The original Pokemon Tabletop United 1.05 system.
+
 No validated release is published by this development batch. Do not use the manifest download URL until the corresponding release exists.
 
 For development, install Node.js 22 or newer and pnpm 11.25.0, then run:

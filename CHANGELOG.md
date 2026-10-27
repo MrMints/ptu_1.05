@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Terminal release plan and installation presentation
+
+- Plan terminal readability cleanup, evidence-backed obsolete-file removal and gated 1.0.0 publication after accepted 01–08 scope. Require the inherited-version transition, final artifact validation and public raw installation-link verification; preserve all existing source, scope and pre-05 gates. [Ordered terminal work](ROADMAP.md#terminal-cleanup-and-100-publication), [09 brief](docs/workstreams/09-release-validation.md), [release evidence](docs/TESTING.md#release-evidence).
+- Add the README installation subheading “PTU 1.05 Classic” and description “The original Pokemon Tabletop United 1.05 system.” Keep the honest unreleased notice and development instructions; require the same presentation in the final GitHub installation section. This changes no system identity, compatibility, schema, version or campaign data.
+- This documentation-only amendment preserves the partial E1 checkpoint and resume materials. It performs no cleanup, content/runtime change, release validation, merge or publication, and starts no numbered chat.
+- Validation: 20 documentation/evidence tests, source/manifest/P01 validators, 67 local links, exact README wording, six-file scope and unchanged E1a/E1b payload/frozen-membership checks pass. Required CI must pass on the final amendment revision; its result is recorded in the chat handoff. No local world/gameplay or public-install test is claimed.
+
 ### Partial E1 source checkpoint
 - Examine 85 Edges and 38 Poké Edges: 91 bounded source correspondences / 32 precise unresolved limits. Preserve all original E1 tuples and both completed payloads; the remaining 1,320 Features stay unpublished/unclosed. This is a checkpoint, not full E1 acceptance.
 - Retain complete literal prerequisites, original/optional versions, use conditions, current fields, UUID paths and four historical exports. Bind duplicated source anchors directly, distinguish native proposal context, and correct seven unclosed definition boundaries without dropping legitimate Notes or parent rules.

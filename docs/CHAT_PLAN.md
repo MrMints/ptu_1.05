@@ -26,7 +26,7 @@ The [owner amendment and pre-05 ledger](PRE_05_RECONCILIATION.md) are also autho
 | [PTU 06 - Core gameplay calculations](workstreams/06-core-gameplay.md) | 5 (shared behavior) | Use 02 and 04, coordinating effective-rule interfaces with 05. |
 | [PTU 07 - Move data and behavior verification](workstreams/07-move-verification.md) | 5 (moves) | Audit bounded move families using accepted 04–06 behavior. |
 | [PTU 08 - Assisted gameplay automation](workstreams/08-assisted-automation.md) | 6 (automation) | Automate verified subsystems from 04–07 with preview/apply safeguards. |
-| [PTU 09 - Upgrade validation and releases](workstreams/09-release-validation.md) | 6 (release) | Validate the selected release scope after all applicable gates; publication needs explicit authorization. |
+| [PTU 09 - Upgrade validation and releases](workstreams/09-release-validation.md) | 6 (release) | After accepted 01–08 scope: bounded readability/obsolete-file cleanup, final artifact and upgrade validation, then eligible owner-authorized 1.0.0 publication and verified GitHub installation instructions. |
 
 ## Start and context protocol
 

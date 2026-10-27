@@ -248,3 +248,5 @@ cancellation, duplicate-application. Include reproducible steps and results. Nev
 The release workflow only creates a draft and fails if required evidence or a dated changelog is absent.
 The evidence commit must be a tested ancestor of the release commit. Only documentation/evidence may
 change afterward; the workflow rejects changed runtime, content, dependency or build inputs.
+
+For terminal 1.0.0 publication, additionally record cleanup/deletion evidence, the tested transition from inherited 4.4.3 or other higher versions, unchanged meaningful schema identities, final commit/tag and archive SHA-256, public raw-manifest response, resolved download, matching packaged manifest and successful installation from the published URL. Verify the actual remote README retains the exact installation heading/description required by [the terminal roadmap](../ROADMAP.md#terminal-cleanup-and-100-publication). Ancestor evidence, local files or a successful draft workflow alone do not establish these results. Prepare release metadata before final artifact validation; reconcile the final merged/tagged commit and repeat affected checks if package inputs change.
