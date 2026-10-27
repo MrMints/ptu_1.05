@@ -27,16 +27,21 @@
     "record-source-review/pokemon-edges.json",
     "record-source-review/features-core.json",
     "record-source-review/features-supplemental.json",
-    "record-source-review/features-remaining.json"
+    "record-source-review/features-remaining.json",
+    "record-source-review/capabilities.json",
+    "record-source-review/technical-machines.json",
+    "record-source-review/consumables.json",
+    "record-source-review/equipment.json",
+    "record-source-review/spirit-actions.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 5189,
+    "explicitRecordDispositions": 6209,
     "counts": {
-      "reviewed": 2526,
+      "reviewed": 2872,
       "excluded": 123,
-      "unresolved": 2540,
-      "unreviewed": 2206
+      "unresolved": 3214,
+      "unreviewed": 1186
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -55,7 +60,11 @@
       "examined-move-source-correspondence": 462,
       "examined-move-version-or-authority-limit": 766,
       "examined-feature-edge-source-correspondence": 605,
-      "examined-feature-edge-version-or-authoring-limit": 838
+      "examined-feature-edge-version-or-authoring-limit": 838,
+      "examined-capability-version-or-authority-limit": 78,
+      "examined-capability-source-correspondence": 65,
+      "examined-item-version-or-authority-limit": 596,
+      "examined-item-source-correspondence": 281
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -723,5 +732,6 @@
   "unmatchedSpeciesEvidence": "species-unmatched-evidence.json",
   "abilitySourceEvidence": "ability-source-evidence.json",
   "moveSourceEvidence": "move-source-evidence.json",
-  "featureSourceEvidence": "feature-source-evidence.json"
+  "featureSourceEvidence": "feature-source-evidence.json",
+  "itemSourceEvidence": "item-source-evidence.json"
 }
