@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {parseFeatureDefinition,parseFeatureEffectClauses,featureImplementationNotes,featurePrerequisiteWordingProof,featureEffectWordingProof,featureResourceCostWordingProof} from '../tools/feature-source-parsing.mjs';
+import {parseFeatureDefinition,parseFeatureEffectClauses,featureImplementationNotes,featurePrerequisiteWordingProof,featureEffectWordingProof,featureResourceCostWordingProof,featureSourceNumericTokens} from '../tools/feature-source-parsing.mjs';
 
 test('ranked source prerequisites preserve complete alternatives and distinct rank effects',()=>{
     const definition=parseFeatureDefinition('Smith\n[Ranked 2]\nRank 1 Prerequisites: Novice Technology Education or Novice Occult Education\nRank 2 Prerequisites: Expert Technology Education or Expert Occult Education\nRank 1 Effect: Craft one item.\nRank 2 Effect: Craft two items.\nSpecial: Do not combine ranks.');
@@ -138,4 +138,59 @@ test('rule-compound layout observations require the actual printed hyphen wrap',
     assert.equal(featureEffectWordingProof(current,{...source,rawDefinition:'RockType attacks deal +2 on SuperEffective hits.'},words),null);
     assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('Fire-Type attacks deal +2 on Super-Effective hits.'),source,words),null);
     assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('Rock-Type attacks deal -2 on Super-Effective hits.'),source,words),null);
+});
+
+test('qualified Static and Scene effects retain their complete continuation instead of becoming frequencies',()=>{
+    const source='Hypergeometry\nPrerequisites: All patron Major Gifts\nStatic | Scene - Standard Action, Interrupt\nStatic Effect: You may treat the distance as one meter greater or less.\nThe value cannot change after an action is announced.\nScene Effect: You may activate this once per\nScene when hit by a single target attack. The attack\ninstead hits a target in an adjacent square.';
+    const definition=parseFeatureDefinition(source);
+    assert.equal(definition.frequencies.length,1);
+    assert.equal(definition.sections.find(s=>s.kind==='static-effect').text,'You may treat the distance as one meter greater or less.\nThe value cannot change after an action is announced.');
+    assert.match(definition.sections.find(s=>s.kind==='scene-effect').text,/Scene when hit[\s\S]*adjacent square\./);
+    const body=definition.sections.filter(s=>['static-effect','scene-effect'].includes(s.kind)).map(s=>s.label+': '+s.text).join('\n');
+    assert.deepEqual(parseFeatureEffectClauses(body).clauses.map(c=>c.kind),['static-effect','scene-effect']);
+});
+
+test('a literal trigger-ing wrap cannot create another Trigger clause',()=>{
+    const source='Trigger: You hit with a Move.\nEffect: The effect depends on the trigger-\ning Move. Apply -2 Combat Stages.';
+    const clauses=parseFeatureEffectClauses(source).clauses;
+    assert.deepEqual(clauses.map(c=>c.kind),['trigger','effect']);
+    assert.match(clauses[1].text,/trigger- ing Move/);
+    assert.deepEqual(parseFeatureEffectClauses('Trigger - You hit.\nEffect - Apply -2 Combat Stages.').clauses.map(c=>c.kind),['trigger','effect']);
+    assert.notDeepEqual(featureSourceNumericTokens(parseFeatureEffectClauses(source)),featureSourceNumericTokens(parseFeatureEffectClauses(source.replace('-2','+2'))));
+});
+
+test('AP amounts in printed mode labels remain numeric evidence after separating the roles',()=>{
+    const a=parseFeatureEffectClauses('Target: Self\nStatic: Sense nearby patrons.\n2 AP Effect: Disable a Gift within 8 meters.'),b=parseFeatureEffectClauses('Target: Self\nStatic: Sense nearby patrons.\n1 AP Effect: Disable a Gift within 8 meters.');
+    assert.deepEqual(a.clauses.map(c=>c.kind),['target','static','2-ap-effect']);
+    assert.deepEqual(featureSourceNumericTokens(a),['2','8']);
+    assert.deepEqual(featureSourceNumericTokens(b),['1','8']);
+    const unit={rawDefinition:'Mode\n2 AP Effect: Disable a Gift within 8 meters.',definition:{frequencies:[]},ruleStructure:a};
+    assert.equal(featureEffectWordingProof(b,unit,words),null);
+});
+
+test('Arcane and youhave layout observations need their actual raw evidence and unchanged signed values',()=>{
+    const arcane={rawDefinition:'Arcane Training\nEffect: Gain +5 Damage with Ar -\ncane Weapon Attacks.',definition:{frequencies:[]},ruleStructure:parseFeatureEffectClauses('Gain +5 Damage with Ar cane Weapon Attacks.')};
+    const current=parseFeatureEffectClauses('Gain +5 Damage with Arcane Weapon Attacks.');
+    assert.equal(featureEffectWordingProof(current,arcane,words),'printed-arcane-spaced-line-wrap');
+    assert.equal(featureEffectWordingProof(current,{...arcane,rawDefinition:'Arcane Training without a wrap'},words),null);
+    assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('Gain -5 Damage with Arcane Weapon Attacks.'),arcane,words),null);
+    const glyph={rawDefinition:'Glyph\nEffect: You may channel any Glyph youhave set down.',definition:{frequencies:[]},ruleStructure:parseFeatureEffectClauses('You may channel any Glyph youhave set down.')};
+    assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('You may channel any Glyph you have set down.'),glyph,words),'printed-youhave-word-gap');
+    assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('You may channel any Glyph an ally has set down.'),glyph,words),null);
+});
+
+test('supplement gaps require literal raw evidence and cannot hide changed rule words or signs',()=>{
+    for (const [raw,printed,current] of [
+        ['into i nto the zone','Attacks from or i nto the zone take -3.','Attacks from or into the zone take -3.'],
+        ['per -\nceive the shape','You may per ceive objects within 6 meters.','You may perceive objects within 6 meters.'],
+        ['Topsy-\nTur v y','You learn Topsytur v y and Metronome.','You learn Topsy-Turvy and Metronome.']
+    ]) {
+        const unit={rawDefinition:raw,definition:{frequencies:[]},ruleStructure:parseFeatureEffectClauses(printed)};
+        assert.equal(featureEffectWordingProof(parseFeatureEffectClauses(current),unit,words),'printed-supplement-literal-word-gap');
+        assert.equal(featureEffectWordingProof(parseFeatureEffectClauses(current),{...unit,rawDefinition:'No literal source gap'},words),null);
+        assert.equal(featureEffectWordingProof(parseFeatureEffectClauses(current+' This grants another Move.'),unit,words),null);
+    }
+    const unit={rawDefinition:'Ghost-\nTyped attacks',definition:{frequencies:[]},ruleStructure:parseFeatureEffectClauses('GhostTyped attacks deal +2 damage.')};
+    assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('Ghost-Typed attacks deal +2 damage.'),unit,words),'printed-rule-compound-line-wrap');
+    assert.equal(featureEffectWordingProof(parseFeatureEffectClauses('Ghost-Typed attacks deal -2 damage.'),unit,words),null);
 });

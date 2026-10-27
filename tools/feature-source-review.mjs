@@ -1,6 +1,8 @@
 // Frozen E1 source evidence only; no runtime or acquisition consumer.
-import {parseFeatureDefinition,featureImplementationNotes,featurePrerequisiteWordingProof,featureEffectWordingProof,featureResourceCostWordingProof} from './feature-source-parsing.mjs';
-import {moveSourceNumericTokens} from './move-source-parsing.mjs';
+import {parseFeatureDefinition,featureImplementationNotes,featurePrerequisiteWordingProof,featureEffectWordingProof,featureResourceCostWordingProof,featureSourceNumericTokens} from './feature-source-parsing.mjs';
+import {checkFeatureCoreSourceUse} from './feature-core-source-use.mjs';
+import {checkFeatureSupplementSourceUse} from './feature-supplement-source-use.mjs';
+import {checkFeatureRemainingSourceUse} from './feature-remaining-source-use.mjs';
 
 export function checkFeatureSourceReview(bundle, context) {
     if (!bundle.index.featureSourceEvidence) return;
@@ -9,14 +11,14 @@ export function checkFeatureSourceReview(bundle, context) {
     fail(audit?.batch==='E1'&&audit.sourceFingerprint===bundle.index.sourceFingerprint&&audit.membershipSha256===batch.membershipSha256&&audit.diagnosticSha256===bundle.batchManifest.candidateSnapshot.sha256
         &&audit.productionPolicyPromotion===false&&audit.behavioralVerification==='not-run','Feature frozen scope/policy/diagnostic changed');
     const units=new Map((audit?.sourceDefinitions??[]).map(unit=>[unit.id,unit]));
-    fail(units.size===1000&&census.units===1000&&census.definitionSetSemanticSha256==='835f51faa0dcaf382e28f2c48b02408ecf83496f44a8588c08a58d86818a4710'&&census.definitionSetSemanticSha256===hash(audit.sourceDefinitions)
+    fail(units.size===1000&&census.units===1000&&census.definitionSetSemanticSha256==='cf385ff9dd92bfb5ab25793a9a0d501e809f70c7152c2c69ea05182b1ea77eed'&&census.definitionSetSemanticSha256===hash(audit.sourceDefinitions)
         &&census.unassignedPrerequisiteLocators.length===0&&census.rejectedSourceHeaders.length===1&&census.rejectedSourceHeaders[0].id==='core:57:feature-line7','Feature full definition census/boundaries changed');
     const key=structure=>structure.clauses.map(c=>[c.kind,norm(c.text)]),words=structure=>key(structure).map(c=>c[1]).join(' ');
     const safeNumbers=(a,b)=>equal(a,b)&&![...a,...b].some(value=>value.startsWith('unrecognized-sign:'));
     for(const unit of units.values()) {
         const definition=parseFeatureDefinition(unit.rawDefinition),body=definition.sections.filter(s=>!['prerequisites','frequency','profile-frequency','cost','tags'].includes(s.kind)).map(s=>s.kind==='unlabelled'?s.text:`${s.label}: ${s.text}`).join('\n');
         fail(unit.rawDefinitionSha256===textHash(unit.rawDefinition)&&equal(unit.definition,definition)&&unit.body===body&&equal(unit.ruleStructure,parseFeatureRules(body))
-            &&unit.orderedContentWords===words(unit.ruleStructure)&&equal(unit.numericTokens,moveSourceNumericTokens(unit.ruleStructure)),'Feature complete source sections/roles changed: '+unit.id);
+            &&unit.orderedContentWords===words(unit.ruleStructure)&&equal(unit.numericTokens,featureSourceNumericTokens(unit.ruleStructure)),'Feature complete source sections/roles changed: '+unit.id);
     }
     const independentLeafBounds={
         'core:59:feature-line46':[61,'1289200015c721e8b0915bd0c902c9e3737e7321a1c98f35874bf84e74c0d8df'],
@@ -33,10 +35,34 @@ export function checkFeatureSourceReview(bundle, context) {
     const boundaryAudit=audit.sourcePreparationCorrections?.boundaryPatternCorrection;
     fail(boundaryAudit?.unitsExamined===1000&&boundaryAudit.candidateUnits.length===13&&equal(boundaryAudit.affectedUnclosedUnitIds.slice().sort(),Object.keys(independentLeafBounds).sort())
         &&boundaryAudit.candidateUnits.every(c=>typeof c.disposition==='string'&&c.disposition.length>15)&&boundaryAudit.closedPayloads.length===2&&boundaryAudit.closedPayloads.every(c=>c.changedSourceDefinitionsReferenced.length===0&&c.candidateMembershipChanges.length===0&&hash(bundle.files[c.recordFile])===c.evidenceSemanticSha256),'Feature finite independent-boundary audit or closed payload preservation changed');
+    const correction=audit.sourcePreparationCorrections?.e1dColumnAndEffectCorrection;
+    fail(correction?.unitsExamined===1000&&correction.candidateUnits.length===4&&correction.candidateUnits.every(c=>c.disposition.length>40)
+        &&equal(correction.affectedUnclosedUnitIds,['throhs:47:feature-line39','throhs:87:feature-line42','porygon:86:feature-line63','blessed:53:feature-line30','blessed:54:feature-line4','blessed:65:feature-line51','blessed:69:feature-line74'])
+        &&correction.previousDefinitionSetSemanticSha256==='835f51faa0dcaf382e28f2c48b02408ecf83496f44a8588c08a58d86818a4710'&&correction.correctedDefinitionSetSemanticSha256===hash(audit.sourceDefinitions)
+        &&correction.priorSourceDefinitions.length===7&&correction.correctedSourceDefinitions.every(c=>units.has(c.id)&&c.sourceDefinitionEvidenceSha256===hash(units.get(c.id)))
+        &&correction.closedPayloads.length===3&&correction.closedPayloads.every(p=>p.changedSourceDefinitionsReferenced.length===0&&p.candidateMembershipChanges.length===0&&p.currentRuleChanges.length===0&&hash(bundle.files[p.recordFile])===p.evidenceSemanticSha256),
+    'Feature E1d finite column/effect correction or closed evidence preservation changed');
+    fail(units.get('throhs:47:feature-line39')?.anchors.at(-1).endLine===59&&!units.get('throhs:47:feature-line39')?.rawDefinition.includes('Simple and Fine Weap-')
+        &&units.get('porygon:86:feature-line63')?.anchors.at(-1).endLine===79&&!units.get('porygon:86:feature-line63')?.rawDefinition.includes('concept in Chapter 2')
+        &&equal(units.get('blessed:69:feature-line74')?.anchors.map(a=>[a.pdfPage,a.startLine,a.endLine]),[[69,74,81],[70,3,9]])
+        &&units.get('blessed:69:feature-line74')?.nextBoundary==='Fallen Creator','Feature independent column tail or true continuation boundary changed');
+    for(const id of ['blessed:53:feature-line30','blessed:65:feature-line51','blessed:69:feature-line74'])fail(units.get(id)?.definition.frequencies.length===1
+        &&units.get(id).definition.sections.some(s=>s.kind==='static-effect'&&s.text.length>50)&&units.get(id).ruleStructure.clauses.some(c=>c.kind==='static-effect'),
+    'Feature complete printed Static effect was classified as frequency: '+id);
+    fail(correction?.detachedPrintedContexts.length===2&&correction.detachedPrintedContexts.every(c=>units.has(c.sourceUnit)&&c.sourceDefinitionEvidenceSha256===hash(units.get(c.sourceUnit))
+        &&c.rawSha256===textHash(c.rawText)&&c.normalizedSha256===textHash(norm(c.rawText))&&c.productionPolicyPromotion===false&&c.behavioralVerification==='not-run'),
+    'Feature separate Smith instruction or class sidebar missing');
+    fail(correction?.qualifiedEffectModeNumericEvidence?.sourceUnits.length===2&&correction.qualifiedEffectModeNumericEvidence.sourceUnits.every(c=>units.has(c.id)
+        &&c.sourceDefinitionEvidenceSha256===hash(units.get(c.id))&&equal(c.numericTokens,featureSourceNumericTokens(units.get(c.id).ruleStructure)))
+        &&units.get('blessed:53:feature-line30')?.numericTokens.includes('2')&&units.get('blessed:54:feature-line4')?.numericTokens.includes('1'),
+    'Feature printed AP mode amount lost from numeric evidence');
     const contexts=new Map((audit.generalContexts??[]).map(c=>[c.id,c]));
     fail(contexts.size>=8&&[...contexts.values()].every(c=>c.rawSha256===textHash(c.rawText)&&c.normalizedSha256===textHash(norm(c.rawText))&&c.behavioralVerification==='not-run'),'Feature complete parent/use context changed');
     fail(audit.generalContextSetSemanticSha256==='c97bd66ecd1236053e15f3b79dbf10d9b622c515abb8f53f058a375ca77fdb5f'&&audit.generalContextSetSemanticSha256===hash(audit.generalContexts),'Feature bound parent/use context inventory changed');
-    fail(hash({nativeContexts:audit.nativeContexts,sourceScopeReadings:audit.sourceScopeReadings})==='1fabfae83bfbf575b9dc56764a1886759c7c5cba5e694ef15136b37b83189f8a','Feature bound native/visual source readings changed');
+    const corePublished=!!batch.slices.find(s=>s.id==='E1c')?.recordFile;
+    const nativeScopeDigest=corePublished?'357dd3cbbc95d45c7bbdc78e0d2b830e8542fdd4f51fe5d603ac534dafd1e48a':'1fabfae83bfbf575b9dc56764a1886759c7c5cba5e694ef15136b37b83189f8a';
+    const nativeScopeReadings=corePublished?{nativeContexts:(audit.coreSourceUseInventory?.nativeContextIds??[]).map(id=>audit.nativeContexts.find(n=>n.id===id)??null),sourceScopeReadings:(audit.coreSourceUseInventory?.sourceScopeReadingIds??[]).map(id=>audit.sourceScopeReadings.find(s=>s.id===id)??null)}:{nativeContexts:audit.nativeContexts,sourceScopeReadings:audit.sourceScopeReadings};
+    fail(hash(nativeScopeReadings)===nativeScopeDigest,'Feature bound native/visual source readings changed');
     const natives=new Map((audit.nativeContexts??[]).map(c=>[c.id,c])),scopes=new Map((audit.sourceScopeReadings??[]).map(c=>[c.id,c]));
     for(const native of natives.values()){
         const journal=actualMap.get(native.journalIdentity),page=journal?.data.pages?.find(p=>p._id===native.pageId);
@@ -100,13 +126,13 @@ export function checkFeatureSourceReview(bundle, context) {
             &&equal(stored.documentFieldHashes,Object.fromEntries(Object.entries(doc).map(([k,v])=>[k,hash(v)])))&&equal(stored.currentPrerequisiteArray,system.prerequisites??null)
             &&equal(stored.currentPrerequisiteBackup,doc.flags?.ptu?.prereqBackup??null),'Feature exact current field/backup inventory changed: '+row.identity);
         const notes=featureImplementationNotes(system.effect).map(n=>({...n,rawSha256:textHash(n.rawText)}));let body=system.effect;for(const note of notes)body=body.replace(note.rawText,'');
-        const current=parseFeatureRules(body),cw=words(current),rn=moveSourceNumericTokens(current);
+        const current=parseFeatureRules(body),cw=words(current),rn=featureSourceNumericTokens(current);
         fail(equal(notes,stored.implementationNotes)&&equal(current,stored.currentRuleStructure),'Feature exact current clauses/implementation note changed: '+row.identity);
         const cs=([row.sourceComparison].filter(Boolean)).concat(row.competingSourceComparisons??[]);let proven=false;
         fail(equal(row.sourceSearch.completeDefinitionCandidates.slice().sort(),cs.map(c=>c.sourceUnit).sort())&&equal(row.sourceSearch.examinedCompleteDefinitionCandidates,cs.map(c=>c.sourceUnit)),'Feature available candidate was not examined: '+row.identity);
         for(const c of cs){
             counts.sourceComparisons++;const unit=units.get(c.sourceUnit);if(!unit){fail(false,'Feature unknown source unit: '+c.sourceUnit);continue;}
-            const d=unit.definition,fields=new Map(c.fields.map(f=>[f.field,f])),st=c.ruleStructureComparison,sw=words(unit.ruleStructure),sn=moveSourceNumericTokens(unit.ruleStructure),backup=doc.flags?.ptu?.prereqBackup??null;
+            const d=unit.definition,fields=new Map(c.fields.map(f=>[f.field,f])),st=c.ruleStructureComparison,sw=words(unit.ruleStructure),sn=featureSourceNumericTokens(unit.ruleStructure),backup=doc.flags?.ptu?.prereqBackup??null;
             const facts={prerequisites:[system.prerequisites??null,d.prerequisites],frequency:[system.frequency??null,d.frequencies],cost:[system.cost??null,d.costs],keywords:[system.keywords??null,d.tags],prerequisiteBackup:[backup,d.prerequisites]};
             for(const [name,[actual,source]]of Object.entries(facts))fail(equal(fields.get(name)?.recordValue,actual)&&equal(fields.get(name)?.[name==='keywords'?'sourceValue':'sourceAlternatives'],source),'Feature literal source/current field changed: '+row.identity+' '+name);
             const pre=d.prerequisites.map(p=>norm(p.text)),frequency=d.frequencies.map(p=>norm(p.text)),cost=d.costs.map(p=>norm(p.text));
@@ -152,5 +178,8 @@ export function checkFeatureSourceReview(bundle, context) {
             &&mirror.dependencyEvidenceSemanticSha256===hash(row.dependencyEvidence)&&mirror.exportLineageSemanticSha256===hash(row.exportLineage)&&mirror.implementationEvidenceSemanticSha256===hash(implementation),'Feature duplicated current audit changed: '+row.identity);
     }
     fail(equal(counts,audit.preparedCounts),'Feature aggregate source counts changed');
+    checkFeatureCoreSourceUse(bundle,context);
+    checkFeatureSupplementSourceUse(bundle,context);
+    checkFeatureRemainingSourceUse(bundle,context);
     citations(audit);
 }

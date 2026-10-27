@@ -3,8 +3,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview,recordSourceReviewErrors,parseSourceFeatureRules,sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkFeatureSourceReview} from '../tools/feature-source-review.mjs';
-import {parseFeatureDefinition} from '../tools/feature-source-parsing.mjs';
-import {moveSourceNumericTokens} from '../tools/move-source-parsing.mjs';
+import {parseFeatureDefinition,featureSourceNumericTokens} from '../tools/feature-source-parsing.mjs';
 
 const original=await loadRecordSourceReview();
 const canonical=value=>Array.isArray(value)?value.map(canonical):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,canonical(v)])):value;
@@ -23,7 +22,7 @@ const rowFork=(id)=>{
 const rederiveSourceUnit=unit=>{
     unit.rawDefinitionSha256=textHash(unit.rawDefinition);unit.definition=parseFeatureDefinition(unit.rawDefinition);
     unit.body=unit.definition.sections.filter(s=>!['prerequisites','frequency','profile-frequency','cost','tags'].includes(s.kind)).map(s=>s.kind==='unlabelled'?s.text:`${s.label}: ${s.text}`).join('\n');
-    unit.ruleStructure=parseSourceFeatureRules(unit.body);unit.orderedContentWords=unit.ruleStructure.clauses.map(c=>sourceReviewWords(c.text)).join(' ');unit.numericTokens=moveSourceNumericTokens(unit.ruleStructure);
+    unit.ruleStructure=parseSourceFeatureRules(unit.body);unit.orderedContentWords=unit.ruleStructure.clauses.map(c=>sourceReviewWords(c.text)).join(' ');unit.numericTokens=featureSourceNumericTokens(unit.ruleStructure);
     unit.definitionNormalizedSha256=textHash(sourceReviewWords(unit.rawDefinition));
     unit.fieldWordViews={prerequisites:unit.definition.prerequisites.map(s=>sourceReviewWords(s.text)),frequency:unit.definition.frequencies.map(s=>sourceReviewWords(s.text)),cost:unit.definition.costs.map(s=>sourceReviewWords(s.text)),keywords:unit.definition.tags.map(sourceReviewWords)};
     unit.anchors.at(-1).endLine=unit.anchors[0].startLine+unit.rawDefinition.split('\n').length-1;
@@ -180,4 +179,33 @@ test('every duplicated anchor, completeness and citation fact binds directly to 
         assert.ok(errors.some(e=>e.includes('Feature comparison anchor does not bind complete source unit')||e.includes('Feature source boundary/citation/policy changed')),label);
         assert.ok(!errors.some(e=>e.includes('Feature duplicated current audit changed')),label);
     }
+});
+
+test('opposite-column Smith and Glitch sidebars cannot be reabsorbed after all derived views are refreshed',()=>{
+    const correction=original.featureSource.sourcePreparationCorrections.e1dColumnAndEffectCorrection;
+    for(const[id,contextId]of[['throhs:47:feature-line39','throhs47-smith-boxed-weapon-instruction'],['porygon:86:feature-line63','porygon86-glitch-class-sidebar']]){
+        const data=fork(),unit=structuredClone(data.featureSource.sourceDefinitions.find(u=>u.id===id));
+        unit.rawDefinition+='\n'+correction.detachedPrintedContexts.find(c=>c.id===contextId).rawText;rederiveSourceUnit(unit);
+        data.featureSource.sourceDefinitions=data.featureSource.sourceDefinitions.map(u=>u.id===id?unit:u);
+        data.featureSource.sourceDefinitionCensus={...data.featureSource.sourceDefinitionCensus,definitionSetSemanticSha256:hash(data.featureSource.sourceDefinitions)};
+        assert.ok(check(data).some(e=>e.includes('Feature independent column tail or true continuation boundary changed')));
+    }
+});
+
+test('the complete69/70 continuation retains Static, Scene and numeric AP mode roles',()=>{
+    const hyper=original.featureSource.sourceDefinitions.find(u=>u.id==='blessed:69:feature-line74');
+    assert.deepEqual(hyper.anchors.map(a=>[a.pdfPage,a.startLine,a.endLine]),[[69,74,81],[70,3,9]]);
+    assert.equal(hyper.definition.frequencies.length,1);
+    assert.match(hyper.definition.sections.find(s=>s.kind==='static-effect').text,/cannot be changed[\s\S]*afterwards/);
+    assert.match(hyper.definition.sections.find(s=>s.kind==='scene-effect').text,/single target attack[\s\S]*adjacent square/);
+    const data=fork(),unit=structuredClone(hyper),staticEffect=unit.definition.sections.find(s=>s.kind==='static-effect');
+    staticEffect.kind='frequency';unit.definition.frequencies.push(staticEffect);
+    data.featureSource.sourceDefinitions=data.featureSource.sourceDefinitions.map(u=>u.id===unit.id?unit:u);
+    data.featureSource.sourceDefinitionCensus={...data.featureSource.sourceDefinitionCensus,definitionSetSemanticSha256:hash(data.featureSource.sourceDefinitions)};
+    assert.ok(check(data).some(e=>e.includes('Feature complete printed Static effect was classified as frequency')));
+    const numeric=fork(),mode=structuredClone(numeric.featureSource.sourceDefinitions.find(u=>u.id==='blessed:53:feature-line30'));
+    assert.deepEqual(mode.numericTokens,['2','8']);mode.numericTokens=['8'];
+    numeric.featureSource.sourceDefinitions=numeric.featureSource.sourceDefinitions.map(u=>u.id===mode.id?mode:u);
+    numeric.featureSource.sourceDefinitionCensus={...numeric.featureSource.sourceDefinitionCensus,definitionSetSemanticSha256:hash(numeric.featureSource.sourceDefinitions)};
+    assert.ok(check(numeric).some(e=>e.includes('Feature printed AP mode amount lost from numeric evidence')));
 });

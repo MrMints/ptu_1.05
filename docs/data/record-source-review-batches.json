@@ -35854,8 +35854,23 @@
           "c7cbf5caeee28a4cd7c24a295e4638c27b7dd89567e49dbc67455c38a2022fc1"
         ]
       ],
-      "status": "in-progress",
-      "closure": null,
+      "status": "source-comparisons-complete",
+      "closure": {
+        "counts": {
+          "reviewed": 605,
+          "unresolved": 838
+        },
+        "sliceEvidenceSemanticSha256": {
+          "E1a": "f4030cae2b4fda2993dd0ca80a3ca48dd4a3a4b5c0846588b3bed37ece6f3494",
+          "E1b": "392a9be69f5e3f6d9ae4b6dcc6d7ceebe11a02ac4bc98b7db9b35e821d50b75e",
+          "E1c": "048171c57a0bb8ae8210fc3785c38b1bd7b8cf587d6e50a63be3d761b9a1b17f",
+          "E1d": "151df633b7fa9cc185cbd3b0d6fd2ed4d605602c6aeec7f26e0bf3543868adf6",
+          "E1e": "3265059cc4af99f5a827b43486536c70d1121053cdec5f8cbcfb49d136ecb10e"
+        },
+        "sourceDecision": "All1443 original frozen E1 identities/hashes and diagnostic remain fixed. E1a72/13,E1b19/19,E1c310/355,E1d184/203,E1e20/248. Complete current/complete-source/underlying/native/finite-search/prerequisite/rank/choice/repeat/trigger/cost/use/executable/UUID/export examination is recorded. Exact unresolved authoring,version,identity,representation and stored implementation limits remain explicit; no absence from no-hit or parser failure.",
+        "validation": "All139 focused source/catalog tests pass(71 Feature +68 record/catalog/Ability/Move),20 documentation/evidence tests and manifest/source/catalog/P01 validators pass.26 original hash/page/duplicate checks,all9 frozen memberships/candidate snapshot/non-E1 metadata,all5 closed payloads,24-file scope,preserved planner terminal/README content and82 local links pass. Normal required CI on the documented commit and substantive existing-planner review remain; prior CI is not current-revision evidence.",
+        "limitations": "605 bounded source correspondences and838 precise unresolved limits complete source examination only. Source correspondence never approves an entire inherited version,generation,canonical variant,dependency selection,actor predicate,acquisition veto or behavior. Standard core remains baseline; optional packets and separately evidenced originals/revisions remain distinct. No production promotion,world/runtime/authoritative pack/policy/ID/campaign/original change; full04/OPEN05 remain incomplete."
+      },
       "slices": [
         {
           "id": "E1a",
@@ -39067,8 +39082,17 @@
               "683354618682cd0be65595ccca4a91be3c67c07ff9ffb5bf36367f50351c2161"
             ]
           ],
-          "status": "not-started",
-          "closure": null,
+          "status": "source-comparisons-complete",
+          "closure": {
+            "counts": {
+              "reviewed": 310,
+              "unresolved": 355
+            },
+            "evidenceSemanticSha256": "048171c57a0bb8ae8210fc3785c38b1bd7b8cf587d6e50a63be3d761b9a1b17f",
+            "checks": "47 focused Feature/Edge source parser/evidence tests and complete source validator pass at E1c checkpoint. Later slices repeat affected checks on their added evidence; complete documented E1 revision still requires required exact-head CI.",
+            "sourceDecision": "Every exact frozen member has complete current/source field, prerequisite/rank/choice/use, exact executable/UUID/export and finite approved-corpus/native evidence, or a precise examined conflict/unavailable authoring/identity artifact. No source absence from no-hit or parser failure.",
+            "limitations": "Source examination only. Literal current arrays/raw backups, distinct original/optional/revised claims, effect-use conditions and all differences remain. No actor/predicate/behavior/variant/generation/whole-version promotion. FullE1/full04/OPEN05 remain held."
+          },
           "partitionBasis": "Stable record type, then only the saved diagnostic sourceUnit prefix; locator partitions do not approve content or establish source absence.",
           "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
           "records": 665,
@@ -39084,6 +39108,11 @@
             },
             "ignoredResume": ".cache/rules04/E1_CHECKPOINT_RESUME_2026-10-26.md",
             "interpretation": "The existing not-started slice status denotes unpublished record evidence; local analysis has begun. Candidate/body correspondences, layout census and ignored notes do not complete E1c or establish selected-version/identity/behavior approval."
+          },
+          "recordFile": "record-source-review/features-core.json",
+          "preparedCounts": {
+            "reviewed": 310,
+            "unresolved": 355
           }
         },
         {
@@ -40640,11 +40669,25 @@
               "9580aaac65595064721040e4ed98d17c3862da256ef4469b8d2706967f44774e"
             ]
           ],
-          "status": "not-started",
-          "closure": null,
+          "status": "source-comparisons-complete",
+          "closure": {
+            "counts": {
+              "reviewed": 184,
+              "unresolved": 203
+            },
+            "evidenceSemanticSha256": "151df633b7fa9cc185cbd3b0d6fd2ed4d605602c6aeec7f26e0bf3543868adf6",
+            "checks": "63 focused Feature/Edge source parser/evidence tests and complete source validator pass at E1d checkpoint. Later slices repeat affected checks on their added evidence; complete documented E1 revision still requires required exact-head CI.",
+            "sourceDecision": "Every exact frozen member has complete current/source field, prerequisite/rank/choice/use, exact executable/UUID/export and finite approved-corpus/native evidence, or a precise examined conflict/unavailable authoring/identity artifact. No source absence from no-hit or parser failure.",
+            "limitations": "Source examination only. Literal current arrays/raw backups, distinct original/optional/revised claims, effect-use conditions and all differences remain. No actor/predicate/behavior/variant/generation/whole-version promotion. FullE1/full04/OPEN05 remain held."
+          },
           "partitionBasis": "Stable record type, then only the saved diagnostic sourceUnit prefix; locator partitions do not approve content or establish source absence.",
           "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
-          "records": 387
+          "records": 387,
+          "recordFile": "record-source-review/features-supplemental.json",
+          "preparedCounts": {
+            "reviewed": 184,
+            "unresolved": 203
+          }
         },
         {
           "id": "E1e",
@@ -41724,11 +41767,25 @@
               "f87b111ddf51f4de2150d1396221bdbb3e3dfc617fcbff21ef74d971bd882b14"
             ]
           ],
-          "status": "not-started",
-          "closure": null,
+          "status": "source-comparisons-complete",
+          "closure": {
+            "counts": {
+              "unresolved": 248,
+              "reviewed": 20
+            },
+            "evidenceSemanticSha256": "3265059cc4af99f5a827b43486536c70d1121053cdec5f8cbcfb49d136ecb10e",
+            "checks": "71 focused Feature/Edge source parser/evidence tests and complete source validator pass at E1e checkpoint. Later slices repeat affected checks on their added evidence; complete documented E1 revision still requires required exact-head CI.",
+            "sourceDecision": "Every exact frozen member has complete current/source field, prerequisite/rank/choice/use, exact executable/UUID/export and finite approved-corpus/native evidence, or a precise examined conflict/unavailable authoring/identity artifact. No source absence from no-hit or parser failure.",
+            "limitations": "Source examination only. Literal current arrays/raw backups, distinct original/optional/revised claims, effect-use conditions and all differences remain. No actor/predicate/behavior/variant/generation/whole-version promotion. FullE1/full04/OPEN05 remain held."
+          },
           "partitionBasis": "Stable record type, then only the saved diagnostic sourceUnit prefix; locator partitions do not approve content or establish source absence.",
           "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
-          "records": 268
+          "records": 268,
+          "recordFile": "record-source-review/features-remaining.json",
+          "preparedCounts": {
+            "unresolved": 248,
+            "reviewed": 20
+          }
         }
       ],
       "start": {
@@ -41767,7 +41824,7 @@
       },
       "acceptance": {
         "status": "pending-substantive-review",
-        "requires": "All1443 original frozen E1 dispositions, affected checks, passing documented-revision required CI and substantive existing-planner acceptance before E2. Full04/OPEN05 remain held."
+        "requires": "Complete original E1 source examination is recorded; required documented-revision CI and substantive existing-planner full E1 review remain before E2. No automatic E2/full04/OPEN05 advancement."
       },
       "checkpoint": {
         "date": "2026-10-26",

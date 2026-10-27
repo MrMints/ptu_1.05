@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Continuing E1 source examination
+
+- Complete original E1 source examination for all 1,443 frozen records: 605 bounded correspondences / 838 precise unresolved limits. Internal E1c/E1d/E1e retain 310/355, 184/203 and 20/248 dispositions respectively; earlier closed payloads and all original memberships remain fixed. Documented-revision CI and substantive existing-planner full E1 review remain before E2; full04/OPEN-05 stay held.
+- Reconcile all 54 prerequisite observations; retain 73 material action, tag, grant, choice and stat-rule axes, 507 exact executable objects, 337 dependency relationships, 69 complete parent/support frames, optional packet modifiers and a separately read terrain diagram. Preserve every original/non-errata/optional alternative, current field, source boundary, stable ID and campaign selection.
+- Bind E1d's 44 prerequisite/frequency axes, 14 material tag/choice limits, 532 executable objects, 323 dependencies and 44 additional full parent/table frames. Correct seven unreferenced source preparations while preserving closed A/B/C payloads and all candidate memberships; retain separate opposite-column sidebars, complete continuation/effect roles and numeric AP amounts.
+- Reconcile E1e's complete generic/selected-branch rules and all 131 records without frozen heading candidates. Separately bind 17 available underlying definitions for 14 records, 11 additional native contexts, 136 executable objects and 218 exact dependencies; preserve 12 material formula/flag/reference/use limits. Known underlying mechanics, source kinds and exact current wrapper/identity limits remain distinct.
+- Add 12 core, nine supplemental and eight remaining-source integrity regressions plus focused source parsing cases. All 139 focused source/catalog tests and the full source validator pass after correcting an initial category tally and an empty-candidate checker error; those corrections changed no source dispositions. [Complete E1 evidence and limits](docs/validation/2026-10-27-e1-source-review.md). All 20 documentation/evidence tests and final local integrity checks pass; documented-revision CI remains required. No runtime, authoritative pack, policy, original, version, merge or release change.
+
 ### Terminal release plan and installation presentation
 
 - Plan terminal readability cleanup, evidence-backed obsolete-file removal and gated 1.0.0 publication after accepted 01–08 scope. Require the inherited-version transition, final artifact validation and public raw installation-link verification; preserve all existing source, scope and pre-05 gates. [Ordered terminal work](ROADMAP.md#terminal-cleanup-and-100-publication), [09 brief](docs/workstreams/09-release-validation.md), [release evidence](docs/TESTING.md#release-evidence).

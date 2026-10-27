@@ -2,7 +2,7 @@
 import {moveSourceNumericTokens} from './move-source-parsing.mjs';
 const ordinary = value => String(value ?? '').replace(/\s+/g, ' ').trim();
 const role = label => label.toLowerCase().replace(/\s+/g, '-');
-const header = /^\s*((?:(?:All\s+)?Ranks?\s*(?:[^:;\n]+?\s+)?)?(?:Prerequisites?|Perquisites|Effects?)|Moves|Frequency|Cost|Ingredients?|Trigger|Targets?|Conditions?|Requirements?|Notes?|Special|Connection|Bonus|Static|\d+\s+AP\s+Effect|Scene\s+Effect)\s*([:;])\s*(.*)$/i;
+const header = /^\s*((?:(?:All\s+)?Ranks?\s*(?:[^:;\n]+?\s+)?)?(?:Prerequisites?|Perquisites|Effects?)|Moves|Frequency|Cost|Ingredients?|Trigger|Targets?|Conditions?|Requirements?|Notes?|Special|Connection|Bonus|Static|(?:Static|Scene|\d+\s+AP)\s+Effect)\s*([:;])\s*(.*)$/i;
 const frequency = /^(?:(?:Ranks?\s+[^:]+:\s*)?(?:Static|At[ -]Will|Daily|Scene|Bind\s+\d+\s+AP|Drain\s+\d+\s+AP|\d+\s+AP|x\d+\s+Uses|(?:Standard|Swift|Free|Extended|Shift)\s+Action|One[ -]Time\s+Use|Special))\b/i;
 
 export function parseFeatureDefinition(rawDefinition) {
@@ -16,9 +16,9 @@ export function parseFeatureDefinition(rawDefinition) {
             const rank = ordinary(match[1]).match(/^((?:All\s+)?Ranks?(?:\s+.+?)?)\s+(Prerequisites?|Perquisites|Effects?)$/i);
             sections.push({kind: role(rank?.[2] ?? match[1]).replace(/^(?:prerequisite|perquisites)$/, 'prerequisites').replace(/^effects$/, 'effect'), rank: rank?.[1] ?? null,
                 label: ordinary(match[1]), printedDelimiter: match[2], text: match[3], startLine: ordinal + 1, endLine: ordinal + 1});
-        } else if (text && /^\s*(?:\[[^\]\n]+\]\s*)+$/.test(line) && !sections.some(section => section.kind === 'effect')) {
+        } else if (text && /^\s*(?:\[[^\]\n]+\]\s*)+$/.test(line) && !sections.some(section => ['effect','static'].includes(section.kind) || section.kind.endsWith('-effect'))) {
             sections.push({kind: 'tags', rank: null, label: 'printed tags', text: line, startLine: ordinal + 1, endLine: ordinal + 1});
-        } else if (text && frequency.test(text) && !sections.some(section => section.kind === 'effect')) {
+        } else if (text && frequency.test(text) && !sections.some(section => ['effect','static'].includes(section.kind) || section.kind.endsWith('-effect'))) {
             sections.push({kind: 'frequency', rank: null, label: 'unlabelled printed frequency/action', text: line, startLine: ordinal + 1, endLine: ordinal + 1});
         } else if (sections.length) {
             sections.at(-1).text += `\n${line}`;
@@ -35,8 +35,9 @@ export function parseFeatureDefinition(rawDefinition) {
 export function parseFeatureEffectClauses(value, clean = ordinary) {
     const raw = String(value ?? ''), text = raw.replace(/\\n/g, '\n');
     const masked = text.replace(/@(?:UUID|Embed)\[[^\]]*\](?:\{[^}]*\})?/g, reference => '_'.repeat(reference.length));
-    const markers = [...masked.matchAll(/\b((?:Ranks?\s+[^:\n]+?\s+)?(?:Effect|Trigger|Target|Condition|Requirement|Special|Connection|Bonus|Note|Moves))\s*(?::|[–—-](?=\s))/gi)]
-        .filter(match=>match[1].toLowerCase()!=='moves'||/^\s*$/.test(masked.slice(masked.lastIndexOf('\n',match.index-1)+1,match.index))), clauses = [];
+    const markers = [...masked.matchAll(/\b((?:(?:Static|Scene|\d+\s+AP)\s+Effect)|Static(?=\s*:)|(?:Ranks?\s+[^:\n]+?\s+)?(?:Effect|Trigger|Target|Condition|Requirement|Special|Connection|Bonus|Note|Moves))\s*(?::|[–—-](?=\s))/gi)]
+        .filter(match=>!['moves','static'].includes(match[1].toLowerCase())||/^\s*$/.test(masked.slice(masked.lastIndexOf('\n',match.index-1)+1,match.index)))
+        .filter(match=>!(/^(?:trigger|target)-$/i.test(match[0])&&/^[\t ]*\r?\n[\t ]*ing\b/i.test(masked.slice(match.index+match[0].length)))), clauses = [];
     if (!markers.length) { if (clean(text)) clauses.push({kind: 'effect', text: clean(text)}); }
     else {
         if (clean(text.slice(0, markers[0].index))) clauses.push({kind: 'effect', text: clean(text.slice(0, markers[0].index))});
@@ -47,6 +48,14 @@ export function parseFeatureEffectClauses(value, clean = ordinary) {
     }
     return {clauses, representation: {literalParagraphEscapes: (raw.match(/\\n/g) ?? []).length,
         basis: 'Raw fields/UUID paths remain exact. Typed clauses and ordered words are separate views; equal words do not establish role, prerequisite, identity or behavioral equivalence.'}};
+}
+
+export function featureSourceNumericTokens(structure) {
+    // A printed mode's AP amount lives in its role label; retain it in numeric evidence.
+    return moveSourceNumericTokens({...structure, clauses: structure.clauses.map(clause => {
+        const amount = /^(\d+)-ap-effect$/.exec(clause.kind)?.[1];
+        return amount ? {...clause, text: `${amount} AP ${clause.text}`} : clause;
+    })});
 }
 
 export function featureImplementationNotes(value) {
@@ -82,20 +91,30 @@ export function featurePrerequisiteWordingProof(current, sources, norm) {
 
 export function featureEffectWordingProof(current, unit, norm, currentRaw) {
     const words = structure => structure.clauses.map(clause => norm(clause.text)).join(' ');
-    const cw = words(current), sw = words(unit.ruleStructure), rn = moveSourceNumericTokens(current), sn = moveSourceNumericTokens(unit.ruleStructure);
+    const cw = words(current), sw = words(unit.ruleStructure), rn = featureSourceNumericTokens(current), sn = featureSourceNumericTokens(unit.ruleStructure);
     const sameNumbers = (a,b) => ![...a,...b].some(value => value.startsWith('unrecognized-sign:')) && JSON.stringify(a) === JSON.stringify(b);
     const bulletPattern=/^\s*-\s+(\d+) Momentum:/gm,sourcePattern=/^\s*»\s+(\d+) Momentum:/gm;
     const bullets=[...String(currentRaw??'').matchAll(bulletPattern)].map(m=>m[1]),sourceBullets=[...String(unit.rawDefinition??'').matchAll(sourcePattern)].map(m=>m[1]);
     if(cw===sw&&bullets.length>0&&JSON.stringify(bullets)===JSON.stringify(sourceBullets)){
         const stripped=String(currentRaw).replace(bulletPattern,'$1 Momentum:');
-        if(sameNumbers(moveSourceNumericTokens(parseFeatureEffectClauses(stripped)),sn))return 'printed-numbered-momentum-bullets';
+        if(sameNumbers(featureSourceNumericTokens(parseFeatureEffectClauses(stripped)),sn))return 'printed-numbered-momentum-bullets';
     }
     if (cw !== sw && /\by ellow\b/.test(sw) && cw === sw.replace(/\by ellow\b/g, 'yellow') && sameNumbers(rn,sn)) return 'pdf-capital-yellow-word-gap';
+    if (/\bAr[\t ]+-\s*\n\s*cane\b/.test(unit.rawDefinition??'') && cw !== sw && cw === sw.replace(/\bar cane\b/g,'arcane') && sameNumbers(rn,sn)) return 'printed-arcane-spaced-line-wrap';
+    if (/\byouhave\b/.test(unit.rawDefinition??'') && cw !== sw && cw === sw.replace(/\byouhave\b/g,'you have') && sameNumbers(rn,sn)) return 'printed-youhave-word-gap';
+    const supplementalGaps = [
+        [/\bi nto\b/, /\bi nto\b/g, 'into'],
+        [/\bper[\t ]+-\s*\n\s*ceive\b/, /\bper ceive\b/g, 'perceive'],
+        [/\bTopsy-\s*\n\s*Tur v y\b/, /\btopsytur v y\b/g, 'topsy turvy']
+    ];
+    for (const [rawPattern, wordPattern, replacement] of supplementalGaps) {
+        if (rawPattern.test(unit.rawDefinition??'') && cw !== sw && cw === sw.replace(wordPattern,replacement) && sameNumbers(rn,sn)) return 'printed-supplement-literal-word-gap';
+    }
     if (/Level-\s*\n\s*Up/.test(unit.rawDefinition??'') && cw !== sw && cw === sw.replace(/\blevelup\b/g,'level up') && sameNumbers(rn,sn)) return 'printed-level-up-line-wrap';
     const wrapped=new Map();
     for(const m of String(unit.rawDefinition??'').matchAll(/\b([A-Za-z]+)-\s*\n\s*([A-Za-z]+)\b/g)){
         const compound=(m[1]+'-'+m[2]).toLowerCase();
-        if(/^(?:super-effective|(?:normal|fire|water|electric|grass|ice|fighting|poison|ground|flying|psychic|bug|rock|ghost|dragon|dark|steel|fairy)-type|(?:status|physical|special)-class)$/.test(compound))wrapped.set(m[1].toLowerCase()+m[2].toLowerCase(),m[1].toLowerCase()+' '+m[2].toLowerCase());
+        if(/^(?:super-effective|(?:normal|fire|water|electric|grass|ice|fighting|poison|ground|flying|psychic|bug|rock|ghost|dragon|dark|steel|fairy)-typed?|(?:status|physical|special)-class)$/.test(compound))wrapped.set(m[1].toLowerCase()+m[2].toLowerCase(),m[1].toLowerCase()+' '+m[2].toLowerCase());
     }
     if(wrapped.size&&cw!==sw&&cw===sw.split(' ').map(word=>wrapped.get(word)??word).join(' ')&&sameNumbers(rn,sn))return 'printed-rule-compound-line-wrap';
     const reference='the capabilities listed in the prerequisites for this poke edge';
@@ -104,7 +123,7 @@ export function featureEffectWordingProof(current, unit, norm, currentRaw) {
     const frequencies = unit.definition.frequencies;
     if (frequencies.length === 1 && /^Special\s*[–—-]\s*/i.test(frequencies[0].text)) {
         const combined = {clauses:[{kind:'special',text:frequencies[0].text.replace(/^Special\s*[–—-]\s*/i,'')},...unit.ruleStructure.clauses]};
-        if (cw === words(combined) && sameNumbers(rn,moveSourceNumericTokens(combined))) return 'printed-special-frequency-stored-in-effect';
+        if (cw === words(combined) && sameNumbers(rn,featureSourceNumericTokens(combined))) return 'printed-special-frequency-stored-in-effect';
     }
     return null;
 }

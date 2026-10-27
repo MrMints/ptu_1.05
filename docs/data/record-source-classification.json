@@ -24,16 +24,19 @@
     "record-source-review/moves-anchored.json",
     "record-source-review/moves-remaining.json",
     "record-source-review/edges.json",
-    "record-source-review/pokemon-edges.json"
+    "record-source-review/pokemon-edges.json",
+    "record-source-review/features-core.json",
+    "record-source-review/features-supplemental.json",
+    "record-source-review/features-remaining.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 3869,
+    "explicitRecordDispositions": 5189,
     "counts": {
-      "reviewed": 2012,
+      "reviewed": 2526,
       "excluded": 123,
-      "unresolved": 1734,
-      "unreviewed": 3526
+      "unresolved": 2540,
+      "unreviewed": 2206
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -51,8 +54,8 @@
       "examined-ability-version-or-authority-conflict": 322,
       "examined-move-source-correspondence": 462,
       "examined-move-version-or-authority-limit": 766,
-      "examined-feature-edge-source-correspondence": 91,
-      "examined-feature-edge-version-or-authoring-limit": 32
+      "examined-feature-edge-source-correspondence": 605,
+      "examined-feature-edge-version-or-authoring-limit": 838
     }
   },
   "dependencyReview": "record-dependency-review.json",
