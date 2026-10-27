@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Full E1 source acceptance
+
+- Accept original E1 source examination at `c0600198` after independent source/code review and passing CI 40459365281: 1,443 unchanged identities, 605 correspondences / 838 precise unresolved limits. Recompute frozen payloads, complete PDF boundaries and 5,772 historical snapshots; all 139 source/catalog tests pass. [Acceptance and evidence](docs/validation/2026-10-27-e1-source-review.md#substantive-full-e1-acceptance).
+- Assess shared-choice flags, wrong targets, local Item references and version differences against prior acquisition requirements using exact IDs and current consumers. Preserve content obligations and the bounded earlier acceptances; no runtime or production approval follows. Three controlled ChoiceSet sequences pass without proving live grants or reload behavior.
+- Record acceptance/handoff metadata and prepare original E2 only, without starting it. Retain all closed evidence, later frozen memberships, original references, IDs, campaigns and the terminal plan. Applicable documentation/source checks and exact-head CI are recorded in the final handoff; no world, installation, migration, gameplay or release test is claimed.
+
 ### Continuing E1 source examination
 
 - Complete original E1 source examination for all 1,443 frozen records: 605 bounded correspondences / 838 precise unresolved limits. Internal E1c/E1d/E1e retain 310/355, 184/203 and 20/248 dispositions respectively; earlier closed payloads and all original memberships remain fixed. Documented-revision CI and substantive existing-planner full E1 review remain before E2; full04/OPEN-05 stay held.

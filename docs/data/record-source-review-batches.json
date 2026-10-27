@@ -41823,8 +41823,13 @@
         ]
       },
       "acceptance": {
-        "status": "pending-substantive-review",
-        "requires": "Complete original E1 source examination is recorded; required documented-revision CI and substantive existing-planner full E1 review remain before E2. No automatic E2/full04/OPEN05 advancement."
+        "status": "accepted-source-examination",
+        "revision": "c0600198342dbcd56233d60fe53859953986a787",
+        "reviewTurn": "01a17c06-0176-74a0-bfb4-864a9269ec18",
+        "ciRun": 40459365281,
+        "documentationJob": 122040063979,
+        "validationJob": 122040064249,
+        "decision": "Existing planner accepts original full E1 source examination after substantive source/code/exception review, 139 independent regressions, fresh complete PDF bindings and cached-history reconciliation. All 1,443 identities and 605/838 outcomes remain. The exact-ID foundation assessment preserves current obligations without inferring runtime failure or certifying content. E2 alone is next eligible after successful bookkeeping CI, explicit release and coordinator assignment under operating guards. F/G/H, full04/OPEN05 remain held. Historical closure statements retain their then-pending state; no production or behavior approval."
       },
       "checkpoint": {
         "date": "2026-10-26",
@@ -41843,7 +41848,13 @@
           "E1e"
         ],
         "handoff": "After exact-revision required CI and explicit chat release, coordinator/planner has a bounded documentation-only terminal-plan/README amendment. Existing04 remains paused/read-only until explicit reassignment after planner release; no automatic family advancement."
-      }
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "requires": "Complete original E1 source examination is recorded; required documented-revision CI and substantive existing-planner full E1 review remain before E2. No automatic E2/full04/OPEN05 advancement."
+        }
+      ]
     },
     {
       "id": "E2",
