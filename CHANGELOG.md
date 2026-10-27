@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Full D substantive source acceptance
+- Accept the original 1,228-record D source examination at `6d3a88c9` after actual source/code review, 57 affected regressions, fresh PDF comparisons, cached-history reconciliation and passing exact-revision CI. Preserve 462 correspondences / 766 unresolved limits, all frozen memberships and prior accepted evidence; no production or gameplay approval follows.
+- Record acceptance consistently in the gate ledger and shared handoffs, and prepare only the original 1,443-record E1 continuation without starting it. Full04/OPEN-05 remain held. [Review evidence and limits](docs/validation/2026-10-26-move-source-review.md#substantive-full-d-acceptance); documentation/source checks and required CI cover this bookkeeping revision. No runtime, pack, campaign, policy, original-source or version change.
+
 ### Remaining PTU 04 D source examination
 - Complete remaining frozen D2/D3 source examination: D2 371 correspondences / 210 unresolved; D3 1 / 536. With accepted D1, all 1,228 original D members have 462 source correspondences and 766 precise source/version/authoring limits. Preserve every frozen identity, complete original/optional candidates, current fields, executable data, exact UUID paths and cached lineage.
 - Record finite approved-corpus/native searches and separately retain Innovation/Dance templates and general Move/weapon/Arcane use conditions. Correct two source rank boundaries without changing accepted D1 evidence.

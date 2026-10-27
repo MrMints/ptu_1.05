@@ -30057,13 +30057,24 @@
         }
       ],
       "acceptance": {
-        "status": "pending-substantive-review",
-        "requires": "Complete original D source examination is recorded; required documented-revision CI and substantive full D existing-planner review remain before E1. No automatic E1/full04/05 acceptance.",
-        "nextFamilyRequires": [
-          "Substantive full D acceptance at its documented revision and passing CI",
-          "P03-NPC accepted within its matrix at511df486cf7632cecf3dcc0bc0894bafa64888b3, runtime78aa74b277376d5af168eb323c36ff95c07255b5; prior limits remain"
-        ]
-      }
+        "status": "accepted-source-examination",
+        "revision": "6d3a88c94293725a9184891dac9be81a7cbf22ea",
+        "reviewTurn": "01a17aaf-0f02-73e0-b46e-105d52c5bece",
+        "ciRun": 40423188375,
+        "documentationJob": 121922372911,
+        "validationJob": 121922373222,
+        "decision": "Existing planner accepts original full D source examination after substantive code/source/exception review, 57 affected regressions, fresh source comparisons and cached-history reconciliation. All1228 identities and462/766 outcomes remain. E1 is next eligible but not started until explicit sole-writer assignment and operating guards. E2/F/G/H,full04/OPEN05 remain held. Historical closure statements retain their then-pending state; no production or behavior approval."
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "requires": "Complete original D source examination is recorded; required documented-revision CI and substantive full D existing-planner review remain before E1. No automatic E1/full04/05 acceptance.",
+          "nextFamilyRequires": [
+            "Substantive full D acceptance at its documented revision and passing CI",
+            "P03-NPC accepted within its matrix at511df486cf7632cecf3dcc0bc0894bafa64888b3, runtime78aa74b277376d5af168eb323c36ff95c07255b5; prior limits remain"
+          ]
+        }
+      ]
     },
     {
       "id": "E1",
