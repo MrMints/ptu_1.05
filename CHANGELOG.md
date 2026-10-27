@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F source examination — partial checkpoint
+
+- Start explicitly assigned original F after accepted E2, planner bookkeeping `0833aecc`/CI40488186534 and explicit release. Preserve all939 original identity/hash tuples and accepted A–E2 evidence; bounded slices organize38 conditions,82 TemporarySpecies effects,484 other effects and335 references without classifying them from names.
+- Independently examine F1's38 conditions:12 partial source correspondences /26 precise version, identity, timing and authoring limits. Retain complete original/optional definitions, explicit May naming errata, parent/native contexts, actual rules/formulas/counters and exact direct/nested/incoming relationships. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md) preserve competing status definitions and distinguish static observations from behavior.
+- Add24 focused regressions and a source validator; both pass, alongside12 affected E2 and24 documentation/evidence regressions, with27 unchanged record-contract results reused. Make E2d's prior-review comparison respect the frozen review sequence, preserving accepted null/non-null snapshots as later F work arrives. Integrity/original-source checks pass; documented-revision CI remains required.901 F records, fullF/full04 and OPEN-05 remain unfinished. No runtime, authoritative pack, policy, ID, campaign, original, issue/PR metadata or release change.
+
 ### Full E2 source acceptance
 
 - Accept original E2 source examination at `38154ee9` after independent source, history, current-field/target and negative-test review plus passing CI 40483889241. Preserve all 1,020 identities and 346 partial correspondences / 674 precise unresolved limits; 61 affected tests and 24 document/evidence tests pass independently. [Acceptance and exact validation limits](docs/validation/2026-10-27-e2-source-review.md#substantive-full-e2-acceptance).

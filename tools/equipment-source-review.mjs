@@ -1,4 +1,5 @@
 import {deriveEquipmentUnit,equipmentRawPrimitives,equipmentComparableWords,equipmentReferenceLiterals} from './equipment-source-derivation.mjs';
+import {priorSourceIdentities} from './source-review-order.mjs';
 
 const ORIGINAL_D_PRIMITIVES = 'c71f3190f6051f0bab3d96d89232285efe6cfe0ddc141a16b9000ccb719d46fb';
 // Explicit source/implementation contradictions examined in this frozen slice.
@@ -42,7 +43,10 @@ export function checkEquipmentSourceReview(bundle, context) {
     }
     const snapshots = new Map(source.targetSnapshots.map(s => [s.identity,s]));
     fail(snapshots.size === 93 && closure.equipmentTargetSnapshotSetSemanticSha256 === hash(source.targetSnapshots),'E2d exact direct-target inventory changed');
-    const checkPrior = (id,claim) => {const prior=rows.get(id);return equal(claim,prior ? {coverageState:prior.coverageState,evidenceSha256:hash(prior)} : null);};
+    // A frozen checkpoint describes the source dispositions available when its
+    // slice was examined. Later F/G/H work must not rewrite that prior evidence.
+    const priorIds = priorSourceIdentities(bundle.batchManifest, 'E2', 'E2d');
+    const checkPrior = (id,claim) => {const prior=priorIds.has(id)?rows.get(id):null;return equal(claim,prior ? {coverageState:prior.coverageState,evidenceSha256:hash(prior)} : null);};
     for (const snapshot of snapshots.values()) {
         const actual = actualMap.get(snapshot.identity);
         fail(actual && actual.contentHash === snapshot.contentHash && equal(actual.data,snapshot.document) && checkPrior(snapshot.identity,snapshot.priorSourceReview),
