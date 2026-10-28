@@ -48,7 +48,7 @@ test('F3a closes exactly its60 frozen source examinations;759 F records remain o
     const b = base.batchManifest.batches.find(b => b.id === 'F');
     assert.equal(b.status, 'in-progress');
     assert.equal(b.slices.filter(s => !['F1', 'F2', 'F3a'].includes(s.id)).reduce((n, s) => n + s.records, 0), 759);
-    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b'].includes(s.id)).every(s => s.status === 'not-started'));
+    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c'].includes(s.id)).every(s => s.status === 'not-started'));
     assert.deepEqual(audit(base).closure.counts, {reviewed: 21, unresolved: 39});
     assert.equal(audit(base).closure.fullFAcceptance, false);
     assert.equal(base.index.coverage.completeAddressableClassification, false);

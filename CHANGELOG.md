@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3c source checkpoint
+
+- Independently examine only the60 frozen F3c effects after accepted F3b:21 partial field correspondences /39 precise source, version, typed-role, state or use limits. Retain58 complete definitions,78 full parent pages,17 full native contexts, six relative page embeds, all current fields/122 rules,124 relationship snapshots and two separate existing Charge use contexts. Preserve31 earlier payloads/eight audits and every original membership.
+- Separate original/optional Quick Curl, Stench and Storm Drain; jointly source Fluffy Charge’s Defense and Charge’s separate Special Defense quantities; preserve original Sage’s Benediction under the renamed CR helper’s unresolved identity. Keep Order recipients/binding, pre-resistance damage, strict health thresholds, separate post-hit rolls, fixed HP loss, source omissions and all native weather qualifiers/manual notes explicit. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add51 meaningful source/current/history regressions, with97 affected earlier and24 documentation/evidence checks passing (172 focused checks). Catch the printed Water-Type line-wrap matcher and reject fabricated historical presence without crashing. F has300 examined /639 unexamined; full classification/fullF/full04/OPEN05 remain held. Required exact-revision CI, explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; no actual gameplay/migration verification.
+
 ### Original F3b source checkpoint
 
 - Independently examine only the60 frozen F3b effects after accepted corrected F3a:24 partial field correspondences /36 precise source, version, typed-role, state or use limits. Retain46 complete reused source units, three complete printed definitions/frameworks,65 full parent pages, four full native contexts, all current fields/107 rules and exact direct/nested/incoming/page/history evidence. Preserve all accepted artifacts and original memberships.
