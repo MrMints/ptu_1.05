@@ -38,7 +38,7 @@ test('F1 examines exactly38 original conditions;901 F records remain outside clo
     assert.equal(batch.status, 'in-progress');
     assert.equal(batch.slices.find(s => s.id === 'F1').records, 38);
     assert.equal(batch.slices.filter(s => s.id !== 'F1').reduce((n, s) => n + s.records, 0), 901);
-    assert.ok(batch.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g'].includes(s.id)).every(s => !s.recordFile && s.status === 'not-started'));
+    assert.ok(batch.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h'].includes(s.id)).every(s => !s.recordFile && s.status === 'not-started'));
     assert.deepEqual(base.effectSource.completedSlices.F1.counts, {reviewed: 12, unresolved: 26});
 });
 

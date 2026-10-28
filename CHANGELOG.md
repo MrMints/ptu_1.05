@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3h source checkpoint
+
+- Examine only64 frozen F3h references after accepted F3g:18 partial field correspondences /46 precise unresolved limits. Retain53 complete definitions,43 full parent pages, six native contexts,110 current rules,130 relationship snapshots/80 genuine priors,15 direct and64 incoming occurrences, five exact page targets and four approved historical exports. Preserve36 earlier payloads/13 whole audits and every original membership.
+- Keep Bug Buzz's printed amount/unit omission; Rage's damaged-while-Enraged trigger; Rattled's separate optional Disengage; Anger Point's gain6 rather than set maximum; Slow Start's Attack/Speed/three-round boundary; Minimize size versus token scale and historical cannot-attack; Chip Away's any-change wording; Magnet Rise turns versus rounds; and Glaciate's grounded Slowed recipients explicit. Preserve Shady save DC versus roll, Tule/Heavy Fog rank/size differences, exact malformed field/UUID roles and unavailable independent wrapper authoring. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add85 meaningful source/current/history/semantic/preservation regressions, with515 earlier effect and35 document/evidence/catalog checks passing (635 focused checks). Full source/catalog/26-original/preservation/145-link/diff checks pass; required exact-head normal CI is recorded in the final handoff. F604 examined/335 REFERENCES unexamined still requires substantive full-F acceptance before G. Full04/OPEN05 remain held. End with explicit checkout release and independent F3h review; daily blackout/latched-hold guards remain. Runtime, authoritative packs, policy, identifiers, originals and campaigns are preserved; actual gameplay/acquisition/migration verification is not run.
+
 ### Original F3g source checkpoint
 
 - Independently examine only the60 frozen F3g effects after accepted F3f:22 partial field correspondences /38 precise source, version, typed-role, state or use limits. Retain57 complete source units,61 full parent pages, eight complete native contexts/three relative embeds, all current fields/99 rules,118 complete relationship snapshots and seven exact page targets. Preserve35 earlier payloads/12 whole audits and every original membership.
