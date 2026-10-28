@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3f source checkpoint
+
+- Independently examine only the60 frozen F3f effects after accepted F3e:36 partial field correspondences /24 precise source, version, typed-role, state or use limits. Retain74 complete definitions,84 full parent pages, five complete native contexts, all current fields/132 rules,139 complete relationship snapshots and four exact page targets. Preserve34 earlier payloads/11 whole audits, three absent feat targets and every original membership.
+- Separate original/optional Sap Sipper, Snow Cloak, Sand Veil, Multiscale, Shields and Fight On; retain Iron Tail's15+/19+ discrepancy, Wear Down/Screech text-versus-rule signs, Sunny Growth's reference-only selection limit, Autotomize's conditional/empty historical weight value, Hardened's injury/HP-loss roles and Energy Blast's printed unit omission. Preserve D100 Capture Rate versus stored DC, temporary HP, source action endpoints and native Blistering/Eclipse qualifiers without gameplay claims. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add95 meaningful source/current/history/preservation regressions, with289 affected earlier,24 documentation/evidence and11 catalog checks passing (419 focused checks). Full source/manifest/catalog/original/preservation/link checks pass; exact-revision CI remains required. F has480 examined /459 unexamined; complete classification/fullF/full04/OPEN05 remain held. Current guard is08:00–19:00 Indianapolis for all balances, with the checkpoint/latched-hold/explicit-resumption rule. Explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; no actual gameplay/migration verification.
+
 ### Original F3e source checkpoint
 
 - Independently examine only the60 frozen F3e effects after accepted F3d:28 partial field correspondences /32 precise source, version, typed-role, state or use limits. Retain63 complete definitions,71 full parent pages,14 full native contexts, all current fields/115 rules,129 complete relationship snapshots and13 exact page targets. Preserve33 earlier payloads/10 audits, two absent feat targets and every original membership.
