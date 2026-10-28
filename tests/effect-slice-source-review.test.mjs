@@ -249,6 +249,20 @@ test('all240 historical observations preserve14 exact-ID presences and capital S
     }).some(e => e.includes('historical observations')));
 });
 
+test('historical archive and database provenance cannot drift from the preserved four-export registry', () => {
+    assert.ok(tamper(b => { audit(b).historicalExports[0].archiveSha256 = '0'.repeat(64); })
+        .some(e => e.includes('historical observations')));
+    assert.ok(tamper(b => { b.temporarySpeciesSource = null; }).some(e => e.includes('historical observations')));
+});
+
+test('duplicated summary, record class and needed-artifact text must agree with the exact source assessment', () => {
+    for (const change of [
+        b => { row(b, '64zLtavH5iBUPWqa').ruleVersionReview.basis = 'The source specifies one stage.'; },
+        b => { row(b, '64zLtavH5iBUPWqa').recordClass = 'standard'; },
+        b => { row(b, '64zLtavH5iBUPWqa').missingEvidence.neededArtifact = 'No source needed.'; }
+    ]) assert.ok(tamper(change).some(e => e.includes('source/version/scope limit')));
+});
+
 test('own F3a cycles never become earlier source evidence', () => {
     for (const id of ['43yyWrfv6Iv651Dx', '5LDjddx5X22YhwpU', '6FK8sVk0x9R2hce2']) assert.equal(snapshot(base, `effects.${id}`).priorSourceReview, null);
     assert.ok(tamper(b => { snapshot(b, 'effects.43yyWrfv6Iv651Dx').priorSourceReview = row(b, '43yyWrfv6Iv651Dx'); })

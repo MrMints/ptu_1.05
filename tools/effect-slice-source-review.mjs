@@ -154,7 +154,8 @@ export function checkEffectSliceSourceReview(bundle, context) {
         'F3a exact page-ID resolution/hash changed: ' + p.journalIdentity + '.' + p.pageId);
     }
     const allHistory = Object.entries(audit.currentRecordAudit).map(([identity, e]) => ({identity, exportLineage: e.exportLineage}));
-    fail(hash(allHistory) === HISTORICAL_OBSERVATIONS && audit.historicalExports.length === 4,
+    fail(hash(allHistory) === HISTORICAL_OBSERVATIONS && audit.historicalExports.length === 4
+        && equal(audit.historicalExports, bundle.temporarySpeciesSource?.historicalExports),
         'F3a complete independently captured historical observations changed');
     const incoming = new Map(slice.members.map(([id]) => [id, []]));
     for (const [sourceIdentity, actual] of actualMap) for (const ref of effectReferences(actual.data))
@@ -168,6 +169,10 @@ export function checkEffectSliceSourceReview(bundle, context) {
         if (!row || !e || !d || !doc) continue;
         counts[row.coverageState] = (counts[row.coverageState] ?? 0) + 1;
         fail(hash(row) === e.dispositionEvidenceSha256 && hash(d) === e.examinationSha256
+            && row.ruleVersionReview.basis === d.specificAssessment
+            && row.recordClass === (d.partialFieldCorrespondence ? 'examined-effect-source-correspondence' : 'examined-effect-version-or-authority-limit')
+            && (d.partialFieldCorrespondence || row.missingEvidence?.neededArtifact === d.specificAssessment
+                && row.missingEvidence.sourceAbsenceClaim === false && row.missingEvidence.implementationOrAuthoringLimitNotUnexaminedInput === true)
             && d.specificAssessment.length > 250 && d.sourceDefinitionIds.every(id => units.has(id))
             && d.parentContextIds.every(id => parents.has(id)) && d.nativeContextIds.every(id => audit.nativeContexts.some(n => n.pageId === id))
             && d.completeCurrentGenerationEstablished === false && d.canonicalRelationshipClaim === false && d.sourceAbsenceClaim === false
