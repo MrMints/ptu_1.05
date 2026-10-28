@@ -575,7 +575,7 @@
       },
       "ruleVersionReview": {
         "status": "complete-available-source-facts-and-precise-current-limits-recorded",
-        "basis": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. Full native Umbra also makes Darkness for other types, replaces status-affliction behavior with Cursed, extends Hazard effect range by2, raises count-based effects50% minimum1, and has explicit manual handling notes. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or the omitted clauses; unlimited expiry does not establish global application/removal."
+        "basis": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. The complete retained native Umbra page says: \"Ghost, Dark, and Fairy-Type Attacks gain +2 DB.\" \"The Light Level is treated as Darkness for all non-Ghost, Dark, and Fairy-Type creatures.\" Its affliction clause is: \"When a Ghost, Dark, or Fairy-Type creature inflicts a Persistent or Volatile Status Affliction on a target, that target is also Cursed.\" Cursed is additional; the triggering Persistent or Volatile Status Affliction is retained, without replacement or removal. Its separate Hazard-creation clause is: \"When used by a creature with the Ghost, Dark, or Fairy-Type, all Moves with the Hazard Keyword increase their Range by +2, and the number of Hazards they create is increased by 50% (minimum 1).\" Range+2 concerns those Moves' Range; +50% (minimum1) concerns the number of Hazards they create, not arbitrary count-based effects. Its separate contact/affected-by-Hazard clause is: \"When a creature comes into contact with or is affected by a Hazard created by Ghost, Dark, and Fairy-Type creature, that creature loses a Tick of Hit Points, in addition to the Hazard's normal effects.\" The literal \"that creature\" and \"Ghost, Dark, and Fairy-Type creature\" are retained without resolving referent or conjunction ambiguity beyond the source. Illumination implementation note: \"In Foundry you can turn off Global Illumination to activate this, normal light sources such as Flashlights & the Glow Capability still function, and so would things like Darkvision.\" curse note: \"This part of the effect is not Automated!\" hazardCreation note: \"This part of the effect is not Automated!\" hazardContact note: \"This part of the effect is not Automated!\" All three clauses remain explicitly manual, not automated. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or omitted objects; unlimited expiry does not establish global application/removal. The unresolved source/version/use disposition remains."
       },
       "sources": [
         {
@@ -977,7 +977,7 @@
             "IbEa7GRGTQS4wjb6",
             "rzEXd4hoGRL4V2AS"
           ],
-          "specificAssessment": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. Full native Umbra also makes Darkness for other types, replaces status-affliction behavior with Cursed, extends Hazard effect range by2, raises count-based effects50% minimum1, and has explicit manual handling notes. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or the omitted clauses; unlimited expiry does not establish global application/removal.",
+          "specificAssessment": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. The complete retained native Umbra page says: \"Ghost, Dark, and Fairy-Type Attacks gain +2 DB.\" \"The Light Level is treated as Darkness for all non-Ghost, Dark, and Fairy-Type creatures.\" Its affliction clause is: \"When a Ghost, Dark, or Fairy-Type creature inflicts a Persistent or Volatile Status Affliction on a target, that target is also Cursed.\" Cursed is additional; the triggering Persistent or Volatile Status Affliction is retained, without replacement or removal. Its separate Hazard-creation clause is: \"When used by a creature with the Ghost, Dark, or Fairy-Type, all Moves with the Hazard Keyword increase their Range by +2, and the number of Hazards they create is increased by 50% (minimum 1).\" Range+2 concerns those Moves' Range; +50% (minimum1) concerns the number of Hazards they create, not arbitrary count-based effects. Its separate contact/affected-by-Hazard clause is: \"When a creature comes into contact with or is affected by a Hazard created by Ghost, Dark, and Fairy-Type creature, that creature loses a Tick of Hit Points, in addition to the Hazard's normal effects.\" The literal \"that creature\" and \"Ghost, Dark, and Fairy-Type creature\" are retained without resolving referent or conjunction ambiguity beyond the source. Illumination implementation note: \"In Foundry you can turn off Global Illumination to activate this, normal light sources such as Flashlights & the Glow Capability still function, and so would things like Darkvision.\" curse note: \"This part of the effect is not Automated!\" hazardCreation note: \"This part of the effect is not Automated!\" hazardContact note: \"This part of the effect is not Automated!\" All three clauses remain explicitly manual, not automated. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or omitted objects; unlimited expiry does not establish global application/removal. The unresolved source/version/use disposition remains.",
           "partialFieldCorrespondence": false,
           "completeCurrentGenerationEstablished": false,
           "canonicalRelationshipClaim": false,
@@ -1012,6 +1012,51 @@
             },
             "_id": "0AFgft7HHsIp6gdQ",
             "_key": "!items!0AFgft7HHsIp6gdQ"
+          },
+          "nativeWeatherComparison": {
+            "journalIdentity": "journals.XaqlAbknAD3Tpx5E",
+            "pageId": "IbEa7GRGTQS4wjb6",
+            "damageClause": "Ghost, Dark, and Fairy-Type Attacks gain +2 DB.",
+            "darknessClause": "The Light Level is treated as Darkness for all non-Ghost, Dark, and Fairy-Type creatures.",
+            "illuminationNote": "In Foundry you can turn off Global Illumination to activate this, normal light sources such as Flashlights & the Glow Capability still function, and so would things like Darkvision.",
+            "curse": {
+              "clause": "When a Ghost, Dark, or Fairy-Type creature inflicts a Persistent or Volatile Status Affliction on a target, that target is also Cursed.",
+              "qualifyingCreature": "Ghost, Dark, or Fairy-Type",
+              "trigger": "a Persistent or Volatile Status Affliction",
+              "consequence": "also Cursed",
+              "relationship": "additional Cursed; triggering affliction retained",
+              "triggeringAfflictionReplacedOrRemoved": false
+            },
+            "hazardCreation": {
+              "clause": "When used by a creature with the Ghost, Dark, or Fairy-Type, all Moves with the Hazard Keyword increase their Range by +2, and the number of Hazards they create is increased by 50% (minimum 1).",
+              "qualifyingCreator": "the Ghost, Dark, or Fairy-Type",
+              "affectedMoves": "Hazard Keyword",
+              "rangeIncrease": 2,
+              "hazardNumberIncreasePercent": 50,
+              "printedMinimum": 1
+            },
+            "hazardContact": {
+              "clause": "When a creature comes into contact with or is affected by a Hazard created by Ghost, Dark, and Fairy-Type creature, that creature loses a Tick of Hit Points, in addition to the Hazard's normal effects.",
+              "trigger": "a creature comes into contact with or is affected by a Hazard",
+              "qualifyingCreatorLiteral": "Ghost, Dark, and Fairy-Type creature",
+              "lossLiteral": "a Tick of Hit Points",
+              "normalEffectsRelationship": "the Hazard's normal effects",
+              "creatureReferentAndCreatorConjunction": "not adjudicated beyond the literal source"
+            },
+            "manualNotes": [
+              {
+                "clause": "curse",
+                "text": "This part of the effect is not Automated!"
+              },
+              {
+                "clause": "hazardCreation",
+                "text": "This part of the effect is not Automated!"
+              },
+              {
+                "clause": "hazardContact",
+                "text": "This part of the effect is not Automated!"
+              }
+            ]
           }
         },
         "sourceAbsenceClaim": false,
@@ -1038,7 +1083,7 @@
       "behavioralVerification": "not-run",
       "productionPolicyPromotion": false,
       "missingEvidence": {
-        "neededArtifact": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. Full native Umbra also makes Darkness for other types, replaces status-affliction behavior with Cursed, extends Hazard effect range by2, raises count-based effects50% minimum1, and has explicit manual handling notes. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or the omitted clauses; unlimited expiry does not establish global application/removal.",
+        "neededArtifact": "The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. The complete retained native Umbra page says: \"Ghost, Dark, and Fairy-Type Attacks gain +2 DB.\" \"The Light Level is treated as Darkness for all non-Ghost, Dark, and Fairy-Type creatures.\" Its affliction clause is: \"When a Ghost, Dark, or Fairy-Type creature inflicts a Persistent or Volatile Status Affliction on a target, that target is also Cursed.\" Cursed is additional; the triggering Persistent or Volatile Status Affliction is retained, without replacement or removal. Its separate Hazard-creation clause is: \"When used by a creature with the Ghost, Dark, or Fairy-Type, all Moves with the Hazard Keyword increase their Range by +2, and the number of Hazards they create is increased by 50% (minimum 1).\" Range+2 concerns those Moves' Range; +50% (minimum1) concerns the number of Hazards they create, not arbitrary count-based effects. Its separate contact/affected-by-Hazard clause is: \"When a creature comes into contact with or is affected by a Hazard created by Ghost, Dark, and Fairy-Type creature, that creature loses a Tick of Hit Points, in addition to the Hazard's normal effects.\" The literal \"that creature\" and \"Ghost, Dark, and Fairy-Type creature\" are retained without resolving referent or conjunction ambiguity beyond the source. Illumination implementation note: \"In Foundry you can turn off Global Illumination to activate this, normal light sources such as Flashlights & the Glow Capability still function, and so would things like Darkvision.\" curse note: \"This part of the effect is not Automated!\" hazardCreation note: \"This part of the effect is not Automated!\" hazardContact note: \"This part of the effect is not Automated!\" All three clauses remain explicitly manual, not automated. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or omitted objects; unlimited expiry does not establish global application/removal. The unresolved source/version/use disposition remains.",
         "sourceAbsenceClaim": false,
         "implementationOrAuthoringLimitNotUnexaminedInput": true
       }

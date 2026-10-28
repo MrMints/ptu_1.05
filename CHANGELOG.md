@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### F3a Umbra source-interpretation correction
+
+- Correct only `effects.0AFgft7HHsIp6gdQ`: the native source adds Cursed when a qualifying Ghost/Dark/Fairy creature inflicts a Persistent or Volatile affliction; the triggering affliction remains. Preserve the separate qualifying Hazard-creator Range+2/number+50% (minimum1) clause and contact/affected-by-Hazard Tick-of-HP loss in addition to normal effects. Keep literal conjunction/pronoun ambiguity, Darkness and all manual notes explicit.
+- Bind structured facts, the assessment and duplicated summaries to the unchanged exact native clauses. Add six semantic regressions that reject replacement/removal, lost triggers, broad count-based effects and omitted contact/manual clauses even after derived hashes refresh. All41 F3a regressions pass; the other59 assessments, source bytes, current data and21/39 counts are unchanged. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- This offline interpretation correction implements no weather behavior or source adoption. Exact corrected-revision CI and explicit checkout release end the assignment for independent re-review; later slices/full04/05 remain held.
+
 ### Original F3a source checkpoint
 
 - Examine only the60 frozen F3a effects after accepted F2:21 partial field correspondences /39 precise source, version, typed-unit and use limits. Preserve29 earlier record payloads, six source audits, all original memberships and separate complete original/optional definitions. Retain35 independent source units,50 full parent contexts, six full native contexts and complete current/producer/target/page/history observations in a separate offline audit.

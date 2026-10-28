@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords} from '../tools/record-source-review.mjs';
-import {checkEffectSliceSourceReview, effectPageReferences, effectRuleRoles, effectSliceSourceFacts} from '../tools/effect-slice-source-review.mjs';
+import {checkEffectSliceSourceReview, effectPageReferences, effectRuleRoles, effectSliceSourceFacts, umbraSourceFacts, umbraSourceAssessment} from '../tools/effect-slice-source-review.mjs';
 
 const base = await loadRecordSourceReview(), file = 'record-source-review/effects-other-a.json';
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
@@ -31,7 +31,16 @@ function tamper(change) {
         e.dispositionEvidenceSha256 = hash(r); e.examinationSha256 = hash(r.sourceComparison.effectReview);
     }
     audit(b).closure.recordEvidenceSemanticSha256 = hash(b.files[file]);
+    audit(b).closure.examinedDispositionsSemanticSha256 = hash(b.files[file].records.map(r => ({identity: r.identity, contentHash: r.contentHash,
+        coverageState: r.coverageState, generationReview: r.generationReview, examination: r.sourceComparison.effectReview})));
     return errors(b);
+}
+
+function changeUmbraAssessment(b, change) {
+    const r = row(b, '0AFgft7HHsIp6gdQ'), d = r.sourceComparison.effectReview;
+    d.specificAssessment = change(d.specificAssessment);
+    r.ruleVersionReview.basis = d.specificAssessment;
+    r.missingEvidence.neededArtifact = d.specificAssessment;
 }
 
 test('F3a closes exactly its60 frozen source examinations, leaving759 F records unexamined', () => {
@@ -206,6 +215,70 @@ test('native weather proposals/manual handling and local Darkness Actor UUIDs re
     assert.match(f.introduction, /tier/i); assert.match(f.darkness, /Darkvision|Glow/);
     const n = audit(base).nativeContexts.find(n => n.pageId === 'rzEXd4hoGRL4V2AS'); assert.match(n.rawText, /Actor\.[A-Za-z0-9]{16}/);
     assert.ok(tamper(b => { audit(b).nativeContexts[0].independentAuthoringClaim = true; }).some(e => e.includes('native page/source authority')));
+});
+
+test('Umbra adds Cursed after the full typed Persistent-or-Volatile trigger, preserving the triggering affliction', () => {
+    const f = umbraSourceFacts(audit(base), sourceReviewText);
+    assert.equal(f.journalIdentity, 'journals.XaqlAbknAD3Tpx5E'); assert.equal(f.pageId, 'IbEa7GRGTQS4wjb6');
+    assert.equal(f.curse.qualifyingCreature, 'Ghost, Dark, or Fairy-Type');
+    assert.equal(f.curse.trigger, 'a Persistent or Volatile Status Affliction'); assert.equal(f.curse.consequence, 'also Cursed');
+    assert.equal(f.curse.triggeringAfflictionReplacedOrRemoved, false);
+    assert.match(f.darknessClause, /all non-Ghost, Dark, and Fairy-Type creatures/);
+    assert.match(f.illuminationNote, /Global Illumination.*normal light sources.*Glow Capability.*Darkvision/);
+    assert.deepEqual(f.manualNotes.map(n => n.clause), ['curse', 'hazardCreation', 'hazardContact']);
+    assert.ok(f.manualNotes.every(n => n.text === 'This part of the effect is not Automated!'));
+    assert.equal(row(base, '0AFgft7HHsIp6gdQ').coverageState, 'unresolved');
+    assert.equal(detail(base, '0AFgft7HHsIp6gdQ').specificAssessment, umbraSourceAssessment(f));
+});
+
+test('Umbra Hazard creation and the separate contact loss keep exact qualifiers, units and unadjudicated wording', () => {
+    const f = audit(base).sourceFacts.nativeWeather.umbraClauses;
+    assert.equal(f.hazardCreation.qualifyingCreator, 'the Ghost, Dark, or Fairy-Type');
+    assert.equal(f.hazardCreation.affectedMoves, 'Hazard Keyword');
+    assert.equal(f.hazardCreation.rangeIncrease, 2); assert.equal(f.hazardCreation.hazardNumberIncreasePercent, 50); assert.equal(f.hazardCreation.printedMinimum, 1);
+    assert.equal(f.hazardContact.trigger, 'a creature comes into contact with or is affected by a Hazard');
+    assert.equal(f.hazardContact.qualifyingCreatorLiteral, 'Ghost, Dark, and Fairy-Type creature');
+    assert.equal(f.hazardContact.lossLiteral, 'a Tick of Hit Points');
+    assert.equal(f.hazardContact.normalEffectsRelationship, "the Hazard's normal effects");
+    assert.equal(f.hazardContact.creatureReferentAndCreatorConjunction, 'not adjudicated beyond the literal source');
+    assert.match(f.hazardContact.clause, /that creature loses.*in addition to/);
+});
+
+test('Umbra additive consequence cannot become replacement/removal even with consistent summaries and refreshed derived hashes', () => {
+    for (const wrong of ['Cursed replaces the triggering affliction.', 'Remove the triggering affliction and apply Cursed.']) {
+        const es = tamper(b => changeUmbraAssessment(b, s => s.replace('Cursed is additional; the triggering Persistent or Volatile Status Affliction is retained, without replacement or removal.', wrong)));
+        assert.ok(es.some(e => e.includes('Umbra additive consequence')));
+    }
+});
+
+test('Umbra qualifying creature and both affliction kinds cannot disappear from the assessment trigger', () => {
+    for (const [from, to] of [['When a Ghost, Dark, or Fairy-Type creature inflicts', 'When a creature inflicts'],
+        ['a Persistent or Volatile Status Affliction', 'any condition'], ['a Persistent or Volatile Status Affliction', 'a Persistent Status Affliction']]) {
+        assert.ok(tamper(b => changeUmbraAssessment(b, s => s.replace(from, to))).some(e => e.includes('Umbra additive consequence')));
+    }
+});
+
+test('Umbra cannot broaden Hazard counts, omit contact HP loss or normal effects, or drop manual notes', () => {
+    const f = audit(base).sourceFacts.nativeWeather.umbraClauses;
+    for (const change of [
+        s => s.replace(f.hazardCreation.clause, 'All count-based effects gain50%.'),
+        s => s.replace(f.hazardContact.clause, ''),
+        s => s.replace('in addition to the Hazard\'s normal effects.', 'instead of the Hazard\'s normal effects.'),
+        s => s.replaceAll('This part of the effect is not Automated!', 'This effect is automated.')
+    ]) assert.ok(tamper(b => changeUmbraAssessment(b, change)).some(e => e.includes('Umbra additive consequence')));
+});
+
+test('Umbra structured interpretations must still derive from unchanged literal clauses after all derived hashes refresh', () => {
+    for (const change of [
+        f => { f.curse.relationship = 'replacement'; f.curse.triggeringAfflictionReplacedOrRemoved = true; },
+        f => { f.hazardCreation.hazardNumberIncreasePercent = 100; },
+        f => { f.hazardContact.qualifyingCreatorLiteral = 'any creature'; },
+        f => { f.hazardContact.clause = ''; f.hazardContact.normalEffectsRelationship = null; }
+    ]) assert.ok(tamper(b => {
+        const f = detail(b, '0AFgft7HHsIp6gdQ').nativeWeatherComparison;
+        change(f); audit(b).sourceFacts.nativeWeather.umbraClauses = structuredClone(f);
+        changeUmbraAssessment(b, () => umbraSourceAssessment(f));
+    }).some(e => e.includes('Umbra additive consequence')));
 });
 
 test('Desiccating Heat -999 damage is not activation prevention; older Burn and future target remain distinct', () => {

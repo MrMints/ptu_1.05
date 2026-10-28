@@ -4,7 +4,7 @@ import {priorSourceIdentities} from './source-review-order.mjs';
 
 const MEMBERSHIP = '3595bbfb07f6476a4eb2647f8e698c0425f617a2e47a8971f280218db1f14286';
 const SOURCE_PRIMITIVES = 'a631d3ee0e2f8d1c256e2f08a034f437e2c93343b09feb7e7c9f52bb093e25c9';
-const EXAMINED_DISPOSITIONS = '49d2b2e09297f5b635ca3f59ac4bb877541a7473f1878efa1206a5cc49f45081';
+const EXAMINED_DISPOSITIONS = 'bccb108cb15a7be9dce76ccf71297d6533b3a02ed3df4352fe6849995e85b177';
 const HISTORICAL_OBSERVATIONS = 'df783b975a3e327e7cbc497e8bff117a1af072efface6430b7b3c18d9f887f95';
 
 // Preserve the suffix which the older general reference parser deliberately
@@ -33,6 +33,53 @@ export function effectRuleRoles(doc) {
             signedDelta: typeof r.value === 'number' && ['add', 'subtract'].includes(r.mode) ? (r.mode === 'subtract' ? -r.value : r.value) : null,
             selectors: r.selectors ?? null, predicate: r.predicate ?? null};
     });
+}
+
+// These clauses are read independently from the retained native page. Keep the
+// contact clause's literal conjunction/pronoun, rather than choosing a referent.
+export function umbraSourceFacts(audit, cleanText) {
+    const page = audit.nativeContexts.find(p => p.journalIdentity === 'journals.XaqlAbknAD3Tpx5E' && p.pageId === 'IbEa7GRGTQS4wjb6');
+    const raw = page?.rawText ?? '';
+    const text = html => cleanText(html.replace(/@CompSearch\[[^\]]+\]\{([^}]+)\}/g, '$1'));
+    const clauses = [...raw.matchAll(/<li>([\s\S]*?)<\/li>/g)].map(m => text(m[1]));
+    const notes = [...raw.matchAll(/<blockquote>([\s\S]*?)<\/blockquote>/g)].map(m => text(m[1]));
+    const [damage = '', darkness = '', curse = '', creation = '', contact = ''] = clauses;
+    return {journalIdentity: page?.journalIdentity ?? null, pageId: page?.pageId ?? null,
+        damageClause: damage, darknessClause: darkness, illuminationNote: notes[0] ?? null,
+        curse: {clause: curse,
+            qualifyingCreature: curse.match(/^When a (.*?) creature inflicts/)?.[1] ?? null,
+            trigger: curse.match(/inflicts (.*?) on a target/)?.[1] ?? null,
+            consequence: curse.match(/that target is (.*?)\.$/)?.[1] ?? null,
+            relationship: /that target is also Cursed\./.test(curse) ? 'additional Cursed; triggering affliction retained' : 'unestablished',
+            triggeringAfflictionReplacedOrRemoved: /that target is also Cursed\./.test(curse) ? false : null},
+        hazardCreation: {clause: creation,
+            qualifyingCreator: creation.match(/^When used by a creature with (.*?), all Moves/)?.[1] ?? null,
+            affectedMoves: creation.match(/all Moves with the (.*?) increase/)?.[1] ?? null,
+            rangeIncrease: Number(creation.match(/Range by \+([0-9]+)/)?.[1] ?? NaN),
+            hazardNumberIncreasePercent: Number(creation.match(/number of Hazards they create is increased by ([0-9]+)%/)?.[1] ?? NaN),
+            printedMinimum: Number(creation.match(/\(minimum ([0-9]+)\)/)?.[1] ?? NaN)},
+        hazardContact: {clause: contact,
+            trigger: contact.match(/^When (.*?) created by /)?.[1] ?? null,
+            qualifyingCreatorLiteral: contact.match(/created by (.*?), that creature/)?.[1] ?? null,
+            lossLiteral: contact.match(/that creature loses (.*?), in addition/)?.[1] ?? null,
+            normalEffectsRelationship: contact.match(/in addition to (.*?)\.$/)?.[1] ?? null,
+            creatureReferentAndCreatorConjunction: 'not adjudicated beyond the literal source'},
+        manualNotes: [
+            {clause: 'curse', text: notes[1] ?? null},
+            {clause: 'hazardCreation', text: notes[2] ?? null},
+            {clause: 'hazardContact', text: notes[3] ?? null}
+        ]};
+}
+
+export function umbraSourceAssessment(facts) {
+    return 'The current FlatModifier adds2 to exactly ghost/dark/fairy damage-base selectors. '
+        + `The complete retained native Umbra page says: "${facts.damageClause}" "${facts.darknessClause}" `
+        + `Its affliction clause is: "${facts.curse.clause}" Cursed is additional; the triggering Persistent or Volatile Status Affliction is retained, without replacement or removal. `
+        + `Its separate Hazard-creation clause is: "${facts.hazardCreation.clause}" Range+2 concerns those Moves' Range; +50% (minimum1) concerns the number of Hazards they create, not arbitrary count-based effects. `
+        + `Its separate contact/affected-by-Hazard clause is: "${facts.hazardContact.clause}" The literal "that creature" and "Ghost, Dark, and Fairy-Type creature" are retained without resolving referent or conjunction ambiguity beyond the source. `
+        + `Illumination implementation note: "${facts.illuminationNote}" `
+        + facts.manualNotes.map(n => `${n.clause} note: "${n.text}"`).join(' ')
+        + ' All three clauses remain explicitly manual, not automated. Full weather Introduction describes a PTR overhaul proposal with unfinished distribution and tier priority/cancellation limits. Darkness has its own lighting-radius/accuracy/perception rules and local Actor UUIDs. A matching native +2DB clause is not independent approved authoring of this current weather effect, its lifecycle or omitted objects; unlimited expiry does not establish global application/removal. The unresolved source/version/use disposition remains.';
 }
 
 export function effectSliceSourceFacts(audit, cleanText) {
@@ -77,7 +124,7 @@ export function effectSliceSourceFacts(audit, cleanText) {
         stab: {completeContext: page('core:236'), unit: 'damage-base; distinct from direct damage and equipment price'},
         actionPoints: {intro: page('core:16'), bind: page('core:57'), stratagem: page('core:61'), combat: page('core:221'),
             printedRefreshConflict: 'core16 START scene / core221 END scene; neither silently replaces the other', boundApIsSpiritGain: false},
-        nativeWeather: {introduction: native('7znCkHSW9AWIyFIA'), umbra: native('IbEa7GRGTQS4wjb6'), heat: native('4faymH1bVfUFQiUM'),
+        nativeWeather: {introduction: native('7znCkHSW9AWIyFIA'), umbra: native('IbEa7GRGTQS4wjb6'), umbraClauses: umbraSourceFacts(audit, cleanText), heat: native('4faymH1bVfUFQiUM'),
             smoggy: native('IAEQNRN3dhavHlYn'), darkness: native('rzEXd4hoGRL4V2AS'), independentApprovedAuthoringEstablished: false},
         friendshipSpirit: {nativePointer: native('p1lv6FIGyWpjIpmK'), completeEditionSpecificFrameworkEstablished: false, externalRetrievalAssigned: false}
     };
@@ -132,6 +179,20 @@ export function checkEffectSliceSourceReview(bundle, context) {
         && facts.spitUp.resetClausePrinted === false && facts.statAce.pokemonLevelStep === 10 && facts.statAce.example
         && facts.statAce.repeatedStat && facts.statAce.prerequisiteHeaders === 2,
     'F3a independently read signed/omitted/optional/count/cost/formula source roles changed');
+    const umbra = facts.nativeWeather.umbraClauses, umbraDetail = rows.get('effects.0AFgft7HHsIp6gdQ')?.sourceComparison?.effectReview;
+    fail(umbra.journalIdentity === 'journals.XaqlAbknAD3Tpx5E' && umbra.pageId === 'IbEa7GRGTQS4wjb6'
+        && umbra.curse.qualifyingCreature === 'Ghost, Dark, or Fairy-Type'
+        && umbra.curse.trigger === 'a Persistent or Volatile Status Affliction' && umbra.curse.consequence === 'also Cursed'
+        && umbra.curse.relationship === 'additional Cursed; triggering affliction retained' && umbra.curse.triggeringAfflictionReplacedOrRemoved === false
+        && umbra.hazardCreation.qualifyingCreator === 'the Ghost, Dark, or Fairy-Type'
+        && umbra.hazardCreation.affectedMoves === 'Hazard Keyword' && umbra.hazardCreation.rangeIncrease === 2
+        && umbra.hazardCreation.hazardNumberIncreasePercent === 50 && umbra.hazardCreation.printedMinimum === 1
+        && umbra.hazardContact.trigger === 'a creature comes into contact with or is affected by a Hazard'
+        && umbra.hazardContact.qualifyingCreatorLiteral === 'Ghost, Dark, and Fairy-Type creature'
+        && umbra.hazardContact.lossLiteral === 'a Tick of Hit Points' && umbra.hazardContact.normalEffectsRelationship === "the Hazard's normal effects"
+        && umbra.manualNotes.every(n => n.text === 'This part of the effect is not Automated!')
+        && equal(umbraDetail?.nativeWeatherComparison, umbra) && umbraDetail?.specificAssessment === umbraSourceAssessment(umbra),
+    'F3a Umbra additive consequence, full trigger, separate Hazard/contact clauses or manual/source limits changed');
     fail(audit.authoringLimits.foundationAssessment.startsWith('No actual supported acquisition')
         && audit.authoringLimits.friendshipSpirit.completeFrameworkEstablished === false
         && audit.authoringLimits.nameBasedGenerationClassification === false && audit.authoringLimits.runtimeVariantFrameworkImplemented === false,
