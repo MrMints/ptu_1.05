@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3e source checkpoint
+
+- Independently examine only the60 frozen F3e effects after accepted F3d:28 partial field correspondences /32 precise source, version, typed-role, state or use limits. Retain63 complete definitions,71 full parent pages,14 full native contexts, all current fields/115 rules,129 complete relationship snapshots and13 exact page targets. Preserve33 earlier payloads/10 audits, two absent feat targets and every original membership.
+- Separate original/optional Shell Shield actions, Withdraw, Root Down, Ambush, Windveiled and Flash Fire; retain Shadow Meld's actual printed bonuses, Song of Life's original5DR/user/action/endpoint framework, Magnetic Flux's source/current recipients, Trick Shot's damaging-ranged/AC/binding conditions and Grassy Terrain's grounded Pokemon/Trainer/turn healing. Record Esper Wing's exact path/body contradiction and literal Cut/plural-stage paths as static limits, without gameplay-failure claims. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add76 meaningful source/current/history/preservation regressions, with213 affected earlier,24 documentation/evidence and11 catalog checks passing (324 focused checks). Full source/manifest/catalog/original/preservation/link checks pass; exact-revision CI remains required. F has420 examined /519 unexamined; full classification/fullF/full04/OPEN05 remain held. Current guard is08:00–19:00 Indianapolis for all balances, with the existing low-usage checkpoint/hold rule. Explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; no actual gameplay/migration verification.
+
 ### Original F3d source checkpoint
 
 - Independently examine only the60 frozen F3d effects after accepted F3c:31 partial field correspondences /29 precise source, version, typed-role, state or use limits. Retain75 complete definitions,97 full parent pages, five full native contexts, all current fields/106 rules,133 complete relationship snapshots and four exact page targets. Preserve32 earlier payloads/nine audits and every original membership.

@@ -16,6 +16,7 @@ import {checkEffectSliceSourceReview} from './effect-slice-source-review.mjs';
 import {checkEffectOtherSourceReview} from './effect-other-source-review.mjs';
 import {checkEffectF3cSourceReview} from './effect-f3c-source-review.mjs';
 import {checkEffectF3dSourceReview} from './effect-f3d-source-review.mjs';
+import {checkEffectF3eSourceReview} from './effect-f3e-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -341,6 +342,7 @@ export function recordSourceReviewErrors(bundle) {
     checkEffectOtherSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     checkEffectF3cSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     checkEffectF3dSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3eSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     if (index.generationScopeEvidence) {
         const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
             'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],
