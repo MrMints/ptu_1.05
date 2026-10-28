@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3b source checkpoint
+
+- Independently examine only the60 frozen F3b effects after accepted corrected F3a:24 partial field correspondences /36 precise source, version, typed-role, state or use limits. Retain46 complete reused source units, three complete printed definitions/frameworks,65 full parent pages, four full native contexts, all current fields/107 rules and exact direct/nested/incoming/page/history evidence. Preserve all accepted artifacts and original memberships.
+- Keep Energy Sphere’s self+1 versus helper-1 and Acid Armor’s resolution+1 versus helper+2 explicit; separate original/optional Prime Fury, Book rank/resource/skill rules, progression/Feature identities, Songs, original/weather-proposal units, conditional weakness and stateful Rollout/default-stage limits. Correct the Level30 extraction boundary to the actual Champion heading so its inline Level40 reference cannot hide the remaining choices. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add32 meaningful F3b regressions, with65 affected F1/F3a and24 documentation/evidence checks passing (121 focused checks). F now has240 examined /699 unexamined; complete classification/fullF/full04/OPEN05 remain held. Required exact-revision CI, explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; no actual gameplay/migration verification.
+
 ### F3a Umbra source-interpretation correction
 
 - Correct only `effects.0AFgft7HHsIp6gdQ`: the native source adds Cursed when a qualifying Ghost/Dark/Fairy creature inflicts a Persistent or Volatile affliction; the triggering affliction remains. Preserve the separate qualifying Hazard-creator Range+2/number+50% (minimum1) clause and contact/affected-by-Hazard Tick-of-HP loss in addition to normal effects. Keep literal conjunction/pronoun ambiguity, Darkness and all manual notes explicit.

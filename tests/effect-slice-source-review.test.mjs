@@ -43,12 +43,12 @@ function changeUmbraAssessment(b, change) {
     r.missingEvidence.neededArtifact = d.specificAssessment;
 }
 
-test('F3a closes exactly its60 frozen source examinations, leaving759 F records unexamined', () => {
+test('F3a closes exactly its60 frozen source examinations;759 F records remain outside its own closure', () => {
     assert.deepEqual(errors(base), []);
     const b = base.batchManifest.batches.find(b => b.id === 'F');
     assert.equal(b.status, 'in-progress');
-    assert.equal(b.slices.filter(s => !s.recordFile).reduce((n, s) => n + s.records, 0), 759);
-    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a'].includes(s.id)).every(s => s.status === 'not-started'));
+    assert.equal(b.slices.filter(s => !['F1', 'F2', 'F3a'].includes(s.id)).reduce((n, s) => n + s.records, 0), 759);
+    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b'].includes(s.id)).every(s => s.status === 'not-started'));
     assert.deepEqual(audit(base).closure.counts, {reviewed: 21, unresolved: 39});
     assert.equal(audit(base).closure.fullFAcceptance, false);
     assert.equal(base.index.coverage.completeAddressableClassification, false);
