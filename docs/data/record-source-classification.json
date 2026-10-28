@@ -37,16 +37,17 @@
     "record-source-review/temporary-species.json",
     "record-source-review/effects-other-a.json",
     "record-source-review/effects-other-b.json",
-    "record-source-review/effects-other-c.json"
+    "record-source-review/effects-other-c.json",
+    "record-source-review/effects-other-d.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 6509,
+    "explicitRecordDispositions": 6569,
     "counts": {
-      "reviewed": 2994,
+      "reviewed": 3025,
       "excluded": 123,
-      "unresolved": 3392,
-      "unreviewed": 886
+      "unresolved": 3421,
+      "unreviewed": 826
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -74,8 +75,8 @@
       "examined-condition-version-or-authority-limit": 26,
       "examined-temporary-species-source-correspondence": 44,
       "examined-temporary-species-version-or-authority-limit": 38,
-      "examined-effect-source-correspondence": 66,
-      "examined-effect-version-or-authority-limit": 114
+      "examined-effect-source-correspondence": 97,
+      "examined-effect-version-or-authority-limit": 143
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -135,7 +136,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a/F3b are accepted within their documented source/runtime limits. F3c60 now has21 partial field correspondences and39 precise unresolved source/version/use limits, pending independent review after exact-revision CI. F300 source examinations are complete;639 original F records remain unexamined. Original G245/H2 remain not-started. Full F/04 acceptance, OPEN05 and production/behavior approval remain held; no automatic next-slice start.",
+  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a/F3b/F3c are accepted within their documented source/runtime limits. F3d60 now has31 partial field correspondences and29 precise unresolved source/version/use limits, pending independent review after exact-revision CI. F360 source examinations are complete;579 original F records remain unexamined. Original G245/H2 remain not-started. Full F/04 acceptance, OPEN05 and production/behavior approval remain held; no automatic next-slice start.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -750,6 +751,7 @@
   "effectSliceSourceEvidenceFiles": [
     "effect-source-evidence-f3a.json",
     "effect-source-evidence-f3b.json",
-    "effect-source-evidence-f3c.json"
+    "effect-source-evidence-f3c.json",
+    "effect-source-evidence-f3d.json"
   ]
 }

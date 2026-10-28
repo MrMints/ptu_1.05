@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3d source checkpoint
+
+- Independently examine only the60 frozen F3d effects after accepted F3c:31 partial field correspondences /29 precise source, version, typed-role, state or use limits. Retain75 complete definitions,97 full parent pages, five full native contexts, all current fields/106 rules,133 complete relationship snapshots and four exact page targets. Preserve32 earlier payloads/nine audits and every original membership.
+- Separate original/optional Bone Wielder, Spray Down, Rock Head and Lightning Rod; retain Sing’s user-relative endpoint, Stat Ace Pokemon-level/base-stat formula, Athlete default stages, Champion’s original42–50 offensive option, conditional Shell Cannon and Ice Ball counter/stop limits. Preserve Baleful Brume’s cannot-exit rule and XD exception, legacy `ActionPoint.bound:2`, and Grace’s Poffin/daily-Spirit/maximum distinctions. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add65 meaningful source/current/history regressions, with148 affected earlier and24 documentation/evidence checks passing (237 focused checks). Full source/manifest/catalog/original/preservation/link checks pass; exact-revision CI remains required. F has360 examined /579 unexamined; full classification/fullF/full04/OPEN05 remain held. Current guard is08:00–19:00 Indianapolis for all balances, with the existing low-usage checkpoint/hold rule. Explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; no actual gameplay/migration verification.
+
 ### Original F3c source checkpoint
 
 - Independently examine only the60 frozen F3c effects after accepted F3b:21 partial field correspondences /39 precise source, version, typed-role, state or use limits. Retain58 complete definitions,78 full parent pages,17 full native contexts, six relative page embeds, all current fields/122 rules,124 relationship snapshots and two separate existing Charge use contexts. Preserve31 earlier payloads/eight audits and every original membership.
