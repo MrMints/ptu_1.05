@@ -34,16 +34,17 @@
     "record-source-review/equipment.json",
     "record-source-review/spirit-actions.json",
     "record-source-review/conditions.json",
-    "record-source-review/temporary-species.json"
+    "record-source-review/temporary-species.json",
+    "record-source-review/effects-other-a.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 6329,
+    "explicitRecordDispositions": 6389,
     "counts": {
-      "reviewed": 2928,
+      "reviewed": 2949,
       "excluded": 123,
-      "unresolved": 3278,
-      "unreviewed": 1066
+      "unresolved": 3317,
+      "unreviewed": 1006
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -70,7 +71,9 @@
       "examined-condition-source-correspondence": 12,
       "examined-condition-version-or-authority-limit": 26,
       "examined-temporary-species-source-correspondence": 44,
-      "examined-temporary-species-version-or-authority-limit": 38
+      "examined-temporary-species-version-or-authority-limit": 38,
+      "examined-effect-source-correspondence": 21,
+      "examined-effect-version-or-authority-limit": 39
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -130,7 +133,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "All626 frozen C source dispositions are complete; passing documented-revision normal CI and existing-planner substantive acceptance are required before D1228. B was accepted at d35a666086695a81a3ddaf5dd4049c554e19ae03 after CI40255751783. D/E1/E2/F/G/H remain unstarted with original memberships. Full04/05 and production/behavior approval remain held.",
+  "remainingAddressableWork": "A–E2 and original F1/F2 are accepted within their documented source/runtime limits. F3a60 now has21 partial field correspondences and39 precise unresolved source/version/use limits, pending substantive coordinator review after exact-revision CI. F180 source examinations are complete;759 original F records remain unexamined. Original G245/H2 remain not-started. Full F/04 acceptance, OPEN05 and production/behavior approval remain held; no automatic next-slice start.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -741,5 +744,8 @@
   "featureSourceEvidence": "feature-source-evidence.json",
   "itemSourceEvidence": "item-source-evidence.json",
   "effectSourceEvidence": "effect-source-evidence.json",
-  "temporarySpeciesSourceEvidence": "temporary-species-source-evidence.json"
+  "temporarySpeciesSourceEvidence": "temporary-species-source-evidence.json",
+  "effectSliceSourceEvidenceFiles": [
+    "effect-source-evidence-f3a.json"
+  ]
 }

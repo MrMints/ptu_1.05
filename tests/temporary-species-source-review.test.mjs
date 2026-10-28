@@ -36,11 +36,11 @@ function tamper(change) {
     return errors(b);
 }
 
-test('F2 examines the exact82 frozen effects, without closing the remaining819 F records', () => {
+test('F2 examines the exact82 frozen effects;819 F records remain outside its own closure', () => {
     assert.deepEqual(errors(base), []);
     const b = base.batchManifest.batches.find(b => b.id === 'F');
     assert.equal(b.status, 'in-progress');
-    assert.equal(b.slices.filter(s => !s.recordFile).reduce((n, s) => n + s.records, 0), 819);
+    assert.equal(b.slices.filter(s => !['F1', 'F2'].includes(s.id)).reduce((n, s) => n + s.records, 0), 819);
     assert.deepEqual(base.temporarySpeciesSource.closure.counts, {reviewed: 44, unresolved: 38});
     assert.equal(base.index.coverage.completeAddressableClassification, false);
     assert.equal(hash(base.files['record-source-review/conditions.json']), '1be926634ed23ba82fb6d715b11ea23a7a472e9c8f63f6f641bead9cb953669d');
