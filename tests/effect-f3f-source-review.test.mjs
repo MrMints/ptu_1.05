@@ -22,10 +22,10 @@ function tamper(change){
 }
 function prose(b,id,from,to){const r=row(b,id),d=detail(b,id),before=d.specificAssessment;d.specificAssessment=before.replace(from,to);assert.notEqual(d.specificAssessment,before);r.ruleVersionReview.basis=d.specificAssessment;if(r.missingEvidence)r.missingEvidence.neededArtifact=d.specificAssessment;}
 const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
-test('only60 F3f examinations close;459 originalF remain held and F3e stays whole',()=>{
+test('only60 F3f examinations close;459 originalF stay outside its closure and F3e stays whole',()=>{
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
- assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!s.recordFile).reduce((n,s)=>n+s.records,0),459);
- assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
+ assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f'].includes(s.id)).reduce((n,s)=>n+s.records,0),459);
+ assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
  assert.deepEqual(audit(base).closure.counts,{reviewed:36,unresolved:24});assert.equal(audit(base).closure.fullFAcceptance,false);assert.equal(base.index.coverage.completeAddressableClassification,false);
  assert.equal(hash(base.files['record-source-review/effects-other-e.json']),'4a85dab1c701fada5abfaafb370893b910ecd5bf4997703fd8704249b75ba35c');
  assert.equal(hash(base.effectSlices.find(a=>a.slice==='F3e')),'f10f13fa89c7057982102fa5d27db4d71f4186d0958c41eb31fdaa74a8fcbaee');

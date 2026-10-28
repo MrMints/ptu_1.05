@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F3g source checkpoint
+
+- Independently examine only the60 frozen F3g effects after accepted F3f:22 partial field correspondences /38 precise source, version, typed-role, state or use limits. Retain57 complete source units,61 full parent pages, eight complete native contexts/three relative embeds, all current fields/99 rules,118 complete relationship snapshots and seven exact page targets. Preserve35 earlier payloads/12 whole audits and every original membership.
+- Keep Bubble Beam's printed amount omission/DB8 versus two currentDB7 records, Sage's rank/Tick maximum/manual0/SceneX3 stacking exception, complete original Songs user/action/endpoint rules, Electric Terrain damage10 versus DB2, Justified's plural path and original/optional trigger, and Esper Wing's exact executable/reference discrepancy explicit. Separate cold-weather base critical ranges from extended-range alternatives, physical Steel Freeze, manual hazards/Water/Slowed effects and original Hail timing. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add131 meaningful raw-source, refreshed-hash semantic, current-path/history and whole-prior-preservation regressions, with384 affected earlier,24 documentation/evidence and11 catalog tests passing (550 focused checks). Full source/manifest/catalog/original/preservation/link checks pass; exact-revision CI remains required. F has540 examined /399 unexamined; full classification/fullF/full04/OPEN05 remain held. Current guard is08:00–19:00 Indianapolis for all balances, with the checkpoint/latched-hold/explicit-resumption rule. Explicit checkout release and independent review end this assignment. No runtime, authoritative pack, policy, ID, campaign, original-source, external-metadata or release change; actual gameplay/migration verification is not run.
+
 ### Original F3f source checkpoint
 
 - Independently examine only the60 frozen F3f effects after accepted F3e:36 partial field correspondences /24 precise source, version, typed-role, state or use limits. Retain74 complete definitions,84 full parent pages, five complete native contexts, all current fields/132 rules,139 complete relationship snapshots and four exact page targets. Preserve34 earlier payloads/11 whole audits, three absent feat targets and every original membership.
