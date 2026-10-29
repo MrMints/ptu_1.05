@@ -5,7 +5,8 @@ import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords, recordSourceReviewErrors} from '../tools/record-source-review.mjs';
 import {checkEffectSourceReview, conditionSourceFacts} from '../tools/effect-source-review.mjs';
-const base = fullFSourceCheckpointView(await loadRecordSourceReview()), file = 'record-source-review/conditions.json';
+const current = await loadRecordSourceReview();
+const base = fullFSourceCheckpointView(current), file = 'record-source-review/conditions.json';
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const textHash = value => createHash('sha256').update(value).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'
@@ -45,7 +46,8 @@ test('historical checkpoint remains bounded after full-F acceptance: F1 examines
 });
 
 test('new F dispositions preserve the earlier E2 snapshot of prior source availability', () => {
-    assert.deepEqual(recordSourceReviewErrors(base), []);
+    // Validate the actual current bundle; F-only history intentionally lacks H.
+    assert.deepEqual(recordSourceReviewErrors(current), []);
     const snapshot = base.itemSource.equipmentSource.targetSnapshots.find(s => s.identity === 'effects.NA1Vn8A2h6JIIUhj');
     assert.equal(snapshot.priorSourceReview, null);
     assert.equal(row(base, 'NA1Vn8A2h6JIIUhj').coverageState, 'reviewed');

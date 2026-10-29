@@ -4,7 +4,10 @@ import {createHash} from 'node:crypto';
 import {loadRecordSourceReview,sourceReviewWords} from '../tools/record-source-review.mjs';
 import {itemSourceWords} from '../tools/item-source-review.mjs';
 import {checkSpiritSourceReview} from '../tools/spirit-source-review.mjs';
-const base=await loadRecordSourceReview(),file='record-source-review/spirit-actions.json';
+import {fullGSourceCheckpointView} from '../tools/source-review-order.mjs';
+// Preserve this earlier E2 examination's pre-H global-classification context.
+// Raw current H is independently required by the journal and shared suites.
+const base=fullGSourceCheckpointView(await loadRecordSourceReview()),file='record-source-review/spirit-actions.json';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex'),textHash=v=>createHash('sha256').update(v).digest('hex'),words=v=>itemSourceWords(v,sourceReviewWords);
 const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,x])=>[k,canonical(x)])):v;
 const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
