@@ -6,6 +6,8 @@ Existing04 retains sole checkout ownership through successful normal CI on the f
 
 ## Changes
 
+Source/evidence/checker/test checkpoint: **`765c2d1f5cc6ac1a392ce8f7f858fbbc5571fea4`**. The final documented revision is the commit containing this paragraph; it adds only this reference and the matching Unreleased reference, without subsequent source/test/runtime changes. Normal CI must test that exact final head, and the final handoff supplies its full hash and observed run/job results.
+
 The admission base is `b65acfe057258627dfdbdca648e4e0ace622bc69`, following accepted G source revision `b1de70bfb2a3e30fd6454c4e7f04195693a54464`. Exact-base [CI40843979474](https://github.com/MrMints/ptu_1.05/actions/runs/40843979474) passed Documentation123346880550 and Validation123346881039, including1,640 tests. That base pass does not certify this H change.
 
 The [H evidence](../data/journal-source-evidence-h.json) and [root records](../data/record-source-review/journals.json) retain exact IDs, stored order, paths, current hashes, complete metadata, source contexts, specific interpretations, all literal references/tables and available histories. The source bodies remain in the authoritative JSON sources. The [manifest](../data/record-source-review-batches.json) uses one H1 slice with the original two-member membership, not a newly selected queue.
