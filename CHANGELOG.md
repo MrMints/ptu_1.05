@@ -4,6 +4,8 @@
 
 ### Original H journal source examination checkpoint
 
+- Historical-test correction checkpoint: `03817697db9f8c9dc6fbb84b17ca67cbce7f7adb`; the corrected final documented head adds only this reference and the matching [H handoff reference](docs/validation/2026-10-29-h-source-review.md). Require successful normal CI on that exact new head before explicit release/STOP.
+
 - Original source/evidence/checker/test checkpoint: `765c2d1f5cc6ac1a392ce8f7f858fbbc5571fea4`; initial documented head `76ea2ba7416b74487e7b8d1ae2b04ac2bbd24824`. [H handoff and subsequent CI correction](docs/validation/2026-10-29-h-source-review.md) distinguish that failed CI from the required new final-head successful-CI handoff.
 
 - Examine both frozen journal parents/all271 embedded pages by exact identity/order/path/hash. Preserve194 bounded original correspondences, nine metadata/navigation examinations and68 precise unresolved native authority/version/unfinished-section limits; parent outcomes are one partial review/one unresolved. The index addresses all7,395 roots (3,643 reviewed/124 preserved exclusions/3,628 unresolved/0 unreviewed), without supported/playable or behavior approval. [H evidence and handoff](docs/validation/2026-10-29-h-source-review.md).
