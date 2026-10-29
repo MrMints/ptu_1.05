@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
@@ -23,9 +24,9 @@ function tamper(change){
 function prose(b,id,from,to){const r=row(b,id),d=detail(b,id),before=d.specificAssessment;d.specificAssessment=before.replace(from,to);assert.notEqual(d.specificAssessment,before);r.ruleVersionReview.basis=d.specificAssessment;if(r.missingEvidence)r.missingEvidence.neededArtifact=d.specificAssessment;}
 const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
 
-test('F3e closes only60 source examinations and leaves519 originalF records outside its closure',()=>{
+test('historical checkpoint remains bounded after full-F acceptance: F3e closes only60 source examinations and leaves519 originalF records outside its closure',()=>{
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
- assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');
+ assertFullFSourceAccepted(f);
  assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e'].includes(s.id)).reduce((n,s)=>n+s.records,0),519);
  assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
  assert.deepEqual(audit(base).closure.counts,{reviewed:28,unresolved:32});assert.equal(audit(base).closure.fullFAcceptance,false);

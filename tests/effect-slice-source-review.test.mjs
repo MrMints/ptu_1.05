@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkEffectSliceSourceReview, effectPageReferences, effectRuleRoles, effectSliceSourceFacts, umbraSourceFacts, umbraSourceAssessment} from '../tools/effect-slice-source-review.mjs';
@@ -43,10 +44,10 @@ function changeUmbraAssessment(b, change) {
     r.missingEvidence.neededArtifact = d.specificAssessment;
 }
 
-test('F3a closes exactly its60 frozen source examinations;759 F records remain outside its own closure', () => {
+test('historical checkpoint remains bounded after full-F acceptance: F3a closes exactly its60 frozen source examinations;759 F records remain outside its own closure', () => {
     assert.deepEqual(errors(base), []);
     const b = base.batchManifest.batches.find(b => b.id === 'F');
-    assert.equal(b.status, 'in-progress');
+    assertFullFSourceAccepted(b);
     assert.equal(b.slices.filter(s => !['F1', 'F2', 'F3a'].includes(s.id)).reduce((n, s) => n + s.records, 0), 759);
     assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s => s.status === 'not-started'));
     assert.deepEqual(audit(base).closure.counts, {reviewed: 21, unresolved: 39});

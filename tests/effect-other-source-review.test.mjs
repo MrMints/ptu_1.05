@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkEffectOtherSourceReview, effectOtherSourceFacts, effectOtherRuleRoles, rolloutStaticComparison} from '../tools/effect-other-source-review.mjs';
@@ -33,10 +34,10 @@ function tamper(change) {
     return errors(b);
 }
 
-test('F3b examines exactly60 frozen effects;699 F records remain outside its own closure; accepted F3a stays fixed', () => {
+test('historical checkpoint remains bounded after full-F acceptance: F3b examines exactly60 frozen effects;699 F records remain outside its own closure; accepted F3a stays fixed', () => {
     assert.deepEqual(errors(base), []);
     const b = base.batchManifest.batches.find(b => b.id === 'F');
-    assert.equal(b.status, 'in-progress'); assert.equal(b.acceptance.status, 'pending-substantive-review');
+    assertFullFSourceAccepted(b);
     assert.equal(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b'].includes(s.id)).reduce((n, s) => n + s.records, 0), 699);
     assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s => s.status === 'not-started'));
     assert.deepEqual(audit(base).closure.counts, {reviewed: 24, unresolved: 36});

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkEffectF3cSourceReview,effectF3cSourceFacts,effectF3cFactErrors} from '../tools/effect-f3c-source-review.mjs';
@@ -23,10 +24,10 @@ function tamper(change){
 function prose(b,id,change){const r=row(b,id),d=detail(b,id),before=d.specificAssessment;d.specificAssessment=change(before);assert.notEqual(d.specificAssessment,before);r.ruleVersionReview.basis=d.specificAssessment;if(r.missingEvidence)r.missingEvidence.neededArtifact=d.specificAssessment;}
 const rejected=(change,pattern)=>assert.ok(tamper(change).some(e=>pattern.test(e)));
 
-test('F3c examines only its60 frozen records, 639 F records remain outside its own closure and preserves whole accepted F3b/F3a artifacts',()=>{
+test('historical checkpoint remains bounded after full-F acceptance: F3c examines only its60 frozen records, 639 F records remain outside its own closure and preserves whole accepted F3b/F3a artifacts',()=>{
     assert.deepEqual(errors(base),[]);
     const f=base.batchManifest.batches.find(b=>b.id==='F');
-    assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');
+    assertFullFSourceAccepted(f);
     assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c'].includes(s.id)).reduce((n,s)=>n+s.records,0),639);
     assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s=>s.status==='not-started'&&!s.recordFile));
     assert.deepEqual(audit(base).closure.counts,{reviewed:21,unresolved:39});assert.equal(audit(base).closure.fullFAcceptance,false);

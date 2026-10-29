@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys, parseCompactSourceProfiles} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
@@ -7,6 +8,55 @@ const copy = () => ({...original, ...structuredClone({index: original.index, fil
 const records = data => Object.values(data.files).flatMap(file => file.records);
 test('record source snapshot keeps exact inventory, separate field axes and complete first dependency coverage', () => {
     assert.deepEqual(recordSourceReviewErrors(original), []);
+});
+
+test('full-F pending examination can become the exact accepted decision without changing source checkpoints', () => {
+    const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'F');
+    const accepted = structuredClone(batch);
+    batch.status = 'in-progress';
+    batch.closure = null;
+    batch.acceptance = structuredClone(batch.acceptanceHistory[0]);
+    delete batch.acceptanceHistory;
+    assert.throws(() => assertFullFSourceAccepted(batch), assert.AssertionError);
+    assert.deepEqual(recordSourceReviewErrors(data), []);
+    Object.assign(batch, accepted);
+    assertFullFSourceAccepted(batch);
+    assert.deepEqual(recordSourceReviewErrors(data), []);
+    assert.deepEqual(data.batchManifest.batches.filter(value => ['G', 'H'].includes(value.id))
+        .map(value => [value.id, value.status]), [['G', 'not-started'], ['H', 'not-started']]);
+});
+
+test('an acceptance label cannot advance G past an explicitly unfinished F', () => {
+    const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'F');
+    batch.status = 'in-progress';
+    batch.closure = null;
+    assert.equal(batch.acceptance.status, 'accepted-source-examination');
+    assert.throws(() => assertFullFSourceAccepted(batch), assert.AssertionError);
+    data.batchManifest.batches.find(value => value.id === 'G').status = 'in-progress';
+    assert(recordSourceReviewErrors(data).includes('Frozen batch sequence skipped unfinished predecessor: G'));
+});
+
+test('complete F examinations without substantive acceptance still block G independently of closure', () => {
+    const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'F');
+    batch.acceptance = structuredClone(batch.acceptanceHistory[0]);
+    assert.equal(batch.status, 'source-comparisons-complete');
+    assert.throws(() => assertFullFSourceAccepted(batch), assert.AssertionError);
+    data.batchManifest.batches.find(value => value.id === 'G').status = 'in-progress';
+    const errors = recordSourceReviewErrors(data);
+    assert(errors.includes('Frozen family review gate not cleared: G'));
+    assert(!errors.includes('Frozen batch sequence skipped unfinished predecessor: G'));
+});
+
+test('accepted full-F closure rejects changed outcomes and slice bindings independently', () => {
+    for (const change of [
+        batch => { batch.closure.counts.reviewed--; batch.closure.counts.unresolved++; },
+        batch => { batch.closure.sliceEvidenceSemanticSha256.F4d = '0'.repeat(64); }
+    ]) {
+        const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'F');
+        change(batch);
+        assert.throws(() => assertFullFSourceAccepted(batch), assert.AssertionError);
+        assert(recordSourceReviewErrors(data).includes('Closed family aggregate counts/evidence disagree: F'));
+    }
 });
 test('record review rejects stale hashes and duplicated source dispositions', () => {
     const data = copy(), file = Object.values(data.files)[0];
@@ -76,6 +126,8 @@ test('frozen work queues reject stale memberships, duplicates and skipped predec
     const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'B');
     batch.members[0][1] = '0'.repeat(64);
     batch.members[1] = [...batch.members[2]];
+    // Construct the unfinished predecessor explicitly; the real F is now accepted.
+    data.batchManifest.batches.find(value => value.id === 'F').status = 'in-progress';
     data.batchManifest.batches.find(value => value.id === 'G').status = 'in-progress';
     const errors = recordSourceReviewErrors(data);
     assert.ok(errors.some(value => value.includes('Frozen batch membership changed: B')));

@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkTemporarySpeciesSourceReview, temporarySpeciesSourceFacts, ultraBurstSourceCalculation} from '../tools/temporary-species-source-review.mjs';
@@ -36,10 +37,10 @@ function tamper(change) {
     return errors(b);
 }
 
-test('F2 examines the exact82 frozen effects;819 F records remain outside its own closure', () => {
+test('historical checkpoint remains bounded after full-F acceptance: F2 examines the exact82 frozen effects;819 F records remain outside its own closure', () => {
     assert.deepEqual(errors(base), []);
     const b = base.batchManifest.batches.find(b => b.id === 'F');
-    assert.equal(b.status, 'in-progress');
+    assertFullFSourceAccepted(b);
     assert.equal(b.slices.filter(s => !['F1', 'F2'].includes(s.id)).reduce((n, s) => n + s.records, 0), 819);
     assert.deepEqual(base.temporarySpeciesSource.closure.counts, {reviewed: 44, unresolved: 38});
     assert.equal(base.index.coverage.completeAddressableClassification, false);

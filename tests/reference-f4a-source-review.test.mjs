@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
@@ -26,9 +27,9 @@ function prose(b,id,from,to){const r=row(b,id),d=detail(b,id),before=d.specificA
 const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
 
 
-test('only84 descriptive F4a roots close with77 partial correspondences and7 precise limits',()=>{
+test('historical checkpoint remains bounded after full-F acceptance: only84 descriptive F4a roots close with77 partial correspondences and7 precise limits',()=>{
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
- assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!s.recordFile||['F4b','F4c','F4d'].includes(s.id)).reduce((n,s)=>n+s.records,0),251);
+ assertFullFSourceAccepted(f);assert.equal(f.slices.filter(s=>!s.recordFile||['F4b','F4c','F4d'].includes(s.id)).reduce((n,s)=>n+s.records,0),251);
  assert.equal(f.slices.filter(s=>!s.recordFile).length,0);
  assert.deepEqual(audit(base).closure.counts,{reviewed:77,unresolved:7});assert.equal(audit(base).closure.fullFAcceptance,false);
  const acceptedCounts={...base.index.coverage.counts},later=[...base.files['record-source-review/references-b.json'].records,...base.files['record-source-review/references-c.json'].records,...base.files['record-source-review/references-d.json'].records];for(const r of later)acceptedCounts[r.coverageState]--;acceptedCounts.unreviewed+=later.length;assert.deepEqual(acceptedCounts,{reviewed:3206,excluded:123,unresolved:3568,unreviewed:498});assert.equal(base.index.coverage.completeAddressableClassification,false);

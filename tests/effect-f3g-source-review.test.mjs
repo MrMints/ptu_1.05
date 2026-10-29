@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
@@ -25,9 +26,9 @@ function tamper(change){
 function prose(b,id,from,to){const r=row(b,id),d=detail(b,id),before=d.specificAssessment;d.specificAssessment=before.replace(from,to);assert.notEqual(d.specificAssessment,before,`fixture ${id}: ${from}`);r.ruleVersionReview.basis=d.specificAssessment;if(r.missingEvidence)r.missingEvidence.neededArtifact=d.specificAssessment;}
 const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
 
-test('only60 F3g source examinations close;399 F stay outside its closure and no later work starts',()=>{
+test('historical checkpoint remains bounded after full-F acceptance: only60 F3g source examinations close;399 F stay outside its closure and no later work starts',()=>{
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
- assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g'].includes(s.id)).reduce((n,s)=>n+s.records,0),399);
+ assertFullFSourceAccepted(f);assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g'].includes(s.id)).reduce((n,s)=>n+s.records,0),399);
  assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
  assert.deepEqual(audit(base).closure.counts,{reviewed:22,unresolved:38});assert.equal(audit(base).closure.fullFAcceptance,false);assert.equal(base.index.coverage.completeAddressableClassification,false);
  // Normalize only the assigned F3h, F4a, F4b, F4c and F4d records to retain the accepted F3g census.

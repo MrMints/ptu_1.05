@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Full-F acceptance checkpoint test correction
+
+- Retain failed bookkeeping CI40818265217 at `9c9746b0`:1,556 passing/15 failing tests, Documentation passed, later validation/pack/build/upload skipped. Fourteen tests expected the old pending F status; the sequence fixture no longer explicitly constructed an unfinished predecessor. [Failure, correction and validation](docs/validation/2026-10-27-f-source-review.md#acceptance-ci-correction--2026-10-29).
+- Separate historical slice checkpoints from the exact current source acceptance with a test-only helper. Preserve all source comparisons, semantic pins and anti-promotion checks. Explicitly test the valid transition, unfinished/unaccepted predecessor rejection and changed closure counts/bindings; do not allow arbitrary statuses or rewrite historical evidence.
+- Pass1,320 grouped source/queue/documentation/catalog checks plus source/catalog/evidence/structural validators; preserve the initial failure. Require successful normal CI on the final documented revision before ownership release. G remains idle; H/full04/05 remain held. No runtime, pack, source-original, policy, campaign or migration change; no world/gameplay/release validation.
+
 ### Full F source acceptance and prepared G handoff
 
 - Accept original F source examination at `725105cf`:939 frozen tuples retain564 partial correspondences/374 precise unresolved limits/1 preserved scope-only exclusion, with938 nonexcluded examinations. [Substantive review, source distinctions and downstream obligations](docs/validation/2026-10-27-f-source-review.md#substantive-full-f-acceptance) retain prior foundation limits and missing authoring artifacts; this does not approve gameplay, supported versions or automation.

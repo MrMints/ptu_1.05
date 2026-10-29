@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
@@ -26,8 +27,8 @@ function prose(b,id,from,to){const r=row(b,id),d=detail(b,id),before=d.specificA
 const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
 
 
-test('only84 original F4b roots close with78 partial correspondences and6 precise limits',()=>{
- assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!s.recordFile||['F4c','F4d'].includes(s.id)).reduce((n,s)=>n+s.records,0),167);assert.equal(f.slices.filter(s=>!s.recordFile).length,0);
+test('historical checkpoint remains bounded after full-F acceptance: only84 original F4b roots close with78 partial correspondences and6 precise limits',()=>{
+ assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');assertFullFSourceAccepted(f);assert.equal(f.slices.filter(s=>!s.recordFile||['F4c','F4d'].includes(s.id)).reduce((n,s)=>n+s.records,0),167);assert.equal(f.slices.filter(s=>!s.recordFile).length,0);
  assert.deepEqual(audit(base).closure.counts,{reviewed:78,unresolved:6});assert.equal(audit(base).closure.fullFAcceptance,false);const acceptedCounts={...base.index.coverage.counts},later=[...base.files['record-source-review/references-c.json'].records,...base.files['record-source-review/references-d.json'].records];for(const r of later)acceptedCounts[r.coverageState]--;acceptedCounts.unreviewed+=later.length;assert.deepEqual(acceptedCounts,{reviewed:3284,excluded:123,unresolved:3574,unreviewed:414});assert.equal(base.index.coverage.completeAddressableClassification,false);
 });
 test('complete source/current/native/history census retains actual reference roles',()=>{const a=audit(base);assert.deepEqual([a.sourceDefinitions.length,a.printedDefinitions.length,a.parentContexts.length,a.nativeContexts.length,a.targetSnapshots.length,a.targetSnapshots.filter(s=>s.priorSourceReview).length,a.pageTargets.length],[85,27,92,1,180,176,1]);assert.deepEqual(['currentRules','references','incomingReferences'].map(k=>Object.values(a.currentRecordAudit).reduce((n,e)=>n+e[k].length,0)),[0,0,1]);assert.deepEqual([0,1,2,3].map(i=>Object.values(a.currentRecordAudit).filter(e=>e.exportLineage.snapshots[i].recordFound).length),[81,81,84,84]);assert.equal(Object.values(a.currentRecordAudit).flatMap(e=>e.exportLineage.snapshots).filter(s=>s.recordFound).reduce((n,s)=>n+s.fieldComparisons.length,0),3630);});

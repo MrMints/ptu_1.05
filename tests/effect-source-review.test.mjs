@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords, recordSourceReviewErrors} from '../tools/record-source-review.mjs';
 import {checkEffectSourceReview, conditionSourceFacts} from '../tools/effect-source-review.mjs';
@@ -32,10 +33,10 @@ function tamper(change) {
     return errors(bundle);
 }
 
-test('F1 examines exactly38 original conditions;901 F records remain outside closure', () => {
+test('historical checkpoint remains bounded after full-F acceptance: F1 examines exactly38 original conditions;901 F records remain outside closure', () => {
     assert.deepEqual(errors(base), []);
     const batch = base.batchManifest.batches.find(b => b.id === 'F');
-    assert.equal(batch.status, 'in-progress');
+    assertFullFSourceAccepted(batch);
     assert.equal(batch.slices.find(s => s.id === 'F1').records, 38);
     assert.equal(batch.slices.filter(s => s.id !== 'F1').reduce((n, s) => n + s.records, 0), 901);
     assert.ok(batch.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h','F4a','F4b','F4c','F4d'].includes(s.id)).every(s => !s.recordFile && s.status === 'not-started'));
