@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F4b reference-source checkpoint
+
+- Examine only84 frozen F4b references after independently accepted F4a:78 partial textual correspondences/6 precise unresolved limits. Retain85 complete source units,27 printed units,92 full parents, the actual Look and Learn visual column reading, complete current metadata, one incoming native page,180 resolution snapshots/176 genuine priors and330 actual same-ID historical observations/3630 field comparisons. Preserve38 earlier payloads/15 whole audits and every membership.
+- Keep both available placeholder tables, Swift/Rapid timing, original versus CR Fossils, unestablished PTR guidance, Signature category/recipient/expiry, original/optional Confusion, crafting versus purchase roles, Engineer/Wired Core constraints, conditional terrain/hazard/food/capture effects and Soul Mending's distinct branches explicit. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add168 new regressions with723 earlier and35 documentation/evidence/catalog checks passing (926 focused cases). Source/catalog/26-original/preservation/link/scoped-diff checks pass; required exact-head normal CI is reported in the final handoff. F772 examined/167 REFERENCES unexamined still requires substantive full-F acceptance before G; full04/OPEN05 remain held. Finish exact-head normal CI, explicitly release checkout ownership and STOP for independent F4b acceptance. Runtime, packs, policy, originals, stable identities and campaigns are preserved; actual gameplay/acquisition/migrations are not run.
+
 ### Original F4a reference-source checkpoint
 
 - Examine only84 frozen F4a descriptive references after independently accepted F3h:77 partial textual correspondences/7 precise content, version or authority limits. Retain89 complete source units,22 printed units,75 full parents, all current metadata/empty executable arrays, one full incoming native page,180 resolution snapshots/174 genuine priors and322 actual same-ID historical observations/3542 field comparisons. Preserve37 earlier payloads/14 whole audits and all memberships.

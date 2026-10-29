@@ -28,7 +28,7 @@ test('F3c examines only its60 frozen records, 639 F records remain outside its o
     const f=base.batchManifest.batches.find(b=>b.id==='F');
     assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');
     assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c'].includes(s.id)).reduce((n,s)=>n+s.records,0),639);
-    assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a'].includes(s.id)).every(s=>s.status==='not-started'&&!s.recordFile));
+    assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b'].includes(s.id)).every(s=>s.status==='not-started'&&!s.recordFile));
     assert.deepEqual(audit(base).closure.counts,{reviewed:21,unresolved:39});assert.equal(audit(base).closure.fullFAcceptance,false);
     assert.equal(base.index.coverage.completeAddressableClassification,false);
     assert.equal(hash(base.files['record-source-review/effects-other-b.json']),'a530a3e80786333d9726a217cf64675f39b472537072b345427e177742cc2977');

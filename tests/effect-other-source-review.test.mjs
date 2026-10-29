@@ -38,7 +38,7 @@ test('F3b examines exactly60 frozen effects;699 F records remain outside its own
     const b = base.batchManifest.batches.find(b => b.id === 'F');
     assert.equal(b.status, 'in-progress'); assert.equal(b.acceptance.status, 'pending-substantive-review');
     assert.equal(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b'].includes(s.id)).reduce((n, s) => n + s.records, 0), 699);
-    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h','F4a'].includes(s.id)).every(s => s.status === 'not-started'));
+    assert.ok(b.slices.filter(s => !['F1', 'F2', 'F3a', 'F3b', 'F3c', 'F3d', 'F3e', 'F3f','F3g','F3h','F4a','F4b'].includes(s.id)).every(s => s.status === 'not-started'));
     assert.deepEqual(audit(base).closure.counts, {reviewed: 24, unresolved: 36});
     assert.equal(base.index.coverage.completeAddressableClassification, false);
     assert.equal(hash(base.files['record-source-review/effects-other-a.json']), '609d8f5556e11814871ad78563cdec747f1b41046ad65fcb8730ded7758e30ee');

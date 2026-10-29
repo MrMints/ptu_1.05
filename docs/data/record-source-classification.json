@@ -43,16 +43,17 @@
     "record-source-review/effects-other-f.json",
     "record-source-review/effects-other-g.json",
     "record-source-review/effects-other-h.json",
-    "record-source-review/references-a.json"
+    "record-source-review/references-a.json",
+    "record-source-review/references-b.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 6897,
+    "explicitRecordDispositions": 6981,
     "counts": {
-      "reviewed": 3206,
+      "reviewed": 3284,
       "excluded": 123,
-      "unresolved": 3568,
-      "unreviewed": 498
+      "unresolved": 3574,
+      "unreviewed": 414
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -82,8 +83,8 @@
       "examined-temporary-species-version-or-authority-limit": 38,
       "examined-effect-source-correspondence": 201,
       "examined-effect-version-or-authority-limit": 283,
-      "examined-reference-source-correspondence": 77,
-      "examined-reference-version-or-authority-limit": 7
+      "examined-reference-source-correspondence": 155,
+      "examined-reference-version-or-authority-limit": 13
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -143,7 +144,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a/F3b/F3c/F3d/F3e/F3f/F3g/F3h are independently accepted within documented source-only limits. Original F4a84 references now have77 partial textual correspondences and7 precise unresolved content/version/authority limits, pending independent acceptance after exact documented-head normal CI. F688 source examinations are complete;251 original F REFERENCES remain unexamined. F4b/c/d and original G245/H2 remain not-started. Substantive full F acceptance is required before G; full04 acceptance, OPEN05 and production/behavior approval remain held. No automatic next-slice start.",
+  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a–F3h/F4a are independently accepted within documented source-only limits. Original F4b84 references now have78 partial textual correspondences and6 precise unresolved content/version/authority limits, pending independent acceptance after exact documented-head normal CI. F772 source examinations are complete;167 original F REFERENCES remain unexamined. F4c/d and original G245/H2 remain not-started. Substantive full F acceptance is required before G; full04 acceptance, OPEN05 and production/behavior approval remain held. No automatic next-slice start.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -766,6 +767,7 @@
     "effect-source-evidence-f3h.json"
   ],
   "referenceSliceSourceEvidenceFiles": [
-    "reference-source-evidence-f4a.json"
+    "reference-source-evidence-f4a.json",
+    "reference-source-evidence-f4b.json"
   ]
 }
