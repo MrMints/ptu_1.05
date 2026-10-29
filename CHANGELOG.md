@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original G substantive source acceptance
+
+- Accept original G source examination at `b1de70bfb2a3e30fd6454c4e7f04195693a54464` after substantive source/native/code/history review,61 independent G regressions and passing [CI40836687237](https://github.com/MrMints/ptu_1.05/actions/runs/40836687237) (1,636 tests plus validation, pack checks, build/upload). Preserve197 metadata reviews, nine bounded correspondences and39 precise unresolved limits; this is not content/gameplay/automation approval.
+- Record the later decision separately from immutable source checkpoints; add acceptance-transition regression coverage without relaxing source assertions. [Review and due gates](docs/validation/2026-10-29-g-source-review.md#substantive-full-g-acceptance) retain the optional fresh-history extraction limitation, precise target/version/use obligations and prior foundation scope. Prepare only H2/271pages; keep H/full04/05 held pending their explicit gates. Runtime/packs/policy/originals/campaigns/IDs and terminal066f0623 are unchanged; no world, migration, merge or release.
+- Final local acceptance checks: 131 tests passed in bounded groups, plus source/catalog/evidence/structural validators and preservation checks. All earlier G semantic tests remain unchanged; valid pending-to-accepted and invalid evidence/status transitions are covered. Exact final-head normal CI remains required before the planner releases the checkout.
+
 ### Original G source examination checkpoint
 
 - Source/evidence/checker/test checkpoint: `296447f9cb61c61766a6d3d94882dc5932e767bd`; the final documented head adds only this reference and the matching [handoff reference](docs/validation/2026-10-29-g-source-review.md). Passing local evidence covers1,377 distinct focused checks across bounded runs and corrected affected reruns; required normal CI must run on that final head before explicit checkout release/STOP.

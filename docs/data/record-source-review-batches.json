@@ -60139,10 +60139,26 @@
         }
       ],
       "acceptance": {
-        "status": "pending-substantive-review",
-        "validationReport": "docs/validation/2026-10-29-g-source-review.md",
-        "basis": "Original G source examination checkpoint only. Requires independent coordinator examination and substantive existing-planner G acceptance after exact final-head normal CI. H remains not-started; full04 and05 remain held."
-      }
+        "status": "accepted-source-examination",
+        "revision": "b1de70bfb2a3e30fd6454c4e7f04195693a54464",
+        "ciRun": 40836687237,
+        "documentationJob": 123323000569,
+        "validationJob": 123323001036,
+        "sourceEvidenceSemanticSha256": "a7a0a988cddcf15ace07f1c54dbb2f8dc62088d3d6badb1814527ff116366ba7",
+        "reviewedCounts": {
+          "reviewed": 206,
+          "unresolved": 39
+        },
+        "validationReport": "docs/validation/2026-10-29-g-source-review.md#substantive-full-g-acceptance",
+        "decision": "Existing planner accepts all245 original G source examinations after substantive original/current/native/code/history review,61 independent G regressions and exact-source CI40836687237.197 metadata reviews,nine bounded correspondences and39 precise unresolved limits are not supported-content or behavioral approval. Historical pending flags and all earlier evidence remain unchanged. No new supported foundation contradiction was demonstrated; any demonstrated one reopens its affected prior gate before05. H2/271pages alone is prepared but not-started pending bookkeeping CI,explicit release,guards and coordinator assignment. Full04/OPEN05 remain held."
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "validationReport": "docs/validation/2026-10-29-g-source-review.md",
+          "basis": "Original G source examination checkpoint only. Requires independent coordinator examination and substantive existing-planner G acceptance after exact final-head normal CI. H remains not-started; full04 and05 remain held."
+        }
+      ]
     },
     {
       "id": "H",

@@ -30,15 +30,67 @@ function changed(object,key,value,pattern) {
     finally {if(present)object[key]=before;else delete object[key];}
 }
 
-test('all245 G tuples retain kind-specific closure while fullG acceptance/H/full04 stay held',()=>{
+// Later substantive acceptance is distinct from the immutable pending source
+// checkpoint. Pin the actual reviewed revision/CI; a plausible label is not proof.
+function assertAcceptedG(g) {
+    assert.equal(g.status,'source-comparisons-complete');
+    assert.equal(g.membershipSha256,'d869b57527f08370214f974601820047f3fcee593edecedf0d43544e2c8360c9');
+    assert.equal(g.members.length,245);
+    assert.equal(g.slices.length,4);
+    assert(g.slices.every(s=>s.status==='source-comparisons-complete'));
+    assert.equal(g.acceptance.status,'accepted-source-examination');
+    assert.equal(g.acceptance.revision,'b1de70bfb2a3e30fd6454c4e7f04195693a54464');
+    assert.equal(g.acceptance.ciRun,40836687237);
+    assert.equal(g.acceptance.documentationJob,123323000569);
+    assert.equal(g.acceptance.validationJob,123323001036);
+    assert.equal(g.acceptance.sourceEvidenceSemanticSha256,'a7a0a988cddcf15ace07f1c54dbb2f8dc62088d3d6badb1814527ff116366ba7');
+    assert.equal(g.acceptance.sourceEvidenceSemanticSha256,hash(audit));
+    assert.deepEqual(g.acceptance.reviewedCounts,{reviewed:206,unresolved:39});
+    assert.equal(g.acceptance.validationReport,'docs/validation/2026-10-29-g-source-review.md#substantive-full-g-acceptance');
+    assert.deepEqual(g.acceptanceHistory.map(v=>v.status),['pending-substantive-review']);
+    assert.deepEqual(g.closure.counts,{reviewed:206,unresolved:39});
+    assert.deepEqual(g.closure.sliceEvidenceSemanticSha256,
+        Object.fromEntries(g.slices.map(s=>[s.id,s.closure.evidenceSemanticSha256])));
+}
+
+test('all245 G tuples retain accepted source examination separately from historical pending evidence and held H/full04',()=>{
     assert.deepEqual(errors(),[]);
     assert.deepEqual(base.index.coverage.counts,{reviewed:3642,excluded:124,unresolved:3627,unreviewed:2});
     assert.equal(base.index.coverage.explicitRecordDispositions,7393);
     assert.equal(base.index.coverage.completeAddressableClassification,false);
     assert.deepEqual(base.batchManifest.batches.find(b=>b.id==='G').closure.counts,{reviewed:206,unresolved:39});
-    assert.equal(base.batchManifest.batches.find(b=>b.id==='G').acceptance.status,'pending-substantive-review');
+    assertAcceptedG(base.batchManifest.batches.find(b=>b.id==='G'));
     assert.equal(base.batchManifest.batches.find(b=>b.id==='H').status,'not-started');
     assert.equal(audit.fullGAcceptance,false);
+});
+test('historical pending G and the later exact accepted decision both retain unchanged source evidence and idle H',()=>{
+    const g=base.batchManifest.batches.find(b=>b.id==='G'),accepted=g.acceptance,history=g.acceptanceHistory;
+    const checkpoint=hash(audit);
+    try {
+        g.acceptance=structuredClone(history[0]);delete g.acceptanceHistory;
+        assert.deepEqual(errors(),[]);
+        assert.equal(base.batchManifest.batches.find(b=>b.id==='H').status,'not-started');
+    } finally {g.acceptance=accepted;g.acceptanceHistory=history;}
+    assertAcceptedG(g);assert.deepEqual(errors(),[]);
+    assert.equal(hash(audit),checkpoint);assert.equal(audit.pendingIndependentCoordinatorAndPlannerAcceptance,true);
+});
+test('current G acceptance requires the reviewed source revision and exact successful CI jobs',()=>{
+    const g=base.batchManifest.batches.find(b=>b.id==='G');
+    for(const [key,value]of [['revision','0'.repeat(40)],['ciRun',1],['documentationJob',1],['validationJob',1]]) {
+        const altered={...g,acceptance:{...g.acceptance,[key]:value}};
+        assert.throws(()=>assertAcceptedG(altered),{name:'AssertionError'},key);
+    }
+});
+test('G acceptance rejects arbitrary status, stale source evidence and missing historical pending decision',()=>{
+    const g=base.batchManifest.batches.find(b=>b.id==='G');
+    changed(g.acceptance,'status','accepted-everything',/closure lacks/);
+    changed(g.acceptance,'sourceEvidenceSemanticSha256','0'.repeat(64),/closure lacks/);
+    changed(g,'acceptanceHistory',[],/closure lacks/);
+});
+test('later G acceptance cannot hide changed outcomes or slice evidence bindings',()=>{
+    const g=base.batchManifest.batches.find(b=>b.id==='G');
+    changed(g.acceptance,'reviewedCounts',{reviewed:245,unresolved:0},/closure lacks/);
+    changed(g.slices[0].closure,'evidenceSemanticSha256','0'.repeat(64),/slice record\/closure/);
 });
 test('actual key and case-sensitive ID decide organization kind independently of collection/name',()=>{
     assert.equal(organizationalKind({_key:'!folders!AbCdEfGh12345678',_id:'AbCdEfGh12345678',type:'Item',name:'Transform'}),'folders');
