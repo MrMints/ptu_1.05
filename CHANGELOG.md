@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Full F source acceptance and prepared G handoff
+
+- Accept original F source examination at `725105cf`:939 frozen tuples retain564 partial correspondences/374 precise unresolved limits/1 preserved scope-only exclusion, with938 nonexcluded examinations. [Substantive review, source distinctions and downstream obligations](docs/validation/2026-10-27-f-source-review.md#substantive-full-f-acceptance) retain prior foundation limits and missing authoring artifacts; this does not approve gameplay, supported versions or automation.
+- Independently pass1,258 focused checks; reproduce465 original parent pages,110 printed boundaries,3,756 historical presence observations and22,011 nonexcluded field comparisons. Preserve all40 prior payloads/17 whole audits, original memberships and terminal amendment. Applicable bookkeeping validation and exact final-revision CI are recorded in the handoff; no Foundry, actual gameplay/acquisition, migration or release validation was run.
+- Prepare only original G245 (197 folders/42 tables/6 macros) with record-type-specific instructions. G stays idle pending successful bookkeeping CI, explicit release, fresh guards and assignment; H/full04/05 remain held. Runtime, authoritative packs, policy, IDs, originals, saved selections and campaigns are unchanged; no migration/manual campaign step is introduced.
+
 ### Original F4d and full-F source handoff
 
 - Examine the final83 frozen references:76 partial correspondences/7 precise unresolved limits, with87 source units/35 printed units/92 full parents and all current metadata/history preserved. Retain40 earlier payloads/17 whole audits and all original memberships.

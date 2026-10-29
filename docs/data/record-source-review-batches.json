@@ -53921,8 +53921,33 @@
           "8f0aaf595f1d700d94090a021aa0156f53b1972d4cf1997663c7aa79dd5450f6"
         ]
       ],
-      "status": "in-progress",
-      "closure": null,
+      "status": "source-comparisons-complete",
+      "closure": {
+        "counts": {
+          "reviewed": 564,
+          "unresolved": 374,
+          "excluded": 1
+        },
+        "sliceEvidenceSemanticSha256": {
+          "F1": "1be926634ed23ba82fb6d715b11ea23a7a472e9c8f63f6f641bead9cb953669d",
+          "F2": "fac63d37f6bd5560786efc5e814f807931d94ba13be573ad02835d3f002ac774",
+          "F3a": "609d8f5556e11814871ad78563cdec747f1b41046ad65fcb8730ded7758e30ee",
+          "F3b": "a530a3e80786333d9726a217cf64675f39b472537072b345427e177742cc2977",
+          "F3c": "02dc039aba02e258720171a326e5aff9edefaa0280c0e15434c7a15f6778785c",
+          "F3d": "bd55f1eba0f1bbe6f688ecc0b268910f8babfd1f0184c05db94a7429d94bd12b",
+          "F3e": "4a85dab1c701fada5abfaafb370893b910ecd5bf4997703fd8704249b75ba35c",
+          "F3f": "35e29b488894674e134d3542f1e1773ccde0fd9b0caacba9835a5409fccccb6b",
+          "F3g": "56d24eb2aa2456c95a2903876fd8f24f7c32d718a0a35fecd17db08d4956e99e",
+          "F3h": "4e2dea61637ff90d3cad3e10a2ecb4bb081431053d8f248918b704d77017b8e6",
+          "F4a": "e94d7f86a3abe2b2a21e198c71345b8f487cf5fd5ff7a215376f450de030180c",
+          "F4b": "8e1f91197eedfc525047b5c3a14c924997dbe47c47d58378c502e03061b14774",
+          "F4c": "d42d5a43b93b0ae570fd939d27b9c5a549dae24f217603c589dfd7e55cdd8cbd",
+          "F4d": "789e5db2f235ac9b8e046c05ee232ecefdf168684f25c071843e92a4e4dc7bec"
+        },
+        "sourceDecision": "All939 original tuples and14 evidence links reconcile;938 nonexcluded source examinations and1 exact preserved scope-only exclusion. Full available source/alternative/parent contexts, current fields/rules/relationships and history were compared; precise authoring/version/identity/typed-role/use limits remain. Finite no-hits, inventory totals and historical agreement do not establish authority.",
+        "validation": "Independent1258 focused checks;465 fresh full parent pages/12 original hashes,110 printed boundaries,3756 history observations/22011 nonexcluded field comparisons,40 prior payloads/17 audits and unchanged accepted runtime/terminal files. Source revision725105cf CI40812840976 passed; bookkeeping checks/CI and release are recorded in the final handoff.",
+        "limitations": "Source examination only:564 partial correspondences/374 unresolved/1 scope-only exclusion are not approved supported-content, defect or behavior totals. No runtime/pack/policy/original/campaign change or world execution. G prepared but unstarted pending bookkeeping CI/release,guards and assignment;H/full04/OPEN05 remain held."
+      },
       "slices": [
         {
           "id": "F1",
@@ -58022,9 +58047,20 @@
         "basis": "Explicit original-F-only sole-writer coordinator assignment after accepted E2 and planner bookkeeping CI40488186534/release. No shared-world ownership."
       },
       "acceptance": {
-        "status": "pending-substantive-review",
-        "requires": "All939 original frozen F examinations, related bounded checks, exact documented-revision required CI and substantive existing-planner F acceptance before G. No G/H/full04/OPEN05 advancement."
-      }
+        "status": "accepted-source-examination",
+        "revision": "725105cf078452cb9a5d3c4dc487395d269f36d4",
+        "reviewTurn": "01a185dd-c646-70f0-8dcf-6ff0c574106b",
+        "ciRun": 40812840976,
+        "documentationJob": 123246965345,
+        "validationJob": 123246965620,
+        "decision": "Existing planner accepts original fullF source examination after substantive source/code/current-target/history review and1258 independent focused checks. All939 tuples and564/374/1 outcomes remain. Exact source/identity/content/use limits and missing independent framework authoring constrain later gates as recorded in the F report; no new supported-route foundation contradiction was established or prior required work waived. G245 alone is prepared but unstarted pending successful bookkeeping CI,explicit release,fresh guards and assignment. H/full04/OPEN05 remain held. Historical source-checkpoint pending flags are preserved; no production/behavior approval."
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "requires": "All939 original frozen F examinations, related bounded checks, exact documented-revision required CI and substantive existing-planner F acceptance before G. No G/H/full04/OPEN05 advancement."
+        }
+      ]
     },
     {
       "id": "G",
