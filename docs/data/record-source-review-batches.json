@@ -60181,9 +60181,9 @@
           "unresolved": 1
         },
         "sliceEvidenceSemanticSha256": {
-          "H1": "ca0154c46f313050b12f3e1f570d99eabfc6ef9f3f833a9f79eb298ebd53f878"
+          "H1": "fb76a9f51810422062111ef238d07070ea6a1f0ad47bf5683f6605bac1c9315f"
         },
-        "sourceEvidenceSemanticSha256": "bd5e29f36f8fe0192c5b4ac98053554164d0addc1bfaf7cc34061af7f3306511",
+        "sourceEvidenceSemanticSha256": "5d35d33e42c2bfb276b0a7f1ac0ff2b49ddebb29f9d2aaa4e4583e5794ccb573",
         "embeddedPagesExamined": 271
       },
       "slices": [
@@ -60208,14 +60208,14 @@
               "reviewed": 1,
               "unresolved": 1
             },
-            "evidenceSemanticSha256": "ca0154c46f313050b12f3e1f570d99eabfc6ef9f3f833a9f79eb298ebd53f878"
+            "evidenceSemanticSha256": "fb76a9f51810422062111ef238d07070ea6a1f0ad47bf5683f6605bac1c9315f"
           }
         }
       ],
       "acceptance": {
         "status": "pending-substantive-review",
         "validationReport": "docs/validation/2026-10-29-h-source-review.md",
-        "sourceEvidenceSemanticSha256": "bd5e29f36f8fe0192c5b4ac98053554164d0addc1bfaf7cc34061af7f3306511",
+        "sourceEvidenceSemanticSha256": "5d35d33e42c2bfb276b0a7f1ac0ff2b49ddebb29f9d2aaa4e4583e5794ccb573",
         "requires": "Exact documented-head normal CI, independent coordinator examination and substantive existing-planner H acceptance; separate full04 acceptance before05."
       }
     }

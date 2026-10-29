@@ -112,6 +112,36 @@ export function journalFieldDifferences(before,after) {
     }
     return out;
 }
+export const VIRTUOSO_JOURNAL_PAGE='journals.cP772AChmDjr486z.JournalEntryPage.2MNSQp6LA1j5wcnT';
+// Reuse the already examined E1 source unit by its coordinate identity. This is
+// a literal source comparison, not a rank calculator or acquisition predicate.
+export function journalVirtuosoFacts(pages,examinations,registry,unit) {
+    const page=pages.find(p=>p.identity===VIRTUOSO_JOURNAL_PAGE),exam=examinations.find(p=>p.identity===VIRTUOSO_JOURNAL_PAGE);
+    const row=journalHtmlFacts(page?.document.text?.content??'').tables[0]?.rows[7]?.cells.map(c=>c.text.trim())??[];
+    const original=String(unit?.rawDefinition??'').replaceAll('\\n','\n').replace(/\s+/g,' ').trim();
+    return {pageIdentity:page?.identity??null,pageIndex:page?.index??null,pagePath:page?.path??null,pageHash:page?.pageHash??null,
+        pageHasCore52:exam?.examinedOriginalContexts?.includes('core:52')??false,
+        nativeRank:row[0]??null,nativeLabelForReviewOnly:row[1]??null,nativeDiceLiteral:row[2]??null,
+        sourceUnitIdentity:unit?.id??null,sourcePath:unit?.source?.path??null,sourceSha256:unit?.source?.sha256??null,
+        sourcePdfPages:unit?.source?.pdfPages??[],sourcePageTextSha256:unit?.anchors?.find(a=>a.pdfPage===52)?.rawPageSha256??null,
+        registryPageTextSha256:registry?.['core:52']?.rawSourcePageTextSha256??null,
+        originalPrerequisites:original.match(/Prerequisites: (.*?) Effect:/)?.[1]??null,
+        originalChosenSkillMaster:/Effect: Choose a Skill at Master Rank\./.test(original),
+        originalEffectiveRank:original.match(/effectively “Rank (\d+)”/)?.[1]??null,
+        originalRankDependentFeaturesAndEffects:/for any Features or effects that depend on Skill Rank\./.test(original),
+        originalDifferentSkillEachTime:/Virtuoso may be taken multiple times, but you must choose a different Skill each time\./.test(original),
+        originalDiceGrant:original.match(/\b\d+d6\b/)?.[0]??null,actualBehavior:'not-run'};
+}
+export function journalVirtuosoFactErrors(f) {
+    const out=[],check=(ok,message)=>{if(!ok)out.push(message);};
+    check(f.pageIdentity===VIRTUOSO_JOURNAL_PAGE&&f.pageIndex===7&&f.pagePath==='$.pages[7]'&&f.pageHash==='efdfc4bd6e2f1a0dbcd329e02889ebeed7eca512eebf48e13506245ae4b9d7f8'&&f.pageHasCore52,'H Virtuoso exact page-level core52 binding missing or misassigned');
+    check(f.nativeRank==='8'&&f.nativeLabelForReviewOnly==='Virtuoso'&&f.nativeDiceLiteral==='6d6 (still)','H Virtuoso native Rank8/6d6 literal changed or mistaken for8d6');
+    check(f.sourceUnitIdentity==='core:52:feature-line54'&&f.sourcePath==='Core System/Pokemon Tabletop United 1.05 Core.pdf'&&f.sourceSha256==='e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907'&&JSON.stringify(f.sourcePdfPages)==='[52]'&&f.sourcePageTextSha256==='a8e0ee1bdfc172ca4c79e94b16873287efa46a6031e4e3aad8c090e850e662bb'&&f.registryPageTextSha256===f.sourcePageTextSha256,'H Virtuoso original conditional source coordinate/edition/anchor changed');
+    check(f.originalPrerequisites==='A Skill at Master Rank, Level 20','H Virtuoso original Master Skill/Level20 prerequisites changed');
+    check(f.originalChosenSkillMaster&&f.originalEffectiveRank==='8'&&f.originalRankDependentFeaturesAndEffects&&f.originalDifferentSkillEachTime&&f.originalDiceGrant===null,'H Virtuoso conditional effective rank scope replaced with a general dice/rank grant');
+    check(f.actualBehavior==='not-run','H Virtuoso source comparison promoted runtime verification');
+    return out;
+}
 // These facts describe literal clauses, not a rules engine or canonical mapping.
 // In particular, an omitted phase/die/quantity is kept omitted.
 export function journalCriticalFacts(pages,primitives) {

@@ -1,6 +1,6 @@
 import {readFile} from 'node:fs/promises';
 import {H_PINS} from './journal-source-pins.mjs';
-import {jsonHash as digest,textHash,journalPages,journalMetadata,journalPageFacts,journalFieldDifferences,journalCriticalFacts,journalCriticalFactErrors} from './journal-source-derivation.mjs';
+import {jsonHash as digest,textHash,journalPages,journalMetadata,journalPageFacts,journalFieldDifferences,journalCriticalFacts,journalCriticalFactErrors,journalVirtuosoFacts,journalVirtuosoFactErrors} from './journal-source-derivation.mjs';
 
 const AUDIT='journal-source-evidence-h.json', RECORDS='record-source-review/journals.json';
 const hash=value=>value===undefined?null:digest(value);
@@ -87,6 +87,8 @@ export function checkJournalSourceReview(bundle,{fail,actualMap,rows,citations=(
     const critical=journalCriticalFacts(pages,a.sourcePrimitives);
     fail(same(critical,a.sourceCriticalFacts),'H reported source critical facts disagree with literal source/native roles');
     for(const error of journalCriticalFactErrors(critical))fail(false,error);
+    const virtuoso=journalVirtuosoFacts(pages,a.pageExaminations,a.sourceRegistry,bundle.featureSource?.sourceDefinitions?.find(u=>u.id==='core:52:feature-line54'));
+    for(const error of journalVirtuosoFactErrors(virtuoso))fail(false,error);
     const hist=a.history;
     fail(hist&&hash(hist)===H_PINS.history&&a.closure?.historySemanticSha256===H_PINS.history,'H same-repository complete historical evidence changed');
     if(hist) {

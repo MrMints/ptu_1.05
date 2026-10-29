@@ -840,7 +840,7 @@
       "wholeCurrentVersionApproved": false,
       "productionPolicyPromotion": false,
       "actualBehavior": "not-run",
-      "recordEvidenceSemanticSha256": "f086c8987b098b278d3f7756f7e956d69a36bf5e27abccd39b24de99bc741bce"
+      "recordEvidenceSemanticSha256": "51c27bda8c926ae6b04add10444596f19a64ca5e18ef5eb0c53593f1bf867ad2"
     }
   },
   "pageExaminations": [
@@ -9317,7 +9317,8 @@
       "assessmentTextSha256": "383882133309bb001431bbb972feb20120796b2f27ba3f5aaf001bb1c90bcdfc",
       "examinedOriginalContexts": [
         "core:33",
-        "core:34"
+        "core:34",
+        "core:52"
       ],
       "currentExtraction": {
         "identity": "journals.cP772AChmDjr486z.JournalEntryPage.2MNSQp6LA1j5wcnT",
@@ -107917,11 +107918,11 @@
     },
     "all271PageExaminationsComplete": true,
     "recordEvidenceSemanticSha256": {
-      "H1": "ca0154c46f313050b12f3e1f570d99eabfc6ef9f3f833a9f79eb298ebd53f878"
+      "H1": "fb76a9f51810422062111ef238d07070ea6a1f0ad47bf5683f6605bac1c9315f"
     },
     "sourceRegistrySemanticSha256": "1fd0c6bcc89345fce2b0d96e835f2943083beeff6d0908e4f9f918708d390e75",
     "sourcePrimitivesSemanticSha256": "8c1ab12c14853f2e8db77db874561a5238c7b8f807622eba56bf80cf14a3eed9",
-    "pageEvidenceSemanticSha256": "bd946c9aa483ef07c83c72c29ec63226aa0274f81937d17500665259f1dbf04c",
+    "pageEvidenceSemanticSha256": "d96d49619caf33e3f55878b29c1bd7e1ea0cdbe3267a43001eb06259ce8da26f",
     "historySemanticSha256": "a29bc66627811f1107ae6727ef0c32e6ff24332334a2b679bacd2e203c068f61"
   }
 }

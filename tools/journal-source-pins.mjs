@@ -165,9 +165,9 @@ export const H_PINS = {
     "docs/data/supported-content-scope.json": "aea47ea3eb39bca17869816832805dff7b446bce3a62e8d718c922fe94f72161",
     "docs/data/temporary-species-source-evidence.json": "f4224980b64fbccad4dc1206313393854dd1c835e5b8c5e4bf0391daaf3a3439"
   },
-  "records": "ca0154c46f313050b12f3e1f570d99eabfc6ef9f3f833a9f79eb298ebd53f878",
-  "pages": "bd946c9aa483ef07c83c72c29ec63226aa0274f81937d17500665259f1dbf04c",
-  "roots": "3970871322bffcf98ea656436d65e6c525edb5d98770ce836ebe00b85dc28aee",
+  "records": "fb76a9f51810422062111ef238d07070ea6a1f0ad47bf5683f6605bac1c9315f",
+  "pages": "d96d49619caf33e3f55878b29c1bd7e1ea0cdbe3267a43001eb06259ce8da26f",
+  "roots": "702ac28c03e285ca43e59f72eeded58149dfa21116a404fe3dd1ef8696c89e10",
   "registry": "1fd0c6bcc89345fce2b0d96e835f2943083beeff6d0908e4f9f918708d390e75",
   "primitives": "8c1ab12c14853f2e8db77db874561a5238c7b8f807622eba56bf80cf14a3eed9",
   "history": "a29bc66627811f1107ae6727ef0c32e6ff24332334a2b679bacd2e203c068f61",
