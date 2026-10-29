@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F4c reference-source checkpoint
+
+- Record only84 frozen F4c dispositions after independently accepted F4b:76 partial textual correspondences/7 precise unresolved limits/1 preserved Generation9 scope exclusion. Retain94 source units/23 printed units/79 full parents, all current metadata, two full incoming-use contexts,182 snapshots/178 genuine priors and326 present historical observations/3586 field comparisons. Preserve39 prior payloads/16 whole audits and every membership.
+- Keep Swift/Rapid histories, available Dilettante lists/current placeholder, separate Traceur/DuneWalker bodies, unestablished Max/Z adaptation authority, original/optional status conditions, choice/recipient/cost/timing and patron limits explicit. Bind the one scope-only exclusion by exact ID/hash/independent origin/type proof; no excluded mechanical review or production filter. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add163 new regressions with891 affected earlier and35 documentation/evidence/catalog checks passing (1089 focused cases). Source/catalog/26-original/preservation/link/scoped-diff checks pass; normal exact-head CI is reported in the final handoff. F856 dispositions addressed (855 source examinations/1scope-only exclusion),83 REFERENCES unexamined; substantive full-F acceptance before G and full04/OPEN05 remain held. Finish normal exact-head CI, explicitly release checkout ownership and STOP for independent F4c acceptance. Runtime, packs, policy, IDs, originals and campaigns are preserved; gameplay/acquisition/migrations are not run.
+
 ### Original F4b reference-source checkpoint
 
 - Examine only84 frozen F4b references after independently accepted F4a:78 partial textual correspondences/6 precise unresolved limits. Retain85 complete source units,27 printed units,92 full parents, the actual Look and Learn visual column reading, complete current metadata, one incoming native page,180 resolution snapshots/176 genuine priors and330 actual same-ID historical observations/3630 field comparisons. Preserve38 earlier payloads/15 whole audits and every membership.

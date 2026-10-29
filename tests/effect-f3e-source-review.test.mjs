@@ -27,7 +27,7 @@ test('F3e closes only60 source examinations and leaves519 originalF records outs
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
  assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');
  assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e'].includes(s.id)).reduce((n,s)=>n+s.records,0),519);
- assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
+ assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a','F4b','F4c'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
  assert.deepEqual(audit(base).closure.counts,{reviewed:28,unresolved:32});assert.equal(audit(base).closure.fullFAcceptance,false);
  assert.equal(base.index.coverage.completeAddressableClassification,false);
  assert.equal(hash(base.files['record-source-review/effects-other-d.json']),'bd55f1eba0f1bbe6f688ecc0b268910f8babfd1f0184c05db94a7429d94bd12b');
@@ -165,8 +165,8 @@ test('all33 earlier payloads/10 whole audits and frozen nonF/otherF metadata are
  const f=base.batchManifest.batches.find(b=>b.id==='F');
  assert.equal(f.membershipSha256,'791f002be4cff6961167f4f01b9847efaa21a97c8c40755335f3bd8dd5bf8da6');
  assert.equal(hash(base.batchManifest.batches.filter(b=>b.id!=='F')),'c8523e7b53b8c8b2b2956f80a6a9252eb8f8f42af6f42868a3358af86519deed');
- // Assigned F3f/F3g/F3h/F4a/F4b may advance their own administrative closures; every frozen tuple and
+ // Assigned F3f/F3g/F3h/F4a/F4b/F4c may advance their own administrative closures; every frozen tuple and
  // all other metadata remain covered by the original F3e checkpoint pin.
- const outsideF3e=f.slices.filter(s=>s.id!=='F3e').map(s=>{if(!['F3f','F3g','F3h','F4a','F4b'].includes(s.id))return s;const original={...s,status:'not-started',closure:null};delete original.recordFile;return original;});
+ const outsideF3e=f.slices.filter(s=>s.id!=='F3e').map(s=>{if(!['F3f','F3g','F3h','F4a','F4b','F4c'].includes(s.id))return s;const original={...s,status:'not-started',closure:null};delete original.recordFile;return original;});
  assert.equal(hash(outsideF3e),'cf8a831a0d9ed547abcfa322b654a558c8034d7918b6a7f41fdd6b85e811a938');
 });
