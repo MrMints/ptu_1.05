@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F4a reference-source checkpoint
+
+- Examine only84 frozen F4a descriptive references after independently accepted F3h:77 partial textual correspondences/7 precise content, version or authority limits. Retain89 complete source units,22 printed units,75 full parents, all current metadata/empty executable arrays, one full incoming native page,180 resolution snapshots/174 genuine priors and322 actual same-ID historical observations/3542 field comparisons. Preserve37 earlier payloads/14 whole audits and all memberships.
+- Keep Stacked Deck's available full table versus current placeholder; Mirage/Time Stop Swift/Rapid; CR Physical Dedications/Cheerleader framework limits; Traceur Mountain-title/Urban-body; Artificer Standard/Extended; Signature damaging/status boxes; Terrain Talents everywhere;48-entry tagged Patron table; Spirit Mending OR/AND; Wired Core and repeated choices; craft versus purchase roles and separate capture alternatives explicit. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md).
+- Add123 new regressions with600 earlier effect and35 documentation/evidence/catalog checks passing (758 focused cases). Source/catalog/26-original/preservation/link/scoped-diff checks pass; exact-head normal CI remains required for the final handoff. F688 examined/251 REFERENCES unexamined still requires substantive full-F acceptance before G; full04/OPEN05 remain held. Finish exact-head normal CI, explicitly release checkout ownership and STOP for independent F4a acceptance. Runtime, packs, policy, originals, IDs/campaigns and prerequisite/version/preservation contracts are preserved; actual gameplay/acquisition/migrations are not run.
+
 ### Original F3h source checkpoint
 
 - Examine only64 frozen F3h references after accepted F3g:18 partial field correspondences /46 precise unresolved limits. Retain53 complete definitions,43 full parent pages, six native contexts,110 current rules,130 relationship snapshots/80 genuine priors,15 direct and64 incoming occurrences, five exact page targets and four approved historical exports. Preserve36 earlier payloads/13 whole audits and every original membership.

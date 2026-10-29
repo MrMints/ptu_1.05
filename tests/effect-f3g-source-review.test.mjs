@@ -28,10 +28,10 @@ const rejected=(change,re)=>assert.ok(tamper(change).some(e=>re.test(e)));
 test('only60 F3g source examinations close;399 F stay outside its closure and no later work starts',()=>{
  assert.deepEqual(errors(base),[]);const f=base.batchManifest.batches.find(b=>b.id==='F');
  assert.equal(f.status,'in-progress');assert.equal(f.acceptance.status,'pending-substantive-review');assert.equal(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g'].includes(s.id)).reduce((n,s)=>n+s.records,0),399);
- assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
+ assert(f.slices.filter(s=>!['F1','F2','F3a','F3b','F3c','F3d','F3e','F3f','F3g','F3h','F4a'].includes(s.id)).every(s=>!s.recordFile&&s.status==='not-started'));
  assert.deepEqual(audit(base).closure.counts,{reviewed:22,unresolved:38});assert.equal(audit(base).closure.fullFAcceptance,false);assert.equal(base.index.coverage.completeAddressableClassification,false);
- // Normalize only the assigned F3h records to retain the accepted F3g census.
- const acceptedCounts={...base.index.coverage.counts},later=base.files['record-source-review/effects-other-h.json'].records;
+ // Normalize only the assigned F3h and F4a records to retain the accepted F3g census.
+ const acceptedCounts={...base.index.coverage.counts},later=[...base.files['record-source-review/effects-other-h.json'].records,...base.files['record-source-review/references-a.json'].records];
  for(const r of later)acceptedCounts[r.coverageState]--;acceptedCounts.unreviewed+=later.length;
  assert.deepEqual(acceptedCounts,{reviewed:3111,excluded:123,unresolved:3515,unreviewed:646});
 });
@@ -131,5 +131,5 @@ test('all35 earlier payloads/12 whole audits and exact nonF/otherF metadata stay
  for(const[p,h]of Object.entries(earlierAuditPins))assert.equal(hash(earlierAudits[p]),h,p);
  const f=base.batchManifest.batches.find(b=>b.id==='F');assert.equal(f.membershipSha256,'791f002be4cff6961167f4f01b9847efaa21a97c8c40755335f3bd8dd5bf8da6');
  assert.equal(hash(base.batchManifest.batches.filter(b=>b.id!=='F')),"c8523e7b53b8c8b2b2956f80a6a9252eb8f8f42af6f42868a3358af86519deed");
- assert.equal(hash(f.slices.filter(s=>s.id!=='F3g').map(s=>{if(s.id!=='F3h')return s;const original={...s,status:'not-started',closure:null};delete original.recordFile;return original;})),"02005090fcf16fd8dfb51f0508878b56739478cfb869847aad2057c3919961d9");
+ assert.equal(hash(f.slices.filter(s=>s.id!=='F3g').map(s=>{if(!['F3h','F4a'].includes(s.id))return s;const original={...s,status:'not-started',closure:null};delete original.recordFile;return original;})),"02005090fcf16fd8dfb51f0508878b56739478cfb869847aad2057c3919961d9");
 });
