@@ -1,3 +1,4 @@
+import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
@@ -7,7 +8,7 @@ import {checkTemporarySpeciesSourceReview, temporarySpeciesSourceFacts, ultraBur
 import {effectReferences} from '../tools/effect-source-review.mjs';
 import {priorSourceIdentities} from '../tools/source-review-order.mjs';
 
-const base = await loadRecordSourceReview(), file = 'record-source-review/temporary-species.json';
+const base = fullFSourceCheckpointView(await loadRecordSourceReview()), file = 'record-source-review/temporary-species.json';
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const textHash = value => createHash('sha256').update(value).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object'

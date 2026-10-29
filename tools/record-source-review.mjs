@@ -24,6 +24,8 @@ import {checkReferenceF4aSourceReview} from './reference-f4a-source-review.mjs';
 import {checkReferenceF4bSourceReview} from './reference-f4b-source-review.mjs';
 import {checkReferenceF4cSourceReview,isReferenceF4cScopeExclusion} from './reference-f4c-source-review.mjs';
 import {checkReferenceF4dSourceReview} from './reference-f4d-source-review.mjs';
+import {fullFSourceCheckpointView} from './source-review-order.mjs';
+import {loadOrganizationalSourceReview, checkOrganizationalSourceReview} from './organizational-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -156,7 +158,7 @@ export async function loadRecordSourceReview() {
         if(!/^feature-source-search-e1[a-e]\.json$/.test(item.path))throw new Error(`Invalid Feature search artifact path: ${item.path}`);
         return [item.path,await json(`docs/data/${item.path}`)];
     })));
-    return {index, files, inventory, references, dependencyReview, source, protectedHashes, dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
+    return {index, files, inventory, references, dependencyReview, source, protectedHashes, ...await loadOrganizationalSourceReview(index), dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
         acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
         unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null,
         abilitySource: index.abilitySourceEvidence ? await json(`docs/data/${index.abilitySourceEvidence}`) : null,
@@ -347,20 +349,24 @@ export function recordSourceReviewErrors(bundle) {
     checkMoveSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseMoveRules: parseSourceMoveRules, citations});
     checkFeatureSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, parseFeatureRules: parseSourceFeatureRules, citations});
     checkItemSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkTemporarySpeciesSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectSliceSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectOtherSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3cSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3dSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3eSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3fSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3gSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkEffectF3hSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkReferenceF4aSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkReferenceF4bSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkReferenceF4cSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
-    checkReferenceF4dSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    // Closed F audits describe their original checkpoint. Validate their unchanged
+    // source bodies there; current G membership, evidence and gates stay below.
+    const fullF = fullFSourceCheckpointView(bundle);
+    const fullFRows = new Map(Object.values(fullF.files).flatMap(file => file.records).map(row => [row.identity, row]));
+    checkEffectSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkTemporarySpeciesSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectSliceSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectOtherSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3cSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3dSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3eSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3fSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3gSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkEffectF3hSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkReferenceF4aSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkReferenceF4bSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkReferenceF4cSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkReferenceF4dSourceReview(fullF, {fail, rows: fullFRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     if (index.generationScopeEvidence) {
         const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
             'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],
@@ -523,6 +529,7 @@ export function recordSourceReviewErrors(bundle) {
         }
         fail(batchManifest.batches.length === 9 && assigned.size === inventoryMap.size && batchManifest.totalQueuedRecords === 7300 && batchManifest.remainingAfterA === 7205, 'Frozen batches do not partition the full inventory');
     }
+    checkOrganizationalSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     const learning = dex.profileDeltas.find(row => row.id === 'r04-d0418')?.changes.find(change => change.field === 'levelMoves');
     fail(learning && learning.sourceInterpretation.category === 'editorial-correction' && hash({standardSourceValue: learning.standardSourceValue, revisedSourceValue: learning.revisedSourceValue}) === index.acceptedSourceInvariants.darmanitanLearningValuesSha256, 'Darmanitan unchanged learning schedule must retain values and editorial classification');
     return errors;

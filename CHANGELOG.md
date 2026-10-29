@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original G source examination checkpoint
+
+- Examine all245 frozen G tuples in four actual-kind slices:197 folders,25 habitats,17 other tables and6 literal macros. Retain206 organization/bounded source correspondences and39 precise unresolved authoring/adoption/target/version/use limits; this does not approve206 gameplay records. [Evidence and limitations](docs/validation/2026-10-29-g-source-review.md).
+- Preserve complete2519 results, exact1394 target bindings,32 missing current IDs with128 available exact-key histories,75 excluded target-body omissions and12 nested excluded edges while retaining ten older/shared consumers. Read30 full PDF parents, five native pages and15 static implementation contexts; distinguish original/optional Rotom, literal Transform/use/cleanup limits and printed Pickup/Luck/Dowsing guidance from unrun selection behavior.
+- Add source derivation/integrity checks and regressions; retain all14 substantive F assertion bodies in an explicit historical checkpoint view, independently validating raw currentG and predecessor/H gates. Preserve all41 prior payloads/18 audits, F acceptance, memberships, runtime/packs/policy/IDs/campaigns/originals and terminal066f0623. Require successful documented-head normal CI and explicit04 checkout release/STOP for independent coordinator and substantive existing-planner G acceptance; H/full04/05 remain held. No Foundry, actor/macro/gameplay, migration, release or new filter implementation.
+
 ### Full-F acceptance checkpoint test correction
 
 - Retain failed bookkeeping CI40818265217 at `9c9746b0`:1,556 passing/15 failing tests, Documentation passed, later validation/pack/build/upload skipped. Fourteen tests expected the old pending F status; the sequence fixture no longer explicitly constructed an unfinished predecessor. [Failure, correction and validation](docs/validation/2026-10-27-f-source-review.md#acceptance-ci-correction--2026-10-29).

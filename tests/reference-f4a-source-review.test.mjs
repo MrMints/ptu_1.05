@@ -1,3 +1,4 @@
+import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
@@ -6,7 +7,7 @@ import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkReferenceF4aSourceReview,referenceF4aSourceFacts,referenceF4aFactErrors,referenceF4aSourceSpecifications} from '../tools/reference-f4a-source-review.mjs';
 import {priorSourceIdentities} from '../tools/source-review-order.mjs';
-const base=await loadRecordSourceReview(),file='record-source-review/references-a.json';
+const base=fullFSourceCheckpointView(await loadRecordSourceReview()),file='record-source-review/references-a.json';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex'),textHash=v=>createHash('sha256').update(v).digest('hex');
 const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,canonical(v)])):v;
 const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));

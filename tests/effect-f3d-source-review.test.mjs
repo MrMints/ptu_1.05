@@ -1,3 +1,4 @@
+import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
@@ -6,7 +7,7 @@ import {loadRecordSourceReview,sourceReviewText,sourceReviewWords} from '../tool
 import {checkEffectF3dSourceReview,effectF3dSourceFacts,effectF3dFactErrors} from '../tools/effect-f3d-source-review.mjs';
 import {priorSourceIdentities} from '../tools/source-review-order.mjs';
 
-const base=await loadRecordSourceReview(),file='record-source-review/effects-other-d.json';
+const base=fullFSourceCheckpointView(await loadRecordSourceReview()),file='record-source-review/effects-other-d.json';
 const hash=v=>createHash('sha256').update(JSON.stringify(v)).digest('hex'),textHash=v=>createHash('sha256').update(v).digest('hex');
 const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,canonical(v)])):v;
 const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));

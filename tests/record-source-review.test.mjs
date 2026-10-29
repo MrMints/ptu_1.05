@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
+import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
 import {loadRecordSourceReview, recordSourceReviewErrors, parseSourceAcquisition, parseSourceLevelAcquisition, extractSourceAcquisitionSection, unqualifiedAcquisitionKeys, parseCompactSourceProfiles} from '../tools/record-source-review.mjs';
 
 const original = await loadRecordSourceReview();
@@ -11,7 +12,7 @@ test('record source snapshot keeps exact inventory, separate field axes and comp
 });
 
 test('full-F pending examination can become the exact accepted decision without changing source checkpoints', () => {
-    const data = copy(), batch = data.batchManifest.batches.find(value => value.id === 'F');
+    const data = fullFSourceCheckpointView(copy()), batch = data.batchManifest.batches.find(value => value.id === 'F');
     const accepted = structuredClone(batch);
     batch.status = 'in-progress';
     batch.closure = null;

@@ -1,3 +1,4 @@
+import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {assertFullFSourceAccepted} from './helpers/full-f-acceptance.mjs';
@@ -5,7 +6,7 @@ import {createHash} from 'node:crypto';
 import {loadRecordSourceReview, sourceReviewText, sourceReviewWords} from '../tools/record-source-review.mjs';
 import {checkEffectSliceSourceReview, effectPageReferences, effectRuleRoles, effectSliceSourceFacts, umbraSourceFacts, umbraSourceAssessment} from '../tools/effect-slice-source-review.mjs';
 
-const base = await loadRecordSourceReview(), file = 'record-source-review/effects-other-a.json';
+const base = fullFSourceCheckpointView(await loadRecordSourceReview()), file = 'record-source-review/effects-other-a.json';
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const textHash = value => createHash('sha256').update(value).digest('hex');
 const canonical = v => Array.isArray(v) ? v.map(canonical) : v && typeof v === 'object'
