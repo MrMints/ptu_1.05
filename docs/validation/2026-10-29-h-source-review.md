@@ -8,6 +8,8 @@ Existing04 retains sole checkout ownership through successful normal CI on the f
 
 ## Changes
 
+Core52 binding correction checkpoint: **`7292a5e9b75ebb9e867d092bb641285e32e6d2aa`**. The final documented correction revision is the commit containing this paragraph; it adds only this reference and the matching Unreleased reference. Required normal CI must pass on that exact final head before04 explicitly releases/stops; the final handoff supplies the full head/run/job evidence and fresh clean local/origin/actual remote/open-draft PR4 agreement.
+
 Original source/evidence/checker/test checkpoint: **`765c2d1f5cc6ac1a392ce8f7f858fbbc5571fea4`**; initial documented revision `76ea2ba7416b74487e7b8d1ae2b04ac2bbd24824`. The initial normal CI result and bounded historical-test correction are recorded below. A new final documented revision must receive its own successful normal CI before release; the earlier failed run is not a pass.
 
 Historical test-context correction checkpoint: **`03817697db9f8c9dc6fbb84b17ca67cbce7f7adb`**, documented at `fc2f2cd00674a7d09aef7114dcb843bef1907ae3`. Normal [CI40968091062](https://github.com/MrMints/ptu_1.05/actions/runs/40968091062) passed Documentation123777611375 and Validation123777611048:all1,707 tests, validation, pack verification, build and upload succeeded; clean local/origin/actual remote/open-draft PR4 alignment was verified before04 released/stopped. That pass remains evidence for those inputs, not H substantive acceptance or this later binding correction.

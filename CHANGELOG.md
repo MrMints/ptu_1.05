@@ -4,6 +4,8 @@
 
 ### Original H journal source examination checkpoint
 
+- Core52 binding correction checkpoint: `7292a5e9b75ebb9e867d092bb641285e32e6d2aa`; the final documented correction head adds only this reference and the matching [H handoff reference](docs/validation/2026-10-29-h-source-review.md). Require successful normal CI on that exact head before explicit04 release/STOP.
+
 - Correct one independently identified page-level citation binding: add existing`core:52` to the exact journal page7 Virtuoso assessment. Preserve all271 assessment texts, other270 page records,493 source coordinates/13 primitives/36 visual records/history, index/counts, all A–G evidence/acceptances and runtime/packs/policy/IDs/campaigns/originals. Update only dependent H/root/closure evidence and three pins. [Bounded correction and validation](docs/validation/2026-10-29-h-source-review.md#core52-page-binding-correction).
 - Reuse the unchanged E1 source unit to check original Master Skill/Level20 prerequisites and conditional effectiveRank8 against native Rank8/6d6(still), without inventing8d6 or runtime behavior. All76 H regressions/raw-current validation pass; nine cases are new. The priorfc2f2cd0 [CI40968091062](https://github.com/MrMints/ptu_1.05/actions/runs/40968091062) passed1,707 tests/all later gates for its inputs. Require new final documented-head normal CI before explicit04 release/STOP; H substantive acceptance and separate full04/05 remain held.
 
