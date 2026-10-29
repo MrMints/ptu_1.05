@@ -58000,9 +58000,21 @@
             ]
           ],
           "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90",
-          "status": "not-started",
-          "closure": null,
-          "partitionBasis": "Original frozen F tuples only. Actual pack/type and presence of a TemporarySpecies rule organize the first groups; remaining exact IDs are bounded administratively. Labels/partitions establish no source authority, canonical identity, Generation scope or behavior."
+          "status": "source-comparisons-complete",
+          "closure": {
+            "records": 83,
+            "counts": {
+              "reviewed": 76,
+              "unresolved": 7
+            },
+            "sourceExaminationComplete": true,
+            "productionPolicyPromotion": false,
+            "behavioralVerification": "not-run",
+            "evidenceSemanticSha256": "789e5db2f235ac9b8e046c05ee232ecefdf168684f25c071843e92a4e4dc7bec",
+            "validationReport": "docs/validation/2026-10-27-f-source-review.md"
+          },
+          "partitionBasis": "Original frozen F tuples only. Actual pack/type and presence of a TemporarySpecies rule organize the first groups; remaining exact IDs are bounded administratively. Labels/partitions establish no source authority, canonical identity, Generation scope or behavior.",
+          "recordFile": "record-source-review/references-d.json"
         }
       ],
       "start": {

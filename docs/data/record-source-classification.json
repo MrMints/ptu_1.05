@@ -45,16 +45,17 @@
     "record-source-review/effects-other-h.json",
     "record-source-review/references-a.json",
     "record-source-review/references-b.json",
-    "record-source-review/references-c.json"
+    "record-source-review/references-c.json",
+    "record-source-review/references-d.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 7065,
+    "explicitRecordDispositions": 7148,
     "counts": {
-      "reviewed": 3360,
+      "reviewed": 3436,
       "excluded": 124,
-      "unresolved": 3581,
-      "unreviewed": 330
+      "unresolved": 3588,
+      "unreviewed": 247
     },
     "completeAddressableClassification": false,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
@@ -84,8 +85,8 @@
       "examined-temporary-species-version-or-authority-limit": 38,
       "examined-effect-source-correspondence": 201,
       "examined-effect-version-or-authority-limit": 283,
-      "examined-reference-source-correspondence": 231,
-      "examined-reference-version-or-authority-limit": 20,
+      "examined-reference-source-correspondence": 307,
+      "examined-reference-version-or-authority-limit": 27,
       "excluded-generation9-reference-preserved": 1
     }
   },
@@ -146,7 +147,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a–F3h/F4a/F4b are independently accepted within documented source-only limits. Original F4c84 now records76 partial textual correspondences,7 precise unresolved source/version/authority limits and1 preserved scope-only Generation9 exclusion, pending independent acceptance after exact documented-head normal CI. F856 dispositions are addressed:855 source examinations plus1 scope-only exclusion;83 original F REFERENCES remain unexamined. F4d and original G245/H2 remain not-started. Substantive existing-planner full F acceptance is required before G; full04 acceptance, OPEN05 and production/behavior approval remain held. No automatic next-slice start.",
+  "remainingAddressableWork": "A–E2/F1/F2/corrected F3a–F3h/F4a–F4c retain independent source-only acceptance. Original F4d83 records76 partial textual correspondences and7 precise examined unresolved limits, pending independent acceptance after normal CI on the exact final documented revision. FullF939 tuple/evidence reconciliation has zero unexamined or duplicate/foreign tuples:564 partial correspondences/374 precise unresolved/1 preserved scope-only exclusion,938 nonexcluded source examinations. This is review-ready evidence, not full-F acceptance or supported-content approval. Substantive existing-planner full-F acceptance is required before G; original G245/H2 remain not-started. Full04, OPEN05 and all production/behavior approval remain held. No automatic review chain, next batch or chat.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -771,6 +772,7 @@
   "referenceSliceSourceEvidenceFiles": [
     "reference-source-evidence-f4a.json",
     "reference-source-evidence-f4b.json",
-    "reference-source-evidence-f4c.json"
+    "reference-source-evidence-f4c.json",
+    "reference-source-evidence-f4d.json"
   ]
 }

@@ -1,3 +1,73 @@
+# Original F4d checkpoint and full-F review-ready handoff — 2026-10-29
+
+## Changes
+
+F4c is independently accepted for source examination at `a7ed90874265092f9190041a2f4762a77e787cd4` after [CI40804989893](https://github.com/MrMints/ptu_1.05/actions/runs/40804989893) (Documentation123221673579, Validation123221674038),163 independently rerun regressions and fresh original/current/history/preservation review. Its76 partial correspondences,7 precise unresolved limits and1 preserved scope-only exclusion retain their distinct limits; gameplay, acquisition and migrations remain unverified.
+
+The coordinator assigned existing04 sole checkout ownership for **only the final83 F4d references**, without world ownership. Membership `57847bddee4e8a90aa3487a0e2558d5fca906500136343539a6223c81a4a59e6` runs from `references.jIYS6tXrR8hNWfyB` through `references.zFN2psnsbSBIeGrm`. FullF939 membership `791f002be4cff6961167f4f01b9847efaa21a97c8c40755335f3bd8dd5bf8da6`, diagnostic `1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90`, source fingerprint `9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a` and terminal066f0623 remain fixed. Queues were not regenerated from status totals.
+
+The [83 dispositions](../data/record-source-review/references-d.json) and [F4d audit](../data/reference-source-evidence-f4d.json) retain **76 partial textual correspondences/7 precise examined unresolved limits**, every current field/metadata value and actual empty rules/embedded arrays,87 complete source definitions,35 printed units and92 full parent pages.79 exact whole-parent matches reuse earlier examination;13 new full parents were read. Zero direct/incoming UUIDs, resolution snapshots, native-use contexts or literal page targets were found in these actual83 roots; no relationship was manufactured. Four actual same-ID exports contain76/76/81/82 roots:315 present,17 absent and3465 field comparisons. Raw schema0.112/migration metadata for Dynamax and all absent historical fields remain preserved.
+
+The seven unresolved cases remain addressable:
+
+- **Dynamax/Gigantimax**, `kXk71c22c1v9bpYK`: complete current adaptation is preserved, including charge/equipment, interruption, three rounds, Blast6/space/GM choices, temporaryHP, movement/Mountable and recall/recharge/PowerSpot conditions. Supplied Galar104's Eternatus/DynamaxCannon entry does not author that entire framework. Independent PTU authority/version remains unestablished; finite no-hit discovery is not absence, modern-game import or generation approval.
+- **Call to Adventure**, `qdVwv0sd3S5yuB9m`: current paragraph is malformed and reordered. Complete optional May3 source was read visually: InstinctiveAptitude even unmet, alternate qualified Edge if already owned, and combat/tense—not Extended—AP skill bonus1d6 instead2. The source is available; current text is preserved rather than silently repaired.
+- **Obscuring Terrain**, `rCa00HrkeLnLKduK`: current sight-cover/unobserved/size bonuses4/2/1/0 remain intact. PTR-dev export metadata is provenance, not independent hiding-framework authoring. Complete core39 Stealth and231 terrain definitions do not author this whole current rule; no counterpart is invented.
+- **CR Surefooted**, `rHM6JJFVmVOpH2kV`: complete original core151 supports the climb/balance/Push/Trip/fall clauses but does not establish added5DR against raw “Groundsource” attacks. Distinct original `uj0ebWF0lvq4hwoL` is retained; no name-derived canonical relationship, spelling repair or whole-CR approval occurs. TerrainTalent150 works everywhere.
+- **CR Signature table**, `uiCdtBpTenpQXxNJ`: all12 entries and four source boxes are examined. Nine differ: Scatter4m/3targets versus6m/2; ShockSave-2/Evasion-1 versusSave-3/Accuracy-1/Evasion-1; GuardDR5 versus resistance1step; Unbalancing damaging-hit-or-round versus round-only; Alternative class switch versus added other-Defense option; DoubleDown DoubleStrike/DB4/exclusions versus2xDB bonus/+2AC; Burst up-to2CS/never above0 versus reset-one; Supreme condition exceptions versus once-SceneRapid; DoubleCurse foe/1target versus DoubleEffect target/additional restrictions. Three matching leaves (ViciousStorm, ReliableAttack, BloodiedSpeed) do not establish whole-CR authorship. Two actual histories say SupremeSwift; current says Rapid. Complete original75–76 and current CR remain separate.
+- **Flinch**, `vEAaFXRF9LJskQD1`, and **Suppresion**, `wI8sXPrUnRQj1cMz`: complete core247 and optional February2 alternatives are retained. Current Flinch additionally clears the Initiative penalty when Flinch is cured; current Suppression adds an “unless a Move or Ability specifies otherwise” tail. Those exact qualifications are not established by the examined optional definitions. No blended default or behavior fix is inferred.
+
+Other important bounded facts include the available **optional September9 Tutor/Inheritance restrictions** (under20 AtWill/EOT/DB7;20–29 through Scene/DB9;30+ unrestricted; sole HealPulse waits30 even if20 slot empty), separate core Mentor/Archive costs and effect-use conditions, all seven Hardened benefits, all eight Movement choices and TypeBall pairs, chemistry/case recipes, monetary craft/store/worn-threshold roles, exact target/choice/expiry rules and source-specific prerequisites. Source text extraction uses `$` while several current records use `₽`; actual printed monetary glyphs were inspected and raw representations retained without currency conversion. All four TwistedForm histories/source retain “Intimidation”; current says “Intimidate,” without changing stable skill keys. Equal names such as ForceOfWill/Earthshaker/Enhancers never establish canonical counterparts. Missing independent CR/PTR/Spirit/Max/Z/Dynamax authority and earlier omissions/conflicts remain explicit.
+
+The full-F reconciliation below binds every frozen tuple to its record file and source evidence. It reports **564 partial correspondences/374 precise unresolved/1 preserved scope-only exclusion**, **938 nonexcluded source examinations**, no duplicate/foreign tuples and **zero unexamined tuples**. It does not count earlier target snapshots as roots, declare938 supported records, accept full F or start G. All prior slice acceptance evidence remains in the historical checkpoints below; F4d acceptance and substantive existing-planner full-F acceptance remain due.
+
+| Slice | Frozen roots | Partial | Unresolved | Excluded | Evidence |
+| --- | ---: | ---: | ---: | ---: | --- |
+| F1 | 38 | 12 | 26 | 0 | [Records](../data/record-source-review/conditions.json) / [audit](../data/effect-source-evidence.json) |
+| F2 | 82 | 44 | 38 | 0 | [Records](../data/record-source-review/temporary-species.json) / [audit](../data/temporary-species-source-evidence.json) |
+| F3a | 60 | 21 | 39 | 0 | [Records](../data/record-source-review/effects-other-a.json) / [audit](../data/effect-source-evidence-f3a.json) |
+| F3b | 60 | 24 | 36 | 0 | [Records](../data/record-source-review/effects-other-b.json) / [audit](../data/effect-source-evidence-f3b.json) |
+| F3c | 60 | 21 | 39 | 0 | [Records](../data/record-source-review/effects-other-c.json) / [audit](../data/effect-source-evidence-f3c.json) |
+| F3d | 60 | 31 | 29 | 0 | [Records](../data/record-source-review/effects-other-d.json) / [audit](../data/effect-source-evidence-f3d.json) |
+| F3e | 60 | 28 | 32 | 0 | [Records](../data/record-source-review/effects-other-e.json) / [audit](../data/effect-source-evidence-f3e.json) |
+| F3f | 60 | 36 | 24 | 0 | [Records](../data/record-source-review/effects-other-f.json) / [audit](../data/effect-source-evidence-f3f.json) |
+| F3g | 60 | 22 | 38 | 0 | [Records](../data/record-source-review/effects-other-g.json) / [audit](../data/effect-source-evidence-f3g.json) |
+| F3h | 64 | 18 | 46 | 0 | [Records](../data/record-source-review/effects-other-h.json) / [audit](../data/effect-source-evidence-f3h.json) |
+| F4a | 84 | 77 | 7 | 0 | [Records](../data/record-source-review/references-a.json) / [audit](../data/reference-source-evidence-f4a.json) |
+| F4b | 84 | 78 | 6 | 0 | [Records](../data/record-source-review/references-b.json) / [audit](../data/reference-source-evidence-f4b.json) |
+| F4c | 84 | 76 | 7 | 1 | [Records](../data/record-source-review/references-c.json) / [audit](../data/reference-source-evidence-f4c.json) |
+| F4d | 83 | 76 | 7 | 0 | [Records](../data/record-source-review/references-d.json) / [audit](../data/reference-source-evidence-f4d.json) |
+
+The earlier exact-ID/hash/provenance Terastal disposition `references.ZF71mNCnts5vWOJe` is preserved solely as an exclusion. Its mechanical-examination flag remains false, and its whole prior audit/record payload is unchanged. No excluded mechanics were examined, recovered or approved; shared older targets do not inherit this exclusion. No browsing/acquisition/release filter is claimed implemented.
+
+## Validation
+
+All **169 new F4d regressions**,1054 affected earlier cases (600 effect/123 F4a/168 F4b/163 F4c),24 documentation/evidence/source-identity and11 catalog cases pass: **1258 distinct focused checks**. Large source-review files ran separately with local test isolation disabled. No failed run is counted as a pass. The initial hiding-text fixture had an uppercase mismatch; it now checks the actual unchanged source wording. The initial EnergyLink matcher could read the second next-Normal branch after the first was altered; it now requires the complete first-branch target/type/duration clause. The final complete169-case suite passes, including that mutation. Regressions check actual source quantities/recipients/conditions, all12 Signature entries/four boxes, eight Movement options and TypeBall pairs, optional alternatives, exact current/history/schema values, full-F tuple/evidence/acceptance boundaries and all earlier pins. Source validation passes3436/124/3588/247 and87 relationships. Catalog/manifest/source validation and26-original hash/page/duplicate checks pass. Final all-membership/payload/audit/nonF/otherF/foundation/E2/terminal/local-link/scoped-diff checks bind this documented checkpoint.
+
+All92 fresh full-page extractions match retained text exactly; eight original hashes match. Eight complete renders were actually viewed and byte-identical rerenders verified: core76/105/144/151, Throhs55, May3, September9 and February2. This checks four Signature boxes/three entries each, ordered Backpacker prose, all Hardened thresholds, chemistry/currency roles, terrain and complete optional tutor/status clauses. The initial console encoding failure was recovered using UTF8; no empty/malformed extraction became evidence of absence. Originals and historical databases were not edited; databases were not re-extracted.
+
+Normal CI must pass on the **exact final documented commit**. The final chat handoff records commit/run/jobs plus fresh clean local/origin/actual remote/open draft PR4 alignment. Earlier CI does not certify this newer revision; no rerun or external issue/PR metadata edit is assigned.
+
+## Compatibility
+
+All40 earlier payloads/17 whole audits, nonF/otherF metadata and original G/H memberships remain unchanged. Runtime, authoritative packs/databases, policy/schema, stable IDs/UUIDs, skill keys/translations/macros, saved/custom selections, campaigns, originals and accepted foundation/E2/terminal evidence are preserved. Only the F4d reference-audit loader and12 prior administrative test admissions advance; the effect-audit list and F4c's narrow exclusion validator stay unchanged. Earlier census checks normalize separately assigned later rows by actual coverage state while retaining all original pins.
+
+Source-backed original/non-errata, optional playtest and explicitly labelled errata stay separate. Printed prerequisite facts remain raw and selected-version diagnostics persistent, itemized and non-blocking. No automatic dependencies/rank changes or warning-suppressing disabling. Ownership/security/scope, choices/cancellation and effect-use conditions stay independent; Tutor learning restrictions are not a Feature/Edge acquisition veto. No actual supported acquisition/identity/cancellation/preservation contradiction was demonstrated by static source differences; a later reproduced supported-route contradiction must reopen its affected earlier gate before05.
+
+## Limitations
+
+Foundry/gameplay/acquisition/preservation execution, migrations/campaign verification and the full **local** suite were **not run**. Source coverage, partial correspondence, unresolved examination and scope exclusion do not certify implementation, automation, full current version/canonical/generation identity or supported release selection. Full F remains pending substantive planner acceptance after independent F4d acceptance. Global classification is3436 reviewed/124 preserved exclusions/3588 precise unresolved/247 unreviewed,7148 explicit dispositions. Original G245/H2, full04, due prior gates and OPEN05 remain held.
+
+After successful normal CI on this final revision,04 explicitly **RELEASES checkout ownership and STOPS for independent F4d acceptance**. No next slice, review/planning chain, worker/chat/world, merge or release starts automatically. External issue/PR metadata is read-only; issue2's historical approval was already fulfilled.
+
+Daily08:00 inclusive–19:00 exclusive Indianapolis applies at all balances. An already-running bounded turn may finish safely then HOLD. At <=5% remaining checkpoint **INCOMPLETE**/pause and latch until fresh **actual100% weekly reset AND coordinator resumption outside blackout**. Future timestamps/elapsed time are insufficient. No balances stored/reset renotification; saved model/effort unchanged. Capacity failures preserve the checkpoint/model; retries require at least10minutes and fresh operating gates.
+
+## References
+
+[Scope](../SCOPE.md), [amended contract](../PRE_05_RECONCILIATION.md), [frozen memberships](../data/record-source-review-batches.json), [index](../data/record-source-classification.json), [F4d checker](../../tools/reference-f4d-source-review.mjs), [regressions](../../tests/reference-f4d-source-review.test.mjs), [04 brief](../workstreams/04-rules-catalog.md), [source guide](../RULES_SOURCES.md) and the slice evidence links above. The audit retains complete original paths/hashes/one-based PDF pages, definitions/parents/current fields, exact history and full-F semantic bindings. No original-source upload or new corpus.
+
+## Historical F4c and earlier checkpoints
+
 # Original F4c reference-source checkpoint — 2026-10-28
 
 ## Changes

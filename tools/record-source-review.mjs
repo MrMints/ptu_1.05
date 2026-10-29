@@ -23,6 +23,7 @@ import {checkEffectF3hSourceReview} from './effect-f3h-source-review.mjs';
 import {checkReferenceF4aSourceReview} from './reference-f4a-source-review.mjs';
 import {checkReferenceF4bSourceReview} from './reference-f4b-source-review.mjs';
 import {checkReferenceF4cSourceReview,isReferenceF4cScopeExclusion} from './reference-f4c-source-review.mjs';
+import {checkReferenceF4dSourceReview} from './reference-f4d-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -163,7 +164,7 @@ export async function loadRecordSourceReview() {
         effectSource: index.effectSourceEvidence ? await json(`docs/data/${index.effectSourceEvidence}`) : null,
         temporarySpeciesSource: index.temporarySpeciesSourceEvidence ? await json(`docs/data/${index.temporarySpeciesSourceEvidence}`) : null,
         referenceSlices: await Promise.all((index.referenceSliceSourceEvidenceFiles ?? []).map(path => {
-            if (!/^reference-source-evidence-f4[a-c]\.json$/.test(path)) throw new Error(`Invalid reference audit path: ${path}`);
+            if (!/^reference-source-evidence-f4[a-d]\.json$/.test(path)) throw new Error(`Invalid reference audit path: ${path}`);
             return json(`docs/data/${path}`);
         })),
         effectSlices: await Promise.all((index.effectSliceSourceEvidenceFiles ?? []).map(path => {
@@ -359,6 +360,7 @@ export function recordSourceReviewErrors(bundle) {
     checkReferenceF4aSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     checkReferenceF4bSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     checkReferenceF4cSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkReferenceF4dSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
     if (index.generationScopeEvidence) {
         const expected = {'pokemon_species.csv': ['67f0da856d395bbe058cf961edce6ef2f805d1d8', 'e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45'],
             'pokemon.csv': ['bb32b1763d2462160f49ce88b4a1d800e4f195e1', '16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b'],

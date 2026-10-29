@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Original F4d and full-F source handoff
+
+- Examine the final83 frozen references:76 partial correspondences/7 precise unresolved limits, with87 source units/35 printed units/92 full parents and all current metadata/history preserved. Retain40 earlier payloads/17 whole audits and all original memberships.
+- Reconcile all939 F tuples and14 evidence links:564 partial/374 unresolved/1 preserved scope-only exclusion,938 nonexcluded examinations and zero unexamined tuples. Keep available Tutor restrictions, malformed CallAdventure, all12 original/CR Signature entries, Surefooted differences, status tails, currency/craft/use roles and independent-authoring limits explicit. [Evidence and limits](docs/validation/2026-10-27-f-source-review.md). This prepares planner review; it does not accept full F or approve supported content.
+- Add169 new regressions with1054 affected earlier and35 documentation/evidence/catalog checks passing (1258 focused cases). Source/catalog/26-original/preservation/link/scoped-diff checks pass; normal exact-head CI is reported in the final handoff. After normal CI on the final documented revision, release checkout ownership and STOP for independent F4d acceptance. Substantive full-F acceptance before G, G/H, full04 and OPEN05 remain held. Runtime, packs, policy, IDs, originals and campaigns are preserved; gameplay/acquisition/migrations were not run.
+
 ### Original F4c reference-source checkpoint
 
 - Record only84 frozen F4c dispositions after independently accepted F4b:76 partial textual correspondences/7 precise unresolved limits/1 preserved Generation9 scope exclusion. Retain94 source units/23 printed units/79 full parents, all current metadata, two full incoming-use contexts,182 snapshots/178 genuine priors and326 present historical observations/3586 field comparisons. Preserve39 prior payloads/16 whole audits and every membership.
