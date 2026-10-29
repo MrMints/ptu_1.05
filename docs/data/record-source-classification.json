@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "startingHead": "a35cec20817c73ed27d71f85a99bc33df45ce365",
-  "status": "in-progress; frozen sequential source work queues; completed source slices remain separate from production approval and full04 acceptance",
+  "status": "all-frozen-source-examinations-addressed; H-substantive-review-pending",
   "scope": "PTU1.05 Generations1–8 only; source classification does not approve a record or implementation",
   "inventory": "docs/data/content-eligibility.json",
   "sourceFingerprint": "9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a",
@@ -50,18 +50,19 @@
     "record-source-review/organization-folders.json",
     "record-source-review/organization-habitats.json",
     "record-source-review/organization-rolltables.json",
-    "record-source-review/organization-macros.json"
+    "record-source-review/organization-macros.json",
+    "record-source-review/journals.json"
   ],
   "coverage": {
     "totalInventoryRecords": 7395,
-    "explicitRecordDispositions": 7393,
+    "explicitRecordDispositions": 7395,
     "counts": {
-      "reviewed": 3642,
+      "reviewed": 3643,
       "excluded": 124,
-      "unresolved": 3627,
-      "unreviewed": 2
+      "unresolved": 3628,
+      "unreviewed": 0
     },
-    "completeAddressableClassification": false,
+    "completeAddressableClassification": true,
     "unmentionedRecordDisposition": "unreviewed; never counted as completed source review",
     "sourceClassCounts": {
       "standard": 55,
@@ -97,7 +98,9 @@
       "examined-table-authoring-or-target-limit": 12,
       "examined-table-partial-source-correspondence": 5,
       "examined-macro-utility-source": 4,
-      "examined-macro-source-version-and-use-limit": 2
+      "examined-macro-source-version-and-use-limit": 2,
+      "examined-journal-adaptation-authority-limit": 1,
+      "examined-journal-partial-source-correspondence": 1
     }
   },
   "dependencyReview": "record-dependency-review.json",
@@ -157,7 +160,7 @@
   },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
-  "remainingAddressableWork": "A–F source evidence and substantive full-F acceptance remain preserved. Original G245 has 197 organization-only folder examinations, five bounded table correspondences, four utility macro examinations and 39 precise unresolved source/adoption/target/use limits. All245 exact tuples have complete source examinations; 206 reviewed does not mean rules/behavior/supported-content approval. Independent coordinator examination and substantive existing-planner G acceptance are required before H2. G remains pending-substantive-review; H2 and full04/OPEN05 remain held. No automatic next batch, chat, release or production promotion.",
+  "remainingAddressableWork": "All frozen A–H root source dispositions are addressed within their recorded limits;271 H pages have explicit source examinations, not supported/playable or behavior approval. H awaits exact-revision normal CI and independent coordinator/substantive existing-planner acceptance. Separate full04 acceptance before05 remains held; unresolved authoring/adoption/version/identity/use evidence and source conflicts stay itemized. No production promotion, other chat/world, merge, release or automatic next stage.",
   "finiteFormBranchBatch": {
     "recordFile": "record-source-review/form-branch-skills.json",
     "records": 95,
@@ -741,23 +744,22 @@
   },
   "batchManifest": "record-source-review-batches.json",
   "priorityGate": {
-    "batch": "C",
-    "status": "source-examination-complete; exact-revision CI and substantive planner review pending before D",
-    "requires": "All626 exact frozen dispositions/current fields/alternatives/source limits, affected checks and passing documented-revision CI. No new family or production approval follows from integrity alone.",
+    "batch": "H",
+    "status": "source-examination-complete; independent H acceptance and separate full04 acceptance pending",
+    "requires": "Exact documented-head normal CI, independent coordinator examination and substantive existing-planner H acceptance; separate full04 acceptance before05.",
     "predecessorAcceptance": {
-      "batch": "B",
-      "revision": "d35a666086695a81a3ddaf5dd4049c554e19ae03",
-      "ciRun": 40255751783,
-      "documentationJob": 121357108067,
-      "validationJob": 121357108536,
-      "status": "accepted-source-examination"
-    },
-    "priorAExtractionGate": {
-      "batch": "A",
-      "status": "accepted at63f66e76 after CI40250336858 and substantive planner review",
-      "originalRevision": "c4c3299330ddfad5d63e7db72fe34225f05f7cae",
-      "correction": "Galar33 repeated TM heading: retain real Toxic omission and exact duplicate Attract paths; preserve all bounded normative tail/conditional/stat content.",
-      "remainingBatchScope": "B completed and accepted; original A outcomes preserved"
+      "status": "accepted-source-examination",
+      "revision": "b1de70bfb2a3e30fd6454c4e7f04195693a54464",
+      "ciRun": 40836687237,
+      "documentationJob": 123323000569,
+      "validationJob": 123323001036,
+      "sourceEvidenceSemanticSha256": "a7a0a988cddcf15ace07f1c54dbb2f8dc62088d3d6badb1814527ff116366ba7",
+      "reviewedCounts": {
+        "reviewed": 206,
+        "unresolved": 39
+      },
+      "validationReport": "docs/validation/2026-10-29-g-source-review.md#substantive-full-g-acceptance",
+      "decision": "Existing planner accepts all245 original G source examinations after substantive original/current/native/code/history review,61 independent G regressions and exact-source CI40836687237.197 metadata reviews,nine bounded correspondences and39 precise unresolved limits are not supported-content or behavioral approval. Historical pending flags and all earlier evidence remain unchanged. No new supported foundation contradiction was demonstrated; any demonstrated one reopens its affected prior gate before05. H2/271pages alone is prepared but not-started pending bookkeeping CI,explicit release,guards and coordinator assignment. Full04/OPEN05 remain held."
     }
   },
   "acquisitionBoundaryAudit": "acquisition-boundary-audit.json",
@@ -785,5 +787,30 @@
     "reference-source-evidence-f4c.json",
     "reference-source-evidence-f4d.json"
   ],
-  "organizationalSourceEvidence": "organizational-source-evidence-g.json"
+  "organizationalSourceEvidence": "organizational-source-evidence-g.json",
+  "journalSourceEvidence": "journal-source-evidence-h.json",
+  "priorityGateHistory": [
+    {
+      "batch": "C",
+      "status": "source-examination-complete; exact-revision CI and substantive planner review pending before D",
+      "requires": "All626 exact frozen dispositions/current fields/alternatives/source limits, affected checks and passing documented-revision CI. No new family or production approval follows from integrity alone.",
+      "predecessorAcceptance": {
+        "batch": "B",
+        "revision": "d35a666086695a81a3ddaf5dd4049c554e19ae03",
+        "ciRun": 40255751783,
+        "documentationJob": 121357108067,
+        "validationJob": 121357108536,
+        "status": "accepted-source-examination"
+      },
+      "priorAExtractionGate": {
+        "batch": "A",
+        "status": "accepted at63f66e76 after CI40250336858 and substantive planner review",
+        "originalRevision": "c4c3299330ddfad5d63e7db72fe34225f05f7cae",
+        "correction": "Galar33 repeated TM heading: retain real Toxic omission and exact duplicate Attract paths; preserve all bounded normative tail/conditional/stat content.",
+        "remainingBatchScope": "B completed and accepted; original A outcomes preserved"
+      }
+    }
+  ],
+  "full04SourceAcceptance": false,
+  "OPEN05": false
 }

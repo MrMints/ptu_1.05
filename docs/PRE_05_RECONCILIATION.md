@@ -1,5 +1,9 @@
 # Content selection and pre-05 reconciliation
 
+Current H source checkpoint, 2026-10-29: original H's two parents/all271 pages have explicit examinations (194 bounded correspondences/nine metadata-navigation/68 precise unresolved limits; one partial parent/one unresolved parent). [H evidence, foundation assessment and acceptance obligations](validation/2026-10-29-h-source-review.md) leave H substantive acceptance, separate full04 acceptance and OPEN05 held. All45 A–G payloads/19 audits,95 earlier data artifacts, memberships, accepted G and prior foundations retain their recorded limits. The index's zero unreviewed roots does not close these acceptance gates, approve current selected versions, implement separately selectable variants or certify behavior.
+
+Legacy prerequisite-veto/removal-refund prose remains source evidence; no supported runtime acquisition/preservation contradiction was exercised or waived. Any reproduced contradiction reopens its affected P02-A/P02-P/P03-NPC or other earlier gate before05. Optional Book/Herbal/Weather proposals remain separate from the standard baseline and from itemized non-blocking Feature/Edge/Poké Edge diagnostics; ownership/security/scope and effect-use conditions remain distinct.04 owns only H through exact final-head successful CI, then explicitly releases/stops for independent coordinator and existing-planner H review. No world, other chat or next stage starts automatically. Earlier pending/ownership statements below are historical.
+
 Owner amendment, 2026-10-25. This contract supplements [SCOPE.md](SCOPE.md) and supersedes conflicting acquisition-policy wording in earlier briefs. It is a plan and acceptance ledger, not a claim that the behavior is implemented. All nine section assessments examined revision `49561d92c8021b6393cd916a48e9696c55b48ef5` read-only. Their findings are reconciled below; acknowledgment alone closes no implementation gate.
 
 ## Required behavior

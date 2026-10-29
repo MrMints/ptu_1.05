@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {loadRecordSourceReview} from '../tools/record-source-review.mjs';
-import {fullFSourceCheckpointView} from '../tools/source-review-order.mjs';
+import {fullFSourceCheckpointView,fullGSourceCheckpointView} from '../tools/source-review-order.mjs';
 import {checkOrganizationalSourceReview, organizationalSourceFactErrors} from '../tools/organizational-source-review.mjs';
 import {organizationalKind, organizationalReferences, organizationalFolderFacts, organizationalTableFacts,
     organizationalMacroFacts, organizationalSourceFacts, printedRollBands} from '../tools/organizational-source-derivation.mjs';
 
-const base = await loadRecordSourceReview(), audit = base.organizationalSource;
+const base = fullGSourceCheckpointView(await loadRecordSourceReview()), audit = base.organizationalSource;
 const hash = v => createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const textHash = v => createHash('sha256').update(v).digest('hex');
 const equal = (a,b) => {try {assert.deepEqual(a,b);return true;} catch {return false;}};

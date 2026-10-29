@@ -11,7 +11,7 @@ test('record source snapshot keeps exact inventory, separate field axes and comp
     assert.deepEqual(recordSourceReviewErrors(original), []);
 });
 
-test('full-F pending examination can become the exact accepted decision without changing source checkpoints', () => {
+test('historical full-F transition preserves source checkpoints while current H remains required', () => {
     const data = fullFSourceCheckpointView(copy()), batch = data.batchManifest.batches.find(value => value.id === 'F');
     const accepted = structuredClone(batch);
     batch.status = 'in-progress';
@@ -19,10 +19,10 @@ test('full-F pending examination can become the exact accepted decision without 
     batch.acceptance = structuredClone(batch.acceptanceHistory[0]);
     delete batch.acceptanceHistory;
     assert.throws(() => assertFullFSourceAccepted(batch), assert.AssertionError);
-    assert.deepEqual(recordSourceReviewErrors(data), []);
+    assert.deepEqual(recordSourceReviewErrors(data), ['H source evidence missing or current index concealed']);
     Object.assign(batch, accepted);
     assertFullFSourceAccepted(batch);
-    assert.deepEqual(recordSourceReviewErrors(data), []);
+    assert.deepEqual(recordSourceReviewErrors(data), ['H source evidence missing or current index concealed']);
     assert.deepEqual(data.batchManifest.batches.filter(value => ['G', 'H'].includes(value.id))
         .map(value => [value.id, value.status]), [['G', 'not-started'], ['H', 'not-started']]);
 });
@@ -189,6 +189,10 @@ test('available Phione, Tentacruel, Magneton and Torchic profiles cannot become 
 });
 test('source evidence cannot promote production approval, gameplay or completion', () => {
     const data = copy();
+    // Remove the two H dispositions so this remains an actually unfinished
+    // inventory, even after all original frozen roots have been examined.
+    delete data.files['record-source-review/journals.json'];
+    data.index.recordFiles = data.index.recordFiles.filter(path => path !== 'record-source-review/journals.json');
     data.index.productionPolicyPromotion = true;
     data.index.coverage.completeAddressableClassification = true;
     records(data)[0].behavioralVerification = 'verified';
@@ -196,6 +200,8 @@ test('source evidence cannot promote production approval, gameplay or completion
     assert.ok(errors.some(x => x.includes('promote policy')));
     assert.ok(errors.some(x => x.includes('approve policy/behavior')));
     assert.ok(errors.some(x => x.includes('while addressable inventory remains')));
+    assert.ok(errors.includes('Frozen slice evidence file/membership disagrees: H1'));
+    assert.ok(errors.includes('Closed slice evidence changed without a recorded review: H1'));
 });
 test('evolution evidence cannot be lost through capability-scalar scoring overwrite', () => {
     const data = copy(), row = records(data).find(x => x.identity === 'species.04HUofEWMHdMr0Ya');

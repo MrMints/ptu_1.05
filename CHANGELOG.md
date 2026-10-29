@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### Original H journal source examination checkpoint
+
+- Examine both frozen journal parents/all271 embedded pages by exact identity/order/path/hash. Preserve194 bounded original correspondences, nine metadata/navigation examinations and68 precise unresolved native authority/version/unfinished-section limits; parent outcomes are one partial review/one unresolved. The index addresses all7,395 roots (3,643 reviewed/124 preserved exclusions/3,628 unresolved/0 unreviewed), without supported/playable or behavior approval. [H evidence and handoff](docs/validation/2026-10-29-h-source-review.md).
+- Add complete current metadata/table/reference derivation,493 examined original coordinates,13 bounded original excerpts,36 actual raster examinations and full available same-ID historical values/deltas. Preserve optional source kinds, numeric/beneficiary/phase distinctions, exact target IDs, original/native conflicts, available-original omissions and independent adaptation/export/media limits. Add meaningful semantic and preservation regressions with an independent literal/table fixture.
+- Keep the accepted G checker and all65 substantive assertions in an explicit historical G view; independently require actual current H evidence. Preserve all45 A–G payloads/19 whole audits,95 earlier data artifacts, all nine memberships/acceptances, runtime/packs/policy/IDs/campaigns/originals and terminal066f0623. H substantive acceptance and separate full04/05 remain held.04 retains ownership through required exact documented-head normal CI, then explicitly RELEASES and STOPS. No world, behavior/migration verification, Generation9 recovery, merge, release or automatic next stage.
+- Pass198 distinct focused checks across bounded runs/corrected affected reruns (67 H/65 G/31 shared/35 document-evidence-catalog), final raw source and structural validators,26 physical-reference checks and156 local Markdown path links. Diagnose missing closed-slice evidence without crashing; preserve historical incomplete flags and the actual unfinished-classification guard. Full local suite/pack rebuild/gameplay remain unrun; exact final documented-head normal CI is still required.
+
 ### Original G substantive source acceptance
 
 - Accept original G source examination at `b1de70bfb2a3e30fd6454c4e7f04195693a54464` after substantive source/native/code/history review,61 independent G regressions and passing [CI40836687237](https://github.com/MrMints/ptu_1.05/actions/runs/40836687237) (1,636 tests plus validation, pack checks, build/upload). Preserve197 metadata reviews, nine bounded correspondences and39 precise unresolved limits; this is not content/gameplay/automation approval.

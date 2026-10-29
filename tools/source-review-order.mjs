@@ -29,11 +29,27 @@ export function fullFSourceCheckpointView(bundle) {
     }
     counts.unreviewed += bundle.source.rows.length - records.length;
     const index = {...bundle.index, recordFiles: bundle.index.recordFiles.filter(path => Object.hasOwn(files, path)),
-        coverage: {...bundle.index.coverage, explicitRecordDispositions: records.length, counts, sourceClassCounts}};
+        coverage: {...bundle.index.coverage, explicitRecordDispositions: records.length, counts, sourceClassCounts, completeAddressableClassification: counts.unreviewed === 0}};
     delete index.organizationalSourceEvidence;
-    return {...bundle, index, files, organizationalSource: null,
+    delete index.journalSourceEvidence;
+    return {...bundle, index, files, organizationalSource: null, journalSource: null,
         batchManifest: {...manifest, batches: manifest.batches.map(batch => ['G', 'H'].includes(batch.id)
             ? {id: batch.id, count: batch.count, membershipSha256: batch.membershipSha256, members: batch.members,
                 status: 'not-started', closure: null, slices: []} : batch)},
         historicalSourceView: {throughBatch: 'F', currentLaterQueuesValidatedHere: false}};
+}
+
+// G's accepted source audit records H as not started. This projection is used
+// only by G's unchanged checks; H is always validated on the raw current bundle.
+export function fullGSourceCheckpointView(bundle) {
+    const manifest=bundle.batchManifest;
+    const held=manifest.batches.find(b=>b.id==='H');
+    const ids=new Set(held.members.map(([identity])=>identity));
+    const files=Object.fromEntries(Object.entries(bundle.files).filter(([,f])=>f.records.every(r=>!ids.has(r.identity))));
+    const records=Object.values(files).flatMap(f=>f.records),counts={reviewed:0,excluded:0,unresolved:0,unreviewed:0},sourceClassCounts={};
+    for(const r of records){counts[r.coverageState]++;sourceClassCounts[r.recordClass]=(sourceClassCounts[r.recordClass]??0)+1;}
+    counts.unreviewed=bundle.source.rows.length-records.length;
+    const index={...bundle.index,recordFiles:bundle.index.recordFiles.filter(p=>Object.hasOwn(files,p)),coverage:{...bundle.index.coverage,explicitRecordDispositions:records.length,counts,sourceClassCounts,completeAddressableClassification:false}};
+    delete index.journalSourceEvidence;
+    return {...bundle,index,files,journalSource:null,batchManifest:{...manifest,batches:manifest.batches.map(b=>b.id==='H'?{id:b.id,count:b.count,membershipSha256:b.membershipSha256,members:b.members,status:'not-started',closure:null,slices:[]}:b)},historicalSourceView:{throughBatch:'G',currentLaterQueuesValidatedHere:false}};
 }

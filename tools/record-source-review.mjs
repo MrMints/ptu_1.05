@@ -24,8 +24,9 @@ import {checkReferenceF4aSourceReview} from './reference-f4a-source-review.mjs';
 import {checkReferenceF4bSourceReview} from './reference-f4b-source-review.mjs';
 import {checkReferenceF4cSourceReview,isReferenceF4cScopeExclusion} from './reference-f4c-source-review.mjs';
 import {checkReferenceF4dSourceReview} from './reference-f4d-source-review.mjs';
-import {fullFSourceCheckpointView} from './source-review-order.mjs';
+import {fullFSourceCheckpointView,fullGSourceCheckpointView} from './source-review-order.mjs';
 import {loadOrganizationalSourceReview, checkOrganizationalSourceReview} from './organizational-source-review.mjs';
+import {loadJournalSourceReview,checkJournalSourceReview} from './journal-source-review.mjs';
 
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const canonical = value => Array.isArray(value) ? value.map(canonical) : value && typeof value === 'object' ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
@@ -158,7 +159,7 @@ export async function loadRecordSourceReview() {
         if(!/^feature-source-search-e1[a-e]\.json$/.test(item.path))throw new Error(`Invalid Feature search artifact path: ${item.path}`);
         return [item.path,await json(`docs/data/${item.path}`)];
     })));
-    return {index, files, inventory, references, dependencyReview, source, protectedHashes, ...await loadOrganizationalSourceReview(index), dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
+    return {index, files, inventory, references, dependencyReview, source, protectedHashes, ...await loadOrganizationalSourceReview(index), ...await loadJournalSourceReview(), dex: await json('docs/data/dex-source-comparison.json'), regional: await json('docs/data/regional-dex-catalog.json'), batchManifest: index.batchManifest ? await json(`docs/data/${index.batchManifest}`) : null,
         acquisitionAudit: await json('docs/data/acquisition-boundary-audit.json'), generationScope: index.generationScopeEvidence ? await json(`docs/data/${index.generationScopeEvidence}`) : null,
         unmatchedSpecies: index.unmatchedSpeciesEvidence ? await json(`docs/data/${index.unmatchedSpeciesEvidence}`) : null,
         abilitySource: index.abilitySourceEvidence ? await json(`docs/data/${index.abilitySourceEvidence}`) : null,
@@ -512,7 +513,7 @@ export function recordSourceReviewErrors(bundle) {
                     const evidence = files[slice.recordFile];
                     fail(evidence?.frozenSlice === slice.id && equal(evidence.records.map(row => [row.identity, row.contentHash]), slice.members)
                         && evidence.records.every(row => row.frozenQueue?.batch === batch.id && row.frozenQueue.slice === slice.id && row.frozenQueue.membershipSha256 === slice.membershipSha256), `Frozen slice evidence file/membership disagrees: ${slice.id}`);
-                    if (slice.status === 'source-comparisons-complete') fail(slice.closure?.evidenceSemanticSha256 === hash(evidence), `Closed slice evidence changed without a recorded review: ${slice.id}`);
+                    if (slice.status === 'source-comparisons-complete') fail(evidence && slice.closure?.evidenceSemanticSha256 === hash(evidence), `Closed slice evidence changed without a recorded review: ${slice.id}`);
                 }
             }
             if (batch.status === 'source-comparisons-complete') {
@@ -529,7 +530,10 @@ export function recordSourceReviewErrors(bundle) {
         }
         fail(batchManifest.batches.length === 9 && assigned.size === inventoryMap.size && batchManifest.totalQueuedRecords === 7300 && batchManifest.remainingAfterA === 7205, 'Frozen batches do not partition the full inventory');
     }
-    checkOrganizationalSourceReview(bundle, {fail, rows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    const fullG=fullGSourceCheckpointView(bundle);
+    const fullGRows=new Map(Object.values(fullG.files).flatMap(file=>file.records).map(row=>[row.identity,row]));
+    checkOrganizationalSourceReview(fullG, {fail, rows:fullGRows, actualMap, hash, equal, textHash, normalizedText, cleanText, citations});
+    checkJournalSourceReview(bundle,{fail,rows,actualMap,citations});
     const learning = dex.profileDeltas.find(row => row.id === 'r04-d0418')?.changes.find(change => change.field === 'levelMoves');
     fail(learning && learning.sourceInterpretation.category === 'editorial-correction' && hash({standardSourceValue: learning.standardSourceValue, revisedSourceValue: learning.revisedSourceValue}) === index.acceptedSourceInvariants.darmanitanLearningValuesSha256, 'Darmanitan unchanged learning schedule must retain values and editorial classification');
     return errors;
