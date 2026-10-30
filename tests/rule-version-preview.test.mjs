@@ -304,3 +304,109 @@ test('report marks unassessed authority and transfer/stack/use decisions, with n
     for (const key of ['canApply','authorized','update','payload','transaction','permission']) assert.equal(Object.hasOwn(r,key), false);
     assert.equal(r.relationship.status, 'alternate-versions'); assert.equal(r.inspectionOnly, true);
 });
+
+test('correction: unsupported direct/wrapper item collections are explicit without losing valid skill/level facts', () => {
+    for (const items of ['not a collection', '', 42, 0, true, false, {}, {contents:'not a collection'},
+        {contents:''}, {contents:42}, {contents:0}, {contents:false}, {contents:null}, {contents:{}}]) {
+        const input = fixtures(); input.actor.items = items;
+        input.candidate.system.prerequisites = ['Required original', 'Novice Focus', 'Level 1', 'Master Focus', 'Level 2'];
+        input.references = {'Required original':input.versions[0].documentUuid};
+        const before = structuredClone(input); freeze(input);
+        const r = preview(input);
+        assert.equal(r.relationship.status, 'alternate-versions');
+        assert.ok(r.contextIssues.some(i => i.input === 'actor' && i.reason === 'actor-items-invalid'));
+        assert.deepEqual(r.prerequisites.report.requirements.map(v => v.status), ['unverifiable','satisfied','satisfied','unmet','unmet']);
+        assert.equal(r.prerequisites.formatted.unmet.length, 2);
+        assert.ok(r.prerequisites.report.unmet.every(v => v.kind !== 'item'));
+        assert.deepEqual(input, before);
+    }
+});
+
+test('correction: malformed serialized wrapper entries do not throw or invent a known missing item', () => {
+    for (const entry of [null, 42, 'scalar', true, []]) for (const mixed of [false, true]) {
+        const input = fixtures(); input.actor.items = {contents:mixed ? [input.current, entry] : [entry]};
+        input.candidate.system.prerequisites = ['Required original', 'Novice Focus', 'Level 1'];
+        input.references = {'Required original':input.versions[0].documentUuid};
+        const before = structuredClone(input); freeze(input);
+        const r = preview(input);
+        assert.ok(r.contextIssues.some(i => i.reason === 'actor-items-invalid'));
+        assert.equal(r.relationship.status, 'alternate-versions');
+        assert.deepEqual(r.prerequisites.report.requirements.map(v => v.status), ['unverifiable','satisfied','satisfied']);
+        assert.deepEqual(input, before);
+    }
+});
+
+test('correction: malformed direct entries quarantine the collection without erasing unrelated actor facts', () => {
+    for (const entry of [null, 42, 'scalar', false, []]) {
+        const input = fixtures(); input.actor.items = [input.current, entry];
+        input.candidate.system.prerequisites = ['Required original', 'Novice Focus', 'Level 1'];
+        input.references = {'Required original':input.versions[0].documentUuid};
+        const before = structuredClone(input); freeze(input);
+        const r = preview(input);
+        assert.equal(r.relationship.status, 'alternate-versions');
+        assert.ok(r.contextIssues.some(i => i.reason === 'actor-items-invalid'));
+        assert.deepEqual(r.prerequisites.report.requirements.map(v => v.status), ['unverifiable','satisfied','satisfied']);
+        assert.deepEqual(input, before);
+    }
+});
+
+test('correction: numeric non-index array properties cannot produce a complete empty diff', () => {
+    for (const key of ['4294967295', '4294967296', '9007199254740991', '9007199254740992']) {
+        const input = fixtures(); input.current.system = {custom:[]}; input.candidate.system = {custom:[]};
+        input.current.system.custom[key] = 'unserialized-extra';
+        const before = Object.getOwnPropertyDescriptors(input.current.system.custom); freeze(input);
+        const r = preview(input);
+        assert.equal(r.current.snapshotAvailable, false);
+        assert.ok(r.current.inputIssues.some(i => i.reason === 'non-array-index' && i.path.at(-1) === key));
+        assert.equal(r.differences.status, 'unavailable'); assert.equal(r.relationship.status, 'unresolved');
+        assert.deepEqual(Object.getOwnPropertyDescriptors(input.current.system.custom),
+            Object.fromEntries(Object.entries(before).map(([k,v]) => [k, {...v, configurable:false, writable:false}])));
+    }
+});
+
+test('correction: valid direct/wrapper empty and populated collections retain missing/null semantics', () => {
+    for (const mode of ['missing', 'null', 'empty', 'wrapper-empty', 'populated', 'wrapper-populated']) {
+        const input = fixtures();
+        if (mode === 'missing') delete input.actor.items;
+        else if (mode === 'null') input.actor.items = null;
+        else if (mode === 'empty') input.actor.items = [];
+        else if (mode === 'wrapper-empty') input.actor.items = {contents:[]};
+        else input.actor.items = mode === 'populated' ? [input.current] : {contents:[input.current]};
+        input.candidate.system.prerequisites = ['Required original', 'Novice Focus', 'Level 1'];
+        input.references = {'Required original':input.versions[0].documentUuid};
+        const before = structuredClone(input); freeze(input);
+        const r = preview(input);
+        assert.equal(r.relationship.status, 'alternate-versions');
+        assert.equal(r.contextIssues.some(i => i.reason === 'actor-items-invalid'), false);
+        const membership = ['missing','null'].includes(mode) ? 'unverifiable'
+            : ['empty','wrapper-empty'].includes(mode) ? 'unmet' : 'satisfied';
+        assert.deepEqual(r.prerequisites.report.requirements.map(v => v.status), [membership,'satisfied','satisfied']);
+        assert.deepEqual(preview(JSON.parse(JSON.stringify(input))), r);
+        assert.deepEqual(input, before);
+    }
+});
+
+test('correction: adjacent real/non-index array boundaries preserve dense arrays and reject sparse maxima safely', () => {
+    const dense = fixtures(); dense.current.system = {custom:['first','second']}; dense.candidate.system = {custom:['first','second','third']};
+    dense.current.system.custom['2'] = 'third';
+    assert.equal(preview(dense).current.snapshotAvailable, true);
+    assert.deepEqual(preview(dense).differences.changes, []);
+    for (const key of ['4294967293','4294967294']) {
+        const input = fixtures(); input.current.system = {custom:[]};
+        input.current.system.custom[key] = 'real index, but sparse array';
+        const beforeKeys = Reflect.ownKeys(input.current.system.custom), beforeLength = input.current.system.custom.length;
+        freeze(input);
+        const r = preview(input);
+        assert.equal(r.current.snapshotAvailable, false);
+        assert.ok(r.current.inputIssues.some(i => i.reason === 'sparse-array' && i.path.at(-1) === '0'));
+        assert.equal(r.current.inputIssues.some(i => i.reason === 'non-array-index' && i.path.at(-1) === key), false);
+        assert.equal(r.differences.status, 'unavailable');
+        assert.deepEqual(Reflect.ownKeys(input.current.system.custom), beforeKeys);
+        assert.equal(input.current.system.custom.length, beforeLength);
+        assert.equal(input.current.system.custom[key], 'real index, but sparse array');
+    }
+    for (const key of ['01','1.0','-0','+1','1e0']) {
+        const input = fixtures(); input.current.system = {custom:[]}; input.current.system.custom[key] = 'non-index';
+        assert.ok(preview(input).current.inputIssues.some(i => i.reason === 'non-array-index' && i.path.at(-1) === key));
+    }
+});

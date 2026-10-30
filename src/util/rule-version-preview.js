@@ -6,6 +6,11 @@ const record = value => value !== null && typeof value === 'object' && !Array.is
 const copy = value => value === undefined ? undefined : structuredClone(value);
 const itemUuid = value => typeof value === 'string' && /^(?:Compendium\.[\w-]+\.[\w-]+\.(?:Item\.)?|Item\.|Actor\.[\w]+\.Item\.)[A-Za-z0-9]{16}$/.test(value);
 
+function arrayIndex(key) {
+    const index = Number(key);
+    return Number.isInteger(index) && index >= 0 && index < 4294967295 && String(index) === key;
+}
+
 // Inspect descriptors without calling getters, toJSON, toObject or any other live interface.
 function serializedIssues(value, path = [], ancestors = new Set()) {
     if (value === null || ['string', 'boolean'].includes(typeof value)
@@ -16,16 +21,23 @@ function serializedIssues(value, path = [], ancestors = new Set()) {
         return [{path, reason:'non-plain-object'}];
     }
     const next = new Set(ancestors).add(value), issues = [];
+    const indices = Array.isArray(value) ? new Set() : null;
     for (const key of Reflect.ownKeys(value)) {
-        if (Array.isArray(value) && key === 'length') continue;
+        if (indices && key === 'length') continue;
         if (typeof key !== 'string') {issues.push({path, reason:'symbol-key'}); continue;}
+        if (indices) {
+            if (!arrayIndex(key)) {issues.push({path:[...path, key], reason:'non-array-index'}); continue;}
+            indices.add(Number(key));
+        }
         const descriptor = Object.getOwnPropertyDescriptor(value, key);
         if (!descriptor.enumerable || !own(descriptor, 'value')) issues.push({path:[...path, key], reason:'non-data-property'});
-        else if (Array.isArray(value) && !/^(0|[1-9]\d*)$/.test(key)) issues.push({path:[...path, key], reason:'non-array-index'});
         else issues.push(...serializedIssues(descriptor.value, [...path, key], next));
     }
-    if (Array.isArray(value)) for (let i = 0; i < value.length; i++) {
-        if (!own(value, i)) issues.push({path:[...path, String(i)], reason:'sparse-array'});
+    if (indices && indices.size !== value.length) {
+        // Find one actual hole without enumerating a potentially enormous sparse length.
+        let missing = 0;
+        while (indices.has(missing)) missing++;
+        issues.push({path:[...path, String(missing)], reason:'sparse-array'});
     }
     return issues;
 }
@@ -33,6 +45,16 @@ function serializedIssues(value, path = [], ancestors = new Set()) {
 function readInput(value) {
     const issues = value === undefined ? [{path:[], reason:'input-missing'}] : serializedIssues(value);
     return {available:issues.length === 0, value:issues.length ? undefined : copy(value), issues};
+}
+
+function ownedItemCollectionIssues(actor) {
+    if (!record(actor) || actor.items == null) return [];
+    const wrapper = !Array.isArray(actor.items);
+    const collection = wrapper && record(actor.items) ? actor.items.contents : actor.items;
+    const path = wrapper && record(actor.items) ? ['items', 'contents'] : ['items'];
+    if (!Array.isArray(collection)) return [{path, reason:'actor-items-invalid', detail:'unsupported-collection'}];
+    return collection.flatMap((item, index) => record(item) ? []
+        : [{path:[...path, String(index)], reason:'actor-items-invalid', detail:'entry-not-object'}]);
 }
 
 function itemInput(value) {
@@ -104,9 +126,7 @@ export function previewRuleVersionReplacement(options = {}) {
         const input = inputs[key];
         if (input.available && !record(input.value)) input.issues.push({path:[], reason:`${key}-not-object`});
     }
-    if (Array.isArray(inputs.actor.value?.items) && inputs.actor.value.items.some(item => !record(item))) {
-        inputs.actor.issues.push({path:['items'], reason:'actor-items-invalid'});
-    }
+    const collectionIssues = ownedItemCollectionIssues(inputs.actor.value);
     if (inputs.versions.available && !Array.isArray(inputs.versions.value)) {
         inputs.versions.issues.push({path:[], reason:'versions-not-array'});
     }
@@ -117,6 +137,7 @@ export function previewRuleVersionReplacement(options = {}) {
     for (const key of ['actor', 'versions', 'mechanicChoices', 'references']) {
         contextIssues.push(...inputs[key].issues.map(issue => ({input:key, ...issue})));
     }
+    contextIssues.push(...collectionIssues.map(issue => ({input:'actor', ...issue})));
     const choices = inputs.mechanicChoices.available ? inputs.mechanicChoices.value : null;
     const mappings = inputs.versions.available ? inputs.versions.value : null;
     const sides = {};
@@ -131,7 +152,10 @@ export function previewRuleVersionReplacement(options = {}) {
     const candidateData = inputs.candidate.value;
     const diagnosticItem = record(candidateData) && !own(candidateData, 'toObject')
         && (!own(candidateData, 'name') || typeof candidateData.name === 'string') ? candidateData : undefined;
-    const diagnosticActor = inputs.actor.issues.length === 0 ? inputs.actor.value : undefined;
+    // Unavailable item membership must not erase independently supplied skill/level facts.
+    // This diagnostic projection never changes the supplied actor or establishes an empty collection.
+    const diagnosticActor = inputs.actor.issues.length === 0
+        ? collectionIssues.length ? {...inputs.actor.value, items:null} : inputs.actor.value : undefined;
     const diagnosticReferences = inputs.references.issues.length === 0 ? inputs.references.value : {};
     const report = diagnosePrerequisites({actor:diagnosticActor, item:diagnosticItem,
         selectedVersion:sides.candidate.attribution?.selectedVersion ?? null, references:diagnosticReferences});

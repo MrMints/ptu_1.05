@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 preview input-boundary correction
+
+- Reproduce and correct the new preview's unsupported/malformed owned-item collection handling. Quarantine invalid membership while retaining valid skill/level diagnostics; preserve valid empty/missing/direct/wrapper semantics and independent relationships without changing the earlier evaluator.
+- Reject numeric non-index array properties explicitly and detect sparse upper-bound arrays without scanning their full length. Preserve dense ordered arrays, raw snapshots, presence/null differences and all unassessed authority/transfer/repeat/use boundaries.
+- Correct the handoff's erroneous `133/134` text to the actual historical134/134 pass. Retain the four newly reproduced failures separately; corrected140/140 focused checks pass (35 preview+85 foundation+20 documentation). [Reproduction, correction and limits](docs/validation/2026-10-29-p05-foundation-acceptance.md#preview-input-boundary-correction--2026-10-30). Final documented-head normal CI and coordinator re-review remain required; no live/application/promotion work.
+
 ### PTU 05 read-only replacement preview
 
 - Add one isolated synchronous preview export for explicit serialized current/candidate snapshots. Report their own attribution, evidenced relationship, deterministic system differences and candidate advisory prerequisites; retain complete saved/custom snapshots and independent mechanic preferences. No write payload, permission/approval decision, transfer/stacking policy or application is produced.

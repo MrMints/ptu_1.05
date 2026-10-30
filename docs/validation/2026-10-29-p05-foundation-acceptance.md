@@ -97,7 +97,7 @@ Implemented: [one synchronous preview export](../../src/util/rule-version-previe
 
 ### Preview validation and observations
 
-**133/134 focused tests pass, zero failed/skipped**:29 new preview cases, the accepted85-case affected foundation group, and20 documentation/evidence checks, run as one batch:
+**Historical initial preview result:134/134 focused tests passed, zero failed/skipped**:29 preview cases, the accepted85-case affected foundation group, and20 documentation/evidence checks, run as one batch. The previous `133/134` wording was a transcription error, not an observed failed automated run. These passes and CI1784 at `389e8870` did not cover the later reproduced input-boundary gaps recorded in the correction below:
 
 ```text
 node --test --test-isolation=none tests/rule-version-preview.test.mjs tests/rule-versions.test.mjs tests/prerequisites.test.mjs tests/acquisition.test.mjs tests/acquisition-preservation.test.mjs tests/preservation.test.mjs tests/npc-selection.test.mjs tests/document-source.test.mjs tests/content-scope.test.mjs tests/documentation.test.mjs tests/evidence-contract.test.mjs
@@ -127,3 +127,34 @@ No genuine earlier-foundation defect was reproduced in the focused batch; no dep
 Next dependency is a separately assigned design/review of source-backed mapping approval and replacement application/transfer policy, repeat/stacking semantics, authority/scope checks and artifact-bound live validation. No apply/UI/settings/migration/live consumer or next chat is started by this handoff. Source originals, IDs, saved/custom selections, earlier acceptances, Issue2/PR metadata and terminal release requirements remain unchanged.
 
 Commit/push only the existing draft branch; require successful exact final documented-head normal CI, clean local/origin/actual remote/open-draftPR4 agreement and explicit checkout RELEASE/STOP for substantive review. The final SHA/run/job evidence belongs in the final chat handoff without a guessed self-reference. Current daily08:00 inclusive–17:00 exclusive Indianapolis and weekly latch/resumption guards remain; no balances/reset forecasts are stored, and saved model/effort are unchanged. No world ownership was assigned.
+
+## Preview input-boundary correction — 2026-10-30
+
+Independent review did not accept preview `389e8870f66cc69f93d633405cfdb870eccd5666`. Its actual134/134 focused passes and [CI41006603564](https://github.com/MrMints/ptu_1.05/actions/runs/41006603564) (1,784/1,784, zero fail/skip, all later gates) remain historical successes within their actual coverage. The coordinator explicitly reassigned existing05 sole checkout ownership/no world for only the finite collection/array/evidence correction, from that clean matching local/origin/actual remote/open-draftPR4 head. The original nine-file allowlist and read-only dependencies remain; the substantive first-foundation acceptance above is unchanged.
+
+### Reproduction and actual observations
+
+Before changing implementation, four new regression tests were added to the allowed preview test file and run with its existing29 cases. **New reproduction run:33 tests,29 pass,4 fail,0 skip.** This is a newly observed failing run, not a reinterpretation of the earlier134 passes. The failures were:
+
+| New finite reproducer | Actual pre-fix result |
+| --- | --- |
+| Valid pair, explicit required-Item reference, `actor.items='not a collection'` | No collection context issue; invalid string iteration supplied a known-missing Item result. |
+| Same case, serialized wrapper `actor.items={contents:[null]}` | `TypeError` reading `null.uuid` in the unchanged evaluator, reached through the new preview's unvalidated boundary. Scalar wrapper entries were likewise not validated. |
+| Direct malformed entries beside valid Items | Preview quarantined the entire diagnostic actor, losing independently valid skill/level facts. The new assertion expected unavailable item membership plus satisfied skill/level requirements and failed. |
+| Empty system arrays plus own `custom['4294967295']='unserialized-extra'` | Snapshot was accepted and comparison could report a complete empty diff. A decimal-string regex had incorrectly accepted a non-index property. |
+
+These are new preview boundary/diagnostic/difference defects, not demonstrated failures of earlier live acquisition/preservation routes or a reason to alter the accepted evaluator. All four new regressions passed after the bounded fix (33/33), then two additional positive/boundary cases were added.
+
+### Correction, validation and limits
+
+The preview now validates direct arrays and serialized `{contents:[...]}` wrappers and identifies unsupported collection shapes and null/scalar/array entries explicitly. Invalid membership is unavailable in a detached diagnostic projection; actor skill/level facts remain usable. Empty arrays/wrappers still establish known absence, populated valid collections still establish presence, and missing/null collections remain unverifiable. The actor and both Item snapshots are not edited, and current/candidate relationships remain independent of these diagnostic deficiencies.
+
+Array keys must be actual canonical indices from0 through4294967294;4294967295 and larger numeric properties, noncanonical numeric spellings and other extras are explicitly rejected. Dense/ordered whole-array comparison is unchanged. Sparse detection records an actual first hole without walking the entire declared length, so legal maximum-index sparse fixtures are rejected safely without conflating their index with an unsupported property. No field is silently discarded into a complete diff.
+
+**Corrected focused result:140/140 tests passed,0 fail/skip** using the existing combined command above:35 preview cases (the original29 plus six correction cases),85 accepted foundation cases and20 documentation/evidence cases. New coverage spans direct/wrapper unsupported shapes, null/scalar/mixed entries, valid empty/missing/populated collection semantics, valid skill/level facts beside unavailable membership, four large non-index keys, adjacent legal upper indices and noncanonical spellings. Frozen inputs, unchanged relationships and all original deterministic/presence/null/whole-array assertions remain required.
+
+Final local checks also pass JavaScript syntax, current P01 evidence structure, manifest/17-skill/15-pack/7,395-source structure,176 local path links across seven allowed documents, whitespace, the exact nine-file diff and preservation of the complete earlier-foundation decision prefix. Read-only comparison against389e8870 confirms unchanged accepted helpers, runtime consumers, source/approval ledgers, packs, manifests, workflows, testing/release requirements and all other protected tracked inputs. These are local static/controlled checks, not new live-route evidence.
+
+Only the allowed preview implementation/test and concise allowed documentation change. No dependency contract, consumer, mapping/source approval, permission query, policy, pack/DB, ID, actor state, campaign, original, terminal requirement or Issue2/PR metadata changes. The unassessed ownership/production/scope/transfer/repeat/effect-use boundaries remain; there is no application payload, authorization flag, UI, live consumer, setting, migration or world operation. No source research or other chat was started. Source/version/original/errata distinctions and standard/independent mechanic choices are unchanged.
+
+Successful normal CI must run on the exact final documented correction head, with clean local/origin/actual remote/open-draftPR4 agreement before explicit RELEASE/STOP for coordinator re-review. No corrected preview acceptance or next batch is claimed here. Existing operating guards and saved model/effort remain; no account values/reset forecasts are stored. New live UI/permission/replacement/persistence/migration tests, full local suite and local pack/build execution are not run by this isolated correction; normal CI remains required.
