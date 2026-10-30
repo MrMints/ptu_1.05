@@ -130,6 +130,8 @@ Commit/push only the existing draft branch; require successful exact final docum
 
 ## Preview input-boundary correction — 2026-10-30
 
+Correction implementation/test/documentation checkpoint: `9a08012e41ffc643ad045ee512258ef2bb90158d`. The final documented head adds only this checkpoint reference and the matching05 handoff reference. It requires its own normal successful CI and clean head agreement; exact final SHA/run/jobs are returned in the final chat handoff before RELEASE/STOP for coordinator re-review.
+
 Independent review did not accept preview `389e8870f66cc69f93d633405cfdb870eccd5666`. Its actual134/134 focused passes and [CI41006603564](https://github.com/MrMints/ptu_1.05/actions/runs/41006603564) (1,784/1,784, zero fail/skip, all later gates) remain historical successes within their actual coverage. The coordinator explicitly reassigned existing05 sole checkout ownership/no world for only the finite collection/array/evidence correction, from that clean matching local/origin/actual remote/open-draftPR4 head. The original nine-file allowlist and read-only dependencies remain; the substantive first-foundation acceptance above is unchanged.
 
 ### Reproduction and actual observations
