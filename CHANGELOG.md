@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 corrected preview acceptance
+
+- Substantively accept the bounded serialized preview at `5753a07a`, retaining all earlier rejection/correction evidence. The former failing planner probe now passes4/4; unchanged144 focused checks and [CI41029962743](https://github.com/MrMints/ptu_1.05/actions/runs/41029962743) pass (1,794 tests/all later gates). Non-text diagnostic identities preserve raw data with explicit unavailable formatting; accepted dependencies and live consumers remain unchanged.
+- Record [acceptance, remaining limits and one idle four-case source-mapping proposal](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-corrected-preview-acceptance--2026-10-30). Source correspondence is not production approval. No runtime/pack/policy/ID/campaign change, application, world, next dispatch or full05 acceptance. Final bookkeeping CI/clean agreement and explicit release remain required.
+- Documentation-only review passes20 documentation/evidence checks, P01 structure,194 local links, PR section structure, whitespace and exact allowlist/prefix checks. Preserve all240 prior report lines and earlier acceptance/rejection evidence; no fresh live or campaign behavior is claimed.
+
 ### PTU 05 malformed diagnostic-identity correction
 
 - Reproduce both non-text UUID and local-ID fallback formatter failures in new preview tests. Guard presentation in the preview only: keep raw reports, snapshots, invalid-identity issues and valid actor facts, and return explicit formatting-unavailable identity status without coercion or guessed attribution. Accepted dependencies remain unchanged.
