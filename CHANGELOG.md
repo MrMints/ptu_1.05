@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 05 Echoes draft acceptance
+
+- Accept the two non-runtime Echoes drafts and source/schema/identity validator at `b638f46f` after substantive comparison with core140, May7, Researcher context and the existing record/lineage. Proposed identities remain uninstalled, eligibility unclassified and production/behavior/automation unapproved. [Decision and evidence](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-echoes-draft-acceptance--2026-10-30).
+- Prepare one unstarted Echoes production-readiness assessment with focused tests of existing consumers, to resolve class/parent representation and exact approval prerequisites before installation. No draft, source ledger, runtime, pack or campaign changes. Changed-document checks and final-head CI accompany this review; unchanged earlier evidence is reused within its recorded limits.
+
 ### PTU 05 non-runtime Echoes drafts
 
 - Author exactly two [staged Echoes of the Future drafts](docs/data/rule-version-echoes-draft.json): standard core140 and optional May2015 p7. Preserve complete frequency/trigger/effect and the separate prerequisite lists; record extraction representation, neutral schema defaults and unresolved Researcher context without copying inherited tags, permissions, provenance, counters or automation.
