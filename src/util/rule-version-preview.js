@@ -161,13 +161,20 @@ export function previewRuleVersionReplacement(options = {}) {
         selectedVersion:sides.candidate.attribution?.selectedVersion ?? null, references:diagnosticReferences});
     const sourceValue = report.identity.source?.value;
     const sourceLabelInvalid = sourceValue !== undefined && sourceValue !== null && typeof sourceValue === 'object';
+    const identityNotText = ['uuid', 'sourceId', 'id'].some(key =>
+        report.identity[key] !== null && report.identity[key] !== undefined && typeof report.identity[key] !== 'string');
+    // Keep malformed identity values in the raw report; never coerce them for presentation.
+    const formattingIssues = [
+        ...(sourceLabelInvalid ? ['source-label-not-text'] : []),
+        ...(identityNotText ? ['identity-formatting-unavailable'] : [])
+    ];
     const diffAvailable = record(sides.current.snapshot) && record(sides.candidate.snapshot);
     return {schemaVersion:1, inspectionOnly:true, ...sides, relationship:relationship(sides.current, sides.candidate),
         differences:{status:diffAvailable ? 'complete' : 'unavailable', changes:diffAvailable
             ? differences(sides.current.snapshot.system, sides.candidate.snapshot.system,
                 own(sides.current.snapshot, 'system'), own(sides.candidate.snapshot, 'system')) : []},
-        prerequisites:{report, formatted:sourceLabelInvalid ? null : formatPrerequisiteDiagnostics(report),
-            issues:sourceLabelInvalid ? ['source-label-not-text'] : []},
+        prerequisites:{report, formatted:formattingIssues.length ? null : formatPrerequisiteDiagnostics(report),
+            issues:formattingIssues},
         mechanics:{default:STANDARD_RULE_DEFAULT, choices:copy(choices)}, contextIssues,
         outsidePreview:['ownership-and-permissions', 'production-source-approval', 'acquisition-scope',
             'state-transfer-policy', 'repeat-and-stacking-policy', 'effect-use-authorization']};

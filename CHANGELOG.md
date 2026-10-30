@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 05 malformed diagnostic-identity correction
+
+- Reproduce both non-text UUID and local-ID fallback formatter failures in new preview tests. Guard presentation in the preview only: keep raw reports, snapshots, invalid-identity issues and valid actor facts, and return explicit formatting-unavailable identity status without coercion or guessed attribution. Accepted dependencies remain unchanged.
+- Preserve the original35 preview cases and append four cases/controls. Newly observed baseline:39 tests,37 pass/2 fail; corrected144 focused checks pass (39 preview+85 foundation+20 documentation). [Retained evidence and limits](docs/validation/2026-10-29-p05-foundation-acceptance.md#diagnostic-identity-formatting-correction--2026-10-30) distinguish every historical run. Final documented-head normal CI and independent re-review remain mandatory; no application, live consumer, world or production approval.
+
 ### PTU 05 preview review: further finite correction required
 
 - Substantively review corrected preview `f39b6c4a` and retain its140 focused passes/[CI41012109715](https://github.com/MrMints/ptu_1.05/actions/runs/41012109715) with1,790 passes. Do not accept the batch: a new independent4-case probe has2 passing controls/2 failures where serialized non-text candidate UUID/local-ID values throw during diagnostic formatting.

@@ -410,3 +410,82 @@ test('correction: adjacent real/non-index array boundaries preserve dense arrays
         assert.ok(preview(input).current.inputIssues.some(i => i.reason === 'non-array-index' && i.path.at(-1) === key));
     }
 });
+
+// New identity-formatting probes; the original 35 cases above remain unchanged.
+function identityFormattingFixture(type = 'feat') {
+    const input = fixtures(type);
+    input.actor.system.skills.techEd = {value:{total:3}};
+    input.candidate.system.prerequisites = ['  Novice   Technology Edu  ', 'Level 1', 'Master Focus', 'GM Permission', 'Custom condition'];
+    return input;
+}
+
+function assertRawIdentityInspection(input, expectedVersion) {
+    const before = structuredClone(input); freeze(input);
+    const result = preview(input);
+    assert.equal(result.relationship.status, 'unresolved');
+    assert.deepEqual(result.current.snapshot, before.current); assert.deepEqual(result.candidate.snapshot, before.candidate);
+    assert.ok(result.candidate.inputIssues.some(i => i.reason === 'explicit-item-uuid-required'));
+    assert.deepEqual(result.prerequisites.report.rawRequirements, before.candidate.system.prerequisites);
+    assert.deepEqual(result.prerequisites.report.identity.id, before.candidate.id ?? before.candidate._id ?? null);
+    assert.deepEqual(result.prerequisites.report.requirements.map(v => v.status),
+        ['satisfied','satisfied','unmet','unverifiable','unverifiable']);
+    assert.equal(result.prerequisites.report.identity.selectedVersion?.id ?? null, expectedVersion);
+    assert.equal(result.prerequisites.formatted, null);
+    assert.ok(result.prerequisites.issues.includes('identity-formatting-unavailable'));
+    assert.equal(result.prerequisites.report.advisory, true);
+    assert.deepEqual(preview(input), result);
+    assert.deepEqual(preview(JSON.parse(JSON.stringify(input))), result);
+    result.candidate.snapshot.flags.user.note = 'mutated output';
+    result.prerequisites.report.rawRequirements.push('output only');
+    result.prerequisites.report.identity.id = 'output only';
+    result.prerequisites.issues.push('output only');
+    assert.deepEqual(input, before);
+    return result;
+}
+
+test('identity formatting: non-text candidate UUID retains raw diagnostics instead of invoking coercion', () => {
+    for (const uuid of [{toString:2}, 42, false, []]) {
+        const input = identityFormattingFixture(); input.candidate.uuid = uuid;
+        const restored = JSON.parse(JSON.stringify(input));
+        const result = assertRawIdentityInspection(restored, input.versions[1].version.id);
+        assert.deepEqual(result.prerequisites.report.identity.uuid, uuid);
+    }
+});
+
+test('identity formatting: absent UUID/source with non-text local-ID fallback remains explicit and unknown', () => {
+    for (const id of [{toString:2}, 42, false, []]) {
+        const input = identityFormattingFixture(); delete input.candidate.uuid; delete input.candidate._stats;
+        input.candidate._id = id;
+        const restored = JSON.parse(JSON.stringify(input));
+        const result = assertRawIdentityInspection(restored, null);
+        assert.ok(result.prerequisites.report.attributionIssues.includes('rule-version-unestablished'));
+        assert.equal(result.candidate.attribution.status, 'unresolved');
+        assert.deepEqual(result.candidate.attribution.storedSelection, input.candidate.flags.ptu.selectedVersion);
+    }
+});
+
+test('identity formatting control: valid mapped pairs retain formatted diagnostics for every supported type', () => {
+    for (const type of types) {
+        const input = JSON.parse(JSON.stringify(identityFormattingFixture(type))), before = structuredClone(input); freeze(input);
+        const result = preview(input);
+        assert.equal(result.relationship.status, 'alternate-versions');
+        assert.equal(result.prerequisites.formatted.unmet.length, 1); assert.equal(result.prerequisites.formatted.unknown.length, 2);
+        assert.deepEqual(result.prerequisites.issues, []);
+        assert.equal(result.prerequisites.report.identity.selectedVersion.id, input.versions[1].version.id);
+        assert.deepEqual(preview(input), result); assert.deepEqual(input, before);
+    }
+});
+
+test('identity formatting control: ordinary missing UUID and fully missing identity remain printable unknowns', () => {
+    for (const missingAll of [false, true]) {
+        const input = identityFormattingFixture(); delete input.candidate.uuid;
+        if (missingAll) {delete input.candidate._id; delete input.candidate._stats;}
+        const restored = JSON.parse(JSON.stringify(input)), before = structuredClone(restored); freeze(restored);
+        const result = preview(restored);
+        assert.equal(result.relationship.status, 'unresolved');
+        assert.deepEqual(result.prerequisites.issues, []); assert.ok(result.prerequisites.formatted.unknown.length >= 2);
+        assert.deepEqual(result.prerequisites.report.requirements.map(v => v.status),
+            ['satisfied','satisfied','unmet','unverifiable','unverifiable']);
+        assert.deepEqual(preview(JSON.parse(JSON.stringify(restored))), result); assert.deepEqual(restored, before);
+    }
+});
