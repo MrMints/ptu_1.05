@@ -1,6 +1,8 @@
 # PTU 05 - Rule variants and selection migrations
 
-Status: NOT STARTED. Creation of a chat is not authorization to work. Wait for the owner to explicitly start this section. No tool calls, research, edits, tests, commits, messages or background work before that instruction.
+Status: FIRST BOUNDED BATCH explicitly assigned by the coordinator from clean `94f91afd7e9e1e73b7220b321159a6ad40b612cd`, after successful CI40986434461 and planner checkout release. Sole checkout ownership covers only the metadata contract/pure resolver batch; no shared-world ownership. [Implementation, validation and deferred interfaces](../validation/2026-10-29-p05-foundation.md). Stop after exact final documented-head CI and explicit release for substantive review; no later 05 batch starts automatically. Earlier not-started/OPEN05 wording below describes the pre-assignment checkpoint.
+
+Current operating instruction: daily 08:00 inclusive–17:00 exclusive Indianapolis blackout at all balances; finish only an already-running bounded turn safely, then HOLD. Retain weekly usage-latch/resumption safeguards, saved model/effort and the single-writer rule. No account values/reset forecasts belong in repository documentation.
 
 ## Owner amendment and prerequisite gate
 

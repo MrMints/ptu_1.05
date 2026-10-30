@@ -1,5 +1,9 @@
 # Batch testing
 
+## PTU 05 isolated source/version lookup
+
+Run `node --test --test-isolation=none tests/rule-versions.test.mjs` (18 tests). The [contract](RULE_VERSIONS.md) uses explicitly synthetic snapshots/mappings, not approved pack variants. Its [85-test affected foundation batch and exact limits](validation/2026-10-29-p05-foundation.md#validation) exercise non-mutating attribution/rule reads, same-name/renamed and unknown mappings, selected-version prerequisite reports, independent standard-default mechanic choices and repeated Poké Edges. No live caller or world-setting migration is integrated. Prior live evidence is reused within its recorded limits; no new Foundry certification is claimed. Full tests/validate/pack/build/upload remain required in normal CI on the final documented head.
+
 ## P03-NPC identity checks
 
 Run `node --test --test-isolation=none tests/npc-selection.test.mjs tests/prerequisites.test.mjs tests/skills.test.mjs tests/acquisition.test.mjs` (38 passing). Tests execute the actual bundled dropdown and actual NPC preload/refresh/generation with controlled Foundry IO. Retained failing baseline evidence and Node/live boundaries are in [the validation report](validation/2026-10-26-p03-npc.md).

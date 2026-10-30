@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 05 source/version lookup foundation
+
+- Add an isolated metadata v1 contract and non-mutating selected-version/effective-rule lookup. Keep exact document identity, evidenced canonical relationships, source status/date, owned prerequisites and independent mechanic choices separate; missing mechanic choices use standard. Unknown/conflicting mappings preserve saved data without guessing or blending alternatives.
+- Add 18 synthetic contract regressions across Moves, Abilities, Features, Edges and repeatable Poké Edges; 85 affected Node checks pass. Document [interfaces, validation, compatibility and deferred work](docs/validation/2026-10-29-p05-foundation.md). No production mappings/approval, live consumer/UI/settings integration, new migration or automation is introduced. Normal final documented-head CI remains required.
+
 ### H and full04 source acceptance
 
 - Independently accept H at `11e9bd1a` after source comparisons,76 rerun source tests and [CI40975872374](https://github.com/MrMints/ptu_1.05/actions/runs/40975872374) with1,716 passes. Separately reconcile the original full04 contract and amended P03/P02-P/P02-A/P01/P03-NPC evidence; record [source/foundation acceptance, conditional obligations and an idle bounded05 prompt](docs/validation/2026-10-30-full04-acceptance.md). Unresolved source/identity/use limits remain; no inherited-content, behavior or release approval.
