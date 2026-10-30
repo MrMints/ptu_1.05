@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 05 read-only replacement preview
+
+- Add one isolated synchronous preview export for explicit serialized current/candidate snapshots. Report their own attribution, evidenced relationship, deterministic system differences and candidate advisory prerequisites; retain complete saved/custom snapshots and independent mechanic preferences. No write payload, permission/approval decision, transfer/stacking policy or application is produced.
+- Add29 synthetic regressions across Moves, Abilities, Features, Edges and Poké Edges. All134 focused checks pass, including the accepted85-case foundation group and20 documentation/evidence cases. [Implementation, exact validation, boundaries and deferred dependencies](docs/validation/2026-10-29-p05-foundation-acceptance.md#replacement-preview-implementation-handoff--2026-10-30). Existing helpers/consumers, production mappings/packs, approvals, campaigns and terminal requirements are unchanged; final documented-head normal CI remains mandatory.
+
 ### PTU 05 bounded foundation acceptance
 
 - Substantively accept the isolated metadata/lookup batch at `295142f6` after full code/interface review, 85 independently rerun affected checks and [CI40992369967](https://github.com/MrMints/ptu_1.05/actions/runs/40992369967) with 1,755 passes and all later gates. Retain exact source, production-approval, live-integration and earlier-foundation limits.
