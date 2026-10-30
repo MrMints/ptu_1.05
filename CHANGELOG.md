@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 four source-to-document proposals
+
+- Add a [non-runtime four-case pilot](docs/data/rule-version-pilot.json) and pure integrity validator for Defense Curl, Huge Power, Echoes of the Future and Basic Ranged Attacks. Pin exact current records, complete source-field evidence, raw/JSON hashes, source roles and unresolved authoring/use obligations; keep Pure Power a separate negative identity control.
+- Preserve mixed Defense Curl and partial Huge Power dispositions, Echoes' advisory revised prerequisite and Basic Ranged's narrow Level20 removal with capability/TP/use/repeat conditions. No whole-record mapping, production approval, runtime identity allocation, content mutation or campaign behavior follows. [Source decisions, validation and remaining gates](docs/validation/2026-10-29-p05-foundation-acceptance.md#four-source-to-document-proposal-handoff--2026-10-30).
+- Validation checkpoint and exact final-head CI are recorded in the linked handoff. Earlier accepted preview/foundation/source/live evidence remains bounded and unchanged. Independent substantive proposal review is required before any later mapping/authoring batch; ordinary trainer-Edge and full05 coverage remain incomplete.
+
 ### PTU 05 corrected preview acceptance
 
 - Substantively accept the bounded serialized preview at `5753a07a`, retaining all earlier rejection/correction evidence. The former failing planner probe now passes4/4; unchanged144 focused checks and [CI41029962743](https://github.com/MrMints/ptu_1.05/actions/runs/41029962743) pass (1,794 tests/all later gates). Non-text diagnostic identities preserve raw data with explicit unavailable formatting; accepted dependencies and live consumers remain unchanged.
