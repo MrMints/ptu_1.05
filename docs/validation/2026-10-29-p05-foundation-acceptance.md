@@ -1,0 +1,88 @@
+# PTU 05 foundation acceptance and next bounded batch
+
+Decision recorded 2026-10-29, America/Indiana/Indianapolis. This accepts one implementation batch, not full PTU 05, production content, gameplay, automation or a release.
+
+## Substantive decision
+
+**ACCEPT** the metadata/lookup foundation at `295142f6a9b5c805d3886a0b2dc53f2d1459d92d` (implementation checkpoint `cacf37d74423cb3f1679ca5a5226d8c4bf21a295`). The planner examined the entire [helper](../../src/util/rule-versions.js), its 18 new contract tests, the [API contract](../RULE_VERSIONS.md), the [worker handoff](2026-10-29-p05-foundation.md), and composition with the accepted prerequisite/source interfaces. No defect requiring correction was demonstrated within the assigned scope. The coordinator's independent review agrees; this decision also rests on the planner's own code/interface examination and 85/85 independently rerun affected checks.
+
+[Normal source-head CI 40992369967](https://github.com/MrMints/ptu_1.05/actions/runs/40992369967) passed at that exact revision: Documentation `123857561555`, Validation `123857561409`, **1,755 tests / 1,755 passes / zero failures or skips**, followed by source validation, semantic pack verification, build and artifact upload. The actual Validation log confirms those counts. Prior CI alone was not used as evidence for this batch.
+
+The ten-file comparison from accepted base `94f91afd7e9e1e73b7220b321159a6ad40b612cd` contains only the new helper/test and eight documentation files. Existing runtime consumers, prerequisite/acquisition/preservation/source helpers, packs, source/approval ledgers, manifests, workflows, original references, campaign data and terminal requirements are unchanged. The accepted addition to `docs/TESTING.md` is documentation of this batch, not a change to terminal acceptance. No live workflow imports the new helper.
+
+| Reviewed requirement | Decision and boundary |
+| --- | --- |
+| Distinct document, canonical, version and source identities | Accepted shape contract and exact supplied mapping. Labels never identify content; duplicate/conflicting mappings remain unresolved. A canonical relationship may remain null. A citation or caller assertion is not production approval. |
+| Full selected rules without blending | Accepted detached complete owned `system`, including raw prerequisites, rules, costs, uses and custom fields. Unknown attribution still preserves data for inspection; it is not permission to execute it. The API does not promise a complete document export or a replacement payload. |
+| Source status/date and scope | Explicit source status and actual date precision are retained; directory names do not promote a playtest. Excluded/unclassified mappings remain unresolved. There is no production registry or new supported-content filter. |
+| Saved identity and legacy compatibility | Accepted modern-first provenance, legacy fallback, actual pack UUID precedence, stored-choice conflicts and absent-choice read behavior. No guessed UUID normalization, key migration, flag rewrite or latest-version fallback. |
+| All content categories and repeated instances | Synthetic Move, Ability, Feature, Edge and distinct Poké Edge cases pass. Repeated owned instances keep identity and saved choices. This is not approval of real variant pairs, repeat policy or benefit stacking. |
+| Advisory selected-version diagnostics | Existing evaluator receives the selected record's own prerequisites and version. Satisfied, unmet and custom/unverifiable results remain distinct; no prerequisite grants, rank increases or acquisition veto are introduced. Live persistent display remains on the earlier accepted interfaces. |
+| Independent mechanics and standard baseline | Missing API preferences return standard; explicit/invalid preferences remain distinct. No item replacement, setting registration, preset, supported mechanic catalog or new-world integration is claimed. |
+| Purity and preservation | Frozen input, repeated/JSON-round-trip reads, one document snapshot and detached-output checks pass. No document update, world operation or authorization bypass exists in this module. |
+
+The [full04/pre05 decision](2026-10-30-full04-acceptance.md) and accepted P03/P02-P/corrected P02-A/P01/P03-NPC matrices retain their exact limits. No supported-route contradiction was reproduced, so no earlier gate is reopened or waived. Historical failed observations and source dispositions are preserved.
+
+## Remaining original 05 contract
+
+| Obligation | What remains after this acceptance |
+| --- | --- |
+| Source-backed selectable versions | Promote only exact approved source/document pairs for Moves, Abilities, Features and Edges, including applicable Poké Edges. Evidence must establish each distinct version ID and canonical relationship. Retain additions without invented counterparts and distinguish official errata from optional playtests. |
+| Browsing and acquisition | Version labels/filters and explicit choices on supported routes, with scope/security checks and persistent non-blocking selected-version diagnostics. Synthetic lookup tests do not satisfy real pair or live route gates. |
+| Explicit replacement and benefits | Preview first, then separately designed application/cancellation/failure recovery preserving relevant actor and item state. Alternate-benefit protection must retain legitimate ranked/repeated instances and their individual choices. |
+| Mechanics and consistent consumption | Independently defined settings/presets, standard new-world baseline, and consistent descriptions/calculations/automation. Preferences must never silently replace individually selected content. |
+| Existing worlds | Versioned repeatable migrations, ambiguous/custom selection review, save/reload and failure recovery with artifact-bound live evidence. No guessing old identity or rewriting campaigns from a name. |
+| Final acceptance | Real approved original/revised pairs, targeted combinations and all relevant supported-route, permission, repeat/cancel/reload/migration evidence. Full05 and06 remain unaccepted/unstarted by this decision. |
+
+Source examination is not production mapping approval. Unresolved exact native identities, missing earlier authoring artifacts, optional-source adoption and rule conflicts retain the gate-specific obligations in full04. They hold the affected mapping, behavior or adoption; they do not block the pure synthetic preview batch below. No owner decision is needed to redefine the agreed standard baseline. No Generation 9 recovery, variant, automation or supported release content is added.
+
+## One next batch: read-only replacement preview
+
+**Prepared only; NOT STARTED.** The coordinator may assign this one batch to the existing 05 chat only after the planner's final successful-CI handoff explicitly releases checkout ownership and fresh operating guards permit. No world ownership is required. Do not combine it with production registry construction, UI, replacement application, settings or migration work.
+
+### Exact implementation boundary
+
+Allowed new implementation files are `src/util/rule-version-preview.js` and `tests/rule-version-preview.test.mjs`. Keep all synthetic fixtures inside that test file. Allowed documentation files are `docs/RULE_VERSIONS.md`, `docs/validation/2026-10-29-p05-foundation-acceptance.md` (append a handoff; retain this decision), `docs/workstreams/05-revision-selection.md`, `docs/STATUS.md`, `docs/CHAT_PLAN.md`, `docs/PRE_05_RECONCILIATION.md` and `CHANGELOG.md`. No other tracked file is authorized by this prompt.
+
+The accepted `src/util/rule-versions.js`, `src/util/prerequisites.js`, `src/util/document-source.js`, acquisition/preservation/NPC helpers, existing tests, source/approval catalogs and packs are read-only dependencies. If a genuine defect prevents the batch, return a finite reproducer and exact correction request for the responsible existing chat; do not expand the allowlist or silently change an earlier gate.
+
+Add one synchronous export:
+
+```text
+previewRuleVersionReplacement({actor, current, candidate, versions, mechanicChoices = {}, references = {}} = {})
+```
+
+Accept plain serialized snapshots with explicit identity fields; do not query `game`, UUID services, databases, permissions, network or live documents. Reuse `lookupEffectiveRule`, `diagnosePrerequisites` and the existing diagnostic formatter without changing their contracts. The report is for inspection, not an executable update plan.
+
+Required report behavior:
+
+1. Return detached current and candidate snapshots, their separate lookup attribution/issues, independent mechanic preferences, and a relationship assessment. Require exact explicit identities, matching item type and resolved evidenced canonical relationship before identifying alternate versions of the same benefit. Missing/conflicting identity, null canonical relationship, excluded/unclassified metadata or unresolved lookup must remain explicit. Same-name/localized/renamed records never supply a relationship. Same selection is reported distinctly and must still expose custom data differences.
+2. Report deterministic differences in `system` using path-segment arrays and separate before/after presence plus value. Preserve missing versus null, object keys, array order, raw prerequisite text and unknown custom fields. Treat arrays as whole values; do not reorder, coerce, merge, omit custom fields or construct an update payload. Complete snapshots retain flags, IDs, provenance, choices, uses and other non-system fields even where no field-transfer policy exists.
+3. Evaluate the candidate's own complete prerequisites against the supplied actor using its resolved selected version, or explicit unknown attribution. Return itemized known unmet and separately unverifiable/custom diagnostics. Unmet Feature/Edge/Poké Edge prerequisites must not make the relationship fail or become an acquisition veto. Missing actor data, raw requirements and GM/custom conditions remain visible, never guessed satisfied.
+4. Preserve current and candidate data, actor items/ranks, repeated/ranked instances, individual choices, costs and effect-use conditions exactly. Do not pick another same-name instance, deduplicate, add prerequisites, raise ranks, enable/disable effects or determine transferable state. Repeated previews and mutations of returned reports must not affect inputs.
+5. Clearly mark actual ownership/permission, production source approval, acquisition scope, transfer policy, repeat/stacking policy and effect-use authorization as outside this preview. A resolved relationship is neither approval nor permission. No `canApply`/authorized flag, write payload, replacement, migration, transaction, user setting or live consumer belongs in this batch. Standard mechanics and individually selected content stay independent.
+
+### Required validation and acceptance
+
+Use explicitly synthetic fixtures with distinct stable document/version/owned identities and declared relationship evidence. Cover all five supported item types, including original/revised pairs; do not represent fixtures as real approved alternatives. Include these positive and negative assertions:
+
+- Established pairs, same selection, same-name unrelated benefits and renamed/localized labels; revision-only addition/null canonical, duplicate/conflicting mappings, unsupported schema/type, unknown modern provenance with old legacy stamp, and excluded/unclassified declarations. No first-match or original/latest/name fallback.
+- Original satisfied requirements versus candidate unmet plus custom requirements; missing actor fields, missing/null/empty prerequisite data, known skill aliases and unresolved prerequisite identity. Keep raw text/version attribution and separate unmet/unverifiable outputs; deficiencies do not block preview relationships.
+- Saved/custom rules, flags, IDs, capability choices, uses/costs, effect conditions and missing/null/ordered-array differences. Include two repeated Poké Edge instances and ranked/repeated Feature/Edge snapshots; previewing one leaves all other owned instances intact. Do not invent or approve real repeat/stacking policy.
+- Deep-frozen input nonmutation, detached outputs, repeated identical preview and JSON-restored snapshots; malformed/missing inputs remain explicit rather than silently repaired. Mechanic preference changes neither replace the candidate/current selection nor blend their fields.
+
+Run the new suite with the accepted 85-case affected group and documentation/evidence checks as one focused batch; investigate failures and rerun only changed/affected cases. Reuse unchanged source and live evidence. Verify the exact allowed-file diff, current evidence contract, local documentation links and whitespace. No Foundry session is appropriate for this isolated unconsumed module; do not claim live cancellation, permission enforcement, persistence, replacement or migration testing. Those need separately authorized artifact-bound UI/apply batches.
+
+Record what is implemented, verified and still manual/unimplemented, exact test totals, source/identity limits and the next dependency. Commit/push only the existing `codex/ptu-foundation` draft PR4. Require normal CI on the final documented head, then verify clean local HEAD/origin tracking/actual remote/open-draft PR4 head agreement and successful tests/source/pack/build/upload jobs. Explicitly RELEASE checkout ownership and STOP for substantive review. Do not start/message another chat, begin another batch, merge or publish.
+
+### Dispatch prompt
+
+After the preceding release and admission checks, send only to the existing 05 chat:
+
+> Complete ONLY the read-only replacement-preview batch specified in `docs/validation/2026-10-29-p05-foundation-acceptance.md`, sections “Exact implementation boundary” and “Required validation and acceptance”. Begin from the coordinator-confirmed clean final accepted review head. Read AGENTS.md, scope, current 05 handoff and those sections; reuse the accepted metadata/lookup and earlier foundation evidence. You are the sole checkout writer for this bounded batch, with no world ownership. Use the exact allowed files/interface and synthetic fixtures; preserve all existing consumers, production/source approvals, IDs, campaigns, standard baseline, independent choices and advisory diagnostics. Hold any affected production promotion without blocking safe synthetic work. Return exact blockers rather than expanding scope. Finish documentation, focused checks, normal CI on the final documented revision, clean local/origin/actual remote/open-draft PR4 agreement, then explicitly RELEASE and STOP for review. Do not start/message any chat or proceed to another batch. Keep saved model/effort. Apply the daily 08:00 inclusive–17:00 exclusive America/Indiana/Indianapolis blackout at every balance; an already-running bounded turn may finish safely then HOLD. At <=5% weekly remaining safely checkpoint INCOMPLETE and latch until a fresh verified actual100% weekly reset plus permitted explicit resumption. Capacity failures wait at least10 minutes and retry unchanged settings under the same guards. Do not store account balances or reset forecasts.
+
+## Acceptance bookkeeping validation and ownership
+
+This planner batch changes eight documentation files only; no new runtime implementation or tests are necessary. The already completed 85/85 independent affected tests and exact source-head CI are reused because their inputs remain unchanged. An additional20/20 documentation/evidence tests pass (105 distinct planner checks in total), together with the P01 evidence contract,168 local Markdown path links, unchanged PR section structure, whitespace and protected-file comparison. Runtime/static/packs/tests/tools/source ledgers/manifests/workflows/README/ROADMAP/TESTING/09-release brief remain exact at the accepted source head. No full local suite, pack rebuild, Foundry, campaign migration or release was rerun for these documentation changes. Final-head normal CI must still pass before release; exact final commit/run/job IDs and clean remote agreement belong in the final handoff, not a guessed self-reference in this file.
+
+The planner owns only this bounded review/bookkeeping until that handoff explicitly RELEASES and STOPS. All other numbered chats remain idle; no shared world, next-batch dispatch, full05/06 acceptance, Issue2/PR metadata edit, merge or publication occurs here. Current daily blackout is 08:00 inclusive–17:00 exclusive Indianapolis; weekly latch/resumption rules and saved model/effort remain. Older ownership/not-started/hours statements are historical checkpoints.

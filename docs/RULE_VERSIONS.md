@@ -1,5 +1,7 @@
 # Source/version lookup contract
 
+The isolated foundation is [substantively accepted at `295142f6`](validation/2026-10-29-p05-foundation-acceptance.md) within this contract. The linked read-only replacement-preview batch is a prepared future assignment; its interface is not implemented by this acceptance.
+
 The first bounded PTU 05 batch adds an isolated, synchronous API in [rule-versions.js](../src/util/rule-versions.js). No live workflow imports it yet. It does not create variant documents, register settings, change existing world defaults, acquire content, replace Items, run migrations or execute rules. Standard PTU 1.05 is the default for an absent **mechanic choice in this API**; existing settings and saved worlds are untouched. See the [validation and deferred interfaces](validation/2026-10-29-p05-foundation.md).
 
 ## Metadata v1

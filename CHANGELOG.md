@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 bounded foundation acceptance
+
+- Substantively accept the isolated metadata/lookup batch at `295142f6` after full code/interface review, 85 independently rerun affected checks and [CI40992369967](https://github.com/MrMints/ptu_1.05/actions/runs/40992369967) with 1,755 passes and all later gates. Retain exact source, production-approval, live-integration and earlier-foundation limits.
+- Record [the decision, remaining05 obligations and one idle replacement-preview prompt](docs/validation/2026-10-29-p05-foundation-acceptance.md). Only read-only comparison/selected-version diagnostics are proposed next; no runtime/pack/policy/ID/campaign change, production promotion, world or chat start. Final documentation-head CI and explicit planner release remain required; this is not full05 acceptance.
+- Documentation-only bookkeeping passes20 documentation/evidence checks, the current P01 contract,168 local links, PR section structure, whitespace and protected-file comparisons. The85 independent runtime checks are reused unchanged; no new live/world, migration or release evidence is claimed.
+
 ### PTU 05 source/version lookup foundation
 
 - Add an isolated metadata v1 contract and non-mutating selected-version/effective-rule lookup. Keep exact document identity, evidenced canonical relationships, source status/date, owned prerequisites and independent mechanic choices separate; missing mechanic choices use standard. Unknown/conflicting mappings preserve saved data without guessing or blending alternatives.

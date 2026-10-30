@@ -1,5 +1,7 @@
 # PTU 05 first bounded foundation batch — 2026-10-29 Indianapolis
 
+Substantive planner decision: **ACCEPTED at `295142f6a9b5c805d3886a0b2dc53f2d1459d92d`**, after full helper/API/test examination,85 independently rerun affected checks and successful [CI40992369967](https://github.com/MrMints/ptu_1.05/actions/runs/40992369967): Documentation123857561555, Validation123857561409,1,755 passes and all later gates. [Acceptance, exact limits and prepared next batch](2026-10-29-p05-foundation-acceptance.md). The worker released/stopped; this accepts only this isolated foundation. The original pending-CI/ownership text below records its implementation checkpoint. No full05 or production approval, live integration or automatic next assignment follows.
+
 ## Changes and authorization
 
 Implementation/test/documentation checkpoint: `cacf37d74423cb3f1679ca5a5226d8c4bf21a295`. The final documented head adds only this checkpoint reference and the matching 05 handoff reference; normal CI must pass on that final head, not just the checkpoint. The exact final SHA/run/jobs are reported in the final chat handoff without preclaiming them here.
