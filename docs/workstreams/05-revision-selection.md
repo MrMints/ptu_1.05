@@ -36,5 +36,8 @@ Descriptions/calculations/automation agree on effective rules. Presets, individu
 Unrelated gameplay corrections, manual overrides of ambiguous legacy data, comprehensive move verification and release publication.
 
 ## Handoff
+
+First bounded checkpoint: `cacf37d74423cb3f1679ca5a5226d8c4bf21a295`, existing draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). Implemented only the isolated metadata validator and pure selected/effective-rule/independent-mechanic lookups, with explicit synthetic fixtures. 105 distinct local tests pass (85 affected runtime/helper cases and20 documentation/evidence cases), structural source/syntax/P01/NPC replay checks pass, and177 local document path links resolve. [Exact validation, source boundary, compatibility and deferred interfaces](../validation/2026-10-29-p05-foundation.md). No new Foundry/world, production variant mapping, UI/settings integration, replacement, migration, calculation/automation or release test. No earlier-foundation contradiction demonstrated. Final documented-head normal CI and clean local/origin/actual remote/open draft PR agreement remain mandatory; report their exact revision/run/jobs with explicit RELEASE/STOP in the final chat handoff. Substantive batch acceptance and any next assignment remain for the coordinator/planner; no automatic continuation.
+
 When an authorized batch ends, record its commit/PR, changed files, source decisions, exact tests and outcomes, unresolved issues, next bounded action and downstream interface changes here. Keep this concise; link larger evidence instead of copying it. Update relevant status/ledger/changelog documentation in the same PR. Report implemented, verified and automated separately. Do not start or message another chat automatically.
 

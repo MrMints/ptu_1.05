@@ -2,6 +2,8 @@
 
 ## Changes and authorization
 
+Implementation/test/documentation checkpoint: `cacf37d74423cb3f1679ca5a5226d8c4bf21a295`. The final documented head adds only this checkpoint reference and the matching 05 handoff reference; normal CI must pass on that final head, not just the checkpoint. The exact final SHA/run/jobs are reported in the final chat handoff without preclaiming them here.
+
 The coordinator explicitly assigned only the metadata/lookup batch to existing PTU 05, with sole checkout ownership and no shared-world ownership. Admission was a clean `codex/ptu-foundation` at accepted bookkeeping revision `94f91afd7e9e1e73b7220b321159a6ad40b612cd`, matching local/origin and actual open draft [PR #4](https://github.com/MrMints/ptu_1.05/pull/4). GitHub independently confirmed [CI 40986434461](https://github.com/MrMints/ptu_1.05/actions/runs/40986434461), Documentation `123838443038` and Validation `123838442843`, both successful with test/validate/pack/build/upload steps. The [full04/pre05 acceptance](2026-10-30-full04-acceptance.md) and its precise source/foundation limitations remain intact.
 
 Implemented: [metadata validation and pure lookup helpers](../../src/util/rule-versions.js), [focused tests](../../tests/rule-versions.test.mjs), and [API/compatibility documentation](../RULE_VERSIONS.md). The source/version record separates document identity, canonical relationship evidence, source status/date and version identity. Effective rules come from a detached complete selected/owned Item snapshot. Independent mechanic choices use standard when absent and cannot replace item selections. Unknown/conflicting mappings remain unresolved and saved/custom fields remain unchanged.
