@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 preview review: further finite correction required
+
+- Substantively review corrected preview `f39b6c4a` and retain its140 focused passes/[CI41012109715](https://github.com/MrMints/ptu_1.05/actions/runs/41012109715) with1,790 passes. Do not accept the batch: a new independent4-case probe has2 passing controls/2 failures where serialized non-text candidate UUID/local-ID values throw during diagnostic formatting.
+- Record [the exact reproducer, compatibility limits and one idle correction prompt](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-preview-review--2026-10-30). Preserve prior observations and all earlier accepted dependencies. Documentation-only review; no implementation, policy, source approval, world or later batch. Final bookkeeping CI does not waive the outstanding correction.
+- Review bookkeeping passes20 documentation/evidence checks, P01 structure,182 local links, PR section structure, whitespace and exact allowlist/protected-prefix checks. Preserve complete162-line preview history and its original88-line foundation acceptance; no new live or campaign evidence is claimed.
+
 ### PTU 05 preview input-boundary correction
 
 - Reproduce and correct the new preview's unsupported/malformed owned-item collection handling. Quarantine invalid membership while retaining valid skill/level diagnostics; preserve valid empty/missing/direct/wrapper semantics and independent relationships without changing the earlier evaluator.
