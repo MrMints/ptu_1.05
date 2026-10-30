@@ -89,6 +89,8 @@ The planner owns only this bounded review/bookkeeping until that handoff explici
 
 ## Replacement-preview implementation handoff — 2026-10-30
 
+Implementation/test/documentation checkpoint: `0e6aacdd5140bf3cd5638c398b9e4c16a93461dd`. The final documented head adds only this checkpoint reference and the matching 05 handoff reference. Normal CI must pass on that final head; its exact SHA/run/jobs and clean head agreement are reported in the final chat handoff, not preclaimed here.
+
 The coordinator explicitly started only the preceding exact batch in the existing05 chat, with sole checkout ownership and no world ownership, from clean accepted review head `83afa7441d5ded0a92b3944ab3e4cc25c86c530e`. Local/origin/actual remote/open draft [PR4](https://github.com/MrMints/ptu_1.05/pull/4) agreed. GitHub independently confirmed [CI41000520328](https://github.com/MrMints/ptu_1.05/actions/runs/41000520328), Documentation123883588415 and Validation123883588786, successful through tests/source/pack/build/upload. This assignment supersedes only historical ownership/not-started statements; the substantive foundation decision above remains intact.
 
 Implemented: [one synchronous preview export](../../src/util/rule-version-preview.js) and [29 explicitly synthetic tests](../../tests/rule-version-preview.test.mjs), plus the seven authorized documentation paths. [API/output details](../RULE_VERSIONS.md#read-only-replacement-preview). No existing implementation/test, source/approval ledger, pack, consumer, setting, world/campaign, original reference or terminal requirement is modified. The existing metadata/lookup, prerequisite evaluator/formatter and source helpers are reused as read-only dependencies.
