@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 non-runtime Echoes drafts
+
+- Author exactly two [staged Echoes of the Future drafts](docs/data/rule-version-echoes-draft.json): standard core140 and optional May2015 p7. Preserve complete frequency/trigger/effect and the separate prerequisite lists; record extraction representation, neutral schema defaults and unresolved Researcher context without copying inherited tags, permissions, provenance, counters or automation.
+- Add a pure source/schema/identity validator reusing accepted pilot integrity, with proposed identities checked against the finite feat-ID inventory and both inherited Echoes IDs. Keep production mapping null, eligibility unclassified and content/behavior/runtime implementation/automation unapproved. No installed pack, saved selection, runtime integration or release changes.
+- Record [source decisions, advisory diagnostic observations, validation and limits](docs/validation/2026-10-29-p05-foundation-acceptance.md#echoes-draft-authoring-handoff--2026-10-30). Final documented-head normal CI, clean remote/PR agreement and explicit checkout release precede independent substantive draft/source/identity review; no next batch starts automatically.
+
 ### PTU 05 source-proposal acceptance
 
 - Accept only the four-case non-runtime proposal and integrity-validator contract at `8197b4c2`, after substantive source/current-record/code/test review. Retain mixed Defense Curl, Huge/Pure Power separation, Echoes' version-specific prerequisites and Basic Ranged's narrow level-removal directive. No production mapping or behavior is approved. [Decision, evidence and limits](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-four-case-proposal-acceptance--2026-10-30).
