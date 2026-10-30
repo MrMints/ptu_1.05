@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "decision": "accepted-source-and-pre05-foundations",
+  "reviewedRevision": "11e9bd1af5350939aed7a94c1e49f575e5438029",
+  "validationReport": "docs/validation/2026-10-30-full04-acceptance.md",
+  "sourceCi": {
+    "run": 40975872374,
+    "documentationJob": 123803628738,
+    "validationJob": 123803628461,
+    "tests": 1716,
+    "pass": 1716,
+    "fail": 0,
+    "skip": 0
+  },
+  "sourceFamilyAcceptances": [
+    {
+      "id": "A",
+      "acceptanceSemanticSha256": "3edd7623469da31ba29018562fb4d3e2048f4c7a52b5044d6f4178bad3e5b568",
+      "membershipSha256": "641a2a3b83dc514217cd1aed95835e0a53041e44751cb586658996dec727e44b"
+    },
+    {
+      "id": "B",
+      "acceptanceSemanticSha256": "edee16a43f7bc36c36ffcfbb0127b97c048335aa2758a285ba52bba18f8450cc",
+      "membershipSha256": "62dcf6e7a97297623b5634e9ad1143f87226c0b646f2127c76b3638be23d2b9c"
+    },
+    {
+      "id": "C",
+      "acceptanceSemanticSha256": "8c3b534a7f2ae56ac042d7645fb3046b2f9a5c6e08b7bc35848afe7d5078e99c",
+      "membershipSha256": "fb8df981d10192adcc72421ac6d39b03b4c4b5204a7dac5d4ba0fff50996f7da"
+    },
+    {
+      "id": "D",
+      "acceptanceSemanticSha256": "8d03da55d7177312df3dda96b3594e778179eb03447289113ff67107fcf563cc",
+      "membershipSha256": "ea02c8c451a1c7f9a1b163e0f6d2790ff39ab0ab8e2f619357ebb264956ee26d"
+    },
+    {
+      "id": "E1",
+      "acceptanceSemanticSha256": "ce56d75baf1d12c880a26f99e9fbc20e298ebfd2383131b68e4acea4367790ac",
+      "membershipSha256": "60db69771fd299bf4618c8e6f228a7eddb01590adaa81377cd535103e7e7a1e5"
+    },
+    {
+      "id": "E2",
+      "acceptanceSemanticSha256": "68aa3736914be5df3d52a0edd4a21d7b3b5f5810dd913213143951145d56a1e8",
+      "membershipSha256": "e013adf47a526f4df852de1b353c5f504a9a143b37604cd5df06ad1360b6a6cd"
+    },
+    {
+      "id": "F",
+      "acceptanceSemanticSha256": "f76571c1d7f291f875c62501b82206cf522dac2882866977c4dfd5de63b205c7",
+      "membershipSha256": "791f002be4cff6961167f4f01b9847efaa21a97c8c40755335f3bd8dd5bf8da6"
+    },
+    {
+      "id": "G",
+      "acceptanceSemanticSha256": "90e8d3469f502bc5549f1861901fa3a181bd39233c310934e5651f43c3c6c089",
+      "membershipSha256": "d869b57527f08370214f974601820047f3fcee593edecedf0d43544e2c8360c9"
+    },
+    {
+      "id": "H",
+      "acceptanceSemanticSha256": "2d2f7ee47bb4eae2f69591d47e9ff7e43aa3e62f5e46c74a69532b9c954b36e8",
+      "membershipSha256": "731e0b0fe3a3e6a08cf5726d56f7cc86139c837098e4b8bc9a62d095372054b6"
+    }
+  ],
+  "foundationAcceptances": [
+    {
+      "gate": "P03",
+      "revision": "c547e3ac86855e61c52ecd7816fdd23ac17c1c2c",
+      "ciRun": 40270536333,
+      "evidence": "docs/validation/2026-10-26-p03.md",
+      "status": "accepted-with-recorded-limits"
+    },
+    {
+      "gate": "P02-P",
+      "revision": "d7dc7f0b4002110f0e44ab09decaebf5ec5bcf38",
+      "ciRun": 40273719106,
+      "evidence": "docs/validation/2026-10-26-p02p.md",
+      "status": "accepted-with-recorded-limits"
+    },
+    {
+      "gate": "P02-A",
+      "revision": "48f05f2e6dbcdb210384cbb83cc9c39c21df7ec6",
+      "ciRun": 40303951797,
+      "evidence": "docs/validation/2026-10-26-p02a-correction.md",
+      "status": "accepted-with-recorded-limits"
+    },
+    {
+      "gate": "P01",
+      "revision": "70f651ead54f868bec354f45d263a2243d2fce6e",
+      "ciRun": 40310640951,
+      "evidence": "docs/validation/2026-10-26-p01.md",
+      "status": "accepted-with-recorded-limits"
+    },
+    {
+      "gate": "P03-NPC",
+      "revision": "511df486cf7632cecf3dcc0bc0894bafa64888b3",
+      "ciRun": 40408933823,
+      "evidence": "docs/validation/2026-10-26-p03-npc.md",
+      "status": "accepted-with-recorded-limits"
+    }
+  ],
+  "inputSemanticSha256": {
+    "docs/data/references.json": "8aa029ddb35d85f16ae96d402ac3bdada661ca17404f2668dda6d8381e4b4548",
+    "docs/data/source-authority.json": "a6e3b1b806381850ef61dc42b3abb9c9e63eeea597087cde12de841cb7e79f54",
+    "docs/data/rules-revisions.json": "cfa30b3a5917953fcc645dde18fb23b05bd7ae5e8d9f0efce41d05a616d7af26",
+    "docs/data/supplement-rules-catalog.json": "349fb09a05ae6c5b6b5e33b520b7b57710d4353fd08764841aca26fe86f190c2",
+    "docs/data/dex-source-comparison.json": "12df2f309d9e26fa4d3f4b4fb58b4812589b54c332e69bcc5115220174d3b766",
+    "docs/data/regional-dex-catalog.json": "dc8816d743cd848662480dba41727c39d764f8cb646f9396914301d90e07cf35",
+    "docs/data/content-reconciliation-search.json": "5051bf2ab6890e0220d0ab91e907d37fe6afb7ab7ce8f3595d316dbab69d5606",
+    "docs/data/record-dependency-review.json": "46c24cfff5f76677667c5ea38fe0bc2216de575d150bf0dc5feefdb609860578",
+    "docs/data/p01-evidence-contract.json": "aee03a1d2b066a90d26ff4587c4938a0fd174565a077864967570055cbed9d27",
+    "docs/data/p02a-routes.json": "c1dfd415f4f6378832b0b8e35fcc25d492828c8f7db528cfd38bcd22ae994258",
+    "docs/validation/2026-10-26-p03.json": "6895744c47bc79c42592c4b2722a808378ed120811611ca4234a82fa5cd9ebb9",
+    "docs/validation/2026-10-26-p02p.json": "956ceb2b7337bcf23631a59b4948dcd1ec15a41012c4358d2418ee47816dd5b2",
+    "docs/validation/2026-10-26-p02a.json": "a2f37b356b9e4210a62d93965f06b21fd6947c379be869331a85ffcd87c24150",
+    "docs/validation/2026-10-26-p02a-correction.json": "60415574ecbfbd78e9eb25accc149798ed45c0ec2aba5562a6d6f46a1337898a",
+    "docs/validation/2026-10-26-p02a-runtime-binding.json": "f715b220418e05facace19f8a5e1cd66a997d1935a824607fb2c5570dd0002c9",
+    "docs/validation/2026-10-26-p02a-copy-fixtures.json": "cd44f53b329cc578c9118141b8481e848a7df19d7d22acf7bb7149315f1755bf",
+    "docs/validation/2026-10-26-p03-npc.json": "ff013c56aa11e6e6ab8ff000dd0bc3fdc7638d21f91b13397613f24744805378"
+  },
+  "requirements": [
+    {
+      "id": "original-source-catalog",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "26 paths/18 unique originals; complete readable revision, supplement, dex and regional catalogs; authority, dates, duplicate aliases, precedence and explicit conflict dispositions."
+    },
+    {
+      "id": "all-frozen-records",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "Baseline plus original A/B/C/D/E1/E2/F/G/H preserve exact memberships and source payloads; all source examinations have independent acceptance, not inferred from zero unreviewed roots."
+    },
+    {
+      "id": "four-content-categories",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "Complete C/D/E1 definitions preserve original and optional Moves, Abilities, Features and Edges/PokeEdges, prerequisites, parent conditions and precise mapping limits. Actual variant documents, IDs and selectors remain05."
+    },
+    {
+      "id": "advisory-acquisition",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "P03 plus corrected P02-A and P03-NPC provide selected-item/version-aware unmet/unverifiable diagnostics, supported trainer/Pokemon routes, persistent display, security, cancellation and no automatic prerequisite/rank changes."
+    },
+    {
+      "id": "preservation-and-failure",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "P02-P plus corrected P02-A retain exact sources/custom fields/graphs, repeated migration/refresh and failure/retry evidence. All failed observations and bounded superseding dispositions remain."
+    },
+    {
+      "id": "evidence-contract",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "P01 contract retains16 routes/189 occurrences/26 runtime bindings and negative checks; structural success does not replace substantive review."
+    },
+    {
+      "id": "due-gate-reconciliation",
+      "result": "accepted-with-recorded-limits",
+      "evidence": "No new demonstrated supported-route contradiction in the reviewed source findings; runtime/static/packs/manifests unchanged since78aa74b2. Any later actual contradiction reopens its affected earlier gate."
+    }
+  ],
+  "remainingObligations": [
+    "Source-only acceptance does not approve current whole records, canonical mappings, adoption, gameplay, automation, support filters or release packaging.",
+    "Unresolved independent Spirit/Weather/native authority, exact missing target/export relationships, habitat licensing/adoption and external-image bytes constrain only affected promotion.",
+    "Source contradictions require explicit selected-version/manual dispositions before affected calculation or automation; no invented counterparts or rulings.",
+    "05 must implement and test actual separately selectable variants, standard defaults, independent mechanics, preservation/replacement/nonstacking and real four-category pairs; fixtures are not production approval.",
+    "Preserve Generations1-8 boundary, saved/custom/excluded historical data, permissions and separate effect-use conditions; full browsing/acquisition/release exclusion remains required."
+  ],
+  "scope": "PTU1.05 Generations1-8 only",
+  "eligibility": "bounded05-may-be-assigned-after-successful-bookkeeping-CI-and-release",
+  "OPEN05": false,
+  "productionPolicyPromotion": false,
+  "behavioralVerification": "not-run",
+  "releaseApproval": false,
+  "ownerArtifactsBlockingInitial05": [],
+  "historicalRuntimeComparison": {
+    "from": "78aa74b277376d5af168eb323c36ff95c07255b5",
+    "to": "11e9bd1af5350939aed7a94c1e49f575e5438029",
+    "paths": [
+      "src",
+      "static",
+      "templates",
+      "packs",
+      "system.json",
+      "template.json"
+    ],
+    "changedFiles": []
+  }
+}

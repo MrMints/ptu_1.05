@@ -12,6 +12,18 @@ export function priorSourceIdentities(manifest, batchId, sliceId) {
     ].map(([identity]) => identity));
 }
 
+// A later full04 decision is not a fact of either historical checkpoint.
+// These views are never substitutes for raw current H/full04 validation.
+function heldFull04(index,manifest) {
+    index.full04SourceAcceptance=false;
+    index.OPEN05=false;
+    delete index.full04AcceptanceEvidence;
+    const held=manifest.full04AcceptanceHistory?.[0]??manifest.full04Acceptance;
+    const historical={...manifest,full04Acceptance:held};
+    delete historical.full04AcceptanceHistory;
+    return historical;
+}
+
 // F's source audits bind the then-unstarted G/H metadata. Keep that historical
 // perspective separate from validation of the actual current G/H queues.
 // Tuple identities, hashes and every A–F payload/acceptance remain unmodified.
@@ -32,8 +44,8 @@ export function fullFSourceCheckpointView(bundle) {
         coverage: {...bundle.index.coverage, explicitRecordDispositions: records.length, counts, sourceClassCounts, completeAddressableClassification: counts.unreviewed === 0}};
     delete index.organizationalSourceEvidence;
     delete index.journalSourceEvidence;
-    return {...bundle, index, files, organizationalSource: null, journalSource: null,
-        batchManifest: {...manifest, batches: manifest.batches.map(batch => ['G', 'H'].includes(batch.id)
+    return {...bundle, index, files, organizationalSource: null, journalSource: null,full04Review:null,
+        batchManifest: {...heldFull04(index,manifest), batches: manifest.batches.map(batch => ['G', 'H'].includes(batch.id)
             ? {id: batch.id, count: batch.count, membershipSha256: batch.membershipSha256, members: batch.members,
                 status: 'not-started', closure: null, slices: []} : batch)},
         historicalSourceView: {throughBatch: 'F', currentLaterQueuesValidatedHere: false}};
@@ -51,5 +63,5 @@ export function fullGSourceCheckpointView(bundle) {
     counts.unreviewed=bundle.source.rows.length-records.length;
     const index={...bundle.index,recordFiles:bundle.index.recordFiles.filter(p=>Object.hasOwn(files,p)),coverage:{...bundle.index.coverage,explicitRecordDispositions:records.length,counts,sourceClassCounts,completeAddressableClassification:false}};
     delete index.journalSourceEvidence;
-    return {...bundle,index,files,journalSource:null,batchManifest:{...manifest,batches:manifest.batches.map(b=>b.id==='H'?{id:b.id,count:b.count,membershipSha256:b.membershipSha256,members:b.members,status:'not-started',closure:null,slices:[]}:b)},historicalSourceView:{throughBatch:'G',currentLaterQueuesValidatedHere:false}};
+    return {...bundle,index,files,journalSource:null,full04Review:null,batchManifest:{...heldFull04(index,manifest),batches:manifest.batches.map(b=>b.id==='H'?{id:b.id,count:b.count,membershipSha256:b.membershipSha256,members:b.members,status:'not-started',closure:null,slices:[]}:b)},historicalSourceView:{throughBatch:'G',currentLaterQueuesValidatedHere:false}};
 }

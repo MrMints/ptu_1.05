@@ -1,5 +1,19 @@
 # Original H journal source examination
 
+## Substantive full H acceptance
+
+The existing planner accepts original H source examination at `11e9bd1af5350939aed7a94c1e49f575e5438029`, after the coordinator's independent examination and successful [CI40975872374](https://github.com/MrMints/ptu_1.05/actions/runs/40975872374): Documentation123803628738, Validation123803628461, actual1,716 tests/1,716 passed/zero failed or skipped, with validation/pack verification/build/upload successful. P04 explicitly released the checkout. The source CI is distinct from the later acceptance-bookkeeping CI required at this planner's final handoff.
+
+The planner read all271 specific assessments, the complete H report and selected material current/source bodies. Independent fresh checks matched six physical originals, all493 complete cited page extractions,13 exact normalized excerpt positions and36 retained raster hashes. Actual core52/214/238 rasters were inspected: Virtuoso's Master/Level20 and conditional effectiveRank8 do not grant8d6; original capture is AC6/d100 with the printed natural100 exception; the2x chart legend remains distinct from the1.5x prose. The independently rerun source-head H suite passed76/76. The later acceptance-transition suite passes97/97, retaining those substantive cases and adding21 decision-boundary checks.
+
+Original/current Aura+2/+1, divine death−100%/−200%, Loyalty set-to−3 then decrease-by1, Peace set-to−6, Trickery's five named Abilities, and the optional May11 Herbal first/second/third effects were compared without blending roles or versions. All41 Weather assessments retain native proposal/authority limits and separate original weather definitions. The corrected exact Skills-page core52 binding now matches its existing assessment and unchanged E1 definition; no other page or source payload changed. Native TODOs with available originals, wrong exact targets, unestablished world paths, habitat provenance and remote images remain precise limits.
+
+H's194 bounded correspondences/nine metadata examinations/68 unresolved page limits and one partial/one unresolved parent are accepted **as source examination**, not content/version/adoption/behavior approval. The coordinator's full native/history examination is corroboration; this planner review does not claim a fresh independent database extraction, all36 new visual inspections, new world execution or gameplay testing. Initial1,705/1,707 CI and earlier local/reporting failures retain their recorded corrections and limits.
+
+The separate [full04/pre05 decision, obligations and prepared idle05 prompt](2026-10-30-full04-acceptance.md) assesses the whole contract. The planner owns only this acceptance bookkeeping through passing exact final documented-head normal CI, clean local/origin/actual remote/open draft PR4 agreement, then explicitly RELEASES and STOPS. No chat/world starts automatically. All older pending/ownership statements below are historical source checkpoints, not the current acceptance decision.
+
+## Historical source checkpoints
+
 Current bounded correction: independent coordinator review found one omitted page-level `core:52` citation in the otherwise unchanged Virtuoso assessment. The correction below preserves all source findings and needs normal CI on its new final documented head before04 releases ownership again. H substantive acceptance and separate full04/05 remain held.
 
 Original H's two frozen parents and all **271 embedded pages** have explicit source examinations. The Rulebook parent has bounded partial correspondences; the Weather parent retains an independent adaptation-authority limit. **H substantive acceptance remains pending.** Full04 and OPEN05 remain held for independent coordinator examination, substantive existing-planner H acceptance and then a separate full04 assessment. Source examination does not approve supported content, selected versions, gameplay or automation.

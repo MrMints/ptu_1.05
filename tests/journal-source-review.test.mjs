@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {loadRecordSourceReview,recordSourceReviewErrors} from '../tools/record-source-review.mjs';
 import {checkJournalSourceReview} from '../tools/journal-source-review.mjs';
+import {full04AcceptanceErrors} from '../tools/full04-acceptance.mjs';
 import {H_PINS} from '../tools/journal-source-pins.mjs';
 import {fullFSourceCheckpointView,fullGSourceCheckpointView} from '../tools/source-review-order.mjs';
 import {jsonHash as hash,textHash,decodeJournalText,journalEnrichers,journalHtmlFacts,journalHtmlTokens,journalPages,journalTarget,journalPlainText,journalFieldDifferences,journalCriticalFacts,journalCriticalFactErrors,journalVirtuosoFacts,journalVirtuosoFactErrors,VIRTUOSO_JOURNAL_PAGE} from '../tools/journal-source-derivation.mjs';
@@ -20,6 +21,45 @@ function errors(b=base){const out=[];checkJournalSourceReview(b,{fail:(ok,m)=>{i
 function changed(object,key,value,pattern){const before=object[key],present=Object.hasOwn(object,key);try{object[key]=value;assert(errors().some(e=>pattern.test(e)),String(pattern));}finally{if(present)object[key]=before;else delete object[key];}}
 
 test('H current raw evidence validates independently of the G historical view',()=>assert.deepEqual(errors(),[]));
+test('independent H acceptance binds exact source head, successful jobs and unchanged page outcomes',()=>{
+    const h=base.batchManifest.batches.find(b=>b.id==='H');
+    assert.equal(h.acceptance.status,'accepted-source-examination');
+    assert.equal(h.acceptance.revision,'11e9bd1af5350939aed7a94c1e49f575e5438029');
+    assert.deepEqual([h.acceptance.ciRun,h.acceptance.documentationJob,h.acceptance.validationJob],[40975872374,123803628738,123803628461]);
+    assert.deepEqual(h.acceptance.embeddedPageCounts,{correspondence:194,metadata:9,unresolved:68});
+    assert.equal(audit.fullHAcceptance,false);assert.equal(audit.full04Acceptance,false);
+    assert.equal(audit.pendingIndependentCoordinatorAndPlannerAcceptance,true);
+});
+test('historical pending H remains valid only with the separate full04 gate held',()=>{
+    const h=base.batchManifest.batches.find(b=>b.id==='H'),old=h.acceptance,flag=base.index.full04SourceAcceptance;
+    try {h.acceptance=h.acceptanceHistory[0];base.index.full04SourceAcceptance=false;assert.deepEqual(errors(),[]);
+        base.index.full04SourceAcceptance=true;assert(errors().some(e=>/acceptance\/full04/.test(e)));
+    }finally{h.acceptance=old;base.index.full04SourceAcceptance=flag;}
+});
+for(const key of ['revision','ciRun','documentationJob','validationJob','sourceEvidenceSemanticSha256'])test('H accepted decision rejects stale '+key,()=>changed(base.batchManifest.batches.find(b=>b.id==='H').acceptance,key,'stale',/acceptance\/full04/));
+test('H accepted decision must retain its pending source-checkpoint history',()=>changed(base.batchManifest.batches.find(b=>b.id==='H'),'acceptanceHistory',[],/acceptance\/full04/));
+function full04Changed(object,key,value,pattern){const before=object[key];try{object[key]=value;assert(full04AcceptanceErrors(base).some(e=>pattern.test(e)));}finally{object[key]=before;}}
+test('full04 acceptance binds actual catalog and foundation inputs without opening05',()=>{
+    assert.deepEqual(full04AcceptanceErrors(base),[]);assert.equal(base.index.full04SourceAcceptance,true);assert.equal(base.index.OPEN05,false);
+    assert.equal(base.full04Review.foundationAcceptances.length,5);assert.equal(base.full04Review.requirements.length,7);
+    assert.equal(base.full04Review.productionPolicyPromotion,false);assert.equal(base.full04Review.behavioralVerification,'not-run');
+});
+test('H acceptance alone cannot establish full04 acceptance',()=>full04Changed(base,'full04Review',null,/review evidence missing/));
+test('full04 cannot conceal missing actual current H behind all-complete counts',()=>full04Changed(base,'journalSource',null,/actual unchanged current H/));
+test('full04 cannot use historical F or G in place of actual current evidence',()=>{
+    for(const projection of [fullFSourceCheckpointView(base),fullGSourceCheckpointView(base)]){
+        assert.equal(projection.index.full04SourceAcceptance,false);assert.equal(projection.full04Review,null);
+        projection.index={...base.index};projection.batchManifest={...base.batchManifest};projection.full04Review=base.full04Review;
+        assert(full04AcceptanceErrors(projection).some(e=>/historical source projection/.test(e)));
+        assert(full04AcceptanceErrors(projection).some(e=>/actual unchanged current H/.test(e)));
+    }
+});
+test('a pending predecessor cannot be promoted by full04 review metadata',()=>full04Changed(base.batchManifest.batches.find(b=>b.id==='E1'),'acceptance',{status:'pending-substantive-review'},/accepted original source family E1/));
+for(const path of ['docs/data/rules-revisions.json','docs/data/p01-evidence-contract.json','docs/validation/2026-10-26-p02a-runtime-binding.json','docs/validation/2026-10-26-p03-npc.json'])test('full04 rejects missing or stale source/foundation input '+path,()=>full04Changed(base.full04InputHashes,path,null,/inputs missing or changed/));
+test('rewriting a limitation into a gameplay pass cannot self-refresh acceptance',()=>full04Changed(base.full04Review,'behavioralVerification','passed',/review evidence missing or changed/));
+test('full04 and H acceptance cannot start05',()=>full04Changed(base.index,'OPEN05',true,/cannot start05/));
+test('full04 cannot promote production policy',()=>full04Changed(base.batchManifest.full04Acceptance,'productionPolicyPromotion',true,/promoted policy or behavior/));
+test('full04 decision retains the original held history',()=>full04Changed(base.batchManifest,'full04AcceptanceHistory',[],/exact reviewed revision\/evidence\/history/));
 test('Weather citations are limited to its examined core and Blessed contexts',()=>{const r=base.files['record-source-review/journals.json'].records[0];assert.deepEqual(r.sources.filter(s=>s.path.startsWith('Core System/')).map(s=>s.path).sort(),['Core System/Blessed and the Damned.pdf','Core System/Pokemon Tabletop United 1.05 Core.pdf']);});
 test('all exact frozen parent/page IDs and stored indices survive extraction',()=>assert.deepEqual(pages.map(p=>[p.identity,p.index,p.path,p.pageHash]),audit.pageExaminations.map(p=>[p.identity,p.index,p.path,p.pageHash])));
 test('page names and sort never replace stored-order identity',()=>{const d={_id:'abcdefghijklmnop',pages:[{_id:'AAAAAAAAAAAAAAAA',sort:10,name:'Same'},{_id:'BBBBBBBBBBBBBBBB',sort:0,name:'Same'}]};assert.deepEqual(journalPages('journals.abcdefghijklmnop',d).map(p=>p.document._id),['AAAAAAAAAAAAAAAA','BBBBBBBBBBBBBBBB']);d.pages[1]._id=d.pages[0]._id;assert.throws(()=>journalPages('journals.abcdefghijklmnop',d),/Duplicate/);});
@@ -66,7 +106,7 @@ test('all old/current leaf changes retain missing versus null and full body hash
 test('current H cannot disappear through a historical G index',()=>{const g=fullGSourceCheckpointView(base);assert.equal(g.journalSource,null);assert.equal(g.index.journalSourceEvidence,undefined);assert.deepEqual(g.index.coverage.counts,{reviewed:3642,excluded:124,unresolved:3627,unreviewed:2});assert(errors(g).some(e=>/evidence missing/.test(e)));});
 test('both historical projections strip H, and actual H remains independently required',()=>{const f=fullFSourceCheckpointView(base);assert.equal(f.journalSource,null);assert.equal(f.index.journalSourceEvidence,undefined);assert.equal(f.index.coverage.completeAddressableClassification,false);changed(base,'journalSource',null,/evidence missing/);changed(base.index,'journalSourceEvidence',undefined,/index concealed/);});
 for(const [key,value] of [['fullHAcceptance',true],['full04Acceptance',true],['OPEN05',true],['productionPolicyPromotion',true],['behavioralVerification','passed'],['sourceAbsenceClaim',true]])test('source-only boundary rejects '+key,()=>changed(audit,key,value,/promoted/));
-test('H cannot grant itself independent substantive acceptance',()=>changed(base.batchManifest.batches.find(b=>b.id==='H').acceptance,'status','accepted-source-examination',/acceptance\/full04/));
+test('H cannot grant itself independent substantive acceptance without the exact reviewed evidence',()=>changed(base.batchManifest.batches.find(b=>b.id==='H'),'acceptance',{status:'accepted-source-examination'},/acceptance\/full04/));
 test('prior G acceptance metadata remains immutable',()=>changed(base.batchManifest.batches.find(b=>b.id==='G').acceptance,'status','pending-substantive-review',/nonH metadata/));
 test('all45 earlier payload pins are independently required',()=>changed(base.files['record-source-review/references-d.json'].records[0],'coverageState','unreviewed',/prior45/));
 test('whole prior audit pins cannot be refreshed by self-report',()=>changed(base.journalPriorHashes,'docs/data/organizational-source-evidence-g.json','0'.repeat(64),/prior95/));

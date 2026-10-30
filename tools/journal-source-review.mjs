@@ -34,7 +34,18 @@ export function checkJournalSourceReview(bundle,{fail,actualMap,rows,citations=(
     fail(hash(a.boundaries)===H_PINS.boundaries&&Object.values(a.boundaries??{}).every(v=>v===false),'H scope/acquisition/variant/world/image/runtime boundaries changed');
     fail(hash(a.sourceKindRules)===H_PINS.sourceKinds,'H optional source kinds or independent adaptation limits changed');
     fail(h?.status==='source-comparisons-complete'&&h.slices.length===1&&h.slices[0].id==='H1'&&h.slices[0].recordFile===RECORDS&&same(h.slices[0].members,H_PINS.tuples),'H current slice closure missing or altered');
-    fail(h?.acceptance?.status==='pending-substantive-review'&&bundle.index.full04SourceAcceptance===false&&bundle.index.OPEN05===false,'H independent acceptance/full04/05 gate changed');
+    const pending=h?.acceptance?.status==='pending-substantive-review';
+    const accepted=h?.acceptance?.status==='accepted-source-examination'
+        &&h.acceptance.revision==='11e9bd1af5350939aed7a94c1e49f575e5438029'
+        &&h.acceptance.ciRun===40975872374&&h.acceptance.documentationJob===123803628738&&h.acceptance.validationJob===123803628461
+        &&h.acceptance.sourceEvidenceSemanticSha256===hash(a)
+        &&same(h.acceptance.reviewedCounts,{reviewed:1,unresolved:1})
+        &&same(h.acceptance.embeddedPageCounts,{correspondence:194,metadata:9,unresolved:68})
+        &&h.acceptance.validationReport==='docs/validation/2026-10-29-h-source-review.md#substantive-full-h-acceptance'
+        &&h.acceptanceHistory?.length===1&&h.acceptanceHistory[0].status==='pending-substantive-review'
+        &&h.acceptanceHistory[0].sourceEvidenceSemanticSha256===hash(a);
+    fail((pending||accepted)&&bundle.index.OPEN05===false
+        &&(!bundle.index.full04SourceAcceptance||accepted),'H independent acceptance/full04/05 gate changed');
     const recordFile=bundle.files[RECORDS];
     fail(recordFile&&hash(recordFile)===H_PINS.records&&a.closure?.recordEvidenceSemanticSha256?.H1===H_PINS.records,'H root record evidence changed');
     fail(hash(a.rootExaminations)===H_PINS.roots&&hash(a.pageExaminations)===H_PINS.pages&&a.closure?.pageEvidenceSemanticSha256===H_PINS.pages,'H manually examined root/page findings changed');

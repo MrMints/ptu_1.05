@@ -60213,11 +60213,32 @@
         }
       ],
       "acceptance": {
-        "status": "pending-substantive-review",
-        "validationReport": "docs/validation/2026-10-29-h-source-review.md",
+        "status": "accepted-source-examination",
+        "revision": "11e9bd1af5350939aed7a94c1e49f575e5438029",
+        "ciRun": 40975872374,
+        "documentationJob": 123803628738,
+        "validationJob": 123803628461,
         "sourceEvidenceSemanticSha256": "5d35d33e42c2bfb276b0a7f1ac0ff2b49ddebb29f9d2aaa4e4583e5794ccb573",
-        "requires": "Exact documented-head normal CI, independent coordinator examination and substantive existing-planner H acceptance; separate full04 acceptance before05."
-      }
+        "reviewedCounts": {
+          "reviewed": 1,
+          "unresolved": 1
+        },
+        "embeddedPageCounts": {
+          "correspondence": 194,
+          "metadata": 9,
+          "unresolved": 68
+        },
+        "validationReport": "docs/validation/2026-10-29-h-source-review.md#substantive-full-h-acceptance",
+        "decision": "Existing planner independently accepts original H source examination after all271 assessments, material native/original comparisons,493 fresh original-page/hash matches,13 exact excerpt positions,three original raster inspections and76 passing H regressions. Coordinator examination and exact-source CI1716/1716 are distinct corroboration. Raw source checkpoints, all unresolved limits and earlier acceptances remain unchanged; no content, runtime, behavior, adoption or publication approval. Separate full04 decision is linked independently."
+      },
+      "acceptanceHistory": [
+        {
+          "status": "pending-substantive-review",
+          "validationReport": "docs/validation/2026-10-29-h-source-review.md",
+          "sourceEvidenceSemanticSha256": "5d35d33e42c2bfb276b0a7f1ac0ff2b49ddebb29f9d2aaa4e4583e5794ccb573",
+          "requires": "Exact documented-head normal CI, independent coordinator examination and substantive existing-planner H acceptance; separate full04 acceptance before05."
+        }
+      ]
     }
   ],
   "totalQueuedRecords": 7300,
@@ -60233,9 +60254,21 @@
     "G",
     "H"
   ],
-  "full04Acceptance": "held; zero unreviewed rows alone is insufficient; substantive final source review and passing integrity/CI gates still required",
+  "full04Acceptance": {
+    "status": "accepted-source-and-pre05-foundations",
+    "revision": "11e9bd1af5350939aed7a94c1e49f575e5438029",
+    "evidence": "full04-acceptance.json",
+    "evidenceSemanticSha256": "26bad33210f1a93e8805896f20b3d998d9a3ef991799548ec4798004d3f3458b",
+    "validationReport": "docs/validation/2026-10-30-full04-acceptance.md",
+    "OPEN05": false,
+    "productionPolicyPromotion": false,
+    "behavioralVerification": "not-run"
+  },
   "productionPolicyPromotion": false,
   "behavioralVerification": "not-run",
   "evidenceDigestConvention": "SHA256 of ECMAScript JSON.stringify(parsed evidence JSON): object insertion/array order preserved, integral source numbers1.0 serialize as1; UTF-8 without added LF. Independently reproduced in Python by normalizing integral floats before compact ensure_ascii=False JSON serialization.",
-  "queueAuthority": "The existing planner computed/froze these work queues under management authorization. Membership/candidate status is not an owner-approved source/content classification."
+  "queueAuthority": "The existing planner computed/froze these work queues under management authorization. Membership/candidate status is not an owner-approved source/content classification.",
+  "full04AcceptanceHistory": [
+    "held; zero unreviewed rows alone is insufficient; substantive final source review and passing integrity/CI gates still required"
+  ]
 }
