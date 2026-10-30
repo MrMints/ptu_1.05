@@ -1,5 +1,7 @@
 # Source/version lookup contract
 
+The four-case proposal and validator at `8197b4c2` are now **substantively accepted for their bounded non-runtime purpose**. [Review and retained source/identity limits](validation/2026-10-29-p05-foundation-acceptance.md#substantive-four-case-proposal-acceptance--2026-10-30) establish interpretation accuracy within the inspected definitions, not whole-record production mappings or behavioral approval. All eight proposal roles remain unapproved, runtime IDs null and three revised UUIDs limited existing-record candidates. One [Echoes draft-pair authoring prompt](validation/2026-10-29-p05-foundation-acceptance.md#prepared-echoes-draft-prompt--idle) is prepared but unstarted; it changes none of the APIs or installed data described below. Earlier pending-review statements retain their historical revision context.
+
 ## Non-runtime four-case source proposal
 
 The [pilot JSON](data/rule-version-pilot.json) is a review artifact, with `proposal-not-production-approved` status. It binds four catalog evidence coordinates to five examined exact records, including a separate Pure Power negative control. It allocates no runtime canonical/version/document IDs. Existing typed compendium UUID candidates are verified from manifest, pack path, record `_id`/`_key` and type; historical source pointers are preserved separately. Candidate location is not whole-record version identity or approval. All eight roles explicitly retain `wholeRecordMapping: false`.

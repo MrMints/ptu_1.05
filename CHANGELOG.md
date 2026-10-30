@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### PTU 05 source-proposal acceptance
+
+- Accept only the four-case non-runtime proposal and integrity-validator contract at `8197b4c2`, after substantive source/current-record/code/test review. Retain mixed Defense Curl, Huge/Pure Power separation, Echoes' version-specific prerequisites and Basic Ranged's narrow level-removal directive. No production mapping or behavior is approved. [Decision, evidence and limits](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-four-case-proposal-acceptance--2026-10-30).
+- Prepare one unstarted batch to author two source-backed Echoes of the Future drafts outside the packs, with proposed identities and explicit approval barriers. Existing content, campaigns, source ledgers and runtime stay unchanged. The linked handoff distinguishes reused source validation from new documentation checks and requires normal CI on the final documentation commit before release of checkout ownership.
+
 ### PTU 05 four source-to-document proposals
 
 - Add a [non-runtime four-case pilot](docs/data/rule-version-pilot.json) and pure integrity validator for Defense Curl, Huge Power, Echoes of the Future and Basic Ranged Attacks. Pin exact current records, complete source-field evidence, raw/JSON hashes, source roles and unresolved authoring/use obligations; keep Pure Power a separate negative identity control.
