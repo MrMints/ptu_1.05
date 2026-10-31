@@ -39,3 +39,7 @@ Completion requires exact final documented-head Documentation/full tests/source 
 - [Source/version contract](../RULE_VERSIONS.md), [pre05 gates](../PRE_05_RECONCILIATION.md), [scope](../SCOPE.md).
 - [Accepted registry and retained corrections](p05-rule-version-registry.md), [admission compiler/source references](p05-echoes-admission.md), [readiness/source pages and context](p05-echoes-readiness.md), [B1 rendering tests](../../tests/feat-notes-rendering.test.mjs).
 - [Cumulative acceptance/evidence](2026-10-29-p05-foundation-acceptance.md), [new browser verification](../../tests/feat-rule-version-browser.test.mjs), [browser](../../src/module/apps/compendium-browser/index.js), [Feature tab](../../src/module/apps/compendium-browser/tabs/feats.js).
+
+## Implementation checkpoint
+
+Implementation/test/documentation commit `09d6e4aafd8ea9b9ec13165fd128fcf09ad9b983` changes exactly the14 authorized paths from accepted6e9a4b7a. Local269/269 combined, subsequent strengthened24/24 browser and final20/20 documentation/evidence runs are separate passing executions. Syntax/P01,306 links,590/92 full historical prefixes and staged whitespace/path checks pass. This documentation-only checkpoint binds the implemented payload for final-head CI; it does not claim CI or independent/planner acceptance before those occur. The exact final head/run/jobs/results and clean remote agreement belong in the completion handoff after verification. No protected inputs, prior tests or world data changed.
