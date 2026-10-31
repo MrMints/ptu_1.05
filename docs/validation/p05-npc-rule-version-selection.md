@@ -52,3 +52,7 @@ Completion requires exact final documented-head Documentation/full tests/source 
 ## Local closure
 
 Final affected NPC/readiness run passes58/58, including26 new NPC cases,0 failures/0 skips and exit0. This is separate from the earlier301 combined run and57-case runs. Syntax/P01/whitespace and326 local links across nine documents pass; all596 cumulative/45 browser-report accepted-base lines remain complete prefixes. Exactly14 paths are changed; protected inputs and every existing test remain untouched. The final documentation/evidence check and implementation revision are bound in the checkpoint below. Exact final-head CI, clean remote agreement and independent/planner acceptance remain outstanding at this local checkpoint.
+
+## Implementation checkpoint
+
+Implementation `64371ee2ed1291b317bd488f95074bfa80e21f54` contains exactly the14 authorized paths from accepted6fc4bd55. Final affected58/58 and documentation/evidence20/20 pass with exit0; earlier301/57 successes and both later0/1 regressions retain their separate timing and meaning. Syntax/P01,326 links,596/45 complete historical prefixes and staged whitespace/scope pass. Finalization/generation method text from the accepted base remains identical. This documentation-only checkpoint binds the payload for final-head CI; exact revision/run/jobs/artifact and clean branch agreement will be reported in the completion handoff. No CI, live Foundry, actor generation or substantive NPC acceptance is claimed before verification.
