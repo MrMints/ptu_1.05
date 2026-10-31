@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 pure Feature acquisition conflict inspection
+
+- Inspect every supplied incoming-versus-owned Feature and incoming pair using explicit registry/exact lookup and accepted preview evidence. Retain canonical/version distinctions, independent ranked/repeated identities, custom state and own-version advisory diagnostics.
+- Reject unsafe/missing data without invoking getters/live interfaces; distinguish empty from unavailable collections while preserving independent actor facts. No acquisition permission verdict, executable plan, deduplication, grants, effects or consumer integration.
+- [Validation, corrected failure history, compatibility, limitations and references](docs/validation/p05-feature-version-acquisition-review.md). No installation/default activation/exposure/world access/actor generation, merge or release.
+
 ### P05 validation-only G historical binding repair
 
 - Archive and independently pin the exact6fc4bd55 NPC predecessor; verify its frozen G excerpt and the exact2e16908e successor hash/relocated excerpt without substituting archived text for live code. Preserve original G evidence/acceptance pins and strict bindings for all14 other implementation paths.
