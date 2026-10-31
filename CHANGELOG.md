@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 opt-in Feature-browser versions
+
+- Add explicitly supplied registry presentation for actual indexed Features: escaped version/source/status labels, core initialization/reset and explicit optional-playtest/both filters. Preserve raw UUIDs through search, rendering, opening and drag; uncertain/custom records retain existing filters and unresolved attribution.
+- Enrich pack-cache field requests when a later tab needs more data, without requiring selected-version metadata on inherited records or repeatedly loading absent optional fields. Preserve existing source/scope policy and incomplete-approval notice.
+- No default registry, installation/exposure, settings/document writes or acquisition-policy change. [Validation, compatibility, limits and references](docs/validation/p05-feature-version-browser.md).
+
 ### PTU 05 local optional-input correction
 
 - Reject non-enumerable registry descriptors in preview before rebuilding lookup options, matching selected/effective lookup. Validate optional-registry request containers before reading mechanic choices; unreadable choices remain null with diagnostics and zero getter calls.

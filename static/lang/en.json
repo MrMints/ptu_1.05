@@ -1160,6 +1160,16 @@
         "Capabilities": "Obtainable Capabilities",
         "Keywords":"Keywords"
       },
+      "RuleVersion": {
+        "Filter": "Rule version",
+        "Core": "Core",
+        "OfficialErrata": "Official errata",
+        "OptionalPlaytest": "Optional playtest",
+        "Supplement": "Supplement",
+        "Custom": "Custom",
+        "Synthetic": "Synthetic",
+        "Unresolved": "Version/source unresolved"
+      },
       "Search": {
         "Placeholder": "Your query...",
         "Title": "Search"
