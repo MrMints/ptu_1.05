@@ -1,5 +1,13 @@
 # Source/version lookup contract
 
+## Optional explicit registry and UUID matching
+
+Use `createRuleVersionRegistry(canonicalMappings)` from [rule-version-registry.js](../src/util/rule-version-registry.js), then pass its serialized result as `{registry}` to selected/effective lookup or replacement preview. The [complete adapter contract/evidence](validation/p05-rule-version-registry.md) defines structural validation, detached data and diagnostics. Exact `{versions}` behavior and empty defaults remain unchanged. Both inputs together, even an explicit undefined `versions`, are unresolved. Registry data is neither loaded nor activated automatically.
+
+One typed `Compendium.<namespace>.<pack>.Item.<ID>` mapping derives only its equivalent untyped spelling; duplicate alias mappings are rejected. Raw `identity.mappingUuid`, source fields and full snapshots stay unchanged; `registryMatch.canonicalUuid` reports validated matching separately. Preview uses that canonical match for same-selection/alternate-version relationships while preserving custom system differences. Distinct benefits can share a version token. Modern-first and actual-pack precedence remain, with explicit unresolved malformed/unknown attribution and no redirects of either inherited Echoes ID. No names/slugs/labels, grants, prerequisite vetoes, permission decisions or default-driven replacements are introduced.
+
+Compiler acceptance atf0b9fe3e and the content decision are historical; the new optional adapter needs its own independent/planner acceptance and final-head CI. Actual compiled hashes and complete core/May source data remain unchanged. Active registry loading, pack/eligibility installation, UI/default selection, alternate-benefit/acquisition routes and disposable-world application/recovery remain separate later assignments. Earlier unresolved legacy statements below describe exact mode or historical checkpoints; the resolver's metadata/date validation body and supporting constants remain unchanged.
+
 ## Exact Echoes admission compiler
 
 The [later admission declaration and compiler](validation/p05-echoes-admission.md) record completed owner approval for these exact five IDs/complete core140 and optional May7 definitions. Core defaults and individually optional revisions are settled policy. The accepted draft/pilot remain unchanged historical inputs. A pure compiler accepts four explicit JSON strings, reuses accepted draft/metadata validation and returns either the whole detached pair or `bundle:null` with issues. It prepares complete source Items, two typed metadata-v1 mappings and hash-bound prospective eligibility rows; the thin CLI reads/reports only. No installed registry/consumer, source update, behavior certification or gameplay automation follows.

@@ -1,4 +1,5 @@
 import {getDocumentSourceId} from './document-source.js';
+import {matchRuleVersionRegistry} from './rule-version-registry.js';
 
 export const RULE_VERSION_SCHEMA = 1;
 export const STANDARD_RULE_DEFAULT = 'standard';
@@ -44,9 +45,10 @@ function snapshot(item) {
     const data = item?.toObject?.() ?? item;
     const sourceId = getDocumentSourceId(data) ?? null;
     const uuid = item?.uuid ?? null;
-    return {data, identity:{uuid, id:item?.id ?? data?._id ?? null, sourceId,
+    const actualPack = Boolean(item?.pack);
+    return {data, actualPack, identity:{uuid, id:item?.id ?? data?._id ?? null, sourceId,
         // An actual pack document's own UUID wins over historical export provenance.
-        mappingUuid:item?.pack ? uuid : sourceId ?? uuid},
+        mappingUuid:actualPack ? uuid : sourceId ?? uuid},
     storedSelection:copy(data?.flags?.ptu?.selectedVersion)};
 }
 
@@ -79,15 +81,40 @@ function selectionFromSnapshot({data, identity, storedSelection}, versions) {
         rawPrerequisites:copy(data?.system?.prerequisites), issues};
 }
 
-/** Exact supplied mappings only: no names, catalog promotion, latest-version fallback or document writes. */
-export function lookupSelectedRuleVersion(item, {versions = []} = {}) {
-    return selectionFromSnapshot(snapshot(item), versions);
+function selectionFromOptions(state, options) {
+    const container = options !== null && ['object', 'function'].includes(typeof options);
+    const descriptor = container ? Object.getOwnPropertyDescriptor(options, 'registry') : undefined;
+    const failed = issues => {
+        const result = selectionFromSnapshot(state, []);
+        return {...result, registryMatch:{status:'unresolved', canonicalUuid:null}, issues:[...issues, ...result.issues]};
+    };
+    const hasRegistry = descriptor !== undefined || container && 'registry' in options;
+    if (hasRegistry && (!object(options) || ![Object.prototype, null].includes(Object.getPrototypeOf(options)))) return failed(['registry-options-not-plain-object']);
+    if (!descriptor) {
+        if (hasRegistry) return failed(['registry-option-not-own-data']);
+        const {versions = []} = options;
+        return selectionFromSnapshot(state, versions);
+    }
+    if (!descriptor.enumerable || !Object.hasOwn(descriptor, 'value')) return failed(['registry-option-not-data']);
+    if (Object.hasOwn(options, 'versions')) return failed(['registry-and-versions-conflict']);
+    const modern = state.data?._stats?.compendiumSource;
+    if (!state.actualPack && modern !== undefined && modern !== null && typeof modern !== 'string') return failed(['registry-modern-source-identity-invalid']);
+    const match = matchRuleVersionRegistry(descriptor.value, state.identity.mappingUuid);
+    if (match.status !== 'matched') return failed(match.issues);
+    const result = selectionFromSnapshot({...state, identity:{...state.identity, mappingUuid:match.canonicalUuid}}, match.mappings);
+    return {...result, identity:copy(state.identity), registryMatch:{status:'matched', canonicalUuid:match.canonicalUuid}};
+}
+
+/** Exact {versions} is unchanged; an explicit registry additionally matches its derived aliases. */
+export function lookupSelectedRuleVersion(item, options = {}) {
+    return selectionFromOptions(snapshot(item), options);
 }
 
 /** Owned data stays authoritative, including custom rules/choices and unresolved legacy selections. */
-export function lookupEffectiveRule(item, {versions = [], mechanicChoices = {}} = {}) {
+export function lookupEffectiveRule(item, options = {}) {
+    const {mechanicChoices = {}} = options;
     const state = snapshot(item);
-    return {selection:selectionFromSnapshot(state, versions), system:copy(state.data?.system),
+    return {selection:selectionFromOptions(state, options), system:copy(state.data?.system),
         mechanicChoices:copy(mechanicChoices)};
 }
 

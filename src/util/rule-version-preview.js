@@ -100,46 +100,54 @@ function relationship(current, candidate) {
     if (issues.length) return {status:'unresolved', issues};
     if (current.snapshot.type !== candidate.snapshot.type) return {status:'unresolved', issues:['item-type-mismatch']};
     const a = current.attribution, b = candidate.attribution;
-    if (current.snapshot.uuid === candidate.snapshot.uuid && a.identity.mappingUuid !== b.identity.mappingUuid) {
+    const aUuid = a.registryMatch?.status === 'matched' ? a.registryMatch.canonicalUuid : a.identity.mappingUuid;
+    const bUuid = b.registryMatch?.status === 'matched' ? b.registryMatch.canonicalUuid : b.identity.mappingUuid;
+    if (current.snapshot.uuid === candidate.snapshot.uuid && aUuid !== bUuid) {
         return {status:'unresolved', issues:['conflicting-document-identity']};
     }
     if (a.canonical.id !== b.canonical.id) return {status:'unrelated-benefits', issues:[]};
-    return {status:a.identity.mappingUuid === b.identity.mappingUuid && a.selectedVersion.id === b.selectedVersion.id
+    return {status:aUuid === bUuid && a.selectedVersion.id === b.selectedVersion.id
         ? 'same-selection' : 'alternate-versions', canonicalId:a.canonical.id, issues:[]};
 }
 
 /** Inspection of serialized snapshots only. No transfer policy, update payload, authority or live IO. */
 export function previewRuleVersionReplacement(options = {}) {
-    const requestIssues = [], values = {};
+    const requestIssues = [], values = {}, provided = new Set();
     if (!record(options) || ![Object.prototype, null].includes(Object.getPrototypeOf(options))) {
         requestIssues.push({input:'request', path:[], reason:'request-not-plain-object'});
-    } else for (const key of ['actor', 'current', 'candidate', 'versions', 'mechanicChoices', 'references']) {
+    } else for (const key of ['actor', 'current', 'candidate', 'versions', 'registry', 'mechanicChoices', 'references']) {
         const descriptor = Object.getOwnPropertyDescriptor(options, key);
+        if (descriptor) provided.add(key);
         if (descriptor && !own(descriptor, 'value')) requestIssues.push({input:'request', path:[key], reason:'request-field-not-data'});
         else if (descriptor) values[key] = descriptor.value;
     }
-    const {actor, current, candidate, versions, mechanicChoices = {}, references = {}} = values;
+    const {actor, current, candidate, versions, registry, mechanicChoices = {}, references = {}} = values;
+    const hasRegistry = provided.has('registry'), hasVersions = provided.has('versions');
     const inputs = {actor:readInput(actor), current:itemInput(current), candidate:itemInput(candidate),
-        versions:readInput(versions), mechanicChoices:readInput(mechanicChoices), references:readInput(references)};
+        ...(!hasRegistry || hasVersions ? {versions:readInput(versions)} : {}),
+        ...(hasRegistry ? {registry:readInput(registry)} : {}), mechanicChoices:readInput(mechanicChoices), references:readInput(references)};
     const contextIssues = [...requestIssues];
+    if (hasRegistry && hasVersions) contextIssues.push({input:'request', path:[], reason:'registry-and-versions-conflict'});
     for (const key of ['actor', 'mechanicChoices', 'references']) {
         const input = inputs[key];
         if (input.available && !record(input.value)) input.issues.push({path:[], reason:`${key}-not-object`});
     }
     const collectionIssues = ownedItemCollectionIssues(inputs.actor.value);
-    if (inputs.versions.available && !Array.isArray(inputs.versions.value)) {
+    if (inputs.versions?.available && !Array.isArray(inputs.versions.value)) {
         inputs.versions.issues.push({path:[], reason:'versions-not-array'});
     }
     if (record(inputs.references.value)) for (const [key, reference] of Object.entries(inputs.references.value)) {
         const uuid = typeof reference === 'string' ? reference : reference?.uuid;
         if (!itemUuid(uuid)) inputs.references.issues.push({path:[key], reason:'prerequisite-reference-identity-invalid'});
     }
-    for (const key of ['actor', 'versions', 'mechanicChoices', 'references']) {
+    for (const key of ['actor', ...(!hasRegistry || hasVersions ? ['versions'] : []), ...(hasRegistry ? ['registry'] : []), 'mechanicChoices', 'references']) {
         contextIssues.push(...inputs[key].issues.map(issue => ({input:key, ...issue})));
     }
     contextIssues.push(...collectionIssues.map(issue => ({input:'actor', ...issue})));
     const choices = inputs.mechanicChoices.available ? inputs.mechanicChoices.value : null;
-    const mappings = inputs.versions.available ? inputs.versions.value : null;
+    const mappings = inputs.versions?.available ? inputs.versions.value : null;
+    const lookupOptions = {...(!hasRegistry || hasVersions ? {versions:mappings} : {}),
+        ...(hasRegistry ? {registry:inputs.registry.available ? inputs.registry.value : null} : {}), mechanicChoices:choices};
     const sides = {};
     for (const key of ['current', 'candidate']) {
         const input = inputs[key];
@@ -147,7 +155,7 @@ export function previewRuleVersionReplacement(options = {}) {
         const safe = record(input.value) && !own(input.value, 'toObject')
             && (!own(input.value, 'name') || typeof input.value.name === 'string');
         sides[key] = {snapshotAvailable:input.available, snapshot:input.value, inputIssues:input.issues,
-            attribution:safe ? lookupEffectiveRule(input.value, {versions:mappings, mechanicChoices:choices}).selection : null};
+            attribution:safe ? lookupEffectiveRule(input.value, lookupOptions).selection : null};
     }
     const candidateData = inputs.candidate.value;
     const diagnosticItem = record(candidateData) && !own(candidateData, 'toObject')

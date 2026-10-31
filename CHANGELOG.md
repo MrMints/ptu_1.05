@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 optional registry and UUID adapter
+
+- Add detached, validated registry construction from explicit canonical typed compendium Item mappings. Derive only the equivalent same-namespace/pack/ID legacy spelling; reject duplicate mappings/canonical versions and conflicting or tampered aliases. Names, slugs and labels never establish equivalence.
+- Integrate an optional registry into selected/effective lookup and replacement preview while retaining exact `{versions}` behavior and empty defaults. Preserve raw identities/provenance, full snapshots and custom differences; report canonical matches separately. Same-version aliases yield same-selection, core/May yield alternate-versions, and uncertainty remains unresolved.
+- [Validation, source hashes, compatibility and limitations](docs/validation/p05-rule-version-registry.md) retain producer/coordinator failure history, the new145-pass baseline, reproduced0/3 option-container boundary and corrected286/286 plus final95/95 checks. No active/default registry, content installation/exposure, pack/ledger change, permission/grant decision, world testing, gameplay automation, merge or release.
+
 ### PTU 05 Echoes admission preparation
 
 - Record the owner's completed exact core/May content and five-ID decision separately from installation, behavior and automation. Core is default; May remains individually optional playtest. Retain accepted B1 and unchanged historical unapproved drafts/pilot.
