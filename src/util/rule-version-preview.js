@@ -118,14 +118,19 @@ export function previewRuleVersionReplacement(options = {}) {
     } else for (const key of ['actor', 'current', 'candidate', 'versions', 'registry', 'mechanicChoices', 'references']) {
         const descriptor = Object.getOwnPropertyDescriptor(options, key);
         if (descriptor) provided.add(key);
-        if (descriptor && !own(descriptor, 'value')) requestIssues.push({input:'request', path:[key], reason:'request-field-not-data'});
+        if (descriptor && (!own(descriptor, 'value') || key === 'registry' && !descriptor.enumerable
+            || key === 'mechanicChoices' && provided.has('registry') && !descriptor.enumerable)) {
+            requestIssues.push({input:'request', path:[key], reason:key === 'registry' ? 'registry-option-not-data' : 'request-field-not-data'});
+        }
         else if (descriptor) values[key] = descriptor.value;
     }
     const {actor, current, candidate, versions, registry, mechanicChoices = {}, references = {}} = values;
     const hasRegistry = provided.has('registry'), hasVersions = provided.has('versions');
     const inputs = {actor:readInput(actor), current:itemInput(current), candidate:itemInput(candidate),
         ...(!hasRegistry || hasVersions ? {versions:readInput(versions)} : {}),
-        ...(hasRegistry ? {registry:readInput(registry)} : {}), mechanicChoices:readInput(mechanicChoices), references:readInput(references)};
+        ...(hasRegistry ? {registry:readInput(registry)} : {}),
+        mechanicChoices:readInput(hasRegistry && provided.has('mechanicChoices') && !own(values, 'mechanicChoices') ? undefined : mechanicChoices),
+        references:readInput(references)};
     const contextIssues = [...requestIssues];
     if (hasRegistry && hasVersions) contextIssues.push({input:'request', path:[], reason:'registry-and-versions-conflict'});
     for (const key of ['actor', 'mechanicChoices', 'references']) {

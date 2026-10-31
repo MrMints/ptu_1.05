@@ -233,3 +233,72 @@ test('empty explicit registry and omitted registry activate no default content o
     assert.equal(selected(pack(1)).status,'unresolved');assert.equal(effective(pack(1)).selection.status,'unresolved');
     assert.equal(registry.defaultVersion,undefined);assert.equal(registry.contentApproval,undefined);
 });
+
+test('correction boundary: non-enumerable registry stays unresolved in preview without descriptor laundering',()=>{
+    const current=pack(),candidate=pack(1),positive={actor:actor(),current,candidate,registry,mechanicChoices:{capture:'custom'}};
+    const control=preview(positive);assert.equal(control.relationship.status,'alternate-versions');assert.equal(control.contextIssues.length,0);
+    const request={actor:actor(),current,candidate,mechanicChoices:{capture:'custom'}};
+    Object.defineProperty(request,'registry',{value:registry,enumerable:false});
+    const before=hash(request),descriptor=Object.getOwnPropertyDescriptor(request,'registry');
+    assert.equal(selected(current,request).status,'unresolved');assert.equal(effective(current,request).selection.status,'unresolved');
+    const result=preview(request);assert.equal(result.relationship.status,'unresolved');
+    assert.equal(result.current.attribution.status,'unresolved');assert.equal(result.candidate.attribution.status,'unresolved');
+    assert.ok(result.contextIssues.some(x=>x.input==='request'&&x.path?.[0]==='registry'));
+    assert.deepEqual(result.current.snapshot,current);assert.deepEqual(result.candidate.snapshot,candidate);
+    assert.equal(preview(JSON.parse(JSON.stringify(request))).relationship.status,'unresolved');
+    assert.equal(hash(request),before);assert.deepEqual(Object.getOwnPropertyDescriptor(request,'registry'),descriptor);
+});
+for(const kind of ['array','function','class']) test(`correction boundary: effective ${kind} container cannot invoke mechanicChoices getter`,()=>{
+    const options=kind==='array'?[]:kind==='function'?function(){}:new(class Options{})();
+    options.registry=registry;options.actor=actor();options.current=pack();options.candidate=pack(1);
+    let calls=0;Object.defineProperty(options,'mechanicChoices',{enumerable:true,get(){calls++;throw Error('must not read choices');}});
+    const item=pack(),before=hash(item),descriptor=Object.getOwnPropertyDescriptor(options,'mechanicChoices');
+    assert.equal(selected(item,options).status,'unresolved');assert.equal(preview(options).relationship.status,'unresolved');assert.equal(calls,0);
+    let result;assert.doesNotThrow(()=>{result=effective(item,options);});
+    assert.equal(calls,0);assert.equal(result.selection.status,'unresolved');assert.ok(result.selection.issues.some(x=>x.startsWith('registry-')));
+    assert.equal(result.mechanicChoices,null);assert.ok(result.mechanicChoiceIssues.length);
+    assert.equal(hash(item),before);assert.deepEqual(Object.getOwnPropertyDescriptor(options,'mechanicChoices'),descriptor);
+});
+test('optional plain mechanicChoices accessor remains unreadable without invocation in effective lookup and preview',()=>{
+    const request={actor:actor(),current:pack(),candidate:pack(1),registry};let calls=0;
+    Object.defineProperty(request,'mechanicChoices',{enumerable:true,get(){calls++;throw Error('unreadable choices');}});
+    const descriptor=Object.getOwnPropertyDescriptor(request,'mechanicChoices');
+    const result=effective(request.current,request);assert.equal(result.selection.status,'resolved');assert.equal(result.mechanicChoices,null);
+    assert.ok(result.mechanicChoiceIssues.length);const p=preview(request);assert.equal(p.mechanics.choices,null);
+    assert.ok(p.contextIssues.some(x=>x.path?.[0]==='mechanicChoices'));assert.equal(calls,0);
+    assert.deepEqual(Object.getOwnPropertyDescriptor(request,'mechanicChoices'),descriptor);
+});
+test('optional non-enumerable mechanicChoices data is not laundered into a verified preference',()=>{
+    const request={actor:actor(),current:pack(),candidate:pack(1),registry};
+    Object.defineProperty(request,'mechanicChoices',{value:{capture:'custom'},enumerable:false});
+    const descriptor=Object.getOwnPropertyDescriptor(request,'mechanicChoices'),result=effective(request.current,request),p=preview(request);
+    assert.equal(result.mechanicChoices,null);assert.ok(result.mechanicChoiceIssues.length);assert.equal(p.mechanics.choices,null);
+    assert.ok(p.contextIssues.some(x=>x.path?.[0]==='mechanicChoices'));
+    assert.deepEqual(Object.getOwnPropertyDescriptor(request,'mechanicChoices'),descriptor);
+});
+test('optional nested mechanicChoices getters stay unreadable and uninvoked',()=>{
+    let calls=0;const choices={capture:'custom'};Object.defineProperty(choices,'nested',{enumerable:true,get(){calls++;throw Error('nested choices');}});
+    const request={actor:actor(),current:pack(),candidate:pack(1),registry,mechanicChoices:choices};
+    const result=effective(request.current,request);assert.equal(result.mechanicChoices,null);assert.ok(result.mechanicChoiceIssues.length);
+    const p=preview(request);assert.equal(p.mechanics.choices,null);assert.ok(p.contextIssues.some(x=>x.input==='mechanicChoices'));
+    assert.equal(calls,0);assert.equal(choices.capture,'custom');
+});
+test('optional readable choices retain defaults, explicit null, nested data and safe prototype-like own keys',()=>{
+    const prototypeKeys=JSON.parse('{"__proto__":{"polluted":true},"capture":"custom"}');
+    for(const choices of [undefined,null,{}, {capture:'custom',nested:{list:[1,true,null,'x']}},prototypeKeys]) {
+        const item=pack(),before=hash(item),request={registry,mechanicChoices:choices};
+        const result=effective(item,request);assert.equal(result.selection.status,'resolved');
+        assert.deepEqual(result.mechanicChoices,choices===undefined?{}:choices);assert.equal(Object.hasOwn(result,'mechanicChoiceIssues'),false);
+        if(choices&&typeof choices==='object')assert.notEqual(result.mechanicChoices,choices);
+        assert.equal(hash(item),before);assert.equal({}.polluted,undefined);
+    }
+    const p=inspect(pack(),pack(1),{mechanicChoices:{capture:'custom',nested:[1,2]}});assert.deepEqual(p.mechanics.choices,{capture:'custom',nested:[1,2]});
+});
+test('optional nonserialized mechanicChoices remain explicitly unavailable without throwing',()=>{
+    const cyclic={};cyclic.self=cyclic;const sparse=[];sparse.length=4294967295;
+    const hidden={};Object.defineProperty(hidden,'capture',{value:'custom',enumerable:false});
+    for(const value of [NaN,Infinity,()=>{},new Date(0),cyclic,sparse,hidden]) {
+        let result;assert.doesNotThrow(()=>{result=effective(pack(),{registry,mechanicChoices:value});});
+        assert.equal(result.selection.status,'resolved');assert.equal(result.mechanicChoices,null);assert.ok(result.mechanicChoiceIssues.length);
+    }
+});

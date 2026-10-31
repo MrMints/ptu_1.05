@@ -110,12 +110,45 @@ export function lookupSelectedRuleVersion(item, options = {}) {
     return selectionFromOptions(snapshot(item), options);
 }
 
+function copyOptionalChoiceData(value, ancestors = new Set()) {
+    if (value === null || ['string', 'boolean'].includes(typeof value) || typeof value === 'number' && Number.isFinite(value)) return value;
+    if (typeof value !== 'object' || ancestors.has(value)) throw Error('unreadable-choices');
+    const array = Array.isArray(value), prototype = Object.getPrototypeOf(value);
+    if (array ? prototype !== Array.prototype : ![Object.prototype, null].includes(prototype)) throw Error('unreadable-choices');
+    const result = array ? [] : {}, next = new Set(ancestors).add(value);
+    let count = 0;
+    for (const key of Reflect.ownKeys(value)) {
+        if (array && key === 'length') continue;
+        const descriptor = Object.getOwnPropertyDescriptor(value, key);
+        if (typeof key !== 'string' || !descriptor.enumerable || !Object.hasOwn(descriptor, 'value')) throw Error('unreadable-choices');
+        const index = Number(key);
+        if (array && (!Number.isInteger(index) || index < 0 || index >= 4294967295 || String(index) !== key)) throw Error('unreadable-choices');
+        Object.defineProperty(result, key, {value:copyOptionalChoiceData(descriptor.value, next), enumerable:true, writable:true, configurable:true});
+        count++;
+    }
+    if (array && count !== value.length) throw Error('unreadable-choices');
+    return result;
+}
+
 /** Owned data stays authoritative, including custom rules/choices and unresolved legacy selections. */
 export function lookupEffectiveRule(item, options = {}) {
-    const {mechanicChoices = {}} = options;
+    const optional = options !== null && ['object', 'function'].includes(typeof options) && 'registry' in options;
+    if (!optional) {
+        const {mechanicChoices = {}} = options;
+        const state = snapshot(item);
+        return {selection:selectionFromOptions(state, options), system:copy(state.data?.system), mechanicChoices:copy(mechanicChoices)};
+    }
     const state = snapshot(item);
-    return {selection:selectionFromOptions(state, options), system:copy(state.data?.system),
-        mechanicChoices:copy(mechanicChoices)};
+    const selection = selectionFromOptions(state, options), system = copy(state.data?.system);
+    const unavailable = issue => ({selection, system, mechanicChoices:null, mechanicChoiceIssues:[issue]});
+    if (!object(options) || ![Object.prototype, null].includes(Object.getPrototypeOf(options))) return unavailable('registry-options-not-plain-object');
+    const descriptor = Object.getOwnPropertyDescriptor(options, 'mechanicChoices');
+    if (!descriptor && 'mechanicChoices' in options) return unavailable('mechanic-choices-not-own-data');
+    if (descriptor && (!descriptor.enumerable || !Object.hasOwn(descriptor, 'value'))) return unavailable('mechanic-choices-not-data');
+    try {
+        const value = descriptor?.value === undefined ? {} : descriptor.value;
+        return {selection, system, mechanicChoices:copyOptionalChoiceData(value)};
+    } catch {return unavailable('mechanic-choices-not-serialized-data');}
 }
 
 /** Independent mechanic preference; an absent choice uses standard, never a selected item's version. */

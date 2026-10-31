@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 local optional-input correction
+
+- Reject non-enumerable registry descriptors in preview before rebuilding lookup options, matching selected/effective lookup. Validate optional-registry request containers before reading mechanic choices; unreadable choices remain null with diagnostics and zero getter calls.
+- Preserve valid exact/registry data, raw snapshots/provenance, metadata/date validation, alias construction and immutable compiler output. Reproduced four product-validation failures before fixing; corrected4/4, compatibility161/161 and companion135/135 pass. [Correction evidence and retained histories](docs/validation/p05-rule-version-registry.md#local-only-descriptor-and-choices-correction--2026-10-31).
+- Local checkpoint only. Denied publication/handoff actions remain held; no upload, new CI, active registry, installation/exposure, world change, merge or release.
+
 ### PTU 05 optional registry and UUID adapter
 
 - Add detached, validated registry construction from explicit canonical typed compendium Item mappings. Derive only the equivalent same-namespace/pack/ID legacy spelling; reject duplicate mappings/canonical versions and conflicting or tampered aliases. Names, slugs and labels never establish equivalence.
