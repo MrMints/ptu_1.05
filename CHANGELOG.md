@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 explicit read-only document-to-Feature-review launcher
+
+- Preflight current-user/document/source-context OBSERVER access and every owned Item before snapshot capture. Reject unavailable, malformed, changed or conflicting inputs without opening a partial review or inventing identities.
+- Capture complete mixed Item prerequisite membership separately from owned Features, preserve raw identities/provenance/versions/repeats/custom data, and use current prepared evaluator facts instead of stale raw totals. Each explicit launch opens the unchanged read-only dialog with fresh detached data and no consent/application result.
+- [API, actual launcher/dialog tests, corrected controls and manual limits](docs/validation/p05-feature-acquisition-review-launcher.md). No automatic caller, default registry, installation/activation/exposure/world/actor generation, merge or release.
+
 ### P05 explicitly constructed read-only Feature review dialog
 
 - Present the accepted snapshot inspector's candidates, exact repeated identities, source/version/status labels, own-version advisory unmet/unknown diagnostics and every owned/incoming comparison. Keep completeness, uncertainty and practical world/permission/source limits visible.
