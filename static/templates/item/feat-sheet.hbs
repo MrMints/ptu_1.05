@@ -100,6 +100,12 @@
             <div class="move-row" style="flex-grow: 1">
                 <div class="move-effect">{{{itemEffect}}}{{#if referenceEffect}}<br><br>{{{referenceEffect}}}{{/if}}</div>
             </div>
+            {{#if item.system.notes}}
+            <section class="feature-notes" aria-label="{{localize "ITEM.Notes"}}" style="flex:0 0 auto;min-width:0;margin:0.5rem 1.25rem;">
+                <h3>{{localize "ITEM.Notes"}}</h3>
+                <div class="feature-notes-text" style="white-space:pre-wrap;overflow-wrap:anywhere;">{{item.system.notes}}</div>
+            </section>
+            {{/if}}
         </div>
         <div class="tab details h-100" data-group="primary" data-tab="details">
             <div class="item-row">

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 Feature notes presentation (B1)
+
+- Show existing Feature `system.notes` separately on the overview under the translated Notes label. Display plain escaped text with preserved line breaks and wrapping; hide missing/empty notes. This read-only section adds no editor, updates, prerequisites, grants or gameplay decisions. HTML-like user notes appear literally.
+- Render the actual Feature template and advisory partial for both detached Echoes drafts, locked/editable views, custom/empty/multiline/long/HTML-like notes, localization and unchanged leaf mechanics, raw requirements and saved identity. Add exact Handlebars4.7.10 as a development test dependency through the normal lock update; no production helper or stylesheet.
+- Preserve the initial3/14 missing-display baseline, the post-change13/14 AST-expectation failure and corrected58/58 affected checks. [Implementation, compatibility and live limits](docs/validation/p05-echoes-readiness.md#b1-feature-notes-presentation--2026-10-30). Planner acceptance of readiness236bdadb is historical; this B1 change still needs independent review and exact final-head CI. B2 admission/identity approval and installation remain outstanding; no merge/release.
+
 ### PTU 05 Echoes readiness assessment
 
 - Add the [exact-pair readiness decision](docs/validation/p05-echoes-readiness.md) and isolated tests of actual browser, Feature, NPC, advisory, grouping, sheet and lookup/preview consumers. Recommend a Researcher display class, empty leaf keywords and separate parent context; preserve all proposed/current/historical identities and selected-version source facts.

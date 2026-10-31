@@ -1,5 +1,11 @@
 # Source/version lookup contract
 
+## B1 Feature notes presentation
+
+The [B1 follow-up](validation/p05-echoes-readiness.md#b1-feature-notes-presentation--2026-10-30) displays existing `item.system.notes` in a separate read-only Feature overview section using `ITEM.Notes`. Double-brace output escapes HTML-like content; line breaks and long text use `white-space:pre-wrap` and `overflow-wrap:anywhere`. Missing/empty/null notes hide the section. Notes are supplied text only, with no editor, source lookup, update, parent inference, class metadata application, rule identity, grant authority or prerequisite/effect-use decision. Existing HTML-like notes now appear literally in this surface; stored data is unchanged.
+
+Actual Handlebars rendering of the entire Feature template and actual advisory partial verifies both detached accepted versions, custom and empty content, escaping/localization and unchanged leaf effects/raw requirements/version flags. Only unrelated rule-editor markup and necessary environment/helpers are isolated; Node rendering does not prove live layout or Foundry access/reload/cancellation.58/58 affected checks pass. Planner readiness acceptance at236bdadb is a prior chat decision; B1 needs its own independent review and final-head CI. B2 exact identity/admission/eligibility/optional adoption approval remains outstanding, with null production mappings, unclassified eligibility and uninstalled/unreserved proposals unchanged. The following readiness prose records the earlier missing-display baseline; the appended B1 report supplies the new observations without rewriting that history.
+
 ## Echoes readiness decision interface
 
 The [readiness report](validation/p05-echoes-readiness.md) is the sole interface for this exact-pair assessment. It pins accepted draft/source/current/audit/lineage hashes and recommends exact class, keyword, separate context-note and source/version values. Tests execute actual browser/category/NPC/advisory/grouping/sheet/lookup/preview methods with detached real draft data and isolated environment/update services. No new helper, registry, JSON change, runtime import or installation payload is introduced.

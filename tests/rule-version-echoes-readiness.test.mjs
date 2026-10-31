@@ -300,7 +300,7 @@ test('actual lookup/preview do not promote presentation metadata or unclassified
     assert.equal(preview.update,undefined); assert.equal(preview.allowed,undefined); assert.equal(hash({current,candidate}),before);
 });
 
-test('actual Item sheet keeps proposed context note out of mechanics; existing template lacks a notes presentation', async () => {
+test('actual Item sheet keeps proposed context note out of mechanics; template exposes separate notes', async () => {
     const effects=[],foundry={appv1:{sheets:{ItemSheet:class {async getData(){return {item:this.item.toObject(),editable:false};}}}},
         utils:{duplicate:structuredClone},applications:{ux:{TextEditor:{implementation:{enrichHTML:async text=>{effects.push(text);return text;}}}}}};
     const Class=await load('src/module/item/sheet/sheet.js','PTUItemSheet',{foundry,CONFIG:{PTU:{data:{}}},prerequisiteView,
@@ -314,5 +314,5 @@ test('actual Item sheet keeps proposed context note out of mechanics; existing t
     }
     assert.ok(effects.every(x=>!x.includes('Choose two Fields')));
     // Static template evidence supplements the actual getData observation; no DOM/live rendering is claimed.
-    assert.equal((await read('static/templates/item/feat-sheet.hbs')).includes('item.system.notes'),false);
+    assert.equal((await read('static/templates/item/feat-sheet.hbs')).includes('item.system.notes'),true);
 });
