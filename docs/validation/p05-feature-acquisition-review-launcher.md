@@ -68,3 +68,9 @@ Existing P05 alone owns this batch/no world through normal CI on the final docum
 Final combined520/520 includes89 launcher cases,0 failures/0 skips. A subsequent20/20 documentation/evidence execution is separate. Native syntax/P01,370 local links across nine changed documents, exact11-path scope, complete622/66 historical prefixes, tracked and new-file whitespace checks pass. All protected inputs remain unchanged; no native world/DOM/focus/permission/install/reload or full local package rebuild is claimed.
 
 Canonical-LF SHA-256 values are `8d221eed995dc90b55866d6933f0f7c3992a30ccb5723a7cc66991d0725c4cdf` for the launcher and `02c67acddb555e54be6acc13c820f3621a0f5a043fcd8e17946075f163d3337d` for its tests. A documentation-only checkpoint will bind the implementation commit below. Final documented-head normal CI and clean-head agreement still precede explicit RELEASE/STOP and independent/planner acceptance.
+
+## Implementation checkpoint
+
+Implementation `fcbbf503be329b32421b994e3b5a3650ceb596e8` contains exactly11 assigned paths. Complete staged scope/whitespace checks passed and the checkout was clean after commit. The module/test hashes above bind the implemented bridge; final520/520 including89 launcher cases and the separate20/20 documentation execution retain their recorded timing. This documentation-only checkpoint must be part of the final normal CI head before clean local/tracking/actual remote/open draftPR4 agreement and RELEASE/STOP. Earlier2,330-test CI is accepted-dialog evidence, not launcher CI. Protected source/helpers/tests/templates/locales/G bindings and all later live/admission/acceptance gates remain unchanged.
+
+The documentation binding passes a final20/20 document/evidence check and371 local links across nine changed documents. Launcher/test hashes remain unchanged; these documentation checks do not represent another runtime or pack rebuild.
