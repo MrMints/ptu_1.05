@@ -543,6 +543,12 @@
       "Classes": "Classes",
       "ClassesRestricted": "Restrict to Chosen Classes",
       "Features": "Features",
+      "FeatureVersions": {
+        "Hint": "Filters apply to new choices. Selected Features are preserved.",
+        "Reset": "Show core versions",
+        "Preserved": "Preserved selection outside current discovery",
+        "Unavailable": "Selected source unavailable; version and choices remain unverified."
+      },
       "Edges": "Edges",
       "Skills": "Skills",
       "Stats": "Stats",

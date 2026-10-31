@@ -21,7 +21,10 @@ export class PTUNpcQuickBuild extends FormApplication {
     constructor(options) {
         super(options);
 
-        this.data = new NpcQuickBuildData();
+        const registry = Object.getOwnPropertyDescriptor(options ?? {}, 'ruleVersionRegistry');
+        this.data = new NpcQuickBuildData(registry ? {
+            registry:registry.enumerable && Object.hasOwn(registry,'value') ? registry.value : undefined
+        } : {});
     }
 
     /** @override */
@@ -64,6 +67,11 @@ export class PTUNpcQuickBuild extends FormApplication {
         super.activateListeners($html);
 
         const globalThis = this;
+        $html.find('[data-feature-version-reset]').on('click', event => {
+            event.preventDefault();
+            this.data.resetFeatureVersionFilter();
+            this.render(true);
+        });
 
         // next/prev page listeners
         $html.find('.page').on('click', function (event) {
@@ -114,7 +122,7 @@ export class PTUNpcQuickBuild extends FormApplication {
                     maxItems: data.options.length,
                     searchKeys: documentBacked ? ["label", "sourceContext"] : ["label"],
                 },
-                whitelist: data.options,
+                whitelist: data.whitelist ?? data.options,
                 maxTags: data.maxTags,
             };
 
@@ -129,6 +137,18 @@ export class PTUNpcQuickBuild extends FormApplication {
 
             const Widget = documentBacked ? documentTagify(Tagify) : Tagify;
             const tagify = new Widget(multiselect, tagifyOptions);
+            if (multiselect.dataset.filterName === 'features' && data.whitelist) {
+                const filter = tagify.dropdown.filterListItems;
+                tagify.dropdown.filterListItems = (...args) => {
+                    const preserved = tagify.settings.whitelist;
+                    try {
+                        // Bundled Tagify uses its whitelist for both validation and
+                        // suggestions. Only this synchronous discovery call is filtered.
+                        tagify.settings.whitelist = data.options;
+                        return filter(...args);
+                    } finally { tagify.settings.whitelist = preserved; }
+                };
+            }
 
             // // Add the name to the tags html as an indicator for refreshing
             // if (multiselect.name) {

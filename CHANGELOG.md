@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 opt-in NPC Feature versions
+
+- Add per-instance supplied-registry version/source labels and core-default/explicit optional Feature discovery. Preserve exact saved UUIDs, repeats, subchoices and advisory diagnostics through filtering, refresh and unavailable-source return.
+- Separate discovery/randomization options from Tagify’s preservation whitelist, so core-only filtering preserves saved May choices while excluding new May suggestions and repeats. Keep ordinary no-registry and non-Feature behavior; no default loading, installation/exposure or actor generation.
+- [Validation, compatibility, retained failure history, limits and source references](docs/validation/p05-npc-rule-version-selection.md).
+
 ### PTU 05 opt-in Feature-browser versions
 
 - Add explicitly supplied registry presentation for actual indexed Features: escaped version/source/status labels, core initialization/reset and explicit optional-playtest/both filters. Preserve raw UUIDs through search, rendering, opening and drag; uncertain/custom records retain existing filters and unresolved attribution.

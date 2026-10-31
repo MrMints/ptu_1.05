@@ -4,6 +4,10 @@ import { Mutex } from '../../../util/mutex.js';
 import { getSkillLabel } from '../../../util/skills.js';
 import {evaluatePrerequisite, diagnosePrerequisites, formatPrerequisiteDiagnostics} from '../../../util/prerequisites.js';
 import {documentOption, documentSelections, repeatDocumentOptions, subchoiceKey} from './selection.js';
+import {lookupSelectedRuleVersion} from '../../../util/rule-versions.js';
+
+const featureSourceLabels = {core:'Core', 'official-errata':'OfficialErrata', 'optional-playtest':'OptionalPlaytest',
+    supplement:'Supplement', custom:'Custom', synthetic:'Synthetic'};
 
 const COMPENDIUM_ITEM_RE = /Compendium\.([\w\.]+).Item.[a-zA-Z0-9]+/;
 
@@ -32,7 +36,10 @@ export class NpcQuickBuildData {
 
     _preloadedCompendiums = false;
 
-    constructor() {
+    constructor(options = {}) {
+        this.ruleVersionOptions = options;
+        this.hasRuleVersionRegistry = options != null && Object.hasOwn(options, 'registry');
+        if (this.hasRuleVersionRegistry) this.featureVersionFilter = {options:{}, selected:{}};
         this.page = 1;
 
         this.manuallyUpdatedFields = new Set(); // the keys to avoid auto-generating overtop of
@@ -154,12 +161,14 @@ export class NpcQuickBuildData {
         const compendiumBrowser = game.ptu.compendiumBrowser;
 
         // load feats with pack loader/compendium browser!
-        if (!NpcQuickBuildData._preloadedCompendiums) {
+        const preloaded = NpcQuickBuildData._preloadedCompendiums || this.hasRuleVersionRegistry && this._preloadedCompendiums;
+        if (!preloaded) {
             compendiumBrowser.initCompendiumList();
-            await compendiumBrowser.tabs.feats.loadData();
+            if (!this.hasRuleVersionRegistry) await compendiumBrowser.tabs.feats.loadData();
             await compendiumBrowser.tabs.edges.loadData();
             await compendiumBrowser.tabs.species.loadData();
-            NpcQuickBuildData._preloadedCompendiums = true;
+            if (this.hasRuleVersionRegistry) this._preloadedCompendiums = true;
+            else NpcQuickBuildData._preloadedCompendiums = true;
         }
 
         // trawl the compendiums for classes/features, edges, and pokemon species
@@ -178,11 +187,22 @@ export class NpcQuickBuildData {
         // get classes/features
         for (const key of ['classes','features','edges','species']) this._staticMultiselects[key].options = [];
         for (const compendium of featureCompendiums) {
-            for (const feature of game.packs.get(compendium).index) {
+            const pack = game.packs.get(compendium);
+            // Obtain optional flags even when another consumer primed a smaller index.
+            // Neither browser version filters nor its projected rows are inherited.
+            const index = this.hasRuleVersionRegistry ? await pack.getIndex({fields:[
+                'system.source.value', 'system.class', 'system.prerequisites', 'system.keywords', 'flags.ptu.selectedVersion'
+            ]}) : pack.index;
+            for (const feature of index) {
                 if (feature.type !== "feat") continue;
                 let bucket = "features";
                 if (feature?.system?.keywords?.includes("Class")) bucket = "classes";
-                this._staticMultiselects[bucket].options.push(documentOption(feature,game.packs.get(compendium).metadata?.label??compendium));
+                const option = documentOption(feature,pack.metadata?.label??compendium);
+                if (this.hasRuleVersionRegistry && bucket === 'features') {
+                    option.ruleVersion = this._featureRuleVersion({...feature, uuid:feature.uuid, pack:compendium});
+                    option.sourceContext += ` | ${option.ruleVersion.context}`;
+                }
+                this._staticMultiselects[bucket].options.push(option);
             }
         }
         this._staticMultiselects.classes.options.sort((a, b) => a.label.localeCompare(b.label));
@@ -212,6 +232,70 @@ export class NpcQuickBuildData {
 
         
         this.multiselects = foundry.utils.deepClone(this._staticMultiselects);
+        if (this.hasRuleVersionRegistry) {
+            const options = new Map();
+            for (const option of this._staticMultiselects.features.options) {
+                const version = option.ruleVersion;
+                if (version.status === 'resolved') options.set(version.filterKey, {label:version.context, ruleVersion:version});
+            }
+            this.featureVersionFilter.options = Object.fromEntries(options);
+            this._featureVersionKeys = new Set([...(this._featureVersionKeys ?? []), ...options.keys()]);
+            if (!this._featureVersionFilterInitialized) {
+                this.resetFeatureVersionFilter();
+                this._featureVersionFilterInitialized = true;
+            } else this._updateFeatureVersionChoices();
+        }
+    }
+
+    _featureRuleVersion(document) {
+        const result = lookupSelectedRuleVersion(document, this.ruleVersionOptions);
+        if (result.status !== 'resolved') return {status:'unresolved', issues:result.issues,
+            context:game.i18n.localize('PTU.CompendiumBrowser.RuleVersion.Unresolved')};
+        const statusLabel = `PTU.CompendiumBrowser.RuleVersion.${featureSourceLabels[result.source.status]}`;
+        return {status:'resolved', versionId:result.selectedVersion.id, versionLabel:result.selectedVersion.label,
+            sourceId:result.source.id, sourceEdition:result.source.edition, sourceCitation:result.source.citation,
+            sourceStatus:result.source.status, sourceStatusLabel:statusLabel,
+            filterKey:subchoiceKey(JSON.stringify([result.source.id,result.selectedVersion.id,result.source.status]),0),
+            context:`${result.selectedVersion.label} — ${result.source.edition} (${game.i18n.localize(statusLabel)})`};
+    }
+
+    resetFeatureVersionFilter() {
+        if (!this.hasRuleVersionRegistry) return;
+        this.featureVersionFilter.selected = Object.fromEntries(Object.entries(this.featureVersionFilter.options)
+            .map(([key,option])=>[key,option.ruleVersion.sourceStatus === 'core']));
+        this._updateFeatureVersionChoices();
+    }
+
+    _updateFeatureVersionChoices() {
+        if (!this.hasRuleVersionRegistry) return;
+        const {options,selected} = this.featureVersionFilter;
+        const valid = selected !== null && typeof selected === 'object' && !Array.isArray(selected)
+            && Object.entries(selected).every(([key,value])=>this._featureVersionKeys.has(key) && typeof value === 'boolean');
+        for (const [key,option] of Object.entries(options)) option.selected = valid && selected[key] === true;
+        const base = this._staticMultiselects.features.options;
+        const available = new Set(base.map(option=>option.uuid));
+        const choices = repeatDocumentOptions(base,this.trainer.features.selected);
+        const selectedClasses = this.trainer.classes.selected.map(c=>c.label);
+        for (const option of choices) option.crossClass = selectedClasses.length > 0 && option.class ? !selectedClasses.includes(option.class) : false;
+        choices.sort((a,b)=>a.crossClass-b.crossClass || a.label.localeCompare(b.label));
+        const discovery = choices.filter(option=>available.has(option.uuid) && (option.ruleVersion?.status !== 'resolved'
+            || valid && selected[option.ruleVersion.filterKey] === true));
+        const whitelist = [...discovery];
+        for (const selection of documentSelections(this.trainer.features.selected)) {
+            if (selection.identityIssue || whitelist.some(option=>option.value===selection.value && option.uuid===selection.uuid)) continue;
+            const option = choices.find(option=>option.value===selection.value && option.uuid===selection.uuid)
+                ?? base.find(option=>option.uuid===selection.uuid);
+            const computed = this.trainer.features.computed?.find(item=>item.selectionId===selection.value && item.uuid===selection.uuid);
+            const preserved = game.i18n.localize('PTU.NpcQuickBuild.FeatureVersions.Preserved');
+            const attribution = computed?.ruleVersion ?? {status:'unresolved', context:game.i18n.localize('PTU.CompendiumBrowser.RuleVersion.Unresolved')};
+            whitelist.push({...selection, ...option, uuid:selection.uuid, value:selection.value,
+                ruleVersion:available.has(selection.uuid) ? option.ruleVersion : attribution,
+                sourceContext:available.has(selection.uuid) ? option.sourceContext : `${preserved} | ${attribution.context} | ${selection.uuid}`});
+        }
+        // Discovery drives new/random choices. The whitelist retains only exact saved
+        // filtered/unavailable selections, never a new alternative or repeat for them.
+        this.multiselects.features.options = discovery;
+        this.multiselects.features.whitelist = whitelist;
     }
 
     async _findFromMultiselect(bucket, searchfunction) {
@@ -394,6 +478,7 @@ export class NpcQuickBuildData {
         let numChosen = newFeatures.length + this.trainer.features.computed.length;
         for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
             const chosen = chooseFrom(this.multiselects.features.options);
+            if (!chosen && this.hasRuleVersionRegistry) break;
 
             const { allNewFeatures, allNewUnmet } = await this.allItemPrereqs(chosen.prerequisites, { level: this.trainer.level, allComputed, skillsComputed })
             // check if there are any new classes in there, and we're not allowed to add new classes
@@ -822,6 +907,7 @@ export class NpcQuickBuildData {
         const skillsComputed = {};
 
         this.selectionIssues = [];
+        const unavailableFeatures = new Map();
         for (const [bucket,computed] of [['classes',featuresComputed],['features',featuresComputed],['edges',edgesComputed]]) {
             for (const selection of documentSelections(this.trainer[bucket].selected)) {
                 if (selection.identityIssue) {
@@ -831,10 +917,12 @@ export class NpcQuickBuildData {
                 const document = await fromUuid(selection.uuid);
                 if (!document) {
                     this.selectionIssues.push(`Selected source is unavailable: ${selection.uuid}.`);
+                    if (this.hasRuleVersionRegistry && bucket === 'features') unavailableFeatures.set(selection.value, selection.uuid);
                     continue;
                 }
                 const item = document.toObject();
                 Object.assign(item,{uuid:selection.uuid,label:document.name??selection.label,selectionId:selection.value});
+                if (this.hasRuleVersionRegistry && bucket === 'features') item.ruleVersion = this._featureRuleVersion(document);
                 computed.push(item);allComputed.push(item);
             }
         }
@@ -898,6 +986,13 @@ export class NpcQuickBuildData {
                     disabled: !(c.value == subSelectable.selected || !alreadySelected.has(c.value)),
                 }));
             }
+        }
+
+        // Retain explicit historical subchoices for unavailable selected Features.
+        // They remain uncertain; no source, counterpart or new choices are inferred.
+        if (this.hasRuleVersionRegistry) for (const [key,sub] of Object.entries(this.trainer.subSelectables)) {
+            if (unavailableFeatures.get(sub.selectionId) === sub.uuid && Number.isSafeInteger(sub.idx) && sub.idx >= 0
+                && key === subchoiceKey(sub.selectionId,sub.idx)) subSelectables[key] = {...foundry.utils.deepClone(sub), unavailable:true};
         }
 
         // try to infer auto stat changes
@@ -993,6 +1088,7 @@ export class NpcQuickBuildData {
             featureOption.crossClass = (selectedClasses.length > 0 && featureOption?.class) ? !selectedClasses.includes(featureOption.class) : false;
         }
         this.multiselects.features.options.sort((a, b)=> a.crossClass - b.crossClass || a.label.localeCompare(b.label));
+        this._updateFeatureVersionChoices();
         
         this.multiselects.edges.options.sort((a, b)=> a.label.localeCompare(b.label));
 
