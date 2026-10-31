@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 Echoes readiness assessment
+
+- Add the [exact-pair readiness decision](docs/validation/p05-echoes-readiness.md) and isolated tests of actual browser, Feature, NPC, advisory, grouping, sheet and lookup/preview consumers. Recommend a Researcher display class, empty leaf keywords and separate parent context; preserve all proposed/current/historical identities and selected-version source facts.
+- Keep both drafts blocked from installation: the Feature sheet does not present the proposed notes/context, and independent admission/identity approval remains required. No draft/runtime/pack/policy change, production mapping, gameplay automation or release is performed. Retain unknown parent/Breadth facts as manual/unverifiable, without a game-prerequisite veto or name-based association.
+- Record the initial42-check37-pass/5-fail adapter/expectation run, corrected42/42 and final44/44 checks, with prior source/draft/foundation evidence reused. [Validation, compatibility, limits and final-head CI handoff](docs/validation/2026-10-29-p05-foundation-acceptance.md#echoes-readiness-assessment-handoff--2026-10-30). Independent readiness review and specific subsequent consent precede any next action.
+
 ### PTU 05 Echoes draft acceptance
 
 - Accept the two non-runtime Echoes drafts and source/schema/identity validator at `b638f46f` after substantive comparison with core140, May7, Researcher context and the existing record/lineage. Proposed identities remain uninstalled, eligibility unclassified and production/behavior/automation unapproved. [Decision and evidence](docs/validation/2026-10-29-p05-foundation-acceptance.md#substantive-echoes-draft-acceptance--2026-10-30).
