@@ -58,3 +58,9 @@ The combined affected run passes431/431, including52 dialog cases,0 failures/0 s
 Canonical-LF SHA-256: module `cffc668c7c47068d85ada8820755a2b982e40e2d5e02078950a204f7833a6fbd`, template `f435949aa8db9bf3f1bfc54b9c2f66e4b0efb65ec36c22a1964642bb56572ba6`, new tests `aebc7f3f173699d467ebee17f68f7e89ff41703d919dbafdf0b9eec4c0335e9d`. The implementation checkpoint is bound below after commit creation. Final documented-head normal CI and clean-head agreement still precede explicit RELEASE/STOP and independent/planner acceptance.
 
 The first staging check caught one extra blank line at the new test file EOF before the commit command ran. Earlier working-tree whitespace checks covered tracked files only. The trailing blank was removed without changing test behavior; the complete staged13-path whitespace check is required before retrying the commit. This is a formatting correction, not a product-test failure or action-approval denial.
+
+## Implementation checkpoint
+
+Implementation `15f70ed0b84f92514865d75afeda01112eba3014` contains exactly the13 assigned paths. Its complete staged whitespace check passed after the recorded EOF correction, and the checkout was clean after commit. The canonical-LF module/template/test hashes above bind the implemented behavior; the whitespace-only test correction does not claim a new52-case execution. Combined431/431 and separate20/20 retain their original timings. This documentation-only binding checkpoint must be included in the normal final-head CI before clean-head agreement and explicit RELEASE/STOP for independent/planner review. Earlier2,278-test CI is accepted-inspector evidence, not dialog CI.
+
+The documentation binding passes a final20/20 document/evidence check and359 local links across nine changed documents. Module/template/test hashes remain unchanged. No additional runtime or pack retest is claimed by this documentation-only checkpoint.
