@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### PTU 05 Echoes admission preparation
+
+- Record the owner's completed exact core/May content and five-ID decision separately from installation, behavior and automation. Core is default; May remains individually optional playtest. Retain accepted B1 and unchanged historical unapproved drafts/pilot.
+- Add an all-or-nothing pure admission compiler and read-only CLI for two detached future pack-source Items, exact typed metadata-v1 mappings and prospective hash-bound eligibility rows. Preserve full leaf rules, source status/date, separate Researcher notes and saved/custom selections; reject stale/tampered evidence and identity collisions without filtering records.
+- [Contract, output hashes, failure history, validation and integration limits](docs/validation/p05-echoes-admission.md). No pack/registry/ledger installation, existing implementation/test/dependency change, live-world proof, gameplay automation, merge or release. Further content-policy consent is not missing; independent compiler acceptance and the listed integration/verification gates remain.
+
 ### PTU 05 Feature notes presentation (B1)
 
 - Show existing Feature `system.notes` separately on the overview under the translated Notes label. Display plain escaped text with preserved line breaks and wrapping; hide missing/empty notes. This read-only section adds no editor, updates, prerequisites, grants or gameplay decisions. HTML-like user notes appear literally.
