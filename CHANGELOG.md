@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 explicitly constructed read-only Feature review dialog
+
+- Present the accepted snapshot inspector's candidates, exact repeated identities, source/version/status labels, own-version advisory unmet/unknown diagnostics and every owned/incoming comparison. Keep completeness, uncertainty and practical world/permission/source limits visible.
+- Escape all supplied text and retain safe raw evidence. Close/Cancel/Escape/header close return no consent; repeated and reentrant dismissal closes once. No automatic opening, live acquisition hook, registry loading, permission verdict, application or prevention.
+- [Actual class/template tests, retained corrections, compatibility and manual limits](docs/validation/p05-feature-acquisition-review-dialog.md). No installation/activation/exposure/world/actor generation, merge or release.
+
 ### P05 pure Feature acquisition conflict inspection
 
 - Inspect every supplied incoming-versus-owned Feature and incoming pair using explicit registry/exact lookup and accepted preview evidence. Retain canonical/version distinctions, independent ranked/repeated identities, custom state and own-version advisory diagnostics.
