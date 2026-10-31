@@ -5,6 +5,51 @@ import {G_MEMBERSHIP, G_IMPLEMENTATION_PATHS, organizationalKind, organizational
 
 const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const textDigest = value => createHash('sha256').update(value).digest('hex');
+const G_NPC_IMPLEMENTATION_PATH = 'src/module/apps/npc-quick-build/document.js';
+// Independent pin for one validation-only transition, including the full archived
+// predecessor. The original G primitives/acceptance pins below remain unchanged.
+const G_IMPLEMENTATION_TRANSITION = '1b0e4a3ebe3c2ceaa25b6ce6b1355629f24b58b0a6948ed10662840ffe25e9eb';
+
+export function organizationalImplementationBindingErrors(code, current, transition) {
+    const errors = [], fail = (ok,message) => {if (!ok) errors.push(message);};
+    const path = code?.path;
+    const known = G_IMPLEMENTATION_PATHS.includes(path);
+    if (path !== G_NPC_IMPLEMENTATION_PATH) {
+        fail(known && typeof current === 'string' && textDigest(current) === code?.canonicalLfSha256 && code?.codeExecuted === false,
+            'G macro/interface implementation binding changed: ' + path);
+        if (typeof current === 'string') for (const part of code?.contexts ?? []) fail(current.split(/\n/).slice(part.startLine-1,part.endLine).join('\n') === part.rawText,
+            'G implementation context does not match exact saved lines: ' + path);
+        return errors;
+    }
+    fail(known && code.codeExecuted === false, 'G NPC frozen code-execution/identity boundary changed');
+    let pinned = false;
+    try {pinned = digest(transition) === G_IMPLEMENTATION_TRANSITION;} catch { /* Invalid data cannot authorize a transition. */ }
+    fail(pinned, 'G NPC implementation transition missing or independently pinned data changed');
+    if (!pinned) return errors;
+
+    const {predecessor,successor,excerpt} = transition;
+    const archive = predecessor.canonicalLfText;
+    fail(transition.path === path && code.canonicalLfSha256 === predecessor.canonicalLfSha256,
+        'G NPC frozen predecessor metadata binding changed');
+    fail(typeof archive === 'string' && !archive.includes('\r') && textDigest(archive) === predecessor.canonicalLfSha256,
+        'G NPC archived predecessor hash/canonical text changed');
+    const part = code.contexts?.[0];
+    const exactPart = Array.isArray(code.contexts) && code.contexts.length === 1 && typeof part?.rawText === 'string'
+        && part.startLine === excerpt.predecessor.startLine && part.endLine === excerpt.predecessor.endLine
+        && textDigest(part.rawText) === excerpt.canonicalLfSha256;
+    fail(exactPart, 'G NPC frozen excerpt metadata/text changed');
+    if (exactPart) {
+        fail(archive.split('\n').slice(part.startLine-1,part.endLine).join('\n') === part.rawText,
+            'G NPC archived predecessor does not preserve frozen excerpt');
+        if (typeof current === 'string') fail(current.split('\n').slice(excerpt.successor.startLine-1,excerpt.successor.endLine).join('\n') === part.rawText,
+            'G NPC relocated successor excerpt changed');
+    }
+    // Never substitute archived code for the actual live code. Only this exact
+    // successor is admitted; rollbacks and newly self-reported hashes fail closed.
+    fail(typeof current === 'string' && textDigest(current) === successor.canonicalLfSha256,
+        'G NPC successor implementation binding changed: ' + path);
+    return errors;
+}
 // These pins bind the independently read original/current/history evidence.
 const G_SOURCE_PRIMITIVES = 'ee5dd913b3345fe8623e9e47022c500ea70a8300d35c41b044ad3ea54e586d39';
 const G_DISPOSITIONS = '95c72c87baf74e670dbd7cc0e701c458aea6d1e811f3c4fc99fec2edd92a37ea';
@@ -118,10 +163,11 @@ export async function loadOrganizationalSourceReview(index) {
     const organizationalSource = JSON.parse(await readFile('docs/data/organizational-source-evidence-g.json', 'utf8'));
     const organizationalCode = {};
     for (const path of G_IMPLEMENTATION_PATHS) organizationalCode[path] = (await readFile(path, 'utf8')).replace(/\r\n/g, '\n');
+    const organizationalImplementationBindingTransition = JSON.parse(await readFile('docs/data/g-implementation-binding-transition.json','utf8'));
     const organizationalPriorHashes = {};
     // Fixed, reviewed paths only. Never follow arbitrary paths supplied by JSON.
     for (const path of Object.keys(G_PRIOR_DATA_PINS)) organizationalPriorHashes[path] = digest(JSON.parse(await readFile(path, 'utf8')));
-    return {organizationalSource, organizationalCode, organizationalPriorHashes};
+    return {organizationalSource, organizationalCode, organizationalPriorHashes, organizationalImplementationBindingTransition};
 }
 export function organizationalSourceFactErrors(facts) {
     const errors = [], require = (ok, message) => {if (!ok) errors.push(message);}, clean = cleanOrganizationalSource;
@@ -216,11 +262,7 @@ export function checkOrganizationalSourceReview(bundle, context) {
     fail(audit.parentContexts.length === 30 && audit.nativeContexts.length === 5 && audit.implementationContexts.length === 15, 'G source parent/context coverage changed');
     for (const p of audit.parentContexts) {fail(p.completePage && textHash(p.rawText) === p.rawTextSha256, 'G incomplete/stale whole original page: ' + p.id); citations(p);}
     for (const code of audit.implementationContexts) {
-        const current = bundle.organizationalCode[code.path];
-        fail(G_IMPLEMENTATION_PATHS.includes(code.path) && typeof current === 'string' && textHash(current) === code.canonicalLfSha256 && code.codeExecuted === false,
-            'G macro/interface implementation binding changed: ' + code.path);
-        if (typeof current === 'string') for (const part of code.contexts) fail(current.split(/\n/).slice(part.startLine - 1, part.endLine).join('\n') === part.rawText,
-            'G implementation context does not match exact saved lines: ' + code.path);
+        for (const error of organizationalImplementationBindingErrors(code,bundle.organizationalCode[code.path],bundle.organizationalImplementationBindingTransition)) fail(false,error);
     }
     const prior = new Map(Object.entries(bundle.files).filter(([p]) => Object.hasOwn(audit.priorPayloadPins, p)).flatMap(([file, data]) => data.records.map(row => [row.identity, {file,row}])));
     const kindCounts = {}, seen = new Set();

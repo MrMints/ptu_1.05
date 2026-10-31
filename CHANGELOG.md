@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 validation-only G historical binding repair
+
+- Archive and independently pin the exact6fc4bd55 NPC predecessor; verify its frozen G excerpt and the exact2e16908e successor hash/relocated excerpt without substituting archived text for live code. Preserve original G evidence/acceptance pins and strict bindings for all14 other implementation paths.
+- Retain CI41221389968 (2,164 pass/5 fail;26 new NPC cases pass; later packaging skipped). Add missing/tampering/rollback/unknown-successor rejection tests and loader separation checks. Runtime and every existing test stay unchanged.
+- [Validation, compatibility, retained evidence, limitations and references](docs/validation/p05-g-implementation-binding-reconciliation.md). No installation, activation, exposure, world access, actor generation, merge or release.
+
 ### PTU 05 opt-in NPC Feature versions
 
 - Add per-instance supplied-registry version/source labels and core-default/explicit optional Feature discovery. Preserve exact saved UUIDs, repeats, subchoices and advisory diagnostics through filtering, refresh and unavailable-source return.
