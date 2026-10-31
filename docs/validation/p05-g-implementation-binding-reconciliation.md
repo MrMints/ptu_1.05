@@ -55,3 +55,7 @@ Completion requires successful final documented-head Documentation/full tests/so
 ## Local closure
 
 The exact five CI failures pass5/5 unchanged; the separate new/whole-G/document/evidence run passes118/118. Syntax/P01/whitespace and300 local links across eight changed documents pass. All602 cumulative-report lines and58 NPC-report lines from2e16908e remain complete prefixes. Native UTF-8/LF comparison confirms every original G independent constant/pin unchanged. The exact11-path boundary excludes all runtime, original G evidence and existing tests. No CI outcome is claimed before final documented-head verification; the implementation revision and final local documentation check are bound below.
+
+## Implementation checkpoint
+
+Repair `de7a0cd3d3b2f64ae96ea8f4ecb3caeb734e503e` changes exactly the11 authorized paths from2e16908e. The separate33/33 new-unit,5/5 original failure and118/118 broader-G/document/evidence executions pass; the final affected documentation/evidence check passes20/20. Syntax/P01,300 links,602/58 complete historical prefixes, original G independent constants/pins and staged whitespace/scope pass. Runtime remains byte-identical to2e16908e. This documentation-only checkpoint binds the validation repair for final-head CI; exact head/run/jobs/artifact, clean agreement and RELEASE/STOP belong in the completion handoff after verification. Prior failed CI evidence remains intact; NPC substantive acceptance and all live/application/release gates remain outstanding.
