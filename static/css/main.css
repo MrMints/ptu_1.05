@@ -5459,6 +5459,11 @@ main.sheet-body
   display: flex;
   flex-direction: column;
 }
+/* Core Education names wrap between words within the existing skill columns. */
+.ptu.sheet.gen8 .skills .skill.key .resource-label {
+  word-break: normal;
+  overflow-wrap: normal;
+}
 .ptu.sheet.gen8 .swsh-box .swsh-header {
   padding: 2px 5px;
   background: #d3d3d1;

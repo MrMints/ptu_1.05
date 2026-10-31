@@ -1,0 +1,169 @@
+{
+  "commit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+  "run": {
+    "id": 40402062796,
+    "name": "PTU CI",
+    "status": "completed",
+    "conclusion": "success",
+    "run_number": 37,
+    "jobs_url": "https://api.github.com/repos/MrMints/ptu_1.05/actions/runs/40402062796/jobs",
+    "logs_url": "https://api.github.com/repos/MrMints/ptu_1.05/actions/runs/40402062796/logs",
+    "workflow_id": 395616427
+  },
+  "jobs": [
+    {
+      "id": 121850201834,
+      "name": "Validation",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40402062796,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run pnpm/action-setup@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run pnpm install --frozen-lockfile",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run pnpm test",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run pnpm validate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run pnpm packs:verify",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run pnpm build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18
+        },
+        {
+          "name": "Post Run pnpm/action-setup@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21
+        }
+      ]
+    },
+    {
+      "id": 121850202325,
+      "name": "Documentation",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40402062796,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run node tools/documentation.mjs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        }
+      ]
+    }
+  ],
+  "excerpt": [
+    "2026-10-26T21:12:17.2200806Z # tests 174",
+    "2026-10-26T21:12:17.2201025Z # pass 174",
+    "2026-10-26T21:12:17.2201136Z # fail 0",
+    "2026-10-26T21:12:18.2811547Z Validated manifest, 17 skill mappings, 15 packs and 7395 source documents. Gameplay verification is separate.",
+    "2026-10-26T21:12:45.5127759Z Built dist/system.zip (1108933243 bytes) and dist/system.json",
+    "2026-10-26T21:12:45.5128333Z Development candidate only: supported-content classification/package compatibility remains blocked; see content-scope-status.json."
+  ]
+}

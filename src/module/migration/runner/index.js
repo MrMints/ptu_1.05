@@ -26,30 +26,16 @@ class MigrationRunner extends MigrationRunnerBase {
      */
     static async ensureSchemaVersion(document, migrations) {
         if (migrations.length === 0) return;
-        const currentVersion = this.LATEST_SCHEMA_VERSION;
+        const currentVersion = Math.max(...migrations.map(migration => migration.version));
 
         if ((Number(document.schemaVersion) || 0) < currentVersion) {
             const runner = new this(migrations);
             const source = document._source;
-            const updated = await (async () => {
-                try {
-                    return "items" in source
-                        ? await runner.getUpdatedActor(source, migrations)
-                        : await runner.getUpdatedItem(source, migrations);
-                } catch {
-                    return null;
-                }
-            })();
-            if (updated) document.updateSource(updated);
-        }
-
-        document.updateSource({ "system.schema.version": currentVersion });
-        if ("items" in document && "prototypeToken" in document) {
-            for (const item of document.items) {
-                if (!item.schemaVersion) {
-                    item.updateSource({ "system.schema.version": currentVersion });
-                }
-            }
+            const updated = "items" in source
+                ? await runner.getUpdatedActor(source, migrations)
+                : await runner.getUpdatedItem(source, migrations);
+            // Only a completed transformation reaches updateSource. Failure leaves the original retryable.
+            document.updateSource(updated);
         }
     }
 
@@ -71,6 +57,7 @@ class MigrationRunner extends MigrationRunnerBase {
                     await DocumentClass.updateDocuments(updateGroup, { noHook: true, pack })
                 } catch (error) {
                     console.warn(error);
+                    throw error;
                 } finally {
                     updateGroup.length = 0;
                 }
@@ -86,6 +73,7 @@ class MigrationRunner extends MigrationRunnerBase {
                 await DocumentClass.updateDocuments(updateGroup, { noHook: true, pack })
             } catch (error) {
                 console.warn(error);
+                throw error;
             }
         }
     }
@@ -99,16 +87,7 @@ class MigrationRunner extends MigrationRunnerBase {
     async #migrateActor(migrations, actor, options = {}) {
         const { pack } = options;
         const baseActor = actor.toObject();
-        const updatedActor = await (async () => {
-            try {
-                return await this.getUpdatedActor(baseActor, migrations);
-            } catch (error) {
-                if (error instanceof Error)
-                    console.error(`Error thrown while migrating actor ${actor.uuid}`, error);
-                return null;
-            }
-        })();
-        if (!updatedActor) return null;
+        const updatedActor = await this.getUpdatedActor(baseActor, migrations);
 
         const baseItems = [...baseActor.items];
         const baseAEs = [...baseActor.effects];
@@ -122,6 +101,7 @@ class MigrationRunner extends MigrationRunnerBase {
                 await actor.deleteEmbeddedDocuments("Item", finalDeleted, { noHook: true, pack });
             } catch (error) {
                 console.warn(error);
+                throw error;
             }
         }
 
@@ -134,6 +114,7 @@ class MigrationRunner extends MigrationRunnerBase {
                 await actor.deleteEmbeddedDocuments("ActiveEffect", finalDeleted, { noHook: true, pack });
             } catch (error) {
                 console.warn(error);
+                throw error;
             }
         }
 
@@ -141,7 +122,8 @@ class MigrationRunner extends MigrationRunnerBase {
             try {
                 await actor.createEmbeddedDocuments("Item", itemDiff.inserted, { noHook: true, pack });
             } catch (error) {
-                console.warn(error)
+                console.warn(error);
+                throw error;
             }
         }
 
@@ -158,19 +140,7 @@ class MigrationRunner extends MigrationRunnerBase {
     async #migrateItem(migrations, item, options = {}) {
         const { pack } = options;
         const baseItem = item.toObject();
-        const updatedItem = await (() => {
-            try {
-                return this.getUpdatedItem(baseItem, migrations);
-            } catch (error) {
-                if (error instanceof Error) {
-                    console.error(`Error thrown while migrating ${item.uuid}: ${error.message}`);
-                }
-                return null;
-            }
-        })();
-        if (!updatedItem) return null;
-
-        return updatedItem;
+        return this.getUpdatedItem(baseItem, migrations);
     }
 
     /**
@@ -190,6 +160,7 @@ class MigrationRunner extends MigrationRunnerBase {
             }
         } catch (error) {
             console.warn(error);
+            throw error;
         }
     }
 
@@ -210,6 +181,7 @@ class MigrationRunner extends MigrationRunnerBase {
             }
         } catch (error) {
             console.warn(error);
+            throw error;
         }
     }
 
@@ -226,10 +198,11 @@ class MigrationRunner extends MigrationRunnerBase {
             const updatedMacro = await this.getUpdatedTable(table.toObject(), migrations);
             const changes = foundry.utils.diffObject(table.toObject(), updatedMacro);
             if (Object.keys(changes).length > 0) {
-                table.update(changes, { noHook: true });
+                await table.update(changes, { noHook: true });
             }
         } catch (error) {
             console.warn(error);
+            throw error;
         }
     }
 
@@ -251,12 +224,13 @@ class MigrationRunner extends MigrationRunnerBase {
                     await token.update(changes, { noHook: true });
                 } catch (error) {
                     console.warn(error);
+                    throw error;
                 }
             }
             return updatedToken;
         } catch (error) {
             console.error(error);
-            return null;
+            throw error;
         }
     }
 
@@ -278,6 +252,7 @@ class MigrationRunner extends MigrationRunnerBase {
             }
         } catch (error) {
             console.error(error);
+            throw error;
         }
     }
 
@@ -343,7 +318,9 @@ class MigrationRunner extends MigrationRunnerBase {
         // Then we should wait for the promises to complete before updating the tokens
         // because the unlinked tokens might not need to be updated anymore since they
         // base their data on global actors
-        await Promise.allSettled(promises);
+        const results = await Promise.allSettled(promises);
+        const failures = results.filter(result => result.status === 'rejected');
+        if (failures.length) throw new AggregateError(failures.map(result => result.reason), 'Migration phase failed; world schema was not advanced.');
 
         // Migrate tokens and synthetic actors
         for (const scene of game.scenes) {
@@ -368,6 +345,7 @@ class MigrationRunner extends MigrationRunnerBase {
                             await actor.update(updated);
                         } catch (error) {
                             console.warn(error);
+                            throw error;
                         }
                     }
                 }
@@ -407,15 +385,21 @@ class MigrationRunner extends MigrationRunnerBase {
         progress.phases = migrationPhases.length;
         progress.phase = 0;
         progress.advance(game.i18n.localize("PTU.Migrations.Progress.Starting"))
-        for (const migrationPhase of migrationPhases) {
-            if (migrationPhase.length > 0) {
-                await this.runMigrations(migrationPhase);
-                progress.phase++;
+        try {
+            for (const migrationPhase of migrationPhases) {
+                if (migrationPhase.length > 0) {
+                    await this.runMigrations(migrationPhase);
+                    progress.phase++;
+                }
             }
+            const completedVersion = migrationsToRun.at(-1)?.version ?? schemaVersion.current;
+            await game.settings.set("ptu", "worldSchemaVersion", Math.max(schemaVersion.current, completedVersion));
+            progress.close(game.i18n.localize("PTU.Migrations.Progress.Completed"));
+        } catch (error) {
+            progress.close('PTU migration failed');
+            ui.notifications.error('PTU | Migration failed. The world schema was not advanced. Preserve a backup and retry after resolving the error.', {permanent: true});
+            throw error;
         }
-        progress.close(game.i18n.localize("PTU.Migrations.Progress.Completed"));
-
-        await game.settings.set("ptu", "worldSchemaVersion", schemaVersion.latest);
     }
 }
 

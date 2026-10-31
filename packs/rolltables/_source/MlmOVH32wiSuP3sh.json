@@ -1,0 +1,2461 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Held Items",
+  "_id": "MlmOVH32wiSuP3sh",
+  "img": "systems/ptu/static/images/item_icons/everstone.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "Big Root",
+      "documentId": "r4rwvUJUY2du3S8z",
+      "img": "systems/ptu/images/item_icons/big root.webp",
+      "_id": "MhVHzGF0GXIwYzHi",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.MhVHzGF0GXIwYzHi"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "Bright Powder",
+      "documentId": "KgQZKNtaNmbRMcPU",
+      "img": "systems/ptu/images/item_icons/bright powder.webp",
+      "_id": "4kFhPQMQFN9eXu2r",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.4kFhPQMQFN9eXu2r"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "Choice Item (Attack)",
+      "documentId": "CzJSxeDYXvnhfFkx",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "7ysiop8kFaujAevA",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.7ysiop8kFaujAevA"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "Choice Item (Defense)",
+      "documentId": "s46HvEzBki5TcUzA",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "bv3hDvfwzRCJphvV",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bv3hDvfwzRCJphvV"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "Choice Item (Special Attack)",
+      "documentId": "wafuE8qF3RAV3Yz3",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "xWyvm7qKNPCy0rvz",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.xWyvm7qKNPCy0rvz"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Choice Item (Special Defense)",
+      "documentId": "M5VpqJiN8xMVbtLJ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "fiJWriDZfqZwoiaS",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.fiJWriDZfqZwoiaS"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "text": "Choice Item (Speed)",
+      "documentId": "38asf67PH58NVyuF",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "ot3evaUGpRCTsowK",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ot3evaUGpRCTsowK"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "text": "Everstone",
+      "documentId": "n5ArIkJgbJbFIslt",
+      "img": "systems/ptu/images/item_icons/everstone.webp",
+      "_id": "sNYmEC0FyMlb3PBY",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.sNYmEC0FyMlb3PBY"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "text": "Eviolite",
+      "documentId": "NyQoentFRsblfiD9",
+      "img": "systems/ptu/images/item_icons/eviolite.webp",
+      "_id": "OgFj9qn10nnkjdYb",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.OgFj9qn10nnkjdYb"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "text": "Expert Belt",
+      "documentId": "Gc6Lnb3hEOJk9kJU",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "5jDFUMqP19O7t9aR",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.5jDFUMqP19O7t9aR"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "text": "Flame Orb",
+      "documentId": "1DxTrZruoXl3hp7u",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "AIyYGfTeKp87O2WH",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.AIyYGfTeKp87O2WH"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "text": "Focus Band",
+      "documentId": "VjGpohZK9IALAGDo",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "aNDMs13gltLY8lOT",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.aNDMs13gltLY8lOT"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "text": "Full Incense",
+      "documentId": "YUMXPQyow8nKJcrE",
+      "img": "systems/ptu/images/item_icons/full incense.webp",
+      "_id": "SfVyq9RndOvyrgrk",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.SfVyq9RndOvyrgrk"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "text": "Go-Goggles",
+      "documentId": "C6vdPKqbeDX56Zxu",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "b45T5GCgZWYujgkn",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.b45T5GCgZWYujgkn"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "text": "Iron Ball",
+      "documentId": "ewGvyFGcqKkMAOS3",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "BgyGoWEjTPG0bwAZ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BgyGoWEjTPG0bwAZ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "text": "King's Rock",
+      "documentId": "RCS7oBuPsdRIZg8v",
+      "img": "systems/ptu/images/item_icons/king's rock.webp",
+      "_id": "1yCEsDYXCnCwldmP",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.1yCEsDYXCnCwldmP"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "text": "Lax Incense",
+      "documentId": "QTGHP70R6HB5w6YL",
+      "img": "systems/ptu/images/item_icons/lax incense.webp",
+      "_id": "b04VRCxJU6Uj5HmN",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.b04VRCxJU6Uj5HmN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "text": "Lagging Item (Attack)",
+      "documentId": "d01M2Fn0y8aFRgmh",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "IfyZREJagwcrVYx0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.IfyZREJagwcrVYx0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "text": "Lagging Item (Defense)",
+      "documentId": "H3XYevTsg8ncK3uR",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "jQbyp4GMT8T5ONLc",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.jQbyp4GMT8T5ONLc"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "text": "Lagging Item (Special Attack)",
+      "documentId": "8eTruKE1F5PaaRnC",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "BuyopuCuPkRIZTlm",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BuyopuCuPkRIZTlm"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        21,
+        21
+      ],
+      "drawn": false,
+      "text": "Lagging Item (Special Defense)",
+      "documentId": "W6oLFQAou0Jm5vo5",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "oHHH8Rm4fYiTxxNB",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.oHHH8Rm4fYiTxxNB"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        22,
+        22
+      ],
+      "drawn": false,
+      "text": "Lagging Item (Speed)",
+      "documentId": "ClzbqVv5wrS6omDC",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "NS33Pyg6HPySbD9w",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.NS33Pyg6HPySbD9w"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        23,
+        23
+      ],
+      "drawn": false,
+      "text": "Life Orb",
+      "documentId": "A8hStJyOxe9cQUDW",
+      "img": "systems/ptu/images/item_icons/life orb.webp",
+      "_id": "H5kSXvlMG7Av1eTh",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.H5kSXvlMG7Av1eTh"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "text": "Luck Incense",
+      "documentId": "ckQ8TcdPzRlOZq2O",
+      "img": "systems/ptu/images/item_icons/luck incense.webp",
+      "_id": "UevqodXNf0VCnQYN",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.UevqodXNf0VCnQYN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "text": "Razor Claw",
+      "documentId": "DnWPPBYKgwKyovxF",
+      "img": "systems/ptu/images/item_icons/razor claw.webp",
+      "_id": "KoZ5ltzLZxI0mmA2",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.KoZ5ltzLZxI0mmA2"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        26,
+        26
+      ],
+      "drawn": false,
+      "text": "Razor Fang",
+      "documentId": "hbGc2GjLDt4UuAoy",
+      "img": "systems/ptu/images/item_icons/razor fang.webp",
+      "_id": "RvXclaXeFUJCGgYM",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.RvXclaXeFUJCGgYM"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        27,
+        27
+      ],
+      "drawn": false,
+      "text": "Safety Goggles",
+      "documentId": "KCMw8tlwHQ2uqS0C",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "r6MeR71hvYdg94mt",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.r6MeR71hvYdg94mt"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        28,
+        28
+      ],
+      "drawn": false,
+      "text": "Shell Bell",
+      "documentId": "REwUCdGpH2Wkv1FZ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "twrgrm3pjeguIHtV",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.twrgrm3pjeguIHtV"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        29,
+        29
+      ],
+      "drawn": false,
+      "text": "Shock Collar",
+      "documentId": "Kuh2OOUFmXKFExco",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "5fTZAyoHX81dv4Jc",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.5fTZAyoHX81dv4Jc"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        30,
+        30
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Attack)",
+      "documentId": "TtFeGaUNOIiGVfeZ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "X5SBga1U3mXjttSn",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.X5SBga1U3mXjttSn"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Defense)",
+      "documentId": "6Y6uXVYGD3BSWCBx",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Ted51TLjkjQ5frhe",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Ted51TLjkjQ5frhe"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        32,
+        32
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Evasion)",
+      "documentId": "tBTtUE0klWedbaPz",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "2RuV1XkuZQjHrK5o",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.2RuV1XkuZQjHrK5o"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        33,
+        33
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Special Attack)",
+      "documentId": "DtM0bts4Ckwi2uS7",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "BaIurx7VVy8PZaQZ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BaIurx7VVy8PZaQZ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        34,
+        34
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Special Defense)",
+      "documentId": "y2YpdrPUzgxy7H4b",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "KBS4fLyye5eG00au",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.KBS4fLyye5eG00au"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        35,
+        35
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Speed)",
+      "documentId": "Fcmg6RWfjalodUIY",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "0Pb794sFq0aQHUcA",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.0Pb794sFq0aQHUcA"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        36,
+        36
+      ],
+      "drawn": false,
+      "text": "Stat Booster (Accuracy)",
+      "documentId": "wsuHUbTNhm6b5NmU",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "THPezVscjxr1irhS",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.THPezVscjxr1irhS"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        37,
+        37
+      ],
+      "drawn": false,
+      "text": "Toxic Orb",
+      "documentId": "VMNoBXqSokNQCLow",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "YccqyZqbXSqIKlco",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.YccqyZqbXSqIKlco"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        38,
+        38
+      ],
+      "drawn": false,
+      "text": "Type Booster (Bug)",
+      "documentId": "0ulroEjEHZ2XYmGp",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "usXEMmcCMat2ZRzH",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.usXEMmcCMat2ZRzH"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        39,
+        39
+      ],
+      "drawn": false,
+      "text": "Type Booster (Dark)",
+      "documentId": "LRHnUBR0WSzLXK9z",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "AvDNtGHJTc4AsBJB",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.AvDNtGHJTc4AsBJB"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        40,
+        40
+      ],
+      "drawn": false,
+      "text": "Type Booster (Electric)",
+      "documentId": "oxTq82jdK9Ixqtry",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "ciw6vyrXUL453CPP",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ciw6vyrXUL453CPP"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        41,
+        41
+      ],
+      "drawn": false,
+      "text": "Type Booster (Fairy)",
+      "documentId": "dxL6ymJeJXsAu04Z",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "XLwFX3J3HC1FN35x",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.XLwFX3J3HC1FN35x"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        42,
+        42
+      ],
+      "drawn": false,
+      "text": "Type Booster (Fighting)",
+      "documentId": "yKuIGuw3Vapbx3xB",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "ehHDM9kfknhhvrPg",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ehHDM9kfknhhvrPg"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        43,
+        43
+      ],
+      "drawn": false,
+      "text": "Type Booster (Fire)",
+      "documentId": "7HztYEE7arwtw7Av",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "O4ak6Apm7MVXZ6n0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.O4ak6Apm7MVXZ6n0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        44,
+        44
+      ],
+      "drawn": false,
+      "text": "Type Booster (Flying)",
+      "documentId": "dOWdIeL7qicLYlpO",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "dIuatFkfKCEh6OgU",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.dIuatFkfKCEh6OgU"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        45,
+        45
+      ],
+      "drawn": false,
+      "text": "Type Booster (Grass)",
+      "documentId": "6JjgFm4QCAPj04Mp",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "x6UzVjY96h4ZkOlD",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.x6UzVjY96h4ZkOlD"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        46,
+        46
+      ],
+      "drawn": false,
+      "text": "Type Booster (Ground)",
+      "documentId": "921EgFwh8DqoBB2B",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "gYhYn1IWdEPfSUXa",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.gYhYn1IWdEPfSUXa"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        47,
+        47
+      ],
+      "drawn": false,
+      "text": "Type Booster (Ice)",
+      "documentId": "FTJExsiK9w7h1MHx",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "PDBF2XaAMRNJKUcR",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.PDBF2XaAMRNJKUcR"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        48,
+        48
+      ],
+      "drawn": false,
+      "text": "Type Booster (Normal)",
+      "documentId": "nVLb2lA3ESvKNPT4",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Bqr8qrCpN0VHW6T3",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Bqr8qrCpN0VHW6T3"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        49,
+        49
+      ],
+      "drawn": false,
+      "text": "Type Booster (Psychic)",
+      "documentId": "H1YMvnd4rb0b8PfX",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "5104jjGmGiIJYdOD",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.5104jjGmGiIJYdOD"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        50,
+        50
+      ],
+      "drawn": false,
+      "text": "Type Booster (Water)",
+      "documentId": "1nt6nFdKvhNnR8ko",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "qMUxLnpTcj9X4asu",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.qMUxLnpTcj9X4asu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        51,
+        51
+      ],
+      "drawn": false,
+      "text": "Winter Cloak",
+      "documentId": "ncGFgpY3Z41OtK7D",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "sOkdYLw80AtGiC9t",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.sOkdYLw80AtGiC9t"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        52,
+        52
+      ],
+      "drawn": false,
+      "text": "Type Gem (Dark)",
+      "documentId": "h4JLsrQelghu58py",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "khpw7icUuSb9QvR0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.khpw7icUuSb9QvR0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        53,
+        53
+      ],
+      "drawn": false,
+      "text": "Type Gem (Dragon)",
+      "documentId": "fgzxjMH6DwFqHFzm",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Onc8v8tPWvuJfSav",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Onc8v8tPWvuJfSav"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        54,
+        54
+      ],
+      "drawn": false,
+      "text": "Type Gem (Electric)",
+      "documentId": "JpNk6Fhh0PCaQAIc",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "uW1YemTUSpxrvA6z",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.uW1YemTUSpxrvA6z"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        55,
+        55
+      ],
+      "drawn": false,
+      "text": "Type Gem (Fairy)",
+      "documentId": "lMZf2FNGOyi4jtL6",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "P4dJIDHXxepg9uMQ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.P4dJIDHXxepg9uMQ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        56,
+        56
+      ],
+      "drawn": false,
+      "text": "Type Gem (Fighting)",
+      "documentId": "VpZNJRtSYLuUN1D0",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "eiUcdL1Btpaa1oUC",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.eiUcdL1Btpaa1oUC"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        57,
+        57
+      ],
+      "drawn": false,
+      "text": "Type Gem (Fire)",
+      "documentId": "r8Sq0WxSb79u7bIj",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "rDsqqOrN8fOY8IXP",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.rDsqqOrN8fOY8IXP"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        58,
+        58
+      ],
+      "drawn": false,
+      "text": "Type Gem (Flying)",
+      "documentId": "M0sty4HL1FSWurbY",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "bC0AAIbMvXPRHHgA",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bC0AAIbMvXPRHHgA"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        59,
+        59
+      ],
+      "drawn": false,
+      "text": "Type Gem (Ghost)",
+      "documentId": "t1NLLJ9fCg7CtfMD",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "8k4rH4qs8d9FtD7A",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.8k4rH4qs8d9FtD7A"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        60,
+        60
+      ],
+      "drawn": false,
+      "text": "Type Gem (Grass)",
+      "documentId": "nFCHpdID9RUTfWUS",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "PpLFjLSguZKPkqGN",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.PpLFjLSguZKPkqGN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        61,
+        61
+      ],
+      "drawn": false,
+      "text": "Type Gem (Ground)",
+      "documentId": "1jb5jRkNwIoBNw1K",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "MetdK2WokB9LjUTR",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.MetdK2WokB9LjUTR"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        62,
+        62
+      ],
+      "drawn": false,
+      "text": "Type Gem (Ice)",
+      "documentId": "GdgUpMsnezHITpDY",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "3nPeJQlRUgabYk1M",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.3nPeJQlRUgabYk1M"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        63,
+        63
+      ],
+      "drawn": false,
+      "text": "Type Gem (Normal)",
+      "documentId": "I59uGFyp6NQtbHSR",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Z8wju752inC2RBlg",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Z8wju752inC2RBlg"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        64,
+        64
+      ],
+      "drawn": false,
+      "text": "Type Gem (Poison)",
+      "documentId": "2ATwCwaqgiRPmWNi",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "1mF5EZNVlJdk3IOc",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.1mF5EZNVlJdk3IOc"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        65,
+        65
+      ],
+      "drawn": false,
+      "text": "Type Gem (Psychic)",
+      "documentId": "cuzimR3rxo0QroYS",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "wJEqmFUIgShXN6r4",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.wJEqmFUIgShXN6r4"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        66,
+        66
+      ],
+      "drawn": false,
+      "text": "Type Gem (Rock)",
+      "documentId": "ueK0GHs4MmQRFQKJ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "X1aSB17CJkOcohM0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.X1aSB17CJkOcohM0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        67,
+        67
+      ],
+      "drawn": false,
+      "text": "Type Gem (Steel)",
+      "documentId": "ePvT9J3O6Ue2jhtI",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "nbISayHe4Ls4uhGS",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.nbISayHe4Ls4uhGS"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        68,
+        68
+      ],
+      "drawn": false,
+      "text": "Type Gem (Water)",
+      "documentId": "RyS9s5IirH9asDZT",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "McHo4YExapD57Xtl",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.McHo4YExapD57Xtl"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        69,
+        69
+      ],
+      "drawn": false,
+      "text": "Type Plate (Bug)",
+      "documentId": "F1hIRiQsbIJwLhgV",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "i6QgBLno2xi2L3DZ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.i6QgBLno2xi2L3DZ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        70,
+        70
+      ],
+      "drawn": false,
+      "text": "Type Plate (Dark)",
+      "documentId": "aGDQTi7VCWAGUI4T",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "E00Zy59D0ewmB7gX",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.E00Zy59D0ewmB7gX"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        71,
+        71
+      ],
+      "drawn": false,
+      "text": "Type Plate (Dragon)",
+      "documentId": "PdEgCjU5VJK7N5Ge",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "BOuDo8vUaB4xA3st",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BOuDo8vUaB4xA3st"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        72,
+        72
+      ],
+      "drawn": false,
+      "text": "Type Plate (Electric)",
+      "documentId": "vI3EJBLUJl3dBlX5",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Q1kayKPRZxUXL0d7",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Q1kayKPRZxUXL0d7"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        73,
+        73
+      ],
+      "drawn": false,
+      "text": "Type Plate (Fairy)",
+      "documentId": "GOyoG2pRMuWN6aqg",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "DIKBRDgC7r1K1yod",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.DIKBRDgC7r1K1yod"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        74,
+        74
+      ],
+      "drawn": false,
+      "text": "Type Plate (Fighting)",
+      "documentId": "olwHAQSfEcyq29CI",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "y0gAbsYTk3RgWNYR",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.y0gAbsYTk3RgWNYR"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        75,
+        75
+      ],
+      "drawn": false,
+      "text": "Type Plate (Fire)",
+      "documentId": "tTx2mK1ETV58YKcz",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "7oaRlNfR1SUJ5Nvi",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.7oaRlNfR1SUJ5Nvi"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        76,
+        76
+      ],
+      "drawn": false,
+      "text": "Type Plate (Flying)",
+      "documentId": "82LB5LHzs54bx6Ra",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "DbMzjiLxwVSP8Al2",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.DbMzjiLxwVSP8Al2"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        77,
+        77
+      ],
+      "drawn": false,
+      "text": "Type Plate (Ghost)",
+      "documentId": "dvLSj0jYnKMr4z5t",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "7XrteUGGT6mZNtEY",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.7XrteUGGT6mZNtEY"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        78,
+        78
+      ],
+      "drawn": false,
+      "text": "Type Plate (Grass)",
+      "documentId": "TAA6d7foE5HY69GT",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "4Ib3ufILBRVvlxHu",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.4Ib3ufILBRVvlxHu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        79,
+        79
+      ],
+      "drawn": false,
+      "text": "Type Plate (Ground)",
+      "documentId": "XorM8HHEY9Uj2qk1",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "XPkSMxjRgdpnHxE5",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.XPkSMxjRgdpnHxE5"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        80,
+        80
+      ],
+      "drawn": false,
+      "text": "Type Plate (Ice)",
+      "documentId": "RMOL9Ypv28aPytNu",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "TK9xD0JSwWwd9ITj",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.TK9xD0JSwWwd9ITj"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        81,
+        81
+      ],
+      "drawn": false,
+      "text": "Type Plate (Normal)",
+      "documentId": "91Ep8OIG02zZ4kNc",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "SVRgw8EjdEyGlwQI",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.SVRgw8EjdEyGlwQI"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        82,
+        82
+      ],
+      "drawn": false,
+      "text": "Type Plate (Poison)",
+      "documentId": "xAZjeQqDsiep3ZTB",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "D7qBVBSBn7Pssnq6",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.D7qBVBSBn7Pssnq6"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        83,
+        83
+      ],
+      "drawn": false,
+      "text": "Type Plate (Psychic)",
+      "documentId": "IzbykjkDPBIj9zU8",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "VesyldsggxQjdF3o",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VesyldsggxQjdF3o"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        84,
+        84
+      ],
+      "drawn": false,
+      "text": "Type Plate (Rock)",
+      "documentId": "LaksxDLvuSX517LO",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "pjtOYpSjTDmA5xw3",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.pjtOYpSjTDmA5xw3"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        85,
+        85
+      ],
+      "drawn": false,
+      "text": "Type Plate (Steel)",
+      "documentId": "9ZKe1BrRyGAwxgWz",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "ykDAOPq2NGw7AmGw",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ykDAOPq2NGw7AmGw"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        86,
+        86
+      ],
+      "drawn": false,
+      "text": "Type Plate (Water)",
+      "documentId": "aeMvdi1I1X1mZS0p",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "D2WaeKYgrk1aEWsp",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.D2WaeKYgrk1aEWsp"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        87,
+        87
+      ],
+      "drawn": false,
+      "text": "Abomasite",
+      "documentId": "mW2X5SwuK5PnW44e",
+      "img": "systems/ptu/images/item_icons/abomasite.webp",
+      "_id": "VkQfiRdvs8FoPaa2",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VkQfiRdvs8FoPaa2"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        88,
+        88
+      ],
+      "drawn": false,
+      "text": "Absolite",
+      "documentId": "tYxmWuOCmQSlNYei",
+      "img": "systems/ptu/images/item_icons/absolite.webp",
+      "_id": "l7gthVpTABG6YC96",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.l7gthVpTABG6YC96"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        89,
+        89
+      ],
+      "drawn": false,
+      "text": "Aerodactylite",
+      "documentId": "yqxvL6rVTnPk5RT3",
+      "img": "systems/ptu/images/item_icons/aerodactylite.webp",
+      "_id": "bjJlgiNCmVrLQA4g",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bjJlgiNCmVrLQA4g"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        90,
+        90
+      ],
+      "drawn": false,
+      "text": "Aggronite",
+      "documentId": "076lO1W2x9ayAcy3",
+      "img": "systems/ptu/images/item_icons/aggronite.webp",
+      "_id": "bAa8ayWCrcWZiw90",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bAa8ayWCrcWZiw90"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        91,
+        91
+      ],
+      "drawn": false,
+      "text": "Alakazite",
+      "documentId": "98ocbDau2tbur2lQ",
+      "img": "systems/ptu/images/item_icons/alakazite.webp",
+      "_id": "005ic78D5nZ2E0AE",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.005ic78D5nZ2E0AE"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        92,
+        92
+      ],
+      "drawn": false,
+      "text": "Altarianite",
+      "documentId": "mrd8S0HlkJ3cwGhO",
+      "img": "systems/ptu/images/item_icons/altarianite.webp",
+      "_id": "OA0s1ZRubEZCcczK",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.OA0s1ZRubEZCcczK"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        93,
+        93
+      ],
+      "drawn": false,
+      "text": "Ampharosite",
+      "documentId": "syf6Wq0o3VVkRpzZ",
+      "img": "systems/ptu/images/item_icons/ampharosite.webp",
+      "_id": "Ef7ULMDjhYyMT8Cq",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Ef7ULMDjhYyMT8Cq"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        94,
+        94
+      ],
+      "drawn": false,
+      "text": "Audinite",
+      "documentId": "TAA8nDoMNZkmc07s",
+      "img": "systems/ptu/images/item_icons/audinite.webp",
+      "_id": "lMQ2iyNJCrGnYM35",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.lMQ2iyNJCrGnYM35"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        95,
+        95
+      ],
+      "drawn": false,
+      "text": "Banettite",
+      "documentId": "HJvFzYdF88qgeMX1",
+      "img": "systems/ptu/images/item_icons/banettite.webp",
+      "_id": "y7LXrsbDX8rs5NZ7",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.y7LXrsbDX8rs5NZ7"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        96,
+        96
+      ],
+      "drawn": false,
+      "text": "Beedrillite",
+      "documentId": "ZyknmTDTN8alShsU",
+      "img": "systems/ptu/images/item_icons/beedrillite.webp",
+      "_id": "j1Y7o2OjGPXcJywE",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.j1Y7o2OjGPXcJywE"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        97,
+        97
+      ],
+      "drawn": false,
+      "text": "Blastoisinite",
+      "documentId": "DgodqaBa9oT9SJWJ",
+      "img": "systems/ptu/images/item_icons/blastoisinite.webp",
+      "_id": "gBRr4yMwapFrJsxK",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.gBRr4yMwapFrJsxK"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        98,
+        98
+      ],
+      "drawn": false,
+      "text": "Blazikenite",
+      "documentId": "SqrbF5mY4uWyYvHM",
+      "img": "systems/ptu/images/item_icons/blazikenite.webp",
+      "_id": "b9efQa7Oebrq2YNO",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.b9efQa7Oebrq2YNO"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        99,
+        99
+      ],
+      "drawn": false,
+      "text": "Cameruptite",
+      "documentId": "UKWP3ILEZDqbzzBX",
+      "img": "systems/ptu/images/item_icons/cameruptite.webp",
+      "_id": "vsdDDS0juiJUsrRM",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.vsdDDS0juiJUsrRM"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        100,
+        100
+      ],
+      "drawn": false,
+      "text": "Charizardite X",
+      "documentId": "3XVVqL9cr9BjFcMc",
+      "img": "systems/ptu/images/item_icons/charizardite x.webp",
+      "_id": "sffiEv84jQZKfrr0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.sffiEv84jQZKfrr0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        101,
+        101
+      ],
+      "drawn": false,
+      "text": "Charizardite Y",
+      "documentId": "AoEx1Ryc4llbDiD3",
+      "img": "systems/ptu/images/item_icons/charizardite y.webp",
+      "_id": "VyCXKYwNcgmTtFU0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VyCXKYwNcgmTtFU0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        102,
+        102
+      ],
+      "drawn": false,
+      "text": "Diancite",
+      "documentId": "usOlyP5ok7qCo6GT",
+      "img": "systems/ptu/images/item_icons/diancite.webp",
+      "_id": "wNduvkApvpra48zJ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.wNduvkApvpra48zJ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        103,
+        103
+      ],
+      "drawn": false,
+      "text": "Galladite",
+      "documentId": "iuQu5lmvlwvEUzmH",
+      "img": "systems/ptu/images/item_icons/galladite.webp",
+      "_id": "i2hPsl5yeWki8t3e",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.i2hPsl5yeWki8t3e"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        104,
+        104
+      ],
+      "drawn": false,
+      "text": "Garchompite",
+      "documentId": "h4c0vMQUO3dFgsdc",
+      "img": "systems/ptu/images/item_icons/garchompite.webp",
+      "_id": "VtVcS4IsgOn8tpdF",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VtVcS4IsgOn8tpdF"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        105,
+        105
+      ],
+      "drawn": false,
+      "text": "Gardevoirite",
+      "documentId": "lenOAEawRWO3Ecnc",
+      "img": "systems/ptu/images/item_icons/gardevoirite.webp",
+      "_id": "KfTNaEtkiDfoierV",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.KfTNaEtkiDfoierV"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        106,
+        106
+      ],
+      "drawn": false,
+      "text": "Gengarite",
+      "documentId": "h1hwO2dL6De4FXbq",
+      "img": "systems/ptu/images/item_icons/gengarite.webp",
+      "_id": "VCJMKpQ481cQjzHm",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VCJMKpQ481cQjzHm"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        107,
+        107
+      ],
+      "drawn": false,
+      "text": "Glalitite",
+      "documentId": "YVmTY4Uv4yqJjvsZ",
+      "img": "systems/ptu/images/item_icons/glalitite.webp",
+      "_id": "bnwmnmHKXHsx3P9b",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bnwmnmHKXHsx3P9b"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        108,
+        108
+      ],
+      "drawn": false,
+      "text": "Gyaradosite",
+      "documentId": "CVktJ7U1gSAZIto7",
+      "img": "systems/ptu/images/item_icons/gyaradosite.webp",
+      "_id": "pFbkS4NkFqjiEhcl",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.pFbkS4NkFqjiEhcl"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        109,
+        109
+      ],
+      "drawn": false,
+      "text": "Heracronite",
+      "documentId": "nOt4f6WezIuF2qEB",
+      "img": "systems/ptu/images/item_icons/heracronite.webp",
+      "_id": "vIOdFh7WjUKtxfGX",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.vIOdFh7WjUKtxfGX"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        110,
+        110
+      ],
+      "drawn": false,
+      "text": "Houndoominite",
+      "documentId": "9G8b8LDn1Sq4COgJ",
+      "img": "systems/ptu/images/item_icons/houndoominite.webp",
+      "_id": "tIiLaata5tHv0wG0",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.tIiLaata5tHv0wG0"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        111,
+        111
+      ],
+      "drawn": false,
+      "text": "Kangaskhanite",
+      "documentId": "n6wVTLRcmT56JqcE",
+      "img": "systems/ptu/images/item_icons/kangaskhanite.webp",
+      "_id": "F6BWK2l53aZgLSGE",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.F6BWK2l53aZgLSGE"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        112,
+        112
+      ],
+      "drawn": false,
+      "text": "Latiasite",
+      "documentId": "50oppn6s7DqVi98x",
+      "img": "systems/ptu/images/item_icons/latiasite.webp",
+      "_id": "fVfbonqmNTip6m01",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.fVfbonqmNTip6m01"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        113,
+        113
+      ],
+      "drawn": false,
+      "text": "Latiosite",
+      "documentId": "Eb8mMJjJwp00VDoM",
+      "img": "systems/ptu/images/item_icons/latiosite.webp",
+      "_id": "tcporhi9RPXhZitI",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.tcporhi9RPXhZitI"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        114,
+        114
+      ],
+      "drawn": false,
+      "text": "Lopunnite",
+      "documentId": "hA5baPqiCK7bxK7T",
+      "img": "systems/ptu/images/item_icons/lopunnite.webp",
+      "_id": "VmcRqYhSlSZUfoBY",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.VmcRqYhSlSZUfoBY"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        115,
+        115
+      ],
+      "drawn": false,
+      "text": "Lucarionite",
+      "documentId": "3UV9MdxS80ICqHWA",
+      "img": "systems/ptu/images/item_icons/lucarionite.webp",
+      "_id": "yL8KMfMFghaWwrcK",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.yL8KMfMFghaWwrcK"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        116,
+        116
+      ],
+      "drawn": false,
+      "text": "Manectite",
+      "documentId": "MAREVw0cStRXSGzp",
+      "img": "systems/ptu/images/item_icons/manectite.webp",
+      "_id": "bznFB50psFhCo3vc",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.bznFB50psFhCo3vc"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        117,
+        117
+      ],
+      "drawn": false,
+      "text": "Mawilite",
+      "documentId": "QZKJYz6gRcAeCk7z",
+      "img": "systems/ptu/images/item_icons/mawilite.webp",
+      "_id": "QDmm35363rOEfw4F",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.QDmm35363rOEfw4F"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        118,
+        118
+      ],
+      "drawn": false,
+      "text": "Medichamite",
+      "documentId": "ZYMiAb3xxksUMvLu",
+      "img": "systems/ptu/images/item_icons/medichamite.webp",
+      "_id": "oLObtzH947RhTgjJ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.oLObtzH947RhTgjJ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        119,
+        119
+      ],
+      "drawn": false,
+      "text": "Metagrossite",
+      "documentId": "CIcm82paoOjnMVqk",
+      "img": "systems/ptu/images/item_icons/metagrossite.webp",
+      "_id": "b7JTImu8QXN3Lnbt",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.b7JTImu8QXN3Lnbt"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        120,
+        120
+      ],
+      "drawn": false,
+      "text": "Mewtwonite X",
+      "documentId": "M7dXvihLQAJxBZtu",
+      "img": "systems/ptu/images/item_icons/mewtwonite x.webp",
+      "_id": "9ydfBUhU0Ue3vdBN",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.9ydfBUhU0Ue3vdBN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        121,
+        121
+      ],
+      "drawn": false,
+      "text": "Mewtwonite Y",
+      "documentId": "TiN5nbfwZNHBKv31",
+      "img": "systems/ptu/images/item_icons/mewtwonite y.webp",
+      "_id": "BB3N45r4mIbZGTJ4",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BB3N45r4mIbZGTJ4"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        122,
+        122
+      ],
+      "drawn": false,
+      "text": "Pidgeotite",
+      "documentId": "JbBaAO3Yhz5ktBTe",
+      "img": "systems/ptu/images/item_icons/pidgeotite.webp",
+      "_id": "XeMJAjbgrvp1e7yY",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.XeMJAjbgrvp1e7yY"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        123,
+        123
+      ],
+      "drawn": false,
+      "text": "Pinsirite",
+      "documentId": "jxf7UvOyR07aLkcb",
+      "img": "systems/ptu/images/item_icons/pinsirite.webp",
+      "_id": "5NQK8UeUH6cb81A8",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.5NQK8UeUH6cb81A8"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        124,
+        124
+      ],
+      "drawn": false,
+      "text": "Sablenite",
+      "documentId": "vS86xGQfwLpNm2mA",
+      "img": "systems/ptu/images/item_icons/sablenite.webp",
+      "_id": "r8nJBikIQeMEkdGk",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.r8nJBikIQeMEkdGk"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        125,
+        125
+      ],
+      "drawn": false,
+      "text": "Salamencite",
+      "documentId": "HQLgcNIEDNEOTLL5",
+      "img": "systems/ptu/images/item_icons/salamencite.webp",
+      "_id": "XrEm9rbigY66n3kE",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.XrEm9rbigY66n3kE"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        126,
+        126
+      ],
+      "drawn": false,
+      "text": "Sceptilite",
+      "documentId": "cPlaPtJTPpNjarMX",
+      "img": "systems/ptu/images/item_icons/sceptilite.webp",
+      "_id": "vdVqVNa5HOeWGuJB",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.vdVqVNa5HOeWGuJB"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        127,
+        127
+      ],
+      "drawn": false,
+      "text": "Scizorite",
+      "documentId": "i9x1ss0Rn55g9tct",
+      "img": "systems/ptu/images/item_icons/scizorite.webp",
+      "_id": "oAhNEB5vCjQ6Q0GB",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.oAhNEB5vCjQ6Q0GB"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        128,
+        128
+      ],
+      "drawn": false,
+      "text": "Sharpedonite",
+      "documentId": "9P2AC6aZFiCsFnHO",
+      "img": "systems/ptu/images/item_icons/sharpedonite.webp",
+      "_id": "P2JLUEEhvVHDllJM",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.P2JLUEEhvVHDllJM"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        129,
+        129
+      ],
+      "drawn": false,
+      "text": "Slowbronite",
+      "documentId": "8bbAlsJqCCWtl8c9",
+      "img": "systems/ptu/images/item_icons/slowbronite.webp",
+      "_id": "rjyDlfs3BKTa6qsu",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.rjyDlfs3BKTa6qsu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        130,
+        130
+      ],
+      "drawn": false,
+      "text": "Steelixite",
+      "documentId": "AMoeXNTrhvBCrQ83",
+      "img": "systems/ptu/images/item_icons/steelixite.webp",
+      "_id": "2j9MKOcVwGHW1uzQ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.2j9MKOcVwGHW1uzQ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        131,
+        131
+      ],
+      "drawn": false,
+      "text": "Tyranitarite",
+      "documentId": "Cs3CR8lSvzmQbegO",
+      "img": "systems/ptu/images/item_icons/tyranitarite.webp",
+      "_id": "jn4LJnDKl3cPvAl9",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.jn4LJnDKl3cPvAl9"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        132,
+        132
+      ],
+      "drawn": false,
+      "text": "Venusaurite",
+      "documentId": "VSZKzLyCts23UcDj",
+      "img": "systems/ptu/images/item_icons/venusaurite.webp",
+      "_id": "fd3IAkSHClU8rEPq",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.fd3IAkSHClU8rEPq"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        133,
+        133
+      ],
+      "drawn": false,
+      "text": "Metal Powder",
+      "documentId": "2e0raLBaUD59XRdB",
+      "img": "systems/ptu/images/item_icons/metal powder.webp",
+      "_id": "0vFrrY9zLgl3Cms3",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.0vFrrY9zLgl3Cms3"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        134,
+        134
+      ],
+      "drawn": false,
+      "text": "Rare Leek",
+      "documentId": "horp5SPziquIVMF5",
+      "img": "systems/ptu/images/item_icons/rare leek.webp",
+      "_id": "ZVBKnBWY2EvKi283",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ZVBKnBWY2EvKi283"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        135,
+        135
+      ],
+      "drawn": false,
+      "text": "Thick Club",
+      "documentId": "vabigvqHJ9OqFM0V",
+      "img": "systems/ptu/images/item_icons/thick club.webp",
+      "_id": "2OzWVYS9TspDYciy",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.2OzWVYS9TspDYciy"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        136,
+        136
+      ],
+      "drawn": false,
+      "text": "Pink Pearl",
+      "documentId": "Vi8Xv56BQkGvoo9o",
+      "img": "systems/ptu/images/item_icons/pink pearl.webp",
+      "_id": "ophD8kOo2Z9Libvy",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ophD8kOo2Z9Libvy"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        137,
+        137
+      ],
+      "drawn": false,
+      "text": "Deep Sea Scale",
+      "documentId": "0wqo6IfX1udjivti",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "BkDnHprChhOTt6uU",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.BkDnHprChhOTt6uU"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        138,
+        138
+      ],
+      "drawn": false,
+      "text": "Deep Sea Tooth",
+      "documentId": "wgoNRkvMz1NOUqJx",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "g6s4G0eR4L9T8PJQ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.g6s4G0eR4L9T8PJQ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        139,
+        139
+      ],
+      "drawn": false,
+      "text": "Dragon Scale",
+      "documentId": "dQR3lbrpLgaZK3LT",
+      "img": "systems/ptu/images/item_icons/dragon scale.webp",
+      "_id": "Hsnlx7l9Q7hiiJy4",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Hsnlx7l9Q7hiiJy4"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        140,
+        140
+      ],
+      "drawn": false,
+      "text": "Dubious Disc",
+      "documentId": "DKZxxRaTueEU4kJF",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "w38FFXhCM2zQOm2S",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.w38FFXhCM2zQOm2S"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        141,
+        141
+      ],
+      "drawn": false,
+      "text": "Electirizer",
+      "documentId": "62xEB88Z3MwgCT23",
+      "img": "systems/ptu/images/item_icons/electirizer.webp",
+      "_id": "v2rEvDdNwJW8SuJx",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.v2rEvDdNwJW8SuJx"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        142,
+        142
+      ],
+      "drawn": false,
+      "text": "Magmarizer",
+      "documentId": "PieOjJgJzqBWiGSR",
+      "img": "systems/ptu/images/item_icons/magmarizer.webp",
+      "_id": "1byNtDaNKuiBzXwu",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.1byNtDaNKuiBzXwu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        143,
+        143
+      ],
+      "drawn": false,
+      "text": "Metal Coat",
+      "documentId": "x4Q96GGlAkJjAnXU",
+      "img": "systems/ptu/images/item_icons/metal coat.webp",
+      "_id": "3M3yTNVekm1Krb8q",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.3M3yTNVekm1Krb8q"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        144,
+        144
+      ],
+      "drawn": false,
+      "text": "Oval Stone",
+      "documentId": "l5nFhnadVPvvIQ3P",
+      "img": "systems/ptu/images/item_icons/oval stone.webp",
+      "_id": "CMB8hk3xAr6G9YJ8",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.CMB8hk3xAr6G9YJ8"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        145,
+        145
+      ],
+      "drawn": false,
+      "text": "Prism Scale",
+      "documentId": "7xgtbgWAUrPWGmmX",
+      "img": "systems/ptu/images/item_icons/prism scale.webp",
+      "_id": "ztVwQClVw96Xngvo",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.ztVwQClVw96Xngvo"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        146,
+        146
+      ],
+      "drawn": false,
+      "text": "Protector",
+      "documentId": "vb4dPKYEtO9LBHBN",
+      "img": "systems/ptu/images/item_icons/protector.webp",
+      "_id": "PGK71QTqeXEsgJc2",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.PGK71QTqeXEsgJc2"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        147,
+        147
+      ],
+      "drawn": false,
+      "text": "Reaper Cloth",
+      "documentId": "O1nULYEghmatesYY",
+      "img": "systems/ptu/images/item_icons/reaper cloth.webp",
+      "_id": "59Um5gAt9f4YaXjP",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.59Um5gAt9f4YaXjP"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        148,
+        148
+      ],
+      "drawn": false,
+      "text": "Sachet",
+      "documentId": "3kNPeaTd46qe8D4H",
+      "img": "systems/ptu/images/item_icons/sachet.webp",
+      "_id": "0Yz2AwQDb67IE3bl",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.0Yz2AwQDb67IE3bl"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        149,
+        149
+      ],
+      "drawn": false,
+      "text": "Whipped Dream",
+      "documentId": "wKnSfNqhEkj8FsPq",
+      "img": "systems/ptu/images/item_icons/whipped dream.webp",
+      "_id": "Ey2AsTNxkya1XbAJ",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Ey2AsTNxkya1XbAJ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        150,
+        150
+      ],
+      "drawn": false,
+      "text": "Heart Scale",
+      "documentId": "MVgde5bSqt7dgxDk",
+      "img": "systems/ptu/images/item_icons/heart scale.webp",
+      "_id": "WepnlMGO3qk87rc1",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.WepnlMGO3qk87rc1"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        151,
+        151
+      ],
+      "drawn": false,
+      "text": "Rare Candy",
+      "documentId": "35X4PEOomwgAFvwa",
+      "img": "systems/ptu/images/item_icons/rare candy.webp",
+      "_id": "Q12MlqGJ4cTPUxWW",
+      "flags": {},
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.Q12MlqGJ4cTPUxWW"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.rolltables",
+      "weight": 28,
+      "range": [
+        152,
+        179
+      ],
+      "drawn": false,
+      "_id": "gENvr1AakFPwT94d",
+      "text": "Fossils",
+      "documentId": "hvZUPAF9B8WN7Tjk",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "_key": "!tables.results!MlmOVH32wiSuP3sh.gENvr1AakFPwT94d"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733052771,
+    "modifiedTime": 1710778630567,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d179",
+  "_key": "!tables!MlmOVH32wiSuP3sh"
+}

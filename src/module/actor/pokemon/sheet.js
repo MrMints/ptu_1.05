@@ -2,6 +2,7 @@ import { PTUPartySheet } from "../../apps/party/sheet.js";
 import { Statistic } from "../../system/statistic/index.js";
 import { PTUActorSheet } from "../sheet.js";
 import { ItemSummaryRenderer } from "../sheet/item-summary.js";
+import { presentSkills } from "../../../util/skills.js";
 
 export class PTUPokemonSheet extends PTUActorSheet {
 	/** @override */
@@ -110,7 +111,7 @@ export class PTUPokemonSheet extends PTUActorSheet {
 	 * @return {undefined}
 	 */
 	async _prepareCharacterItems(sheetData) {
-		sheetData['skills'] = this.actor.system.skills
+		sheetData['skills'] = presentSkills(this.actor.system.skills)
 
 		// Initialize containers.
 		const abilities = [];

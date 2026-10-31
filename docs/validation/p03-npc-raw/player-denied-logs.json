@@ -1,0 +1,8 @@
+[
+  {
+    "level": "error",
+    "message": "Error: An error occurred while closing PTUNpcQuickBuild 44. PTU | Actor creation permission is required.\n    at Hooks.onError (http://127.0.0.1:30001/scripts/foundry.mjs:23854:24)\n    at http://127.0.0.1:30001/systems/ptu/src/module/apps/npc-quick-build/sheet.js:329:23\n    at async PTUNpcQuickBuild.close (http://127.0.0.1:30001/systems/ptu/src/module/apps/npc-quick-build/sheet.js:327:13)",
+    "timestamp": "2026-10-26T21:29:06.687Z",
+    "url": "http://127.0.0.1:30001/scripts/foundry.mjs"
+  }
+]

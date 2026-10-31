@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "d7dc7f0b4002110f0e44ab09decaebf5ec5bcf38",
+  "scope": "docs/PRE_05_RECONCILIATION.md",
+  "routes": [
+    {
+      "id": "sheet-new",
+      "entry": "character/sheet.js:_onItemCreate; pokemon/sheet.js:_onItemCreate",
+      "path": "Item.createDocuments",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "sheet-drop",
+      "entry": "character/sheet.js:_onDropItem; core ActorSheet._onDropItem",
+      "path": "Item.fromDropData → Item.createDocuments",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "browser",
+      "entry": "apps/compendium-browser/index.js:_onDragStart",
+      "path": "UUID drop → sheet-drop",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "native-compendium",
+      "entry": "item/collection.js:fromCompendium; core importFromCompendium",
+      "path": "actual pack scope guard → world copy/drop",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "canvas-linked",
+      "entry": "scripts/hooks/drop-canvas-data.js",
+      "path": "quadtree token → sheet.emulateItemDrop → sheet-drop",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "canvas-unlinked",
+      "entry": "scripts/hooks/drop-canvas-data.js",
+      "path": "synthetic token actor → sheet.emulateItemDrop",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "mixed-folder",
+      "entry": "actor/sheet.js:_onDropFolder",
+      "path": "resolve Documents → scope filter → inherited _onDropItemCreate",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "direct-embedded",
+      "entry": "item/base.js:createDocuments",
+      "path": "permission → cloned staging → genuine choices → core persistence",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "inline-actor",
+      "entry": "actor/base.js:createDocuments",
+      "path": "core actor/inline Item restoration; no choice replay; derived diagnostics",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "json-restore",
+      "entry": "core ClientDocument.importFromJSON; item/collection.js",
+      "path": "core world Item.importFromJSON → exact saved data → owned copy; embedded core import API limitation retained",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "owned-world-copy",
+      "entry": "core ActorSheet._onDropItem; item/base.js",
+      "path": "raw saved copy with preserved source/version → embedded creation",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "item-duplicate",
+      "entry": "core Document.clone(save/addSource)",
+      "path": "normal core copy → Item.createDocuments",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "actor-duplicate",
+      "entry": "core Document.clone(save/addSource); actor/base.js",
+      "path": "inline saved choices preserved; no starter retrofit",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "npc-explicit",
+      "entry": "apps/npc-quick-build/document.js:refresh/generate",
+      "path": "accepted diagnostic → temporary-actor choice staging → normal persistence",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "starter",
+      "entry": "util/starter-training.js; actor/base.js",
+      "path": "new trainer entitlement only; owner/pending/repeat guards; nested choice/grant",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    },
+    {
+      "id": "nested-grant-choice",
+      "entry": "rules/rule-element/grant-item; choice-set",
+      "path": "effect/choice predicates remain; game prerequisite arrays are advisory",
+      "acquisitionPrerequisites": "advisory, derived from owned raw requirements",
+      "security": "ordinary document permissions retained",
+      "verification": "Historical route observation retained at its original runtime; bounded acceptance and final correction cases are linked by the separate P01 evidence contract.",
+      "evidence": "docs/validation/2026-10-26-p02a.json"
+    }
+  ],
+  "predicateInventory": {
+    "conditionalRules": 205,
+    "choiceSets": 136,
+    "grantItems": 69,
+    "topLevelChoiceSetPredicates": 0,
+    "conditionalFeatureEdgePokeEdgeGrants": 0,
+    "classification": "Choice-member predicates retain genuine selection/duplicate/role conditions. Grant predicates retain conditional effects, ability/Move/capability/condition grants; none targets a resolved Feature/Edge/Poké Edge. One dynamic target remains unresolved authoring context, never guessed into acquisition policy. This operational classification is not gameplay/source approval.",
+    "inventorySha256": "ae4dd451fd3c088b0f868df01c2cfe9a662809706ca1bbccf72420a5abdbdff7",
+    "unresolvedDynamicRule": {
+      "identity": "effects.yeB0636J5xIOKKIW",
+      "pointer": "/system/rules/1"
+    }
+  },
+  "boundary": "No blanket predicate disabling; no source variants or rulings invented. Raw restoration does not replay grants/choices or delete saved data. Existing known exclusions stay separate from game-rule diagnostics.",
+  "testedRuntime": "077711dbb4c928180483505282b094c8c94eecf0",
+  "acceptance": "Substantively accepted within historical observations plus final correction at evidence head 48f05f2e; see separate P01 evidence contract.",
+  "evidenceContract": "docs/data/p01-evidence-contract.json",
+  "runtimeBinding": "docs/validation/2026-10-26-p02a-runtime-binding.json"
+}

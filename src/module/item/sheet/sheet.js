@@ -1,6 +1,7 @@
 import { sluggify, sortStringRecord } from "../../../util/misc.js";
 import { RuleElements } from "../../rules/index.js";
 import { RULE_ELEMENT_FORMS, RuleElementForm } from "./rule-elements/index.js";
+import {prerequisiteView} from '../../../util/acquisition.js';
 
 class PTUItemSheet extends foundry.appv1.sheets.ItemSheet {
     /** @override */
@@ -26,12 +27,13 @@ class PTUItemSheet extends foundry.appv1.sheets.ItemSheet {
 
     /** @override */
     async getData() {
-        const data = super.getData();
+        const data = await super.getData();
+        data.prerequisiteViews=[prerequisiteView(this.item)].filter(Boolean);
         data.config = CONFIG.PTU.data;
         
         data.editLocked = data.editable == false ? true : this.object.getFlag('ptu', 'editLocked') ?? false;
 
-        this.object._updateIcon({update: true});
+        if(this.isEditable)this.object._updateIcon({update: true});
 
         data.referenceEffect = this.item.referenceEffect ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(`@UUID[${foundry.utils.duplicate(this.item.referenceEffect)}]`, {async: true}) : null;
         data.itemEffect = this.item.system.effect ? await foundry.applications.ux.TextEditor.implementation.enrichHTML(foundry.utils.duplicate(this.item.system.effect), {async: true}) : this.item.system.effect;

@@ -1,10 +1,12 @@
 import { natureData } from "../../../scripts/config/data/nature.js";
 import { levelProgression } from "../../../scripts/config/data/level-progression.js";
 import { PTUSpecies } from "../../item/index.js";
+import {isExcludedContent} from '../../../util/content-scope.js';
 
 export class PokemonGenerator {
     constructor(species, { x, y } = {}) {
         if (!(species instanceof PTUSpecies)) throw new Error("Species must be a valid PTUSPecies instance");
+        if (isExcludedContent(species.uuid) || isExcludedContent(species.sourceId)) throw new Error('This species is excluded from new generation by the Generations 1–8 scope.');
         this.species = species;
         this.x = x;
         this.y = y;

@@ -1,0 +1,14 @@
+{{#if prerequisiteViews.length}}
+<section class="prerequisite-diagnostics" aria-label="Prerequisite diagnostics" style="max-height:220px;overflow:auto;padding:8px;border:1px solid #977332;background:rgba(255,225,140,.15);">
+    <h3>Prerequisites — advisory</h3>
+    <p>Game-rule prerequisites are advisory. Normal ownership and scope permissions still apply.</p>
+    {{#each prerequisiteViews as |view|}}
+    <article data-prerequisite-item-id="{{view.id}}">
+        <h4>{{view.name}}</h4>
+        {{#if view.clear}}<p>All prerequisites satisfied; selected version attributed.</p>{{/if}}
+        {{#if view.unmet.length}}<strong>Unmet</strong><ul class="prerequisites-unmet">{{#each view.unmet as |text|}}<li>{{text}}</li>{{/each}}</ul>{{/if}}
+        {{#if view.unknown.length}}<strong>Unverifiable / custom</strong><ul class="prerequisites-unverifiable">{{#each view.unknown as |text|}}<li>{{text}}</li>{{/each}}</ul>{{/if}}
+    </article>
+    {{/each}}
+</section>
+{{/if}}

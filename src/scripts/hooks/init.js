@@ -5,6 +5,7 @@ import { registerHandlebarsHelpers } from "../handlebars.js"
 import { registerSheets } from "../sheets.js"
 import { registerTemplates } from "../templates.js"
 import { measureDistances } from "../../module/canvas/helpers.js"
+import {PTUItems} from '../../module/item/collection.js';
 
 
 export const Init = {
@@ -36,6 +37,7 @@ export const Init = {
             // Define custom Entity classes
             CONFIG.Actor.documentClass = PTUCONFIG.Actor.proxy;
             CONFIG.Item.documentClass = PTUCONFIG.Item.proxy;
+            CONFIG.Item.collection = PTUItems;
 
             // Disable Active Effects
             CONFIG.ActiveEffect.documentClass = PTUCONFIG.ActiveEffect.documentClass

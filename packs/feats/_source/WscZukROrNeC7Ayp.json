@@ -1,0 +1,64 @@
+{
+  "name": "Medical Techniques",
+  "system": {
+    "origin": "",
+    "effect": "Trigger - You apply a Restorative Item\nEffect: The target gains a Tick of Hit Points, plus an additional amount of Hit Points equal to your Medicine Education Rank.\nRecipe - Hyper Cures",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Apothecary Research Field",
+      "Branch"
+    ],
+    "prerequisites": [
+      "Apothecary",
+      "Expert Medicine Education"
+    ],
+    "frequency": "1 AP - Rapid Action",
+    "notes": "",
+    "free": false,
+    "class": "Researcher (Apothecary)",
+    "name": "Medical Techniques",
+    "useCount": 0,
+    "automation": []
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.Nccm0INnvRupAXel"
+    },
+    "ptu": {
+      "prereqBackup": "Apothecary, Expert Medicine Education"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368084465,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.Nccm0INnvRupAXel",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 35900000,
+  "_id": "WscZukROrNeC7Ayp",
+  "_key": "!items!WscZukROrNeC7Ayp"
+}

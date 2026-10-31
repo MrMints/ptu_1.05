@@ -1,0 +1,23 @@
+{
+  "name": "ptu-1-05-foundry",
+  "version": "4.4.3",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node tools/validate.mjs",
+    "packs:build": "node tools/packs.mjs build",
+    "packs:verify": "node tools/packs.mjs verify",
+    "build": "node tools/build.mjs",
+    "test:foundry:setup": "node tools/foundry-setup.mjs"
+  },
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "3.0.5",
+    "archiver": "8.0.0",
+    "handlebars": "4.7.10",
+    "proper-lockfile": "4.1.2"
+  }
+}

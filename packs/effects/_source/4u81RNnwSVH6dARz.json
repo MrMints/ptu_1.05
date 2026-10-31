@@ -1,0 +1,81 @@
+{
+  "name": "Effect: Type STAB Boost (Flying)",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "FlatModifier",
+        "predicate": [
+          "move:type:flying"
+        ],
+        "hideIfDisabled": false,
+        "selectors": "damage-base",
+        "value": 2,
+        "label": "STAB Boost"
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-type-stab-increase-flying",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "folder": "eJalVmQbQ22w7p0c",
+  "sort": 400000,
+  "ownership": {
+    "default": 2,
+    "y4EIjJlrc2eCclW7": 3,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "core": {
+      "sourceId": "Item.C5AkrohsUwH34JtQ"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.1",
+    "coreVersion": "12.327",
+    "createdTime": 1705593636805,
+    "modifiedTime": 1706451476350,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Item.C5AkrohsUwH34JtQ",
+    "duplicateSource": null
+  },
+  "_id": "4u81RNnwSVH6dARz",
+  "_key": "!items!4u81RNnwSVH6dARz"
+}

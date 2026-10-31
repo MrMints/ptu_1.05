@@ -1,0 +1,607 @@
+{
+  "schemaVersion": 1,
+  "status": "draft-not-production-approved",
+  "scope": "Generations 1–8 only",
+  "productionMapping": null,
+  "generationEligibility": "unclassified",
+  "approvals": {
+    "production": false,
+    "behavioralVerification": "not-run",
+    "implemented": false,
+    "automation": false
+  },
+  "representation": {
+    "whitespace": "Join extracted whitespace within a printed field using one space; retain the typed field boundaries.",
+    "fracturedPronoun": "Replace only the extracted Y ou token with You; preserve all other rule words, accents, numbers and punctuation.",
+    "prerequisites": "Split the evidenced comma-separated May conjunction into two array entries; core remains one entry. No added parent requirement.",
+    "effect": "Render the complete printed Trigger and Effect as separately labelled lines; frequency/action stays in its own field."
+  },
+  "schemaEvidence": {
+    "path": "template.json",
+    "rawFileSha256": {
+      "lf": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9",
+      "crlf": "97a664dc78173c5e4c1601661286187710384118bea2fc2ddf55c1a4974f9bc4"
+    },
+    "jsonSha256": "bffa4c1e57a3b3208affcbc7a9d4a37fc36f0081f8c6b54c0831172ad351c3b2",
+    "basePointer": "/Item/templates/base",
+    "typePointer": "/Item/feat",
+    "requiredSystemFields": [
+      "class",
+      "effect",
+      "enabled",
+      "free",
+      "frequency",
+      "keywords",
+      "notes",
+      "origin",
+      "prerequisites",
+      "referenceEffect",
+      "rules",
+      "schema",
+      "slug",
+      "snippet",
+      "source",
+      "stackSlugs"
+    ]
+  },
+  "upstream": {
+    "pilotJsonSha256": "abe2c88035f9e6444b3eedb0b36cc23c0fbda41272fe337a55bdb8e3e7696101",
+    "caseJsonSha256": "12fa4be80b92d2d82fcbe7d11339e0137cd06767fe913c11fd9845dc5f49a946",
+    "revisionsJsonSha256": "cfa30b3a5917953fcc645dde18fb23b05bd7ae5e8d9f0efce41d05a616d7af26",
+    "currentRecord": "feats.aJ47Z5z6Az9c8Dy8",
+    "currentJsonSha256": "ea45222139c50b284a8b53372c9e7be21903abe7c35dc447a7754a14fcfa9f79",
+    "auditJsonSha256": "334653303360fedc3d487288e3f5aa2fe2bdd9d8fe0ff11a9d4e5bfef2deb6c6",
+    "exportLineageJsonSha256": "f650ee9d9993ec88c257d3ce0e38f84a9efecff6d8dc71a5bf1a338827c4472c"
+  },
+  "collisionInventory": {
+    "directory": "packs/feats/_source",
+    "method": "SHA256(JSON.stringify(sorted unique current .json filename IDs))",
+    "count": 1402,
+    "jsonSha256": "3673be8aa36d982ee96dd540ec660d2722e2e0350f1d1960cf9495eed5539157"
+  },
+  "parentContext": {
+    "file": "docs/data/feature-source-evidence.json",
+    "collection": "parentFrames",
+    "id": "core-parent-researcher",
+    "jsonSha256": "8fb75e124396e9668ba74a4c4120b54c0da9860f5f5c748ed78ec348bef530b8",
+    "source": {
+      "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+      "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+      "pdfPages": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ],
+      "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+    },
+    "summary": "Core140 Researcher chooses two Fields, gains one qualifying Feature, restricts later Features to chosen Fields and permits repeat instances choosing two different Fields.",
+    "disposition": "context-only",
+    "leafPrerequisitesAdded": false,
+    "executableGrants": false
+  },
+  "unresolvedAuthoring": [
+    {
+      "code": "class-and-branch-metadata",
+      "detail": "Future source/identity review must decide any Researcher field/class/Branch representation. Keep class empty and keywords empty here; inherited leaf tags are not printed source facts."
+    },
+    {
+      "code": "parent-selection-and-grants",
+      "detail": "Researcher field choices, qualifying feature grant, later chosen-field restriction and different-field repetition stay descriptive parent context. No grant or class-wide prerequisite/action is authored into either leaf."
+    },
+    {
+      "code": "historical-provenance-and-adoption",
+      "detail": "Preserve current aJ47Z5z6Az9c8Dy8 and unresolved historical ta6bKIiHCuccjTqU pointer untouched. Proposed identities are not installed/reserved; production canonical mapping, eligibility and optional adoption need later substantive approval."
+    }
+  ],
+  "sourcePairRationale": "The accepted exact Echoes source pair has complete core140 and May7 definitions with identical frequency/trigger/effect and the explicit additional May Breadth of Knowledge prerequisite. The proposed shared canonical relationship is confined to this evidenced pair; no catalog coordinate or display name determines identity.",
+  "identityDecision": "Five independent random 16-character alphanumeric values were proposed once for two Item IDs, one shared canonical ID and two distinct version IDs. They do not derive from labels or catalog coordinates, remain stable after this first creation, and are checked against the finite installed filename inventory and both inherited Echoes identities. They are neither installed nor reserved.",
+  "validationLimit": "Pure integrity/source/schema comparison and synthetic advisory diagnostic tests establish no production identity, installation, acquisition permission, UI persistence, gameplay execution, automatic grants or behavioral/automation approval. Independent substantive draft/source/identity review is required before any later adoption.",
+  "roles": [
+    {
+      "role": "baseline",
+      "source": {
+        "authorityId": "r04-s12",
+        "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+        "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+        "edition": "PTU 1.05 supplied core",
+        "status": "standard-baseline",
+        "publicationDate": null,
+        "datePrecision": "unknown",
+        "pdfPages": [
+          140
+        ],
+        "printedPages": [
+          140
+        ]
+      },
+      "definitionEvidence": {
+        "file": "docs/data/feature-source-evidence.json",
+        "id": "core:140:feature-line35",
+        "jsonSha256": "f126c984f96400ae0c953d2d112e4f5999e25eb23f3af851297f00870be82d80",
+        "rawDefinitionSha256": "133a0d75724752d8e9ad16b2ab24209706351f00309581e8541a6869c29f8ecd",
+        "definitionNormalizedSha256": "d0f5055a7f2e26e668f16aa5c5b293b9d4d25625bc677d27aaceb60b20b37488"
+      },
+      "productionMapping": null,
+      "generationEligibility": "unclassified",
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "proposedIdentity": {
+        "itemId": "ViZpn17qLA4ACQGa",
+        "canonicalId": "UKk9BnAZtm1xMoRB",
+        "versionId": "celnYjQjM3jjtAnZ"
+      },
+      "item": {
+        "name": "Echoes of the Future",
+        "type": "feat",
+        "system": {
+          "origin": "",
+          "effect": "Trigger: You or your Pokémon make a roll\nEffect: You may roll twice and keep the best result.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "PTU 1.05 supplied core — p.140"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "prerequisites": [
+            "Master General Education"
+          ],
+          "frequency": "Daily x2 – Free Action",
+          "notes": "",
+          "free": false,
+          "class": ""
+        }
+      },
+      "fieldDecisions": [
+        {
+          "target": "name",
+          "basis": "source-heading",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/heading"
+          ],
+          "sourceValueJsonSha256": [
+            "9dacb0c7182299e1df89b9f9217ef79a51ae06a88423f2cf5342eef1d1f8cd2b"
+          ],
+          "draftValueJsonSha256": "9dacb0c7182299e1df89b9f9217ef79a51ae06a88423f2cf5342eef1d1f8cd2b",
+          "reason": "Display heading is whitespace-normalized only; it does not generate or determine any proposed persistent identity."
+        },
+        {
+          "target": "type",
+          "basis": "schema-type",
+          "schemaPointer": "/Item/types",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "453547f1f8c5fac3726ce66cbad1e2f3e3a80763b6ae96e13793297914a106d2",
+          "reason": "Use the explicitly supported feat Item type from the current template; this is a typed draft, not an installed Item."
+        },
+        {
+          "target": "system.origin",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/origin",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.effect",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/2",
+            "/definition/sections/3"
+          ],
+          "sourceValueJsonSha256": [
+            "ede0517ca4050917df9773c67ef9a615513b424118591c753d65885bf730a408",
+            "df42a274ceebf9efbb47c1c948af5c66922cf91a8c3cdcbd1c27add8912fed7f"
+          ],
+          "draftValueJsonSha256": "e2f820073f18669938300d2ef8ce5ef8d5b60632f85346f357c3bc4359d8bfab",
+          "reason": "Keep the complete typed you-or-your-Pokémon roll trigger and twice/best effect; join extraction whitespace and repair only Y ou to You."
+        },
+        {
+          "target": "system.snippet",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/snippet",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.rules",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/rules",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the schema empty value with no executable grants, automation or linked effect target; source mechanics remain descriptive and unverified."
+        },
+        {
+          "target": "system.enabled",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/enabled",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "reason": "Keep schema enabled=true as a neutral draft default; unmet prerequisites do not disable an item or determine acquisition permission."
+        },
+        {
+          "target": "system.slug",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/slug",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.schema",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/schema",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "ded787753979922ffa4622132d59c37c637714a9bdca8850150674f2161b1b64",
+          "reason": "Keep both schema migration values null; the draft is not an installed or migrated Item and must not inherit a campaign migration stamp."
+        },
+        {
+          "target": "system.referenceEffect",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/referenceEffect",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the schema empty value with no executable grants, automation or linked effect target; source mechanics remain descriptive and unverified."
+        },
+        {
+          "target": "system.source",
+          "basis": "source-attribution",
+          "schemaPointer": null,
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "33534e5591f01c5ce748d2119bb3efa437b05c3f23c62a9857943d1ba054f751",
+          "reason": "Label the exact edition and page from accepted source authority; no inherited PTR/Homebrew provenance is asserted."
+        },
+        {
+          "target": "system.stackSlugs",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/stackSlugs",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.keywords",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/keywords",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the neutral empty schema value; inherited Researcher (General), Branch and General Research Field metadata are unresolved authoring decisions, with parent restrictions separately visible."
+        },
+        {
+          "target": "system.prerequisites",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/0"
+          ],
+          "sourceValueJsonSha256": [
+            "5c4d84b0acaa13595cccf0195da7d7b2b6bf3b8234aa34347ac2d9ab5b498414"
+          ],
+          "draftValueJsonSha256": "b139ccf4c52b61139b2143c3eedeb3be996f54eae6da177d1b2f47603ac95d8c",
+          "reason": "Only the complete core Master General Education leaf requirement is retained; May Breadth of Knowledge is not blended into core."
+        },
+        {
+          "target": "system.frequency",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/1"
+          ],
+          "sourceValueJsonSha256": [
+            "0b4dd21261cece180c9b4d7db8b2b40eb8c307450759576a712a2c4aa6eae478"
+          ],
+          "draftValueJsonSha256": "dd0f1ea6731abbd4d676c1707a6db5f3dcb9ac261e5a674c717d496b3038f692",
+          "reason": "Keep the complete printed Daily x2 and Free Action together; no schema frequency/action default or use counter is inherited."
+        },
+        {
+          "target": "system.notes",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/notes",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.free",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/free",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Keep the neutral free=false schema flag; this is not the printed Free Action frequency and makes no acquisition/cost decision."
+        },
+        {
+          "target": "system.class",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/class",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the neutral empty schema value; inherited Researcher (General), Branch and General Research Field metadata are unresolved authoring decisions, with parent restrictions separately visible."
+        }
+      ]
+    },
+    {
+      "role": "revised",
+      "source": {
+        "authorityId": "r04-s02",
+        "path": "Core System/1.05 Errata/PTU May 2015 Playtest Packet.pdf",
+        "sha256": "b1314908e4adbfee09042c58f08a36046b5f59a09de196425aa469b43232232d",
+        "edition": "May 2015 playtest",
+        "status": "optional-playtest",
+        "publicationDate": "2015-05",
+        "datePrecision": "month",
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          7
+        ]
+      },
+      "definitionEvidence": {
+        "file": "docs/data/feature-source-evidence.json",
+        "id": "may:7:feature-line27",
+        "jsonSha256": "c5a578cd887346c246030350b3ee93e2bab83c5c94dc824e813c15e62c566e89",
+        "rawDefinitionSha256": "c443e01d45da31b9cb7f2fde37955c73e2b6ceecf5b83953e1da7f1ef3b254bd",
+        "definitionNormalizedSha256": "f17ed8a34f0076cf1cdf0cb393e2e113441b7080c63a78ff15b237fa0c3012c5"
+      },
+      "productionMapping": null,
+      "generationEligibility": "unclassified",
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "proposedIdentity": {
+        "itemId": "e9dQ3NmVm7EuQBO5",
+        "canonicalId": "UKk9BnAZtm1xMoRB",
+        "versionId": "i1OAz3lvuCRIm3n9"
+      },
+      "item": {
+        "name": "Echoes of the Future",
+        "type": "feat",
+        "system": {
+          "origin": "",
+          "effect": "Trigger: You or your Pokémon make a roll\nEffect: You may roll twice and keep the best result.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "May 2015 playtest — p.7"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "prerequisites": [
+            "Breadth of Knowledge",
+            "Master General Education"
+          ],
+          "frequency": "Daily x2 – Free Action",
+          "notes": "",
+          "free": false,
+          "class": ""
+        }
+      },
+      "fieldDecisions": [
+        {
+          "target": "name",
+          "basis": "source-heading",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/heading"
+          ],
+          "sourceValueJsonSha256": [
+            "c3877c2e8abefe81565efda50a30ec1398277804cfb794a3b37f90bff398a176"
+          ],
+          "draftValueJsonSha256": "9dacb0c7182299e1df89b9f9217ef79a51ae06a88423f2cf5342eef1d1f8cd2b",
+          "reason": "Display heading is whitespace-normalized only; it does not generate or determine any proposed persistent identity."
+        },
+        {
+          "target": "type",
+          "basis": "schema-type",
+          "schemaPointer": "/Item/types",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "453547f1f8c5fac3726ce66cbad1e2f3e3a80763b6ae96e13793297914a106d2",
+          "reason": "Use the explicitly supported feat Item type from the current template; this is a typed draft, not an installed Item."
+        },
+        {
+          "target": "system.origin",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/origin",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.effect",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/2",
+            "/definition/sections/3"
+          ],
+          "sourceValueJsonSha256": [
+            "7ecd013998f31e8d551b672e65053e9583dbce13b1c98d6fe81ef9ee7b7fbddf",
+            "b379cbea48734d4331fab30999dc68b013d58c0da3e3e4c1d2052a93c18f94b6"
+          ],
+          "draftValueJsonSha256": "e2f820073f18669938300d2ef8ce5ef8d5b60632f85346f357c3bc4359d8bfab",
+          "reason": "Keep the complete typed you-or-your-Pokémon roll trigger and twice/best effect; join extraction whitespace and repair only Y ou to You."
+        },
+        {
+          "target": "system.snippet",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/snippet",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.rules",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/rules",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the schema empty value with no executable grants, automation or linked effect target; source mechanics remain descriptive and unverified."
+        },
+        {
+          "target": "system.enabled",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/enabled",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "reason": "Keep schema enabled=true as a neutral draft default; unmet prerequisites do not disable an item or determine acquisition permission."
+        },
+        {
+          "target": "system.slug",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/slug",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.schema",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/schema",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "ded787753979922ffa4622132d59c37c637714a9bdca8850150674f2161b1b64",
+          "reason": "Keep both schema migration values null; the draft is not an installed or migrated Item and must not inherit a campaign migration stamp."
+        },
+        {
+          "target": "system.referenceEffect",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/referenceEffect",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the schema empty value with no executable grants, automation or linked effect target; source mechanics remain descriptive and unverified."
+        },
+        {
+          "target": "system.source",
+          "basis": "source-attribution",
+          "schemaPointer": null,
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "77b55416131a7d4700f2924d63e81a29e1ab8c264b60a4a103e3028646628cd6",
+          "reason": "Label the exact edition and page from accepted source authority; no inherited PTR/Homebrew provenance is asserted."
+        },
+        {
+          "target": "system.stackSlugs",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/stackSlugs",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.keywords",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/keywords",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the neutral empty schema value; inherited Researcher (General), Branch and General Research Field metadata are unresolved authoring decisions, with parent restrictions separately visible."
+        },
+        {
+          "target": "system.prerequisites",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/0"
+          ],
+          "sourceValueJsonSha256": [
+            "4ed66435adb977f61b3b099fd512a4ec2d62eaa18b3ff3136e69addcc419d021"
+          ],
+          "draftValueJsonSha256": "e62735f4f63072a9875b9b4aa453e63b88146ebc4de684e7ef871f21f20182b7",
+          "reason": "Both May leaf requirements are retained as a conjunction in separate array entries; no parent/class requirement or acquisition veto is added."
+        },
+        {
+          "target": "system.frequency",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/definition/sections/1"
+          ],
+          "sourceValueJsonSha256": [
+            "aaee2508f177064d30ef6fad5ff45a316958d984bdfb3a4ac1ad671313d1ad68"
+          ],
+          "draftValueJsonSha256": "dd0f1ea6731abbd4d676c1707a6db5f3dcb9ac261e5a674c717d496b3038f692",
+          "reason": "Keep the complete printed Daily x2 and Free Action together; no schema frequency/action default or use counter is inherited."
+        },
+        {
+          "target": "system.notes",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/notes",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the current declared schema default solely for draft shape; it is not a printed source fact or behavior/installation approval."
+        },
+        {
+          "target": "system.free",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/free",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Keep the neutral free=false schema flag; this is not the printed Free Action frequency and makes no acquisition/cost decision."
+        },
+        {
+          "target": "system.class",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/feat/class",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the neutral empty schema value; inherited Researcher (General), Branch and General Research Field metadata are unresolved authoring decisions, with parent restrictions separately visible."
+        }
+      ]
+    }
+  ],
+  "proposedIdentityJsonSha256": "0e4ac40a726df23fcbdc889dad784efb1fde34285025a03798899ec9e4c2a68e"
+}

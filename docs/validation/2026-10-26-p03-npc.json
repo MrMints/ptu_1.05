@@ -1,0 +1,2611 @@
+{
+  "schemaVersion": 1,
+  "gate": "P03-NPC",
+  "runtimeCommit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+  "baselineCommit": "8d282248280004ce5d98e826364acad5168be04c",
+  "substantiveAcceptance": "pending",
+  "artifact": {
+    "runtimeCommit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+    "archive": "dist/system.zip",
+    "archiveSha256": "bfb1560462fdebccaa90d1ef0e812c52ce3737f2219a355ee85c93a45ddd812b",
+    "archiveBytes": 1108956200,
+    "developmentCandidateOnly": true,
+    "bindings": [
+      {
+        "path": "src/module/apps/npc-quick-build/document.js",
+        "sha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+        "servedSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+        "commitBlobSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+        "workingInstalledServedArchiveEqual": true,
+        "commitTextEqual": true
+      },
+      {
+        "path": "src/module/apps/npc-quick-build/sheet.js",
+        "sha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+        "servedSha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+        "commitBlobSha256": "5ebc971754172b8c86b87f589c7f4d3a1990be13d8d12c3b52183a4fa2da0ee4",
+        "workingInstalledServedArchiveEqual": true,
+        "commitTextEqual": true
+      },
+      {
+        "path": "src/module/apps/npc-quick-build/selection.js",
+        "sha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+        "servedSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+        "commitBlobSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+        "workingInstalledServedArchiveEqual": true,
+        "commitTextEqual": true
+      },
+      {
+        "path": "static/templates/apps/npc-quick-build-sheet.hbs",
+        "sha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+        "servedSha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+        "commitBlobSha256": "46b0c625aeb650b6083f34bfe4cb2acdc633f0300c4f195cb53088a512e857a6",
+        "workingInstalledServedArchiveEqual": true,
+        "commitTextEqual": true
+      }
+    ],
+    "originalsSourcesWorldsExcluded": true
+  },
+  "ci": {
+    "commit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+    "run": {
+      "id": 40402062796,
+      "name": "PTU CI",
+      "status": "completed",
+      "conclusion": "success",
+      "run_number": 37,
+      "jobs_url": "https://api.github.com/repos/MrMints/ptu_1.05/actions/runs/40402062796/jobs",
+      "logs_url": "https://api.github.com/repos/MrMints/ptu_1.05/actions/runs/40402062796/logs",
+      "workflow_id": 395616427
+    },
+    "jobs": [
+      {
+        "id": 121850201834,
+        "name": "Validation",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 40402062796,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run pnpm/action-setup@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Run pnpm install --frozen-lockfile",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run pnpm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Run pnpm validate",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Run pnpm packs:verify",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Run pnpm build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Run actions/upload-artifact@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 18
+          },
+          {
+            "name": "Post Run pnpm/action-setup@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 19
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 20
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21
+          }
+        ]
+      },
+      {
+        "id": 121850202325,
+        "name": "Documentation",
+        "status": "completed",
+        "conclusion": "success",
+        "run_id": 40402062796,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Run node tools/documentation.mjs",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          }
+        ]
+      }
+    ],
+    "excerpt": [
+      "2026-10-26T21:12:17.2200806Z # tests 174",
+      "2026-10-26T21:12:17.2201025Z # pass 174",
+      "2026-10-26T21:12:17.2201136Z # fail 0",
+      "2026-10-26T21:12:18.2811547Z Validated manifest, 17 skill mappings, 15 packs and 7395 source documents. Gameplay verification is separate.",
+      "2026-10-26T21:12:45.5127759Z Built dist/system.zip (1108933243 bytes) and dist/system.json",
+      "2026-10-26T21:12:45.5128333Z Development candidate only: supported-content classification/package compatibility remains blocked; see content-scope-status.json."
+    ]
+  },
+  "automated": {
+    "affected": {
+      "total": 38,
+      "passed": 38
+    },
+    "initialFullLocal": {
+      "total": 173,
+      "passed": 172,
+      "failed": 1,
+      "reason": "Disposable setup staging rename EPERM; this preceded the final normalization test."
+    },
+    "isolatedSetup": {
+      "total": 4,
+      "passed": 4
+    },
+    "runtimeCI": {
+      "total": 174,
+      "passed": 174
+    },
+    "documentationAndEvidenceContract": {
+      "total": 20,
+      "passed": 20
+    },
+    "retainedEvidenceReplay": {
+      "total": 13,
+      "passed": 13,
+      "rawHashes": 55
+    }
+  },
+  "cases": [
+    {
+      "id": "baseline-live-failure-retained",
+      "result": "passed",
+      "expected": "Clicked row must retain its UUID; baseline fails and final is checked separately.",
+      "observed": {
+        "baselineResult": "failed",
+        "clicked": "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi",
+        "resolved": "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp",
+        "dropdownOrder": [
+          "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp",
+          "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi"
+        ]
+      }
+    },
+    {
+      "id": "final-installed-artifact-binding",
+      "result": "passed",
+      "expected": "All four changed production files equal the served, installed and archived bytes; committed text matches.",
+      "observed": {
+        "runtimeCommit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+        "archive": "dist/system.zip",
+        "archiveSha256": "bfb1560462fdebccaa90d1ef0e812c52ce3737f2219a355ee85c93a45ddd812b",
+        "archiveBytes": 1108956200,
+        "developmentCandidateOnly": true,
+        "bindings": [
+          {
+            "path": "src/module/apps/npc-quick-build/document.js",
+            "sha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+            "servedSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+            "commitBlobSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+            "workingInstalledServedArchiveEqual": true,
+            "commitTextEqual": true
+          },
+          {
+            "path": "src/module/apps/npc-quick-build/sheet.js",
+            "sha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+            "servedSha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+            "commitBlobSha256": "5ebc971754172b8c86b87f589c7f4d3a1990be13d8d12c3b52183a4fa2da0ee4",
+            "workingInstalledServedArchiveEqual": true,
+            "commitTextEqual": true
+          },
+          {
+            "path": "src/module/apps/npc-quick-build/selection.js",
+            "sha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+            "servedSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+            "commitBlobSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+            "workingInstalledServedArchiveEqual": true,
+            "commitTextEqual": true
+          },
+          {
+            "path": "static/templates/apps/npc-quick-build-sheet.hbs",
+            "sha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+            "servedSha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+            "commitBlobSha256": "46b0c625aeb650b6083f34bfe4cb2acdc633f0300c4f195cb53088a512e857a6",
+            "workingInstalledServedArchiveEqual": true,
+            "commitTextEqual": true
+          }
+        ],
+        "originalsSourcesWorldsExcluded": true
+      }
+    },
+    {
+      "id": "ambiguous-paste-refused",
+      "result": "passed",
+      "expected": "Bare Medical Techniques text must not select a record.",
+      "observed": {
+        "selected": []
+      }
+    },
+    {
+      "id": "ordinary-all-type-selection",
+      "result": "passed",
+      "expected": "Two classes, both Medical Techniques, two synthetic Features plus repeat, two Edges and plain Nonbinary retain exact values.",
+      "observed": {
+        "classes": [
+          {
+            "label": "NPC Identity class",
+            "value": "Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9",
+            "uuid": "Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9",
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission"
+            ],
+            "class": "",
+            "sourceContext": "Synthetic diagnostic class-A | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9"
+          },
+          {
+            "label": "NPC Identity class",
+            "value": "Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG",
+            "uuid": "Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG",
+            "prerequisites": [
+              "Adept Charm",
+              "GM Permission"
+            ],
+            "class": "",
+            "sourceContext": "Synthetic diagnostic class-B | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG"
+          }
+        ],
+        "features": [
+          {
+            "label": "Medical Techniques",
+            "value": "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi",
+            "uuid": "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi",
+            "prerequisites": [
+              "Medic",
+              "Adept Medicine Education"
+            ],
+            "class": "Researcher (Apothecary)",
+            "sourceContext": "Researcher (Apothecary) | PTR Compendiums | Features | Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi",
+            "crossClass": true
+          },
+          {
+            "label": "Medical Techniques",
+            "value": "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp",
+            "uuid": "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp",
+            "prerequisites": [
+              "Apothecary",
+              "Expert Medicine Education"
+            ],
+            "class": "Researcher (Apothecary)",
+            "sourceContext": "Researcher (Apothecary) | PTR Compendiums | Features | Compendium.ptu.feats.Item.WscZukROrNeC7Ayp",
+            "crossClass": true
+          },
+          {
+            "label": "NPC Identity feat",
+            "value": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+            "uuid": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission"
+            ],
+            "class": "",
+            "sourceContext": "Synthetic diagnostic feat-A | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+            "crossClass": false
+          },
+          {
+            "label": "NPC Identity feat",
+            "value": "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm",
+            "uuid": "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm",
+            "prerequisites": [
+              "Adept Charm",
+              "GM Permission"
+            ],
+            "class": "",
+            "sourceContext": "Synthetic diagnostic feat-B | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm",
+            "crossClass": false
+          },
+          {
+            "label": "NPC Identity feat (2)",
+            "value": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8::repeat:2",
+            "uuid": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission"
+            ],
+            "class": "",
+            "sourceContext": "Synthetic diagnostic feat-A | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+            "originalLabel": "NPC Identity feat",
+            "crossClass": false
+          }
+        ],
+        "edges": [
+          {
+            "label": "NPC Identity edge",
+            "value": "Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr",
+            "uuid": "Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr",
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission"
+            ],
+            "sourceContext": "Synthetic diagnostic edge-A | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr"
+          },
+          {
+            "label": "NPC Identity edge",
+            "value": "Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo",
+            "uuid": "Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo",
+            "prerequisites": [
+              "Adept Charm",
+              "GM Permission"
+            ],
+            "sourceContext": "Synthetic diagnostic edge-B | P03 NPC identity fixtures (disposable) | Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo"
+          }
+        ],
+        "sex": [
+          {
+            "label": "Nonbinary",
+            "value": "Nonbinary"
+          }
+        ]
+      }
+    },
+    {
+      "id": "independent-repeat-rename-choices",
+      "result": "passed",
+      "expected": "Independent alpha/beta/beta choices survive refresh, base removal/re-add and source rename.",
+      "observed": {
+        "before": {
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8": "alpha",
+          "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm": "beta",
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8::repeat:2": "beta"
+        },
+        "afterRemoval": {
+          "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm": "beta",
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8::repeat:2": "beta"
+        },
+        "afterRename": {
+          "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm": "beta",
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8::repeat:2": "beta",
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8": "alpha"
+        }
+      }
+    },
+    {
+      "id": "advisory-no-rank-or-dependency-changes",
+      "result": "passed",
+      "expected": "All 17 explicit ranks remain 2; nine explicit trainer Items generate despite 9 unmet and 11 unverifiable messages.",
+      "observed": {
+        "ranks": {
+          "acrobatics": 2,
+          "athletics": 2,
+          "charm": 2,
+          "combat": 2,
+          "command": 2,
+          "generalEd": 2,
+          "medicineEd": 2,
+          "occultEd": 2,
+          "pokemonEd": 2,
+          "techEd": 2,
+          "focus": 2,
+          "guile": 2,
+          "intimidate": 2,
+          "intuition": 2,
+          "perception": 2,
+          "stealth": 2,
+          "survival": 2
+        },
+        "unmet": 9,
+        "unverifiable": 11,
+        "generatedItems": 9
+      }
+    },
+    {
+      "id": "species-change-remove-generation",
+      "result": "passed",
+      "expected": "Removal clears the source; both separately chosen species survive refresh and generate their own source/custom/version Item.",
+      "observed": [
+        {
+          "uuid": "Actor.Ij0laAdFKYO2DRat",
+          "items": [
+            {
+              "id": "a6eBWFJsbOwONHVq",
+              "name": "NPC Identity species",
+              "type": "species",
+              "img": "/systems/ptu/css/images/icons/dex_icon.png",
+              "system": {
+                "schema": {
+                  "version": 0.11,
+                  "lastMigration": {
+                    "datetime": "2023-08-15T11:56:06.683Z",
+                    "version": {
+                      "schema": null,
+                      "foundry": "11.307",
+                      "system": "0.21"
+                    }
+                  }
+                },
+                "dexentry": "When Bulbasaur are born, their mothers plant seeds on their backs. The plants form symbiotic relationships with their hosts, growing alongside the Pokémon and providing them with sustenance. By lying about in the sun, Bulbasaur allow the plants on their backs to photosynthesize and produce energy, which they can then use for themselves. The plants are able to become mobile by virtue of their active hosts, allowing them to move out of shaded areas and thus benefiting them as well. Additionally, Bulbasaur can utilize their plants to perform Grass- and Poison-type attacks&nbsp;such as Razor Leaf and Poison Powder. The attacks protect both the Pokémon and the plants from harm. In the wild, Bulbasaur tend to be very rare, as they are shy creatures that prefer the company of their own kind. However, they are also generally very docile, tame, and loyal to people that they trust, and for that reason are one of the species of Pokémon available for starting trainers to choose in the region of Kanto.",
+                "number": 1,
+                "form": "",
+                "stats": {
+                  "hp": 5,
+                  "atk": 5,
+                  "def": 5,
+                  "spatk": 7,
+                  "spdef": 7,
+                  "spd": 5
+                },
+                "types": [
+                  "Grass",
+                  "Poison"
+                ],
+                "abilities": {
+                  "basic": [
+                    {
+                      "slug": "chlorophyll",
+                      "uuid": "Compendium.ptu.abilities.Item.ZiTUZHmZaIq0K2na"
+                    },
+                    {
+                      "slug": "overgrow",
+                      "uuid": "Compendium.ptu.abilities.Item.HSv89TejG6adprHJ"
+                    }
+                  ],
+                  "advanced": [
+                    {
+                      "slug": "confidence",
+                      "uuid": "Compendium.ptu.abilities.Item.dnokBxCkJAn5nqHN"
+                    },
+                    {
+                      "slug": "discipline",
+                      "uuid": "Compendium.ptu.abilities.Item.kHDxnwsm7KNgQuQY"
+                    }
+                  ],
+                  "high": [
+                    {
+                      "slug": "empower",
+                      "uuid": "Compendium.ptu.abilities.Item.w5xfL4tul12d4MVp"
+                    }
+                  ]
+                },
+                "evolutions": [
+                  {
+                    "uuid": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+                    "slug": "bulbasaur",
+                    "level": 1,
+                    "other": {
+                      "restrictions": []
+                    }
+                  },
+                  {
+                    "uuid": "Compendium.ptu.species.Item.82FKtTasFOdAefkZ",
+                    "slug": "ivysaur",
+                    "level": 15,
+                    "other": {
+                      "restrictions": []
+                    }
+                  },
+                  {
+                    "uuid": "Compendium.ptu.species.Item.39vCZexadq6EWF7z",
+                    "slug": "venusaur",
+                    "level": 30,
+                    "other": {
+                      "restrictions": []
+                    }
+                  }
+                ],
+                "size": {
+                  "height": 0.7,
+                  "weight": 6.9,
+                  "sizeClass": "Small",
+                  "weightClass": 1
+                },
+                "breeding": {
+                  "genderRatio": 87.5,
+                  "eggGroups": [
+                    "Monster",
+                    "Plant"
+                  ],
+                  "hatchRate": 10
+                },
+                "diet": [
+                  "Herbivore",
+                  "Phototroph"
+                ],
+                "habitats": [
+                  "Forest",
+                  "Grassland",
+                  "Rainforest"
+                ],
+                "capabilities": {
+                  "overland": 5,
+                  "sky": 0,
+                  "swim": 3,
+                  "levitate": 0,
+                  "burrow": 0,
+                  "highJump": 0,
+                  "longJump": 2,
+                  "power": 2,
+                  "naturewalk": [
+                    "Grassland",
+                    "Forest"
+                  ],
+                  "other": [
+                    {
+                      "slug": "underdog",
+                      "uuid": "Compendium.ptu.capabilities.Item.AIbbzjfDZix8YFkU"
+                    }
+                  ]
+                },
+                "moves": {
+                  "level": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.50Vtl0u0jPevwY4K",
+                      "slug": "tackle",
+                      "level": 1
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.9Bi4aMf4Ls0JdLNK",
+                      "slug": "growl",
+                      "level": 3
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Jx4TeOVUk1DX8R45",
+                      "slug": "leech-seed",
+                      "level": 7
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eDoJBVQq7jDkuMp7",
+                      "slug": "vine-whip",
+                      "level": 9
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.NisjPhyvzfHCfgSx",
+                      "slug": "poison-powder",
+                      "level": 13
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QhX27aIM6MPFqya8",
+                      "slug": "sleep-powder",
+                      "level": 13
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rmDcfFfrdq5PgwF9",
+                      "slug": "take-down",
+                      "level": 15
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.wYz4RubDs84tDVul",
+                      "slug": "razor-leaf",
+                      "level": 19
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.nJhqaS0PzJJ7w1pS",
+                      "slug": "sweet-scent",
+                      "level": 21
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Bcv2CeJg9qU1q0Cb",
+                      "slug": "growth",
+                      "level": 25
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.7Gi57ZcOWjyjhU0A",
+                      "slug": "double-edge",
+                      "level": 27
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.s41RoaO2fbzPVqR6",
+                      "slug": "worry-seed",
+                      "level": 31
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.zO24D3CxJw7guk2Y",
+                      "slug": "synthesis",
+                      "level": 33
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.b18uGrjFdKGy0rBU",
+                      "slug": "seed-bomb",
+                      "level": 37
+                    }
+                  ],
+                  "machine": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.gCofXErMduyn6zwf",
+                      "slug": "work-up"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eFxRUdqQgdnJybY4",
+                      "slug": "toxic"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DKcoWwUTCJWg58nw",
+                      "slug": "venoshock"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QyDgi8hL1jQLLhld",
+                      "slug": "hidden-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.m787MkYyENqNyGOb",
+                      "slug": "sunny-day"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.weEc5wlOZ5H7Tguh",
+                      "slug": "light-screen"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.HfiQ6I7xp7aGazV0",
+                      "slug": "protect"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DkpT2ACVxH31hpo0",
+                      "slug": "safeguard"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.sMByqeVz0Wq8Ybby",
+                      "slug": "frustration"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Oa9NuYFi7yvPQTIO",
+                      "slug": "solar-beam"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eRjK7eB733bE0D8o",
+                      "slug": "return"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.BHmRIX70tqHROfdN",
+                      "slug": "double-team"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.T4KEAGNoEIpiO0G5",
+                      "slug": "sludge-bomb"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QhQ2vUo3KMKo4Xou",
+                      "slug": "facade"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.P0JIeR4lnilvg7K8",
+                      "slug": "rest"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.0VI0E6oSQYULcSUU",
+                      "slug": "attract"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.GgdkAr3gDO6snP7r",
+                      "slug": "round"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.gOhBiJMpOl84MLaX",
+                      "slug": "echoed-voice"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.GPc4UqyAsng4fPup",
+                      "slug": "energy-ball"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.z5hgetbLhLvsd800",
+                      "slug": "swords-dance"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.jh2qDsk9mirEzqvu",
+                      "slug": "grass-knot"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.arxy479cTjkB8mML",
+                      "slug": "swagger"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Jfi9FN77Rplukh7W",
+                      "slug": "sleep-talk"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.IGk8nNBogMKp3seI",
+                      "slug": "substitute"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FNtFpxkWjT9PhvEb",
+                      "slug": "nature-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.43i757GW8pptWB5j",
+                      "slug": "confide"
+                    }
+                  ],
+                  "egg": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.0JDFAZ8Q0rDKNodB",
+                      "slug": "amnesia"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.TgmOU36SFwwlN5di",
+                      "slug": "charm"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.5A0ZjnRjOwj1i7n8",
+                      "slug": "curse"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.IAFYzSRQGxZM1SSQ",
+                      "slug": "endure"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.mGvVlposKAYCa15m",
+                      "slug": "giga-drain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.UsV1dE6qhSVDd2oN",
+                      "slug": "grass-whistle"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.dXNYCLtPWarypUld",
+                      "slug": "grassy-terrain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.2ky0KrGcz81tQ5X3",
+                      "slug": "ingrain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FBj8VAFE3YZoI8C1",
+                      "slug": "leaf-storm"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.weEc5wlOZ5H7Tguh",
+                      "slug": "light-screen"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.qFkD5vP06XSTPXlE",
+                      "slug": "magical-leaf"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FNtFpxkWjT9PhvEb",
+                      "slug": "nature-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.JEquTUzbVYPNvhNp",
+                      "slug": "petal-dance"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.6tEUiL2W8EBFwkEU",
+                      "slug": "power-whip"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DkpT2ACVxH31hpo0",
+                      "slug": "safeguard"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.USJx4QKRdpmiRYKv",
+                      "slug": "skull-bash"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.5vPZfwNkmM0eKO03",
+                      "slug": "sludge"
+                    }
+                  ],
+                  "tutor": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.nzd3auiq1JwJFmCb",
+                      "slug": "bind"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DzD1pun72sIQFQle",
+                      "slug": "body-slam"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.ptP5LFYkJR4BJHIu",
+                      "slug": "bullet-seed"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Y5R5mbVcGq6fwoFj",
+                      "slug": "defense-curl"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.4W8tzNRKdmn0WRYd",
+                      "slug": "fury-cutter"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.mGvVlposKAYCa15m",
+                      "slug": "giga-drain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.k7q1OgtEQ8jnd8eH",
+                      "slug": "grass-pledge"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.wXMLKSFvWlsa0ee6",
+                      "slug": "knock-off"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rDlHKWGG9k3AxIlP",
+                      "slug": "mud-slap"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rkPaIX8nSuJmwQiC",
+                      "slug": "natural-gift"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.6Q0qjfHVNHd5fsec",
+                      "slug": "secret-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.b18uGrjFdKGy0rBU",
+                      "slug": "seed-bomb"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.RRgY3N3vFTIbzl53",
+                      "slug": "snore"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.kxvFjyRtAzf99FIX",
+                      "slug": "string-shot"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.zO24D3CxJw7guk2Y",
+                      "slug": "synthesis"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.s41RoaO2fbzPVqR6",
+                      "slug": "worry-seed"
+                    }
+                  ]
+                },
+                "skills": {
+                  "acrobatics": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "athletics": {
+                    "value": 3,
+                    "modifier": 2,
+                    "type": "body"
+                  },
+                  "medicineEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "charm": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "combat": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "command": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "generalEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "techEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "guile": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "intimidate": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "intuition": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "occultEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "perception": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "stealth": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "survival": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "focus": {
+                    "value": 2,
+                    "modifier": 1,
+                    "type": "spirit"
+                  },
+                  "pokemonEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  }
+                },
+                "slug": "bulbasaur",
+                "rules": [],
+                "source": {
+                  "value": "Synthetic diagnostic species-B"
+                },
+                "keywords": []
+              },
+              "flags": {
+                "ptu": {
+                  "npcIdentityRole": "species-B",
+                  "selectedVersion": {
+                    "id": "synthetic-species-B",
+                    "label": "Synthetic species-B"
+                  },
+                  "npcCustom": {
+                    "role": "species-B",
+                    "preserve": "exact"
+                  }
+                },
+                "core": {
+                  "sourceId": "Compendium.world.p03-npc-identity.Item.a6eBWFJsbOwONHVq"
+                }
+              },
+              "effects": [],
+              "sourceId": "Compendium.world.p03-npc-identity.Item.a6eBWFJsbOwONHVq"
+            }
+          ]
+        },
+        {
+          "uuid": "Actor.PmZdOz6I2dnlNisU",
+          "items": [
+            {
+              "id": "tTeXdtvaJKTOdVEm",
+              "name": "NPC Identity species",
+              "type": "species",
+              "img": "/systems/ptu/css/images/icons/dex_icon.png",
+              "system": {
+                "schema": {
+                  "version": 0.11,
+                  "lastMigration": {
+                    "datetime": "2023-08-15T11:56:06.683Z",
+                    "version": {
+                      "schema": null,
+                      "foundry": "11.307",
+                      "system": "0.21"
+                    }
+                  }
+                },
+                "dexentry": "When Bulbasaur are born, their mothers plant seeds on their backs. The plants form symbiotic relationships with their hosts, growing alongside the Pokémon and providing them with sustenance. By lying about in the sun, Bulbasaur allow the plants on their backs to photosynthesize and produce energy, which they can then use for themselves. The plants are able to become mobile by virtue of their active hosts, allowing them to move out of shaded areas and thus benefiting them as well. Additionally, Bulbasaur can utilize their plants to perform Grass- and Poison-type attacks&nbsp;such as Razor Leaf and Poison Powder. The attacks protect both the Pokémon and the plants from harm. In the wild, Bulbasaur tend to be very rare, as they are shy creatures that prefer the company of their own kind. However, they are also generally very docile, tame, and loyal to people that they trust, and for that reason are one of the species of Pokémon available for starting trainers to choose in the region of Kanto.",
+                "number": 1,
+                "form": "",
+                "stats": {
+                  "hp": 5,
+                  "atk": 5,
+                  "def": 5,
+                  "spatk": 7,
+                  "spdef": 7,
+                  "spd": 5
+                },
+                "types": [
+                  "Grass",
+                  "Poison"
+                ],
+                "abilities": {
+                  "basic": [
+                    {
+                      "slug": "chlorophyll",
+                      "uuid": "Compendium.ptu.abilities.Item.ZiTUZHmZaIq0K2na"
+                    },
+                    {
+                      "slug": "overgrow",
+                      "uuid": "Compendium.ptu.abilities.Item.HSv89TejG6adprHJ"
+                    }
+                  ],
+                  "advanced": [
+                    {
+                      "slug": "confidence",
+                      "uuid": "Compendium.ptu.abilities.Item.dnokBxCkJAn5nqHN"
+                    },
+                    {
+                      "slug": "discipline",
+                      "uuid": "Compendium.ptu.abilities.Item.kHDxnwsm7KNgQuQY"
+                    }
+                  ],
+                  "high": [
+                    {
+                      "slug": "empower",
+                      "uuid": "Compendium.ptu.abilities.Item.w5xfL4tul12d4MVp"
+                    }
+                  ]
+                },
+                "evolutions": [
+                  {
+                    "uuid": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+                    "slug": "bulbasaur",
+                    "level": 1,
+                    "other": {
+                      "restrictions": []
+                    }
+                  },
+                  {
+                    "uuid": "Compendium.ptu.species.Item.82FKtTasFOdAefkZ",
+                    "slug": "ivysaur",
+                    "level": 15,
+                    "other": {
+                      "restrictions": []
+                    }
+                  },
+                  {
+                    "uuid": "Compendium.ptu.species.Item.39vCZexadq6EWF7z",
+                    "slug": "venusaur",
+                    "level": 30,
+                    "other": {
+                      "restrictions": []
+                    }
+                  }
+                ],
+                "size": {
+                  "height": 0.7,
+                  "weight": 6.9,
+                  "sizeClass": "Small",
+                  "weightClass": 1
+                },
+                "breeding": {
+                  "genderRatio": 87.5,
+                  "eggGroups": [
+                    "Monster",
+                    "Plant"
+                  ],
+                  "hatchRate": 10
+                },
+                "diet": [
+                  "Herbivore",
+                  "Phototroph"
+                ],
+                "habitats": [
+                  "Forest",
+                  "Grassland",
+                  "Rainforest"
+                ],
+                "capabilities": {
+                  "overland": 5,
+                  "sky": 0,
+                  "swim": 3,
+                  "levitate": 0,
+                  "burrow": 0,
+                  "highJump": 0,
+                  "longJump": 2,
+                  "power": 2,
+                  "naturewalk": [
+                    "Grassland",
+                    "Forest"
+                  ],
+                  "other": [
+                    {
+                      "slug": "underdog",
+                      "uuid": "Compendium.ptu.capabilities.Item.AIbbzjfDZix8YFkU"
+                    }
+                  ]
+                },
+                "moves": {
+                  "level": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.50Vtl0u0jPevwY4K",
+                      "slug": "tackle",
+                      "level": 1
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.9Bi4aMf4Ls0JdLNK",
+                      "slug": "growl",
+                      "level": 3
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Jx4TeOVUk1DX8R45",
+                      "slug": "leech-seed",
+                      "level": 7
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eDoJBVQq7jDkuMp7",
+                      "slug": "vine-whip",
+                      "level": 9
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.NisjPhyvzfHCfgSx",
+                      "slug": "poison-powder",
+                      "level": 13
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QhX27aIM6MPFqya8",
+                      "slug": "sleep-powder",
+                      "level": 13
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rmDcfFfrdq5PgwF9",
+                      "slug": "take-down",
+                      "level": 15
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.wYz4RubDs84tDVul",
+                      "slug": "razor-leaf",
+                      "level": 19
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.nJhqaS0PzJJ7w1pS",
+                      "slug": "sweet-scent",
+                      "level": 21
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Bcv2CeJg9qU1q0Cb",
+                      "slug": "growth",
+                      "level": 25
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.7Gi57ZcOWjyjhU0A",
+                      "slug": "double-edge",
+                      "level": 27
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.s41RoaO2fbzPVqR6",
+                      "slug": "worry-seed",
+                      "level": 31
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.zO24D3CxJw7guk2Y",
+                      "slug": "synthesis",
+                      "level": 33
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.b18uGrjFdKGy0rBU",
+                      "slug": "seed-bomb",
+                      "level": 37
+                    }
+                  ],
+                  "machine": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.gCofXErMduyn6zwf",
+                      "slug": "work-up"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eFxRUdqQgdnJybY4",
+                      "slug": "toxic"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DKcoWwUTCJWg58nw",
+                      "slug": "venoshock"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QyDgi8hL1jQLLhld",
+                      "slug": "hidden-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.m787MkYyENqNyGOb",
+                      "slug": "sunny-day"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.weEc5wlOZ5H7Tguh",
+                      "slug": "light-screen"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.HfiQ6I7xp7aGazV0",
+                      "slug": "protect"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DkpT2ACVxH31hpo0",
+                      "slug": "safeguard"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.sMByqeVz0Wq8Ybby",
+                      "slug": "frustration"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Oa9NuYFi7yvPQTIO",
+                      "slug": "solar-beam"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.eRjK7eB733bE0D8o",
+                      "slug": "return"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.BHmRIX70tqHROfdN",
+                      "slug": "double-team"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.T4KEAGNoEIpiO0G5",
+                      "slug": "sludge-bomb"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.QhQ2vUo3KMKo4Xou",
+                      "slug": "facade"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.P0JIeR4lnilvg7K8",
+                      "slug": "rest"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.0VI0E6oSQYULcSUU",
+                      "slug": "attract"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.GgdkAr3gDO6snP7r",
+                      "slug": "round"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.gOhBiJMpOl84MLaX",
+                      "slug": "echoed-voice"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.GPc4UqyAsng4fPup",
+                      "slug": "energy-ball"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.z5hgetbLhLvsd800",
+                      "slug": "swords-dance"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.jh2qDsk9mirEzqvu",
+                      "slug": "grass-knot"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.arxy479cTjkB8mML",
+                      "slug": "swagger"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Jfi9FN77Rplukh7W",
+                      "slug": "sleep-talk"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.IGk8nNBogMKp3seI",
+                      "slug": "substitute"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FNtFpxkWjT9PhvEb",
+                      "slug": "nature-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.43i757GW8pptWB5j",
+                      "slug": "confide"
+                    }
+                  ],
+                  "egg": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.0JDFAZ8Q0rDKNodB",
+                      "slug": "amnesia"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.TgmOU36SFwwlN5di",
+                      "slug": "charm"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.5A0ZjnRjOwj1i7n8",
+                      "slug": "curse"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.IAFYzSRQGxZM1SSQ",
+                      "slug": "endure"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.mGvVlposKAYCa15m",
+                      "slug": "giga-drain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.UsV1dE6qhSVDd2oN",
+                      "slug": "grass-whistle"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.dXNYCLtPWarypUld",
+                      "slug": "grassy-terrain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.2ky0KrGcz81tQ5X3",
+                      "slug": "ingrain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FBj8VAFE3YZoI8C1",
+                      "slug": "leaf-storm"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.weEc5wlOZ5H7Tguh",
+                      "slug": "light-screen"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.qFkD5vP06XSTPXlE",
+                      "slug": "magical-leaf"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.FNtFpxkWjT9PhvEb",
+                      "slug": "nature-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.JEquTUzbVYPNvhNp",
+                      "slug": "petal-dance"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.6tEUiL2W8EBFwkEU",
+                      "slug": "power-whip"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DkpT2ACVxH31hpo0",
+                      "slug": "safeguard"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.USJx4QKRdpmiRYKv",
+                      "slug": "skull-bash"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.5vPZfwNkmM0eKO03",
+                      "slug": "sludge"
+                    }
+                  ],
+                  "tutor": [
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.nzd3auiq1JwJFmCb",
+                      "slug": "bind"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.DzD1pun72sIQFQle",
+                      "slug": "body-slam"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.ptP5LFYkJR4BJHIu",
+                      "slug": "bullet-seed"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.Y5R5mbVcGq6fwoFj",
+                      "slug": "defense-curl"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.4W8tzNRKdmn0WRYd",
+                      "slug": "fury-cutter"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.mGvVlposKAYCa15m",
+                      "slug": "giga-drain"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.k7q1OgtEQ8jnd8eH",
+                      "slug": "grass-pledge"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.wXMLKSFvWlsa0ee6",
+                      "slug": "knock-off"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rDlHKWGG9k3AxIlP",
+                      "slug": "mud-slap"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.rkPaIX8nSuJmwQiC",
+                      "slug": "natural-gift"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.6Q0qjfHVNHd5fsec",
+                      "slug": "secret-power"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.b18uGrjFdKGy0rBU",
+                      "slug": "seed-bomb"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.RRgY3N3vFTIbzl53",
+                      "slug": "snore"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.kxvFjyRtAzf99FIX",
+                      "slug": "string-shot"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.zO24D3CxJw7guk2Y",
+                      "slug": "synthesis"
+                    },
+                    {
+                      "uuid": "Compendium.ptu.moves.Item.s41RoaO2fbzPVqR6",
+                      "slug": "worry-seed"
+                    }
+                  ]
+                },
+                "skills": {
+                  "acrobatics": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "athletics": {
+                    "value": 3,
+                    "modifier": 2,
+                    "type": "body"
+                  },
+                  "medicineEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "charm": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "combat": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "command": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "generalEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "techEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "guile": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "intimidate": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "intuition": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "spirit"
+                  },
+                  "occultEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "perception": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "mind"
+                  },
+                  "stealth": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "survival": {
+                    "value": 2,
+                    "modifier": 0,
+                    "type": "body"
+                  },
+                  "focus": {
+                    "value": 2,
+                    "modifier": 1,
+                    "type": "spirit"
+                  },
+                  "pokemonEd": {
+                    "value": 1,
+                    "modifier": 0,
+                    "type": "mind"
+                  }
+                },
+                "slug": "bulbasaur",
+                "rules": [],
+                "source": {
+                  "value": "Synthetic diagnostic species-A"
+                },
+                "keywords": []
+              },
+              "flags": {
+                "ptu": {
+                  "npcIdentityRole": "species-A",
+                  "selectedVersion": {
+                    "id": "synthetic-species-A",
+                    "label": "Synthetic species-A"
+                  },
+                  "npcCustom": {
+                    "role": "species-A",
+                    "preserve": "exact"
+                  }
+                },
+                "core": {
+                  "sourceId": "Compendium.world.p03-npc-identity.Item.tTeXdtvaJKTOdVEm"
+                }
+              },
+              "effects": [],
+              "sourceId": "Compendium.world.p03-npc-identity.Item.tTeXdtvaJKTOdVEm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "generated-custom-data-and-selections",
+      "result": "passed",
+      "expected": "Every selected source retains its requirements, effect, custom/version data and intended ChoiceSet selection.",
+      "observed": {
+        "trainerUuid": "Actor.Jg7xKPoyLbqkGkc0",
+        "selectedItems": [
+          {
+            "id": "F4EkFnjYqYURPdul",
+            "name": "NPC Identity edge",
+            "type": "edge",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic edge-A effect",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic edge-A"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "notes": "",
+              "free": false
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "edge-A",
+                "selectedVersion": {
+                  "id": "synthetic-edge-A",
+                  "label": "Synthetic edge-A"
+                },
+                "npcCustom": {
+                  "role": "edge-A",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr"
+          },
+          {
+            "id": "HwXGqmFN6WMO26Hk",
+            "name": "Medical Techniques",
+            "type": "feat",
+            "img": "/systems/ptu/css/images/icons/feat_icon.png",
+            "system": {
+              "origin": "",
+              "effect": "Trigger: You apply a Restorative Item\nEffect: The target of the triggering action gains a Tick of Hit Points, plus an additional amount of Hit Points equal to your Medicine Education Rank.",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": 0.11,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "PTR Compendiums"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Medic",
+                "Adept Medicine Education"
+              ],
+              "frequency": "1 AP – Free Action",
+              "notes": "",
+              "free": false,
+              "class": "Researcher (Apothecary)",
+              "name": "Medical Techniques",
+              "useCount": 0,
+              "automation": []
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi"
+              },
+              "ptu": {
+                "prereqBackup": "Medic, Adept Medicine Education"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi"
+          },
+          {
+            "id": "LelBlISFEOUIjygH",
+            "name": "NPC Identity feat (Beta)",
+            "type": "feat",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic feat-A effect",
+              "snippet": "",
+              "rules": [
+                {
+                  "key": "ChoiceSet",
+                  "flag": "npcProbeChoice",
+                  "choices": [
+                    {
+                      "label": "Alpha",
+                      "value": "alpha"
+                    },
+                    {
+                      "label": "Beta",
+                      "value": "beta"
+                    }
+                  ],
+                  "selection": "beta"
+                }
+              ],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic feat-A"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": ""
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "feat-A",
+                "selectedVersion": {
+                  "id": "synthetic-feat-A",
+                  "label": "Synthetic feat-A"
+                },
+                "npcCustom": {
+                  "role": "feat-A",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8"
+          },
+          {
+            "id": "NaN8lGfmnzuxOTtV",
+            "name": "NPC Identity class",
+            "type": "feat",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic class-A effect",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic class-A"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Class"
+              ],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": ""
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "class-A",
+                "selectedVersion": {
+                  "id": "synthetic-class-A",
+                  "label": "Synthetic class-A"
+                },
+                "npcCustom": {
+                  "role": "class-A",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9"
+          },
+          {
+            "id": "O9WYIfc7AM42qsLz",
+            "name": "Medical Techniques",
+            "type": "feat",
+            "img": "/systems/ptu/css/images/icons/feat_icon.png",
+            "system": {
+              "origin": "",
+              "effect": "Trigger - You apply a Restorative Item\nEffect: The target gains a Tick of Hit Points, plus an additional amount of Hit Points equal to your Medicine Education Rank.\nRecipe - Hyper Cures",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": 0.11,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "PTR Compendiums"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Apothecary Research Field",
+                "Branch"
+              ],
+              "prerequisites": [
+                "Apothecary",
+                "Expert Medicine Education"
+              ],
+              "frequency": "1 AP - Rapid Action",
+              "notes": "",
+              "free": false,
+              "class": "Researcher (Apothecary)",
+              "name": "Medical Techniques",
+              "useCount": 0,
+              "automation": []
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp"
+              },
+              "ptu": {
+                "prereqBackup": "Apothecary, Expert Medicine Education"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp"
+          },
+          {
+            "id": "uLJe9sap7csrMXzG",
+            "name": "NPC Identity edge",
+            "type": "edge",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic edge-B effect",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic edge-B"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Adept Charm",
+                "GM Permission"
+              ],
+              "notes": "",
+              "free": false
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "edge-B",
+                "selectedVersion": {
+                  "id": "synthetic-edge-B",
+                  "label": "Synthetic edge-B"
+                },
+                "npcCustom": {
+                  "role": "edge-B",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo"
+          },
+          {
+            "id": "UR5mRr9UdqWzftKQ",
+            "name": "NPC Identity feat (Alpha)",
+            "type": "feat",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic feat-A effect",
+              "snippet": "",
+              "rules": [
+                {
+                  "key": "ChoiceSet",
+                  "flag": "npcProbeChoice",
+                  "choices": [
+                    {
+                      "label": "Alpha",
+                      "value": "alpha"
+                    },
+                    {
+                      "label": "Beta",
+                      "value": "beta"
+                    }
+                  ],
+                  "selection": "alpha"
+                }
+              ],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic feat-A"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": ""
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "feat-A",
+                "selectedVersion": {
+                  "id": "synthetic-feat-A",
+                  "label": "Synthetic feat-A"
+                },
+                "npcCustom": {
+                  "role": "feat-A",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8"
+          },
+          {
+            "id": "x77bwZxHuTq1VC1c",
+            "name": "NPC Identity class",
+            "type": "feat",
+            "img": "icons/svg/item-bag.svg",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic class-B effect",
+              "snippet": "",
+              "rules": [],
+              "enabled": true,
+              "slug": null,
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic class-B"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Class"
+              ],
+              "prerequisites": [
+                "Adept Charm",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": ""
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "class-B",
+                "selectedVersion": {
+                  "id": "synthetic-class-B",
+                  "label": "Synthetic class-B"
+                },
+                "npcCustom": {
+                  "role": "class-B",
+                  "preserve": "exact"
+                }
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG"
+          },
+          {
+            "id": "xkJxZIYytEDrqGul",
+            "name": "NPC Identity renamed Feature B (Beta)",
+            "type": "feat",
+            "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+            "system": {
+              "origin": "",
+              "effect": "Synthetic feat-B effect",
+              "snippet": "",
+              "rules": [
+                {
+                  "key": "ChoiceSet",
+                  "flag": "npcProbeChoice",
+                  "choices": [
+                    {
+                      "label": "Alpha",
+                      "value": "alpha"
+                    },
+                    {
+                      "label": "Beta",
+                      "value": "beta"
+                    }
+                  ],
+                  "selection": "beta"
+                }
+              ],
+              "enabled": true,
+              "slug": "npc-identity-feat",
+              "schema": {
+                "version": null,
+                "lastMigration": null
+              },
+              "referenceEffect": "",
+              "source": {
+                "value": "Synthetic diagnostic feat-B"
+              },
+              "stackSlugs": false,
+              "keywords": [],
+              "prerequisites": [
+                "Adept Charm",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": "",
+              "range": ""
+            },
+            "flags": {
+              "ptu": {
+                "npcIdentityRole": "feat-B",
+                "selectedVersion": {
+                  "id": "synthetic-feat-B",
+                  "label": "Synthetic feat-B"
+                },
+                "npcCustom": {
+                  "role": "feat-B",
+                  "preserve": "exact"
+                },
+                "showInTokenPanel": true
+              },
+              "core": {
+                "sourceId": "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm"
+              }
+            },
+            "effects": [],
+            "sourceId": "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "real-choice-cancellation-no-writes",
+      "result": "passed",
+      "expected": "Cancelling an unresolved ChoiceSet creates no actors/folders or changes to explicit ranks/selections.",
+      "observed": {
+        "actorsUnchanged": true,
+        "foldersUnchanged": true,
+        "choices": {
+          "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8": "alpha",
+          "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm": null
+        }
+      }
+    },
+    {
+      "id": "actual-player-permission-first-denial",
+      "result": "passed",
+      "expected": "Real role-1 player retains both exact selections but cannot create NPC actors or folders.",
+      "observed": {
+        "user": {
+          "id": "iVkqwxalI3cGJahD",
+          "isGM": false,
+          "canCreateActor": false
+        },
+        "selected": [
+          "Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi",
+          "Compendium.ptu.feats.Item.WscZukROrNeC7Ayp"
+        ],
+        "actorsUnchanged": true,
+        "foldersUnchanged": true
+      }
+    },
+    {
+      "id": "temporary-macro-access-restored",
+      "result": "passed",
+      "expected": "Owner-approved Observer access returns to original Default/None; actual world roles/permissions remain unchanged.",
+      "observed": {
+        "access": {
+          "macroUuid": "Macro.vHL1XMvT4Oc5l867",
+          "user": "PTU 02 Player",
+          "original": "Default",
+          "temporary": "Observer",
+          "approved": true,
+          "observed": {
+            "id": "DocumentOwnershipConfig-Macro-vHL1XMvT4Oc5l867-iVkqwxalI3cGJahD",
+            "label": "Default",
+            "value": "-20"
+          }
+        },
+        "macroOwnership": {
+          "default": 0
+        },
+        "worldUserPermissions": [
+          {
+            "id": "lMqIt6G1J6gh89ut",
+            "name": "Gamemaster",
+            "role": 4,
+            "actorCreate": true,
+            "scriptMacro": true
+          },
+          {
+            "id": "iVkqwxalI3cGJahD",
+            "name": "PTU 02 Player",
+            "role": 1,
+            "actorCreate": false,
+            "scriptMacro": true
+          }
+        ],
+        "note": "The UI Default sentinel is -20; no explicit player override remains. The initial -1 sentinel assumption was a reporting-harness error."
+      }
+    },
+    {
+      "id": "actual-client-reload-item-preservation",
+      "result": "passed",
+      "expected": "All final generated selected Items retain exact owned IDs, source identity, complete system/custom/choice data after reload.",
+      "observed": [
+        {
+          "actorUuid": "Actor.Jg7xKPoyLbqkGkc0",
+          "selectedItems": 9,
+          "beforeSha256": "d2ad69b72ce7ac35157bee58cbb0b56cb80fb8dfc274fc3f7d369ba7996afa3f",
+          "afterSha256": "d2ad69b72ce7ac35157bee58cbb0b56cb80fb8dfc274fc3f7d369ba7996afa3f"
+        },
+        {
+          "actorUuid": "Actor.Ij0laAdFKYO2DRat",
+          "selectedItems": 1,
+          "beforeSha256": "89b364827c48845a2bee3168c3f138281ac244c00e529953ea3f04e9f71562a0",
+          "afterSha256": "89b364827c48845a2bee3168c3f138281ac244c00e529953ea3f04e9f71562a0"
+        },
+        {
+          "actorUuid": "Actor.PmZdOz6I2dnlNisU",
+          "selectedItems": 1,
+          "beforeSha256": "18793e11aeb86cfbddde10b91581776a69cc6e0f925096224cbe8d12ecbac8ca",
+          "afterSha256": "18793e11aeb86cfbddde10b91581776a69cc6e0f925096224cbe8d12ecbac8ca"
+        }
+      ]
+    },
+    {
+      "id": "source-records-preserved",
+      "result": "passed",
+      "expected": "Eight exact source identities remain; only the deliberate B label and modification metadata may change.",
+      "observed": [
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.8XkZY6t4KZ0xpBHG",
+          "beforeSha256": "c5ff083efc2245bfc3374e391ab10c83bfdfd34d1a9891f5745604709da51077",
+          "afterSha256": "c5ff083efc2245bfc3374e391ab10c83bfdfd34d1a9891f5745604709da51077",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.DltkQBBW22VKtqW9",
+          "beforeSha256": "f8d5dbc594fd945a9e5a6e62fee47061f6ea0f7c026dc149384f3482f8ff69a6",
+          "afterSha256": "f8d5dbc594fd945a9e5a6e62fee47061f6ea0f7c026dc149384f3482f8ff69a6",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.GUBEaOMX2rPGagdm",
+          "beforeSha256": "f64661046bec4c531d75fc76c0816d4cda5cf32463f5504a06ac29daa3abb0ce",
+          "afterSha256": "39269faef2fd1a12bb5c21f9f69f57148be7fd9b25a7967e79fe412f4ce97cd9",
+          "deliberateRename": true
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.LI8RuohlfbltsKhr",
+          "beforeSha256": "b6c2493ae2086ca2b4f7d3e80f363158dbc685ab8ae4d1f4a5c4c1dcb05c6a59",
+          "afterSha256": "b6c2493ae2086ca2b4f7d3e80f363158dbc685ab8ae4d1f4a5c4c1dcb05c6a59",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.a6eBWFJsbOwONHVq",
+          "beforeSha256": "09a100a1cc322efe883e7bc6215c9f5d1c7fcb2cb674899a653cfdcdd863be70",
+          "afterSha256": "09a100a1cc322efe883e7bc6215c9f5d1c7fcb2cb674899a653cfdcdd863be70",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.tTeXdtvaJKTOdVEm",
+          "beforeSha256": "7967ce77680490c51e1670d681fa75678e281895f9d6ee81930c36015f871eee",
+          "afterSha256": "7967ce77680490c51e1670d681fa75678e281895f9d6ee81930c36015f871eee",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.wEgnCPR0vL7d5MI8",
+          "beforeSha256": "7c8fc25cf9e270bfc905df9d43cb2f001e9df5cb85ad33a5166f60d7929c1fd2",
+          "afterSha256": "7c8fc25cf9e270bfc905df9d43cb2f001e9df5cb85ad33a5166f60d7929c1fd2",
+          "deliberateRename": false
+        },
+        {
+          "uuid": "Compendium.world.p03-npc-identity.Item.yVMMSMRHjABOvHHo",
+          "beforeSha256": "023f2d95c622d26ce0322f099c191d9956291070e19d488b7d3a70948377ef68",
+          "afterSha256": "023f2d95c622d26ce0322f099c191d9956291070e19d488b7d3a70948377ef68",
+          "deliberateRename": false
+        }
+      ]
+    }
+  ],
+  "retained": [
+    {
+      "path": "p03-npc-raw/actor-after-reload-ui.txt",
+      "sha256": "d9806cb36209274132648189cb14f95f399f7212b4bb9d4273b474face3cd48a",
+      "bytes": 14988
+    },
+    {
+      "path": "p03-npc-raw/actor-after-reload.png",
+      "sha256": "258ad24e187f4ce89f288c5fb07fc3ba6bd652adad293f38a1e015199fe140f1",
+      "bytes": 156415
+    },
+    {
+      "path": "p03-npc-raw/affected-final.log",
+      "sha256": "07ea1d54f14afa5f2bf000b19389cb7b78e6757d9bae5eaaeaf6a8bb9bec49a0",
+      "bytes": 4277
+    },
+    {
+      "path": "p03-npc-raw/ambiguous-paste-no-selection.json",
+      "sha256": "2299e46d608b1b5ac5f67c805ae62fe4773fcacbf7b852044eb3f9b7a97a0ced",
+      "bytes": 227169
+    },
+    {
+      "path": "p03-npc-raw/artifact-binding.json",
+      "sha256": "17bed535449b557cadf2e94698299511a29d8614ec41e2115669633c58ade289",
+      "bytes": 2045
+    },
+    {
+      "path": "p03-npc-raw/baseline-cancel.json",
+      "sha256": "7d3635458f1fe57f3201743ff5d168822e981064950129568b69b371f8ca3768",
+      "bytes": 12311
+    },
+    {
+      "path": "p03-npc-raw/baseline-live.json",
+      "sha256": "ef9691685b7ff9cedfc26e7f79e552528540bd400749039b35f0ccdda4415027",
+      "bytes": 13677
+    },
+    {
+      "path": "p03-npc-raw/baseline-live.png",
+      "sha256": "fd647e984c83d37373af1633818f2412174f4d16839f3a37efc31532d31ebc9a",
+      "bytes": 162300
+    },
+    {
+      "path": "p03-npc-raw/baseline-node.log",
+      "sha256": "f8a420f71138391e376835d9d50f8b5e7e67a56a5bb9eae81ef2ccf9fac30da0",
+      "bytes": 1215
+    },
+    {
+      "path": "p03-npc-raw/build.log",
+      "sha256": "b03e50c67a2a3d99cf77c6b7ba36be8c952159c0d4f65238e2018f76013368dd",
+      "bytes": 195
+    },
+    {
+      "path": "p03-npc-raw/cancel-dialog.png",
+      "sha256": "0a3576cca7dd9b5e342221b08286380093cf4a87199a8837fd48a0eed522f947",
+      "bytes": 146289
+    },
+    {
+      "path": "p03-npc-raw/classes-both.json",
+      "sha256": "3e70551a27df6662a6631d53ba481ba99c9d4bc0653b22393b1c71ae15782838",
+      "bytes": 94142
+    },
+    {
+      "path": "p03-npc-raw/final-cancel-after.json",
+      "sha256": "a70b7f1bf58b0c075a5f7ce85677f2969de45a1074042f6b4a9452b815173fc4",
+      "bytes": 387054
+    },
+    {
+      "path": "p03-npc-raw/final-cancel-before.json",
+      "sha256": "f327dc0c4b50a31d3b956f377a2e128bfb1b90b3b21ff84eed8bdf447318abd2",
+      "bytes": 387053
+    },
+    {
+      "path": "p03-npc-raw/final-empty-draft-closed.json",
+      "sha256": "05489e8d05fe8dd4f11f8e038bfb653b7f2f6bbd05e945311debac2b5ad6842e",
+      "bytes": 374874
+    },
+    {
+      "path": "p03-npc-raw/final-inspection-restored.json",
+      "sha256": "b435980c77e71ecdb87e2fe53ed8bd5232751b6e28a737ca5162cb95d56372fb",
+      "bytes": 375486
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-before-generation.json",
+      "sha256": "ddbca56d8cf6ec2a582e3e2db3381ab8517b34c7105164c971eebcd4828eeed7",
+      "bytes": 270313
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-generated.json",
+      "sha256": "edf76ff3d149b735d6a12583a32f44d3883f9956047c08619566199137df3de2",
+      "bytes": 546292
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-initial.json",
+      "sha256": "2299e46d608b1b5ac5f67c805ae62fe4773fcacbf7b852044eb3f9b7a97a0ced",
+      "bytes": 227169
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-removed-base.json",
+      "sha256": "fca25381fd75361a427cede3dbbcc3502ab20f66665ac03f1ddbe5f26112a9ea",
+      "bytes": 264030
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-renamed.json",
+      "sha256": "6b141ab52a2773441711809c2cbedbf1cef2ad9bbdeaee2f050e5ba3adeb61d8",
+      "bytes": 269335
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-selected.json",
+      "sha256": "caf333b735832114afd7ed3a0f00aecb4b5dbf69da19161454b58c4537ef8ba6",
+      "bytes": 269244
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-species-a.json",
+      "sha256": "30b62ac2c35602f85e3a0df4d2bcc1b0cd646ee027e1f8ff803d899135ab8e34",
+      "bytes": 269824
+    },
+    {
+      "path": "p03-npc-raw/final-matrix-species-removed.json",
+      "sha256": "4714e3c165246e9f0f751f93b4e897b56412876851b29601d55daee35e685177",
+      "bytes": 269335
+    },
+    {
+      "path": "p03-npc-raw/final-reload-inspection.json",
+      "sha256": "47c9cb7ad2d70a4d842a4ba7043557f47bbe324d7897e74a087770e7b9e506cc",
+      "bytes": 374873
+    },
+    {
+      "path": "p03-npc-raw/fixed-initial.json",
+      "sha256": "3efc64518b45519914cc206451e64aecd4721d8ed1529ca061dd17def06a7fd5",
+      "bytes": 56830
+    },
+    {
+      "path": "p03-npc-raw/full-tests.log",
+      "sha256": "7b8070886af131e3e06da62d7ce535f5b09862fa46676c2b00c6c7c0ad084df6",
+      "bytes": 21193
+    },
+    {
+      "path": "p03-npc-raw/independent-choices.json",
+      "sha256": "272851af75f54c213e51eae01f154b3c01f5b6309889e7d40309807c27f9269a",
+      "bytes": 109963
+    },
+    {
+      "path": "p03-npc-raw/macro-access-restored.json",
+      "sha256": "30115486554be740382956b2daa1525678a4b9031c3d826ffcc08962f1601060",
+      "bytes": 283
+    },
+    {
+      "path": "p03-npc-raw/macro-access-restored.png",
+      "sha256": "168a59570264cabcb992d127b6c131558c83caa75c11e6f84cbaa337d1f3e074",
+      "bytes": 113820
+    },
+    {
+      "path": "p03-npc-raw/medical-both-refreshed.json",
+      "sha256": "354c505f8be495af6836b7693ecb3c704b1c25f9b336d7989243f229c1998e40",
+      "bytes": 66666
+    },
+    {
+      "path": "p03-npc-raw/medical-generated.json",
+      "sha256": "2b3890fd8e608f772b12e34293c2ca9ceedfdd5f9292ade181340c8770ffbaaa",
+      "bytes": 89719
+    },
+    {
+      "path": "p03-npc-raw/medical-medic-selected.json",
+      "sha256": "3e9cbf6362067df23fbca82f002e5dd4791d10878b9592fb3630c5b4a0fa99ae",
+      "bytes": 61700
+    },
+    {
+      "path": "p03-npc-raw/party-hook-baseline.log",
+      "sha256": "1878669ecb307ec4d816a870127db224f3839fc7126db70b146af865c78abb47",
+      "bytes": 1444
+    },
+    {
+      "path": "p03-npc-raw/player-before.json",
+      "sha256": "1fa75ea3403e5b322a95b74a7d33dc29f77ff4807bf6f9052f7d2569e0b0a476",
+      "bytes": 325829
+    },
+    {
+      "path": "p03-npc-raw/player-denied-logs.json",
+      "sha256": "bb4c2d3eeb9abfbf90a15ae744f736c12d32feb65ccfae41db8103ee4e53620c",
+      "bytes": 546
+    },
+    {
+      "path": "p03-npc-raw/player-denied.json",
+      "sha256": "3d23c2175224c716d96b88c506a819292e6abb519bbcde686bf2bc029ab9d8b3",
+      "bytes": 335666
+    },
+    {
+      "path": "p03-npc-raw/player-denied.png",
+      "sha256": "3c9d111b0e856a8b91d62bd783303d5c2c1aa812589ed796a948ba2633d68dd6",
+      "bytes": 95448
+    },
+    {
+      "path": "p03-npc-raw/player-readonly-macro.png",
+      "sha256": "06fa64fef4dba2a7e79e26b6274c8267cec06fd89f5c48f94302edfe40991cce",
+      "bytes": 68041
+    },
+    {
+      "path": "p03-npc-raw/player-selected.json",
+      "sha256": "d1451df3158df69bff33fbd182751fcc2316fca70002ade5affe09677e4e07cc",
+      "bytes": 335665
+    },
+    {
+      "path": "p03-npc-raw/renamed-subchoices.json",
+      "sha256": "b9488be13d7cf14035ea7a14d571095a168b393fd8cd983660fa780662c197b2",
+      "bytes": 110258
+    },
+    {
+      "path": "p03-npc-raw/repeat-after-base-removal.json",
+      "sha256": "38aaf9142e0e77223352451a6b4c41c100786f14cbd5253c69ee5f9ba592705f",
+      "bytes": 104748
+    },
+    {
+      "path": "p03-npc-raw/runtime-ci.json",
+      "sha256": "32034334b8e614ce1ac0d9b2f90ca1980a892b910f7067a797f8901e13f5fce6",
+      "bytes": 4682
+    },
+    {
+      "path": "p03-npc-raw/setup-retry.log",
+      "sha256": "afc7d6e7d9d6e523f9b7e180c7805a224e4ad136bac139f11434caaa4b8578f2",
+      "bytes": 464
+    },
+    {
+      "path": "p03-npc-raw/shutdown-state.json",
+      "sha256": "2975aa4e2d666a206589f39ded13746318a9f84bfbf30f9f164ba9c54cc49634",
+      "bytes": 327
+    },
+    {
+      "path": "p03-npc-raw/shutdown-ui.json",
+      "sha256": "a4f9d423f9a58441e9bafa3c534dcf4a9d0c88b89677d7ae55bb9af27e568e1e",
+      "bytes": 125
+    },
+    {
+      "path": "p03-npc-raw/species-a-selected.json",
+      "sha256": "5a7c3fc9c49fb13390c0669ddcce53b31baca52417dc2b8a003f188e5388c175",
+      "bytes": 118737
+    },
+    {
+      "path": "p03-npc-raw/species-baseline.log",
+      "sha256": "3d8ceed9655560e8a996fae1dd72618115e22db40d16b44f0e189351b0b8ab85",
+      "bytes": 1580
+    },
+    {
+      "path": "p03-npc-raw/species-removed.json",
+      "sha256": "2e9fdfdb21c3c6504b6ae5773b9f9d61a70e8e1f6b532d6c064360c46aa31b99",
+      "bytes": 118248
+    },
+    {
+      "path": "p03-npc-raw/subchoice-ui.png",
+      "sha256": "0d1a4f3e1ca9c3d1f46278821c86aabc476784e3599e34d71e44c1debd53ba75",
+      "bytes": 180464
+    },
+    {
+      "path": "p03-npc-raw/synthetic-all-selected.json",
+      "sha256": "9ab98f4781d416726a7c1bb2bc856cfd02fd4760de4b99b44960e04ba0a7856b",
+      "bytes": 118248
+    },
+    {
+      "path": "p03-npc-raw/synthetic-before-generation.json",
+      "sha256": "91e027ae10fc04f024d67a5f0e3ecc6f503967576e76fbdef03b241d3fdd23cf",
+      "bytes": 119332
+    },
+    {
+      "path": "p03-npc-raw/synthetic-generated.json",
+      "sha256": "87585a8b982dc3f6f549944a2b361c41254435b7c8be643d9c10dd1acbaae4ab",
+      "bytes": 293611
+    },
+    {
+      "path": "p03-npc-raw/synthetic-initial-after-reload.json",
+      "sha256": "7bcfffd1e1dac18aa9fc9a29adaa340fac378281d951671f60fd9be434917166",
+      "bytes": 85794
+    },
+    {
+      "path": "p03-npc-raw/verification-initial.json",
+      "sha256": "a2dc440efcf89355e9d1d5980c0eba94a14a8ce1eb3893b990f266d20913a96e",
+      "bytes": 92823
+    }
+  ],
+  "limitations": [
+    "No unsaved builder-draft persistence contract",
+    "Synthetic sources are not approved original/errata variants; production framework remains 05",
+    "Only four changed production files were byte-compared with the archive; no fresh full archive installation or broad campaign upgrade",
+    "Interim snapshots remain raw historical observations; final-matrix/player/reload observations bind the final runtime",
+    "General rule accuracy, full supported-scope packaging and release acceptance are outside this correction",
+    "Global process inventory was not queried; owned server handle/port/lock evidence is separate"
+  ],
+  "failureDispositions": [
+    {
+      "case": "baseline component/UI substitution",
+      "disposition": "Retained baseline fails; final exact UUID UI/generation/reload passes."
+    },
+    {
+      "case": "stale species cache / undefined party hook",
+      "disposition": "Retained red cases; affected final tests and actual two-species generation pass."
+    },
+    {
+      "case": "local setup EPERM",
+      "disposition": "172/173 before final test, isolated4/4 rerun; runtimeCI174/174. No whole-local green claim."
+    },
+    {
+      "case": "initial evidence replay12/13",
+      "disposition": "UI Default=-20, not assumed-1; corrected visible-label/stored ownership/unchanged-role check passes; initial report retained."
+    },
+    {
+      "case": "macro access approval rejection",
+      "disposition": "Explicit owner approval obtained for named player/macro/Observer; check ran then original Default restored. No world role/core permission change."
+    }
+  ],
+  "shutdown": {
+    "ownedSessions": {
+      "baseline": 34563,
+      "final": 67127
+    },
+    "bothTerminal": true,
+    "terminalExitCode": 1,
+    "worldReturnedToSetup": true,
+    "port30001": "ECONNREFUSED",
+    "staleLockSafelyReclaimedAndReleased": true,
+    "globalProcessInventoryQueried": false,
+    "viewportReset": true,
+    "macroAccessRestored": true
+  },
+  "handoff": {
+    "implementation": "complete within bounded correction",
+    "verification": "complete within documented matrix",
+    "substantiveAcceptance": "pending",
+    "writerRelease": "At final successful-CI chat handoff; no other chat dispatched",
+    "held": [
+      "D2",
+      "D3",
+      "full D",
+      "full04",
+      "E1",
+      "OPEN-05"
+    ]
+  }
+}
