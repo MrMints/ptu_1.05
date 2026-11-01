@@ -1104,27 +1104,81 @@ export async function issueAdmittedControllerPacket(plan,options){
 }
 function operationErrors(o){if(!object(o)||typeof o.kind!=='string')return ['Malformed local operation'];const fields={setup:['kind','counts'],grants:['kind','coveredPlayers'],'pack-access':['kind','level'],begin:['kind','caseId','status','bodyExecuted','resolutionDenied'],'fresh-update':['kind','oldView','oldViewAfter','oldCaptureUnchanged','beforeActor','afterActor','before','after','prepared'],checkpoint:['kind','snapshot'],'cleanup-before-macro-delete':['kind','snapshot'],'macro-deleted':['kind'],resume:['kind','userId','navigation'],'checkpoint-import':['kind','userId','navigation'],failure:['kind','reason',...(Object.hasOwn(o,'operation')?['operation']:[]),...(Object.hasOwn(o,'caseId')?['caseId']:[]),...(Object.hasOwn(o,'checks')?['checks']:[])]}[o.kind];return !fields||!keys(o,fields)?['Unknown/unlisted local operation field']:[];}
 export function admittedControllerSegmentErrors(segment,packet){
-    if(!jsonData(segment)||!keys(segment,['packetId','segmentId','parentRevision','parentCheckpointSha256','packetSha256','identity','runtime','navigation','events','mutations','captures','controlState','firstFailure']))return ['Explicit browser-local segment required'];const errors=publicAdmittedPacketErrors(packet);if(errors.length)return errors;
-    if(segment.packetId!==packet.anchor.packetId||segment.segmentId!==packet.anchor.segmentId||segment.parentRevision!==packet.anchor.revision||segment.parentCheckpointSha256!==packet.anchor.checkpointSha256||!hex(segment.packetSha256))errors.push('Segment packet/parent anchor mismatch');errors.push(...admittedIdentityErrors(segment.identity),...runtimeErrors(segment.runtime,{installed:true,served:true}));if(!keys(segment.identity,['world','title','core','system','systemVersion','user','accounts'])||segment.identity?.user!==packet.audience.userId)errors.push('Segment audience/principal substitution');
+    if(!jsonData(segment)||!keys(segment,['packetId','segmentId','parentRevision','parentCheckpointSha256','packetSha256','identity','runtime','navigation','events','mutations','captures','controlState','firstFailure']))return ['Explicit browser-local segment required'];
+    const errors=publicAdmittedPacketErrors(packet);if(errors.length)return errors;
+    if(segment.packetId!==packet.anchor.packetId||segment.segmentId!==packet.anchor.segmentId||segment.parentRevision!==packet.anchor.revision||segment.parentCheckpointSha256!==packet.anchor.checkpointSha256||!hex(segment.packetSha256))errors.push('Segment packet/parent anchor mismatch');
+    errors.push(...admittedIdentityErrors(segment.identity),...runtimeErrors(segment.runtime,{installed:true,served:true}));
+    if(!keys(segment.identity,['world','title','core','system','systemVersion','user','accounts'])||segment.identity?.user!==packet.audience.userId)errors.push('Segment audience/principal substitution');
     if(!keys(segment.navigation,['timeOrigin','type'])||!Number.isFinite(segment.navigation.timeOrigin)||segment.navigation.timeOrigin<=0||!Array.isArray(segment.events)||!Array.isArray(segment.mutations)||!Array.isArray(segment.captures)||!keys(segment.controlState,['phase','resources','mappings','packMappings']))return [...errors,'Malformed local segment arrays/control state'];
     if(!Array.isArray(segment.controlState.resources)||!Array.isArray(segment.controlState.mappings)||!Array.isArray(segment.controlState.packMappings))return [...errors,'Malformed local resources/mappings'];
     if(!(packet.audience.userId===C.pin.player?['player','reload']:['initial','gm','reload','cleanup']).includes(segment.controlState.phase))errors.push('Segment control phase/principal mismatch');
     if(!same(segment.controlState.resources.slice(0,packet.resources.length),packet.resources))errors.push('Segment rewrote prior manifest');
     if(!same(segment.controlState.mappings.slice(0,packet.mappings.length),packet.mappings)||!same(segment.controlState.packMappings.slice(0,packet.packMappings.length),packet.packMappings))errors.push('Segment erased prior mapping data');
     if(packet.audience.userId===C.pin.player&&(segment.mutations.length||!same(segment.controlState.resources,packet.resources)||!same(segment.controlState.mappings,packet.mappings)||!same(segment.controlState.packMappings,packet.packMappings)))errors.push('Player segment cannot manufacture GM mutations/control changes');
-    const seenMutations=new Set(),seenCaptures=new Set(),operations=[],known=new Set(packet.resources.map(r=>r.uuid)),deleted=new Set(packet.controlReceipts.filter(r=>['delete','delete-with-parent'].includes(r.kind)).map(r=>r.uuid));let firstFailure=null;
-    for(let n=0;n<segment.events.length;n++){const e=segment.events[n];if(!object(e)||e.sequence!==n){errors.push('Reordered/noncontiguous local event');continue;}if(e.kind==='operation'){if(!keys(e,['sequence','kind','value'])||!object(e.value))errors.push('Unlisted operation event');else{errors.push(...operationErrors(e.value));operations.push(e.value);if(packet.audience.userId===C.pin.player&&['setup','grants','pack-access','fresh-update','cleanup-before-macro-delete','macro-deleted'].includes(e.value.kind))errors.push('Player segment cannot manufacture GM operations');if(['resume','checkpoint-import'].includes(e.value.kind)&&(e.value.userId!==packet.audience.userId||!same(e.value.navigation,segment.navigation)))errors.push('Local navigation/principal substitution');if(e.value.kind==='failure'&&firstFailure===null){firstFailure=copy(e.value);delete firstFailure.kind;}}}
-        else if(e.kind==='mutation'){if(!keys(e,['sequence','kind','index'])||e.index!==seenMutations.size||!object(segment.mutations[e.index]))errors.push('Mutation event order/index mismatch');else{seenMutations.add(e.index);const m=segment.mutations[e.index],fields=receiptFields(m.kind),resource=segment.controlState.resources.find(r=>r.uuid===m.uuid);if(!fields||!keys(m,fields)||m.userId!==packet.audience.userId)errors.push('Mutation source/field mismatch');if(m.kind==='create'){if(known.has(m.uuid)||!resource||resource.parentUuid&&!known.has(resource.parentUuid))errors.push('Creation order/adoption mismatch');known.add(m.uuid);}else if(!known.has(m.uuid)||deleted.has(m.uuid))errors.push('Mutation precedes creation or follows deletion');if(m.kind==='delete-with-parent'&&!deleted.has(resource?.parentUuid))errors.push('Embedded deletion lacks owned parent deletion');if(['delete','delete-with-parent'].includes(m.kind))deleted.add(m.uuid);}}
-        else if(e.kind==='capture'){if(!keys(e,['sequence','kind','index'])||e.index!==seenCaptures.size||!object(segment.captures[e.index]))errors.push('Capture event order/index mismatch');else{seenCaptures.add(e.index);const c=segment.captures[e.index];errors.push(...admittedCaptureErrors(c,segment.controlState.resources,packet.mode));if(firstFailure!==null)errors.push('Local stopped segment cannot resume reviews');if(c.identity?.user!==packet.audience.userId||!same(c.navigation,segment.navigation)||!operations.some(o=>o.kind==='begin'&&o.caseId===c.caseId&&o.status===c.summary?.launchStatus&&o.bodyExecuted===c.summary?.bodyExecuted&&o.resolutionDenied===c.summary?.resolutionDenied))errors.push('Capture did not originate in this segment/principal');}}
-        else errors.push('Unknown local event kind');}
+    const controls=publicControlState(packet),prefix=copy(controls),seenMutations=new Set(),seenCaptures=new Set(),operations=[],known=new Set(packet.resources.map(r=>r.uuid)),deleted=new Set(controls.mutations.filter(r=>['delete','delete-with-parent'].includes(r.kind)).map(r=>r.uuid));
+    let firstFailure=null;
+    const levelFor=role=>{const uuid=prefix.resources.find(r=>r.role===role)?.uuid;return prefix.mutations.filter(m=>m.kind==='access'&&m.uuid===uuid&&m.principal===C.pin.player).at(-1)?.level??0;};
+    const setupReady=()=>prefix.resources.length===23&&prefix.resources.every(r=>known.has(r.uuid)&&!deleted.has(r.uuid))&&prefix.mappings.length===2&&prefix.packMappings.length===2&&same(prefix.mappings,admittedMappings(prefix.resources,packet.batch))&&same(prefix.packMappings,admittedMappings(prefix.resources,packet.batch,true))&&prefix.operations.some(o=>o.kind==='setup'&&same(o.counts,C.fixtures.counts));
+    const grantsReady=()=>setupReady()&&prefix.operations.some(o=>o.kind==='grants'&&same(o.coveredPlayers,C.accounts.coveredPlayers))&&[...C.access.observerRoles,C.access.limitedRole].every(role=>prefix.mutations.some(m=>m.kind==='access'&&m.uuid===prefix.resources.find(r=>r.role===role)?.uuid&&m.principal===C.pin.player&&m.level===(role===C.access.limitedRole?1:2)));
+    function requireReviewPrefix(caseId){
+        const gm=packet.audience.userId===C.pin.gm;
+        if(!C.cases.includes(caseId)||caseId.startsWith('gm-')!==gm||!(gm?['gm','reload']:['player','reload']).includes(prefix.phase)||packet.resume.stopLatched||firstFailure!==null||!grantsReady()||admittedCheckpointErrors(prefix,{mode:packet.mode,batch:packet.batch,baseline:null}).length){errors.push('Review event-prefix lacks prior complete creation/setup/grants or permitted phase');return;}
+        if(caseId.includes('source-parent')&&levelFor('source-parent')!==(caseId==='player-denied-source-parent'?0:2))errors.push('Source-parent event-prefix access does not match the case');
+        if(caseId.includes('pack-')){
+            const levels=prefix.mutations.filter(m=>m.kind==='pack-configuration').map(m=>m.level),current=levels.at(-1)??'NONE';
+            if(current!==(caseId==='player-pack-observer'?'OBSERVER':'NONE'))errors.push('Pack event-prefix access does not match the case');
+            if(caseId==='player-pack-revoked'&&(!levels.includes('OBSERVER')||!packet.resume.completedCaseIds.includes('player-pack-observer')&&![...seenCaptures].some(n=>segment.captures[n]?.caseId==='player-pack-observer')))errors.push('Revoked event-prefix lacks prior Observer capture/control');
+        }
+    }
+    for(let n=0;n<segment.events.length;n++){
+        const e=segment.events[n];if(!object(e)||e.sequence!==n){errors.push('Reordered/noncontiguous local event');continue;}
+        if(e.kind==='operation'){
+            if(!keys(e,['sequence','kind','value'])||!object(e.value)){errors.push('Unlisted operation event');continue;}
+            const o=e.value;errors.push(...operationErrors(o));
+            if(o.kind==='begin')requireReviewPrefix(o.caseId);
+            if(packet.audience.userId===C.pin.player&&['setup','grants','pack-access','fresh-update','cleanup-before-macro-delete','macro-deleted'].includes(o.kind))errors.push('Player segment cannot manufacture GM operations');
+            if(['resume','checkpoint-import'].includes(o.kind)&&(o.userId!==packet.audience.userId||!same(o.navigation,segment.navigation)))errors.push('Local navigation/principal substitution');
+            if(o.kind==='setup'){
+                // Mapping construction completes with setup, after its fixture creates.
+                prefix.mappings=copy(segment.controlState.mappings);prefix.packMappings=copy(segment.controlState.packMappings);
+                if(prefix.phase!=='gm'||prefix.resources.length!==23||prefix.resources.some(r=>deleted.has(r.uuid))||!same(o.counts,C.fixtures.counts)||prefix.mappings.length!==2||prefix.packMappings.length!==2)errors.push('Setup event-prefix lacks its prior finite fixture creation/mappings');
+            }
+            if(o.kind==='grants'&&(!setupReady()||[...C.access.observerRoles,C.access.limitedRole].some(role=>levelFor(role)!==(role===C.access.limitedRole?1:2))))errors.push('Grants event-prefix lacks prior setup and actual finite access receipts');
+            if(o.kind==='pack-access'&&!prefix.mutations.some(m=>m.kind==='pack-configuration'&&m.level===o.level))errors.push('Pack event-prefix lacks prior configuration receipt');
+            if(['cleanup-before-macro-delete','macro-deleted'].includes(o.kind))prefix.phase='cleanup';
+            operations.push(o);prefix.operations.push(o);
+            if(o.kind==='failure'&&firstFailure===null){firstFailure=copy(o);delete firstFailure.kind;}
+        }else if(e.kind==='mutation'){
+            if(!keys(e,['sequence','kind','index'])||e.index!==seenMutations.size||!object(segment.mutations[e.index])){errors.push('Mutation event order/index mismatch');continue;}
+            seenMutations.add(e.index);const m=segment.mutations[e.index],fields=receiptFields(m.kind),resource=segment.controlState.resources.find(r=>r?.uuid===m.uuid);
+            if(!fields||!keys(m,fields)||m.userId!==packet.audience.userId)errors.push('Mutation source/field mismatch');
+            if(m.kind==='create'){
+                if(known.has(m.uuid)||!resource||resource.parentUuid&&!known.has(resource.parentUuid))errors.push('Creation order/adoption mismatch');
+                if(resource&&!known.has(m.uuid))prefix.resources.push(resource);known.add(m.uuid);if(prefix.phase==='initial')prefix.phase='gm';
+            }else if(!known.has(m.uuid)||deleted.has(m.uuid))errors.push('Mutation precedes creation or follows deletion');
+            if(m.kind==='delete-with-parent'&&!deleted.has(resource?.parentUuid))errors.push('Embedded deletion lacks owned parent deletion');
+            if(['delete','delete-with-parent'].includes(m.kind)){deleted.add(m.uuid);prefix.phase='cleanup';}
+            // Only source-parent NONE is an approved review-time named revocation.
+            if(m.kind==='access'&&m.level===0&&resource?.role!=='source-parent')prefix.phase='cleanup';
+            prefix.mutations.push(m);
+        }else if(e.kind==='capture'){
+            if(!keys(e,['sequence','kind','index'])||e.index!==seenCaptures.size||!object(segment.captures[e.index])){errors.push('Capture event order/index mismatch');continue;}
+            const c=segment.captures[e.index];requireReviewPrefix(c.caseId);seenCaptures.add(e.index);
+            errors.push(...admittedCaptureErrors(c,segment.controlState.resources,packet.mode));
+            if(firstFailure!==null)errors.push('Local stopped segment cannot resume reviews');
+            if(c.identity?.user!==packet.audience.userId||!same(c.navigation,segment.navigation)||!operations.some(o=>o.kind==='begin'&&o.caseId===c.caseId&&o.status===c.summary?.launchStatus&&o.bodyExecuted===c.summary?.bodyExecuted&&o.resolutionDenied===c.summary?.resolutionDenied))errors.push('Capture did not originate in this segment/principal');
+        }else errors.push('Unknown local event kind');
+    }
     if(seenMutations.size!==segment.mutations.length||seenCaptures.size!==segment.captures.length)errors.push('Unreferenced local observations');
     if(!same(firstFailure,segment.firstFailure))errors.push('Local first failure erased/substituted');if(packet.resume.stopLatched&&segment.captures.length)errors.push('Stopped segment cannot resume reviews');
+    if(prefix.phase==='cleanup'&&segment.controlState.phase!=='cleanup')errors.push('Segment rewrote causal cleanup phase');
     if(segment.captures.some(c=>packet.resume.completedCaseIds.includes(c?.caseId))||new Set(segment.captures.map(c=>c?.caseId)).size!==segment.captures.length)errors.push('Duplicate/recounted case');
-    const controls=publicControlState(packet),combined={phase:segment.controlState.phase,resources:segment.controlState.resources,mappings:segment.controlState.mappings,packMappings:segment.controlState.packMappings,mutations:[...controls.mutations,...segment.mutations],operations:[...controls.operations,...operations],captures:segment.captures,failure:segment.firstFailure};errors.push(...admittedCheckpointErrors(combined,{mode:packet.mode,batch:packet.batch,baseline:null}));return [...new Set(errors)];
+    const combined={phase:segment.controlState.phase,resources:segment.controlState.resources,mappings:segment.controlState.mappings,packMappings:segment.controlState.packMappings,mutations:[...controls.mutations,...segment.mutations],operations:[...controls.operations,...operations],captures:segment.captures,failure:segment.firstFailure};
+    errors.push(...admittedCheckpointErrors(combined,{mode:packet.mode,batch:packet.batch,baseline:null}));return [...new Set(errors)];
 }
 export async function mergeAdmittedControllerSegment(plan,segment,{segmentBytes=JSON.stringify(segment)}={}){
     const errors=admittedInputErrors(plan);if(errors.length)throw Error(errors.join('; '));if(!same(JSON.parse(segmentBytes),segment))throw Error('Segment bytes/semantic value differ');const segmentSha256=await admittedDataSha256(segmentBytes),accepted=plan.handoff.acceptedSegments.find(r=>r.segmentId===segment.segmentId);
-    if(accepted){if(accepted.segmentSha256!==segmentSha256||accepted.segmentBytes!==segmentBytes)throw Error('Accepted segment ID reused with different bytes');return copy(plan);}
+    if(accepted){if(accepted.segmentSha256!==segmentSha256||accepted.segmentBytes!==segmentBytes)throw Error('Accepted segment ID reused with different bytes');const acceptedErrors=admittedControllerSegmentErrors(segment,accepted.packet);if(acceptedErrors.length)throw Error(acceptedErrors.join('; '));return copy(plan);}
     const issued=plan.handoff.issued;if(!issued)throw Error('No outstanding privately issued packet');const packet=issued.packet;
     if(issued.packetSha256!==await admittedDataSha256(issued.packetBytes)||!same(JSON.parse(issued.packetBytes),packet)||issued.baselineSha256!==await admittedDataSha256(plan.baseline)||packet.anchor.revision!==plan.handoff.revision||packet.anchor.checkpointSha256!==await admittedDataSha256(plan.checkpoint)||segment.packetSha256!==issued.packetSha256)throw Error('Changed private baseline/history or stale packet bytes');
     const reconstructed=await createAdmittedControllerPacket(plan,{packetId:packet.anchor.packetId,segmentId:packet.anchor.segmentId,userId:packet.audience.userId,phase:packet.phase,bootstrapMacroUuid:packet.baselineChecks.bootstrapMacroUuid});if(!same(reconstructed,packet))throw Error('Issued packet differs from latest validated private checkpoint');
