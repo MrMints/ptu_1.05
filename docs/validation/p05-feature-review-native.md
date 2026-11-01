@@ -117,3 +117,9 @@ Current correction canonical-LF SHA256 values:
 - tests/feature-review-evidence.test.mjs: e4126029b187188c9dbae1a6418412a4b92e328d53a09e69adc583590adf9ff4
 
 This correction stays within the same14-path batch. It adds no controller/runtime/world/credential/access/security/screenshot action and accepts no native case, full05/pre06, next implementation, merge or release.
+
+## P05 offline future-attempt preparation
+
+Completed planner01a194ed-0454-7e43-921a-a46762fec44b accepted stopped closure6b686b6b and selected this single14-path offline A dependency. Existing05 owns checkout only. The actual dialog/controller probe first failed valid5/2 membership; the bounded helper now checks the dialog's known-state mapping plus stable types/UUIDs. A separate independently pinned future-attempt contract/checker keeps admission pending, preserves the stopped record/proofs/history and refuses native/authorization/restoration claims. Synthetic tests/replay are not native evidence. [Exact APIs, checks, physical-conversion plan, protection and limits](p05-feature-review-attempt-preparation.md) require final-head normal CI, clean agreement and RELEASE/STOP for independent/planner review. No world/server/database/installation/migration/access/credential/security/screenshot action, native resumption, full05/pre06, merge or release. Saved settings and all operating/sequential gates remain.
+
+The stopped JSON/checker/tests and all five original proof bindings remain protected. This appended preparation history does not replace the accepted6b686b6b record, certify new private replay or reinterpret0/28 native cases. A separate pending contract is required for future evidence; it cannot authenticate owner consent or clear the native hold.

@@ -3,6 +3,18 @@ export const nativeCaseIds=Object.freeze(['gm-trainer-core-to-optional','gm-poke
 const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,stable(value[key])])):value;
 const copy=value=>structuredClone(value);
 const equal=(a,b)=>JSON.stringify(stable(a))===JSON.stringify(stable(b));
+// getData exposes membership through its own localized label map. Verify the
+// captured stable identities/types as well; a collection count alone is partial.
+export function hasCompleteMixedMembership(view) {
+    try {
+        const actor=JSON.parse(view.actor.snapshot),items=actor?.items;
+        if(view.actor.membership!==view.labels.known||view.actor.status!==view.labels.complete||view.actor.snapshotAvailable!=='true'||view.actor.issues.length!==0||!Array.isArray(items)||items.length!==5||view.owned.length!==2)return false;
+        const types=items.map(i=>i?.type).sort(),ids=items.map(i=>i?.uuid);
+        if(!equal(types,['edge','feat','feat','item','pokeedge'])||ids.some(id=>typeof id!=='string')||new Set(ids).size!==5)return false;
+        const features=items.filter(i=>i.type==='feat').map(i=>i.uuid);
+        return view.owned.every((row,n)=>row.snapshotAvailable==='true'&&JSON.parse(row.snapshot)?.uuid===features[n]);
+    } catch {return false;}
+}
 export function nativeGuard(config,identity,{gm=false}={}) {
     if(config.executionGate?.migrationObserved===true||config.status==='blocked')throw Error('STOP: recorded native execution hold; no automatic resumption');
     if(identity.world!==config.pin.world||identity.title!=='PTU verification (disposable)'||identity.core!==config.pin.core||identity.system!=='ptu'||identity.systemVersion!==config.pin.system)throw Error('STOP: native runtime/world identity mismatch');
@@ -94,7 +106,7 @@ export async function openFeatureReviewCheck({macro}={}) {
         else{
             check('Actual launcher opened',c.result.status==='review-requested');
             if(review){
-                const v=c.view,actorSnapshot=JSON.parse(v.actor.snapshot);check('Complete mixed membership',actorSnapshot.items.length===5&&v.owned.length===2&&v.actor.membership===game.i18n.localize('PTU.FeatureAcquisitionReview.complete'));
+                const v=c.view,actorSnapshot=JSON.parse(v.actor.snapshot);check('Complete mixed membership',hasCompleteMixedMembership(v));
                 check('Prepared level captured',actorSnapshot.system.level.current===c.actor.system.level.current);check('Prepared rank captured',actorSnapshot.system.skills.generalEd.value.total===c.actor.system.skills.generalEd.value.total);
                 check('Repeated owned Features preserved',v.owned[0].identity.some(i=>i.value===c.actor.items.contents[0].uuid)&&v.owned[1].identity.some(i=>i.value===c.actor.items.contents[1].uuid));
                 if(c.id==='gm-incoming-batch-conflicts')check('Every incoming occurrence/pair',v.candidates.length===3&&v.candidateComparisons.length===3);

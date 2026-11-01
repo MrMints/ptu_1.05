@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 offline future-attempt preparation
+
+- Correct the controller-only mixed-membership assertion against the actual accepted dialog, its known-state label mapping and captured stable Item identities/types; retain the reproduced failing control. Product runtime/locales remain unchanged.
+- Add a separate future-attempt contract/replay checker with independent original artifact/previous-stop pins, exact finite routes/fixtures/conversion profiles and default pending admission. Refuse self-declared native completion, consent, served execution and erased restoration history.
+- [Validation, preserved stopped evidence, prepared APIs, compatibility and limits](docs/validation/p05-feature-review-attempt-preparation.md). No native admission, world/database/server/installation/access/security action, full05/pre06, merge or release.
+
 ### P05 blocked native Feature-review evidence and offline closure
 
 - Correct a reproduced evidence-family bypass: independently pin the known stopped report, mandatory closure proofs and residual-change facts in both integrity/replay entry points. Preserve the failing regressions and real observations; status/kind/preflight relabeling cannot certify restoration or native completion.
