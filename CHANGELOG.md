@@ -4,6 +4,8 @@
 
 ### P05 offline future-attempt preparation
 
+- Reject malformed CLI paths that could consume the strict completion flag; preserve native pack collection identity in synthetic manifest controls. Keep both reproduced CLI behavior and corrected focused checks separate from native evidence.
+
 - Correct the controller-only mixed-membership assertion against the actual accepted dialog, its known-state label mapping and captured stable Item identities/types; retain the reproduced failing control. Product runtime/locales remain unchanged.
 - Add a separate future-attempt contract/replay checker with independent original artifact/previous-stop pins, exact finite routes/fixtures/conversion profiles and default pending admission. Refuse self-declared native completion, consent, served execution and erased restoration history.
 - [Validation, preserved stopped evidence, prepared APIs, compatibility and limits](docs/validation/p05-feature-review-attempt-preparation.md). No native admission, world/database/server/installation/access/security action, full05/pre06, merge or release.

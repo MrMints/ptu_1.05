@@ -78,3 +78,22 @@ Final documented-head normal CI/clean agreement and independent/planner acceptan
 Commit f300704bd599120a92a64dc3a948b8b631d7f4fe contains exactly14 assigned paths. Staged scope/whitespace checks passed and the checkout was clean after commit. This documentation-only checkpoint binds the implementation/hashes and separate422/121/20 local checks; the protected stopped evidence and native0/28 remain unchanged. Final documented-head normal CI and clean local/tracking/actual remote/open draftPR4 agreement precede checkout RELEASE/STOP and independent/substantive planner review. The future contract is preparation only and cannot admit a live attempt.
 
 The final documentation binding passes20/20 document/evidence checks and389 local Markdown links across the14-path payload. Source hashes and complete prefixes remain verified; no new native/private proof replay or full local package rebuild is claimed.
+
+## Final CLI input correction
+
+After874d313f was pushed, an actual malformed invocation (--raw-dir followed immediately by --require-native-complete) reproduced exit0: the parser consumed the strict flag as a path value. The result still said admission pending/nativeAccepted=false/28 not run, so no native approval occurred, but the malformed command should fail. A bounded production argument parser now rejects missing path values, flag consumption, duplicate options and unknown admission/override flags before source/raw IO. The exact invocation now exits1 with Path value required. The new suite passes122/122 separately; all previous counts/prefixes and real stopped observations remain unchanged. CI41267742132 for874d313f is allowed to finish independently; its outcome is older-head evidence, not acceptance of this correction. Corrected final-head normal CI remains required.
+
+Current correction canonical-LF bindings:
+
+- tools/check-feature-review-attempt.mjs: 68e5390bb668856996d44f0d4e99e938736536d4d1fc7e4fc5c7a04bc7640541
+- tests/feature-review-attempt-contract.test.mjs: c8621970c2e703e7c939c0ba6d6f27c46602ad31b4f4f04600f42b49f4128007
+
+The same bounded correction aligns the synthetic pack resource ID with the controller/native collection key world.p05-feature-review-fixtures, rather than a fabricated16-character Document ID. Unit controls now use that actual coordinate convention and reject a substituted pack Document ID. It changes only the new contract/test data format, not controller behavior, live inputs or access. The resulting123-case suite is recorded after execution; all prior execution counts remain separate.
+
+Final correction source bindings:
+
+- tools/feature-review-attempt-contract.mjs: 1a519208f3ea76b3df1cf966c70b7ad91af6de62d3caa8f13f07be2ad7088e77
+- tools/check-feature-review-attempt.mjs: 68e5390bb668856996d44f0d4e99e938736536d4d1fc7e4fc5c7a04bc7640541
+- tests/feature-review-attempt-contract.test.mjs: 20aa0795de393d4e03b67b42b2bd228c308cc9a09a0cafe927b417ed6f63d593
+
+The final combined correction execution passes143/143 (123 new preparation cases plus20 documentation/evidence cases),0 failures/0 skips. Both checker defaults remain honest pending/blocked results; protected stopped evidence is unchanged. The malformed strict-flag invocation now exits1 before raw/source IO. No older check count or older-head CI result is substituted for this correction.

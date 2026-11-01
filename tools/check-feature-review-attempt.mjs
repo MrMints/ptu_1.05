@@ -41,9 +41,13 @@ export async function checkFeatureReviewAttempt(evidence=createPendingFeatureRev
     if(options.requireNativeComplete===true&&replay.previousProofReplay!=='passed')result.errors.push('Native completion requires replay of all unchanged prior private proofs');
     result.integrity=result.errors.length?'failed':'passed';result.previousProofReplay=replay.previousProofReplay;result.syntheticRawReplay=replay.syntheticRawReplay;result.artifactReplay=replay.artifactReplay;return result;
 }
+export function parseFeatureReviewAttemptArgs(args){
+    if(!Array.isArray(args)||args.some(s=>typeof s!=='string'))throw Error('String arguments required');const result={input:null,options:{}},seen=new Set(),paths={'--input':'input','--raw-dir':'rawDirectory','--previous-proof-dir':'previousProofDirectory','--artifact-dir':'artifactDirectory'};
+    for(let i=0;i<args.length;i++){const arg=args[i];if(seen.has(arg))throw Error('Repeated option: '+arg);seen.add(arg);if(arg==='--require-native-complete'){result.options.requireNativeComplete=true;continue;}if(!Object.hasOwn(paths,arg))throw Error('Unknown option: '+arg);const value=args[++i];if(!value?.trim()||value.startsWith('--'))throw Error('Path value required for '+arg);if(arg==='--input')result.input=value;else result.options[paths[arg]]=value;}
+    return result;
+}
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
-    const args=process.argv.slice(2),options={};let evidence=createPendingFeatureReviewAttempt();
-    try{for(let i=0;i<args.length;i++){const arg=args[i];if(arg==='--input')evidence=JSON.parse(await readFile(args[++i],'utf8'));else if(arg==='--raw-dir')options.rawDirectory=args[++i];else if(arg==='--previous-proof-dir')options.previousProofDirectory=args[++i];else if(arg==='--artifact-dir')options.artifactDirectory=args[++i];else if(arg==='--require-native-complete')options.requireNativeComplete=true;else throw Error('Unknown option: '+arg);}
+    try{const{input,options}=parseFeatureReviewAttemptArgs(process.argv.slice(2));const evidence=input?JSON.parse(await readFile(input,'utf8')):createPendingFeatureReviewAttempt();
         const result=await checkFeatureReviewAttempt(evidence,options);console.log(JSON.stringify(result));if(result.errors.length)process.exitCode=1;
     }catch(error){console.log(JSON.stringify({integrity:'failed',admission:'pending',nativeAccepted:false,errors:[String(error)]}));process.exitCode=1;}
 }
