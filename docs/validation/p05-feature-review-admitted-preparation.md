@@ -145,3 +145,16 @@ Final privacy-corrected implementation bindings (canonical LF SHA256):
 - tests/feature-review-admitted.test.mjs: e7011eb76cd6e0af1e27d8c9fa9d7ffd4d7dcd03db76e9368970bdb466b73b92
 
 Precommit offline checks confirm exactly14 approved paths, nine complete accepted documentation prefixes, all seven protected public files, all16 original runtime mirrors and all five stopped private-proof hashes unchanged. Six report links, module syntax, whitespace and the post-documentation20/20 evidence/documentation checks pass. No listener was found on30001 and the disposable options lock is absent. A Node child-process audit wrapper exited1 with spawnSync git EPERM before invoking Git; the same read-only checks passed through ordinary PowerShell Git and direct file-only Node operations. No denied native/credential/screenshot operation was retried. Final documented-head CI is pending at commit preparation; no native execution or acceptance is claimed.
+
+## Final pack-control value rejection
+
+A post-push boundary review of preparation commit2648bce8 found one additional public-packet value gap: a private pack-access operation could contain an arbitrary object in its otherwise permitted level field. The controller only emits NONE/OBSERVER, but the private/public validators also need to reject fabricated values. The new rejection control failed0/1, preserving the concrete canary case. Checkpoint validation now permits only those two strings with a matching actual pack-configuration mutation receipt. Both legitimate levels remain accepted; object/string/null/number payload substitutions fail in the private and public entry points. No private data was served and no native action occurred.
+
+The corrected affected execution passes605/605 (131 admitted-preparation plus474 unchanged affected cases),0 failures/0 skips; the corrected focused value control also passes1/1, including positive NONE/OBSERVER controls. Earlier604/604 and its code bindings remain historical checkpoints. CI41285107640 was still running tests for2648bce8 when this correction was prepared; its documentation job passed. That run cannot accept this successor. Require fresh normal CI on the final documented successor, then clean local/tracking/actual-remote/open draftPR4 agreement and STOP/RELEASE for independent/planner acceptance. Native remains0 passed/0 failed/28 not run.
+
+Final value-corrected implementation bindings (canonical LF SHA256):
+
+- tools/foundry-feature-review-check.mjs: 46068598df3eaf3b8b6f7e1dd9b32b338a71a3664e060dffb4a34b22877d1f17
+- tools/feature-review-admitted-contract.mjs: ad097a4c74dea23aac4673e967fbcfa6e849bfa710cb63e0aefbb177c4c860e5
+- tools/check-feature-review-admitted.mjs: fec0403aabfff91d732b2553368930387c840a62105025d72efac332a5553a57
+- tests/feature-review-admitted.test.mjs: 8a0fafd1c2cb006eca5a26fd9d8769972cad43a62f3babf446781148d664b4d1
