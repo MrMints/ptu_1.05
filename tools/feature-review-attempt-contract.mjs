@@ -75,7 +75,7 @@ export function coreConversionRowErrors(row){
     if(row.documentType==='TableResult'){
         if(typeof b.text!=='string')errors.push('Unexpected table-result text type');
         if(b.type==='pack'&&typeof b.documentCollection==='string'&&/^[\w-]+\.[\w-]+$/.test(b.documentCollection)&&itemId(b.documentId)){expected.type='document';expected.name=b.text;expected.documentUuid=`Compendium.${b.documentCollection}.${b.documentId}`;expected.description='';if(b.documentUuid!=null&&b.documentUuid!==expected.documentUuid||b.name!=null&&b.name!==b.text||b.description)errors.push('Conflicting modern table-result coordinates/text');}
-        else if(b.type==='text')expected.description=b.text;
+        else if(b.type==='text'){expected.description=b.text;if(!Object.hasOwn(b,'name'))expected.name='';else if(typeof b.name!=='string')errors.push('Unexpected table-result name type');}
         else errors.push('Unexpected table-result predecessor/target');
         delete expected.text;delete expected.documentCollection;delete expected.documentId;
     }

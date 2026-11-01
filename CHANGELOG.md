@@ -454,3 +454,8 @@
 - Target Foundry v13.351 for testing; compatibility claims advance only after integration verification.
 - Standard/revised rules selection and comprehensive move automation remain tracked work until their acceptance evidence is recorded.
 - Historical packs contain inherited PTR content and may predate later Carbon edits. Missing or conflicting content is not silently treated as verified.
+
+### P05 offline text-result name correction — 2026-11-01
+
+- Correct the prepared conversion validator to require the native empty name default for text results lacking a predecessor name and preserve valid existing names exactly. Update all34 full-audit synthetic text rows; reject omitted/invented/changed/invalid names without relaxing identity/source/system/field or denominator checks.
+- Retain the first0/1 regression, separate151/474 passing checks, static/recorded-path evidence limits and old CI history in the [preparation report](docs/validation/p05-feature-review-attempt-preparation.md#required-text-result-name-correction--2026-11-01-indianapolis). Native0/28 and admission pending remain; final-head CI and independent/planner acceptance are required.
