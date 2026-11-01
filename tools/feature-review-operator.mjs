@@ -5,8 +5,8 @@ import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {resolve,relative,dirname,isAbsolute,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {FEATURE_REVIEW_ADMITTED_CONTRACT as C,admittedCanonical as canonical,admittedBaselineErrors,admittedInputErrors,publicAdmittedPacketErrors,mergeAdmittedControllerSegment,buildAdmittedFeatureReviewInputs} from './feature-review-admitted-contract.mjs';
-import {admittedSystemManifest,checkAdmittedFeatureReview} from './check-feature-review-admitted.mjs';
+import {FEATURE_REVIEW_ADMITTED_CONTRACT as C,admittedCanonical as canonical,admittedBaselineErrors,admittedInputErrors,publicAdmittedPacketErrors,mergeAdmittedControllerSegment,buildAdmittedFeatureReviewInputs,issueAdmittedControllerPacket} from './feature-review-admitted-contract.mjs';
+import {admittedSystemManifest,checkAdmittedFeatureReview,replayAdmittedControllerHistory} from './check-feature-review-admitted.mjs';
 import {ACTION_GUARDS} from './feature-review-execution-verifier.mjs';
 
 export const TARGET_ROOT=C.target.worldPath.split('/Data/')[0];
@@ -63,14 +63,74 @@ export async function pinnedFiles(root,bindings) {
 
 // Filter at the CIM provider BEFORE retrieving any command-line property.
 // Normal account only. The caller must obtain any required managed approval; no fallback/elevation.
+// These helpers perform string processing only, including under the synthetic test executor.
+const PROCESS_MATCHING=String.raw`# PTU pure matching begin
+function ConvertTo-PtuWindowsPath([string]$Path) {
+ if($Path -notmatch '^[A-Za-z]:[\\/]'){return $null}
+ $Path=$Path.Replace([char]47,[char]92)
+ $parts=New-Object 'System.Collections.Generic.List[string]'
+ foreach($part in $Path.Substring(3).Split([char]92)) {
+  if($part -eq '' -or $part -eq '.'){continue}
+  if($part -eq '..'){if($parts.Count -eq 0){return $null};$parts.RemoveAt($parts.Count-1);continue}
+  if($part -match '[\x00-\x1f:<>|?*\"]' -or $part.EndsWith('.') -or $part.EndsWith(' ')){return $null}
+  $parts.Add($part)
+ }
+ return $Path.Substring(0,2)+'\'+($parts -join '\')
+}
+function Get-PtuTargetClassification([AllowNull()][string]$CommandLine) {
+ if([string]::IsNullOrWhiteSpace($CommandLine)){return 'unknown'}
+ $tokens=New-Object 'System.Collections.Generic.List[string]'
+ $token=New-Object Text.StringBuilder
+ $quoted=$false;$started=$false;$i=0
+ while($i -lt $CommandLine.Length) {
+  $c=$CommandLine[$i]
+  if(($c -eq [char]32 -or $c -eq [char]9) -and !$quoted) {
+   if($started){$tokens.Add($token.ToString());[void]$token.Clear();$started=$false}
+   $i++;continue
+  }
+  $started=$true
+  if($c -eq [char]92) {
+   $slashes=0
+   while($i -lt $CommandLine.Length -and $CommandLine[$i] -eq [char]92){$slashes++;$i++}
+   if($i -lt $CommandLine.Length -and $CommandLine[$i] -eq [char]34) {
+    for($j=0;$j -lt [Math]::Floor($slashes/2);$j++){[void]$token.Append([char]92)}
+    if($slashes%2){[void]$token.Append([char]34)}elseif($quoted -and $i+1 -lt $CommandLine.Length -and $CommandLine[$i+1] -eq [char]34){[void]$token.Append([char]34);$i++}else{$quoted=!$quoted}
+    $i++
+   }else{for($j=0;$j -lt $slashes;$j++){[void]$token.Append([char]92)}}
+   continue
+  }
+  if($c -eq [char]34){if($quoted -and $i+1 -lt $CommandLine.Length -and $CommandLine[$i+1] -eq [char]34){[void]$token.Append([char]34);$i++}else{$quoted=!$quoted};$i++;continue}
+  [void]$token.Append($c);$i++
+ }
+ if($quoted){return 'unknown'}
+ if($started){$tokens.Add($token.ToString())}
+ $paths=New-Object 'System.Collections.Generic.List[string]'
+ for($n=1;$n -lt $tokens.Count;$n++) {
+  $arg=$tokens[$n]
+  if($arg.Equals('--dataPath',[StringComparison]::OrdinalIgnoreCase)) {
+   $n++;if($n -ge $tokens.Count -or $tokens[$n].StartsWith('--')){return 'unknown'}
+   $paths.Add($tokens[$n])
+  }elseif($arg.StartsWith('--dataPath=',[StringComparison]::OrdinalIgnoreCase)){$paths.Add($arg.Substring(11))}
+  elseif($arg -match '^--dataPath:'){return 'unknown'}
+ }
+ if($paths.Count -eq 0){return 'unrelated'}
+ if($paths.Count -ne 1){return 'unknown'}
+ $path=ConvertTo-PtuWindowsPath $paths[0];$target=ConvertTo-PtuWindowsPath $ptuTarget
+ if(!$path -or !$target){return 'unknown'}
+ if($path.Equals($target,[StringComparison]::OrdinalIgnoreCase)){return 'target'}
+ if($path.StartsWith($target+'\',[StringComparison]::OrdinalIgnoreCase)){return 'unknown'}
+ return 'unrelated'
+}
+# PTU pure matching end`;
 export const PROCESS_QUERY = `$ErrorActionPreference='Stop'
 $ptuTarget='D:\\Projects\\PTU 1.05 on Foundry\\.foundry-test'
+${PROCESS_MATCHING}
 $ptuStart=[DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()
 $ptuMatches=@();$ptuUnreadable=@();$ptuProcessError=$null;$ptuPortError=$null;$ptuListeners=@();$ptuPortAbsent=$false
 try {
  $ptuRows=@(Get-CimInstance Win32_Process -Filter "Name='node.exe' OR Name='electron.exe' OR Name LIKE 'Foundry%.exe'" -Property Name,ProcessId,CommandLine -ErrorAction Stop)
- $ptuMatches=@($ptuRows|Where-Object {$_.CommandLine -and $_.CommandLine.IndexOf($ptuTarget,[StringComparison]::OrdinalIgnoreCase) -ge 0}|Select-Object ProcessId,Name)
- $ptuUnreadable=@($ptuRows|Where-Object {[string]::IsNullOrWhiteSpace($_.CommandLine)}|Select-Object ProcessId,Name)
+ $ptuMatches=@($ptuRows|Where-Object {(Get-PtuTargetClassification $_.CommandLine) -eq 'target'}|Select-Object ProcessId,Name)
+ $ptuUnreadable=@($ptuRows|Where-Object {(Get-PtuTargetClassification $_.CommandLine) -eq 'unknown'}|Select-Object ProcessId,Name)
 } catch {$ptuProcessError='process-query-failed'}
 try {$ptuListeners=@(Get-NetTCPConnection -LocalPort 30001 -State Listen -ErrorAction Stop|Select-Object LocalAddress,LocalPort,OwningProcess)}
 catch {if($_.FullyQualifiedErrorId -like 'CmdletizationQuery_NotFound*'){$ptuPortAbsent=$true}else{$ptuPortError='port-query-failed'}}
@@ -129,10 +189,15 @@ export async function verifyPrivatePacketReceipt({plan,packetBytes,packetFile,pr
     if(admittedInputErrors(plan).length||!plan?.handoff?.issued||typeof packetBytes!=='string'||await readFile(await containedPath(privateRoot,packetFile),'utf8')!==packetBytes)throw Error('STOP: exact private issued packet bytes required');
     const packet=parseFiniteJson(packetBytes),hash=sha256(packetBytes),issued=plan.handoff.issued;
     if(publicAdmittedPacketErrors(packet).length||issued.packetSha256!==hash||issued.packetBytes!==packetBytes||issued.baselineSha256!==sha256(plan.baseline)||packet.anchor.checkpointSha256!==sha256(plan.checkpoint)||!equal(issued.packet,packet))throw Error('STOP: private packet receipt mismatch');
-    const previous=plan.handoff.acceptedSegments.at(-1);
-    if(packet.anchor.revision>0&&!previous)throw Error('STOP: private merge acknowledgement missing');
+    const replay=await replayAdmittedControllerHistory(plan);
+    if(replay.status!==(plan.handoff.acceptedSegments.length?'passed':'not-run'))throw Error('STOP: private history replay failed');
+    const reconstructed=await issueAdmittedControllerPacket(plan,{packetId:packet.anchor.packetId,segmentId:packet.anchor.segmentId,userId:packet.audience.userId,phase:packet.phase,bootstrapMacroUuid:packet.baselineChecks.bootstrapMacroUuid});
+    if(reconstructed.packetBytes!==packetBytes)throw Error('STOP: private issued packet differs from validated global checkpoint');
+    const previous=plan.handoff.acceptedSegments.findLast(a=>a.segment.identity.user===packet.audience.userId),globalPrevious=plan.handoff.acceptedSegments.at(-1);
+    if(packet.anchor.revision>0&&!globalPrevious)throw Error('STOP: private merge acknowledgement missing');
     for(const segment of plan.handoff.acceptedSegments){if(!/^[A-Za-z0-9._-]+$/.test(segment.segmentId))throw Error('STOP: unsafe segment receipt name');const bytes=await readFile(await containedPath(privateRoot,resolve(privateRoot,'segments',segment.segmentId+'.json')),'utf8');if(bytes!==segment.segmentBytes||sha256(bytes)!==segment.segmentSha256)throw Error('STOP: private segment bytes changed');}
-    return {packet,acknowledgement:{packetSha256:hash,checkpointSha256:packet.anchor.checkpointSha256,revision:packet.anchor.revision,precedingSegmentId:previous?.segmentId??null,precedingSegmentSha256:previous?.segmentSha256??null}};
+    const globalPrefixSha256=sha256(plan.handoff.acceptedSegments.map(a=>({segmentId:a.segmentId,packetSha256:a.packetSha256,segmentSha256:a.segmentSha256})));
+    return {packet,acknowledgement:{packetSha256:hash,checkpointSha256:packet.anchor.checkpointSha256,revision:packet.anchor.revision,principal:packet.audience.userId,precedingSegmentId:previous?.segmentId??null,precedingSegmentSha256:previous?.segmentSha256??null,globalPrefixSha256}};
 }
 
 export async function savePrivateControllerSegment({plan,segmentBytes,privateRoot,mode='native',syntheticRoot}) {

@@ -12,6 +12,7 @@ export const ACTION_GUARDS = Object.freeze({
 for(const limits of Object.values(ACTION_GUARDS))Object.freeze(limits);
 const gmActions = new Set(['setup','grants','parent-none','parent-observer','pack-none','pack-observer','fresh','cleanup','delete-macro']);
 const hex = v => typeof v==='string' && /^[a-f0-9]{64}$/.test(v);
+const emptyGlobalPrefixSha256='4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945';
 const equal = (a,b) => canonical(a)===canonical(b);
 const only = (v,fields) => v && typeof v==='object' && !Array.isArray(v) && equal(Object.keys(v).sort(),fields.sort());
 
@@ -37,6 +38,7 @@ export function createExecutionVerifier({mode='native',packet,packetSha256,readF
     if(typeof observe!=='function')throw Error('STOP: browser observer required');
     let armed=null,lastWall=null,lastMono=null,firstFailure=null,failures=0;
     const seen=new Set();
+    const globalPrefixes=new Map();
     const clock=()=>{
         const wall=now(),mono=monoClock();
         if(!Number.isSafeInteger(wall)||!Number.isFinite(mono)||lastWall!==null&&(wall<lastWall||mono<lastMono||Math.abs((wall-lastWall)-(mono-lastMono))>2000))throw Error('STOP: clock anomaly');
@@ -57,13 +59,14 @@ export function createExecutionVerifier({mode='native',packet,packetSha256,readF
             const refresh=witness.action==='refresh';
             if(refresh?next.anchor.revision<=packet.anchor.revision||next.anchor.segmentId===packet.anchor.segmentId:!equal(next,packet)||witness.packetSha256!==packetSha256)throw Error('STOP: stale/forked action packet');
             const ack=witness.acknowledgement;
-            if(!only(ack,['packetSha256','checkpointSha256','revision','precedingSegmentId','precedingSegmentSha256'])||ack.packetSha256!==witness.packetSha256||ack.checkpointSha256!==next.anchor.checkpointSha256||ack.revision!==next.anchor.revision||next.anchor.revision>0&&(typeof ack.precedingSegmentId!=='string'||!hex(ack.precedingSegmentSha256))||next.anchor.revision===0&&(ack.precedingSegmentId!==null||ack.precedingSegmentSha256!==null))throw Error('STOP: private acknowledgement missing');
+            const pair=(id,sha)=>id===null&&sha===null||typeof id==='string'&&id.length>0&&hex(sha);
+            if(!only(ack,['packetSha256','checkpointSha256','revision','principal','precedingSegmentId','precedingSegmentSha256','globalPrefixSha256'])||ack.principal!==next.audience.userId||ack.packetSha256!==witness.packetSha256||ack.checkpointSha256!==next.anchor.checkpointSha256||ack.revision!==next.anchor.revision||!pair(ack.precedingSegmentId,ack.precedingSegmentSha256)||!hex(ack.globalPrefixSha256)||next.anchor.revision===0&&(ack.precedingSegmentId!==null||ack.globalPrefixSha256!==emptyGlobalPrefixSha256)||next.anchor.revision>0&&ack.globalPrefixSha256===emptyGlobalPrefixSha256||globalPrefixes.has(witness.packetSha256)&&globalPrefixes.get(witness.packetSha256)!==ack.globalPrefixSha256)throw Error('STOP: private acknowledgement missing or mismatched principal/prefix');
             if(witness.action==='setup') {
                 const m=witness.macroAbsence;
                 if(!only(m,['macroUuid','baselineSha256','observedMs','receiptSha256'])||m.macroUuid!==packet.baselineChecks.bootstrapMacroUuid||!hex(m.baselineSha256)||!hex(m.receiptSha256)||m.observedMs!==witness.observedMs)throw Error('STOP: exact private macro-absence receipt required');
             } else if(witness.macroAbsence!==null)throw Error('STOP: unexpected macro receipt');
             if(witness.failureRef!==firstFailure||firstFailure&&!['abort-review','cleanup','checkpoint','export','delete-macro','refresh','close'].includes(witness.action))throw Error('STOP: retained verifier failure requires explicit safe-action acknowledgement');
-            seen.add(witness.id);armed={w:structuredClone(witness),startMono:t.mono,calls:{}};
+            seen.add(witness.id);globalPrefixes.set(witness.packetSha256,ack.globalPrefixSha256);armed={w:structuredClone(witness),startMono:t.mono,calls:{}};
         } catch(error) {return fail(error);}
     }
     function verifyExecution(context) {
