@@ -39,7 +39,29 @@ const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const forbiddenIds=new Set(['ViZpn17qLA4ACQGa','celnYjQjM3jjtAnZ','e9dQ3NmVm7EuQBO5','i1OAz3lvuCRIm3n9','UKk9BnAZtm1xMoRB']);
 const expectedCounts={Actor:4,embeddedItem:11,worldItem:4,packItem:2,Macro:1,Pack:1};
 const backupPins={worldBackupEntriesSha256:'daf6cad8948b8893ef14a8382db9e1a980ee46e72d0caa7bf01dda25cf76d6b2',systemBackupEntriesSha256:'baa475a74bab1ce68b27dc0e1514335688192b2f1b2cd6d4acfe79d79bd89e5b'};
+// Independent contract for this admitted, stopped record. No field in a
+// submitted report selects or disables this contract. A future native record
+// requires a separately reviewed contract; shape checks alone never accept it.
+const knownStopped=Object.freeze({batch:'p05-feature-review-20261101T001244Z-813568a4',status:'blocked',kind:'startup-core-package-migration',
+    semanticSha256:'0510ec645c3ff7651da975b1c6dbc1b92a7a5c24dfdf3a3a9e3fe3a3993eb079'});
+const knownProofs=Object.freeze([
+    ['logs/server-stdout.log','fbc34addcb8f943d3475904bb4ffeaab33e1bf31688e67c3e2974743fc6b787f'],
+    ['logs/server-stderr.log','e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'],
+    ['raw/startup-stop.json','cebdf31751711d01fe8bcd0cfb547512b39cf2debe418159ca2ba358cbb96c2f'],
+    ['raw/offline-closure.json','199d7a8800d849e4f7489538b5488a8a4c599c276adcee886f58cd5a1c12a6cb'],
+    ['raw/offline-closure-final.json','40bfaaaa044fe4ad8fb98b64db7b1f2661df63ee158a626e0b47764d6a2d8d06']
+].map(([path,sha256])=>Object.freeze({path,sha256,private:true})));
 export function featureReviewEvidenceErrors(evidence) {
+    const errors=featureReviewEvidenceShapeErrors(evidence);
+    if(evidence?.batch!==knownStopped.batch||evidence?.status!==knownStopped.status||evidence?.executionGate?.kind!==knownStopped.kind||evidence?.preflight?.migrationRequired!==true)errors.push('Known stopped-record identity/status/family required');
+    if(!same(evidence?.executionGate?.raw,knownProofs))errors.push('Known stopped-record complete pinned proof set required');
+    if(evidence?.restoration?.preexistingDocumentsUnchanged!==false||evidence?.restoration?.uncertain!==true||!evidence?.restorationDetail?.settingMetadataChanges||!evidence?.restorationDetail?.worldManifestChanges||!evidence?.offlineDiagnosis)errors.push('Known stopped-record residual changes/diagnosis required');
+    try{if(sha(JSON.stringify(stable(evidence)))!==knownStopped.semanticSha256)errors.push('Known stopped-record immutable semantic binding');}catch{errors.push('Known stopped-record serialized evidence required');}
+    return errors;
+}
+// Schema diagnostics for synthetic unit controls only, not an evidence-integrity
+// entry point. The public validator above always applies the independent record.
+export function featureReviewEvidenceShapeErrors(evidence) {
     const errors=[],check=(ok,why)=>{if(!ok)errors.push(why);};
     if(!evidence||typeof evidence!=='object')return ['Evidence object required'];
     for(const key of ['cases','runtime','mutations','screenshots'])if(!Array.isArray(evidence[key]))return ['Evidence array required: '+key];
@@ -131,6 +153,13 @@ export function featureReviewEvidenceErrors(evidence) {
 }
 
 export async function replayFeatureReviewCaptures(evidence,rawDirectory) {
+    const errors=featureReviewEvidenceErrors(evidence);
+    if(errors.length)return errors;
+    return replayFeatureReviewCaptureShapes(evidence,rawDirectory);
+}
+// Raw-file format diagnostics only. Accepted stopped-record replay always goes
+// through replayFeatureReviewCaptures, including its mandatory contract check.
+export async function replayFeatureReviewCaptureShapes(evidence,rawDirectory) {
     const errors=[],root=resolve(rawDirectory);
     for(const ref of evidence.executionGate?.raw??[]){try{const file=resolve(root,ref.path),rel=relative(root,file);if(isAbsolute(rel)||rel==='..'||rel.startsWith('..'+sep))throw Error();const bytes=await readFile(file);if(sha(bytes)!==ref.sha256)errors.push('Changed execution-gate evidence '+ref.path);if(ref.path==='raw/offline-closure-final.json'){const proof=JSON.parse(bytes);if(!same(proof.summary,{offlineDiagnosis:evidence.offlineDiagnosis,restorationDetail:evidence.restorationDetail,screenshotDisposition:evidence.screenshotDisposition}))errors.push('Offline diagnosis/preservation differs from private proof');}}catch{errors.push('Missing execution-gate evidence '+ref.path);}}
     for(const c of evidence.cases??[])for(const ref of c.raw??[]){const file=resolve(root,ref.path),rel=relative(root,file);if(isAbsolute(rel)||rel==='..'||rel.startsWith('..'+sep)){errors.push('Raw path escape');continue;}try{const bytes=await readFile(file);if(sha(bytes)!==ref.sha256)errors.push('Changed raw capture '+ref.path);const value=JSON.parse(bytes);if(value.caseId!==c.id||!same(value.summary,c.observed))errors.push('Raw observation differs '+c.id);}catch{errors.push('Missing/unreadable raw capture '+ref.path);}}

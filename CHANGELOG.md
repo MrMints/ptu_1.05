@@ -4,6 +4,8 @@
 
 ### P05 blocked native Feature-review evidence and offline closure
 
+- Correct a reproduced evidence-family bypass: independently pin the known stopped report, mandatory closure proofs and residual-change facts in both integrity/replay entry points. Preserve the failing regressions and real observations; status/kind/preflight relabeling cannot certify restoration or native completion.
+
 - Add the bounded controller, evidence checker and rejection tests; record0/28 native cases after the required package-migration stop before login/fixtures/grants. Preserve all initial checks and failed capture/restoration attempts.
 - Diagnose native13.351 physical conversion from retained offline copies:7,198 primary +2,790 embedded records, exact IDs and canonical system values preserved. Keep the original artifact/backup pins, residual world metadata and unsaved-screenshot decision explicit.
 - [Validation, compatibility, limitations, protected scope and prepared minimum next admission](docs/validation/p05-feature-review-native.md). No world restart/migration approval, native acceptance, recovery overwrite, acquisition/replacement, full05/pre06, merge or release.
