@@ -82,6 +82,67 @@ for(const [name,lexeme]of [['positive','1e309'],['negative','-1e309'],['nested',
 test('normal finite numbers, strings and null retain exact decoded values',()=>{
     const data={_id:id(1),system:{values:[Number.MAX_VALUE,-Number.MAX_VALUE,1e-300,0,null,'1e309']}};const value=decodeStoredRecords([raw('!items!'+id(1),data)],{database:'synthetic',rootCollection:'items'});assert.deepEqual(value.records[0].data,data);
 });
+const numericLossCases=[['integer','9007199254740993','9007199254740992'],['decimal','1.0000000000000001','1'],['underflow','1e-400','0']];
+for(const [kind,lexeme]of numericLossCases)for(const sign of ['', '-'])for(const nested of [false,true])test('numeric lexeme rejects '+kind+(sign?' negative':' positive')+(nested?' nested':' scalar'),()=>{
+    const token=sign+lexeme,value=nested?'[null,{"deeper":'+token+'}]':token;
+    const source=Buffer.from('{"_id":"'+id(1)+'","system":{"PRIVATE-NUMERIC-CANARY":'+value+'}}');
+    const outcomes=[()=>parseFiniteJson(value),()=>decodeStoredRecords([{key:Buffer.from('!items!'+id(1)),value:source}],{database:'synthetic',rootCollection:'items'})].map(run=>{try{run();return 'ACCEPTED';}catch(error){return error.message;}});
+    assert.deepEqual(outcomes,['STOP: unrepresentable captured JSON','STOP: invalid or unrepresentable stored document encoding']);
+});
+for(const [kind,lexeme,stable]of numericLossCases)test('numeric lexeme conversion boundary rejects hidden '+kind+' change',()=>{
+    const captures=[conversionData(false),conversionData(true)];
+    for(const [n,stores]of captures.entries())stores[0].rows[0].value=Buffer.from(stores[0].rows[0].value.toString().replace('"unlisted":[null,1,"keep"]','"unlisted":[null,'+(n?lexeme:stable)+',"keep"]'));
+    let comparisons=0;
+    assert.throws(()=>{
+        const values=captures.map(stores=>stores.flatMap(s=>decodeStoredRecords(s.rows,{database:s.profile.database,rootCollection:{Item:'items',RollTable:'tables',Macro:'macros',JournalEntry:'journal'}[s.profile.type],pack:true}).records));
+        comparisons++;const batch='synthetic-numeric-conversion';
+        const result=joinAdmittedConversionCaptures({kind:'conversion-before',origin:'captured-store-payloads',source:'synthetic',batch,records:values[0]},{kind:'conversion-after',origin:'captured-store-payloads',source:'synthetic',batch,records:values[1]},{mode:'synthetic',batch});
+        assert.deepEqual(result.errors,[]);
+    },/STOP: invalid or unrepresentable stored document encoding/);
+    assert.equal(comparisons,0);
+});
+for(const [kind,lexeme]of numericLossCases)test('numeric lexeme '+kind+' capture retains private failure and exact copies',()=>temp(async root=>{
+    const o=await syntheticWorld(root),value=Buffer.from('{"_id":"'+id(1)+'","system":{"PRIVATE-NUMERIC-CANARY":'+lexeme+'}}');await store(o.sourceRoot,'data/items',[{key:Buffer.from('!items!'+id(1)),value}]);const before=await admittedSystemManifest(o.sourceRoot);
+    await assert.rejects(captureStoppedStoreEvidence(o),/private failure\/copies retained/);const proof=JSON.parse(await fs.readFile(join(o.outputRoot,'failure.json'),'utf8'));
+    assert.equal(proof.status,'failed');assert.equal(proof.sourceUnchanged,true);assert.equal(proof.immutableUnchanged,true);assert.deepEqual(await admittedSystemManifest(o.sourceRoot),before);assert.deepEqual(await admittedSystemManifest(join(o.outputRoot,'immutable')),before);
+    for(const file of ['capture.json','provenance.json'])await assert.rejects(fs.stat(join(o.outputRoot,file)),/ENOENT/);
+    assert.doesNotMatch(JSON.stringify(proof),/PRIVATE-NUMERIC-CANARY|9007199254740993|1\.0000000000000001|1e-400/);
+}));
+test('numeric spellings preserve equivalent decimal magnitudes and existing zeros',()=>{
+    for(const [source,expected]of [['1',1],['1.0',1],['1e0',1],['1.00e+0000',1],['100e-2',1],['0.0100e2',1],['-100.00e-2',-1],['0.1000',0.1],['9007199254740992',9007199254740992],['9007199254740994',9007199254740994],['9.007199254740992e15',9007199254740992],['900719925474099200',900719925474099200],['1000000000000000100',1000000000000000100],['1e21',1e21],['1e23',1e23],['1.797693134862315700e+00000308',Number.MAX_VALUE],['5.0e-324',Number.MIN_VALUE],['0.000e-400',0],['-0',-0],['-0.000e+400',-0]])assert.equal(parseFiniteJson(source),expected);
+});
+test('serialized finite representatives retain large values decimals and subnormals',()=>{
+    const values=[Number.MAX_VALUE,-Number.MAX_VALUE,Number.MIN_VALUE,-Number.MIN_VALUE,1e-323,2.2250738585072014e-308,1e-300,Number.MAX_SAFE_INTEGER,Number.MAX_SAFE_INTEGER+1,Number.MAX_SAFE_INTEGER+3,2**100,1e100,0.1,0.2,0.3,0.30000000000000004,1.2345678901234567,0,null,'1e-400'];
+    const data={_id:id(1),system:{values}};assert.deepEqual(parseFiniteJson(Buffer.from(JSON.stringify(data))),data);assert.deepEqual(decodeStoredRecords([raw('!items!'+id(1),data)],{database:'synthetic',rootCollection:'items'}).documents[0].data,data);
+});
+test('numeric-looking strings and escaped property names stay strings',()=>{
+    const value={'1e-400':'9007199254740993','9007199254740993':'1.0000000000000001','escaped"1e-400\\tail':'before \\"9007199254740993 after',array:['{"value":1e-400}','1.0000000000000001','9007199254740993','line\n1e-400',null]};
+    const source=JSON.stringify(value).replace('"1e-400":','"\\u0031e-400":');assert.deepEqual(parseFiniteJson(source),value);
+    for(const text of ['9007199254740993','1e-400','1.0000000000000001'])assert.equal(parseFiniteJson(JSON.stringify(text)),text);
+});
+test('huge numeric exponents reject changed magnitude without expanding powers',()=>{
+    const huge='9'.repeat(10000);
+    for(const sign of ['', '-'])for(const exponent of [huge,'-'+huge])assert.throws(()=>parseFiniteJson(sign+'1e'+exponent),{message:'STOP: unrepresentable captured JSON'});
+    assert.deepEqual(parseFiniteJson('[0e'+huge+',-0.000e-'+huge+']'),[0,-0]);
+});
+test('long coefficient and exponent spellings normalize without magnitude expansion',()=>{
+    const zeros='0'.repeat(10000);
+    assert.equal(parseFiniteJson('1'+zeros+'e-10000'),1);assert.equal(parseFiniteJson('-0.'+zeros+'1e10001'),-1);assert.equal(parseFiniteJson('1e+'+zeros+'0'),1);
+});
+test('every original number is checked even behind duplicate property names',()=>{
+    for(const token of [...numericLossCases.map(c=>c[1]),'1e309'])assert.throws(()=>parseFiniteJson('{"value":'+token+',"value":0}'),{message:'STOP: unrepresentable captured JSON'});
+    assert.deepEqual(parseFiniteJson('{"value":"1e-400","value":1.0}'),{value:1});
+});
+test('invalid numeric syntax encoding and private excerpts retain generic errors',()=>{
+    for(const text of ['{"PRIVATE-NUMERIC-CANARY":01}','{"PRIVATE-NUMERIC-CANARY":1.}','{"PRIVATE-NUMERIC-CANARY":1e+}','{"PRIVATE-NUMERIC-CANARY":NaN}','{"PRIVATE-NUMERIC-CANARY":"unterminated}', '[1e-400,]'])assert.throws(()=>parseFiniteJson(text),{message:'STOP: unrepresentable captured JSON'});
+    assert.throws(()=>parseFiniteJson(Buffer.from([0xff])),{message:'STOP: unrepresentable captured JSON'});
+});
+test('numeric precision in manifests refuses before any store read or copy',async()=>{
+    for(const [,token]of numericLossCases)await temp(async root=>{
+        const o=await syntheticWorld(root),path=join(o.sourceRoot,'world.json'),bytes=(await fs.readFile(path,'utf8')).replace('"playtime":0','"playtime":'+token);await fs.writeFile(path,bytes);o.sourceBindings=[{path:'world.json',sha256:sha256(bytes)}];let reads=0;o.reader={binding:{kind:'synthetic-reader'},read:async()=>{reads++;return [];}};
+        await assert.rejects(captureStoppedStoreEvidence(o),/unrepresentable/);assert.equal(reads,0);assert.deepEqual(await fs.readdir(o.outputRoot),[]);
+    });
+});
 test('all decoded capture/manifest trees reject non-finite values and unsafe in-memory JSON',()=>{
     for(const bytes of ['{"world":{"playtime":1e309}}','{"outputs":[{"nested":-1e309}]}'])assert.throws(()=>parseFiniteJson(Buffer.from(bytes)),/unrepresentable/);
     assert.deepEqual(parseFiniteJson('{"values":[1,null,"1e309"]}'),{values:[1,null,'1e309']});

@@ -34,12 +34,29 @@ export function assertFiniteJson(value,seen=new Set(),depth=0) {
     if(Array.isArray(value)&&Object.keys(value).length!==value.length)throw Error('STOP: unrepresentable captured JSON');
     seen.delete(value);return value;
 }
+// Exact decimal identity: coefficient digits and a base-10 scale, never a power expansion.
+function decimalLexemeKey(lexeme) {
+    const [,sign,integer,fraction='',exponent='0']=/^(-?)(\d+)(?:\.(\d+))?(?:e([+-]?\d+))?$/i.exec(lexeme);
+    const digits=(integer+fraction).replace(/^0+/,'');
+    if(!digits)return '0'; // Preserve the existing JSON handling of either spelling of zero.
+    const coefficient=digits.replace(/0+$/,'');
+    const scale=BigInt(exponent)-BigInt(fraction.length)+BigInt(digits.length-coefficient.length);
+    return sign+coefficient+'e'+scale;
+}
 export function parseFiniteJson(bytes) {
     try{
         if(typeof bytes!=='string'&&!Buffer.isBuffer(bytes))throw Error();
         const text=typeof bytes==='string'?bytes:bytes.toString('utf8');
         if(Buffer.isBuffer(bytes)&&!Buffer.from(text,'utf8').equals(bytes))throw Error();
-        return assertFiniteJson(JSON.parse(text));
+        const value=assertFiniteJson(JSON.parse(text)); // Validate syntax before tokenizing.
+        // Complete quoted strings (including escapes) are skipped; only number tokens are captured.
+        // Inspect every original token, including values hidden by duplicate object keys.
+        for(const [,lexeme]of text.matchAll(/"(?:[^"\\]|\\[\s\S])*"|(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)/g)) {
+            if(lexeme===undefined)continue;
+            const decoded=JSON.parse(lexeme);
+            if(!Number.isFinite(decoded)||decimalLexemeKey(lexeme)!==decimalLexemeKey(JSON.stringify(decoded)))throw Error();
+        }
+        return value;
     }catch{throw Error('STOP: unrepresentable captured JSON');} // Never echo a decoder's record excerpt.
 }
 
