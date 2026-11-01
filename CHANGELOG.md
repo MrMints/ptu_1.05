@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 blocked native Feature-review evidence and offline closure
+
+- Add the bounded controller, evidence checker and rejection tests; record0/28 native cases after the required package-migration stop before login/fixtures/grants. Preserve all initial checks and failed capture/restoration attempts.
+- Diagnose native13.351 physical conversion from retained offline copies:7,198 primary +2,790 embedded records, exact IDs and canonical system values preserved. Keep the original artifact/backup pins, residual world metadata and unsaved-screenshot decision explicit.
+- [Validation, compatibility, limitations, protected scope and prepared minimum next admission](docs/validation/p05-feature-review-native.md). No world restart/migration approval, native acceptance, recovery overwrite, acquisition/replacement, full05/pre06, merge or release.
+
 ### P05 explicit read-only document-to-Feature-review launcher
 
 - Preflight current-user/document/source-context OBSERVER access and every owned Item before snapshot capture. Reject unavailable, malformed, changed or conflicting inputs without opening a partial review or inventing identities.
