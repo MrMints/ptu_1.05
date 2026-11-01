@@ -11,6 +11,7 @@ import {TARGET_ROOT,PROCESS_QUERY,sha256,containedPath,pinnedFiles,observeHostSt
 import {createExecutionVerifier,readNativeBrowserFacts,ACTION_GUARDS} from '../tools/feature-review-execution-verifier.mjs';
 import {joinAdmittedConversionCaptures} from '../tools/check-feature-review-admitted.mjs';
 import {refreshFeatureReviewPacket} from '../tools/foundry-feature-review-check.mjs';
+import {decodePrivateAclTransport,runPrivateAclTransport,ACL_PROCESS_PREAMBLE,ACL_TRANSPORT_LIMITS,verifyPrivateDirectory} from '../tools/feature-review-operator.mjs';
 const id=n=>String(n).padStart(16,'0'),copy=structuredClone,time=Date.parse('2026-11-01T16:20:00Z'),cacheRoot=resolve('.cache');
 const exec=promisify(execFile);
 // Execute ONLY the generated pure classification lines, never the OS queries or lock lookup.
@@ -25,6 +26,113 @@ async function generatedProcessRows(rows){
     assert.doesNotMatch(stdout,/CommandLine|UNRELATED-COMMAND-CANARY/);return JSON.parse(stdout.replace(/^\uFEFF/,''));
 }
 async function temp(fn){await fs.mkdir(cacheRoot,{recursive:true});const root=await fs.mkdtemp(join(cacheRoot,'feature-review-operator-'));try{return await fn(root);}finally{const rel=relative(cacheRoot,root);assert.ok(rel&&rel!=='..'&&!rel.startsWith('..'+sep));await fs.rm(root,{recursive:true,force:true});}}
+const aclCanary='SYNTHETIC-ACL-SECRET-CANARY';
+const aclFacts=()=>({ownerMatches:true,hasOwner:true,hasSystem:true,unexpectedRules:0,rules:2,inheritance:['ContainerInherit, ObjectInherit','ContainerInherit, ObjectInherit']});
+const aclBytes=value=>Buffer.from(JSON.stringify(value));
+const aclEmit=bytes=>'process.stdout.write(Buffer.from('+JSON.stringify(bytes.toString('base64'))+',"base64"));';
+async function aclRefusal(action){
+    let failure;try{await action();}catch(error){failure=error;}assert.ok(failure,'must refuse');
+    const dump=Object.getOwnPropertyNames(failure).map(k=>String(failure[k])).join('\n')+JSON.stringify(failure);
+    assert.doesNotMatch(dump,/SYNTHETIC-ACL-SECRET-CANARY/);assert.ok(failure.diagnostic);assert.match(failure.message,/^STOP: ACL transport refused/);
+    assert.equal(failure.stack,failure.name+': '+failure.message);
+    assert.ok(['request','process','decode','projection','path'].includes(failure.diagnostic.stage));
+    const allowed=['stage','status','stdoutBytes','stderrBytes','stdoutSha256','stderrSha256','encoding','framing','exitCode','signal'];
+    assert.ok(Object.keys(failure.diagnostic).every(k=>allowed.includes(k)));assert.ok(Object.isFrozen(failure.diagnostic));
+    for(const value of Object.values(failure.diagnostic))assert.ok(value===null||typeof value==='string'&&value.length<=64||Number.isSafeInteger(value)&&value>=0);
+    assert.doesNotMatch(JSON.stringify(failure),/"(?:stdout|stderr|command|cmd|cause|path)":/);return failure;
+}
+test('ACL transport normal UTF8 remains a decoded projection without native authority',async()=>{
+    const result=await runPrivateAclTransport(process.execPath,['-e',aclEmit(aclBytes(aclFacts()))]);assert.deepEqual(result.facts,aclFacts());assert.equal(result.kind,'decoded-acl-projection');assert.equal(result.mode,undefined);assert.equal(result.path,undefined);
+});
+test('ACL transport permits one leading UTF8 BOM as explicit framing',async()=>{
+    const bytes=Buffer.concat([Buffer.from([0xef,0xbb,0xbf]),aclBytes(aclFacts())]);const result=await runPrivateAclTransport(process.execPath,['-e',aclEmit(bytes)]);assert.deepEqual(result.facts,aclFacts());
+});
+for(const [name,change]of [
+    ['boolean coercion',v=>v.ownerMatches='true'],['extra field',v=>v.extra=aclCanary],['string count',v=>v.rules='2'],['inheritance substring',v=>v.inheritance[0]='notContainerInherit-notObjectInherit'],['count mismatch',v=>v.inheritance.pop()]
+])test('ACL transport strict projection refuses '+name,()=>{const facts=aclFacts();change(facts);return aclRefusal(()=>decodePrivateAclTransport(aclBytes(facts)));});
+test('ACL transport stderr refuses even when stdout is valid',()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(aclBytes(aclFacts()))+'process.stderr.write('+JSON.stringify(aclCanary)+');'])));
+test('ACL transport process exception redacts command stdout and stderr',()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(Buffer.from(aclCanary))+'process.stderr.write('+JSON.stringify(aclCanary)+');process.exit(3);'])));
+test('ACL transport finite timeout refuses a delayed synthetic child',()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e','setTimeout(()=>{'+aclEmit(aclBytes(aclFacts()))+'},1200);'],{timeoutMs:200,maxBytes:65536})));
+test('ACL transport output cap refuses complete JSON beyond the cap',()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(Buffer.concat([aclBytes(aclFacts()),Buffer.alloc(512,32)]))],{timeoutMs:10000,maxBytes:256})));
+const aclSecretBytes=()=>aclBytes({...aclFacts(),extra:aclCanary});
+const aclBadBytes=[
+    ['invalid UTF8',()=>Buffer.concat([Buffer.from(aclCanary),Buffer.from([0xff])])],
+    ['truncated UTF8',()=>Buffer.concat([Buffer.from(aclCanary),Buffer.from([0xe2,0x82])])],
+    ['UTF16LE BOM',()=>Buffer.concat([Buffer.from([0xff,0xfe]),Buffer.from(aclSecretBytes().toString(),'utf16le')])],
+    ['UTF16LE unmarked',()=>Buffer.from(aclSecretBytes().toString(),'utf16le')],
+    ['UTF16BE',()=>Buffer.concat([Buffer.from([0xfe,0xff]),Buffer.from(aclSecretBytes().toString(),'utf16le').swap16()])],
+    ['repeated BOM',()=>Buffer.concat([Buffer.from([0xef,0xbb,0xbf,0xef,0xbb,0xbf]),aclSecretBytes()])],
+    ['BOM after whitespace',()=>Buffer.concat([Buffer.from(' '),Buffer.from([0xef,0xbb,0xbf]),aclSecretBytes()])],
+    ['trailing BOM',()=>Buffer.concat([aclSecretBytes(),Buffer.from([0xef,0xbb,0xbf])])],
+    ['empty',()=>Buffer.alloc(0)],['only whitespace',()=>Buffer.from(' \r\n\t')],
+    ['noisy prefix',()=>Buffer.concat([Buffer.from(aclCanary+' warning\n'),aclBytes(aclFacts())])],
+    ['noisy suffix',()=>Buffer.concat([aclBytes(aclFacts()),Buffer.from(aclCanary)])],
+    ['multiple documents',()=>Buffer.concat([aclBytes(aclFacts()),Buffer.from('\n'),aclSecretBytes()])],
+    ['truncated document',()=>aclSecretBytes().subarray(0,-1)],
+    ['BOM inside string',()=>aclBytes({...aclFacts(),inheritance:['ContainerInherit, ObjectInherit','\ufeff'+aclCanary]})]
+];
+for(const [name,bytes]of aclBadBytes){
+    test('ACL transport portable decoder refuses '+name,()=>aclRefusal(()=>decodePrivateAclTransport(bytes())));
+    test('ACL transport shared child rejects '+name,()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(bytes())])));
+}
+for(const [name,change]of [
+    ...['ownerMatches','hasOwner','hasSystem'].flatMap(k=>[[k+' false',v=>v[k]=false],[k+' wrong type',v=>v[k]=aclCanary]]),
+    ...['ownerMatches','hasOwner','hasSystem','unexpectedRules','rules','inheritance'].map(k=>['missing '+k,v=>delete v[k]]),
+    ['negative unexpected count',v=>v.unexpectedRules=-1],['unexpected rule',v=>v.unexpectedRules=1],['unexpected count boolean',v=>v.unexpectedRules=false],['unexpected count string',v=>v.unexpectedRules='0'],
+    ['negative rule count',v=>v.rules=-2],['one rule',v=>{v.rules=1;v.inheritance.pop();}],['fractional rules',v=>v.rules=2.5],['unsafe count',v=>v.rules=9007199254740992],
+    ['inheritance not array',v=>v.inheritance=aclCanary],['inheritance null',v=>v.inheritance=null],['inheritance extra entry',v=>v.inheritance.push('ContainerInherit, ObjectInherit')],['inheritance nonstring',v=>v.inheritance[0]=true],
+    ['only container flag',v=>v.inheritance[0]='ContainerInherit'],['only object flag',v=>v.inheritance[0]='ObjectInherit'],['no inheritance',v=>v.inheritance[0]='None'],['duplicate flags',v=>v.inheritance[0]='ContainerInherit, ObjectInherit, ObjectInherit'],['extra flags',v=>v.inheritance[0]='ContainerInherit, ObjectInherit, '+aclCanary],['flag whitespace',v=>v.inheritance[0]=' ContainerInherit, ObjectInherit']
+])test('ACL transport projection rejects '+name,()=>{const value=aclFacts();change(value);return aclRefusal(()=>decodePrivateAclTransport(aclBytes(value)));});
+test('ACL transport accepts exact alternative flag order and consistent larger count',()=>{
+    const facts=aclFacts();facts.rules=3;facts.inheritance.push('ObjectInherit, ContainerInherit');assert.deepEqual(decodePrivateAclTransport(aclBytes(facts)).facts,facts);
+    assert.deepEqual(decodePrivateAclTransport(Buffer.from(' \r\n'+JSON.stringify(aclFacts())+'\t\r\n')).facts,aclFacts());
+});
+test('ACL transport duplicate and escaped-duplicate fields are refused',async()=>{
+    for(const key of ['ownerMatches','\\u006fwnerMatches'])await aclRefusal(()=>decodePrivateAclTransport(Buffer.from(JSON.stringify(aclFacts()).replace('{','{"'+key+'":false,'))));
+    assert.deepEqual(decodePrivateAclTransport(Buffer.from(JSON.stringify(aclFacts()).replace('"ownerMatches"','"\\u006fwnerMatches"'))).facts,aclFacts());
+});
+test('ACL transport retains the lossless parser gate before projection',async()=>{
+    for(const token of ['9007199254740993','1.0000000000000001','1e-400','1e309']){const error=await aclRefusal(()=>decodePrivateAclTransport(Buffer.from(JSON.stringify(aclFacts()).replace('"rules":2','"rules":'+token))));assert.equal(error.diagnostic.stage,'decode');}
+});
+test('ACL transport pure decoder requires bounded bytes without string coercion',async()=>{
+    for(const value of [aclCanary,null,undefined,Buffer.from(aclCanary.repeat(3000))])await aclRefusal(()=>decodePrivateAclTransport(value));
+});
+test('ACL transport rejects nonempty whitespace stderr',()=>aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(aclBytes(aclFacts()))+'process.stderr.write(" \\r\\n");'])));
+test('ACL transport stderr byte limit is also bounded',async()=>{
+    const error=await aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',aclEmit(aclBytes(aclFacts()))+'process.stderr.write('+JSON.stringify(aclCanary.repeat(100))+');'],{maxBytes:256}));assert.equal(error.diagnostic.status,'output-limit');
+});
+test('ACL transport child signal or termination is refused',async()=>{
+    const error=await aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e','process.stdout.write('+JSON.stringify(aclCanary)+');process.kill(process.pid,"SIGTERM");']));assert.ok(['signal','nonzero-exit'].includes(error.diagnostic.status));
+});
+test('ACL transport spawn errors redact synthetic command path',()=>temp(root=>aclRefusal(()=>runPrivateAclTransport(join(root,aclCanary+'.exe'),[aclCanary]))));
+test('ACL transport invalid requests cannot raise limits or leak getters',async()=>{
+    for(const limits of [null,{timeoutMs:0},{timeoutMs:ACL_TRANSPORT_LIMITS.timeoutMs+1},{maxBytes:0},{maxBytes:ACL_TRANSPORT_LIMITS.maxBytes+1},{shell:aclCanary},Object.defineProperty({},'timeoutMs',{get(){throw Error(aclCanary);}})])await aclRefusal(()=>runPrivateAclTransport(process.execPath,[aclCanary],limits));
+});
+const aclShell=process.platform==='win32'?'powershell.exe':'pwsh';
+async function aclSyntheticShell(body){const script=ACL_PROCESS_PREAMBLE+body;assert.doesNotMatch(script,/Get-Acl|Get-CimInstance|Get-NetTCPConnection|Test-Path|Get-Content|Get-Item/);return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')]);}
+const aclPsLiteral=value=>"'"+value.replaceAll("'","''")+"'";
+test('ACL transport synthetic '+aclShell+' executes shared UTF8 preamble',async()=>{assert.deepEqual((await aclSyntheticShell('[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')')).facts,aclFacts());});
+test('ACL transport synthetic '+aclShell+' permits one explicit BOM',async()=>{const result=await aclSyntheticShell('[Console]::Out.Write([char]0xfeff);[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')');assert.equal(result.transport.framing,'single-leading-bom');});
+test('ACL transport synthetic '+aclShell+' preserves UTF8 before schema rejection',async()=>{const error=await aclRefusal(()=>aclSyntheticShell('[Console]::Out.Write('+aclPsLiteral(JSON.stringify({...aclFacts(),extra:aclCanary+'é'}))+')'));assert.equal(error.diagnostic.stage,'projection');assert.equal(error.diagnostic.encoding,'utf-8');});
+test('ACL transport synthetic '+aclShell+' terminates on error and redacts stderr',async()=>{const error=await aclRefusal(()=>aclSyntheticShell('Write-Error '+aclPsLiteral(aclCanary)+';[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')'));assert.equal(error.diagnostic.stage,'process');});
+async function aclSyntheticCommandRoute(body,argument){
+    const wrapper=verifyPrivateDirectory.toString().match(/const script=ACL_PROCESS_PREAMBLE\+`([^`]+)`;/)?.[1];assert.ok(wrapper);assert.equal(wrapper.split('${command}').length,2);assert.equal(wrapper.split('${literal}').length,2);
+    const script=ACL_PROCESS_PREAMBLE+wrapper.replace('${command}',body).replace('${literal}',aclPsLiteral(argument));
+    assert.doesNotMatch(script,/Get-Acl|Get-CimInstance|Get-NetTCPConnection|Test-Path|Get-Content|Get-Item/);
+    return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-Command',script]);
+}
+test('ACL transport native Command wrapper preserves synthetic literal argument and JSON pipeline',async()=>{
+    const argument="Synthetic spaces and O'Brien "+aclCanary,expected=Buffer.from(argument).toString('base64');
+    const body="$p=$args[0];$expected=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('"+expected+"'));[pscustomobject]@{ownerMatches=($args.Count -eq 1 -and $p -ceq $expected);hasOwner=$true;hasSystem=$true;unexpectedRules=0;rules=2;inheritance=@('ContainerInherit, ObjectInherit','ContainerInherit, ObjectInherit')}|ConvertTo-Json -Compress";
+    const result=await aclSyntheticCommandRoute(body,argument);assert.deepEqual(result.facts,aclFacts());assert.equal(result.transport.stderrBytes,0);assert.equal(result.transport.stderrSha256,sha256(Buffer.alloc(0)));assert.doesNotMatch(JSON.stringify(result),/SYNTHETIC-ACL-SECRET-CANARY/);
+});
+test('ACL transport native Command wrapper redacts a synthetic producer failure',async()=>{
+    const error=await aclRefusal(()=>aclSyntheticCommandRoute("throw '"+aclCanary+"'","Synthetic spaces and O'Brien "+aclCanary));assert.equal(error.diagnostic.stage,'process');assert.equal(error.diagnostic.exitCode,1);assert.ok(error.diagnostic.stderrBytes>0);
+});
+test('ACL transport native verifier retains a fixed query without test injection',async()=>{
+    const source=verifyPrivateDirectory.toString();assert.match(source,/mode='native',syntheticRoot/);assert.match(source,/runPrivateAclTransport\('powershell.exe'/);assert.match(source,/Get-Acl -LiteralPath \$p -ErrorAction Stop/);assert.match(ACL_PROCESS_PREAMBLE,/ErrorActionPreference='Stop'/);assert.match(ACL_PROCESS_PREAMBLE,/OutputEncoding/);
+    await temp(root=>aclRefusal(()=>verifyPrivateDirectory(join(root,aclCanary))));
+});
 async function capture(o){try{return await captureStoppedStoreEvidence(o);}catch(error){const p=JSON.parse(await fs.readFile(join(o.outputRoot,'failure.json'),'utf8'));throw Error(error.message+' [synthetic step='+p.step+', store='+p.database+']');}}
 const raw=(key,value)=>({key:Buffer.from(key),value:Buffer.isBuffer(value)?value:Buffer.from(JSON.stringify(value))});
 const host=(state='stopped')=>({target:TARGET_ROOT.replaceAll('/','\\'),startedMs:time,observedMs:time,matches:state==='running'?[{ProcessId:123,Name:'node.exe'}]:[],unreadable:[],processError:null,listeners:state==='running'?[{LocalAddress:'127.0.0.1',LocalPort:30001,OwningProcess:123}]:[],portAbsent:state==='stopped',portError:null,lockExists:state==='running'});

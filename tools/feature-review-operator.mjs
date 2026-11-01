@@ -2,7 +2,7 @@
 import {readFile,lstat,realpath,mkdir,writeFile} from 'node:fs/promises';
 import {createHash,randomUUID} from 'node:crypto';
 import {execFile} from 'node:child_process';
-import {promisify} from 'node:util';
+import {promisify,TextDecoder} from 'node:util';
 import {resolve,relative,dirname,isAbsolute,sep} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {FEATURE_REVIEW_ADMITTED_CONTRACT as C,admittedCanonical as canonical,admittedBaselineErrors,admittedInputErrors,publicAdmittedPacketErrors,mergeAdmittedControllerSegment,buildAdmittedFeatureReviewInputs,issueAdmittedControllerPacket} from './feature-review-admitted-contract.mjs';
@@ -169,19 +169,75 @@ export function requireHostState(o,{mode='native',state='stopped',ownedPid=null,
     return o;
 }
 
+export const ACL_TRANSPORT_LIMITS=Object.freeze({timeoutMs:10000,maxBytes:65536});
+export const ACL_PROCESS_PREAMBLE="$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding;";
+const aclFields=['ownerMatches','hasOwner','hasSystem','unexpectedRules','rules','inheritance'];
+const aclInheritance=new Set(['ContainerInherit, ObjectInherit','ObjectInherit, ContainerInherit']);
+const utf8Bom=Buffer.from([0xef,0xbb,0xbf]);
+const aclErrors=new WeakSet();
+function aclBytesMetadata(stdout,stderr) {
+    const bytes=b=>Buffer.isBuffer(b)?b.length:null;
+    const digest=b=>Buffer.isBuffer(b)&&b.length<=ACL_TRANSPORT_LIMITS.maxBytes?sha256(b):null;
+    return {stdoutBytes:bytes(stdout),stderrBytes:bytes(stderr),stdoutSha256:digest(stdout),stderrSha256:digest(stderr)};
+}
+function aclTransportError(stage,status,stdout,stderr,metadata={}) {
+    const error=Error('STOP: ACL transport refused ('+stage+'/'+status+')');error.name='AclTransportError';
+    error.stack=error.name+': '+error.message;aclErrors.add(error);
+    error.diagnostic=Object.freeze({stage,status,...aclBytesMetadata(stdout,stderr),encoding:'unvalidated',...metadata});
+    return error; // No cause, process exception, command, path or output is attached.
+}
+// Pure byte decoding/validation is not an observation of native privacy.
+export function decodePrivateAclTransport(stdout) {
+    const empty=Buffer.alloc(0);
+    if(!Buffer.isBuffer(stdout)||!stdout.length||stdout.length>ACL_TRANSPORT_LIMITS.maxBytes)throw aclTransportError('decode','byte-boundary',stdout,empty);
+    const leading=stdout.subarray(0,3).equals(utf8Bom),body=leading?stdout.subarray(3):stdout,framing=leading?'single-leading-bom':'none';
+    if(body.includes(utf8Bom))throw aclTransportError('decode','misplaced-or-repeated-framing',stdout,empty,{framing:'rejected'});
+    let text;try{text=new TextDecoder('utf-8',{fatal:true,ignoreBOM:true}).decode(body);}catch{throw aclTransportError('decode','invalid-utf8',stdout,empty,{encoding:'invalid-or-unsupported',framing});}
+    let facts;try{facts=parseFiniteJson(text);}catch{throw aclTransportError('decode','json-or-number',stdout,empty,{encoding:'utf-8',framing});}
+    // Inspect raw key occurrences too: JSON.parse alone would hide duplicate fields.
+    const names=Array.from(text.matchAll(/"(?:[^"\\]|\\[\s\S])*"(?=[ \t\r\n]*:)/g),m=>JSON.parse(m[0]));
+    if(!facts||typeof facts!=='object'||Array.isArray(facts)||Object.keys(facts).length!==aclFields.length||names.length!==aclFields.length||new Set(names).size!==aclFields.length||names.some(k=>!aclFields.includes(k))||
+        !['ownerMatches','hasOwner','hasSystem'].every(k=>typeof facts[k]==='boolean'&&facts[k]===true)||
+        !Number.isSafeInteger(facts.unexpectedRules)||facts.unexpectedRules!==0||!Number.isSafeInteger(facts.rules)||facts.rules<2||
+        !Array.isArray(facts.inheritance)||facts.inheritance.length!==facts.rules||facts.inheritance.some(v=>typeof v!=='string'||!aclInheritance.has(v)))throw aclTransportError('projection','not-established',stdout,empty,{encoding:'utf-8',framing});
+    return {kind:'decoded-acl-projection',facts,transport:{...aclBytesMetadata(stdout,empty),encoding:'utf-8',framing}};
+}
+// Native verification supplies its fixed command below. This process primitive grants no privacy authority.
+// Limits may only be lowered for controlled-output tests; native callers do not accept overrides.
+export async function runPrivateAclTransport(file,args,limits={}) {
+    let timeoutMs,maxBytes;
+    try {
+        if(!limits||typeof limits!=='object'||Array.isArray(limits)||Object.entries(Object.getOwnPropertyDescriptors(limits)).some(([k,v])=>!['timeoutMs','maxBytes'].includes(k)||!Object.hasOwn(v,'value')))throw Error();
+        timeoutMs=limits.timeoutMs??ACL_TRANSPORT_LIMITS.timeoutMs;maxBytes=limits.maxBytes??ACL_TRANSPORT_LIMITS.maxBytes;
+        if(typeof file!=='string'||!file||!Array.isArray(args)||args.some(v=>typeof v!=='string')||!Number.isSafeInteger(timeoutMs)||timeoutMs<=0||timeoutMs>ACL_TRANSPORT_LIMITS.timeoutMs||!Number.isSafeInteger(maxBytes)||maxBytes<=0||maxBytes>ACL_TRANSPORT_LIMITS.maxBytes)throw Error();
+    }catch{throw aclTransportError('request','invalid',null,null);}
+    let stdout,stderr;
+    try{({stdout,stderr}=await run(file,args,{encoding:'buffer',windowsHide:true,timeout:timeoutMs,maxBuffer:maxBytes,killSignal:'SIGKILL'}));}
+    catch(error){
+        const status=error?.code==='ERR_CHILD_PROCESS_STDIO_MAXBUFFER'?'output-limit':error?.killed===true?'timeout':error?.signal?'signal':Number.isSafeInteger(error?.code)?'nonzero-exit':'spawn-failure';
+        const signals=new Set(['SIGTERM','SIGKILL','SIGINT','SIGABRT','SIGHUP']);
+        throw aclTransportError('process',status,error?.stdout,error?.stderr,{exitCode:Number.isSafeInteger(error?.code)&&error.code>=0&&error.code<=4294967295?error.code:null,signal:typeof error?.signal==='string'?(signals.has(error.signal)?error.signal:'other'):null});
+    }
+    if(!Buffer.isBuffer(stdout)||!Buffer.isBuffer(stderr)||stdout.length>maxBytes||stderr.length>maxBytes)throw aclTransportError('process','byte-boundary',stdout,stderr);
+    if(stderr.length)throw aclTransportError('process','stderr',stdout,stderr);
+    return decodePrivateAclTransport(stdout);
+}
+
 export async function verifyPrivateDirectory(path,{mode='native',syntheticRoot}={}) {
     if(mode==='synthetic'){requireSyntheticRoot(syntheticRoot);await containedPath(syntheticRoot,path,{directory:true});return {mode,path:resolve(path),kind:'synthetic-privacy-only'};}
-    if(mode!=='native'||process.platform!=='win32')throw Error('STOP: native privacy verification unavailable');
-    const base=['.setup-backups','.setup-staging'].find(p=>{const r=relative(resolve(TARGET_ROOT,p),resolve(path));return r && r!=='..'&&!r.startsWith('..'+sep)&&!isAbsolute(r);});
-    if(!base)throw Error('STOP: capture must use a private batch outside served Data');
-    await containedPath(resolve(TARGET_ROOT,base),path,{directory:true});
-    // Read-only ACL inspection. The one path is a safely quoted PowerShell literal.
-    const command=`$p=$args[0];$a=Get-Acl -LiteralPath $p -ErrorAction Stop;$me=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value;$principals=@($a.Access|ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}|Sort-Object -Unique);$bad=@($a.Access|Where-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin @($me,'S-1-5-18') -or $_.AccessControlType -ne 'Allow'});[pscustomobject]@{ownerMatches=($a.GetOwner([Security.Principal.SecurityIdentifier]).Value -eq $me);hasOwner=($principals -contains $me);hasSystem=($principals -contains 'S-1-5-18');unexpectedRules=$bad.Count;rules=$a.Access.Count;inheritance=@($a.Access|ForEach-Object {[string]$_.InheritanceFlags})}|ConvertTo-Json -Compress`;
-    // -Command argument binding differs across shells; quote doubling prevents interpolation.
-    const literal="'"+resolve(path).replaceAll("'","''")+"'";
-    const {stdout}=await run('powershell.exe',['-NoProfile','-NonInteractive','-Command',`& {${command}} ${literal}`],{windowsHide:true,maxBuffer:65536});const facts=parseFiniteJson(stdout);
-    if(!facts.ownerMatches||!facts.hasOwner||!facts.hasSystem||facts.unexpectedRules||facts.rules<2||facts.inheritance.some(v=>!v.includes('ContainerInherit')||!v.includes('ObjectInherit')))throw Error('STOP: private inherited owner/SYSTEM restrictions unverified');
-    return {mode,path:resolve(path),kind:'observed-owner-system-privacy',facts};
+    if(mode!=='native'||process.platform!=='win32')throw aclTransportError('request','native-unavailable',null,null);
+    try {
+        const base=['.setup-backups','.setup-staging'].find(p=>{const r=relative(resolve(TARGET_ROOT,p),resolve(path));return r && r!=='..'&&!r.startsWith('..'+sep)&&!isAbsolute(r);});
+        if(!base)throw aclTransportError('path','outside-private-root',null,null);
+        await containedPath(resolve(TARGET_ROOT,base),path,{directory:true});
+        // Read-only ACL inspection. The one path is a safely quoted PowerShell literal.
+        const command=`$p=$args[0];$a=Get-Acl -LiteralPath $p -ErrorAction Stop;$me=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value;$principals=@($a.Access|ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}|Sort-Object -Unique);$bad=@($a.Access|Where-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin @($me,'S-1-5-18') -or $_.AccessControlType -ne 'Allow'});[pscustomobject]@{ownerMatches=($a.GetOwner([Security.Principal.SecurityIdentifier]).Value -eq $me);hasOwner=($principals -contains $me);hasSystem=($principals -contains 'S-1-5-18');unexpectedRules=$bad.Count;rules=$a.Access.Count;inheritance=@($a.Access|ForEach-Object {[string]$_.InheritanceFlags})}|ConvertTo-Json -Compress`;
+        // -Command argument binding differs across shells; quote doubling prevents interpolation.
+        const literal="'"+resolve(path).replaceAll("'","''")+"'";
+        const script=ACL_PROCESS_PREAMBLE+`try {& {${command}} ${literal};exit 0}catch{[Console]::Error.Write('ACL query failed');exit 1}`;
+        const {facts}=await runPrivateAclTransport('powershell.exe',['-NoProfile','-NonInteractive','-Command',script]);
+        return {mode,path:resolve(path),kind:'observed-owner-system-privacy',facts};
+    }catch(error){if(aclErrors.has(error))throw error;throw aclTransportError('path','unverified',null,null);}
 }
 
 const externalNames=['supported-usage','coordinator-ownership','allowed-hours','normal-access','action-approval'];
