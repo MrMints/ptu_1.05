@@ -94,3 +94,9 @@ Canonical-LF SHA256 bindings:
 Existing05 retains checkout ownership only through the documented-head CI/clean agreement handoff, then RELEASES/STOPS for independent and substantive planner review of blocked evidence/tooling. World ownership/reuse, native validation and full05/pre06 remain held.
 
 Repository source validation also passes: manifest,17 skill mappings,15 packs and7,395 source documents. This repeats no pack build or gameplay/native-world verification.
+
+## Offline implementation checkpoint
+
+Commit 0f07c520d8debdd96104b56b3b028053103a9e03 contains exactly14 approved paths. The checkout was clean after commit. The controller/checker/test hashes above bind the implemented tooling; no protected runtime, prior test, source/G evidence, compendium, ID, workflow/dependency or original reference changed. This documentation-only binding must be included in the final normal CI head before clean local/tracking/actual remote/open draftPR4 agreement and RELEASE/STOP for independent and substantive planner review. CI can accept honest blocked evidence/tooling; it cannot turn0/28 native cases into native acceptance or authorize world reuse. The minimum next-admission proposal remains prepared only.
+
+The final documentation binding passes20/20 document/evidence checks and390 local Markdown links across the14-path payload; tool hashes and full historical prefixes remain verified. These checks certify neither native cases nor world restoration.
