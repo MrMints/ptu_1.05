@@ -525,3 +525,6 @@ Pin the operator ACL subprocess to the reviewed stock64-bit Windows PowerShell r
 
 
 Final local coverage:1059 affected cases across separate executions,1057 pass/0 fail/2 blocked Windows scope skips; all328 prior operator and677 companion cases retained. Exact six-file/prefix/frozen-code audit,148 links, syntax and whitespace pass after a retained audit-only blank-line correction. Final-head Linux CI must establish the two interpreter-scope controls; local skips are not scope or native passes.
+
+
+The Windows SecurityError cause remains unresolved. Linux pwsh scope passes may support offline code acceptance only; a separate exact-candidate Windows non-ACL scope observation remains required after CI/writer release and its own review/admission, before any private ACL retry. No follow-up diagnostic is prepared or run here.
