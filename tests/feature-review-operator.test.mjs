@@ -11,7 +11,7 @@ import {TARGET_ROOT,PROCESS_QUERY,sha256,containedPath,pinnedFiles,observeHostSt
 import {createExecutionVerifier,readNativeBrowserFacts,ACTION_GUARDS} from '../tools/feature-review-execution-verifier.mjs';
 import {joinAdmittedConversionCaptures} from '../tools/check-feature-review-admitted.mjs';
 import {refreshFeatureReviewPacket} from '../tools/foundry-feature-review-check.mjs';
-import {decodePrivateAclTransport,runPrivateAclTransport,ACL_PROCESS_PREAMBLE,ACL_TRANSPORT_LIMITS,verifyPrivateDirectory} from '../tools/feature-review-operator.mjs';
+import {decodePrivateAclTransport,runPrivateAclTransport,decodePrivateAclErrorCategory,ACL_PROCESS_PREAMBLE,ACL_TRANSPORT_LIMITS,verifyPrivateDirectory} from '../tools/feature-review-operator.mjs';
 const id=n=>String(n).padStart(16,'0'),copy=structuredClone,time=Date.parse('2026-11-01T16:20:00Z'),cacheRoot=resolve('.cache');
 const exec=promisify(execFile);
 // Execute ONLY the generated pure classification lines, never the OS queries or lock lookup.
@@ -27,6 +27,8 @@ async function generatedProcessRows(rows){
 }
 async function temp(fn){await fs.mkdir(cacheRoot,{recursive:true});const root=await fs.mkdtemp(join(cacheRoot,'feature-review-operator-'));try{return await fn(root);}finally{const rel=relative(cacheRoot,root);assert.ok(rel&&rel!=='..'&&!rel.startsWith('..'+sep));await fs.rm(root,{recursive:true,force:true});}}
 const aclCanary='SYNTHETIC-ACL-SECRET-CANARY';
+const aclCategoryNames=Object.freeze(['NotSpecified','OpenError','CloseError','DeviceError','DeadlockDetected','InvalidArgument','InvalidData','InvalidOperation','InvalidResult','InvalidType','MetadataError','NotImplemented','NotInstalled','ObjectNotFound','OperationStopped','OperationTimeout','SyntaxError','ParserError','PermissionDenied','ResourceBusy','ResourceExists','ResourceUnavailable','ReadError','WriteError','FromStdErr','SecurityError','ProtocolError','ConnectionError','AuthenticationError','LimitsExceeded','QuotaExceeded','NotEnabled']);
+const aclCategoryResult=(stderr,overrides={})=>({exitCode:1,timeout:false,signal:null,terminated:false,outputLimit:false,stdout:Buffer.alloc(0),stderr:Buffer.isBuffer(stderr)?stderr:Buffer.from(stderr),...overrides});
 const aclFacts=()=>({ownerMatches:true,hasOwner:true,hasSystem:true,unexpectedRules:0,rules:2,inheritance:['ContainerInherit, ObjectInherit','ContainerInherit, ObjectInherit']});
 const aclBytes=value=>Buffer.from(JSON.stringify(value));
 const aclEmit=bytes=>'process.stdout.write(Buffer.from('+JSON.stringify(bytes.toString('base64'))+',"base64"));';
@@ -36,7 +38,8 @@ async function aclRefusal(action){
     assert.doesNotMatch(dump,/SYNTHETIC-ACL-SECRET-CANARY/);assert.ok(failure.diagnostic);assert.match(failure.message,/^STOP: ACL transport refused/);
     assert.equal(failure.stack,failure.name+': '+failure.message);
     assert.ok(['request','process','decode','projection','path'].includes(failure.diagnostic.stage));
-    const allowed=['stage','status','stdoutBytes','stderrBytes','stdoutSha256','stderrSha256','encoding','framing','exitCode','signal'];
+    const allowed=['stage','status','stdoutBytes','stderrBytes','stdoutSha256','stderrSha256','encoding','framing','exitCode','signal','errorCategory'];
+    if(Object.hasOwn(failure.diagnostic,'errorCategory'))assert.ok(aclCategoryNames.includes(failure.diagnostic.errorCategory));
     assert.ok(Object.keys(failure.diagnostic).every(k=>allowed.includes(k)));assert.ok(Object.isFrozen(failure.diagnostic));
     for(const value of Object.values(failure.diagnostic))assert.ok(value===null||typeof value==='string'&&value.length<=64||Number.isSafeInteger(value)&&value>=0);
     assert.doesNotMatch(JSON.stringify(failure),/"(?:stdout|stderr|command|cmd|cause|path)":/);return failure;
@@ -121,6 +124,79 @@ async function aclSyntheticCommandRoute(body,argument){
     assert.doesNotMatch(script,/Get-Acl|Get-CimInstance|Get-NetTCPConnection|Test-Path|Get-Content|Get-Item/);
     return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-Command',script]);
 }
+for(const [category,name]of aclCategoryNames.entries())test('ACL category initial pure canonical '+category,()=>{
+    assert.equal(decodePrivateAclErrorCategory(aclCategoryResult('PTU-ACL-ERROR/1:'+category)),name);
+});
+test('ACL category initial shared child recognizes only the reported family',async()=>{
+    const error=await aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e','const secret='+JSON.stringify(aclCanary)+';process.stderr.write("PTU-ACL-ERROR/1:18");process.exit(1);']));assert.equal(error.diagnostic.errorCategory,'PermissionDenied');assert.doesNotMatch(JSON.stringify(error),/PTU-ACL-ERROR/);
+});
+const aclTypedRecordBody=category=>"[CmdletBinding()]param($SyntheticArgument);$record=[System.Management.Automation.ErrorRecord]::new([Exception]::new('"+aclCanary+"'),'"+aclCanary+"',[System.Management.Automation.ErrorCategory]"+category+",'"+aclCanary+"');$PSCmdlet.ThrowTerminatingError($record)";
+test('ACL category initial production wrapper uses typed ErrorRecord category',async()=>{
+    const error=await aclRefusal(()=>aclSyntheticCommandRoute(aclTypedRecordBody(18),"Synthetic O'Brien "+aclCanary));assert.equal(error.diagnostic.errorCategory,'PermissionDenied');assert.equal(error.diagnostic.stderrBytes,18);
+});
+async function aclCategoryChild(stderr,{exitCode=1,stdout=Buffer.alloc(0),limits}={}){
+    const code='const secret='+JSON.stringify(aclCanary)+';'+aclEmit(stdout)+'process.stderr.write(Buffer.from('+JSON.stringify(stderr.toString('base64'))+',"base64"),()=>process.exit('+exitCode+'));';
+    return runPrivateAclTransport(process.execPath,['-e',code],limits);
+}
+for(const [category,name]of aclCategoryNames.entries()){
+    test('ACL category shared Node child reports '+category,async()=>{const error=await aclRefusal(()=>aclCategoryChild(Buffer.from('PTU-ACL-ERROR/1:'+category)));assert.equal(error.diagnostic.errorCategory,name);assert.doesNotMatch(JSON.stringify(error),/PTU-ACL-ERROR/);});
+    test('ACL category synthetic '+aclShell+' typed producer reports '+category,async()=>{const error=await aclRefusal(()=>aclSyntheticCommandRoute(aclTypedRecordBody(category),"Nonprivate O'Brien "+aclCanary));assert.equal(error.diagnostic.errorCategory,name);assert.equal(error.diagnostic.stderrBytes,category<10?17:18);assert.equal(error.diagnostic.stdoutBytes,0);});
+}
+const aclBadCategoryPackets=[
+    '', 'PTU-ACL', 'PTU-ACL-ERROR/1:', 'PTU-ACL-ERROR/0:18', 'PTU-ACL-ERROR/2:18', 'PTU-ACL-ERROR/01:18', 'ptu-acl-error/1:18',
+    ...['-1','32','99','2147483647','+1','-0','00','01','1.0','1e0','0x12','NaN','null','undefined','true',' 18','18 ','18\n','1\n','18\r\n','\t18','١٨','十八','18:extra',aclCanary].map(v=>'PTU-ACL-ERROR/1:'+v),
+    'PTU-ACL-ERROR/1:18PTU-ACL-ERROR/1:18', 'PTU-ACL-ERROR/1:18\nPTU-ACL-ERROR/1:0',aclCanary+'PTU-ACL-ERROR/1:18','PTU-ACL-ERROR/1:18'+aclCanary,
+    Buffer.concat([Buffer.from([0xef,0xbb,0xbf]),Buffer.from('PTU-ACL-ERROR/1:18')]),Buffer.concat([Buffer.from('PTU-ACL-ERROR/1:18'),Buffer.from([0xef,0xbb,0xbf])]),
+    Buffer.from('PTU-ACL-ERROR/1:18','utf16le'),Buffer.concat([Buffer.from('PTU-ACL-ERROR/1:'),Buffer.from([0xff])]),Buffer.from('PTU-ACL-ERROR/1:1\0'),Buffer.from(aclCanary.repeat(3000))
+].map(v=>Buffer.isBuffer(v)?v:Buffer.from(v));
+test('ACL category malformed unknown noncanonical and unsupported packets stay unclassified',()=>{
+    for(const packet of aclBadCategoryPackets)assert.equal(decodePrivateAclErrorCategory(aclCategoryResult(packet)),null);
+});
+test('ACL category shared process never extracts a family from malformed packets',async()=>{
+    for(const packet of aclBadCategoryPackets){const error=await aclRefusal(()=>aclCategoryChild(packet));assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);}
+});
+test('ACL category pure producer-failure conditions are exact and complete',()=>{
+    const packet=Buffer.from('PTU-ACL-ERROR/1:18');
+    for(const overrides of [{exitCode:0},{exitCode:2},{exitCode:'1'},{exitCode:new Number(1)},{exitCode:1n},{timeout:true},{timeout:undefined},{signal:'SIGTERM'},{signal:undefined},{terminated:true},{terminated:undefined},{outputLimit:true},{outputLimit:undefined},{stdout:Buffer.from(aclCanary)},{stdout:''},{stderr:packet.toString()},{stderr:new Uint8Array(packet)}])assert.equal(decodePrivateAclErrorCategory(aclCategoryResult(packet,overrides)),null);
+    for(const key of ['exitCode','timeout','signal','terminated','outputLimit','stdout','stderr']){const value=aclCategoryResult(packet);delete value[key];assert.equal(decodePrivateAclErrorCategory(value),null);}
+    assert.equal(decodePrivateAclErrorCategory(Object.defineProperty({},'exitCode',{get(){throw Error(aclCanary);}})),null);
+});
+test('ACL category success stderr other exits and failure stdout cannot report a family',async()=>{
+    const packet=Buffer.from('PTU-ACL-ERROR/1:18');
+    for(const options of [{exitCode:0},{exitCode:2},{exitCode:7},{exitCode:255},{stdout:aclBytes(aclFacts())},{stdout:Buffer.from(aclCanary)}]){const error=await aclRefusal(()=>aclCategoryChild(packet,options));assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);}
+});
+test('ACL category output limit retains priority even over a valid truncated prefix',async()=>{
+    const error=await aclRefusal(()=>aclCategoryChild(Buffer.from('PTU-ACL-ERROR/1:18'),{limits:{maxBytes:17}}));assert.equal(error.diagnostic.status,'output-limit');assert.equal(error.diagnostic.stderrBytes,17);assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);
+});
+test('ACL category timeout retains priority over a complete packet',async()=>{
+    const code='process.stderr.write("PTU-ACL-ERROR/1:18");setTimeout(()=>process.exit(1),2500);';
+    const error=await aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',code],{timeoutMs:1000}));assert.equal(error.diagnostic.status,'timeout');assert.equal(error.diagnostic.stderrBytes,18);assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);
+});
+test('ACL category signaled child with output remains an unclassified refusal',async()=>{
+    const code='process.stdout.write('+JSON.stringify(aclCanary)+');process.stderr.write("PTU-ACL-ERROR/1:18",()=>process.kill(process.pid,"SIGTERM"));';
+    const error=await aclRefusal(()=>runPrivateAclTransport(process.execPath,['-e',code]));assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);
+});
+const aclRecordSetup="$record=[System.Management.Automation.ErrorRecord]::new([Exception]::new('"+aclCanary+"'),'"+aclCanary+"',[System.Management.Automation.ErrorCategory]18,'"+aclCanary+"');";
+for(const [name,setup]of [
+    ['missing record','$record=$null;'],['arbitrary object',"$record=[pscustomobject]@{CategoryInfo=[pscustomobject]@{Category=[System.Management.Automation.ErrorCategory]18}};"],
+    ['missing category info',aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value $null -Force;"],
+    ['missing category property',aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value ([pscustomobject]@{}) -Force;"],
+    ...['$null','18',"'18'",'$false',"'"+aclCanary+"'"].map((value,n)=>['invalid typed category '+n,aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value ([pscustomobject]@{Category="+value+"}) -Force;"]),
+    ['undefined enum',aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value ([pscustomobject]@{Category=[Enum]::ToObject([System.Management.Automation.ErrorCategory],32)}) -Force;"],
+    ['negative enum',aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value ([pscustomobject]@{Category=[Enum]::ToObject([System.Management.Automation.ErrorCategory],-1)}) -Force;"],
+    ['maximum unsupported enum',aclRecordSetup+"$record|Add-Member -MemberType NoteProperty -Name CategoryInfo -Value ([pscustomobject]@{Category=[Enum]::ToObject([System.Management.Automation.ErrorCategory],2147483647)}) -Force;"],
+    ['inaccessible category',aclRecordSetup+"$record|Add-Member -MemberType ScriptProperty -Name CategoryInfo -Value {throw '"+aclCanary+"'} -Force;"]
+])test('ACL category synthetic '+aclShell+' generic fallback for '+name,async()=>{
+    const body=setup+'[Console]::Error.Write((Get-PtuAclFailureMarker $record));exit 1';const error=await aclRefusal(()=>aclSyntheticCommandRoute(body,"Nonprivate O'Brien "+aclCanary));assert.equal(error.diagnostic.stdoutBytes,0);assert.equal(error.diagnostic.stderrBytes,16);assert.equal(Object.hasOwn(error.diagnostic,'errorCategory'),false);
+});
+test('ACL category classifier accesses only the typed category and no excluded ErrorRecord fields',()=>{
+    const classifier=ACL_PROCESS_PREAMBLE.slice(ACL_PROCESS_PREAMBLE.indexOf('function Get-PtuAclFailureMarker'));
+    assert.match(classifier,/\$Record\.CategoryInfo\.Category/);assert.match(classifier,/-is \[System\.Management\.Automation\.ErrorCategory\]/);
+    assert.doesNotMatch(classifier,/\.(?:ToString|Message|ErrorDetails|TargetObject|TargetName|Reason|Activity|InvocationInfo|FullyQualifiedErrorId|Exception|HResult|StackTrace)\b/i);
+});
+test('ACL category successful six-field producer remains unchanged and unclassified',async()=>{
+    const result=await aclSyntheticCommandRoute("[pscustomobject]@{ownerMatches=$true;hasOwner=$true;hasSystem=$true;unexpectedRules=0;rules=2;inheritance=@('ContainerInherit, ObjectInherit','ContainerInherit, ObjectInherit')}|ConvertTo-Json -Compress","Synthetic O'Brien");assert.deepEqual(result.facts,aclFacts());assert.equal(Object.hasOwn(result,'errorCategory'),false);assert.equal(Object.hasOwn(result.transport,'errorCategory'),false);
+});
 test('ACL transport native Command wrapper preserves synthetic literal argument and JSON pipeline',async()=>{
     const argument="Synthetic spaces and O'Brien "+aclCanary,expected=Buffer.from(argument).toString('base64');
     const body="$p=$args[0];$expected=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('"+expected+"'));[pscustomobject]@{ownerMatches=($args.Count -eq 1 -and $p -ceq $expected);hasOwner=$true;hasSystem=$true;unexpectedRules=0;rules=2;inheritance=@('ContainerInherit, ObjectInherit','ContainerInherit, ObjectInherit')}|ConvertTo-Json -Compress";

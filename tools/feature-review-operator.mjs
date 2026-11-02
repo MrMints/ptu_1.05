@@ -170,11 +170,38 @@ export function requireHostState(o,{mode='native',state='stopped',ownedPid=null,
 }
 
 export const ACL_TRANSPORT_LIMITS=Object.freeze({timeoutMs:10000,maxBytes:65536});
-export const ACL_PROCESS_PREAMBLE="$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding;";
+const aclErrorCategories=Object.freeze(['NotSpecified','OpenError','CloseError','DeviceError','DeadlockDetected','InvalidArgument','InvalidData','InvalidOperation','InvalidResult','InvalidType','MetadataError','NotImplemented','NotInstalled','ObjectNotFound','OperationStopped','OperationTimeout','SyntaxError','ParserError','PermissionDenied','ResourceBusy','ResourceExists','ResourceUnavailable','ReadError','WriteError','FromStdErr','SecurityError','ProtocolError','ConnectionError','AuthenticationError','LimitsExceeded','QuotaExceeded','NotEnabled']);
+const aclErrorPackets=aclErrorCategories.map((_,n)=>Buffer.from('PTU-ACL-ERROR/1:'+n,'ascii'));
+const aclPacketLiterals=aclErrorCategories.map((_,n)=>"'PTU-ACL-ERROR/1:"+n+"'").join(',');
+export const ACL_PROCESS_PREAMBLE="$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding;"+`
+function Get-PtuAclFailureMarker([object]$Record) {
+ $marker='ACL query failed'
+ try {
+  if($Record -is [System.Management.Automation.ErrorRecord]) {
+   $category=$Record.CategoryInfo.Category
+   if($category -is [System.Management.Automation.ErrorCategory]) {
+    $number=[int]$category
+    if($number -in @(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31)) {
+     $marker=@(${aclPacketLiterals})[$number]
+    }
+   }
+  }
+ }catch{$marker='ACL query failed'}
+ return $marker
+}
+`;
 const aclFields=['ownerMatches','hasOwner','hasSystem','unexpectedRules','rules','inheritance'];
 const aclInheritance=new Set(['ContainerInherit, ObjectInherit','ObjectInherit, ContainerInherit']);
 const utf8Bom=Buffer.from([0xef,0xbb,0xbf]);
 const aclErrors=new WeakSet();
+// Closed byte grammar and complete producer-failure conditions; never privacy authority.
+export function decodePrivateAclErrorCategory(result) {
+    try {
+        if(!result||result.exitCode!==1||result.timeout!==false||result.signal!==null||result.terminated!==false||result.outputLimit!==false||!Buffer.isBuffer(result.stdout)||result.stdout.length!==0||!Buffer.isBuffer(result.stderr)||result.stderr.length<17||result.stderr.length>18)return null;
+        const category=aclErrorPackets.findIndex(packet=>packet.equals(result.stderr));
+        return category<0?null:aclErrorCategories[category];
+    }catch{return null;}
+}
 function aclBytesMetadata(stdout,stderr) {
     const bytes=b=>Buffer.isBuffer(b)?b.length:null;
     const digest=b=>Buffer.isBuffer(b)&&b.length<=ACL_TRANSPORT_LIMITS.maxBytes?sha256(b):null;
@@ -216,7 +243,8 @@ export async function runPrivateAclTransport(file,args,limits={}) {
     catch(error){
         const status=error?.code==='ERR_CHILD_PROCESS_STDIO_MAXBUFFER'?'output-limit':error?.killed===true?'timeout':error?.signal?'signal':Number.isSafeInteger(error?.code)?'nonzero-exit':'spawn-failure';
         const signals=new Set(['SIGTERM','SIGKILL','SIGINT','SIGABRT','SIGHUP']);
-        throw aclTransportError('process',status,error?.stdout,error?.stderr,{exitCode:Number.isSafeInteger(error?.code)&&error.code>=0&&error.code<=4294967295?error.code:null,signal:typeof error?.signal==='string'?(signals.has(error.signal)?error.signal:'other'):null});
+        const errorCategory=status==='nonzero-exit'?decodePrivateAclErrorCategory({exitCode:error.code,timeout:error.killed===true,signal:error.signal??null,terminated:error.killed,outputLimit:false,stdout:error.stdout,stderr:error.stderr}):null;
+        throw aclTransportError('process',status,error?.stdout,error?.stderr,{exitCode:Number.isSafeInteger(error?.code)&&error.code>=0&&error.code<=4294967295?error.code:null,signal:typeof error?.signal==='string'?(signals.has(error.signal)?error.signal:'other'):null,...(errorCategory===null?{}:{errorCategory})});
     }
     if(!Buffer.isBuffer(stdout)||!Buffer.isBuffer(stderr)||stdout.length>maxBytes||stderr.length>maxBytes)throw aclTransportError('process','byte-boundary',stdout,stderr);
     if(stderr.length)throw aclTransportError('process','stderr',stdout,stderr);
@@ -234,7 +262,7 @@ export async function verifyPrivateDirectory(path,{mode='native',syntheticRoot}=
         const command=`$p=$args[0];$a=Get-Acl -LiteralPath $p -ErrorAction Stop;$me=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value;$principals=@($a.Access|ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}|Sort-Object -Unique);$bad=@($a.Access|Where-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin @($me,'S-1-5-18') -or $_.AccessControlType -ne 'Allow'});[pscustomobject]@{ownerMatches=($a.GetOwner([Security.Principal.SecurityIdentifier]).Value -eq $me);hasOwner=($principals -contains $me);hasSystem=($principals -contains 'S-1-5-18');unexpectedRules=$bad.Count;rules=$a.Access.Count;inheritance=@($a.Access|ForEach-Object {[string]$_.InheritanceFlags})}|ConvertTo-Json -Compress`;
         // -Command argument binding differs across shells; quote doubling prevents interpolation.
         const literal="'"+resolve(path).replaceAll("'","''")+"'";
-        const script=ACL_PROCESS_PREAMBLE+`try {& {${command}} ${literal};exit 0}catch{[Console]::Error.Write('ACL query failed');exit 1}`;
+        const script=ACL_PROCESS_PREAMBLE+`try {& {${command}} ${literal};exit 0}catch{[Console]::Error.Write((Get-PtuAclFailureMarker $_));exit 1}`;
         const {facts}=await runPrivateAclTransport('powershell.exe',['-NoProfile','-NonInteractive','-Command',script]);
         return {mode,path:resolve(path),kind:'observed-owner-system-privacy',facts};
     }catch(error){if(aclErrors.has(error))throw error;throw aclTransportError('path','unverified',null,null);}

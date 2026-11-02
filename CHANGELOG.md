@@ -507,3 +507,11 @@ Add a bounded byte transport around the unchanged minimal private-directory ACL 
 
 
 Final same-batch producer coverage adds two passing Windows PowerShell -Command/scriptblock/literal-argument/ConvertTo-Json controls using the actual wrapper template, with no native override or query. The documented affected execution passes885/885 (208 operator including87 transport plus677 unchanged),0 failures/0 skips. The original lossless parser, minimal query/quoting and frozen bindings remain unchanged; actual native privacy and historical cause remain unverified pending later separately reviewed execution after acceptance.
+
+
+### P05 offline typed error-category classifier — 2026-11-01
+
+Add one closed errorCategory family to refused ACL-producer results, using only a caught ErrorRecord’s typed CategoryInfo.Category and an exact17–18-byte ASCII packet for explicitly enumerated0–31 values. Classification requires exit1, empty stdout, complete exact stderr and no timeout/signal/termination/output-limit condition. Generic fallback, refusal priority, path-free redaction, successful six-field projection, minimal query/quoting and lossless parser remain unchanged. Initial0/34, corrected34/34, expanded116/116 and first affected1003/1003 are retained separately in the [append-only preparation report](docs/validation/p05-feature-review-operator-preparation.md). Both earlier native observations remain distinct and unexplained; backup privacy is unverified and staging untested. Four approved files only, synthetic tests only, native0/28. New final-head CI and independent/planner acceptance are required; an actual read still needs separate permission/review. No native/world/installation/permission or release action.
+
+
+Final category controls pass120/120 and affected1005/1005 (328 operator including208 retained plus677 unchanged),0 failures/0 skips. Four-file scope,11 complete historical prefixes,477 links, frozen bindings and unchanged parser/projection/query/quoting/priority pass preservation checks. The later16-byte stderr-marker observation stays distinct from the earlier unavailable-stdout JSON failure; actual privacy remains unverified.

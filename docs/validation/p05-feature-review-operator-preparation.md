@@ -230,3 +230,50 @@ Latest successor canonical-LF bindings after adding producer controls (the earli
 - tests/feature-review-operator.test.mjs: 6b585284d05a938df77912d87e91b97c87dee3496f3783fc8f7c412ab82c97b3
 
 NEW exact documented-head normal CI and clean branch/actual-remote/open draftPR4 agreement remain required, followed by explicit STOP/RELEASE for independent and existing-planner acceptance. No later ACL-read command was prepared or executed before that acceptance; all native/private execution gates remain.
+
+
+## Typed ErrorCategory failure classification — offline only,2026-11-01 Indianapolis
+
+Manager dispatch formally admitted Plan PTU turn01a1998e-cbad-7712-b545-babe9f9d437e from clean10d759ee985987c89e280089940bbab71b0de9ca. Sole checkout ownership covers exactly operator, operator tests, this append-only preparation report and append-only Unreleased changelog. Saved model/effort, supported usage, hours/weekend exemption, single-writer and review gates remain. This batch authorizes no actual ACL/identity/private-file/host/network query, native boundary request or native attempt.
+
+### Historical observations remain distinct
+
+The earlier stopped preflight's PowerShell call returned through its success path before JSON parsing failed; original stdout was unavailable. A later separately permitted read, forwarded by the manager as historical observation, returned exit1 with empty stdout and the16-byte fixed catch marker. Neither observation identifies an encoding, framing, ACL or other root cause. This offline batch did not repeat either read or inspect private evidence. Backup privacy remains unverified and staging remains untested. The complete stopped report and all earlier evidence/failures remain unchanged; no category is retrospectively assigned to the old marker.
+
+### Implementation and compatibility
+
+The existing fixed native wrapper now asks one bounded producer helper for the caught ErrorRecord's typed CategoryInfo.Category. It accesses no ErrorRecord text, Message/ErrorDetails, target/reason/activity, invocation/error ID, exception type/HResult/stack, identity/SID or private path. Only an actual ErrorRecord with an ErrorCategory-typed member can enter the integer guard; null, arbitrary values and inaccessible/missing classification retain the exact generic marker. Values0–31 are explicitly enumerated, corresponding to the [documented ErrorCategory enum](https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.errorcategory?view=powershellsdk-7.4.0). A genuine typed NotSpecified0 is distinct from missing/null classification. The producer chooses from fixed ASCII packet literals, without general stringification or culture-dependent formatting.
+
+Its only categorized failure grammar is PTU-ACL-ERROR/1: followed by one canonical decimal value0–31,17–18 bytes total. Console.Error.Write adds no newline/BOM/field and the wrapper exits1. A classification exception is swallowed without conversion or serialization and retains ACL query failed. The minimal Get-Acl query, literal quoting, native signature and successful six-field projection contract are unchanged; there is no category/provider/command override.
+
+The byte decoder compares complete buffered packets with the closed32-packet set. It recognizes a family only with exact numeric exit1, no timeout/signal/termination/output-limit condition, empty buffered stdout and complete matching buffered stderr. It never decodes by prefix extraction, encoding guesses, coercion or arbitrary trimming. Missing conditions, wrong versions, unknown/out-of-domain/noncanonical numbers, noise/whitespace/BOMs, incomplete/concatenated/duplicate/oversized/invalid bytes and spoofed process conditions remain unclassified refusals. Existing output-limit, timeout and signal priority is unchanged. In particular, output limiting a two-digit packet to a valid one-digit prefix cannot classify that prefix.
+
+Only one diagnostic field is added:errorCategory, mapped to a fixed allowlisted family name. No numeric category, auxiliary ErrorRecord code, raw packet/output, command/path, cause or excluded record data is exposed. Branded errors and path-free stacks remain. Every categorized process failure still throws; no packet can create a privacy receipt or success. A synthetic matching packet demonstrates decoding, not authenticity or an observed native result. Success-with-stderr, failure-with-stdout and other exit codes remain refused without a category.
+
+### Retained executions and coverage
+
+Initial prospective controls failed0/34 with an unclassified decoder entrypoint and the previous generic catch behavior:32 pure canonical packets plus controlled Node/PowerShell producer controls. Corrected controls pass34/34. Expanded coverage then passes116/116; a first affected execution passes1003/1003 after two unsupported-enum controls were added. Final controls explicitly add missing CategoryInfo/property cases and use controlled self-termination for the signal scenario. All executions remain separate from historical native observations.
+
+Coverage includes every category0–31 through pure decoding, actual controlled Node children and synthetic Windows PowerShell typed ErrorRecords using the production -Command/preamble/wrapper route. It includes malformed packets, exact producer-failure conditions, output-limit truncation, stderr-on-success, stdout-on-failure, other exit codes, signal/termination, timeout and oversized/invalid output. Synthetic ErrorRecords contain message/ID/target canaries; missing/invalid/unsupported/inaccessible CategoryInfo cases emit only the old16-byte marker. Static controls prohibit access to all excluded fields. The retained diagnostic-schema assertion adds only errorCategory and checks its exact closed32-name domain; all existing canary/raw-key/redaction/failure assertions remain. The successful synthetic six-field JSON producer remains unchanged. Windows PowerShell executions are local Windows results; Linux CI uses pwsh and must be reported separately.
+
+All208 prior operator checks and677 affected checks remain retained. No actual ACL, identity, private-file, host, network or credential query is in a synthetic producer. Any fixtures are isolated ignored.cache data; no actual original archive/proof/backup read or replay occurred. Final focused/grouped results and preservation audit follow below.
+
+Current canonical-LF successor bindings (all earlier bindings remain historical):
+
+- tools/feature-review-operator.mjs: 8ed5c88405468ba876be58dde3bd04e6d38b5b634457f59778ef57f0dc3b697b
+- tests/feature-review-operator.test.mjs: 32bfe2ffc32c4c675e6726addd8d754e26ed03201c20fd2d62f69e9c5ae65968
+
+### Remaining gates
+
+The lossless parser/decimal guard, projection decoder, process query, collector/browser verifier, frozen controller/contract/checker/tests, dependencies/workflows, content/IDs, original artifact/proof/backup bindings and complete stopped report remain protected. Native **0 passed / 0 failed / 28 not run**; no native retry, installation, world/server action, fixture/grant/permission change, merge or release is admitted. The sole product candidate remains e63595a2f6bb51358d5b66a66b594e6868e5286b /CI41250223014/artifact13061542688, never a tooling-build artifact.
+
+New normal CI on the exact final documented head and clean local/tracking/actual-remote/open draftPR4 agreement precede explicit STOP/RELEASE for independent review followed by substantive planner acceptance. Even after implementation acceptance, an actual ACL read remains held until separately permitted and reviewed. Prior query-only, synthetic-test and earlier exact-read approvals are not substitutes; no later read or boundary request is prepared or executed by this batch.
+
+
+### Category-classifier final local checkpoint
+
+Final focused category controls pass120/120. The final affected execution passes1005/1005:328 operator checks (208 retained plus120 new) and677 unchanged affected checks,0 failures/cancellations/skips. This includes explicit missing CategoryInfo/property and negative/maximum unsupported enum cases; the earlier116/116 and1003/1003 remain prior coverage. Producer tests exercise all32 typed categories through the actual Windows PowerShell -Command/preamble/wrapper route; portable Node/pure controls and later Linux pwsh results are distinct execution evidence. All controls remain synthetic and every categorized result remains a refusal.
+
+The preservation audit passes exactly four paths, all11 complete10d759ee documentation prefixes,477 local links, unchanged lossless parser/successful projection/process query/minimal ACL query/literal quoting/refusal priority, frozen collector/verifier/controller/contract/checker/tests and stopped report, retained prior208 checks, syntax and whitespace. Only the closed errorCategory field and its exact32-name assertion extend the existing diagnostic schema. The default checker remains integrity=passed, external-gates-required, nativeAccepted=false and native0/28. No actual private evidence or native query was used for these checks.
+
+For clarity, the later manager-forwarded read specifically observed exit1, empty stdout and a16-byte fixed catch marker on stderr. It remains separate from the earlier JSON rejection with unavailable stdout; neither is reclassified or explained by this prospective protocol. Backup privacy remains unverified and staging untested. NEW exact final-head normal CI/clean agreement and STOP/RELEASE for independent/planner review remain required; no later read is authorized or prepared.
