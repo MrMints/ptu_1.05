@@ -190,6 +190,94 @@ function Get-PtuAclFailureMarker([object]$Record) {
  return $marker
 }
 `;
+export const ACL_POWERSHELL_EXECUTABLE='C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe';
+// Deliberately host-pinned. Run in the producer's own scriptblock: Local imports must survive.
+export const ACL_BOOTSTRAP=String.raw`
+$ptuImage = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+$ptuHome = 'C:\Windows\System32\WindowsPowerShell\v1.0'
+$ptuPackage = $ptuHome + '\Modules\Microsoft.PowerShell.Security'
+$ptuManifest = $ptuPackage + '\Microsoft.PowerShell.Security.psd1'
+$ptuOrdinal = [StringComparison]::OrdinalIgnoreCase
+$ptuProcess = [Diagnostics.Process]::GetCurrentProcess()
+try { $ptuActualImage = $ptuProcess.MainModule.FileName } finally { $ptuProcess.Dispose() }
+if ($PSVersionTable.PSEdition -cne 'Desktop' -or
+    $PSVersionTable.PSVersion -isnot [version] -or
+    $PSVersionTable.PSVersion -ne [version]'5.1.19041.7802' -or
+    -not [Environment]::Is64BitProcess -or
+    $ptuActualImage -isnot [string] -or $PSHOME -isnot [string] -or
+    -not [string]::Equals([IO.Path]::GetFullPath($ptuActualImage), $ptuImage, $ptuOrdinal) -or
+    -not [string]::Equals([IO.Path]::GetFullPath($PSHOME), $ptuHome, $ptuOrdinal)) {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+foreach ($ptuPath in @('C:\', 'C:\Windows', 'C:\Windows\System32',
+    'C:\Windows\System32\WindowsPowerShell', $ptuHome, ($ptuHome + '\Modules'), $ptuPackage)) {
+ $ptuAttributes = [IO.File]::GetAttributes($ptuPath)
+ if (($ptuAttributes -band [IO.FileAttributes]::ReparsePoint) -ne 0 -or
+     ($ptuAttributes -band [IO.FileAttributes]::Directory) -eq 0 -or
+     ($ptuAttributes -band [IO.FileAttributes]::Device) -ne 0) { throw 'PTU-ACL-BOOTSTRAP-REFUSED' }
+}
+foreach ($ptuPath in @($ptuImage, $ptuManifest)) {
+ $ptuAttributes = [IO.File]::GetAttributes($ptuPath)
+ if (($ptuAttributes -band [IO.FileAttributes]::ReparsePoint) -ne 0 -or
+     ($ptuAttributes -band [IO.FileAttributes]::Directory) -ne 0 -or
+     ($ptuAttributes -band [IO.FileAttributes]::Device) -ne 0) { throw 'PTU-ACL-BOOTSTRAP-REFUSED' }
+}
+$ptuImport = @{
+ Name = $ptuManifest; RequiredVersion = '3.0.0.0'; Scope = 'Local'; Cmdlet = 'Get-Acl'
+ NoClobber = $true; PassThru = $true; ErrorAction = 'Stop'; WarningAction = 'Stop'
+ InformationAction = 'Stop'; Verbose = $false; Debug = $false
+}
+$ptuLoadState = @{ Count = 0; Module = $null }
+Microsoft.PowerShell.Core\Import-Module @ptuImport *>&1 |
+ Microsoft.PowerShell.Core\ForEach-Object -Process {
+  if ($ptuLoadState.Count -ne 0 -or $_ -isnot [System.Management.Automation.PSModuleInfo]) {
+   throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+  }
+  $ptuLoadState.Module = $_; $ptuLoadState.Count = 1
+ } -ErrorAction Stop
+if ($ptuLoadState.Count -ne 1) { throw 'PTU-ACL-BOOTSTRAP-REFUSED' }
+$ptuLoader = $ptuLoadState.Module
+if ($ptuLoader.Name -cne 'Microsoft.PowerShell.Security' -or
+    $ptuLoader.Version -isnot [version] -or $ptuLoader.Version -ne [version]'3.0.0.0' -or
+    $ptuLoader.ModuleType -isnot [System.Management.Automation.ModuleType] -or
+    $ptuLoader.ModuleType -ne [System.Management.Automation.ModuleType]::Manifest -or
+    $ptuLoader.Path -isnot [string] -or
+    -not [string]::Equals([IO.Path]::GetFullPath($ptuLoader.Path), $ptuManifest, $ptuOrdinal)) {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+$ptuExports = $ptuLoader.ExportedCmdlets
+if ($ptuExports -isnot [System.Collections.Generic.Dictionary[string,System.Management.Automation.CmdletInfo]]) {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+$ptuExport = $ptuExports['Get-Acl']
+if ($ptuExport -isnot [System.Management.Automation.CmdletInfo] -or $ptuExport.Name -cne 'Get-Acl') {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+$ptuExportType = $ptuExport.ImplementingType
+if ($ptuExportType -isnot [System.Type]) { throw 'PTU-ACL-BOOTSTRAP-REFUSED' }
+$ptuLookup = @{
+ Name = 'Get-Acl'; ListImported = $true; ErrorAction = 'Stop'; WarningAction = 'Stop'
+ InformationAction = 'Stop'; Verbose = $false; Debug = $false
+}
+$ptuLookupState = @{ Count = 0; Command = $null }
+Microsoft.PowerShell.Core\Get-Command @ptuLookup *>&1 |
+ Microsoft.PowerShell.Core\ForEach-Object -Process {
+  if ($ptuLookupState.Count -ne 0 -or $_ -isnot [System.Management.Automation.CommandInfo]) {
+   throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+  }
+  $ptuLookupState.Command = $_; $ptuLookupState.Count = 1
+ } -ErrorAction Stop
+if ($ptuLookupState.Count -ne 1) { throw 'PTU-ACL-BOOTSTRAP-REFUSED' }
+$ptuCommand = $ptuLookupState.Command
+if ($ptuCommand -isnot [System.Management.Automation.CmdletInfo] -or
+    $ptuCommand.Name -cne 'Get-Acl' -or $ptuCommand.ModuleName -cne 'Microsoft.PowerShell.Security') {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+$ptuActualType = $ptuCommand.ImplementingType
+if ($ptuActualType -isnot [System.Type] -or -not $ptuActualType.Equals($ptuExportType)) {
+ throw 'PTU-ACL-BOOTSTRAP-REFUSED'
+}
+`;
 const aclFields=['ownerMatches','hasOwner','hasSystem','unexpectedRules','rules','inheritance'];
 const aclInheritance=new Set(['ContainerInherit, ObjectInherit','ObjectInherit, ContainerInherit']);
 const utf8Bom=Buffer.from([0xef,0xbb,0xbf]);
@@ -262,8 +350,8 @@ export async function verifyPrivateDirectory(path,{mode='native',syntheticRoot}=
         const command=`$p=$args[0];$a=Get-Acl -LiteralPath $p -ErrorAction Stop;$me=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value;$principals=@($a.Access|ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}|Sort-Object -Unique);$bad=@($a.Access|Where-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin @($me,'S-1-5-18') -or $_.AccessControlType -ne 'Allow'});[pscustomobject]@{ownerMatches=($a.GetOwner([Security.Principal.SecurityIdentifier]).Value -eq $me);hasOwner=($principals -contains $me);hasSystem=($principals -contains 'S-1-5-18');unexpectedRules=$bad.Count;rules=$a.Access.Count;inheritance=@($a.Access|ForEach-Object {[string]$_.InheritanceFlags})}|ConvertTo-Json -Compress`;
         // -Command argument binding differs across shells; quote doubling prevents interpolation.
         const literal="'"+resolve(path).replaceAll("'","''")+"'";
-        const script=ACL_PROCESS_PREAMBLE+`try {& {${command}} ${literal};exit 0}catch{[Console]::Error.Write((Get-PtuAclFailureMarker $_));exit 1}`;
-        const {facts}=await runPrivateAclTransport('powershell.exe',['-NoProfile','-NonInteractive','-Command',script]);
+        const script=ACL_PROCESS_PREAMBLE+`try {& {${ACL_BOOTSTRAP}${command}} ${literal};exit 0}catch{[Console]::Error.Write((Get-PtuAclFailureMarker $_));exit 1}`;
+        const {facts}=await runPrivateAclTransport(ACL_POWERSHELL_EXECUTABLE,['-NoProfile','-NonInteractive','-Command',script]);
         return {mode,path:resolve(path),kind:'observed-owner-system-privacy',facts};
     }catch(error){if(aclErrors.has(error))throw error;throw aclTransportError('path','unverified',null,null);}
 }

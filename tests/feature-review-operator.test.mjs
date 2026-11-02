@@ -11,7 +11,7 @@ import {TARGET_ROOT,PROCESS_QUERY,sha256,containedPath,pinnedFiles,observeHostSt
 import {createExecutionVerifier,readNativeBrowserFacts,ACTION_GUARDS} from '../tools/feature-review-execution-verifier.mjs';
 import {joinAdmittedConversionCaptures} from '../tools/check-feature-review-admitted.mjs';
 import {refreshFeatureReviewPacket} from '../tools/foundry-feature-review-check.mjs';
-import {decodePrivateAclTransport,runPrivateAclTransport,decodePrivateAclErrorCategory,ACL_PROCESS_PREAMBLE,ACL_TRANSPORT_LIMITS,verifyPrivateDirectory} from '../tools/feature-review-operator.mjs';
+import {decodePrivateAclTransport,runPrivateAclTransport,decodePrivateAclErrorCategory,ACL_PROCESS_PREAMBLE,ACL_BOOTSTRAP,ACL_POWERSHELL_EXECUTABLE,ACL_TRANSPORT_LIMITS,verifyPrivateDirectory} from '../tools/feature-review-operator.mjs';
 const id=n=>String(n).padStart(16,'0'),copy=structuredClone,time=Date.parse('2026-11-01T16:20:00Z'),cacheRoot=resolve('.cache');
 const exec=promisify(execFile);
 // Execute ONLY the generated pure classification lines, never the OS queries or lock lookup.
@@ -114,13 +114,125 @@ test('ACL transport invalid requests cannot raise limits or leak getters',async(
 const aclShell=process.platform==='win32'?'powershell.exe':'pwsh';
 async function aclSyntheticShell(body){const script=ACL_PROCESS_PREAMBLE+body;assert.doesNotMatch(script,/Get-Acl|Get-CimInstance|Get-NetTCPConnection|Test-Path|Get-Content|Get-Item/);return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(script,'utf16le').toString('base64')]);}
 const aclPsLiteral=value=>"'"+value.replaceAll("'","''")+"'";
+
+// Abstract policy fixtures execute the real guards with synthetic runtime/files/loader/lookup.
+// They neither import Security nor ask the host to resolve or invoke Get-Acl.
+async function aclBootstrapPolicy(change='') {
+    const setup=String.raw`
+$fixtureHome = [IO.Path]::GetFullPath('synthetic-ptu-home')
+$fixtureImage = [IO.Path]::Combine($fixtureHome, 'powershell.exe')
+$fixtureRuntime = @{ PSEdition='Desktop'; PSVersion=[version]'5.1.19041.7802' }
+$fixtureBits = $true
+$fixtureAttributeCase = ''
+$fixtureType = (Microsoft.PowerShell.Core\Get-Command -Name Get-Variable -ListImported).ImplementingType
+$fixtureOtherType = (Microsoft.PowerShell.Core\Get-Command -Name Set-Variable -ListImported).ImplementingType
+$fixtureExport = [System.Management.Automation.CmdletInfo]::new('Get-Acl', $fixtureType)
+$fixtureLookup = [System.Management.Automation.CmdletInfo]::new('Get-Acl', $fixtureType)
+$fixtureLookup | Add-Member NoteProperty ModuleName 'Microsoft.PowerShell.Security' -Force
+$fixtureExports = [System.Collections.Generic.Dictionary[string,System.Management.Automation.CmdletInfo]]::new()
+$fixtureExports.Add('Get-Acl', $fixtureExport)
+$fixtureModule = Microsoft.PowerShell.Core\New-Module -Name SyntheticPtuLoader -ScriptBlock {}
+$fixtureModule | Add-Member NoteProperty Name 'Microsoft.PowerShell.Security' -Force
+$fixtureModule | Add-Member NoteProperty Version ([version]'3.0.0.0') -Force
+$fixtureModule | Add-Member NoteProperty ModuleType ([System.Management.Automation.ModuleType]::Manifest) -Force
+$fixtureModule | Add-Member NoteProperty Path ($fixtureHome + '\Modules\Microsoft.PowerShell.Security\Microsoft.PowerShell.Security.psd1') -Force
+$fixtureModule | Add-Member NoteProperty ExportedCmdlets $fixtureExports -Force
+function Invoke-PtuFixtureImport { $fixtureModule }
+function Invoke-PtuFixtureLookup { $fixtureLookup }
+function Get-PtuFixtureAttributes($path) {
+ $isFile = $path -eq $ptuImage -or $path -eq $ptuManifest
+ if ($fixtureAttributeCase -eq 'unreadable') { throw 'SYNTHETIC-ACL-SECRET-CANARY' }
+ if ($fixtureAttributeCase -eq 'directory-reparse' -and -not $isFile) { return [IO.FileAttributes]::ReparsePoint }
+ if ($fixtureAttributeCase -eq 'file-reparse' -and $isFile) { return [IO.FileAttributes]::ReparsePoint }
+ if ($fixtureAttributeCase -eq 'directory-file' -and -not $isFile) { return [IO.FileAttributes]::Normal }
+ if ($fixtureAttributeCase -eq 'file-directory' -and $isFile) { return [IO.FileAttributes]::Directory }
+ if ($fixtureAttributeCase -eq 'device') { return [IO.FileAttributes]::Device }
+ if ($isFile) { return [IO.FileAttributes]::Normal }; return [IO.FileAttributes]::Directory
+}
+`+change+'\n';
+    let policy=ACL_BOOTSTRAP
+        .replace("$ptuImage = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe'","$ptuImage = [IO.Path]::Combine([IO.Path]::GetFullPath('synthetic-ptu-home'), 'powershell.exe')")
+        .replace("$ptuHome = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0'","$ptuHome = [IO.Path]::GetFullPath('synthetic-ptu-home')")
+        .replace(/\$ptuProcess = \[Diagnostics.Process\]::GetCurrentProcess\(\)\ntry \{[^\n]+\}\n/,"$ptuActualImage = $fixtureImage\n")
+        .replaceAll('$PSVersionTable','$fixtureRuntime').replaceAll('$PSHOME','$fixtureHome')
+        .replaceAll('[Environment]::Is64BitProcess','$fixtureBits')
+        .replaceAll('[IO.File]::GetAttributes($ptuPath)','(Get-PtuFixtureAttributes $ptuPath)')
+        .replace('Microsoft.PowerShell.Core\\Import-Module @ptuImport','Invoke-PtuFixtureImport')
+        .replace('Microsoft.PowerShell.Core\\Get-Command @ptuLookup','Invoke-PtuFixtureLookup');
+    assert.doesNotMatch(policy,/GetCurrentProcess|GetAttributes|Core\\Import-Module|Core\\Get-Command/);
+    const wrapper=verifyPrivateDirectory.toString().match(/const script=ACL_PROCESS_PREAMBLE\+`([^`]+)`;/)?.[1];assert.ok(wrapper);
+    const argument="Synthetic O'Brien "+aclCanary;
+    const producer="if($args[0] -cne "+aclPsLiteral(argument)+"){throw 'argument changed'};[Console]::Out.Write("+aclPsLiteral(JSON.stringify(aclFacts()))+")";
+    const script=ACL_PROCESS_PREAMBLE+setup+wrapper.replace('${ACL_BOOTSTRAP}',policy).replace('${command}',producer).replace('${literal}',aclPsLiteral(argument));
+    return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-Command',script]);
+}
+const fixtureMember=(target,key,value)=>target+' | Add-Member NoteProperty '+key+' ('+value+') -Force;';
+const fixtureGetter=(target,key)=>target+" | Add-Member ScriptProperty "+key+" {throw '"+aclCanary+"'} -Force;";
+const bootstrapRefusals=[
+    ['runtime edition',"$fixtureRuntime.PSEdition='Core';"],['runtime version',"$fixtureRuntime.PSVersion=[version]'5.1.19041.7801';"],
+    ['runtime untyped version',"$fixtureRuntime.PSVersion='5.1.19041.7802';"],['runtime bitness','$fixtureBits=$false;'],
+    ['runtime image',"$fixtureImage='elsewhere/powershell.exe';"],['runtime home',"$fixtureHome='elsewhere';"],
+    ...['unreadable','directory-reparse','file-reparse','directory-file','file-directory','device'].map(value=>['file '+value,"$fixtureAttributeCase='"+value+"';"]),
+    ['zero loader','function Invoke-PtuFixtureImport {}'],['duplicate loader','function Invoke-PtuFixtureImport {$fixtureModule;$fixtureModule}'],
+    ['unexpected loader',"function Invoke-PtuFixtureImport {'"+aclCanary+"'}"],['loader then noise',"function Invoke-PtuFixtureImport {$fixtureModule;'"+aclCanary+"'}"],
+    ['loader warning',"function Invoke-PtuFixtureImport {Write-Warning '"+aclCanary+"';$fixtureModule}"],['import failure',"function Invoke-PtuFixtureImport {throw '"+aclCanary+"'}"],
+    ['loader name',fixtureMember('$fixtureModule','Name',"'Other.Module'")],['loader version',fixtureMember('$fixtureModule','Version',"[version]'3.0.0.1'")],
+    ['loader untyped version',fixtureMember('$fixtureModule','Version',"'3.0.0.0'")],['loader kind',fixtureMember('$fixtureModule','ModuleType','[System.Management.Automation.ModuleType]::Binary')],
+    ['loader untyped kind',fixtureMember('$fixtureModule','ModuleType',"'Manifest'")],['loader path',fixtureMember('$fixtureModule','Path',"'wrong.psd1'")],
+    ['loader null path',fixtureMember('$fixtureModule','Path','$null')],['loader inaccessible path',fixtureGetter('$fixtureModule','Path')],
+    ['loader inaccessible version',fixtureGetter('$fixtureModule','Version')],['loader inaccessible exports',fixtureGetter('$fixtureModule','ExportedCmdlets')],
+    ['malformed exports',fixtureMember('$fixtureModule','ExportedCmdlets','@{}')],['missing named export',"$fixtureExports.Clear();"],
+    ['wrong named export',"$fixtureExports['Get-Acl']=[System.Management.Automation.CmdletInfo]::new('Other-Name',$fixtureType);"],
+    ['export absent type',fixtureMember('$fixtureExport','ImplementingType','$null')],['export string type',fixtureMember('$fixtureExport','ImplementingType','$fixtureType.FullName')],
+    ['export inaccessible type',fixtureGetter('$fixtureExport','ImplementingType')],
+    ['zero lookup','function Invoke-PtuFixtureLookup {}'],['multiple lookup','function Invoke-PtuFixtureLookup {$fixtureLookup;$fixtureLookup}'],
+    ['unexpected lookup',"function Invoke-PtuFixtureLookup {'"+aclCanary+"'}"],['lookup failure',"function Invoke-PtuFixtureLookup {throw '"+aclCanary+"'}"],
+    ['alias shadow',"$fixtureLookup=[System.Management.Automation.AliasInfo]::new('Get-Acl','Get-Variable');"],
+    ['function shadow',"function Get-PtuShadow {}; $fixtureLookup=Microsoft.PowerShell.Core\\Get-Command Get-PtuShadow -ListImported;"],
+    ['filter shadow',"filter Get-PtuShadow {}; $fixtureLookup=Microsoft.PowerShell.Core\\Get-Command Get-PtuShadow -ListImported;"],
+    ['effective name',fixtureMember('$fixtureLookup','Name',"'Other-Name'")],['effective module matching type',fixtureMember('$fixtureLookup','ModuleName',"'Other.Module'")],
+    ['effective absent type',fixtureMember('$fixtureLookup','ImplementingType','$null')],['effective string type',fixtureMember('$fixtureLookup','ImplementingType','$fixtureType.FullName')],
+    ['same name different type',fixtureMember('$fixtureLookup','ImplementingType','$fixtureOtherType')],['effective inaccessible type',fixtureGetter('$fixtureLookup','ImplementingType')],
+    ['effective inaccessible identity',fixtureGetter('$fixtureLookup','ModuleName')]
+];
+test('ACL bootstrap abstract typed identity accepts silently before synthetic producer',async()=>assert.deepEqual((await aclBootstrapPolicy()).facts,aclFacts()));
+test('ACL bootstrap abstract normalized manifest path is accepted',async()=>assert.deepEqual((await aclBootstrapPolicy(fixtureMember('$fixtureModule','Path',"($fixtureHome + '/../synthetic-ptu-home\\Modules\\Microsoft.PowerShell.Security\\Microsoft.PowerShell.Security.psd1')"))).facts,aclFacts()));
+test('ACL bootstrap abstract ModuleBase is neither origin authority nor a requirement',async()=>assert.deepEqual((await aclBootstrapPolicy(fixtureGetter('$fixtureModule','ModuleBase'))).facts,aclFacts()));
+for(const [name,change]of bootstrapRefusals)test('ACL bootstrap abstract refuses '+name+' before producer',async()=>{
+    const failure=await aclRefusal(()=>aclBootstrapPolicy(change));assert.equal(failure.diagnostic.stdoutBytes,0);assert.equal(failure.diagnostic.exitCode,1);
+});
+test('ACL bootstrap production composition pins guarded identity and inherited producer scope',()=>{
+    const source=verifyPrivateDirectory.toString();assert.match(source,/try \{& \{\$\{ACL_BOOTSTRAP\}\$\{command\}\} \$\{literal\}/);
+    assert.match(ACL_BOOTSTRAP,/Core\\Import-Module @ptuImport \*>&1/);assert.match(ACL_BOOTSTRAP,/Core\\Get-Command @ptuLookup \*>&1/);
+    const lookup=ACL_BOOTSTRAP.match(/\$ptuLookup = @\{([^}]+)\}/)[1];assert.match(lookup,/Name = 'Get-Acl'; ListImported = \$true/);assert.doesNotMatch(lookup,/CommandType|\bModule\b|\bAll\b/);
+    assert.match(ACL_BOOTSTRAP,/\.Equals\(\$ptuExportType\)/);assert.doesNotMatch(ACL_BOOTSTRAP,/ModuleBase|GlobalAssemblyCache|Assembly\.Location|\bForce\b|Console|Write-Output|function /);
+    assert.match(ACL_BOOTSTRAP,/Scope = 'Local'; Cmdlet = 'Get-Acl'/);assert.match(ACL_BOOTSTRAP,/NoClobber = \$true; PassThru = \$true/);
+    assert.equal(ACL_TRANSPORT_LIMITS.timeoutMs,10000);assert.equal(ACL_TRANSPORT_LIMITS.maxBytes,65536);
+});
+for(const expired of [false,true])test('ACL bootstrap real '+aclShell+' synthetic module Local scope '+(expired?'expires in discarded helper':'survives until literal producer'),async t=>temp(async root=>{
+    if(process.platform==='win32'){t.skip('Windows file-module scope checks held after recorded SecurityError; no policy change, fallback or retry; Linux pwsh CI required');return;}
+    const moduleFile=join(root,'PtuScopeFixture.psm1');
+    await fs.writeFile(moduleFile,"function Get-PtuScopeFixture {param($Value) if($Value -cne \"Synthetic O'Brien\"){throw 'argument changed'}; [Console]::Out.Write('SCOPE-PRODUCER-REACHED')}; Export-ModuleMember -Function Get-PtuScopeFixture");
+    const wrapper=verifyPrivateDirectory.toString().match(/const script=ACL_PROCESS_PREAMBLE\+`([^`]+)`;/)?.[1];assert.ok(wrapper);
+    const importer='Microsoft.PowerShell.Core\\Import-Module -Name '+aclPsLiteral(moduleFile)+" -Scope Local -Function Get-PtuScopeFixture -NoClobber -ErrorAction Stop;$ptuScopeReceipt.Imported=$true;";
+    const bootstrap=(expired?'& {'+importer+'};':importer)+"$c=Microsoft.PowerShell.Core\\Get-Command -Name Get-PtuScopeFixture -ListImported -ErrorAction Stop;if($null -eq $c){throw 'scope expired'};";
+    const script=ACL_PROCESS_PREAMBLE+'$ptuScopeReceipt=@{Imported=$false};'+wrapper.replace('${ACL_BOOTSTRAP}',bootstrap).replace('${command}',"Get-PtuScopeFixture -Value $args[0];").replace('${literal}',aclPsLiteral("Synthetic O'Brien")).replace('[Console]::Error.Write((Get-PtuAclFailureMarker $_))',"if($ptuScopeReceipt.Imported){[Console]::Error.Write((Get-PtuAclFailureMarker $_))}else{[Console]::Error.Write('SCOPE-IMPORT-FAILED')}");
+    assert.doesNotMatch(script,/Get-Acl|Microsoft\.PowerShell\.Security|GetAttributes|GetCurrentProcess/);
+    // Generic transport would demand ACL-shaped JSON; this fixture asserts only its closed scope marker.
+    let result;try{result=await exec(aclShell,['-NoProfile','-NonInteractive','-Command',script],{encoding:'buffer',windowsHide:true,timeout:10000,maxBuffer:65536,killSignal:'SIGKILL'});}catch(error){result=error;}
+    assert.equal(result.killed??false,false);assert.equal(result.signal??null,null);
+    const category=decodePrivateAclErrorCategory({exitCode:result.code,timeout:false,signal:null,terminated:false,outputLimit:false,stdout:result.stdout,stderr:result.stderr});
+    if(expired){assert.equal(result.code,1);assert.equal(result.stdout.length,0);assert.equal(category,'ObjectNotFound');}
+    else{assert.equal(result.code,undefined,'scope fixture category '+category);assert.equal(result.stderr.length,0);assert.equal(result.stdout.toString('ascii'),'SCOPE-PRODUCER-REACHED');}
+}));
 test('ACL transport synthetic '+aclShell+' executes shared UTF8 preamble',async()=>{assert.deepEqual((await aclSyntheticShell('[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')')).facts,aclFacts());});
 test('ACL transport synthetic '+aclShell+' permits one explicit BOM',async()=>{const result=await aclSyntheticShell('[Console]::Out.Write([char]0xfeff);[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')');assert.equal(result.transport.framing,'single-leading-bom');});
 test('ACL transport synthetic '+aclShell+' preserves UTF8 before schema rejection',async()=>{const error=await aclRefusal(()=>aclSyntheticShell('[Console]::Out.Write('+aclPsLiteral(JSON.stringify({...aclFacts(),extra:aclCanary+'é'}))+')'));assert.equal(error.diagnostic.stage,'projection');assert.equal(error.diagnostic.encoding,'utf-8');});
 test('ACL transport synthetic '+aclShell+' terminates on error and redacts stderr',async()=>{const error=await aclRefusal(()=>aclSyntheticShell('Write-Error '+aclPsLiteral(aclCanary)+';[Console]::Out.Write('+aclPsLiteral(JSON.stringify(aclFacts()))+')'));assert.equal(error.diagnostic.stage,'process');});
 async function aclSyntheticCommandRoute(body,argument){
     const wrapper=verifyPrivateDirectory.toString().match(/const script=ACL_PROCESS_PREAMBLE\+`([^`]+)`;/)?.[1];assert.ok(wrapper);assert.equal(wrapper.split('${command}').length,2);assert.equal(wrapper.split('${literal}').length,2);
-    const script=ACL_PROCESS_PREAMBLE+wrapper.replace('${command}',body).replace('${literal}',aclPsLiteral(argument));
+    assert.equal(wrapper.split('${ACL_BOOTSTRAP}').length,2);
+    const script=ACL_PROCESS_PREAMBLE+wrapper.replace('${ACL_BOOTSTRAP}','').replace('${command}',body).replace('${literal}',aclPsLiteral(argument));
     assert.doesNotMatch(script,/Get-Acl|Get-CimInstance|Get-NetTCPConnection|Test-Path|Get-Content|Get-Item/);
     return runPrivateAclTransport(aclShell,['-NoProfile','-NonInteractive','-Command',script]);
 }
@@ -206,7 +318,7 @@ test('ACL transport native Command wrapper redacts a synthetic producer failure'
     const error=await aclRefusal(()=>aclSyntheticCommandRoute("throw '"+aclCanary+"'","Synthetic spaces and O'Brien "+aclCanary));assert.equal(error.diagnostic.stage,'process');assert.equal(error.diagnostic.exitCode,1);assert.ok(error.diagnostic.stderrBytes>0);
 });
 test('ACL transport native verifier retains a fixed query without test injection',async()=>{
-    const source=verifyPrivateDirectory.toString();assert.match(source,/mode='native',syntheticRoot/);assert.match(source,/runPrivateAclTransport\('powershell.exe'/);assert.match(source,/Get-Acl -LiteralPath \$p -ErrorAction Stop/);assert.match(ACL_PROCESS_PREAMBLE,/ErrorActionPreference='Stop'/);assert.match(ACL_PROCESS_PREAMBLE,/OutputEncoding/);
+    const source=verifyPrivateDirectory.toString();assert.match(source,/mode='native',syntheticRoot/);assert.match(source,/runPrivateAclTransport\(ACL_POWERSHELL_EXECUTABLE/);assert.equal(ACL_POWERSHELL_EXECUTABLE,'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe');assert.match(source,/Get-Acl -LiteralPath \$p -ErrorAction Stop/);assert.match(ACL_PROCESS_PREAMBLE,/ErrorActionPreference='Stop'/);assert.match(ACL_PROCESS_PREAMBLE,/OutputEncoding/);
     await temp(root=>aclRefusal(()=>verifyPrivateDirectory(join(root,aclCanary))));
 });
 async function capture(o){try{return await captureStoppedStoreEvidence(o);}catch(error){const p=JSON.parse(await fs.readFile(join(o.outputRoot,'failure.json'),'utf8'));throw Error(error.message+' [synthetic step='+p.step+', store='+p.database+']');}}

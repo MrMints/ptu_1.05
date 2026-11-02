@@ -515,3 +515,13 @@ Add one closed errorCategory family to refused ACL-producer results, using only 
 
 
 Final category controls pass120/120 and affected1005/1005 (328 operator including208 retained plus677 unchanged),0 failures/0 skips. Four-file scope,11 complete historical prefixes,477 links, frozen bindings and unchanged parser/projection/query/quoting/priority pass preservation checks. The later16-byte stderr-marker observation stays distinct from the earlier unavailable-stdout JSON failure; actual privacy remains unverified.
+
+
+### P05 offline additive ACL bootstrap — 2026-11-02
+
+Pin the operator ACL subprocess to the reviewed stock64-bit Windows PowerShell runtime. Add fail-closed runtime/file/manifest guards, exact Local/Get-Acl-only import and typed loader/named-export/effective-command Type.Equals checks immediately before the unchanged producer in its own scope. Reject shadowed or mismatched commands without output, fallback, ModuleBase/GAC exceptions or a native test override. Preserve the minimal query, projection, UTF8/parser/category/redaction, timeout, private-root and owner/SYSTEM checks.
+
+[Preparation, compatibility, historical diagnostic scope deviation, failed/superseded tests and continuing native hold](docs/validation/p05-feature-review-operator-preparation.md#additive-stock-runtime-acl-bootstrap--offline-implementation-2026-11-02-indianapolis). Windows refused generated non-ACL file-module imports; local scope checks remain blocked/skipped, with Linux pwsh CI required. No real Security import/Get-Acl/private/Foundry action occurred. Native0/28 and original runtime/artifact pins remain; new exact-head CI and independent/planner acceptance precede any separately admitted follow-up. No dependencies/content/IDs/version, installation, permissions, merge or release change.
+
+
+Final local coverage:1059 affected cases across separate executions,1057 pass/0 fail/2 blocked Windows scope skips; all328 prior operator and677 companion cases retained. Exact six-file/prefix/frozen-code audit,148 links, syntax and whitespace pass after a retained audit-only blank-line correction. Final-head Linux CI must establish the two interpreter-scope controls; local skips are not scope or native passes.
