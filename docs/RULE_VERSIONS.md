@@ -191,3 +191,51 @@ Independent review after f4a42009 found a missed forward-slash dataPath and a la
 ## P05 admitted native preflight stopped before mutation — 2026-11-01
 
 Offline68993f5c was accepted after CI41342866920/2980, independent121 and planner re-review. The [new stopped preflight record](validation/p05-feature-review-admitted-native.md) preserves command admission separately from execution: fresh managed target process/port/lock checks pass, but the separately reviewed frozen private-directory checker throws STOP: unrepresentable captured JSON before confirming restrictions. No retry/bypass/tool change or native mutation followed. Original archive/five-proof/backup byte replay and all16 retained-candidate runtime bindings pass; fresh installed/served state, accounts/access/exit, baseline, conversion and closure remain unverified. Native0 attempted/0 passed/0 failed/28 not run. Ten documentation paths only, complete historical prefixes and all tooling/evidence protected. New final documented-head CI/clean agreement precede STOP/RELEASE for independent/planner evidence review; no automatic retry, next batch, full05/pre06, merge or release.
+
+## Mechanic-preference inspection v1 — unvalidated draft
+
+The new isolated [mechanic-preferences.js](../src/util/mechanic-preferences.js) prepares two synchronous exports:
+
+- `inspectMechanicPreferences(requestJson)` inspects current supplied storage evidence.
+- `previewMechanicPreset(requestJson)` adds advisory proposals for at most one supplied preset.
+
+Each requires exactly one primitive JSON string. No caller object, Item, callback, adapter or coercion hook is inspected. Producing safe serialized input is the caller's separate responsibility. These APIs capture no settings and provide no executable update payload, permission verdict or application authority. They are not connected to an active consumer. **Initial validation was blocked:** the first grouped run `d4d2ea` returned `spawn EPERM` before all nine test-file bodies. A separately approved one-shot managed run of the unchanged command then passed **429/429**, 0 failed/cancelled/skipped/todo (`4718dd`, session `77461`, terminal `04fa56`, exit 0/ended/no uncertainty). The historical section heading/anchor is retained. Exact final documented-head CI and formal independent/Plan implementation acceptance remain outstanding; settings/default integration and live behavior are outside these tests. [Both receipts and gates](validation/p05-mechanic-preferences.md).
+
+The common input has exactly `{schemaVersion:1, definitions:[], observations:[]}`. Preview permits and requires `presetRequests`; its omission or wrong shape is preset-only after input admissibility. Inspection rejects that field as an unknown common field.
+
+| Record | Exact fields |
+| --- | --- |
+| Definition | `id`, `label`, `storageScope`, `choices` |
+| Choice | `id`, `label`, `sourceStatus`, `citation`, `eligibility` |
+| Observation | `id`, `storageScope`, `state`, `evidenceRef`, with conditional `value` or `reason` below |
+| Preset request | `id`, `label`, `assignments` |
+| Assignment | `mechanicId`, `value` |
+
+IDs and tokens are exact strings, independent of labels. Required text must have positive trimmed length, but its original spelling is retained and compared without normalization. `storageScope` is `world` or `client`. Choice source status is `core`, `official-errata`, `optional-playtest`, `supplement`, `custom` or `synthetic`; eligibility is `eligible`, `excluded` or `unclassified`. Every valid definition needs exactly one structurally valid eligible literal `standard` choice. Duplicate definition IDs or choice IDs are invalid even when identical. These are caller declarations; every report says `sourceApproval:"not-assessed"`. No production definitions or legacy mappings are supplied.
+
+Observation states distinguish storage evidence:
+
+| State | Required evidence | Meaning |
+| --- | --- | --- |
+| `absent` | Nonblank `evidenceRef`; no value/reason | Established absence; only a valid definition can use standard fallback |
+| `present` | Nonblank `evidenceRef` and own `value`; no reason | Preserve any admissible JSON value, including null or invalid/custom choices |
+| `present-unavailable` | Nullable evidence reference and `reason`; no value | Present storage with unavailable content |
+| `unknown` | Nullable evidence reference and `reason`; no value | Unknown presence |
+
+Reasons are `not-observed`, `incomplete` or `unreadable`. A missing observation is unknown. Duplicate observations, malformed rows and scope mismatches cannot establish absence. Valid-ID rows remain visible with indexed issues; unusable IDs remain in the snapshot without invented row IDs. The protected `lookupMechanicChoice` supplies basic string/default classification; membership and eligibility are checked separately. An unknown nonblank token can be basic `explicit` while its effective preference remains unavailable. An explicit standard choice has stored origin.
+
+The report's exact top-level fields are `schemaVersion`, `kind`, `mode`, `inspectionOnly`, `availability`, `sourceApproval`, `input`, `current`, `choiceProjection`, `preset`, `issues`. Schema is 1; kind is `ptu-mechanic-preferences-v1`; mode is `current` or `preset-preview`; `inspectionOnly` is true. `input` retains bounded `rawJson` and an admissible decoded `snapshot`. Top-level availability means the common request can be inspected, independently of unresolved rows or invalid presets. Local synthetic tests cover detached, deeply frozen and repeatable reports; broader integration remains unverified.
+
+Each current row contains exact `id`, `definitionStatus`, `declaredStorageScope`, `before`, `basicChoice`, `membership`, `effective`, `provenance`, `issueCodes`. Presence is `present`, `absent` or `unknown`, separately from availability; only available present values include `value`. Effective values have `stored`, `standard-fallback` or `none` origin. Provenance retains definition/observation indices, choice index, evidence reference, declared source status, citation and eligibility. Issues contain only fixed `{code,path}` data; no exception text or dynamic instructions.
+
+An available `choiceProjection` is a frozen null-prototype map of own data keys over **only the reported mechanic domain**. All current evidence must resolve and no malformed row may be omitted. A key outside the map supplies no storage-absence evidence and must not acquire a manufactured default through a helper call. An unavailable projection has `choices:null`; never replace that null with an empty map. Exact IDs `__proto__` and `constructor` are ordinary own keys. Existing helper behavior remains unchanged.
+
+Zero preset requests means `not-requested`; multiple requests are unsupported. Malformed, duplicate, unregistered, nonmember or ineligible assignments invalidate the whole preset with no proposals and no current-result changes. Valid assignments preserve before and proposed values separately: absence yields `proposed`, the same explicit value `same`, a different/invalid/custom explicit value `conflict`, and unavailable evidence `blocked`. These dispositions confer no overwrite authority. `storedWouldDiffer` compares stored presence/value; `preferenceWouldDiffer` compares available effective tokens. Absent-to-standard is true/false, and unknown comparisons are null.
+
+Input bounds are 65,536 UTF-16 units, depth 12, 8,192 value nodes, 64 definitions, 32 choices per definition, 256 observations and 128 assignments. IDs/tokens are at most 128 units, labels 256, citations/evidence references 1,024. Root depth is zero; every JSON value including each container counts once, while member names do not count. Every declared bound is a common admissibility gate, including recognized preset fields; arbitrary saved/custom strings have only the whole-document bounds. Values at depth 12 and node 8,192 are included. Decoded duplicate member names are rejected without a winner.
+
+Only canonical decimal safe-integer number tokens are admissible: `0` or optional minus plus a nonzero digit and more decimal digits, magnitude at most 9007199254740991. Negative zero, decimals and exponent notation are rejected using the original lexeme before a parsed number can appear in a returned snapshot. Quoted numeric-looking strings remain exact strings. This is a narrow domain, not a general lossless-number parser.
+
+Validation stops by phase: arity, primitive type, raw size, syntax, decoded duplicates, declared/tree limits, original number tokens, common shape/unknown fields, schema, required arrays, then row and preset semantics. Arity/type/raw-size failures retain neither input field. Syntax/duplicate/limit/number failures retain only bounded raw text; common shape/schema failures retain the admissible tree. Common failure means no current rows or proposals. Preset-only errors leave current results/projection unchanged. Current rows/proposals sort by exact UTF-16 ID order; issues sort by phase, numeric input positions, then code/path. Duplicate row issues identify every affected index.
+
+The new API receives no Items. Composition must pass only an available current projection to existing lookup/preview interfaces, never preset proposals as current choices. Complete owned snapshots, repeated instances, custom data, raw prerequisites, uses/costs and selected original/errata/playtest versions remain independently authoritative. [Synthetic tests](../tests/mechanic-preferences.test.mjs) exercised these cases in the separately approved 429-pass local grouped run, with unchanged source/test bytes. Registration/defaults, capture adapters, preset writes, migrations, gameplay/UI consumers and live validation require later separate admission. The documentation-only follow-up recorded evidence without execution or publication. A later explicit coordinator disposition resumes the original scoped commit/normal push/draft-PR documentation and exact final-head normal CI gate; no new local execution is assigned and formal acceptance remains outstanding.

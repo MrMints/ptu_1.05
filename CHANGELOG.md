@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+### P05 mechanic-preference inspection draft — locally validated
+
+- Prepare two isolated JSON-string inspection APIs for supplied mechanic definitions, explicit storage evidence and one advisory preset. Preserve saved/custom data, exact IDs and separate current versus proposed choices; no persistent setting or Item consumer is connected.
+- Add synthetic contract/boundary/composition tests. The admitted grouped run stopped before test bodies: all nine test-file processes returned `spawn EPERM` (0 passed, 9 failed file entries). No retry, alternate runtime/isolation, commit, push or new CI followed.
+- Separately approved one-shot managed validation of the unchanged command passed **429/429**, with 0 failed/cancelled/skipped/todo (`4718dd`, session `77461`, terminal `04fa56`, exit 0/ended/no uncertainty). Preserve the earlier blocked run as historical evidence. At that validation-only stop no source/test changes, correction, further run, commit, push or CI followed. Coordinator disposition now resumes the original scoped finalization, with no new local execution; exact final documented-head CI and formal acceptance remain required.
+- [API contract](docs/RULE_VERSIONS.md#mechanic-preference-inspection-v1--unvalidated-draft) and [both validation receipts, compatibility and remaining gates](docs/validation/p05-mechanic-preferences.md). Local tests do not establish exact final documented-head CI or formal independent/Plan implementation acceptance; those remain outstanding. Native review remains 0/28.
+
 ### P05 offline future-attempt preparation
 
 - Reject malformed CLI paths that could consume the strict completion flag; preserve native pack collection identity in synthetic manifest controls. Keep both reproduced CLI behavior and corrected focused checks separate from native evidence.
