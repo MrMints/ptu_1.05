@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 Item-sheet rendering purity
+
+- Prevent editable Item-sheet rendering from persisting default-icon changes, including renders caused by another owned Item's update. Detach render inputs so presentation-only token-panel defaults cannot mutate aliased owned data; preserve custom icons/state, advisory prerequisite reports, rule forms and context notes.
+- Retain the real-method baseline (**6 passed / 12 failed**), corrected focused **18/18** and affected **299/299** results in the [validation report](docs/validation/p05-item-sheet-render-purity.md). No replacement apply, provenance, combat, usage, installation or native change; final-head CI and independent/Plan review remain required.
+
+
 ### P05 mechanic-preference inspection draft — locally validated
 
 - Prepare two isolated JSON-string inspection APIs for supplied mechanic definitions, explicit storage evidence and one advisory preset. Preserve saved/custom data, exact IDs and separate current versus proposed choices; no persistent setting or Item consumer is connected.

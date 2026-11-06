@@ -159,16 +159,18 @@ test('all actor/item templates include the shared escaped report; both cross-act
 });
 
 test('actual read-only Item sheet derives reports without icon writes or mutations',async()=>{
-    const data=fixture(),a=actor();let iconWrites=0;
-    const item={...data,actor:a,getFlag:()=>undefined,toObject:()=>structuredClone(data),_updateIcon:()=>{iconWrites++;},rules:[]};
+    const data=fixture(),a=actor();let iconSelections=0;
+    const item={...data,actor:a,getFlag:()=>undefined,toObject:()=>structuredClone(data),_updateIcon:({source,update})=>{
+        assert.equal(update,false);assert.notEqual(source,item);iconSelections++;
+    },rules:[]};
     class CoreSheet{async getData(){return{item:structuredClone(data),editable:false};}}
     const Sheet=await load('src/module/item/sheet/sheet.js','PTUItemSheet',{
-        foundry:{appv1:{sheets:{ItemSheet:CoreSheet}},utils:{mergeObject:(a,b)=>({...a,...b})}},
+        foundry:{appv1:{sheets:{ItemSheet:CoreSheet}},utils:{duplicate:structuredClone,mergeObject:(a,b)=>({...a,...b})}},
         CONFIG:{PTU:{data:{}}},prerequisiteView,sortStringRecord:o=>o,RuleElements:{all:{}},game:{i18n:{localize:k=>k}}
     });
     const sheet=new Sheet();sheet.object=sheet.item=item;sheet.isEditable=false;const before=structuredClone(data);
-    const view=await sheet.getData();assert.equal(view.prerequisiteViews.length,1);assert.equal(iconWrites,0);assert.deepEqual(data,before);
-    sheet.isEditable=true;await sheet.getData();assert.equal(iconWrites,1);
+    const view=await sheet.getData();assert.equal(view.prerequisiteViews.length,1);assert.equal(iconSelections,0);assert.deepEqual(data,before);
+    sheet.isEditable=true;await sheet.getData();assert.equal(iconSelections,1);assert.deepEqual(data,before);
 });
 
 test('actual NPC generation resolves choices before folders/actor writes and preserves explicit ranks/selections',async()=>{
