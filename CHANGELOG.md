@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+### P05 isolated Echoes replacement planner — locally validated
+
+- Add one unconnected, strict JSON-string inspection planner for the approved core/optional May Echoes pair. Keep compiler Item hashes separate from canonical review seals; validate explicit acknowledgements and privacy-bounded intent history without producing an update object or persisting data.
+- Preserve owned identity, custom presentation/state, raw legacy provenance, usage, subchoices, grants and other instances. Version-specific prerequisites stay advisory; unknown resume/lifecycle evidence requires reconciliation. No default activation, installed content, consumer wiring, settings, migration or world access.
+- Retain focused **33/33**, corrected focused **34/34** and exact affected **386/386** results in the [validation record](docs/validation/p05-echoes-replacement-plan.md). Publication, final documented-head CI and independent/Plan implementation acceptance remain held/outstanding; native remains 0/28.
+
+- Reproduce and repair two prepublication capture-consistency gaps: recognize explicit same-Actor Item UUIDs omitted from membership, and reject conflicting contextual Actor/Item identities before sealing. Preserve foreign/custom references and nonblocking partial prerequisite uncertainty without inventing membership or snapshots. Retain the real **0 passed / 6 failed** regression receipt and corrected focused **47/47** result; exact affected results and remaining gates are in the validation record.
+
+- Final corrected exact nine-file affected group passed **399/399** (exit 0, terminal `7d7a68`); corrected focused **47/47** and the reproduced six failures remain in the validation history. Publication and final documented-head CI/independent/Plan acceptance remain outstanding.
+
 ### P05 Item-sheet rendering purity
 
 - Prevent editable Item-sheet rendering from persisting default-icon changes, including renders caused by another owned Item's update. Detach render inputs so presentation-only token-panel defaults cannot mutate aliased owned data; preserve custom icons/state, advisory prerequisite reports, rule forms and context notes.
