@@ -1,0 +1,477 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Fossils",
+  "_id": "hvZUPAF9B8WN7Tjk",
+  "img": "systems/ptu/static/images/item_icons/helix%20fossil.webp",
+  "description": "",
+  "results": [
+    {
+      "text": "Jaw Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "4YDohaUo0HEM1FGy",
+      "img": "systems/ptu/images/item_icons/jaw fossil.webp",
+      "_id": "Ffg0Ntu9rlMHKgLT",
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.Ffg0Ntu9rlMHKgLT"
+    },
+    {
+      "text": "Jaw Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "4oZrbrAiaiE0MipO",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "Hfee45MpQoBlmjQK",
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.Hfee45MpQoBlmjQK"
+    },
+    {
+      "text": "Root Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "9ILT3BonnTdiyACd",
+      "img": "systems/ptu/images/item_icons/root fossil.webp",
+      "_id": "C7e6cOmN9OAe07e2",
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.C7e6cOmN9OAe07e2"
+    },
+    {
+      "text": "Skull Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "APa6ZgPosQGqesTe",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "8AmSfb2jRSG1Zmkg",
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.8AmSfb2jRSG1Zmkg"
+    },
+    {
+      "text": "Fish Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "CWXO5Q7xE51JkmGc",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "jCo0HWdz6qLTFA1b",
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.jCo0HWdz6qLTFA1b"
+    },
+    {
+      "text": "Root Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "FiSNov4STtuZvE9H",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "6HdV3P2kKlRqUI6A",
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.6HdV3P2kKlRqUI6A"
+    },
+    {
+      "text": "Claw Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "GbeXzseyHk7AkQxJ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "0M7LFjHzoNqWLr0z",
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.0M7LFjHzoNqWLr0z"
+    },
+    {
+      "text": "Sail Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "HY8XvIHpfevi3qEf",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "uZV1SdEL8zJqU9zv",
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.uZV1SdEL8zJqU9zv"
+    },
+    {
+      "text": "Fish Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "NehiGl0cL3P0C0rs",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "phY9oEiUV3qhqnXM",
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.phY9oEiUV3qhqnXM"
+    },
+    {
+      "text": "Dome Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Pmexs0KmDS8RdxqM",
+      "img": "systems/ptu/images/item_icons/dome fossil.webp",
+      "_id": "enRJuVllBRmnaqY6",
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.enRJuVllBRmnaqY6"
+    },
+    {
+      "text": "Plume Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "RFUxyPW4kI0uvgca",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "ul3Q5zeJd3okALIe",
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.ul3Q5zeJd3okALIe"
+    },
+    {
+      "text": "Claw Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "RX11Jz5QiCoIUCXB",
+      "img": "systems/ptu/images/item_icons/claw fossil.webp",
+      "_id": "TPvGjIf4OZN5mTaC",
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.TPvGjIf4OZN5mTaC"
+    },
+    {
+      "text": "Cover Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "S2ELFp3cRp95iHPo",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "TNeUXgt2rrjLzfRk",
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.TNeUXgt2rrjLzfRk"
+    },
+    {
+      "text": "Armor Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "SOAOuImnMNv6q1s8",
+      "img": "systems/ptu/images/item_icons/armor fossil.webp",
+      "_id": "UBHrtDm8aVyXuzjn",
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.UBHrtDm8aVyXuzjn"
+    },
+    {
+      "text": "Dome Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "XE61zebZXRrDUfsM",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "9kH53lJdFCSKgX4d",
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.9kH53lJdFCSKgX4d"
+    },
+    {
+      "text": "Plume Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "XdSgKDOq6XTT5RMD",
+      "img": "systems/ptu/images/item_icons/plume fossil.webp",
+      "_id": "kxWHXaxqUOrziMPc",
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.kxWHXaxqUOrziMPc"
+    },
+    {
+      "text": "Bird Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ZArjX4RQEIh22usJ",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "TzQI8odXwJNUhplK",
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.TzQI8odXwJNUhplK"
+    },
+    {
+      "text": "Drake Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bON5EPLjLhRlwgm8",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "4r8viqAplCjxsUIS",
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.4r8viqAplCjxsUIS"
+    },
+    {
+      "text": "Sail Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "fOXPDzmqAcmjtMXf",
+      "img": "systems/ptu/images/item_icons/sail fossil.webp",
+      "_id": "xVs9WnQQx2oZORO6",
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.xVs9WnQQx2oZORO6"
+    },
+    {
+      "text": "Helix Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "fVYf1cUN2vtjv53U",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "PtylvCsKi5Nz4DeF",
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.PtylvCsKi5Nz4DeF"
+    },
+    {
+      "text": "Cover Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "iByaD1bmmzvuccyR",
+      "img": "systems/ptu/images/item_icons/cover fossil.webp",
+      "_id": "MOaFDUmQAF555sFy",
+      "range": [
+        21,
+        21
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.MOaFDUmQAF555sFy"
+    },
+    {
+      "text": "Bird Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "q16SLydlyJzA2Ts8",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "pskd4CSlvUP0G1Lz",
+      "range": [
+        22,
+        22
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.pskd4CSlvUP0G1Lz"
+    },
+    {
+      "text": "Dino Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "rBLMh4SMU83ce6Np",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "e3MtbjjVAxDd4xKw",
+      "range": [
+        23,
+        23
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.e3MtbjjVAxDd4xKw"
+    },
+    {
+      "text": "Helix Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "udiOWpKw2hwD1WUF",
+      "img": "systems/ptu/images/item_icons/helix fossil.webp",
+      "_id": "SnKv25X3ocNDY4bS",
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.SnKv25X3ocNDY4bS"
+    },
+    {
+      "text": "Armor Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "uu15wkDvdfLQsuBj",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "MC4nWBrvTj5ujj45",
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.MC4nWBrvTj5ujj45"
+    },
+    {
+      "text": "Drake Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "vH6GSRIvXuaGTbn1",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "myLjcXpJNzZj6wlW",
+      "range": [
+        26,
+        26
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.myLjcXpJNzZj6wlW"
+    },
+    {
+      "text": "Skull Fossil",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "zDuvYmpJTUN1VYnh",
+      "img": "systems/ptu/images/item_icons/skull fossil.webp",
+      "_id": "Bk6Bm0zXryNE1Uld",
+      "range": [
+        27,
+        27
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.Bk6Bm0zXryNE1Uld"
+    },
+    {
+      "text": "Dino Fossil Shard",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "zZs4EFb5jJMNvmjw",
+      "img": "/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "E0ASvYI4QC3SL6Zl",
+      "range": [
+        28,
+        28
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!hvZUPAF9B8WN7Tjk.E0ASvYI4QC3SL6Zl"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733984472,
+    "modifiedTime": 1710778630523,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d28",
+  "_key": "!tables!hvZUPAF9B8WN7Tjk"
+}

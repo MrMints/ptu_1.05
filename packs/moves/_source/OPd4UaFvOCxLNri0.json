@@ -1,0 +1,46 @@
+{
+  "type": "contestmove",
+  "name": "Gamble",
+  "system": {
+    "origin": "",
+    "effect": "All results of 6 this round grant you +1 Voltage.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "gamble",
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "type": "smart",
+    "frequency": "EOT",
+    "dice": 2
+  },
+  "img": "/systems/ptu/static/css/images/types2/SmartIC_Icon.png",
+  "folder": "Ud4fHEQ32UJKeOPC",
+  "_id": "OPd4UaFvOCxLNri0",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.1",
+    "coreVersion": "12.327",
+    "createdTime": 1694192813466,
+    "modifiedTime": 1709366683430,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!OPd4UaFvOCxLNri0"
+}

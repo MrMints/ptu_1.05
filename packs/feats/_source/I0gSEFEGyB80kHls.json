@@ -1,0 +1,70 @@
+{
+  "name": "Climatology",
+  "system": {
+    "origin": "",
+    "effect": "You gain the Overcoat Ability.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "GrantItem",
+        "predicate": [],
+        "allowDuplicate": false,
+        "uuid": "Compendium.ptu.abilities.Item.aYpa4hA9aHeNGyeQ"
+      }
+    ],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Climatology Research Field",
+      "Branch"
+    ],
+    "prerequisites": [
+      "Novice Survival"
+    ],
+    "frequency": "Static",
+    "notes": "",
+    "free": false,
+    "class": "Researcher (Climatology)",
+    "name": "Climatology",
+    "useCount": 0,
+    "automation": []
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.WScwHg8ch0S7rIXb"
+    },
+    "ptu": {
+      "prereqBackup": "Novice Survival"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368078903,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.WScwHg8ch0S7rIXb",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 18900000,
+  "_id": "I0gSEFEGyB80kHls",
+  "_key": "!items!I0gSEFEGyB80kHls"
+}

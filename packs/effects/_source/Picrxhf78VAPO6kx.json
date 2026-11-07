@@ -1,0 +1,90 @@
+{
+  "folder": "3ytoWW3tJMtnZJNo",
+  "name": "Effect: Sp Atk Ace",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "Enduring Soul",
+    "effect": "Pokémon owned by a Trainer with the Sp.Atk Ace Class gain +1 Sp.Atk and an additional +1 per 10 levels.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.modifiers.baseStats.spatk.mod",
+        "value": "1 + floor(@actor.system.level.current / 10)",
+        "predicate": [],
+        "phase": "applyAEs"
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-sp-atk-ace",
+    "schema": {
+      "version": 0.112,
+      "lastMigration": {
+        "datetime": "2024-01-15T01:45:48.387Z",
+        "version": {
+          "schema": 0.111,
+          "foundry": "11.315",
+          "system": "4.0.9"
+        }
+      }
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "ownership": {
+    "default": 2,
+    "s5aYT4VJEW56OtOC": 3,
+    "y4EIjJlrc2eCclW7": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": false
+    },
+    "exportSource": {
+      "world": "marth-ptr",
+      "system": "ptu",
+      "coreVersion": "11.314",
+      "systemVersion": "4.0.5"
+    },
+    "core": {}
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.1.1",
+    "createdTime": 1706452681454,
+    "modifiedTime": 1706453069989,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "Picrxhf78VAPO6kx",
+  "sort": 0,
+  "_key": "!items!Picrxhf78VAPO6kx"
+}

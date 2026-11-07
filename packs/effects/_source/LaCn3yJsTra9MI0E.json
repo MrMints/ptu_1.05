@@ -1,0 +1,92 @@
+{
+  "name": "Effect: Expunge (Eph.)",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Nuclear types take damage from this move as if it is super-effective.",
+    "snippet": "Water types take 1.5x damage from this move.",
+    "rules": [
+      {
+        "key": "Effectiveness",
+        "predicate": [],
+        "type": "nuclear",
+        "value": 4
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-expunge-eph",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": true,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "encounter",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "folder": "cEqE0oej7UWJxO5Z",
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "core": {},
+    "scene-packer": {
+      "hash": "276cf253baf348769423fb6cb7e25c6d68a74d0a",
+      "sourceId": "Item.XWTIbIVc4qNHzLqf"
+    },
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "exportSource": {
+      "world": "pokemon-test-world",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.2.2"
+    }
+  },
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_id": "LaCn3yJsTra9MI0E",
+  "sort": 0,
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "createdTime": 1710765152406,
+    "modifiedTime": 1710852705926,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!LaCn3yJsTra9MI0E"
+}

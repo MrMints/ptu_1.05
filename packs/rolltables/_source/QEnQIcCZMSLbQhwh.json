@@ -1,0 +1,89 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Poke",
+  "_id": "QEnQIcCZMSLbQhwh",
+  "img": "systems/ptu/static/css/images/Pok%C3%A9mon_Dollar_sign.svg",
+  "description": "",
+  "results": [
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "_id": "HlOpG0LqJJqQ6PcY",
+      "text": "@Poke[100]",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {},
+      "_key": "!tables.results!QEnQIcCZMSLbQhwh.HlOpG0LqJJqQ6PcY"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "_id": "Jfo7nSoHlWzqqdyc",
+      "text": "@Poke[200]",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {},
+      "_key": "!tables.results!QEnQIcCZMSLbQhwh.Jfo7nSoHlWzqqdyc"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "_id": "GUS6EuHGaurDUXp3",
+      "text": "@Poke[300]",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {},
+      "_key": "!tables.results!QEnQIcCZMSLbQhwh.GUS6EuHGaurDUXp3"
+    },
+    {
+      "type": "text",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "_id": "0wLRwBQUqmEjQkrs",
+      "text": "@Poke[400]",
+      "img": "icons/svg/d20-black.svg",
+      "documentId": null,
+      "flags": {},
+      "_key": "!tables.results!QEnQIcCZMSLbQhwh.0wLRwBQUqmEjQkrs"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {},
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.0.14",
+    "createdTime": 1706107135122,
+    "modifiedTime": 1706107215719,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d4",
+  "_key": "!tables!QEnQIcCZMSLbQhwh"
+}

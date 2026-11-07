@@ -1,0 +1,1551 @@
+{
+  "schemaVersion": 1,
+  "frozenSlice": "G4",
+  "recordKind": "macros",
+  "productionPolicyPromotion": false,
+  "behavioralVerification": "not-run",
+  "records": [
+    {
+      "identity": "macros.1RNSAw20k8gBHhUd",
+      "contentHash": "7f639d1aa30896b7bf2cd6a9ee6416c089865efee7865e2e6327675ee761e8f5",
+      "labelForReview": "Sync Dexes",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "reviewed",
+      "recordClass": "examined-macro-utility-source",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Literal game.ptu.macros.dexSync() is registered by GamePTU and implemented in dex-sync.js. It unions owned/seen across assigned trainer characters, filters owned out of seen via host Set.filter, and requests bulk Actor.updateDocuments without awaiting it. Retain metadata/permissions and the host-extension, ownership, completion/failure and shared-dex side-effect obligations. This is utility source examination only; no macro, actor update or PTU mechanic was executed or approved."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/1RNSAw20k8gBHhUd.json",
+          "semanticSha256": "7f639d1aa30896b7bf2cd6a9ee6416c089865efee7865e2e6327675ee761e8f5",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/scripts/macros/dex-sync.js",
+          "canonicalLfSha256": "c8fa4e652460e004c70c964142898d0b2b937c767bf4e97a9522d168d5851d35",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Sync Dexes",
+          "recordJsonSha256": "afab38145f7e2ebaf3ffd1c3196ec7f55fe78f6cbc9e3d8331c91837f11a0cc4",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "systems/ptu/images/item_icons/up-grade.webp",
+          "recordJsonSha256": "6c983e3b0ed02a6b667f6372030743b6735d3aad8ed4f1df899613a0622300ec",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "// Syncs all trainer dexes their Owned & Seen list\ngame.ptu.macros.dexSync();",
+          "recordJsonSha256": "25623e620e43baa398db4e3033e39a067d40592d6024cd7c01d5e91ca4722cf3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {
+            "core": {}
+          },
+          "recordJsonSha256": "72a0cdda05d081b15bfa5391ea80137735772d01c0ef3226c2143dd81614498a",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1693414322120,
+            "modifiedTime": 1699269015548,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "3d3311ec81263a86c127cc7d94d543b67ed22667faa8e005108e6e8294c8dc68",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "1RNSAw20k8gBHhUd",
+          "recordJsonSha256": "929c7196a69797a3c77bb04caa3b01ce9f34b8d994a08cd637fc18823d2ea6d9",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 400000,
+          "recordJsonSha256": "ad1e2e29fe1631ddf7bedaadffe63c4efd61e6909a1ed0648e7b9645bd27dab5",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!1RNSAw20k8gBHhUd",
+          "recordJsonSha256": "4b0c2d7b1473487cebd6191cc87548aacfb1bb773c9acc839d8657533e683588",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "scope",
+          "author",
+          "img",
+          "command",
+          "folder",
+          "ownership",
+          "flags",
+          "_stats",
+          "_id",
+          "sort",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "// Syncs all trainer dexes their Owned & Seen list\ngame.ptu.macros.dexSync();",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [
+              "game.ptu.macros.dexSync"
+            ],
+            "implementationItemQueries": [],
+            "dynamicTargetUuids": [],
+            "transform": null,
+            "spriteUtility": null,
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [],
+          "sourceFactGroups": [],
+          "specificAssessment": "Literal game.ptu.macros.dexSync() is registered by GamePTU and implemented in dex-sync.js. It unions owned/seen across assigned trainer characters, filters owned out of seen via host Set.filter, and requests bulk Actor.updateDocuments without awaiting it. Retain metadata/permissions and the host-extension, ownership, completion/failure and shared-dex side-effect obligations. This is utility source examination only; no macro, actor update or PTU mechanic was executed or approved.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "macros.1TTtVKjm2sNhVhZk",
+      "contentHash": "7f7c82f49bdbb645c79629f1f412979c412485b29e0946564b3595ed472e5baa",
+      "labelForReview": "Pokedex",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "reviewed",
+      "recordClass": "examined-macro-utility-source",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Literal game.ptu.macros.pokedex() is registered/implemented. It selects the first targeted actor species, renders its sheet, and appends its slug to the assigned character dex.seen without deduplication in this function. Preserve target/character absence paths, current permissions and side-effect limits; a display utility is not rules/canonical identity or scope approval. No execution occurred."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/1TTtVKjm2sNhVhZk.json",
+          "semanticSha256": "7f7c82f49bdbb645c79629f1f412979c412485b29e0946564b3595ed472e5baa",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/scripts/macros/pokedex.js",
+          "canonicalLfSha256": "3feb64933f8e1fef12404588b65d5b1e93135a1511d44d8a2296f644b0a31e7c",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Pokedex",
+          "recordJsonSha256": "e31fdcc8b2873da97da19d3dde15268a43a504b29c15d5888a1133b87759c370",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "1TTtVKjm2sNhVhZk",
+          "recordJsonSha256": "54a4725f04fbf9f368ca0267f5ff52aac97e48cb28b1706ede03da2954cf8736",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "systems/ptu/images/item_icons/pokedex.webp",
+          "recordJsonSha256": "1b04d03cf7c3c974967f17495bc0f3922a4200d9d5e73a05609733ed567582fe",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "game.ptu.macros.pokedex();",
+          "recordJsonSha256": "e6b2015529d53aa9c45981d53eca9bccd07871605530164c8273c35d8dc6b5be",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 500000,
+          "recordJsonSha256": "8d6962a152aee235ba824c41758b8da2371b7077b4ea0afaaec94014e16e3bc7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {},
+          "recordJsonSha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1693216937639,
+            "modifiedTime": 1699269015548,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "b2c78ab7a925330d24a0f75c7def0191d3d5dcbee06fc323035bfc28b134a621",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!1TTtVKjm2sNhVhZk",
+          "recordJsonSha256": "935fe4ff0d6a204f930e54a19f75e8bd56133a7bbefed27ca615877e1612ea1f",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "_id",
+          "author",
+          "img",
+          "scope",
+          "command",
+          "folder",
+          "sort",
+          "ownership",
+          "flags",
+          "_stats",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "game.ptu.macros.pokedex();",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [
+              "game.ptu.macros.pokedex"
+            ],
+            "implementationItemQueries": [],
+            "dynamicTargetUuids": [],
+            "transform": null,
+            "spriteUtility": null,
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [],
+          "sourceFactGroups": [],
+          "specificAssessment": "Literal game.ptu.macros.pokedex() is registered/implemented. It selects the first targeted actor species, renders its sheet, and appends its slug to the assigned character dex.seen without deduplication in this function. Preserve target/character absence paths, current permissions and side-effect limits; a display utility is not rules/canonical identity or scope approval. No execution occurred.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "macros.H929lnw6f59DTuWQ",
+      "contentHash": "0fdfc02aeae40330f2ae8bf4802814941f6bca7bed81f68e4347db339103c6de",
+      "labelForReview": "Change Rotom Form",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "unresolved",
+      "recordClass": "examined-macro-source-version-and-use-limit",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Literal game.ptu.macros.changeRotomForm() resolves to the complete current helper. Its six form choices use slug/name queries through findItemInCompendium, NOT fixed UUID bindings. It deletes a previous form Move, creates species/Move documents and updates actor/prototype/active token art/size. Core326 ORIGINAL Poltergeist has StandardThunderShock/Levitate and FanAirSlash/KeenEye; OPTIONALFeb7 has level40 access, StandardNone and FanHurricane/Windveiled with other different Abilities. Old/plus607-608 preserve full appliance context (plus607 addsFormeChange*). Current normal branch selectsnull and FanAirSlash; complete selected-version/target-identity and lifecycle/permission/preservation behavior remain unestablished. No invented counterpart/default/automatic replacement or reproduced supported foundation failure."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/H929lnw6f59DTuWQ.json",
+          "semanticSha256": "0fdfc02aeae40330f2ae8bf4802814941f6bca7bed81f68e4347db339103c6de",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pdfPages": [
+            326
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/1.05 Errata/February 2016 Playtest Packet.pdf",
+          "sha256": "bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916",
+          "pdfPages": [
+            7
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/Pokedex 1.05 Old.pdf",
+          "sha256": "f6e37647b7450fa7602ff28080adb1bda31f148e1901f6d8b0b6d92b64b7b8ca",
+          "pdfPages": [
+            607
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/Pokedex 1.05 Old.pdf",
+          "sha256": "f6e37647b7450fa7602ff28080adb1bda31f148e1901f6d8b0b6d92b64b7b8ca",
+          "pdfPages": [
+            608
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            607
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            608
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/scripts/macros/rotom-form-change.js",
+          "canonicalLfSha256": "0de99478014a6b2a1530dd52906e38c2b6a0b2d19342d0f8c66f2bc5951f03fd",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Change Rotom Form",
+          "recordJsonSha256": "b79c3664cb157078dc3b634361dbda0cb51473b395ca6e977b82a46cb10ca4ac",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "/systems/ptu/static/images/sprites/479.webp",
+          "recordJsonSha256": "4712c45d0ea290fd49d60b0eab376f1fffe8de0dea3ea7fef413c10d43b5ac98",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "game.ptu.macros.changeRotomForm();",
+          "recordJsonSha256": "235862ab8caec1559da9df1719207d7f8dd4dc44a1ea98e27bf9f3d17b0e5a89",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {
+            "core": {}
+          },
+          "recordJsonSha256": "72a0cdda05d081b15bfa5391ea80137735772d01c0ef3226c2143dd81614498a",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1693214354530,
+            "modifiedTime": 1699269015548,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "57806ac6c1aabd05f8adea57659338ae83f723a547581bcfdddf2f299c51788b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "H929lnw6f59DTuWQ",
+          "recordJsonSha256": "e60917e19cb60633f9854c067f957fec9fcdd0163bb82e3580c42da744c7f5d8",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 600000,
+          "recordJsonSha256": "a3c25177bb8fb18ab261743d2296eb0edb79ee7234493f24f20b8f85b5b9a9d8",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!H929lnw6f59DTuWQ",
+          "recordJsonSha256": "b07831d56f388e249d52b1a55b4ce983a20844c4130b1521510807eff77600c8",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "scope",
+          "author",
+          "img",
+          "command",
+          "folder",
+          "ownership",
+          "flags",
+          "_stats",
+          "_id",
+          "sort",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "game.ptu.macros.changeRotomForm();",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [
+              "game.ptu.macros.changeRotomForm"
+            ],
+            "implementationItemQueries": [
+              {
+                "query": "rotom-normal",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "rotom-fan",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "air-slash",
+                "itemType": "move",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "rotom-frost",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "blizzard",
+                "itemType": "move",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "rotom-heat",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "overheat",
+                "itemType": "move",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "rotom-mow",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "leaf-storm",
+                "itemType": "move",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "rotom-wash",
+                "itemType": "species",
+                "stableTargetUuidEstablished": false
+              },
+              {
+                "query": "hydro-pump",
+                "itemType": "move",
+                "stableTargetUuidEstablished": false
+              }
+            ],
+            "dynamicTargetUuids": [],
+            "transform": null,
+            "spriteUtility": null,
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [
+            "core:326",
+            "feb:7",
+            "old-dex:607",
+            "old-dex:608",
+            "plus-dex:607",
+            "plus-dex:608"
+          ],
+          "sourceFactGroups": [
+            "poltergeist"
+          ],
+          "specificAssessment": "Literal game.ptu.macros.changeRotomForm() resolves to the complete current helper. Its six form choices use slug/name queries through findItemInCompendium, NOT fixed UUID bindings. It deletes a previous form Move, creates species/Move documents and updates actor/prototype/active token art/size. Core326 ORIGINAL Poltergeist has StandardThunderShock/Levitate and FanAirSlash/KeenEye; OPTIONALFeb7 has level40 access, StandardNone and FanHurricane/Windveiled with other different Abilities. Old/plus607-608 preserve full appliance context (plus607 addsFormeChange*). Current normal branch selectsnull and FanAirSlash; complete selected-version/target-identity and lifecycle/permission/preservation behavior remain unestablished. No invented counterpart/default/automatic replacement or reproduced supported foundation failure.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "missingEvidence": {
+        "status": "precise-examined-limit",
+        "neededArtifact": "Literal game.ptu.macros.changeRotomForm() resolves to the complete current helper. Its six form choices use slug/name queries through findItemInCompendium, NOT fixed UUID bindings. It deletes a previous form Move, creates species/Move documents and updates actor/prototype/active token art/size. Core326 ORIGINAL Poltergeist has StandardThunderShock/Levitate and FanAirSlash/KeenEye; OPTIONALFeb7 has level40 access, StandardNone and FanHurricane/Windveiled with other different Abilities. Old/plus607-608 preserve full appliance context (plus607 addsFormeChange*). Current normal branch selectsnull and FanAirSlash; complete selected-version/target-identity and lifecycle/permission/preservation behavior remain unestablished. No invented counterpart/default/automatic replacement or reproduced supported foundation failure.",
+        "unexaminedCandidateClosure": false
+      }
+    },
+    {
+      "identity": "macros.HAtYcPnHQzB8JzY8",
+      "contentHash": "d25ff9fdaded006d881469b4a00bd652c755d44e693233f156b50e497842f0e3",
+      "labelForReview": "Update Tokens to Default Sprite",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "reviewed",
+      "recordClass": "examined-macro-utility-source",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Complete literal sprite utility and its explicit custom-image warning are retained. It selects ALL Pokémon actors, regex-extracts image names and requests prototype plus active-token texture updates to /systems/ptu/static/images/sprites/*.webp, without awaiting these update calls or independently checking that art is default. Permissions, custom-art preservation and completion/failure behavior are untested. Utility code is not a source-backed mechanic, identity mapping or Generation filter; no actors or images were changed."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/HAtYcPnHQzB8JzY8.json",
+          "semanticSha256": "d25ff9fdaded006d881469b4a00bd652c755d44e693233f156b50e497842f0e3",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/module/rules/rule-element/grant-item/rule-element.js",
+          "canonicalLfSha256": "72355e29be5221c4a159cd20d7ef6d22e9e6d9cfebd4d14fd38b6a61acd2b172",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Update Tokens to Default Sprite",
+          "recordJsonSha256": "3cb9f07be31036a88a9ad1bcd12f3ff08fd570dca1da3e3628afebafd3753777",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "icons/svg/mystery-man.svg",
+          "recordJsonSha256": "5d2a80397f4d77fc90820b73efba9c990bfc8f1de49f5bc006b6ce355918b7aa",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "// If your token art didn't properly update to the new standard\n// And you are using the default art with no custom path\n// You can use this macro to update your Token's Art\n\n// UPDATE TOKENS TO NEW DEFAULT\n// WILL OVERRIDE AND WON'T CHECK OLD IMAGES\n// IF YOU HAVE CUSTOM IMAGES DON'T RUN THIS\nconst pokemon = game.actors.filter(a => a.type === \"pokemon\");\nfor(const mon of pokemon) {\n  const match = /(\\d+.+).(webp|png)/.exec(mon.prototypeToken.texture.src);\n  if(!match) continue;\n\n  const[_, name, ext] = match;\n  const newUrl = `/systems/ptu/static/images/sprites/`;\n\n  mon.update({\"prototypeToken.texture.src\":  `${newUrl}${name}.webp`});\n  for(const token of mon.getActiveTokens()) {\n    token.document.update({\"texture.src\": `${newUrl}${name}.webp`});\n  }\n}",
+          "recordJsonSha256": "eb866c81e4a7e2def1648711afe3862c5631f9d19493b51faf138a0d63739d02",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {
+            "core": {}
+          },
+          "recordJsonSha256": "72a0cdda05d081b15bfa5391ea80137735772d01c0ef3226c2143dd81614498a",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1694777638990,
+            "modifiedTime": 1699269015548,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "306339ef381b1fc4bf36542a5b83068a2f99565165fd1d9d5d6b4fcdd1ed7bbe",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "HAtYcPnHQzB8JzY8",
+          "recordJsonSha256": "1dde68ba217307f5f0103a9aa28fd030ea3cd4633b5462b5007e5990180f5844",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 200000,
+          "recordJsonSha256": "b552e632666bbf6125e3109e28a4fecc08340d017e44109dadbf497a280b8f82",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!HAtYcPnHQzB8JzY8",
+          "recordJsonSha256": "6d20595f1407c3714b26a58aabaeb24b58cf9a458b30399b15e3609d6a6fa111",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "scope",
+          "author",
+          "img",
+          "command",
+          "folder",
+          "ownership",
+          "flags",
+          "_stats",
+          "_id",
+          "sort",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "// If your token art didn't properly update to the new standard\n// And you are using the default art with no custom path\n// You can use this macro to update your Token's Art\n\n// UPDATE TOKENS TO NEW DEFAULT\n// WILL OVERRIDE AND WON'T CHECK OLD IMAGES\n// IF YOU HAVE CUSTOM IMAGES DON'T RUN THIS\nconst pokemon = game.actors.filter(a => a.type === \"pokemon\");\nfor(const mon of pokemon) {\n  const match = /(\\d+.+).(webp|png)/.exec(mon.prototypeToken.texture.src);\n  if(!match) continue;\n\n  const[_, name, ext] = match;\n  const newUrl = `/systems/ptu/static/images/sprites/`;\n\n  mon.update({\"prototypeToken.texture.src\":  `${newUrl}${name}.webp`});\n  for(const token of mon.getActiveTokens()) {\n    token.document.update({\"texture.src\": `${newUrl}${name}.webp`});\n  }\n}",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [],
+            "implementationItemQueries": [],
+            "dynamicTargetUuids": [],
+            "transform": null,
+            "spriteUtility": {
+              "allPokemonActorsSelected": true,
+              "prototypeAndActiveTokensUpdated": true,
+              "explicitCustomImageWarning": true,
+              "updatesAwaited": false,
+              "customArtPreservationVerified": false
+            },
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [],
+          "sourceFactGroups": [],
+          "specificAssessment": "Complete literal sprite utility and its explicit custom-image warning are retained. It selects ALL Pokémon actors, regex-extracts image names and requests prototype plus active-token texture updates to /systems/ptu/static/images/sprites/*.webp, without awaiting these update calls or independently checking that art is default. Permissions, custom-art preservation and completion/failure behavior are untested. Utility code is not a source-backed mechanic, identity mapping or Generation filter; no actors or images were changed.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "macros.XGxaPZzFSyRg8ykw",
+      "contentHash": "347782833135d3b56f7ebce0a87ccd7f0b2abd4cfa3e71f6d4d595cd6d4e2ede",
+      "labelForReview": "Type Matrix",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "reviewed",
+      "recordClass": "examined-macro-utility-source",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Literal game.ptu.typeMatrix.render(true) binds the instance created onReady and the complete TypeMatrix implementation. It reads the world typeEffectiveness setting/fallback, adjusts view size for homebrew toggles and supplies readOnly data. The fallback constructor.settings/host state, actual displayed matrix and permissions were not exercised; opening a configurable view certifies no chart values or current-world scope. All three native TypeMatrix use pages are retained as context, not independent authority or H closure."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/XGxaPZzFSyRg8ykw.json",
+          "semanticSha256": "347782833135d3b56f7ebce0a87ccd7f0b2abd4cfa3e71f6d4d595cd6d4e2ede",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/module/apps/type-matrix.js",
+          "canonicalLfSha256": "d61164b35f29afe52720bacc9ab6052531944f73a43c81b76ca2e656b56b2e2c",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Type Matrix",
+          "recordJsonSha256": "13a1b2cc80cec5b421bf07a48499d3fa1ce010f4de667358021fd3c9e3f758b2",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "XGxaPZzFSyRg8ykw",
+          "recordJsonSha256": "c892c3863c73141a2c79ef4af2fe20b7b25efc3332396796b6ba14040e195781",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "systems/ptu/static/images/item_icons/pokenav.webp",
+          "recordJsonSha256": "e11a31a2fa7f32e0c0db96ffe0cb982a5a15e9cc0f2ed80a9f2012148477f11f",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "game.ptu.typeMatrix.render(true)",
+          "recordJsonSha256": "495e093d09aa7ab5e71789942c3c3411b55bb6ebc7f9ab22374b7b65d9fe222d",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 300000,
+          "recordJsonSha256": "6ce318969619d1c360b6144be09e3d3a22674897c7cbfe995716ed8b7ff7c4cf",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {},
+          "recordJsonSha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1699198868516,
+            "modifiedTime": 1699269015548,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "946c345ee55cde97a753163ffef280060f3b2324d297f1c52e4a2e9635001098",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!XGxaPZzFSyRg8ykw",
+          "recordJsonSha256": "55160d689d2fdccd814cdcd665c9ac619b6bd40858cc5ab8b7a95977c1937628",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "_id",
+          "author",
+          "img",
+          "scope",
+          "command",
+          "folder",
+          "sort",
+          "ownership",
+          "flags",
+          "_stats",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "game.ptu.typeMatrix.render(true)",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [
+              "game.ptu.typeMatrix.render"
+            ],
+            "implementationItemQueries": [],
+            "dynamicTargetUuids": [],
+            "transform": null,
+            "spriteUtility": null,
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [],
+          "sourceFactGroups": [],
+          "specificAssessment": "Literal game.ptu.typeMatrix.render(true) binds the instance created onReady and the complete TypeMatrix implementation. It reads the world typeEffectiveness setting/fallback, adjusts view size for homebrew toggles and supplies readOnly data. The fallback constructor.settings/host state, actual displayed matrix and permissions were not exercised; opening a configurable view certifies no chart values or current-world scope. All three native TypeMatrix use pages are retained as context, not independent authority or H closure.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false
+    },
+    {
+      "identity": "macros.sYZbyUkyC8f4nCek",
+      "contentHash": "890689e6d802d27560edf30940c0b38924436ec47366e975a60836d6d5da67a4",
+      "labelForReview": "Transform (v0.3 by Tinkastrong)",
+      "recordType": "script",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact original frozen G stable-ID/content-hash tuple and actual _key kind; no label-derived rules identity."
+      },
+      "coverageState": "unresolved",
+      "recordClass": "examined-macro-source-version-and-use-limit",
+      "frozenQueue": {
+        "batch": "G",
+        "slice": "G4",
+        "membershipSha256": "c8230c6ecef6186f6e4f3279dbc674c78c42acf73491e869e479b50854972989",
+        "diagnosticSha256": "1f14e7a53bde741803a4384fe60da4d29b66c380a005ba455d8117300efd0d90"
+      },
+      "generationReview": {
+        "status": "current-root-support-unclassified",
+        "basis": "No name/sprite/folder classification. Exact prior nested exclusions remain excluded; older/shared consumers remain independent. No supported-generation approval or new filtering."
+      },
+      "ruleVersionReview": {
+        "status": "complete-available-source-and-precise-current-limits-recorded",
+        "basis": "Complete unofficial Transform command/permissions retained, NEVER executed. Default copy-skills/base-stats flag isfalse; its true branch adjusts scale/omits TemporarySpecies without explicit stats/skills assignment. It deletes effect Items by NAME PREFIX without awaiting deletion, then uses target/first-species dynamic UUIDs, grants every target move/ability/capability and writes eight capability differences. Raw allowDuplicate:false has CAPITALD, while current GrantItem schema consumes LOWERCASEallowduplicate/defaulttrue; TypeOverwrite omits overwrite, whose current implementation has a separate replacement branch. No explicit duration or selected-source binding is written. Core412 preserves the literal user’s-Moves pronoun, AtWill10meters/onePokémon, weight/height/Capabilities, UNCHANGEDStats, switched/KO/encounter expiry and own-turnFreeAction undo; optionalFeb6Imposter is separate. Exact actor/target/use/cleanup/copy/permissions/cancellation/preservation outcomes and source-backed version remain unverified. Static fields are not a reproduced general foundation failure; if demonstrated later, reopen its affected prior gate BEFORE05."
+      },
+      "sources": [
+        {
+          "path": "packs/macros/_source/sYZbyUkyC8f4nCek.json",
+          "semanticSha256": "890689e6d802d27560edf30940c0b38924436ec47366e975a60836d6d5da67a4",
+          "kind": "actual-recovered-source-document"
+        },
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pdfPages": [
+            412
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "Core System/1.05 Errata/February 2016 Playtest Packet.pdf",
+          "sha256": "bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916",
+          "pdfPages": [
+            6
+          ],
+          "pageConvention": "one-based PDF; complete definition/parent boundaries retained separately"
+        },
+        {
+          "path": "src/scripts/game-ptu.js",
+          "canonicalLfSha256": "e35f827753a6e87ca628e1acd8c6ce10f9e444fb91f5cda07878ba9ec9d2ee6c",
+          "kind": "read-static-implementation-context"
+        },
+        {
+          "path": "src/module/rules/rule-element/grant-item/rule-element.js",
+          "canonicalLfSha256": "72355e29be5221c4a159cd20d7ef6d22e9e6d9cfebd4d14fd38b6a61acd2b172",
+          "kind": "read-static-implementation-context"
+        }
+      ],
+      "fieldReview": [
+        {
+          "field": "document.name",
+          "recordFieldPath": "name",
+          "recordValue": "Transform (v0.3 by Tinkastrong)",
+          "recordJsonSha256": "2943720d11b4acc5f560b568acb79d62b9f94e9a45c078de3eb37845856f133d",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.type",
+          "recordFieldPath": "type",
+          "recordValue": "script",
+          "recordJsonSha256": "5bbd8bbb9bc3b0605574c068cc629c3bfc577199c8f7fd4a796cbf3b954e7f08",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.command",
+          "recordFieldPath": "command",
+          "recordValue": "/*\n   PLEASE NOTE\n   THIS MACRO IS NOT OFFICIALLY PART OF THE SYSTEM AND HAS NOT BEEN CLEANED UP OR CHECKED.\n   IT HAS BEEN INCLUDED FOR YOUR EASE.\n   USE AT YOUR OWN RISK.\n*/\n\nconst I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE = false\n\nlet didSomething = false\nif (game.canvas.tokens.controlled.length == 0){\n  return ui.notifications.error(\"Select token(s) to (un)transform\");\n}\n\n\nfor (const transformerToken of game.canvas.tokens.controlled){\n  const TRANSFORMER = transformerToken.actor\n  TRANSFORMER.items.filter(i => i.type==\"effect\" && i.name.startsWith(\"Transformed into \")).forEach( e => {\n    \n    //console.log(e)\n    e.delete()\n    didSomething = true\n  })\n}\n\n\nconst TRANSFORMEE_TOKEN = game.user.targets.first()\nif (! TRANSFORMEE_TOKEN) {\n  if(didSomething){\n        return ui.notifications.info(\"Untransformed\")\n  } else {\n        return ui.notifications.error(\"Select a target to transform into\");\n  }\n}\n\nconst ORIGINAL_ITEMS = TRANSFORMEE_TOKEN.actor.items.filter(i => i.type==\"move\" || i.type==\"ability\" || i.type==\"capability\")\n\n\nfor (const transformerToken of game.canvas.tokens.controlled){\n  const TRANSFORMER = transformerToken.actor\n  let effectRules = []\n\n  let scale = TRANSFORMEE_TOKEN.document.texture.scaleX\n  if (I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE) {\n    scale = scale * TRANSFORMEE_TOKEN.document.width\n  }\n\n  effectRules.push({\n    key:\"TokenImage\",\n    value: TRANSFORMEE_TOKEN.document.texture.src, \n    scale: scale\n  })\n\n  effectRules.push({\n    key:\"TypeOverwrite\",\n    value: TRANSFORMEE_TOKEN.actor.system.typing\n  })\n\n  if (! I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE) {\n      effectRules.push({\n        key:\"TemporarySpecies\",\n        uuid: TRANSFORMEE_TOKEN.actor.items.filter(i => i.type == \"species\")[0].uuid\n      })\n  }\n\n  for (const item of ORIGINAL_ITEMS){\n    effectRules.push({\n      key: \"GrantItem\",\n      reevaluateOnUpdate: false,\n      allowDuplicate: false,\n      predicate: [],\n      uuid: item.uuid\n    })\n  }\n\n  for (const capName of [\"overland\",\"sky\",\"swim\",\"levitate\",\"burrow\",\"highJump\",\"longJump\",\"power\"]){\n    const cap = TRANSFORMEE_TOKEN.actor.system.capabilities[capName]\n    const capDitto = TRANSFORMER.system.capabilities[capName]\n    effectRules.push({\n      key: \"ActiveEffectLike\",\n      mode: \"add\",\n      predicate: [],\n      phase: \"applyAEs\",\n      path: `system.modifiers.capabilities.${capName}`,\n      value: `${cap} - ${capDitto}`\n    })\n  }\n\n\n  // let eff = (await Item.create([{\n  //   name: `Transform into ${TRANSFORMEE_TOKEN.name}`,\n  //   img: TRANSFORMEE_TOKEN.document.texture.src, \n  //   type:\"effect\",\n  //   system:{\n  //     rules: effectRules\n  //   }\n  // }], {parent: TRANSFORMER}))[0]\n  // \n  // const source = eff.toObject();\n  // source.flags = mergeObject(source.flags ?? {}, { core: { sourceId: eff.uuid } });\n  // \n  \n  await TRANSFORMER.createEmbeddedDocuments(\"Item\", [{\n    name: `Transformed into ${TRANSFORMEE_TOKEN.name}`,\n    img: TRANSFORMEE_TOKEN.document.texture.src, \n    type:\"effect\",\n    system:{\n      rules: effectRules\n    }\n  }]);\n\n}",
+          "recordJsonSha256": "2dfce7947ec7b7b8d660077154d45b143ac892d6e2329d0051814bd856066a18",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.img",
+          "recordFieldPath": "img",
+          "recordValue": "icons/creatures/slimes/slime-movement-dripping-purple.webp",
+          "recordJsonSha256": "ff3564200445e77a9e8b092d4fa7510e09b683eb994f95d914e0b82326c42ab4",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.flags",
+          "recordFieldPath": "flags",
+          "recordValue": {
+            "exportSource": {
+              "world": "rimgate",
+              "system": "ptu",
+              "coreVersion": "11.308",
+              "systemVersion": "4.0.0.beta.15"
+            },
+            "core": {}
+          },
+          "recordJsonSha256": "a1b1ad3e1c2c7a9c6961bf852fb6016c329af4a681a89dbd58014466b5567d0b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.author",
+          "recordFieldPath": "author",
+          "recordValue": "ODt7FhFvbVjW9f1k",
+          "recordJsonSha256": "cae62bd6b8f336b68a86ac6061112689f4b772c96d262612e5a03161778e713e",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.scope",
+          "recordFieldPath": "scope",
+          "recordValue": "global",
+          "recordJsonSha256": "00a98ccda74596363103ca57044cd66c1c9d0a71272a83aa3a0074bfe4da9cd3",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.folder",
+          "recordFieldPath": "folder",
+          "recordValue": null,
+          "recordJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.ownership",
+          "recordFieldPath": "ownership",
+          "recordValue": {
+            "default": 0,
+            "ODt7FhFvbVjW9f1k": 3
+          },
+          "recordJsonSha256": "4666d6c5d7a0adb92b2f312b7e61169873c3c27b9421bda8a0300b1ad3b4ede7",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._stats",
+          "recordFieldPath": "_stats",
+          "recordValue": {
+            "systemId": "ptu",
+            "systemVersion": "4.0.0.release-candidate.1",
+            "coreVersion": "12.327",
+            "createdTime": 1698183413921,
+            "modifiedTime": 1699269040817,
+            "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+            "compendiumSource": null,
+            "duplicateSource": null
+          },
+          "recordJsonSha256": "8d4fd93c724a87f8978cf8877e84ce28a07de4e5f4c220800e8bdf093001e696",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._id",
+          "recordFieldPath": "_id",
+          "recordValue": "sYZbyUkyC8f4nCek",
+          "recordJsonSha256": "98af417384cc39c487634a380b0368ccb91f4e048549f6bc7be87fca2a71f40c",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document.sort",
+          "recordFieldPath": "sort",
+          "recordValue": 100000,
+          "recordJsonSha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        },
+        {
+          "field": "document._key",
+          "recordFieldPath": "_key",
+          "recordValue": "!macros!sYZbyUkyC8f4nCek",
+          "recordJsonSha256": "d90e7d70ea655af659cdfe4f8822c118032f0be861aa3d1314a2cd5930bc0ce4",
+          "status": "exact-current-field-retained",
+          "interpretation": "Raw current field, including complete results or literal command; no execution/approval inferred."
+        }
+      ],
+      "normativeFieldCoverage": {
+        "allTopLevelFields": [
+          "name",
+          "type",
+          "command",
+          "img",
+          "flags",
+          "author",
+          "scope",
+          "folder",
+          "ownership",
+          "_stats",
+          "_id",
+          "sort",
+          "_key"
+        ],
+        "completeLiteralResultsOrCommandRetained": true,
+        "organizationalMetadataIsNotGameplay": false
+      },
+      "sourceComparison": {
+        "organizationalReview": {
+          "kind": "macros",
+          "sourceExaminationComplete": true,
+          "currentExtraction": {
+            "literalCommand": "/*\n   PLEASE NOTE\n   THIS MACRO IS NOT OFFICIALLY PART OF THE SYSTEM AND HAS NOT BEEN CLEANED UP OR CHECKED.\n   IT HAS BEEN INCLUDED FOR YOUR EASE.\n   USE AT YOUR OWN RISK.\n*/\n\nconst I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE = false\n\nlet didSomething = false\nif (game.canvas.tokens.controlled.length == 0){\n  return ui.notifications.error(\"Select token(s) to (un)transform\");\n}\n\n\nfor (const transformerToken of game.canvas.tokens.controlled){\n  const TRANSFORMER = transformerToken.actor\n  TRANSFORMER.items.filter(i => i.type==\"effect\" && i.name.startsWith(\"Transformed into \")).forEach( e => {\n    \n    //console.log(e)\n    e.delete()\n    didSomething = true\n  })\n}\n\n\nconst TRANSFORMEE_TOKEN = game.user.targets.first()\nif (! TRANSFORMEE_TOKEN) {\n  if(didSomething){\n        return ui.notifications.info(\"Untransformed\")\n  } else {\n        return ui.notifications.error(\"Select a target to transform into\");\n  }\n}\n\nconst ORIGINAL_ITEMS = TRANSFORMEE_TOKEN.actor.items.filter(i => i.type==\"move\" || i.type==\"ability\" || i.type==\"capability\")\n\n\nfor (const transformerToken of game.canvas.tokens.controlled){\n  const TRANSFORMER = transformerToken.actor\n  let effectRules = []\n\n  let scale = TRANSFORMEE_TOKEN.document.texture.scaleX\n  if (I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE) {\n    scale = scale * TRANSFORMEE_TOKEN.document.width\n  }\n\n  effectRules.push({\n    key:\"TokenImage\",\n    value: TRANSFORMEE_TOKEN.document.texture.src, \n    scale: scale\n  })\n\n  effectRules.push({\n    key:\"TypeOverwrite\",\n    value: TRANSFORMEE_TOKEN.actor.system.typing\n  })\n\n  if (! I_WANT_TRANSFORM_TO_ALSO_COPY_SKILLS_BASESTATS_AND_PROPER_SIZE) {\n      effectRules.push({\n        key:\"TemporarySpecies\",\n        uuid: TRANSFORMEE_TOKEN.actor.items.filter(i => i.type == \"species\")[0].uuid\n      })\n  }\n\n  for (const item of ORIGINAL_ITEMS){\n    effectRules.push({\n      key: \"GrantItem\",\n      reevaluateOnUpdate: false,\n      allowDuplicate: false,\n      predicate: [],\n      uuid: item.uuid\n    })\n  }\n\n  for (const capName of [\"overland\",\"sky\",\"swim\",\"levitate\",\"burrow\",\"highJump\",\"longJump\",\"power\"]){\n    const cap = TRANSFORMEE_TOKEN.actor.system.capabilities[capName]\n    const capDitto = TRANSFORMER.system.capabilities[capName]\n    effectRules.push({\n      key: \"ActiveEffectLike\",\n      mode: \"add\",\n      predicate: [],\n      phase: \"applyAEs\",\n      path: `system.modifiers.capabilities.${capName}`,\n      value: `${cap} - ${capDitto}`\n    })\n  }\n\n\n  // let eff = (await Item.create([{\n  //   name: `Transform into ${TRANSFORMEE_TOKEN.name}`,\n  //   img: TRANSFORMEE_TOKEN.document.texture.src, \n  //   type:\"effect\",\n  //   system:{\n  //     rules: effectRules\n  //   }\n  // }], {parent: TRANSFORMER}))[0]\n  // \n  // const source = eff.toObject();\n  // source.flags = mergeObject(source.flags ?? {}, { core: { sourceId: eff.uuid } });\n  // \n  \n  await TRANSFORMER.createEmbeddedDocuments(\"Item\", [{\n    name: `Transformed into ${TRANSFORMEE_TOKEN.name}`,\n    img: TRANSFORMEE_TOKEN.document.texture.src, \n    type:\"effect\",\n    system:{\n      rules: effectRules\n    }\n  }]);\n\n}",
+            "type": "script",
+            "scope": "global",
+            "author": "ODt7FhFvbVjW9f1k",
+            "ownership": {
+              "default": 0,
+              "ODt7FhFvbVjW9f1k": 3
+            },
+            "gamePtuPaths": [],
+            "implementationItemQueries": [],
+            "dynamicTargetUuids": [
+              "TRANSFORMEE_TOKEN.actor.items.filter(i => i.type == \"species\")[0].uuid",
+              "item.uuid"
+            ],
+            "transform": {
+              "copyStatsFlagDefault": "false",
+              "capitalizedAllowDuplicateLiteral": true,
+              "lowercaseAllowduplicateWritten": false,
+              "suppliedTypeOverwriteFlag": false,
+              "explicitStatsOrSkillsAssignment": false,
+              "explicitDurationField": false,
+              "movementKeys": [
+                "overland",
+                "sky",
+                "swim",
+                "levitate",
+                "burrow",
+                "highJump",
+                "longJump",
+                "power"
+              ],
+              "effectDeletionByNamePrefix": true,
+              "targetRetrievedAfterDeletionLoop": true,
+              "deletionAwaitedInLoop": false,
+              "grantSchemaUsesLowercaseField": true,
+              "typeImplementationRequiresOverwriteBranch": true,
+              "lifecycleRestorationVerified": false
+            },
+            "spriteUtility": null,
+            "codeExecuted": false,
+            "actualPermissionBehavior": "not-run",
+            "actualSideEffects": "not-run",
+            "sourceVersionOrCanonicalTargetApproved": false,
+            "scopeFilterImplemented": false
+          },
+          "sourceParentIds": [
+            "core:412",
+            "feb:6"
+          ],
+          "sourceFactGroups": [
+            "transform"
+          ],
+          "specificAssessment": "Complete unofficial Transform command/permissions retained, NEVER executed. Default copy-skills/base-stats flag isfalse; its true branch adjusts scale/omits TemporarySpecies without explicit stats/skills assignment. It deletes effect Items by NAME PREFIX without awaiting deletion, then uses target/first-species dynamic UUIDs, grants every target move/ability/capability and writes eight capability differences. Raw allowDuplicate:false has CAPITALD, while current GrantItem schema consumes LOWERCASEallowduplicate/defaulttrue; TypeOverwrite omits overwrite, whose current implementation has a separate replacement branch. No explicit duration or selected-source binding is written. Core412 preserves the literal user’s-Moves pronoun, AtWill10meters/onePokémon, weight/height/Capabilities, UNCHANGEDStats, switched/KO/encounter expiry and own-turnFreeAction undo; optionalFeb6Imposter is separate. Exact actor/target/use/cleanup/copy/permissions/cancellation/preservation outcomes and source-backed version remain unverified. Static fields are not a reproduced general foundation failure; if demonstrated later, reopen its affected prior gate BEFORE05.",
+          "sourceAbsenceClaim": false,
+          "canonicalRelationshipClaim": false,
+          "wholeCurrentVersionApproved": false,
+          "supportedGenerationApproved": false,
+          "actualBehavior": "not-run",
+          "productionPolicyPromotion": false
+        }
+      },
+      "implementationImpact": {
+        "runtimeChanged": false,
+        "authoritativePacksChanged": false,
+        "sourceOnly": true,
+        "prerequisitesAdvisory": true,
+        "useConditionsSeparate": true
+      },
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "missingEvidence": {
+        "status": "precise-examined-limit",
+        "neededArtifact": "Complete unofficial Transform command/permissions retained, NEVER executed. Default copy-skills/base-stats flag isfalse; its true branch adjusts scale/omits TemporarySpecies without explicit stats/skills assignment. It deletes effect Items by NAME PREFIX without awaiting deletion, then uses target/first-species dynamic UUIDs, grants every target move/ability/capability and writes eight capability differences. Raw allowDuplicate:false has CAPITALD, while current GrantItem schema consumes LOWERCASEallowduplicate/defaulttrue; TypeOverwrite omits overwrite, whose current implementation has a separate replacement branch. No explicit duration or selected-source binding is written. Core412 preserves the literal user’s-Moves pronoun, AtWill10meters/onePokémon, weight/height/Capabilities, UNCHANGEDStats, switched/KO/encounter expiry and own-turnFreeAction undo; optionalFeb6Imposter is separate. Exact actor/target/use/cleanup/copy/permissions/cancellation/preservation outcomes and source-backed version remain unverified. Static fields are not a reproduced general foundation failure; if demonstrated later, reopen its affected prior gate BEFORE05.",
+        "unexaminedCandidateClosure": false
+      }
+    }
+  ]
+}

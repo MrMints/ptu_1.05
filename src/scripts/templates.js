@@ -5,6 +5,7 @@ export function registerTemplates() {
         // "systems/ptu/templates/partials/active-effects.hbs",
         "systems/ptu/static/templates/partials/mod-field.hbs",
         "systems/ptu/static/templates/partials/item-display-partial.hbs",
+        "systems/ptu/static/templates/partials/prerequisite-diagnostics.hbs",
 
         // Item Sheet Partials
         "systems/ptu/static/templates/partials/rules/rule-partial.hbs",

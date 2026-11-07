@@ -2,11 +2,39 @@ import { RuleElements } from "../rules/index.js";
 import { processGrantDeletions } from "../rules/rule-element/grant-item/helper.js";
 import { sluggify } from "../../util/misc.js"
 import { GrantItemRuleElement } from "../rules/rule-element/grant-item/rule-element.js";
+import { getDocumentSourceId, createCompendiumRefreshUpdate } from "../../util/document-source.js";
+import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
+import {isStarterTrainingGrant} from '../../util/starter-training.js';
+import {resolvePreservationSource} from '../../util/preservation.js';
+import {prerequisiteView} from '../../util/acquisition.js';
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../util/saved-item-graph.js';
+
+const preparedCreations=new WeakMap();
 
 class PTUItem extends Item {
 
+    clone(data={}, context={}) {
+        if (!context.save || !hasSavedItemGraph(this)) return super.clone(data,context);
+        return copySavedItemDocuments([this],{...context,parent:this.parent,pack:this.pack,changes:data})
+            .then(items=>items[0]);
+    }
+
+    get prerequisiteDiagnostic() {
+        return prerequisiteView(this);
+    }
+
+    static async fromDropData(data) {
+        // Core stamps provenance on the original Document. Saved graph copies must
+        // leave that source intact, including when expanded copying is cancelled.
+        const source=data.uuid&&!data.data?await foundry.utils.fromUuid(data.uuid):null;
+        const document=source?.documentName===this.documentName&&hasSavedItemGraph(source)?source:await super.fromDropData(data);
+        if (isExcludedAcquisitionDocument(document)) throw new Error('PTU | This compendium record is excluded from new acquisition by the Generations 1–8 scope.');
+        if (document.pack && isStarterTrainingGrant(document)) throw new Error('PTU | Use Choose Starter Training on a newly created trainer.');
+        return document;
+    }
+
     get sourceId() {
-        return this.flags?.core?.sourceId ?? undefined;
+        return getDocumentSourceId(this);
     }
 
     get schemaVersion() {
@@ -200,33 +228,96 @@ class PTUItem extends Item {
 
     /** @override */
     static async createDocuments(data = [], context = {}) {
-        const sources = data.map((d) => (d instanceof PTUItem ? d.toObject() : d));
+        const actor=context.parent;
+        if(actor&&!actor.isOwner){ui.notifications.error('PTU | Ownership is required to add items.');return [];}
+        let sources;
+        try {
+            sources=preparedCreations.has(data)?data:await this.prepareCreation(data,context);
+        }catch(error){actor?.reset();throw error;}
+        const plan=preparedCreations.get(sources);
+        preparedCreations.delete(sources);
+        if(plan?.conditionIncrements.length&&plan.parent!==actor)throw Error('PTU | Staged condition changes belong to a different actor.');
+        for(const id of plan?.conditionIncrements??[])if(!actor.items.get(id)?.system.value.isValued)throw Error('PTU | A staged condition changed; retry the acquisition.');
+        if(actor)context.keepId=true;
+        const created=await super.createDocuments(sources,context);
+        if(plan?.conditionIncrements.length&&created?.length!==sources.length)throw Error('PTU | Item creation did not complete; staged condition increments were not applied.');
+        // No saved effects run until every cancellable choice and Item creation succeeds.
+        for(const id of plan?.conditionIncrements??[])await actor.items.get(id)?.increase();
+        if (game.combat && sources.some(i => i.type === "condition" && sluggify(i.name) === "fainted")) {
+            const combatant = game.combat.getCombatantByActor(actor);
+            if (combatant && !combatant.defeated) await combatant.update({ defeated: true });
+        }
+        return created;
+    }
+
+    /** Resolve genuine/nested choices before any Item write; NPC generation uses a temporary actor. */
+    static async prepareCreation(data = [], context = {}) {
+        const sources = data.map(d=>foundry.utils.deepClone(d.toObject?.()??d));
 
         const actor = context.parent;
-        if (!actor) return super.createDocuments(sources, context);
+        if (!actor) return sources;
+        if(!actor.isOwner)throw Error('PTU | Ownership is required to prepare item creation.');
 
         const validTypes = actor.allowedItemTypes;
         const items = [];
         const outputSources = [];
+        const conditionIncrements=[];
+        const keepIds=context.keepId||context.keepEmbeddedIds;
+        const counts=new Map();
+        for(const source of sources)if(source._id)counts.set(source._id,(counts.get(source._id)??0)+1);
+        for(const source of sources)if(counts.get(source._id)>1&&(source.flags?.ptu?.grantedBy?.id||Object.keys(source.flags?.ptu?.itemGrants??{}).length))throw Error('PTU | Ambiguous saved grant node IDs; restore distinct complete graphs separately.');
+        const ids=new Map();
+        for(const source of sources){const oldId=source._id;source._id=keepIds?(oldId??foundry.utils.randomID()):foundry.utils.randomID();if(oldId&&counts.get(oldId)===1)ids.set(oldId,source._id);}
+        // Only exact IDs supplied together can be remapped; external/ambiguous links are never guessed.
+        for(const source of sources){
+            const ptu=source.flags?.ptu;
+            for(const grant of Object.values(ptu?.itemGrants??{}))if(grant?.id){if(counts.get(grant.id)>1)throw Error('PTU | Ambiguous saved grant IDs; restore the complete distinct graph.');if(ids.has(grant.id))grant.id=ids.get(grant.id);}
+            if(ptu?.grantedBy?.id&&ids.has(ptu.grantedBy.id))ptu.grantedBy.id=ids.get(ptu.grantedBy.id);
+        }
+        const restoredRules=new Map(),graphChildren=new Set(),graphMembers=new Set();
+        const graphTarget=id=>sources.find(s=>s._id===id)??(keepIds?actor.items.get(id)?._source:null);
+        for(const source of sources){
+            for(const edge of Object.values(source.flags?.ptu?.itemGrants??{})){
+                const target=typeof edge?.id==='string'?graphTarget(edge.id):null;
+                if(!target||target.flags?.ptu?.grantedBy?.id!==source._id)throw Error('PTU | Saved grant relationship is incomplete or inconsistent; include its exact parent and child for restoration/copy.');
+                graphMembers.add(source._id);graphMembers.add(target._id);graphChildren.add(target._id);
+            }
+            const parentId=source.flags?.ptu?.grantedBy?.id;
+            if(parentId){const parent=graphTarget(parentId);if(!parent||!Object.values(parent.flags?.ptu?.itemGrants??{}).some(edge=>edge?.id===source._id))throw Error('PTU | Saved grant parent is incomplete or inconsistent; include the complete reciprocal graph.');graphMembers.add(source._id);graphMembers.add(parentId);}
+        }
+        for(const source of sources){
+            const savedEdges=Object.entries(source.flags?.ptu?.itemGrants??{});
+            const grantRules=(source.system?.rules??[]).filter(rule=>rule.key==='GrantItem');
+            if(savedEdges.length&&grantRules.length){
+                const flags=grantRules.map(rule=>rule.flag);
+                if(flags.some(flag=>typeof flag!=='string'||!flag.trim())||new Set(flags).size!==flags.length||savedEdges.some(([flag,edge])=>typeof edge?.id!=='string'||!edge.id.trim()||!flags.includes(flag)))throw Error('PTU | Saved grant rule-to-edge association is unestablished or ambiguous; review explicit flags and restore the complete graph.');
+            }
+            for(const [index,rule] of (source.system?.rules??[]).entries()){
+                const saved=rule.key==='GrantItem'&&typeof rule.flag==='string'?source.flags?.ptu?.itemGrants?.[rule.flag]:null;
+                if(!saved?.id)continue;
+                const target=graphTarget(saved.id);
+                if(!target||target.flags?.ptu?.grantedBy?.id!==source._id)throw Error('PTU | Saved grant relationship is incomplete or inconsistent; include its exact parent and child for restoration/copy.');
+                if(!restoredRules.has(source._id))restoredRules.set(source._id,new Set());
+                restoredRules.get(source._id).add(index);graphChildren.add(target._id);
+            }
+        }
+        if(keepIds)for(const source of sources)if(graphMembers.has(source._id)&&actor.items.get(source._id))throw Error('PTU | Saved graph ID already exists; use an ordinary copy for independent IDs.');
 
         for (const source of sources) {
+            source.system??={};
             if (!validTypes.includes(source.type)) {
-                ui.notifications.error(`PTU | ${source.type.capitalize()}s cannot be added to ${actor.name}`);
+                ui.notifications.error(`PTU | ${source.type} cannot be added to ${actor.name}`);
                 return [];
             }
 
-            if (!(context.keepId || context.keepEmbeddedIds)) {
-                source._id = foundry.utils.randomID();
-            }
-
-            if (source.system.stackSlugs) source.system.slug = sluggify(source.name + foundry.utils.randomID());
+            if (source.system.stackSlugs&&!graphMembers.has(source._id)) source.system.slug = sluggify(source.name + foundry.utils.randomID());
 
             const item = new CONFIG.Item.documentClass(source, { parent: actor });
 
-            if (item.type === "condition") {
+            if (item.type === "condition"&&!graphChildren.has(source._id)) {
                 const existing = actor.itemTypes.condition.find(c => c.slug === sluggify(item.name.replaceAll(/\d/g, '')));
                 if (existing) {
-                    if (existing.system.value.isValued) existing.increase();
+                    if (existing.system.value.isValued) conditionIncrements.push(existing.id);
                     continue;
                 }
             }
@@ -259,29 +350,19 @@ class PTUItem extends Item {
         for (const item of items) {
             item.prepareActorData?.();
 
-            const itemSource = (() => {
-                if (item.type !== "condition") return item._source;
-
-                const existing = actor.itemTypes.condition.find(c => c.slug === sluggify(item.name));
-                if (existing) {
-                    return existing._source;
-                }
-                return item._source
-            })();
+            const itemSource=item._source;
 
             const rules = item.prepareRuleElements();
             for (let i = 0; i < rules.length; i++) {
-                const ruleSource = itemSource.system.rules[i];
+                const index=rules[i].sourceIndex??i;
+                if(restoredRules.get(item.id)?.has(index))continue;
+                const ruleSource = itemSource.system.rules[index];
                 await rules[i].preCreate?.({ itemSource, ruleSource, pendingItems: outputSources, context });
             }
         }
 
-        if (game.combat && outputSources.some(i => i.type === "condition" && sluggify(i.name) === "fainted")) {
-            const combatant = game.combat.getCombatantByActor(actor)
-            if (combatant && !combatant.defeated) await combatant.update({ defeated: true })
-        }
-
-        return super.createDocuments(outputSources, context);
+        preparedCreations.set(outputSources,{conditionIncrements,parent:actor});
+        return outputSources;
     }
 
     /** @override */
@@ -361,6 +442,7 @@ class PTUItem extends Item {
 
     async refreshFromCompendium() {
         if (!this.isOwned) return ui.notifications.error("PTU | Item must be owned to refresh from compendium");
+        if (!this.isOwner) return ui.notifications.error('PTU | Item ownership is required to refresh.');
 
         if (!this.sourceId?.startsWith("Compendium.")) {
             console.warn("PTU | Item must be from a compendium to refresh from compendium");
@@ -368,24 +450,19 @@ class PTUItem extends Item {
         }
 
         const currentSource = this.toObject();
-        const latestSource = (await fromUuid(this.sourceId))?.toObject();
+        let latestSource;
+        try { latestSource = (await resolvePreservationSource(this))?.toObject(); }
+        catch (error) {
+            console.warn("PTU | Could not resolve compendium source", this.sourceId, error);
+            return ui.notifications.error("PTU | Could not find latest source for item");
+        }
         if (!latestSource) return ui.notifications.error("PTU | Could not find latest source for item");
         else if (latestSource.type !== this.type) return ui.notifications.error("PTU | Item type must match latest source type");
 
-        const updatedImage = currentSource.img.endsWith(".svg") ? latestSource.img : currentSource.img;
-        const updates = {
-            img: updatedImage,
-            system: latestSource.system,
-        }
-
-        if (this.type === "item") {
-            // Preserve the current quantity
-            const { quantity } = currentSource.data;
-            updates.system.quantity = quantity;
-        }
+        const updates = createCompendiumRefreshUpdate(currentSource, latestSource, this.constructor.DEFAULT_ICON);
 
         await this.update(updates, { diff: false, recursive: false });
-        ui.notifications.info(`PTU | Item ${this.name} updated from compendium`);
+        ui.notifications.info(`PTU | ${this.name}: missing source fields refreshed; existing values and selections preserved. Version replacement requires explicit review.`);
     }
 
     async use(options = {}) {

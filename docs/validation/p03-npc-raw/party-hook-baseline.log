@@ -1,0 +1,25 @@
+✔ ordinary bundled dropdown lookup retains the clicked Medical Techniques identity (15.8647ms)
+✔ bundled lookup separates same-name classes, Features, Edges and species; context is printable and escaped (3.084ms)
+✔ repeat/remove/re-add and rename retain independent exact identities without mutating legacy UUID inputs (1.156ms)
+✔ actual refresh/generation preserves same-name source/version data and each repeat subchoice after rename/removal (8.5849ms)
+✔ actual NPC cancellation, denied actor creation and ambiguous-name selections perform no writes (3.0522ms)
+✔ actual species refresh follows a changed exact selection and clears an explicit removal (2.4136ms)
+✖ selected species reaches the actual NPC party-generation hook and generated data (1.9103ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 55.87
+
+✖ failing tests:
+
+test at tests\npc-selection.test.mjs:137:1
+✖ selected species reaches the actual NPC party-generation hook and generated data (1.9103ms)
+  ReferenceError: actor is not defined
+      at NpcQuickBuildData.generate (evalmachine.<anonymous>:1164:61)
+      at async TestContext.<anonymous> (file:///D:/Projects/PTU%201.05%20on%20Foundry/tests/npc-selection.test.mjs:140:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

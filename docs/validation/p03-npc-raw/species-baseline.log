@@ -1,0 +1,36 @@
+✔ ordinary bundled dropdown lookup retains the clicked Medical Techniques identity (16.4054ms)
+✔ bundled lookup separates same-name classes, Features, Edges and species; context is printable and escaped (1.808ms)
+✔ repeat/remove/re-add and rename retain independent exact identities without mutating legacy UUID inputs (0.89ms)
+✔ actual refresh/generation preserves same-name source/version data and each repeat subchoice after rename/removal (6.798ms)
+✔ actual NPC cancellation, denied actor creation and ambiguous-name selections perform no writes (2.6278ms)
+✖ actual species refresh follows a changed exact selection and clears an explicit removal (1.9672ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 44.5283
+
+✖ failing tests:
+
+test at tests\npc-selection.test.mjs:126:1
+✖ actual species refresh follows a changed exact selection and clears an explicit removal (1.9672ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Item.speciesA'
+  - 'Item.speciesB'
+                 ^
+  
+      at TestContext.<anonymous> (file:///D:/Projects/PTU%201.05%20on%20Foundry/tests/npc-selection.test.mjs:132:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Item.speciesA',
+    expected: 'Item.speciesB',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

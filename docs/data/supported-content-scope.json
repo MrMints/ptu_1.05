@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "decisionDate": "2026-10-25",
+  "policy": "PTU 1.05 mechanics plus approved Generations 1–8 content only; Generation 9 and later excluded.",
+  "supportedGenerationRange": {
+    "minimum": 1,
+    "maximum": 8
+  },
+  "policyReference": "docs/SCOPE.md",
+  "enforcement": {
+    "runtimeFilteringImplemented": false,
+    "releasePackExclusionImplemented": false,
+    "completeContentClassification": false,
+    "partialNewAcquisitionGuardImplemented": true,
+    "guardedIdentities": [
+      "effects.3w7uQfBvzzxATXis",
+      "species.dkQPNz0RLbgzWMLq",
+      "species.jAIJeRtRc1sUekjO"
+    ],
+    "developmentPackagePreservesOriginalUuids": true,
+    "supportedBuildRefusesIncompleteApproval": true,
+    "evidence": "docs/validation/2026-10-25-corrective02.md",
+    "stagedOwners": ["04", "05", "09"]
+  },
+  "basis": "Owner project-scope decision and the recorded stable-ID consumer inventory; labels below are explanatory, never identity or classification rules.",
+  "auditReference": "docs/data/compendium-reference-audit.json",
+  "sourceFingerprint": "df9fe41332a28a3a7af2e37026853c2588da01c30c9697a5ba7b82634d35a49f",
+  "knownExcludedConsumers": [
+    {
+      "identity": "effects.3w7uQfBvzzxATXis",
+      "displayName": "Terapagos: Normal Forme",
+      "disposition": "excluded-generation-9-consumer"
+    },
+    {
+      "identity": "species.dkQPNz0RLbgzWMLq",
+      "displayName": "Dipplin",
+      "disposition": "excluded-generation-9-consumer"
+    },
+    {
+      "identity": "species.jAIJeRtRc1sUekjO",
+      "displayName": "Hydrapple",
+      "disposition": "excluded-generation-9-consumer"
+    }
+  ],
+  "currentReferenceScope": [
+    {
+      "target": "abilities.DUw3xozURebyikaS",
+      "occurrenceFingerprint": "8b6272a4f12225fdbcf17beb7cf826a06e6acc061f1d89a4d92a5a0b066e92a1",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "capabilities.v1ksvxUrvIhkV7aD",
+      "occurrenceFingerprint": "546a5dde72a17b57773676b2b1fe82b2848e79a0bfcaf9636d2e569082f2714d",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.73AHUIh6V65adbTW",
+      "occurrenceFingerprint": "09766e231ff4abe5312e3be45135c65b7a720093b721e66d831e785ea2947772",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.9ctsajRuxfXNvEnv",
+      "occurrenceFingerprint": "87e5d2f69463d56d2a95087e841e6a39015e0f31690cde0c20de10a4df997c38",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.9xBKv8W7Bus0tIly",
+      "occurrenceFingerprint": "bd11a811755f8d248474d49fa813e33f4256ec24bc40bb05875519377a69f20a",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.ARPgyJJ3JseliM1K",
+      "occurrenceFingerprint": "31889715c7bc6962506ac639fab7853197910ad027c20b0ef610aa0f4e2e9e43",
+      "sources": [
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 1,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.CCIib8kjCbVHJqC4",
+      "occurrenceFingerprint": "23133e6a667a97eaa720e2873584bf92de5b3bc352710428728deb54914450c3",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.dUETXbMQMsjLOsfo",
+      "occurrenceFingerprint": "6cc46b0426bccba66c7c362b76400ea096e7f3db2f04c9b905816a08926984d9",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.ecbGKQbSoxGEIpbH",
+      "occurrenceFingerprint": "c0f17ad774d23a8d4072e1ba6b24fd6b8c241010f0e2a6a462317f8777092db1",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.IW5JN8hhwgXFV72V",
+      "occurrenceFingerprint": "b9edfd92750f5da28e8e2a71f6458342db71618e957dfb1b89f0def6ba35968c",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.K7UB9TkJk18A5zvS",
+      "occurrenceFingerprint": "9c8edf478ff8487daa536da1b6c71c30921205ea0c3dd20fc72310cd1052e352",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.L3SlDw7Vz1QpAN7Z",
+      "occurrenceFingerprint": "12469b2ce5a66b462c8ab881dcb2895d290bd24f47c67523af3ff600fb8a0632",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.mrYbUoEGQqVbkd8D",
+      "occurrenceFingerprint": "54db7b2b095d890b96181c4573dc1d3cae5d1d87b34881babdb5989d85256200",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.oXkwKDV9PDa2HBR6",
+      "occurrenceFingerprint": "701e7b9ccfa5b350f2794c74e727f0ab374709631f9f6e2e1a6c420d41e7a1cc",
+      "sources": [
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 1,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.QbOpkuydT0R2mo0z",
+      "occurrenceFingerprint": "1731c67779a6984235081420a1b26bbe69bff6cead4307647836ec5d2176ad87",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.TokvBTYi7ZG92XHJ",
+      "occurrenceFingerprint": "12d4693ee51d6967e0dba2d78992741523454c45ac79c5b3644acafcf8d3cc6d",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.vypDpjMbQDlUywfo",
+      "occurrenceFingerprint": "79d5938b76a68c0e765314aaf1f46dff0a24bc5c2f7dcf421761fc2ede48f4ee",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.Y1brXQWXKmLFHLEe",
+      "occurrenceFingerprint": "c8b8f9e72a594096c837bdc16c3d2ee49ebf8bd4142c6ccf8751fae9514fcbfc",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 4,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.yeX0bso0PRJIS9XL",
+      "occurrenceFingerprint": "5e5efbe60660ce8b976c13d652002fe45340ce0bd146321218caa4132f2f004e",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.yg2lgjKqsBKRO17s",
+      "occurrenceFingerprint": "f59c104128d7facd77a242f87b370bb6832e1f87e43d2ad32d00823cbe0a2822",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.yjo9WADdCK1VkuOf",
+      "occurrenceFingerprint": "388a954c944f02cef42651b5c2b5cca264abcfddee4fa1faadd43d1190f37811",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.YXfJThGTFgAhZO7u",
+      "occurrenceFingerprint": "49fa3c8fe4cdfa0f0fc4de0f3e3811530318cb5189e0a52165c508261d5e1a08",
+      "sources": [
+        "species.dkQPNz0RLbgzWMLq",
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 2,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "moves.Zp2xGTRJ3Enoj6Ip",
+      "occurrenceFingerprint": "54efce289dd8246dde763d2843a95ce17c71acaabfdd4a86ac5992f399203e9b",
+      "sources": [
+        "species.jAIJeRtRc1sUekjO"
+      ],
+      "occurrences": 1,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    },
+    {
+      "target": "species.uTLNgrPjP79HCmkW",
+      "occurrenceFingerprint": "f18c09d8aa41d11a769db667cd90d52de09220ca68b9b912719c972bb0c85e18",
+      "sources": [
+        "effects.3w7uQfBvzzxATXis"
+      ],
+      "occurrences": 1,
+      "acceptanceDisposition": "excluded-consumers-only-no-current-recovery-requirement",
+      "targetGeneration": null,
+      "targetIdentityRecovery": "unresolved",
+      "revisitIf": "A consumer changes or an independent in-scope consumer is evidenced; do not infer the target itself is Generation 9."
+    }
+  ],
+  "summary": {
+    "currentExcludedConsumerTargets": 24,
+    "currentExcludedConsumerOccurrences": 46,
+    "preservedProvenanceTargets": 658,
+    "inheritedMoveInventory": 1184,
+    "supportedMoveCount": null,
+    "supportedSourceRecordCount": null
+  },
+  "limitations": [
+    "This ledger annotates reference scope and records partial exact-ID acquisition guards; complete runtime filtering and supported-package exclusion remain false.",
+    "The current audit covers explicit missing UUIDs in declared source records, not all possible runtime/dynamic or custom consumers.",
+    "Historical diagnostics and original ledgers are retained unchanged.",
+    "Unclassified source content still needs authoritative generation/version attribution.",
+    "Existing campaigns and user-authored records must not be deleted or silently rewritten."
+  ]
+}

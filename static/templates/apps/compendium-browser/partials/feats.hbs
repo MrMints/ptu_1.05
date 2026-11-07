@@ -6,6 +6,14 @@
         <a class="item-link">{{entry.name}}</a>
     </div>
     <div class="tags">
+        {{#if entry.ruleVersion}}
+            {{#if (eq entry.ruleVersion.status "resolved")}}
+                <span class="tag rule-version" title="{{entry.ruleVersion.sourceCitation}}">{{entry.ruleVersion.versionLabel}}</span>
+                <span class="tag rule-source">{{entry.ruleVersion.sourceEdition}} — {{localize entry.ruleVersion.sourceStatusLabel}}</span>
+            {{else}}
+                <span class="tag rule-version-unresolved">{{localize entry.ruleVersion.statusLabel}}</span>
+            {{/if}}
+        {{/if}}
         {{#if entry.class}}<span class="tag class class-{{entry.class}}" title="{{entry.class}}">{{entry.classPretty}}</span>{{/if}}
         {{#each entry.prerequisites as |entry|}}
             {{#if entry.tier}}

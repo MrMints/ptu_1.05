@@ -13,6 +13,10 @@ import { PTUDamage } from "../system/damage/damage.js";
 import { PTUMoveDamage } from "../system/damage/move.js";
 import { ActorConditions } from "./conditions.js";
 import { IWRData, ImmunityData, ResistanceData, WeaknessData } from "./iwr.js";
+import { getDocumentSourceId } from "../../util/document-source.js";
+import {actorPrerequisiteViews} from '../../util/acquisition.js';
+import { shouldOfferStarterTraining, selectStarterTraining } from "../../util/starter-training.js";
+import { getSkillLabel } from "../../util/skills.js";
 import { PTUModifier, StatisticModifier } from "./modifiers.js";
 
 /** @typedef {import('../../module/rules/rule-element/base').RuleElementPTU} RuleElementPTU */
@@ -36,7 +40,7 @@ class PTUActor extends Actor {
     }
 
     get sourceId() {
-        return this.flags.core?.sourceId ?? null;
+        return getDocumentSourceId(this) ?? null;
     }
 
     get schemaVersion() {
@@ -45,6 +49,10 @@ class PTUActor extends Actor {
 
     get allowedItemTypes() {
         return ["effect"]
+    }
+
+    get prerequisiteDiagnostics() {
+        return actorPrerequisiteViews(this);
     }
 
     get origins() {
@@ -466,14 +474,17 @@ class PTUActor extends Actor {
     _onCreate(data, options, user) {
         super._onCreate(data, options, user);
         if(user !== game.user.id) return;
-        if(data.type === 'character') {
-            if(!data.items.some(i => i.name.endsWith("Training"))) {
-                // Grant lvl 1 training
-                fromUuid('Compendium.ptu.edges.Item.xiZydXM8sex5CP7O').then((effect) => {
-                    this.createEmbeddedDocuments('Item', [effect.toObject()]);
-                });
-            }
+        if (shouldOfferStarterTraining(data, options)) {
+            this.setFlag('ptu','starterTraining',{status:'pending'}).then(() => this.selectStarterTraining()).catch(error => {
+                console.error('PTU | Could not select starter training', error);
+                ui.notifications.warn('PTU | Could not select starter training. Review this trainer manually.');
+            });
         }
+    }
+
+    selectStarterTraining() {
+        return selectStarterTraining(this, {load:uuid => fromUuid(uuid),
+            copy:document => game.items.fromCompendium(document,{ptuStarterTraining:true}), warn:message => ui.notifications.info(message)});
     }
 
     /** @override */
@@ -898,6 +909,7 @@ class PTUActor extends Actor {
     /** @override */
     _onUpdate(data, options, userId) {
         super._onUpdate(data, options, userId);
+        this._renderPrerequisiteItemSheets();
 
         if (data.system?.health?.value !== undefined) {
             if (data.system.health.value <= 0 && game.settings.get("ptu", "automation.autoFaint")) {
@@ -920,19 +932,27 @@ class PTUActor extends Actor {
     /** @override */
     _onUpdateDescendantDocuments(parent, collection, documents, changes, options, userId) {
         super._onUpdateDescendantDocuments(parent, collection, documents, changes, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
     }
 
     /** @override */
     _onCreateDescendantDocuments(parent, collection, documents, data, options, userId) {
         super._onCreateDescendantDocuments(parent, collection, documents, data, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
     }
 
     /** @override */
     _onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId) {
         super._onDeleteDescendantDocuments(parent, collection, documents, ids, options, userId);
+        this._renderPrerequisiteItemSheets();
         if (game.combat && this.combatant) this.#updateInitiative();
+    }
+
+    _renderPrerequisiteItemSheets() {
+        // Species ranks and owned dependencies also affect other open Item reports.
+        for(const item of this.items)for(const app of Object.values(item.apps??{}))if(app.rendered)app.render(false);
     }
 
     async #updateInitiative() {
@@ -1264,7 +1284,7 @@ class PTUActor extends Actor {
         const statistic = new StatisticModifier(skill, []);
 
         const action = foundry.utils.mergeObject(statistic, {
-            label: game.i18n.format("PTU.Check.SkillCheck", { skill: game.i18n.localize(`PTU.Skills.${skill}`) }),
+            label: game.i18n.format("PTU.Check.SkillCheck", { skill: getSkillLabel(skill) }),
             domains: selectors,
             type: "skill",
             options,
