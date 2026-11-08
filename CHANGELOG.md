@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P05 non-runtime Huge Power Ability drafts
+
+- Author separate core p320 and individually optional February 2016 playtest p5 drafts with complete source wording, the 13 declared Ability/base fields and independently proposed identities. Preserve inherited Huge/Pure Power and Echoes records; copy no executable rules, automation, permissions, provenance or migration stamps.
+- Add a fixed pure source/schema/identity validator, bounded read-only CLI and committed-input tests. The focused suite passes **65/65**, and the separately admitted CLI and declared package validation pass; initial test/CLI child-spawn restrictions and npm absence remain recorded in the [append-only P05 evidence](docs/validation/2026-10-29-p05-foundation-acceptance.md#huge-power-authored-draft-batch--2026-11-08). Final-head CI and independent/Plan acceptance including identity review remain separate gates. No production mapping, installation, selection, calculation or cannot-disable behavior is claimed.
+
 ### P05 isolated Echoes replacement planner — locally validated
 
 - Add one unconnected, strict JSON-string inspection planner for the approved core/optional May Echoes pair. Keep compiler Item hashes separate from canonical review seals; validate explicit acknowledgements and privacy-bounded intent history without producing an update object or persisting data.

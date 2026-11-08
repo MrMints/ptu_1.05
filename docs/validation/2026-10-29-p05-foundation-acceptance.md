@@ -675,3 +675,73 @@ Independent review after f4a42009 found a missed forward-slash dataPath and a la
 ## P05 admitted native preflight stopped before mutation — 2026-11-01
 
 Offline68993f5c was accepted after CI41342866920/2980, independent121 and planner re-review. The [new stopped preflight record](p05-feature-review-admitted-native.md) preserves command admission separately from execution: fresh managed target process/port/lock checks pass, but the separately reviewed frozen private-directory checker throws STOP: unrepresentable captured JSON before confirming restrictions. No retry/bypass/tool change or native mutation followed. Original archive/five-proof/backup byte replay and all16 retained-candidate runtime bindings pass; fresh installed/served state, accounts/access/exit, baseline, conversion and closure remain unverified. Native0 attempted/0 passed/0 failed/28 not run. Ten documentation paths only, complete historical prefixes and all tooling/evidence protected. New final documented-head CI/clean agreement precede STOP/RELEASE for independent/planner evidence review; no automatic retry, next batch, full05/pre06, merge or release.
+
+
+## Huge Power authored-draft batch — 2026-11-08
+
+Current operating-policy supersession — November 8, 2026: Mat removed every PTU 1.05 work-hours/blackout restriction. Work may proceed at any hour on any day. Earlier dated hours/weekday/weekend text is historical, not an active hold. The supported codex.primary 10,080-minute weekly <=5% checkpoint/hold, recovery only after a fresh verified actual 100% weekly reset, reset notifications, saved-model, sole-writer, managed-review and acceptance gates remain.
+
+Plan 01a1b9f7-4133-7302-b499-b5e2f9b8edd8 admitted this exact ten-path author/test/finalization batch; the coordinator assigned existing P05 sole checkout writer/no world. Entry verified clean c95f62ea9198c63aab934eab0b32b93cd6e0f320, codex/ptu-foundation, MrMints/ptu_1.05 and all three new paths absent. No prior report or failure is replaced.
+
+### Source and authored boundary
+
+Core320 sourceDefinition core:320:ability-line34 (r04-s12) is Static and retains: The Pokemon's Base Attack stat is doubled. This may double any bonuses from Nature or Vitamins, but not bonuses from Trainer Features. February5 sourceDefinition feb:5:ability-line83 (r04-s01, 2016-02 month precision, optional-playtest) is Static and retains: The user's Base Attack Stat is increased by +5, and by +1 more for every 10 Levels the user has. This Ability cannot be disabled in any way. Join whitespace only; preserve source spelling, words, numbers and punctuation. Core publication date remains unknown/null. No PDF was reopened.
+
+Declared source PDFs remain core e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907 and February bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916. Portable validation checks committed authority/reference/definition/audit/lineage records and exact input hashes, not original PDF bytes or runtime behavior. The existing Huge Power additive ActiveEffectLike rule is not copied. Pure Power core327/core:327:ability-line18 and inherited abilities.nuGa21WQ0QD07kQj remain separate despite shared February printing.
+
+[Draft JSON](../data/rule-version-huge-power-draft.json) contains two complete Ability-shaped items with exactly 13 declared system fields and independent source/default dispositions. [Fixed validator](../../tools/rule-version-huge-power-draft.mjs) and [focused tests](../../tests/rule-version-huge-power-draft.test.mjs) add no runtime consumer, existing-helper edit, schema registration or production payload. Source effect/frequency/attribution are authored; neutral defaults include empty rules, enabled=true, slug=null and both schema values null. No automation field, Innate substitution, permission, flags, timestamps, migration stamp or pack envelope is inherited.
+
+### Proposed identity allocation and preservation
+
+One node:crypto.randomInt set generated five independent 16-character alphanumeric values, receipt 1fdb92, no regeneration.
+
+| Role | Proposed Item ID | Proposed version ID | Shared proposed canonical ID |
+| --- | --- | --- | --- |
+| Core baseline | ypjzWxMaeA5IzjQb | N77AbLpO4cfdubJU | OnXtELEC8HtZL2xT |
+| February optional | Z4qnGQ3gbYYIs66d | jAM8ro6ZClgBEbOl | OnXtELEC8HtZL2xT |
+
+Initial Git inventory: 7,395 tracked pack-source paths, 7,394 unique filename IDs; this is an identity inventory, not a supported-scope total. SHA256(JSON.stringify(sorted unique IDs)) = 22f7417fac6c4a09048c5a7b2cf2e26969307b31133a09c25283bc98539f44bf; sorted tracked-path JSON hash = 3753c69c130ce2274f5ed4b0c648b221d53e0b6488a25fcc2d45439425c1f056. One batched exact-ID boundary search at c95f62ea in tracked packs/*/_source/*.json and docs/data/**/*.json found zero matches (Git exit 1). Explicit inherited Huge/Pure Power and existing Echoes exclusions passed. No globally unique/private campaign, installed or reserved identity claim follows; independent and substantive identity review remain required.
+
+All inherited records/UUIDs, source ledgers, templates, runtime, Echoes artifacts, dependencies/workflows and saved/custom selections stay protected. ProductionMapping=null, generationEligibility=unclassified and false/not-run content approvals remain distinct from implementation of this isolated validator. No default/optional selection, attack calculation, cannot-disable enforcement, alternate-benefit/repeat/transfer policy, installation, migration or live/campaign behavior is implemented.
+
+### Runtime, validation and historical evidence
+
+Verified ordinary runtime: C:/Users/mathi/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe; v24.22.1; SHA256 86f361a88f4cc3ecaf1ea93236b0d8edf07bf00fe87ad9f60305513f58fc2c17. The normal signed-in Windows account was verified unelevated; exact account binding remains in the command receipts. No model/settings change. Retain this runtime throughout this batch; historical runtime pins are not used as fresh verification.
+
+Local syntax/focused/CLI/npm-validation/whitespace and exact ten-path/protected-prefix checks are pending at this authoring checkpoint. Record actual results and any failures below without rewriting this checkpoint. Final documented-head normal CI, clean local/tracking/actual remote/open draft PR4 agreement and independent/substantive Plan acceptance remain required before checkout release.
+
+The readiness history stays separate: old invalid extraction 1,480 total lines/128,581 bytes (reported source 1,445/88,143 invalid); successful corrective extraction 1/1 consumed, exit 0, 1,427 valid source lines/87,999 bytes, 1,444 total/91,882 bytes. These were reads, not test executions. Frozen synthetic 1/1 consumed, zero executions/150 not run; native 0/0/28; held 7335c7 UNCERTAIN, cessation confirmed, five consumed/cap nine/four held/no retry; vendor 23 files/542,217 bytes. No held branch is reopened.
+
+### First ordinary validation stopped before test bodies
+
+Receipt 16dfc8 used the freshly verified v24.22.1 runtime above through the ordinary unchanged managed route. Syntax for the new validator passed. The subsequent exact node --test tests/rule-version-huge-power-draft.test.mjs could not spawn its test-file process: EPERM, 1 failed file entry, 0 passed/cancelled/skipped/todo, 0 test bodies executed; parent exit 1, no pending session. This is an execution restriction, not a failed implementation assertion or passing test. CLI and the later whitespace command in that group did not run. No retry, test-isolation change, direct test import, alternate runtime or route followed.
+
+Earlier ordinary npm command discovery (f49861) returned command-not-found. No npm validation process was created and no alternative validation route was used. These facts were reported to the existing coordinator; local execution disposition remains pending.
+
+Preliminary independent static review then identified that the rejection helper compared only untouched global fixtures. Within the admitted test file, it now also snapshots the actual changed d/i arguments before validation and compares those same supplied arguments afterward. No test bodies have exercised this improvement; it does not itself renew the stopped execution.
+
+Independent unaffected Git checks pass in 818d4b: whitespace and the exact seven modified/three new paths, with no outside-scope tracked or untracked paths. Six complete historical documentation byte prefixes pass before this append. No commit/push/CI has occurred; P05 retains sole writer ownership pending the precise local-validation disposition.
+
+### Separately admitted first CLI and declared package validation
+
+Plan 01a1ba0d-a4fc-7663-ac35-a7ff056defcb accepted the stopped test disposition and separately admitted the first unrun CLI and direct package-script body through the same pinned Node/use_default route. It also admitted preparation of one action-specific focused-test managed-review request; that request is not submitted at this checkpoint. The three authored source/test SHA256 and byte bindings remain unchanged after the negative-helper correction.
+
+CLI receipt 35cc5a: the first node tools/rule-version-huge-power-draft.mjs execution reached its read-only adapter, but spawnSync git EPERM prevented the tracked filename inventory and the subsequent validator call. Exit 1, no session, no target writes; this is an adapter process restriction, not a failed validator assertion. No CLI escalation, retry or alternate inventory route followed.
+
+Declared package validation was separately executed as node tools/validate.mjs, exactly the package.json validate body with no prevalidate/postvalidate/environment assignment. Receipt 360680/session75036 ended at terminal d64553 with exit 0: validated manifest,17 skill mappings,15 packs and7,395 source documents; gameplay verification remains separate. This is not a claim that npm ran or was installed. The earlier npm command-discovery failure remains retained.
+
+The focused test bodies remain 0 executed. The original test-file spawn EPERM, corrected helper, syntax pass and unaffected checks retain their separate meanings. Source/test changes, another CLI attempt, test launch, commit/push and CI remain held pending the exact coordinator-reviewed command and applicable managed approval. Existing P05 retains checkout ownership; every process from these first executions has ended.
+
+### Separately reviewed successful focused and CLI executions
+
+Coordinator static acceptance bound the unchanged complete guarded commands from preparation 01a1ba19-5f8f-7d33-b72f-26ff4abda7d2. Plan 01a1ba0d admitted one action-specific focused request and Plan 01a1ba16 separately admitted one CLI request after the original child-spawn restrictions. Each was submitted once through require_escalated with an action-specific justification and no reusable prefix; no separate approval receipt was surfaced, while actual guarded execution and terminal results were observed. This is the normal unelevated account, not administrator elevation; environment, runtime and default test isolation were unchanged.
+
+Focused request: 5207cb/session57421; guards passed exact Node/three authored-file pins, c95f62ea/branch, intentional seven-modified/three-new paths, nine protected blobs, six historical prefixes and zero targeted competing validation processes. Terminal 881ff2: **65 passed,0 failed/cancelled/skipped/todo**, exit 0, session ended. Actual assertions compare both complete committed source definitions and schema defaults, optional-playtest/date distinctions, all authored field dispositions, distinct proposed IDs/Pure Power control, negative mutations and preservation of the actual supplied changed d/i inputs. Repeated and LF/CRLF evidence validation preserve all supplied inputs. These are descriptive authoring/integrity tests, not gameplay execution.
+
+Only after focused success/cessation and fresh usage/unchanged-pin checks, the separate unchanged CLI request ran once: 3a9934, exit 0, no pending session. All guards passed and the actual fixed validator reported both non-runtime Ability drafts valid. It emitted no production mapping, Item/update payload or target write. The earlier default CLI 35cc5a and test 16dfc8 failures remain separate; neither was relabeled. The independently passed direct package validation d64553 remains reused without an unchanged rerun, and npm itself remains unavailable/unrun.
+
+Tested bytes remain draft a3889deba8a51edb13e1e94b0913d9957cc45c4362f5dd17174a24e48dcbe2dd (28,973 bytes), validator 039e23f0fce439884cd8d42693b1efcbc19f28a60557f33f11dbf40e412d0afc (17,157), corrected tests 2e8941e1617e030bcbdcd039cffcc5f03833a45f16851174c5bd677685e087f4 (16,039). No source/test edits followed these passes. New checks after this point are limited to affected documentation/diff/protection verification and normal final documented-head CI.
+
+### Finalization and review boundary
+
+Only the exact ten admitted paths may be committed/pushed to MrMints/ptu_1.05, codex/ptu-foundation, existing open draft PR4. Final documented-head normal CI and clean local/tracking/actual-remote/PR-head agreement remain required at this checkpoint. The terminal chat handoff records exact final revision/run/jobs and supersedes this pre-CI checkpoint without a self-referential commit assertion or erasing pending history. No PR approval/state change, merge, release, native case or subsequent batch is authorized. Independent review and substantive Plan acceptance must assess source interpretation, identity proposal and implementation limits after safe writer release.
