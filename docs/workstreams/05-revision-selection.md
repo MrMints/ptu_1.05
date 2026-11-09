@@ -220,3 +220,17 @@ Stopped ordinary Huge Power local validation: syntax passed, then test-file spaw
 Plan 01a1ba0d separately admitted first CLI and direct package-script validation. CLI 35cc5a stopped at spawnSync git EPERM before validator invocation; no retry/escalation. Direct node tools/validate.mjs passed, terminal d64553, session75036 ended; npm itself did not run. The corrected focused suite still has zero executed bodies and its exact managed-review command is preparation-only pending coordinator acceptance. Sole checkout ownership remains with existing P05.
 
 Successful separate execution checkpoint: focused 65/65, terminal881ff2/session57421 ended; CLI3a9934 exit0 ended, both unchanged guarded action-specific requests. Direct declared package check d64553 remains passing and was not rerun; preserve initial EPERM/npm evidence. Draft/validator/corrected-test pins remain unchanged. Complete only scoped ten-path normal publication and final documented-head CI/clean agreement, then STOP/RELEASE for independent and substantive Plan review including identities. All frozen branches remain closed.
+
+## 2026-11-08 — Basic Ranged inactive pair
+
+The admitted authoring batch records the original core entry and September level-only optional revision as separate, inactive source proposals. It pins the three retained source units and G9 schema/preservation inputs. The five new proposal IDs are distinct apart from the shared proposal-local grouping ID. No inherited IDs or runtime capability mappings are adopted.
+
+Preserve existing records, saved selections, ownership and legacy fields. Future acquisition diagnostics must be advisory and itemized, with known unmet and unverifiable conditions distinguished. Scope, security and effect-use conditions are separate. Test and CLI execution, runtime integration, new-world defaults and production approval remain gated. G5/G6 are held and overall readiness is incomplete.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+The inactive pair passed 34 focused integrity tests and the fixed-input CLI under the admitted Node pin. The tested data, tool and test files remain byte-identical. Retain the verified source, template and preservation inputs. The next gate is independent review followed by substantive Plan acceptance, with P05 retaining sole writer ownership. G5/G6 and runtime readiness remain incomplete.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+The reviewed Basic Ranged source-only pair and its bounded integrity validation are accepted locally. Preserve the exact tested data, validator and tests and all existing working prefixes. No further implementation or test run is part of finalization. Git authorship, separate publication approval and CI remain held. Runtime adoption and overall readiness remain incomplete.

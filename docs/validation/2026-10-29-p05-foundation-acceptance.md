@@ -745,3 +745,52 @@ Tested bytes remain draft a3889deba8a51edb13e1e94b0913d9957cc45c4362f5dd17174a24
 ### Finalization and review boundary
 
 Only the exact ten admitted paths may be committed/pushed to MrMints/ptu_1.05, codex/ptu-foundation, existing open draft PR4. Final documented-head normal CI and clean local/tracking/actual-remote/PR-head agreement remain required at this checkpoint. The terminal chat handoff records exact final revision/run/jobs and supersedes this pre-CI checkpoint without a self-referential commit assertion or erasing pending history. No PR approval/state change, merge, release, native case or subsequent batch is authorized. Independent review and substantive Plan acceptance must assess source interpretation, identity proposal and implementation limits after safe writer release.
+
+## 2026-11-08 — Basic Ranged authoring evidence and held validation
+
+This appendix records local authoring at `f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de`. It does not change the historical foundation acceptance. The source-only pair is [draft data](../data/rule-version-basic-ranged-draft.json), validated by the new pure checker in `tools/rule-version-basic-ranged-draft.mjs` with focused tests in `tests/rule-version-basic-ranged-draft.test.mjs`.
+
+- Core205 `core:205:feature-line39` uses authority `r04-s12` with unknown publication date. September9 `sep-basic-ranged-level-directive` uses authority `r04-s03`, optional playtest at month precision (2015-09). The complete original effect and six labels, cost, range and distinct repetition survive the single Level 20 removal.
+- Core204 `poke-edge-framework` is separate context. The printed training, prerequisite gate and loss/removal/refund are preserved as evidence. Advisory acquisition and separate security/scope/effect-use conditions govern future design. No automatic spending, refund, removal, disablement, grant or rank change is proposed.
+- G9 confirms 13 declared fields. The inherited `system.name` and `system.useCount` and the rest of the existing record remain in the preservation control. The record's `"1 TP"`, template `0` and inactive `"1 Tutor Point"` representation are distinct. The existing 17-Type chooser/Struggle option does not establish a six-Capability mapping.
+- G7/G8 were read as text for test design and the integrity boundary. G5/G6 and whole-record mapping remain held. The validator reads only the fixed raw inputs below and checks only the three retained source units, selected templates, inherited preservation record and inactive proposal. No prior validator, test, current-review or export-lineage input is invoked or read by it.
+
+- `docs/data/feature-source-evidence.json` at blob `5d29ce7d8d9af3955d92b2beb6749022b447bfd9`: LF 9481207 bytes, SHA-256 `7ce6733c54a2ec853fff10f7366cd3c27655f3a9acc4858e2ffb1767f3d44c10`; CRLF 9678863 bytes, SHA-256 `a2be64a49886c37ff3e723b1ad3508d5c7cbf9a0ba4d6c77e27e893aa951d73d`.
+- `template.json` at blob `f753ba3d552b3043d9fc43d073cb58440bbaad87`: LF 18633 bytes, SHA-256 `153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9`; CRLF 19515 bytes, SHA-256 `97a664dc78173c5e4c1601661286187710384118bea2fc2ddf55c1a4974f9bc4`.
+- `packs/poke-edges/_source/WkzCUjTOCTI60Uwg.json` at blob `3cfa877f92f1b008453ba445fc70f481d8c194d8`: LF 3200 bytes, SHA-256 `cb2c9e49b7e3dcd788ad103834fd212d4417bc22563e6218e2c5ae9690d34570`.
+
+Proposal-local allocation (not a runtime canonical or version mapping):
+
+| Role | Item ID | Shared proposal canonical ID | Version ID |
+|---|---|---|---|
+| Core | CzQfjub6IRiN5EQx | uNTHgHbSDxgvMgpP | AAYXo2kDNeFElPkv |
+| September composed | wFvfkLLJlpuOb3mf | uNTHgHbSDxgvMgpP | Bfhf75KagSKrJekI |
+
+Receipt `c7bb8d` generated one five-ID set with no regeneration, checked 7,395 tracked pack source paths and 7,394 unique filename IDs, and found no exact ID token in the admitted tracked packs/data collision scope. Held record-source-review files were excluded. Node 24.22.1 metadata SHA-256 is `86f361a88f4cc3ecaf1ea93236b0d8edf07bf00fe87ad9f60305513f58fc2c17`.
+
+The new tests include deterministic positive and negative validation, preserving the actual supplied arguments after intentional tampering and checking shared fixtures separately. Test and CLI results are pending exact-command approval. Runtime compatibility, cost serialization, saved-choice transfer, advisory diagnostics, adoption and production approval remain unverified.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+This local validation appendix does not change historical acceptance. B-C0054 admitted one normal test worker through command-specific managed review, then the fixed-input CLI after the test passed. The checkout was at `f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de`. Context receipts `156075` and `53e17e` verified the admitted paths and pins, the normal unelevated account, the corrected Node 24.22.1 pin and the absence of inherited output-changing configuration.
+
+| Action | Command SHA-256 | Terminal receipt | Result |
+|---|---|---|---|
+| Focused test | `a5b47f090539538e59423c2a32fc7ff9fb5b2daadc608a310fe5023d2089254b` | `d1ef73`, exit 0 | 34/34 passed. 0 failed, cancelled, skipped or todo. |
+| Fixed-input CLI | `a0ce0fe6d8a00e2571cacd42161df06ffd9b6b3427367c649a7936da1d77339f` | `3ab2f6`, exit 0 | Inactive draft passes integrity checks. |
+
+Both commands completed with no pending session. Complete combined command output was 1879 UTF-8 bytes. No syntax check, older test or runtime action was run. The tested files are pinned as follows:
+
+- `docs/data/rule-version-basic-ranged-draft.json`, 15217 bytes, SHA-256 `9e896718b0fc6d67a954328d5dba4d757432daa9c65f2cb635e02b46a7a03c51`.
+- `tools/rule-version-basic-ranged-draft.mjs`, 17320 bytes, SHA-256 `a0015a1b759d870250c215a225fa83c7da45b4381bc0a10ce8cd234f08988d2d`.
+- `tests/rule-version-basic-ranged-draft.test.mjs`, 8364 bytes, SHA-256 `90ebd884f29146e8e46b6ca3060ae2c5cac0d0f5afcd8a34a6d4c54d96ec854f`.
+
+The focused assertions cover the level-only revision, six printed Capabilities, cost/range/repetition and separate framework context. They also cover LF/CRLF pin handling, stale evidence, false approvals, identity and field tampering, and deterministic positive and negative argument/fixture preservation. Passing integrity checks does not certify human source interpretation, runtime mapping, gameplay behavior, saved-choice transfer or adoption. G5/G6 remain held.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+Independent review and Plan turn `01a1beb3-d67f-70a0-b984-66d36d0331cc` accepted the reviewed inactive data, validator, tests and append-only documentation. This is local acceptance within the existing ten paths at `f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de`. It does not replace the historical foundation evidence.
+
+The focused test `d1ef73` passed 34 test cases. Fixed-input CLI `3ab2f6` passed. Both ran once and terminated with exit 0 and no pending session. No tests were rerun for finalization. Independent postflight `7127de` verified scope and preservation. Receipt `df3e41` compared the historical working prefixes against their preauthoring raw pins, resolving the working-versus-committed representation differences without rewriting any bytes. Finalization tracks raw working-file pins and Git blob pins separately.
+
+The source-only pair leaves runtime cost serialization, Capability identities, saved-choice transfer, advisory diagnostics, effect use, selection and adoption unverified. G5/G6 remain held. Publication and CI are separately held. Local preflight found no effective Git author or committer, so a commit cannot proceed under the current identity gate.

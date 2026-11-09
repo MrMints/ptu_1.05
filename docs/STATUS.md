@@ -197,3 +197,17 @@ Huge Power validation update: validator syntax passed; ordinary focused test-fil
 Huge Power separate-check checkpoint: first CLI exited 1 at spawnSync git EPERM before validator invocation (35cc5a); no retry/escalation. The independently admitted direct package validate body passed at d64553 (manifest,17 skills,15 packs,7,395 documents), without running/installing npm. Focused test bodies remain unexecuted; the action-specific test request is preparation-only pending coordinator review. All source/test pins and frozen branches remain unchanged.
 
 Current Huge Power local validation is complete: separately reviewed focused request 5207cb/session57421 ended at 881ff2 with **65/65 passed**, zero failures/cancellations/skips/todo; separate CLI 3a9934 passed and ended. Node/source/test pins are unchanged. The direct declared package check d64553 is reused; original test/CLI EPERM and npm absence remain historical failures. Only final ten-path commit/push, exact documented-head CI and clean local/tracking/actual-remote/open draftPR4 agreement remain before writer release for independent/Plan/identity review. No runtime or production adoption follows.
+
+## 2026-11-08 — Basic Ranged inactive draft prepared
+
+The ten-path P05 authoring batch adds a core/revised source-only pair, integrity validator, bounded local CLI and new focused tests. Node ran only the separately admitted five-ID preparation. The new test suite, CLI and syntax checks have not run. Exact-command review is pending.
+
+Accepted evidence is G1–4 and G9, with G7/G8 used only for integrity and test design. G5/G6 remain held. No adoption, Capability mapping, runtime selection, diagnostics/effect-use implementation or production approval follows from this draft.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+The scoped Basic Ranged test finished 34/34 with no failures, cancellations, skips or todos (`d1ef73`). The fixed-input CLI passed (`3ab2f6`). The batch remains inactive and awaits independent and Plan acceptance. G5/G6, runtime behavior, adoption, commit and CI remain held.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+Local acceptance is complete for the inactive Basic Ranged artifacts. Focused test `d1ef73` passed 34/34 and fixed-input CLI `3ab2f6` passed. Both terminated with exit 0. Independent postflight `7127de` preserved all reviewed file and historical working-prefix pins. Git authorship is unresolved. Publication and CI are held, and overall readiness is incomplete.

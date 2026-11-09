@@ -167,3 +167,21 @@ Current operating-policy supersession — November 8, 2026: Mat removed every PT
 Plan 01a1b9f7-4133-7302-b499-b5e2f9b8edd8 and coordinator assignment give existing P05 sole checkout ownership/no world from clean c95f62ea9198c63aab934eab0b32b93cd6e0f320 for exactly three new Huge Power draft/validator/test files and seven review documents. The [finite evidence](validation/2026-10-29-p05-foundation-acceptance.md#huge-power-authored-draft-batch--2026-11-08) records core/February source separation, proposed five-ID allocation and unapproved runtime state. Scoped local checks, final documented-head CI and independent/substantive Plan review including identity review remain required. No later batch begins automatically.
 
 Huge Power local validation has now passed: 65/65 focused assertions, fixed read-only CLI and the separately admitted declared package check. Original default-route process restrictions remain in the report. Existing P05 retains sole writer ownership only through the admitted ten-path commit/push, final documented-head CI and clean branch/remote/PR agreement, followed by explicit release for independent and substantive Plan/identity review. No later work starts automatically.
+
+## 2026-11-08 — P05 Basic Ranged authoring handoff
+
+Existing P05 holds sole checkout ownership for the ten-path Basic Ranged draft at `f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de`. The inactive pair, validator, CLI and focused tests are ready for concrete command review. The finite five-ID allocation used receipt `c7bb8d` with one set, one no-match collision search and no regeneration.
+
+Use the accepted G1–4/G9 evidence for the draft. G7/G8 were inspected as text. G5/G6 remain held, and this batch does not close overall readiness. Test and CLI execution require separate exact-command review against the corrected Node pin. Staging, commit, push and CI are outside the authoring assignment.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+B-C0054's focused test and fixed-input CLI both terminated successfully in order. Test receipt `d1ef73` records 34/34 test cases; CLI receipt `3ab2f6` records an integrity pass. Both exited 0 with no pending session.
+
+Existing P05 retains sole writer ownership for independent review and substantive Plan acceptance. Staging, commit, push, CI and runtime adoption remain separate gates.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+Independent postflight `7127de` and Plan turn `01a1beb3-d67f-70a0-b984-66d36d0331cc` accepted the ten-path local batch. Local finalization is limited to these files. Publication, PR changes and CI remain held. Existing P05 retains sole writer ownership for verification.
+
+Local preflight found no effective Git author or committer. The commit remains held until an established identity is available. The current work does not alter Git configuration, hooks or filters.

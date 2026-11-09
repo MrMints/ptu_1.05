@@ -556,3 +556,17 @@ Final local coverage:1059 affected cases across separate executions,1057 pass/0 
 
 
 The Windows SecurityError cause remains unresolved. Linux pwsh scope passes may support offline code acceptance only; a separate exact-candidate Windows non-ACL scope observation remains required after CI/writer release and its own review/admission, before any private ACL retry. No follow-up diagnostic is prepared or run here.
+
+## 2026-11-08 — Basic Ranged draft (local review)
+
+Added an inactive, source-only Basic Ranged Attacks pair in [the draft data](docs/data/rule-version-basic-ranged-draft.json). The core entry retains Level 20. The September 2015 optional playtest composition removes that requirement and retains the six-Capability choice, 1 Tutor Point, modified Struggle range of six meters and distinct-Capability repetition.
+
+Added a bounded integrity validator, local CLI and focused tests for later command review. This entry records authoring only. Existing Items, saved choices, registry, runtime behavior and gameplay approval remain outside the batch.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+Local integrity validation passed for the inactive Basic Ranged pair: 34 focused tests and the bounded fixed-input CLI. This verifies the draft and its evidence pins. Runtime behavior, selection and adoption remain unverified.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+Independent review and Plan accepted the inactive Basic Ranged draft and its local integrity evidence. The 34 focused tests and fixed-input CLI passed. Runtime compatibility and adoption remain unverified. Publication and CI are held for a separate decision.

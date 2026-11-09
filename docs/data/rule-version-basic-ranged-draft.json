@@ -1,0 +1,436 @@
+{
+  "schemaVersion": 1,
+  "status": "inactive-source-only-draft",
+  "scope": "Generations 1–8 only",
+  "productionMapping": false,
+  "generationEligibility": "unresolved",
+  "approvals": {
+    "production": false,
+    "behavioralVerification": "not-run",
+    "implemented": false,
+    "automation": false
+  },
+  "case": {
+    "caseId": "r04-r0248",
+    "groupingCoordinate": "r04-c0247",
+    "runtimeCanonicalId": null,
+    "runtimeCounterpartId": null
+  },
+  "representation": {
+    "mode": "proposal-only",
+    "inRuntimeRegistry": false,
+    "selectable": false,
+    "wholeRecordMapping": false,
+    "runtimeCapabilityIds": null,
+    "capabilityLabelsAreSourceMetadata": true
+  },
+  "acquisition": {
+    "prerequisites": "advisory",
+    "diagnosticsImplementation": "held",
+    "ownershipAndSecurity": "separate",
+    "supportedScope": "separate",
+    "effectUseConditions": "separate",
+    "automaticTpSpend": false,
+    "automaticRefund": false,
+    "automaticGrants": false,
+    "automaticRankChanges": false,
+    "disableOrRemoveForUnmetPrerequisites": false
+  },
+  "frameworkContext": {
+    "unitId": "poke-edge-framework",
+    "application": "context-only",
+    "trainingHours": 1,
+    "printedPrerequisiteGate": true,
+    "printedRemovalAndRefund": true,
+    "implementsPrintedGate": false
+  },
+  "unresolvedAuthoring": [
+    "runtime-capability-identities-and-mapping",
+    "whole-record-mapping-and-adoption",
+    "saved-choice-transfer-and-repetition",
+    "advisory-diagnostics-and-effect-use",
+    "selection-flow-and-new-world-settings",
+    "runtime-cost-serialization"
+  ],
+  "validationLimit": "Checks only this inactive pair and its fixed inputs. Human source interpretation, runtime behavior, adoption and production approval remain separate.",
+  "upstream": {
+    "commit": "f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de",
+    "files": {
+      "featureEvidence": {
+        "path": "docs/data/feature-source-evidence.json",
+        "blob": "5d29ce7d8d9af3955d92b2beb6749022b447bfd9",
+        "raw": {
+          "lf": {
+            "bytes": 9481207,
+            "sha256": "7ce6733c54a2ec853fff10f7366cd3c27655f3a9acc4858e2ffb1767f3d44c10"
+          },
+          "crlf": {
+            "bytes": 9678863,
+            "sha256": "a2be64a49886c37ff3e723b1ad3508d5c7cbf9a0ba4d6c77e27e893aa951d73d"
+          }
+        }
+      },
+      "itemTemplate": {
+        "path": "template.json",
+        "blob": "f753ba3d552b3043d9fc43d073cb58440bbaad87",
+        "raw": {
+          "lf": {
+            "bytes": 18633,
+            "sha256": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9"
+          },
+          "crlf": {
+            "bytes": 19515,
+            "sha256": "97a664dc78173c5e4c1601661286187710384118bea2fc2ddf55c1a4974f9bc4"
+          }
+        }
+      },
+      "preservationRecord": {
+        "path": "packs/poke-edges/_source/WkzCUjTOCTI60Uwg.json",
+        "blob": "3cfa877f92f1b008453ba445fc70f481d8c194d8",
+        "raw": {
+          "lf": {
+            "bytes": 3200,
+            "sha256": "cb2c9e49b7e3dcd788ad103834fd212d4417bc22563e6218e2c5ae9690d34570"
+          }
+        }
+      }
+    }
+  },
+  "evidence": {
+    "core": {
+      "id": "core:205:feature-line39",
+      "collection": "sourceDefinitions",
+      "jsonSha256": "786cffb2a6c7078e1316ac5620f50a0059880510db84b705e9c484efccd78f85",
+      "rawSha256": "6340e4ec81f7c5cb8d749dfbeaabccea69e5eb044751afe3a764f088f7bdb189",
+      "source": {
+        "authorityId": "r04-s12",
+        "status": "standard-baseline",
+        "publicationDate": null,
+        "datePrecision": "unknown",
+        "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+        "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+        "pdfPages": [
+          205
+        ]
+      },
+      "rawText": "Basic Ranged Attacks\nPrerequisites: Level 20, one of Firestarter, Fountain, \nFreezer, Guster, Materializer, or Zapper\nCost: 1 Tutor Point\nEffect: Choose one of the Capabilities listed in the \nprerequisites for this Poké Edge. Struggle Attacks \nmodified by that Capability may now be made at a range \nof up to 6 meters. This Poké Edge may be taken multiple \ntimes, selecting a different Capability each time."
+    },
+    "september": {
+      "id": "sep-basic-ranged-level-directive",
+      "collection": "generalContexts",
+      "jsonSha256": "16a7ec1fdc2492493c260de4319bba349b776905e8872915c1072c15098db34c",
+      "rawSha256": "7c04b57535cddecff338beae990d7679b27cee6415a33158cdc57190c7e7202e",
+      "source": {
+        "authorityId": "r04-s03",
+        "status": "optional-playtest",
+        "publicationDate": "2015-09",
+        "datePrecision": "month",
+        "path": "Core System/1.05 Errata/PTU September 2015 Playtest Packet.pdf",
+        "sha256": "846c23a90f26d7deb7a86117622378bc60dc7c729a9a6b1e747ea67d4a1c6caf",
+        "pdfPages": [
+          9
+        ]
+      },
+      "rawText": "Poké Edge Changes\nBasic\tRanged\tAttacks\tnow has no Level Prerequisite. "
+    },
+    "framework": {
+      "id": "poke-edge-framework",
+      "collection": "generalContexts",
+      "jsonSha256": "4ec5c9a740f506d97ed70482ec0e3a56e3857bd183447cfc502b1568e61f283b",
+      "rawSha256": "2f6f5529b660ecac2b41d82acf02a90fb66e422a90fa061141dfaa82742cd0a5",
+      "source": {
+        "authorityId": "r04-s12",
+        "status": "standard-baseline",
+        "publicationDate": null,
+        "datePrecision": "unknown",
+        "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+        "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+        "pdfPages": [
+          204
+        ]
+      },
+      "rawText": "Poké Edges\nWhile many Features allow Tutor Points to be spent to improve your Pokémon, that does not mean Tutor Points \nneed to sit idly if you don’t have access to those Features.\nAfter an hour of training, Pokémon may spend Tutor Points to gain any of the Poké Edges listed below, provided \nthey meet all prerequisites. If a Pokémon ever loses prerequisites for a Poké Edge they have, it is removed and the \nTutor Points refunded.\nStat and Skill Poké Edges\nPokémon do not need to be limited by their natural \ninclinations. Trainers can use these Poké Edges to allow \ntheir Pokémon to excel in unexpected ways. "
+    }
+  },
+  "schemaEvidence": {
+    "baseTemplate": "Item.templates.base",
+    "itemTemplate": "Item.pokeedge",
+    "declaredSystemFields": [
+      "origin",
+      "effect",
+      "snippet",
+      "rules",
+      "enabled",
+      "slug",
+      "schema",
+      "referenceEffect",
+      "source",
+      "stackSlugs",
+      "keywords",
+      "prerequisites",
+      "cost"
+    ],
+    "legacySystemFields": [
+      "name",
+      "useCount"
+    ],
+    "cost": {
+      "source": "1 Tutor Point",
+      "templateDefault": 0,
+      "inheritedSerialization": "1 TP",
+      "proposedInactiveSerialization": "1 Tutor Point"
+    }
+  },
+  "fieldDecisions": {
+    "origin": "Provisional neutral empty string.",
+    "effect": "Complete core effect text with only whitespace joined. The September directive leaves it intact.",
+    "snippet": "Provisional neutral empty string.",
+    "rules": "Empty. The inherited Type chooser and Struggle option are not adopted.",
+    "enabled": "Provisional template true. Unmet prerequisites do not disable the Item.",
+    "slug": "Provisional null. Preserve the inherited slug in the control.",
+    "schema": "Provisional null version and migration fields. Preserve inherited version 0.11.",
+    "referenceEffect": "Provisional neutral empty string.",
+    "source": "Explicit source-role attribution. Do not copy Homebrew or PTR Compendiums.",
+    "stackSlugs": "Provisional template false. Repetition is a separate source obligation.",
+    "keywords": "Provisional empty array.",
+    "prerequisites": "Source display text only. Core Level 20 and a six-Capability choice. September removes only Level 20.",
+    "cost": "Provisional printed-text serialization. Keep source cost, template zero and inherited 1 TP distinct."
+  },
+  "preservationControl": {
+    "role": "preservation-only",
+    "identity": "poke-edges.WkzCUjTOCTI60Uwg",
+    "uuid": "Compendium.ptu.poke-edges.Item.WkzCUjTOCTI60Uwg",
+    "wholeRecordMapping": false,
+    "sourceLabel": "PTR Compendiums",
+    "legacySystemFields": [
+      "name",
+      "useCount"
+    ],
+    "envelopeFields": [
+      "name",
+      "system",
+      "type",
+      "img",
+      "effects",
+      "ownership",
+      "flags",
+      "_stats",
+      "folder",
+      "sort",
+      "_id",
+      "_key"
+    ],
+    "preserveSavedSelections": true,
+    "preserveOwnershipAndSecurity": true,
+    "preserveExistingRecordBytes": true,
+    "legacyAutomation": {
+      "choiceCount": 17,
+      "choiceFlag": "bra",
+      "domain": "struggle",
+      "adopted": false
+    }
+  },
+  "collisionInventory": {
+    "method": "SHA256(JSON.stringify(sorted unique tracked pack-source filename IDs))",
+    "trackedPathCount": 7395,
+    "count": 7394,
+    "jsonSha256": "22f7417fac6c4a09048c5a7b2cf2e26969307b31133a09c25283bc98539f44bf",
+    "trackedPathsJsonSha256": "3753c69c130ce2274f5ed4b0c648b221d53e0b6488a25fcc2d45439425c1f056"
+  },
+  "identityAllocation": {
+    "generator": "node:crypto.randomInt over 62 alphanumeric symbols",
+    "setsGenerated": 1,
+    "regenerations": 0,
+    "receipt": "c7bb8d",
+    "executable": {
+      "productVersion": "24.22.1",
+      "bytes": 93713712,
+      "sha256": "86f361a88f4cc3ecaf1ea93236b0d8edf07bf00fe87ad9f60305513f58fc2c17"
+    },
+    "exactIdCollisionSearch": {
+      "passes": 1,
+      "matches": 0,
+      "exitCode": 1,
+      "commit": "f14f0b4b2e7f37b9658b3d609dd15f70ce9df7de",
+      "scope": [
+        ":(glob)packs/*/_source/*.json",
+        ":(glob)docs/data/**/*.json",
+        ":(exclude,glob)docs/data/record-source-review/**"
+      ]
+    }
+  },
+  "roles": [
+    {
+      "role": "baseline",
+      "source": {
+        "authorityId": "r04-s12",
+        "status": "standard-baseline",
+        "publicationDate": null,
+        "datePrecision": "unknown",
+        "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+        "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+        "pdfPages": [
+          205
+        ]
+      },
+      "proposedIdentity": {
+        "itemId": "CzQfjub6IRiN5EQx",
+        "canonicalId": "uNTHgHbSDxgvMgpP",
+        "versionId": "AAYXo2kDNeFElPkv"
+      },
+      "runtimeVersionId": null,
+      "productionMapping": false,
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "composition": {
+        "baseDefinition": "core:205:feature-line39",
+        "directive": null,
+        "removedRequirement": null
+      },
+      "mechanics": {
+        "minimumLevel": 20,
+        "chooseOneCapability": {
+          "labels": [
+            "Firestarter",
+            "Fountain",
+            "Freezer",
+            "Guster",
+            "Materializer",
+            "Zapper"
+          ],
+          "runtimeIds": null
+        },
+        "cost": {
+          "amount": 1,
+          "unit": "Tutor Point"
+        },
+        "struggle": {
+          "condition": "Modified by the chosen Capability",
+          "maxRangeMeters": 6
+        },
+        "repetition": {
+          "allowed": true,
+          "differentCapabilityEachTime": true
+        }
+      },
+      "item": {
+        "_id": "CzQfjub6IRiN5EQx",
+        "name": "Basic Ranged Attacks",
+        "type": "pokeedge",
+        "system": {
+          "origin": "",
+          "effect": "Choose one of the Capabilities listed in the prerequisites for this Poké Edge. Struggle Attacks modified by that Capability may now be made at a range of up to 6 meters. This Poké Edge may be taken multiple times, selecting a different Capability each time.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "PTU 1.05 Core (PDF p. 205)"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "prerequisites": [
+            "Level 20",
+            "one of Firestarter, Fountain, Freezer, Guster, Materializer, or Zapper"
+          ],
+          "cost": "1 Tutor Point"
+        }
+      }
+    },
+    {
+      "role": "revised",
+      "source": {
+        "authorityId": "r04-s03",
+        "status": "optional-playtest",
+        "publicationDate": "2015-09",
+        "datePrecision": "month",
+        "path": "Core System/1.05 Errata/PTU September 2015 Playtest Packet.pdf",
+        "sha256": "846c23a90f26d7deb7a86117622378bc60dc7c729a9a6b1e747ea67d4a1c6caf",
+        "pdfPages": [
+          9
+        ]
+      },
+      "proposedIdentity": {
+        "itemId": "wFvfkLLJlpuOb3mf",
+        "canonicalId": "uNTHgHbSDxgvMgpP",
+        "versionId": "Bfhf75KagSKrJekI"
+      },
+      "runtimeVersionId": null,
+      "productionMapping": false,
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "composition": {
+        "baseDefinition": "core:205:feature-line39",
+        "directive": "sep-basic-ranged-level-directive",
+        "removedRequirement": "Level 20"
+      },
+      "mechanics": {
+        "minimumLevel": null,
+        "chooseOneCapability": {
+          "labels": [
+            "Firestarter",
+            "Fountain",
+            "Freezer",
+            "Guster",
+            "Materializer",
+            "Zapper"
+          ],
+          "runtimeIds": null
+        },
+        "cost": {
+          "amount": 1,
+          "unit": "Tutor Point"
+        },
+        "struggle": {
+          "condition": "Modified by the chosen Capability",
+          "maxRangeMeters": 6
+        },
+        "repetition": {
+          "allowed": true,
+          "differentCapabilityEachTime": true
+        }
+      },
+      "item": {
+        "_id": "wFvfkLLJlpuOb3mf",
+        "name": "Basic Ranged Attacks",
+        "type": "pokeedge",
+        "system": {
+          "origin": "",
+          "effect": "Choose one of the Capabilities listed in the prerequisites for this Poké Edge. Struggle Attacks modified by that Capability may now be made at a range of up to 6 meters. This Poké Edge may be taken multiple times, selecting a different Capability each time.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "September 2015 Optional Playtest (PDF p. 9), composed with PTU 1.05 Core (PDF p. 205)"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "prerequisites": [
+            "one of Firestarter, Fountain, Freezer, Guster, Materializer, or Zapper"
+          ],
+          "cost": "1 Tutor Point"
+        }
+      }
+    }
+  ],
+  "proposedIdentityJsonSha256": "59c612474fcc3301e574c2e657c745c38780393d00570935dc3028222e6b6ab4"
+}

@@ -188,3 +188,17 @@ Offline68993f5c was accepted after CI41342866920/2980, independent121 and planne
 The [two non-runtime drafts](data/rule-version-huge-power-draft.json) preserve distinct core320 and optional February5 rules and a separate core327 Pure Power identity. Source and field dispositions do not promote the inherited additive rule or equate Innate with cannot-disable. The 13 Ability/base fields use neutral defaults except complete source effect/frequency/attribution. Empty rules establish no gameplay execution; proposed identities and unclassified eligibility establish no production mapping or optional adoption. Existing packs, saved/custom/repeated selections and earlier acceptance/failure evidence remain unchanged. Validation and remaining gates are in the [P05 evidence](validation/2026-10-29-p05-foundation-acceptance.md#huge-power-authored-draft-batch--2026-11-08). No earlier or full05 gate closes from this draft alone.
 
 Actual Huge Power draft validation now passes65/65 plus the fixed CLI and declared package structural check. These results establish bounded non-runtime authored-pair integrity only. They do not promote record eligibility, install identities, implement optional selection or verify doubling/additive/cannot-disable behavior; all saved/custom and inherited records remain protected. Final-head CI and independent/substantive identity review remain separate.
+
+## 2026-11-08 — Basic Ranged source-only composition
+
+The core source is PTU 1.05 Core, PDF page 205, with an unknown publication date. The September 2015 optional playtest directive on PDF page 9 removes only Level 20. The complete core definition and narrow directive are retained separately in [the inactive pair](data/rule-version-basic-ranged-draft.json). The directive is not a complete replacement definition.
+
+Core PDF page 204 supplies the printed hour of training and prerequisite loss, removal and refund context. The owner amendment controls acquisition: future diagnostics must be visible, persistent and itemized, and distinguish known unmet from unverifiable conditions. Ownership/security, supported scope and effect-use checks remain separate. The draft does not implement a prerequisite veto, disablement/removal, automatic Tutor Point spending/refund, grants or rank changes.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+The new integrity tests verified the distinct core and optional September sources, the level-only revision, retained mechanics and advisory acquisition boundary. They rejected altered hashes, identities, omitted fields and promotions and confirmed deterministic immutability after intentional tampering. This check does not establish a runtime six-Capability mapping or whole-record adoption. G5/G6 remain held.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+The local acceptance covers the inactive core and September level-only composition, the fixed integrity checker and its tests. It preserves the current record, saved choices and source boundaries. It leaves the runtime Capability mapping, cost serialization, advisory diagnostics/effect use and whole-record adoption unresolved. G5/G6 remain held.

@@ -291,3 +291,17 @@ Five independent cryptographic proposed IDs are stable after first creation: two
 The [focused tests](../tests/rule-version-huge-power-draft.test.mjs) use actual committed definitions/schema and negative mutations, with determinism and preservation. Authored text is not an attack-calculation, stacking, disablement or integration test. rules stays empty, enabled true is neutral, no automation field or inherited pack/campaign envelope is copied, and migration values remain null. See [source decisions, results and review gates](validation/2026-10-29-p05-foundation-acceptance.md#huge-power-authored-draft-batch--2026-11-08).
 
 Huge Power local evidence: the actual authored pair passes65/65 focused checks and the fixed read-only CLI after separate action-specific managed requests. The direct declared package validation also passes. Initial test/CLI child-spawn failures and unavailable npm remain separately recorded. No unchanged suite was rerun after success, and no runtime consumer or content approval is inferred; final-head CI plus independent/substantive source/identity acceptance remain required.
+
+## 2026-11-08 — Basic Ranged source roles and cost representation
+
+The [Basic Ranged draft](data/rule-version-basic-ranged-draft.json) is inactive and unavailable in selection flows. It records the complete core baseline (PDF page 205, date unknown) and a September 2015 optional playtest composition (PDF page 9) with Level 20 removed. Both retain the six literal Capability labels, 1 Tutor Point, six-meter range for Struggle modified by the chosen Capability and repetition with a different Capability.
+
+The printed cost is 1 Tutor Point. The Item template's numeric default is `0`, the inherited record stores `"1 TP"`, and the inactive draft proposes `"1 Tutor Point"` as display text. Runtime serialization and Capability identity mapping remain unresolved. The inherited 17-Type chooser and RollOption are not adopted; the existing Item and saved selections are preservation controls.
+
+## 2026-11-09 — Basic Ranged focused validation
+
+The inactive Basic Ranged draft passed the 34 focused integrity tests and the fixed-input local CLI. This covers the source-role and cost distinctions and rejects unsupported promotion of the draft. The pair remains unavailable to selection flows, and runtime cost serialization, saved-choice transfer and effect use remain unverified.
+
+## 2026-11-09 — Basic Ranged local acceptance
+
+The accepted Basic Ranged batch is a source-only proposal. Its five proposal IDs and printed cost representation have no runtime adoption or compatibility approval. The existing Item, 17-Type chooser, saved selections and settings stay on their current paths. Publication and any runtime adoption require separate decisions.
