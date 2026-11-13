@@ -7,14 +7,20 @@ export function compendiumItemIdentity(uuid) {
     return match ? `Compendium.${match[1]}.${match[2]}.Item.${match[3]}` : null;
 }
 
+function preservationSourceId(item) {
+    const modern = item?._stats?.compendiumSource;
+    if (modern != null && typeof modern !== 'string') return undefined;
+    return getDocumentSourceId(item);
+}
+
 export function preservationWarning(item, reason) {
-    const identity = getDocumentSourceId(item) ?? item._id ?? 'custom record';
+    const identity = preservationSourceId(item) ?? item._id ?? 'custom record';
     globalThis.ui?.notifications?.warn?.(`PTU | Preserved ${item.name ?? item.type} (${identity}): ${reason}`);
 }
 
 /** Modern provenance wins even if unresolved; never fall back to a different version. */
 export async function resolvePreservationSource(item, {resolve = uuid => fromUuid(uuid), warn = preservationWarning} = {}) {
-    const sourceId = getDocumentSourceId(item);
+    const sourceId = preservationSourceId(item);
     const identity = compendiumItemIdentity(sourceId);
     if (!identity || isExcludedContent(identity)) {
         warn(item, 'no eligible exact compendium identity; review manually.');
