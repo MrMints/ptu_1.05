@@ -1,4 +1,7 @@
 import { ActorConfig } from "./sheet/actor-config.js";
+import {isExcludedAcquisitionDocument} from '../../util/content-scope.js';
+import {actorPrerequisiteViews} from '../../util/acquisition.js';
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../util/saved-item-graph.js';
 
 class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
     /** @override */
@@ -11,6 +14,10 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
         }
 
         if (this.isEditable) {
+            if (this.actor.flags.ptu?.starterTraining?.status === 'pending') buttons.unshift({
+                label:'Choose Starter Training', class:'starter-training', icon:'fas fa-graduation-cap',
+                onclick:() => this.actor.selectStarterTraining()
+            });
             const index = buttons.findIndex((b) => b.class === "close");
             buttons.splice(index, 0, {
                 label: "Configure", // Top-level foundry localization key
@@ -78,12 +85,34 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
 	async getData() {
 		const data = await super.getData();
 		data.config = CONFIG.PTU.data;
+        data.prerequisiteViews=actorPrerequisiteViews(this.actor);
+        data.crossActorFeatures=this.actor.itemTypes.feat??[];
+        data.crossActorEdges=this.actor.itemTypes.edge??[];
+        data.crossActorPokeEdges=this.actor.itemTypes.pokeedge??[];
         return data;
     }
 
     /** Emulate a sheet item drop from the canvas */
     async emulateItemDrop(data) {
         return this._onDropItem({ preventDefault: () => { } }, data);
+    }
+
+    async _onDropItem(event,data) {
+        if (!this.actor.isOwner) return false;
+        const item=await Item.implementation.fromDropData(data);
+        if (this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item)) return copySavedItemDocuments([item],{parent:this.actor});
+        return super._onDropItem(event,data);
+    }
+
+    async _onDropFolder(event, data) {
+        if (!this.actor.isOwner) return [];
+        const folder = await Folder.implementation.fromDropData(data);
+        if (folder.type !== 'Item') return [];
+        const items = await Promise.all(folder.contents.filter(Boolean).map(item => item instanceof Item ? item : fromUuid(item.uuid)));
+        const allowed = items.filter(item => item && !isExcludedAcquisitionDocument(item));
+        if (allowed.length !== items.length) ui.notifications.warn('PTU | Excluded or missing compendium entries were not acquired from this folder.');
+        if (allowed.some(hasSavedItemGraph)) return copySavedItemDocuments(allowed,{parent:this.actor});
+        return this._onDropItemCreate(allowed.map(item => item.toObject()), event);
     }
 
     async openNotes() {
@@ -142,6 +171,7 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     /** @override */
     async _onDrop(event) {
+        if(!this.actor.isOwner)return false;
         const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
         const actor = this.actor;
         const allowed = Hooks.call("dropActorSheetData", actor, this, data);
@@ -180,6 +210,8 @@ class PTUActorSheet extends foundry.appv1.sheets.ActorSheet {
         else if (data.type === "Item" && data.uuid) {
             const item = await fromUuid(data.uuid);
             if (!item) return ui.notifications.error("Invalid item dropped");
+            if(isExcludedAcquisitionDocument(item))return ui.notifications.warn('PTU | This compendium record is excluded from new acquisition.');
+            if(this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item))return this._onDropItem(event,data);
 
             // Special handling for effects and conditions
             if (item.type === "effect" || item.type === "condition") {

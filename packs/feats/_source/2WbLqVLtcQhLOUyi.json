@@ -1,0 +1,61 @@
+{
+  "name": "Skill Monkey",
+  "system": {
+    "origin": "",
+    "effect": "Trigger - You make a Skill Check\nEffect: You may re-roll the triggering Skill Check with a +2 Bonus, taking the new result. This Feature may be used to re-roll a specific roll only once.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "",
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "prerequisites": [
+      "Three Skills at Adept Rank or higher"
+    ],
+    "frequency": "Daily x3 - Free Action",
+    "notes": "",
+    "free": false,
+    "class": "",
+    "name": "Skill Monkey",
+    "automation": [],
+    "useCount": 0
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.w3KqsntLo60aRGeE"
+    },
+    "ptu": {
+      "prereqBackup": "Three Skills at Adept Rank or higher",
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368079078,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.w3KqsntLo60aRGeE",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 3000000,
+  "_id": "2WbLqVLtcQhLOUyi",
+  "_key": "!items!2WbLqVLtcQhLOUyi"
+}

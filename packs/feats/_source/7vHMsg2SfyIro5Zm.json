@@ -1,0 +1,61 @@
+{
+  "name": "Inspirational Support",
+  "system": {
+    "origin": "",
+    "effect": "You may trigger Cheerleader as a Free Action when your Pokémon with Friend Guard activate an Ability or Status Move that affects only allies.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "prerequisites": [
+      "Cheers",
+      "Adept Charm"
+    ],
+    "frequency": "Static",
+    "notes": "",
+    "free": false,
+    "class": "Cheerleader",
+    "name": "Inspirational Support",
+    "useCount": 0,
+    "automation": []
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.yXlhbWKYM3ckibFe"
+    },
+    "ptu": {
+      "prereqBackup": "Cheers, Adept Charm"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368079261,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.yXlhbWKYM3ckibFe",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 9300000,
+  "_id": "7vHMsg2SfyIro5Zm",
+  "_key": "!items!7vHMsg2SfyIro5Zm"
+}

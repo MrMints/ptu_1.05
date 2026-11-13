@@ -45,6 +45,7 @@ import { PTUTokenConfig } from '../../module/canvas/token/sheet.js';
 import { PackLoader } from '../../module/apps/compendium-browser/index.js';
 import PTURuleBookJournal from '../../module/apps/rulebook-journal.js';
 import { BaseEffectPTU } from '../../module/item/effect-types/base.js';
+import { MechanicPreferencesReview } from '../../module/apps/mechanic-preferences-review.js';
 
 const data = {
   skills: {
@@ -176,6 +177,9 @@ const ui = {
 //   levelUpForm: {
 //     documentClass: PTULevelUpForm
 //   }
+  mechanicPreferencesReview: {
+    sheetClass: MechanicPreferencesReview
+  },
   party: {
     sheetClass: PTUPartySheet
   },

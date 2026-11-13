@@ -1,0 +1,50 @@
+{
+  "folder": "7ycBPshrC6RdRwFb",
+  "name": "Tera Type: Psychic",
+  "type": "capability",
+  "_id": "1k7NbjmcutJ3XJSj",
+  "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/worlds/Pokemon%20The%20Chosen/Tera%20Types/tera_type_psychic_symbol_by_jormxdos_dfigqvg-fullview.png",
+  "system": {
+    "origin": "",
+    "effect": "",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "tera-type-psychic",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": []
+  },
+  "effects": [],
+  "sort": -31250,
+  "ownership": {
+    "default": 2,
+    "y4EIjJlrc2eCclW7": 3,
+    "s5aYT4VJEW56OtOC": 3,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.renqlPpt4cVLYGjw"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.1",
+    "coreVersion": "12.327",
+    "createdTime": 1705600460535,
+    "modifiedTime": 1706451403856,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Item.renqlPpt4cVLYGjw",
+    "duplicateSource": null
+  },
+  "_key": "!items!1k7NbjmcutJ3XJSj"
+}

@@ -1,0 +1,3325 @@
+{
+  "schemaVersion": 1,
+  "batch": "P03-2026-10-26",
+  "baselineCommit": "1d560c56bf4e922a615753cc815bc6ac9f957ebf",
+  "testedRuntimeCommit": "283c60dcadc22a36c6cf6ca34800aee12094b4d4",
+  "status": "Implemented and verified within this matrix; substantive planner acceptance pending.",
+  "runtimeBindings": [
+    {
+      "path": "src/util/prerequisites.js",
+      "sha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
+      "installedSha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
+      "exactBytesMatch": true,
+      "commitBlobSha256": "a894f70f73cea02e82bf2096495962f6209c13a605dc05c3d1320ba52d71f35b",
+      "commitTextMatchesTestedWorkingCopy": true
+    },
+    {
+      "path": "src/module/apps/npc-quick-build/document.js",
+      "sha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
+      "installedSha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
+      "exactBytesMatch": true,
+      "commitBlobSha256": "5f2c8043c9c9e7fcf415e10f503a60fbf4f5fe1f339c24490e78d8d622c52546",
+      "commitTextMatchesTestedWorkingCopy": true
+    },
+    {
+      "path": "static/templates/apps/npc-quick-build-sheet.hbs",
+      "sha256": "f55669396be65a07e7ea1614ab8f5f9ae05a62f194f6eda5ebe93ff20ee749b5",
+      "installedSha256": "f55669396be65a07e7ea1614ab8f5f9ae05a62f194f6eda5ebe93ff20ee749b5",
+      "exactBytesMatch": true,
+      "commitBlobSha256": "96caa61b7311623075ae34810376854a723337b7256f997606eaf81d3382299a",
+      "commitTextMatchesTestedWorkingCopy": true
+    }
+  ],
+  "automated": {
+    "focused": {
+      "command": "node --test --test-isolation=none tests/prerequisites.test.mjs tests/skills.test.mjs",
+      "total": 16,
+      "passed": 16,
+      "failed": 0
+    },
+    "initialFullSuite": {
+      "total": 90,
+      "passed": 89,
+      "failed": 1,
+      "reason": "Windows EPERM staging-directory rename in disposable setup fixture; no green whole-local-suite claim."
+    },
+    "secondFullSuite": {
+      "total": 90,
+      "passed": 89,
+      "failed": 1,
+      "reason": "Another disposable setup staging rename EPERM despite normal filesystem permissions."
+    },
+    "isolatedSetupRerun": {
+      "total": 4,
+      "passed": 4,
+      "failed": 0
+    },
+    "sourceValidation": "passed: manifest, 17 skill mappings, 15 packs, 7395 inherited sources",
+    "changedJavaScriptSyntax": "passed",
+    "finalHeadCI": "Recorded in final handoff; no UI execution in CI.",
+    "runtimeCommitCI": {
+      "commit": "283c60dcadc22a36c6cf6ca34800aee12094b4d4",
+      "runId": 40270180632,
+      "url": "https://github.com/MrMints/ptu_1.05/actions/runs/40270180632",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 121401097184,
+          "name": "Documentation",
+          "conclusion": "success"
+        },
+        {
+          "id": 121401097488,
+          "name": "Validation",
+          "conclusion": "success"
+        }
+      ],
+      "tests": {
+        "total": 91,
+        "passed": 91,
+        "failed": 0
+      },
+      "sourceValidation": "passed",
+      "semanticPackRoundTrips": "passed",
+      "developmentBuild": "passed",
+      "systemZipSizeBytes": 1108921332,
+      "uploadedActionsArtifactZip": {
+        "sha256": "29ad1d07eac5b273169ac622d8c08c5cefc72dd6302d325ae5ae9ab3d97488f6",
+        "sizeBytes": 1108745121,
+        "note": "This hashes the outer GitHub Actions artifact ZIP, not dist/system.zip; no release acceptance."
+      }
+    }
+  },
+  "clientReload": {
+    "action": "Actual browser client reload between two normal installed-module/constructor/form runs; server restart also preceded the first run.",
+    "expected": "Persist identical fixture UUIDs/source records/raw requirements; reuse four roles without duplicates; same explicit version-context reports; no source mutations.",
+    "observed": "passed",
+    "sourceSnapshotsExactlyEqual": true,
+    "initialRunSourcesEqualAfterServerRestart": true,
+    "completeScenarioEvidenceEqual": true,
+    "sourceSnapshotSha256": "8094818bb1663b1a2f4f7de11f8aab0d96fe8a59a4da7e05c83034ff9c1d6ce2",
+    "versionContextBoundary": "Explicit synthetic version context is supplied again by the runner. It is not saved variant metadata or persistence of the unsaved NPC draft."
+  },
+  "manualUI": {
+    "afterReload": "All itemized unmet/unverifiable warnings and both supplied version labels exist in the rendered panel. Next click reached Skills & Stats with warnings retained.",
+    "result": "passed",
+    "panelDomSha256": "858824b3d1b2aff04c411143e1b173f54357330805a1711c5c45a21e38169e38",
+    "nextDomSha256": "4fcaceda3faf382fa41ad976dc4bc15d24be9292acfd6c37b8308e04b76b261a",
+    "screenshot": "images/2026-10-26-p03-advisory.png",
+    "screenshotSha256": "e279762e3204c22583efc37ec576c0cbbf32083987fa8715e34924f7a693fc34"
+  },
+  "beforeClientReload": {
+    "batch": "P03-2026-10-26",
+    "foundry": "13.351",
+    "system": "4.4.3",
+    "scenarios": [
+      {
+        "id": "actual-module-refresh-with-content",
+        "result": "passed",
+        "evidence": {
+          "before": {
+            "features": [
+              {
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "label": "P03 Same Name",
+                "value": "Item.E0pSDkCVC9CZs67s"
+              },
+              {
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "label": "P03 Same Name",
+                "value": "Item.4NJKcWkt2x65VvzP"
+              }
+            ],
+            "edges": [
+              {
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "label": "P03 edge",
+                "value": "Item.eeQ7uHfm9iJb4hhX"
+              }
+            ],
+            "ranks": {
+              "acrobatics": 2,
+              "athletics": 2,
+              "charm": 2,
+              "combat": 2,
+              "command": 2,
+              "generalEd": 2,
+              "medicineEd": 2,
+              "occultEd": 2,
+              "pokemonEd": 2,
+              "techEd": 2,
+              "focus": 2,
+              "guile": 2,
+              "intimidate": 2,
+              "intuition": 2,
+              "perception": 2,
+              "stealth": 2,
+              "survival": 2
+            },
+            "items": [
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "original"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission",
+                    "Synthetic dependency"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "E0pSDkCVC9CZs67s",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972904,
+                  "modifiedTime": 1792988972904,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "revised"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom condition"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "4NJKcWkt2x65VvzP",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972907,
+                  "modifiedTime": 1792988972907,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 edge",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "edge"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Level 99",
+                    "Adept Technology Edu"
+                  ],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "eeQ7uHfm9iJb4hhX",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972910,
+                  "modifiedTime": 1792988972910,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 dependency",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "dependency"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "8kocPkR2GmT8I2Ac",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972913,
+                  "modifiedTime": 1792988972913,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              }
+            ]
+          },
+          "after": {
+            "features": [
+              {
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "label": "P03 Same Name",
+                "value": "Item.E0pSDkCVC9CZs67s"
+              },
+              {
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "label": "P03 Same Name",
+                "value": "Item.4NJKcWkt2x65VvzP"
+              }
+            ],
+            "edges": [
+              {
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "label": "P03 edge",
+                "value": "Item.eeQ7uHfm9iJb4hhX"
+              }
+            ],
+            "ranks": {
+              "acrobatics": 2,
+              "athletics": 2,
+              "charm": 2,
+              "combat": 2,
+              "command": 2,
+              "generalEd": 2,
+              "medicineEd": 2,
+              "occultEd": 2,
+              "pokemonEd": 2,
+              "techEd": 2,
+              "focus": 2,
+              "guile": 2,
+              "intimidate": 2,
+              "intuition": 2,
+              "perception": 2,
+              "stealth": 2,
+              "survival": 2
+            },
+            "items": [
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "original"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission",
+                    "Synthetic dependency"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "E0pSDkCVC9CZs67s",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972904,
+                  "modifiedTime": 1792988972904,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "revised"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom condition"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "4NJKcWkt2x65VvzP",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972907,
+                  "modifiedTime": 1792988972907,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 edge",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "edge"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Level 99",
+                    "Adept Technology Edu"
+                  ],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "eeQ7uHfm9iJb4hhX",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972910,
+                  "modifiedTime": 1792988972910,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 dependency",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "dependency"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "8kocPkR2GmT8I2Ac",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972913,
+                  "modifiedTime": 1792988972913,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              }
+            ]
+          },
+          "reports": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ],
+          "warnings": {
+            "unmet": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Master Focus (Focus: requires 6, current 2).",
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Synthetic dependency (required item Item.8kocPkR2GmT8I2Ac).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unmet: Novice Focus (Focus: requires 3, current 2).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Level 99 (level: requires 99, current 5).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Adept Technology Edu (Technology Education: requires 4, current 2)."
+            ],
+            "unknown": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unverifiable: GM Permission (gm-approval-not-evidenced).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unverifiable: Custom condition (custom-or-unresolved-identity)."
+            ],
+            "num": 7
+          }
+        }
+      },
+      {
+        "id": "same-name-renamed-version-reports",
+        "result": "passed",
+        "evidence": {
+          "original": {
+            "actorUuid": null,
+            "uuid": "Item.E0pSDkCVC9CZs67s",
+            "id": "E0pSDkCVC9CZs67s",
+            "sourceId": null,
+            "name": "P03 Same Name",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-original",
+              "label": "Synthetic non-errata"
+            }
+          },
+          "revised": {
+            "actorUuid": null,
+            "uuid": "Item.4NJKcWkt2x65VvzP",
+            "id": "4NJKcWkt2x65VvzP",
+            "sourceId": null,
+            "name": "P03 Same Name",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-revised",
+              "label": "Synthetic errata"
+            }
+          },
+          "renamed": {
+            "actorUuid": null,
+            "uuid": "Item.E0pSDkCVC9CZs67s",
+            "id": "E0pSDkCVC9CZs67s",
+            "sourceId": null,
+            "name": "Renamed synthetic original",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-original",
+              "label": "Synthetic non-errata"
+            }
+          }
+        }
+      },
+      {
+        "id": "comma-negative-or-list-positive",
+        "result": "passed",
+        "evidence": [
+          {
+            "status": "unverifiable",
+            "kind": "custom",
+            "reason": "ambiguous-comma-compound",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 4,
+                "actual": 4,
+                "raw": "Adept Athletics"
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1,
+                "raw": "Novice Combat"
+              }
+            ],
+            "raw": "Adept Athletics, Novice Combat"
+          },
+          {
+            "status": "satisfied",
+            "kind": "or",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 4,
+                "actual": 4,
+                "raw": "Adept Athletics"
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1,
+                "raw": "Novice Combat"
+              }
+            ],
+            "raw": "Adept Athletics or Novice Combat"
+          },
+          {
+            "status": "unmet",
+            "kind": "count",
+            "required": 2,
+            "minimumRank": 3,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 3,
+                "actual": 4
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1
+              }
+            ],
+            "raw": "Two of Athletics, Combat at Novice"
+          }
+        ]
+      },
+      {
+        "id": "distinct-item-count-negative-and-positive",
+        "result": "passed",
+        "evidence": [
+          {
+            "status": "unverifiable",
+            "kind": "custom",
+            "reason": "unresolved-item-count-identities",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3,
+                "raw": "Novice Focus"
+              },
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3,
+                "raw": "Novice Focus Rank"
+              }
+            ],
+            "raw": "Two of Novice Focus or Novice Focus Rank"
+          },
+          {
+            "status": "unmet",
+            "kind": "item-count",
+            "required": 2,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.E0pSDkCVC9CZs67s",
+                "raw": "Alias"
+              }
+            ],
+            "raw": "Two of Original or Alias"
+          },
+          {
+            "status": "satisfied",
+            "kind": "item-count",
+            "required": 2,
+            "actual": 2,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.E0pSDkCVC9CZs67s",
+                "raw": "Original"
+              },
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.4NJKcWkt2x65VvzP",
+                "raw": "Revised"
+              }
+            ],
+            "raw": "Two of Original or Revised"
+          },
+          {
+            "status": "unmet",
+            "kind": "count",
+            "required": 2,
+            "minimumRank": 3,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3
+              }
+            ],
+            "raw": "Two of Focus or Willpower at Novice"
+          }
+        ]
+      },
+      {
+        "id": "recompute-without-input-mutation",
+        "result": "passed",
+        "evidence": {
+          "old": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ],
+          "new": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 6,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 6,
+                  "raw": "Master Focus"
+                }
+              ],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 6,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 6,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unmet": [],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ]
+        }
+      },
+      {
+        "id": "actual-npc-form-with-advisory-warnings",
+        "result": "passed",
+        "evidence": {
+          "rendered": true,
+          "warnings": {
+            "unmet": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Synthetic dependency (required item Item.8kocPkR2GmT8I2Ac).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Level 99 (level: requires 99, current 5).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Adept Technology Edu (Technology Education: requires 4, current 2)."
+            ],
+            "unknown": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unverifiable: GM Permission (gm-approval-not-evidenced).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unverifiable: Custom condition (custom-or-unresolved-identity)."
+            ],
+            "num": 5
+          },
+          "fixtureUuids": [
+            "Item.E0pSDkCVC9CZs67s",
+            "Item.4NJKcWkt2x65VvzP",
+            "Item.eeQ7uHfm9iJb4hhX",
+            "Item.8kocPkR2GmT8I2Ac"
+          ],
+          "noActorCreated": true
+        }
+      }
+    ],
+    "fixtureLifecycle": {
+      "created": [],
+      "reused": [
+        "Item.E0pSDkCVC9CZs67s",
+        "Item.4NJKcWkt2x65VvzP",
+        "Item.eeQ7uHfm9iJb4hhX",
+        "Item.8kocPkR2GmT8I2Ac"
+      ],
+      "roleCounts": {
+        "original": 1,
+        "revised": 1,
+        "edge": 1,
+        "dependency": 1
+      }
+    },
+    "persistedFixtures": [
+      {
+        "uuid": "Item.E0pSDkCVC9CZs67s",
+        "source": {
+          "name": "P03 Same Name",
+          "type": "feat",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "original"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission",
+              "Synthetic dependency"
+            ],
+            "frequency": "At Will - Standard Action",
+            "notes": "",
+            "free": false,
+            "class": ""
+          },
+          "_id": "E0pSDkCVC9CZs67s",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972904,
+            "modifiedTime": 1792988972904,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.4NJKcWkt2x65VvzP",
+        "source": {
+          "name": "P03 Same Name",
+          "type": "feat",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "revised"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Novice Focus",
+              "Custom condition"
+            ],
+            "frequency": "At Will - Standard Action",
+            "notes": "",
+            "free": false,
+            "class": ""
+          },
+          "_id": "4NJKcWkt2x65VvzP",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972907,
+            "modifiedTime": 1792988972907,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.eeQ7uHfm9iJb4hhX",
+        "source": {
+          "name": "P03 edge",
+          "type": "edge",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "edge"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Level 99",
+              "Adept Technology Edu"
+            ],
+            "notes": "",
+            "free": false
+          },
+          "_id": "eeQ7uHfm9iJb4hhX",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972910,
+            "modifiedTime": 1792988972910,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.8kocPkR2GmT8I2Ac",
+        "source": {
+          "name": "P03 dependency",
+          "type": "edge",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "dependency"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [],
+            "notes": "",
+            "free": false
+          },
+          "_id": "8kocPkR2GmT8I2Ac",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972913,
+            "modifiedTime": 1792988972913,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      }
+    ]
+  },
+  "afterClientReload": {
+    "batch": "P03-2026-10-26",
+    "foundry": "13.351",
+    "system": "4.4.3",
+    "scenarios": [
+      {
+        "id": "actual-module-refresh-with-content",
+        "result": "passed",
+        "evidence": {
+          "before": {
+            "features": [
+              {
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "label": "P03 Same Name",
+                "value": "Item.E0pSDkCVC9CZs67s"
+              },
+              {
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "label": "P03 Same Name",
+                "value": "Item.4NJKcWkt2x65VvzP"
+              }
+            ],
+            "edges": [
+              {
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "label": "P03 edge",
+                "value": "Item.eeQ7uHfm9iJb4hhX"
+              }
+            ],
+            "ranks": {
+              "acrobatics": 2,
+              "athletics": 2,
+              "charm": 2,
+              "combat": 2,
+              "command": 2,
+              "generalEd": 2,
+              "medicineEd": 2,
+              "occultEd": 2,
+              "pokemonEd": 2,
+              "techEd": 2,
+              "focus": 2,
+              "guile": 2,
+              "intimidate": 2,
+              "intuition": 2,
+              "perception": 2,
+              "stealth": 2,
+              "survival": 2
+            },
+            "items": [
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "original"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission",
+                    "Synthetic dependency"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "E0pSDkCVC9CZs67s",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972904,
+                  "modifiedTime": 1792988972904,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "revised"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom condition"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "4NJKcWkt2x65VvzP",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972907,
+                  "modifiedTime": 1792988972907,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 edge",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "edge"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Level 99",
+                    "Adept Technology Edu"
+                  ],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "eeQ7uHfm9iJb4hhX",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972910,
+                  "modifiedTime": 1792988972910,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 dependency",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "dependency"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "8kocPkR2GmT8I2Ac",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972913,
+                  "modifiedTime": 1792988972913,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              }
+            ]
+          },
+          "after": {
+            "features": [
+              {
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "label": "P03 Same Name",
+                "value": "Item.E0pSDkCVC9CZs67s"
+              },
+              {
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "label": "P03 Same Name",
+                "value": "Item.4NJKcWkt2x65VvzP"
+              }
+            ],
+            "edges": [
+              {
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "label": "P03 edge",
+                "value": "Item.eeQ7uHfm9iJb4hhX"
+              }
+            ],
+            "ranks": {
+              "acrobatics": 2,
+              "athletics": 2,
+              "charm": 2,
+              "combat": 2,
+              "command": 2,
+              "generalEd": 2,
+              "medicineEd": 2,
+              "occultEd": 2,
+              "pokemonEd": 2,
+              "techEd": 2,
+              "focus": 2,
+              "guile": 2,
+              "intimidate": 2,
+              "intuition": 2,
+              "perception": 2,
+              "stealth": 2,
+              "survival": 2
+            },
+            "items": [
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "original"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission",
+                    "Synthetic dependency"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "E0pSDkCVC9CZs67s",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972904,
+                  "modifiedTime": 1792988972904,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 Same Name",
+                "type": "feat",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "revised"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom condition"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": ""
+                },
+                "_id": "4NJKcWkt2x65VvzP",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972907,
+                  "modifiedTime": 1792988972907,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 edge",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "edge"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [
+                    "Level 99",
+                    "Adept Technology Edu"
+                  ],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "eeQ7uHfm9iJb4hhX",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972910,
+                  "modifiedTime": 1792988972910,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              },
+              {
+                "name": "P03 dependency",
+                "type": "edge",
+                "flags": {
+                  "ptu": {
+                    "p03Fixture": "dependency"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": true,
+                  "slug": null,
+                  "schema": {
+                    "version": null,
+                    "lastMigration": null
+                  },
+                  "referenceEffect": "",
+                  "source": {
+                    "value": "Explicit synthetic diagnostic fixture"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [],
+                  "prerequisites": [],
+                  "notes": "",
+                  "free": false
+                },
+                "_id": "8kocPkR2GmT8I2Ac",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0,
+                  "lMqIt6G1J6gh89ut": 3
+                },
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "createdTime": 1792988972913,
+                  "modifiedTime": 1792988972913,
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut"
+                }
+              }
+            ]
+          },
+          "reports": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ],
+          "warnings": {
+            "unmet": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Master Focus (Focus: requires 6, current 2).",
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Synthetic dependency (required item Item.8kocPkR2GmT8I2Ac).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unmet: Novice Focus (Focus: requires 3, current 2).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Level 99 (level: requires 99, current 5).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Adept Technology Edu (Technology Education: requires 4, current 2)."
+            ],
+            "unknown": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unverifiable: GM Permission (gm-approval-not-evidenced).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unverifiable: Custom condition (custom-or-unresolved-identity)."
+            ],
+            "num": 7
+          }
+        }
+      },
+      {
+        "id": "same-name-renamed-version-reports",
+        "result": "passed",
+        "evidence": {
+          "original": {
+            "actorUuid": null,
+            "uuid": "Item.E0pSDkCVC9CZs67s",
+            "id": "E0pSDkCVC9CZs67s",
+            "sourceId": null,
+            "name": "P03 Same Name",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-original",
+              "label": "Synthetic non-errata"
+            }
+          },
+          "revised": {
+            "actorUuid": null,
+            "uuid": "Item.4NJKcWkt2x65VvzP",
+            "id": "4NJKcWkt2x65VvzP",
+            "sourceId": null,
+            "name": "P03 Same Name",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-revised",
+              "label": "Synthetic errata"
+            }
+          },
+          "renamed": {
+            "actorUuid": null,
+            "uuid": "Item.E0pSDkCVC9CZs67s",
+            "id": "E0pSDkCVC9CZs67s",
+            "sourceId": null,
+            "name": "Renamed synthetic original",
+            "type": "feat",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "selectedVersion": {
+              "id": "synthetic-original",
+              "label": "Synthetic non-errata"
+            }
+          }
+        }
+      },
+      {
+        "id": "comma-negative-or-list-positive",
+        "result": "passed",
+        "evidence": [
+          {
+            "status": "unverifiable",
+            "kind": "custom",
+            "reason": "ambiguous-comma-compound",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 4,
+                "actual": 4,
+                "raw": "Adept Athletics"
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1,
+                "raw": "Novice Combat"
+              }
+            ],
+            "raw": "Adept Athletics, Novice Combat"
+          },
+          {
+            "status": "satisfied",
+            "kind": "or",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 4,
+                "actual": 4,
+                "raw": "Adept Athletics"
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1,
+                "raw": "Novice Combat"
+              }
+            ],
+            "raw": "Adept Athletics or Novice Combat"
+          },
+          {
+            "status": "unmet",
+            "kind": "count",
+            "required": 2,
+            "minimumRank": 3,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "athletics",
+                "required": 3,
+                "actual": 4
+              },
+              {
+                "status": "unmet",
+                "kind": "skill",
+                "skillKey": "combat",
+                "required": 3,
+                "actual": 1
+              }
+            ],
+            "raw": "Two of Athletics, Combat at Novice"
+          }
+        ]
+      },
+      {
+        "id": "distinct-item-count-negative-and-positive",
+        "result": "passed",
+        "evidence": [
+          {
+            "status": "unverifiable",
+            "kind": "custom",
+            "reason": "unresolved-item-count-identities",
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3,
+                "raw": "Novice Focus"
+              },
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3,
+                "raw": "Novice Focus Rank"
+              }
+            ],
+            "raw": "Two of Novice Focus or Novice Focus Rank"
+          },
+          {
+            "status": "unmet",
+            "kind": "item-count",
+            "required": 2,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.E0pSDkCVC9CZs67s",
+                "raw": "Alias"
+              }
+            ],
+            "raw": "Two of Original or Alias"
+          },
+          {
+            "status": "satisfied",
+            "kind": "item-count",
+            "required": 2,
+            "actual": 2,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.E0pSDkCVC9CZs67s",
+                "raw": "Original"
+              },
+              {
+                "status": "satisfied",
+                "kind": "item",
+                "requiredIdentity": "Item.4NJKcWkt2x65VvzP",
+                "raw": "Revised"
+              }
+            ],
+            "raw": "Two of Original or Revised"
+          },
+          {
+            "status": "unmet",
+            "kind": "count",
+            "required": 2,
+            "minimumRank": 3,
+            "actual": 1,
+            "uncertain": 0,
+            "children": [
+              {
+                "status": "satisfied",
+                "kind": "skill",
+                "skillKey": "focus",
+                "required": 3,
+                "actual": 3
+              }
+            ],
+            "raw": "Two of Focus or Willpower at Novice"
+          }
+        ]
+      },
+      {
+        "id": "recompute-without-input-mutation",
+        "result": "passed",
+        "evidence": {
+          "old": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ],
+          "new": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.E0pSDkCVC9CZs67s",
+                "id": "E0pSDkCVC9CZs67s",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic non-errata"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission",
+                "Synthetic dependency"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 6,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "satisfied": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 6,
+                  "raw": "Master Focus"
+                }
+              ],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "item",
+                  "requiredIdentity": "Item.8kocPkR2GmT8I2Ac",
+                  "raw": "Synthetic dependency"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.4NJKcWkt2x65VvzP",
+                "id": "4NJKcWkt2x65VvzP",
+                "sourceId": null,
+                "name": "P03 Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic errata"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom condition"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 6,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ],
+              "satisfied": [
+                {
+                  "status": "satisfied",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 6,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unmet": [],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom condition"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": null,
+                "uuid": "Item.eeQ7uHfm9iJb4hhX",
+                "id": "eeQ7uHfm9iJb4hhX",
+                "sourceId": null,
+                "name": "P03 edge",
+                "type": "edge",
+                "source": {
+                  "value": "Explicit synthetic diagnostic fixture"
+                },
+                "selectedVersion": "synthetic edge"
+              },
+              "rawRequirements": [
+                "Level 99",
+                "Adept Technology Edu"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "level",
+                  "required": 99,
+                  "actual": 5,
+                  "raw": "Level 99"
+                },
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "techEd",
+                  "required": 4,
+                  "actual": 2,
+                  "raw": "Adept Technology Edu"
+                }
+              ],
+              "unverifiable": []
+            }
+          ]
+        }
+      },
+      {
+        "id": "actual-npc-form-with-advisory-warnings",
+        "result": "passed",
+        "evidence": {
+          "rendered": true,
+          "warnings": {
+            "unmet": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unmet: Synthetic dependency (required item Item.8kocPkR2GmT8I2Ac).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Level 99 (level: requires 99, current 5).",
+              "P03 edge [Item.eeQ7uHfm9iJb4hhX; source Explicit synthetic diagnostic fixture; version synthetic edge]: Unmet: Adept Technology Edu (Technology Education: requires 4, current 2)."
+            ],
+            "unknown": [
+              "P03 Same Name [Item.E0pSDkCVC9CZs67s; source Explicit synthetic diagnostic fixture; version Synthetic non-errata]: Unverifiable: GM Permission (gm-approval-not-evidenced).",
+              "P03 Same Name [Item.4NJKcWkt2x65VvzP; source Explicit synthetic diagnostic fixture; version Synthetic errata]: Unverifiable: Custom condition (custom-or-unresolved-identity)."
+            ],
+            "num": 5
+          },
+          "fixtureUuids": [
+            "Item.E0pSDkCVC9CZs67s",
+            "Item.4NJKcWkt2x65VvzP",
+            "Item.eeQ7uHfm9iJb4hhX",
+            "Item.8kocPkR2GmT8I2Ac"
+          ],
+          "noActorCreated": true
+        }
+      }
+    ],
+    "fixtureLifecycle": {
+      "created": [],
+      "reused": [
+        "Item.E0pSDkCVC9CZs67s",
+        "Item.4NJKcWkt2x65VvzP",
+        "Item.eeQ7uHfm9iJb4hhX",
+        "Item.8kocPkR2GmT8I2Ac"
+      ],
+      "roleCounts": {
+        "original": 1,
+        "revised": 1,
+        "edge": 1,
+        "dependency": 1
+      }
+    },
+    "persistedFixtures": [
+      {
+        "uuid": "Item.E0pSDkCVC9CZs67s",
+        "source": {
+          "name": "P03 Same Name",
+          "type": "feat",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "original"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Master Focus",
+              "GM Permission",
+              "Synthetic dependency"
+            ],
+            "frequency": "At Will - Standard Action",
+            "notes": "",
+            "free": false,
+            "class": ""
+          },
+          "_id": "E0pSDkCVC9CZs67s",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972904,
+            "modifiedTime": 1792988972904,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.4NJKcWkt2x65VvzP",
+        "source": {
+          "name": "P03 Same Name",
+          "type": "feat",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "revised"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Novice Focus",
+              "Custom condition"
+            ],
+            "frequency": "At Will - Standard Action",
+            "notes": "",
+            "free": false,
+            "class": ""
+          },
+          "_id": "4NJKcWkt2x65VvzP",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972907,
+            "modifiedTime": 1792988972907,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.eeQ7uHfm9iJb4hhX",
+        "source": {
+          "name": "P03 edge",
+          "type": "edge",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "edge"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [
+              "Level 99",
+              "Adept Technology Edu"
+            ],
+            "notes": "",
+            "free": false
+          },
+          "_id": "eeQ7uHfm9iJb4hhX",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972910,
+            "modifiedTime": 1792988972910,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      },
+      {
+        "uuid": "Item.8kocPkR2GmT8I2Ac",
+        "source": {
+          "name": "P03 dependency",
+          "type": "edge",
+          "flags": {
+            "ptu": {
+              "p03Fixture": "dependency"
+            }
+          },
+          "system": {
+            "origin": "",
+            "effect": "",
+            "snippet": "",
+            "rules": [],
+            "enabled": true,
+            "slug": null,
+            "schema": {
+              "version": null,
+              "lastMigration": null
+            },
+            "referenceEffect": "",
+            "source": {
+              "value": "Explicit synthetic diagnostic fixture"
+            },
+            "stackSlugs": false,
+            "keywords": [],
+            "prerequisites": [],
+            "notes": "",
+            "free": false
+          },
+          "_id": "8kocPkR2GmT8I2Ac",
+          "img": "icons/svg/item-bag.svg",
+          "effects": [],
+          "folder": null,
+          "sort": 0,
+          "ownership": {
+            "default": 0,
+            "lMqIt6G1J6gh89ut": 3
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "ptu",
+            "systemVersion": "4.4.3",
+            "createdTime": 1792988972913,
+            "modifiedTime": 1792988972913,
+            "lastModifiedBy": "lMqIt6G1J6gh89ut"
+          }
+        }
+      }
+    ]
+  },
+  "notRun": [
+    "General trainer/Pokemon/PokeEdge owned-item add/display/reload routes and observer/security matrix (P02)",
+    "Migration/source-refresh preservation and failure injection (P02)",
+    "Production original/errata selectors/replacement/effective rules (05)",
+    "Release/campaign upgrade/new gameplay certification"
+  ],
+  "sharedState": {
+    "world": "Returned to Setup and observed /setup before closing temporary client.",
+    "server": "Both owned handles terminal after Ctrl+C (exit 1). No final graceful shutdown log captured.",
+    "port30001": "ECONNREFUSED after stop",
+    "dataLock": "Safely reclaimed after stale interval with proper-lockfile and released; no manual held-lock deletion.",
+    "retained": "Four flagged synthetic world Items and one named disposable macro; no new actors.",
+    "writerOwnership": "Released at final handoff; no other chat started or messaged."
+  }
+}

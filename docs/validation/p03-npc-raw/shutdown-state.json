@@ -1,0 +1,14 @@
+{
+  "ownedSessions": {
+    "baseline": 34563,
+    "final": 67127
+  },
+  "bothTerminal": true,
+  "terminalExitCode": 1,
+  "worldReturnedToSetup": true,
+  "port30001": "ECONNREFUSED",
+  "staleLockSafelyReclaimedAndReleased": true,
+  "globalProcessInventoryQueried": false,
+  "viewportReset": true,
+  "macroAccessRestored": true
+}

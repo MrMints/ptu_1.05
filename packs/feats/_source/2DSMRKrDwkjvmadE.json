@@ -1,0 +1,70 @@
+{
+  "folder": "SMepfD0qveoA3YvU",
+  "name": "Away With You!",
+  "type": "feat",
+  "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Range: Close Blast 5, Friendly\nAll foes within Range are forcibly Pushed X meters away from you, where X is the value of your Teleport Capability. Each foe that is Pushed must still follow the rules of the Teleporter Capability.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.modifiers.baseStats.spd.mod",
+        "value": 1,
+        "predicate": [],
+        "phase": "applyAEs"
+      }
+    ],
+    "enabled": true,
+    "slug": "away-with-you",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "+Speed"
+    ],
+    "prerequisites": [
+      "Space Distortion",
+      "Expert Focus"
+    ],
+    "frequency": "2x Scene - Full Action",
+    "notes": "",
+    "free": false,
+    "class": "Nomad"
+  },
+  "effects": [],
+  "ownership": {
+    "default": 2,
+    "y4EIjJlrc2eCclW7": 3,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true,
+      "prereqBackup": "Space Distortion, Expert Focus"
+    },
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1695643914323,
+    "modifiedTime": 1707820171162,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "2DSMRKrDwkjvmadE",
+  "sort": 100000,
+  "_key": "!items!2DSMRKrDwkjvmadE"
+}

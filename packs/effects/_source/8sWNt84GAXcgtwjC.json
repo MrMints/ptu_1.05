@@ -1,0 +1,92 @@
+{
+  "name": "Effect: Freeze Dry (Eph Effect)",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Water types take damage from this move as if it is super-effective.",
+    "snippet": "Water types take 1.5x damage from this move.",
+    "rules": [
+      {
+        "key": "Effectiveness",
+        "predicate": [],
+        "type": "ice",
+        "value": 4
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-freeze-dry-eph-effect",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": true,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "encounter",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "folder": "EpWlmkHbtm4Nh2WY",
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "core": {},
+    "scene-packer": {
+      "hash": "d23ff1bc3f3b294a87c7d911fe8d1ebb870dbd71",
+      "sourceId": "Item.pKSpY9IHpfY3Zr4T"
+    },
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "exportSource": {
+      "world": "pokemon-test-world",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.2.2"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.329",
+    "systemId": "ptu",
+    "systemVersion": "4.3.3",
+    "createdTime": 1709371138249,
+    "modifiedTime": 1725870668400,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_id": "8sWNt84GAXcgtwjC",
+  "sort": 300000,
+  "_key": "!items!8sWNt84GAXcgtwjC"
+}

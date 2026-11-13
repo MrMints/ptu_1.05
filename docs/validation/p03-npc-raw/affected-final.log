@@ -1,0 +1,46 @@
+✔ actual canvas drop uses v13 token bounds when hitArea is null (4.1619ms)
+✔ actor and embedded updates refresh open owned Item reports without document writes (2.578ms)
+✔ every advisory type derives persistent itemized statuses without saving or mutating inputs (4.2737ms)
+✔ same-name, renamed, satisfied and missing-actor/version records keep their own raw requirements (0.316ms)
+✔ actor/Item views distinguish satisfied requirements from empty/unsupported version attribution without mutation (1.6555ms)
+✔ Feature creation/update does not guess class grants from display labels; explicit grouping uses owned IDs (1.5462ms)
+✔ actual trainer/Pokémon allowed-type getters accept all three kinds without rewriting budget formulas (2.3071ms)
+✔ actual embedded creation accepts unmet/custom/satisfied prerequisites and repeated legitimate additions (3.8478ms)
+✔ actual permission guard precedes rule execution and all writes; raw world creation still uses core (1.0982ms)
+✔ actual staging preserves nested outputs, resolves choices only once, and cancels before any Item write (2.0894ms)
+✔ actual base sheet data and folder route produce reports and retain supported mixed copies/scope guards (1.7004ms)
+✔ all actor/item templates include the shared escaped report; both cross-actor collections are visible (1.4591ms)
+✔ actual read-only Item sheet derives reports without icon writes or mutations (1.5369ms)
+✔ actual NPC generation resolves choices before folders/actor writes and preserves explicit ranks/selections (3.8558ms)
+✔ ordinary bundled dropdown lookup retains the clicked Medical Techniques identity (12.1538ms)
+✔ bundled lookup separates same-name classes, Features, Edges and species; context is printable and escaped (1.6976ms)
+✔ repeat/remove/re-add and rename retain independent exact identities without mutating legacy UUID inputs (0.517ms)
+✔ actual component normalization accepts exact option objects and refuses bare/ambiguous label input (1.3594ms)
+✔ actual refresh/generation preserves same-name source/version data and each repeat subchoice after rename/removal (5.0918ms)
+✔ actual NPC cancellation, denied actor creation and ambiguous-name selections perform no writes (1.7336ms)
+✔ actual species refresh follows a changed exact selection and clears an explicit removal (1.5149ms)
+✔ selected species reaches the actual NPC party-generation hook and generated data (1.3599ms)
+✔ single/multiple/mixed truth states list every deficiency without mutating inputs (0.3206ms)
+✔ all 17 skills and accepted aliases preserve exact keys, spacing, accents and ranks (1.7294ms)
+✔ OR/list/count logic distinguishes known failure from uncertainty and counts unique skills (0.8398ms)
+✔ missing/invalid actor fields and unevidenced textual GM approval are unverifiable (0.2333ms)
+✔ bare commas never guess a logical pass; explicit OR and count-list commas keep their meaning (0.4805ms)
+✔ stable references distinguish same-name versions and survive renaming without name guesses (0.3603ms)
+✔ item counts require distinct evidenced identities and never count skill/level spellings as Items (0.2611ms)
+✔ selected item/version provenance, raw requirements and custom data survive repeat reports and JSON reload (0.9541ms)
+✔ real NPC refresh with selected feature/edge content preserves ranks, explicit selections, dependencies and choices (3.1875ms)
+✔ all core names, historical aliases and identifiers resolve exactly (0.219ms)
+✔ both localization namespaces and all template keys retain the core mapping (1.2084ms)
+✔ presentation corrects stale labels without changing persisted values or custom skills (0.2033ms)
+✔ legacy Education classification is independent of labels and preserves species overrides (0.261ms)
+✔ legacy species input accepts every core/Carbon name without changing numeric or background behavior (0.9026ms)
+✔ all 17 existing skill presentations preserve numeric data, custom labels and key selectors (0.3609ms)
+✔ selective source terminology changes preserve all other content, identities and rule data (14.6618ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.5254

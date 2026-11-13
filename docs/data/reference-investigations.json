@@ -1,0 +1,449 @@
+{
+  "schemaVersion": 1,
+  "testedRuntimeContentCommit": "5e4946a7a09a0ab3605b3b33b27f4f1624617e0d",
+  "sourceFingerprint": "82370d1749f655ea3fd70ec1dbcbf144eceebfb47dd535043a98647cc9945685",
+  "scope": "Investigate all 24 runtime targets; retain all UUIDs because an identity bridge was not established. Candidate slugs are discovery hints, never automatic mappings.",
+  "history": {
+    "exhaustive": false,
+    "snapshots": [
+      {
+        "commit": "b36aca6a08139594ade65908f4e22ed6227ac85e",
+        "basis": "Current recovered pack sources, four relevant pack trees also identical at 9e6fccd535fbdbe4b410cfbfdb0425b03ebd2d07",
+        "exactMissingTargetsFound": []
+      },
+      {
+        "commit": "ba75061ae39ca3976ddfb67d8511512e720dfe2b",
+        "basis": "Complete snapshot immediately before 61662a66 compendium edits/imports; extracted with foundryvtt-cli 3.0.5 in disposable cache",
+        "packs": [
+          {
+            "pack": "abilities",
+            "sourceRecords": 630,
+            "exactMissingTargetsFound": []
+          },
+          {
+            "pack": "capabilities",
+            "sourceRecords": 147,
+            "exactMissingTargetsFound": []
+          },
+          {
+            "pack": "moves",
+            "sourceRecords": 1295,
+            "exactMissingTargetsFound": []
+          },
+          {
+            "pack": "species",
+            "sourceRecords": 1811,
+            "exactMissingTargetsFound": []
+          }
+        ]
+      }
+    ],
+    "limitation": "Absence in these two snapshots does not prove absence from every commit, private world export, or later source."
+  },
+  "targets": [
+    {
+      "target": "abilities.DUw3xozURebyikaS",
+      "occurrenceFingerprint": "8b6272a4f12225fdbcf17beb7cf826a06e6acc061f1d89a4d92a5a0b066e92a1",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-ability"
+      ],
+      "storedSlugs": [
+        "gluttony"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "capabilities.v1ksvxUrvIhkV7aD",
+      "occurrenceFingerprint": "546a5dde72a17b57773676b2b1fe82b2848e79a0bfcaf9636d2e569082f2714d",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-capability"
+      ],
+      "storedSlugs": [
+        "stealth"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.73AHUIh6V65adbTW",
+      "occurrenceFingerprint": "09766e231ff4abe5312e3be45135c65b7a720093b721e66d831e785ea2947772",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "swagger"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.arxy479cTjkB8mML",
+          "storedSlug": "swagger",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.9ctsajRuxfXNvEnv",
+      "occurrenceFingerprint": "87e5d2f69463d56d2a95087e841e6a39015e0f31690cde0c20de10a4df997c38",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "draco-meteor"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.BFGQXQGO2EeO8mpK",
+          "storedSlug": "draco-meteor",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.9xBKv8W7Bus0tIly",
+      "occurrenceFingerprint": "bd11a811755f8d248474d49fa813e33f4256ec24bc40bb05875519377a69f20a",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "rest"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.ARPgyJJ3JseliM1K",
+      "occurrenceFingerprint": "31889715c7bc6962506ac639fab7853197910ad027c20b0ef610aa0f4e2e9e43",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "withdraw"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.PLNrSnH8aJCbQSAq",
+          "storedSlug": "withdraw",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.CCIib8kjCbVHJqC4",
+      "occurrenceFingerprint": "23133e6a667a97eaa720e2873584bf92de5b3bc352710428728deb54914450c3",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "round"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.GgdkAr3gDO6snP7r",
+          "storedSlug": "round",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.dUETXbMQMsjLOsfo",
+      "occurrenceFingerprint": "6cc46b0426bccba66c7c362b76400ea096e7f3db2f04c9b905816a08926984d9",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "hidden-power"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.ecbGKQbSoxGEIpbH",
+      "occurrenceFingerprint": "c0f17ad774d23a8d4072e1ba6b24fd6b8c241010f0e2a6a462317f8777092db1",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "rollout"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.nzhedIfXpsZWaEx9",
+          "storedSlug": "rollout",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.IW5JN8hhwgXFV72V",
+      "occurrenceFingerprint": "b9edfd92750f5da28e8e2a71f6458342db71618e957dfb1b89f0def6ba35968c",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "confide"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.43i757GW8pptWB5j",
+          "storedSlug": "confide",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.K7UB9TkJk18A5zvS",
+      "occurrenceFingerprint": "9c8edf478ff8487daa536da1b6c71c30921205ea0c3dd20fc72310cd1052e352",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "double-team"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.BHmRIX70tqHROfdN",
+          "storedSlug": "double-team",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.L3SlDw7Vz1QpAN7Z",
+      "occurrenceFingerprint": "12469b2ce5a66b462c8ab881dcb2895d290bd24f47c67523af3ff600fb8a0632",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "protect"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.mrYbUoEGQqVbkd8D",
+      "occurrenceFingerprint": "54db7b2b095d890b96181c4573dc1d3cae5d1d87b34881babdb5989d85256200",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "facade"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.oXkwKDV9PDa2HBR6",
+      "occurrenceFingerprint": "701e7b9ccfa5b350f2794c74e727f0ab374709631f9f6e2e1a6c420d41e7a1cc",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "syrupy-bomb"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.QbOpkuydT0R2mo0z",
+      "occurrenceFingerprint": "1731c67779a6984235081420a1b26bbe69bff6cead4307647836ec5d2176ad87",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "frustration"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.TokvBTYi7ZG92XHJ",
+      "occurrenceFingerprint": "12d4693ee51d6967e0dba2d78992741523454c45ac79c5b3644acafcf8d3cc6d",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "sucker-punch"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.vypDpjMbQDlUywfo",
+      "occurrenceFingerprint": "79d5938b76a68c0e765314aaf1f46dff0a24bc5c2f7dcf421761fc2ede48f4ee",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "substitute"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.Y1brXQWXKmLFHLEe",
+      "occurrenceFingerprint": "c8b8f9e72a594096c837bdc16c3d2ee49ebf8bd4142c6ccf8751fae9514fcbfc",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "attract"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.0VI0E6oSQYULcSUU",
+          "storedSlug": "attract",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.yeX0bso0PRJIS9XL",
+      "occurrenceFingerprint": "5e5efbe60660ce8b976c13d652002fe45340ce0bd146321218caa4132f2f004e",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "sleep-talk"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.yg2lgjKqsBKRO17s",
+      "occurrenceFingerprint": "f59c104128d7facd77a242f87b370bb6832e1f87e43d2ad32d00823cbe0a2822",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "defense-curl"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.Y5R5mbVcGq6fwoFj",
+          "storedSlug": "defense-curl",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.yjo9WADdCK1VkuOf",
+      "occurrenceFingerprint": "388a954c944f02cef42651b5c2b5cca264abcfddee4fa1faadd43d1190f37811",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "return"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.YXfJThGTFgAhZO7u",
+      "occurrenceFingerprint": "49fa3c8fe4cdfa0f0fc4de0f3e3811530318cb5189e0a52165c508261d5e1a08",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "recycle"
+      ],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "moves.Zp2xGTRJ3Enoj6Ip",
+      "occurrenceFingerprint": "54efce289dd8246dde763d2843a95ce17c71acaabfdd4a86ac5992f399203e9b",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "species-move"
+      ],
+      "storedSlugs": [
+        "astonish"
+      ],
+      "candidates": [
+        {
+          "identity": "moves.VtkRa05N67wR9RcG",
+          "storedSlug": "astonish",
+          "type": "move",
+          "basis": "same-stored-slug-only; not evidence that the missing UUID identifies this record"
+        }
+      ],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    },
+    {
+      "target": "species.uTLNgrPjP79HCmkW",
+      "occurrenceFingerprint": "f18c09d8aa41d11a769db667cd90d52de09220ca68b9b912719c972bb0c85e18",
+      "disposition": "unresolved-no-identity-evidence",
+      "liveResolution": "missing",
+      "profiles": [
+        "temporary-species"
+      ],
+      "storedSlugs": [],
+      "candidates": [],
+      "nextAction": "Obtain an authoritative export or ID history for the missing UUID before recovery or retargeting. Preserve current references and source records meanwhile."
+    }
+  ]
+}

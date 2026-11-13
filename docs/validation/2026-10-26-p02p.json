@@ -1,0 +1,3232 @@
+{
+  "schemaVersion": 1,
+  "batch": "P02-P-2026-10-26",
+  "baselineCommit": "c547e3ac86855e61c52ecd7816fdd23ac17c1c2c",
+  "testedRuntimeCommit": "7e125e387f61b7a92367e199976dd0948e29059a",
+  "status": "Implemented and observed within this matrix; substantive planner acceptance pending.",
+  "runtimeBindings": [
+    {
+      "path": "src/util/document-source.js",
+      "sha256": "86a6ba2b69bb83e2e27d3df86249d99c60df17a4e544e4515018bbbf0c0385e0",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/util/preservation.js",
+      "sha256": "6fb1f090699bfea1052dfcbee44fdbfb5c841f8c8a30767a12bd33d349ab0976",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/item/base.js",
+      "sha256": "00147dc085b31ce165cba12a402fe20160d558d0ab62d5d64918220a02916af6",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/migration/migrations/111-prereq-items.js",
+      "sha256": "09906b3ce721aa7bab99e03c92a5c1fec80501ac32ae099f1b8f0d4eae98b579",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/migration/migrations/113-keywords.js",
+      "sha256": "09af4ef14a6c882e7ec599a656fce828353b6d80e7bbb806fd3d7c54242ad518",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/migration/migrations/115-rules-automation.js",
+      "sha256": "f3ec9691f8c432bfab9025b7f0b827c5bc18ca960fa7ad139d237e0c03342221",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/migration/runner/base.js",
+      "sha256": "c0626f0e2f136b6b8396382e51acdad7cef3cc7dba80496b99e9e58dcf90201c",
+      "archiveAndInstalledBytesMatch": true
+    },
+    {
+      "path": "src/module/migration/runner/index.js",
+      "sha256": "ad0ff2850ee261cd5a5f6aee9bc0b92d16ad33c52dbcf21757cf11ae39b87745",
+      "archiveAndInstalledBytesMatch": true
+    }
+  ],
+  "archive": {
+    "commit": "7e125e387f61b7a92367e199976dd0948e29059a",
+    "archiveBytes": 1108945246,
+    "archiveSha256": "1ec481d41e454d9aebcd905793f07626a66f0594be68b6c54ca95925ca73c223",
+    "entries": 6839,
+    "declaredPacks": 15,
+    "runtimeMatchesCheckout": true,
+    "privateConfigAndWorldBytesPreserved": true,
+    "backup": ".foundry-test\\.setup-backups\\archive-b67e3dfef0f44c3189d606e2d5a181c9\\ptu",
+    "result": "pass",
+    "srcStaticFilesMatchingArchiveAndInstallation": 3500
+  },
+  "automated": {
+    "focused": {
+      "tests": 19,
+      "passed": 19,
+      "failed": 0,
+      "command": "node --test --test-isolation=none tests/preservation.test.mjs tests/document-source.test.mjs"
+    },
+    "fullLocal": {
+      "tests": 106,
+      "passed": 106,
+      "failed": 0,
+      "command": "node --test --test-isolation=none tests/*.test.mjs"
+    },
+    "sourceValidation": "17 stable skill mappings, 15 packs, 7395 source records",
+    "packRoundtrip": "Local P03 evidence reused for unchanged sources/compiler; final-head CI repeats semantic verification.",
+    "build": "Development archive built locally; no supported release acceptance."
+  },
+  "baselineReproduction": {
+    "baseline": "c547e3ac86855e61c52ecd7816fdd23ac17c1c2c",
+    "reports": [
+      {
+        "id": "Migration111PrereqItems",
+        "fields": [
+          "prerequisites"
+        ],
+        "before": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "feat"
+        },
+        "after": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Source prerequisite"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "feat"
+        },
+        "protectedValuesChanged": true
+      },
+      {
+        "id": "Migration113Keywords",
+        "fields": [
+          "keywords",
+          "range"
+        ],
+        "before": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "move"
+        },
+        "after": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Source"
+            ],
+            "range": "Source range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "move"
+        },
+        "protectedValuesChanged": true
+      },
+      {
+        "id": "Migration115RulesAutomation",
+        "fields": [
+          "rules"
+        ],
+        "before": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "move"
+        },
+        "after": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              },
+              {
+                "key": "SourceRule"
+              }
+            ]
+          },
+          "type": "move"
+        },
+        "protectedValuesChanged": true
+      },
+      {
+        "id": "refresh",
+        "before": {
+          "_id": "savedId000000001",
+          "name": "Same name",
+          "slug": "same-name",
+          "flags": {
+            "core": {
+              "sourceId": "Compendium.different.moves.AAAAAAAAAAAAAAAA"
+            },
+            "ptu": {
+              "selection": "custom"
+            }
+          },
+          "_stats": {
+            "compendiumSource": "Compendium.custom.moves.Item.BBBBBBBBBBBBBBBB"
+          },
+          "system": {
+            "schema": {
+              "version": 0.11
+            },
+            "slug": "same-name",
+            "prerequisites": [
+              "Raw custom"
+            ],
+            "keywords": [
+              "Custom"
+            ],
+            "range": "Custom range",
+            "rules": [
+              {
+                "key": "CustomRule"
+              }
+            ]
+          },
+          "type": "feat"
+        },
+        "update": {
+          "system": {
+            "prerequisites": [
+              "Source prerequisite"
+            ],
+            "keywords": [
+              "Source"
+            ],
+            "range": "Source range",
+            "rules": [
+              {
+                "key": "SourceRule"
+              }
+            ]
+          }
+        },
+        "customPrerequisitesLost": true
+      },
+      {
+        "id": "ensure-schema-failure",
+        "expected": 0.11,
+        "observed": 0.115,
+        "falseSuccessStamp": true
+      }
+    ]
+  },
+  "live": {
+    "batch": "P02-P-2026-10-26",
+    "phase": "check",
+    "foundry": "13.351",
+    "system": "4.4.3",
+    "scenarios": [
+      {
+        "id": "create-or-reuse-disposable-owned-fixtures",
+        "result": "pass",
+        "observed": {
+          "actor": "Actor.FeDJXbu7cC7eXJg8",
+          "items": [
+            {
+              "id": "zpyv6NFxxbFvbUgm",
+              "name": "P02-P Same Name",
+              "img": "icons/svg/book.svg",
+              "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+              "version": {
+                "id": "synthetic-original",
+                "label": "Synthetic original"
+              },
+              "selection": {
+                "choice": "saved-original"
+              },
+              "grants": {
+                "saved": {
+                  "id": "saved-grant-id",
+                  "onDelete": "detach"
+                }
+              },
+              "system": {
+                "origin": "",
+                "effect": "",
+                "snippet": "",
+                "rules": [],
+                "enabled": false,
+                "slug": null,
+                "schema": {
+                  "version": 0.115,
+                  "lastMigration": {
+                    "datetime": "2026-10-26T05:10:25.160Z",
+                    "version": {
+                      "schema": 0.11,
+                      "foundry": "13.351",
+                      "system": "4.4.3"
+                    }
+                  }
+                },
+                "referenceEffect": null,
+                "source": {
+                  "value": "Homebrew"
+                },
+                "stackSlugs": false,
+                "keywords": [
+                  "Custom"
+                ],
+                "prerequisites": [
+                  "Master Focus",
+                  "GM Permission"
+                ],
+                "frequency": "At Will - Standard Action",
+                "notes": "",
+                "free": false,
+                "class": "",
+                "range": "Custom range",
+                "automation": [],
+                "name": "Agility Training",
+                "useCount": 0,
+                "p02pRecovered": "supported synthetic update"
+              }
+            },
+            {
+              "id": "KWua1z3vFfhveFEF",
+              "name": "P02-P Same Name",
+              "img": "icons/svg/item-bag.svg",
+              "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+              "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "version": {
+                "id": "synthetic-revised",
+                "label": "Synthetic revised"
+              },
+              "selection": {
+                "choice": "saved-revised"
+              },
+              "grants": {
+                "saved": {
+                  "id": "saved-grant-id",
+                  "onDelete": "detach"
+                }
+              },
+              "system": {
+                "origin": "",
+                "effect": "",
+                "snippet": "",
+                "rules": [],
+                "enabled": false,
+                "slug": null,
+                "schema": {
+                  "version": 0.115,
+                  "lastMigration": {
+                    "datetime": "2026-10-26T05:10:24.896Z",
+                    "version": {
+                      "schema": null,
+                      "foundry": "13.351",
+                      "system": "4.4.3"
+                    }
+                  }
+                },
+                "referenceEffect": null,
+                "source": {
+                  "value": "Homebrew"
+                },
+                "stackSlugs": false,
+                "keywords": [
+                  "Custom"
+                ],
+                "prerequisites": [
+                  "Novice Focus",
+                  "Custom requirement"
+                ],
+                "frequency": "At Will - Standard Action",
+                "notes": "",
+                "free": false,
+                "class": "",
+                "range": "Custom range"
+              }
+            }
+          ],
+          "syntheticVersionLabels": true,
+          "productionVariantsCreated": false
+        }
+      },
+      {
+        "id": "actual-three-migrations-preserve-owned-snapshots-twice",
+        "result": "pass",
+        "observed": {
+          "before": {
+            "id": "FeDJXbu7cC7eXJg8",
+            "schema": {
+              "version": 0.115,
+              "lastMigration": {
+                "datetime": "2026-10-26T05:10:24.896Z",
+                "version": {
+                  "schema": null,
+                  "foundry": "13.351",
+                  "system": "4.4.3"
+                }
+              }
+            },
+            "items": [
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": null
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "revised",
+                    "selectedVersion": {
+                      "id": "synthetic-revised",
+                      "label": "Synthetic revised"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-revised"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range"
+                },
+                "_id": "KWua1z3vFfhveFEF",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            ]
+          },
+          "first": {
+            "id": "FeDJXbu7cC7eXJg8",
+            "schema": {
+              "version": 0.115,
+              "lastMigration": {
+                "datetime": "2026-10-26T05:10:24.896Z",
+                "version": {
+                  "schema": null,
+                  "foundry": "13.351",
+                  "system": "4.4.3"
+                }
+              }
+            },
+            "items": [
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": null
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "revised",
+                    "selectedVersion": {
+                      "id": "synthetic-revised",
+                      "label": "Synthetic revised"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-revised"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range"
+                },
+                "_id": "KWua1z3vFfhveFEF",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            ]
+          },
+          "second": {
+            "id": "FeDJXbu7cC7eXJg8",
+            "schema": {
+              "version": 0.115,
+              "lastMigration": {
+                "datetime": "2026-10-26T05:10:24.896Z",
+                "version": {
+                  "schema": null,
+                  "foundry": "13.351",
+                  "system": "4.4.3"
+                }
+              }
+            },
+            "items": [
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": null
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "revised",
+                    "selectedVersion": {
+                      "id": "synthetic-revised",
+                      "label": "Synthetic revised"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-revised"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range"
+                },
+                "_id": "KWua1z3vFfhveFEF",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            ]
+          },
+          "persisted": {
+            "id": "FeDJXbu7cC7eXJg8",
+            "schema": {
+              "version": 0.115,
+              "lastMigration": {
+                "datetime": "2026-10-26T05:10:24.896Z",
+                "version": {
+                  "schema": null,
+                  "foundry": "13.351",
+                  "system": "4.4.3"
+                }
+              }
+            },
+            "items": [
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": null
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "revised",
+                    "selectedVersion": {
+                      "id": "synthetic-revised",
+                      "label": "Synthetic revised"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-revised"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range"
+                },
+                "_id": "KWua1z3vFfhveFEF",
+                "img": "icons/svg/item-bag.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            ]
+          },
+          "protectedFieldsExact": true
+        }
+      },
+      {
+        "id": "exact-source-conflict-rename-and-successful-missing-field-updates",
+        "result": "pass",
+        "observed": {
+          "features": [
+            {
+              "identity": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "rawRequirements": [
+                "Novice Athletics",
+                "Untrained Command"
+              ],
+              "flagsPreserved": true,
+              "sourceName": "Agility Training"
+            },
+            {
+              "identity": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+              "rawRequirements": [
+                "Novice Command"
+              ],
+              "flagsPreserved": true,
+              "sourceName": "Focused Training"
+            }
+          ],
+          "move": {
+            "uuid": "Compendium.ptu.moves.Item.aS33KlxhRCP0s5Zd",
+            "keywords": [],
+            "range": "Self",
+            "rules": [],
+            "referenceEffect": "Compendium.ptu.effects.Item.Wt0bzGOtDVlfzZeb"
+          },
+          "noMoveBehaviorExecuted": true
+        }
+      },
+      {
+        "id": "missing-ambiguous-custom-and-legacy-snapshots-preserved",
+        "result": "pass",
+        "observed": {
+          "rows": [
+            {
+              "role": "missing",
+              "before": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.0000000000000000",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.11
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              "after": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "Compendium.ptu.feats.Item.0000000000000000",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.111,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:12:23.692Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            },
+            {
+              "role": "invalid",
+              "before": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "ambiguous identity",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.11
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              "after": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": "ambiguous identity",
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.111,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:12:23.693Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            },
+            {
+              "role": "custom",
+              "before": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": null
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.11
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              "after": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": null
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.111,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:12:23.693Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            },
+            {
+              "role": "legacy",
+              "before": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.11
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              },
+              "after": {
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "_stats": {
+                  "compendiumSource": null,
+                  "duplicateSource": null,
+                  "exportSource": null,
+                  "coreVersion": "13.351",
+                  "systemId": "ptu",
+                  "systemVersion": "4.4.3",
+                  "lastModifiedBy": "lMqIt6G1J6gh89ut",
+                  "modifiedTime": 1792991543646
+                },
+                "flags": {
+                  "core": {
+                    "sourceId": "Compendium.ptu.feats.TQ6scoBM3iZKMuZT"
+                  },
+                  "ptu": {
+                    "p02pRole": "original",
+                    "selectedVersion": {
+                      "id": "synthetic-original",
+                      "label": "Synthetic original"
+                    },
+                    "rulesSelections": {
+                      "choice": "saved-original"
+                    },
+                    "itemGrants": {
+                      "saved": {
+                        "id": "saved-grant-id",
+                        "onDelete": "detach"
+                      }
+                    }
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.111,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:12:23.693Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update",
+                  "prerequisites": [
+                    "Novice Athletics",
+                    "Untrained Command"
+                  ]
+                },
+                "_id": "zpyv6NFxxbFvbUgm",
+                "img": "icons/svg/book.svg",
+                "effects": [],
+                "folder": null,
+                "sort": 0,
+                "ownership": {
+                  "default": 0
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "actual-owned-refresh-repeat-and-permission-boundary",
+        "result": "pass",
+        "observed": {
+          "rows": [
+            {
+              "before": {
+                "id": "zpyv6NFxxbFvbUgm",
+                "name": "P02-P Same Name",
+                "img": "icons/svg/book.svg",
+                "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "version": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "selection": {
+                  "choice": "saved-original"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                }
+              },
+              "first": {
+                "id": "zpyv6NFxxbFvbUgm",
+                "name": "P02-P Same Name",
+                "img": "icons/svg/book.svg",
+                "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "version": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "selection": {
+                  "choice": "saved-original"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                }
+              },
+              "second": {
+                "id": "zpyv6NFxxbFvbUgm",
+                "name": "P02-P Same Name",
+                "img": "icons/svg/book.svg",
+                "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "version": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "selection": {
+                  "choice": "saved-original"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:25.160Z",
+                      "version": {
+                        "schema": 0.11,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Master Focus",
+                    "GM Permission"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "automation": [],
+                  "name": "Agility Training",
+                  "useCount": 0,
+                  "p02pRecovered": "supported synthetic update"
+                }
+              }
+            },
+            {
+              "before": {
+                "id": "KWua1z3vFfhveFEF",
+                "name": "P02-P Same Name",
+                "img": "icons/svg/item-bag.svg",
+                "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "version": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic revised"
+                },
+                "selection": {
+                  "choice": "saved-revised"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range"
+                }
+              },
+              "first": {
+                "id": "KWua1z3vFfhveFEF",
+                "name": "P02-P Same Name",
+                "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+                "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "version": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic revised"
+                },
+                "selection": {
+                  "choice": "saved-revised"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "name": "Focused Training",
+                  "useCount": 0,
+                  "automation": []
+                }
+              },
+              "second": {
+                "id": "KWua1z3vFfhveFEF",
+                "name": "P02-P Same Name",
+                "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+                "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "version": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic revised"
+                },
+                "selection": {
+                  "choice": "saved-revised"
+                },
+                "grants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                },
+                "system": {
+                  "origin": "",
+                  "effect": "",
+                  "snippet": "",
+                  "rules": [],
+                  "enabled": false,
+                  "slug": null,
+                  "schema": {
+                    "version": 0.115,
+                    "lastMigration": {
+                      "datetime": "2026-10-26T05:10:24.896Z",
+                      "version": {
+                        "schema": null,
+                        "foundry": "13.351",
+                        "system": "4.4.3"
+                      }
+                    }
+                  },
+                  "referenceEffect": null,
+                  "source": {
+                    "value": "Homebrew"
+                  },
+                  "stackSlugs": false,
+                  "keywords": [
+                    "Custom"
+                  ],
+                  "prerequisites": [
+                    "Novice Focus",
+                    "Custom requirement"
+                  ],
+                  "frequency": "At Will - Standard Action",
+                  "notes": "",
+                  "free": false,
+                  "class": "",
+                  "range": "Custom range",
+                  "name": "Focused Training",
+                  "useCount": 0,
+                  "automation": []
+                }
+              }
+            }
+          ],
+          "nonOwner": {
+            "user": "iVkqwxalI3cGJahD",
+            "canUpdate": false,
+            "guardReachedUpdate": false
+          },
+          "otherClientPermissionUiNotExercised": true
+        }
+      },
+      {
+        "id": "actual-document-schema-failure-and-safe-retry",
+        "result": "pass",
+        "observed": {
+          "before": {
+            "name": "P02-P Same Name",
+            "type": "feat",
+            "_stats": {
+              "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "ptu",
+              "systemVersion": "4.4.3",
+              "lastModifiedBy": "lMqIt6G1J6gh89ut",
+              "modifiedTime": 1792991543719
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+              },
+              "ptu": {
+                "p02pRole": "original",
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "rulesSelections": {
+                  "choice": "saved-original"
+                },
+                "itemGrants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                }
+              }
+            },
+            "system": {
+              "origin": "",
+              "effect": "",
+              "snippet": "",
+              "rules": [],
+              "enabled": false,
+              "slug": null,
+              "schema": {
+                "version": 0.11,
+                "lastMigration": {
+                  "datetime": "2026-10-26T05:10:25.160Z",
+                  "version": {
+                    "schema": 0.11,
+                    "foundry": "13.351",
+                    "system": "4.4.3"
+                  }
+                }
+              },
+              "referenceEffect": null,
+              "source": {
+                "value": "Homebrew"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Custom"
+              ],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": "",
+              "range": "Custom range",
+              "automation": [],
+              "name": "Agility Training",
+              "useCount": 0,
+              "p02pRecovered": "supported synthetic update"
+            },
+            "_id": "zpyv6NFxxbFvbUgm",
+            "img": "icons/svg/book.svg",
+            "effects": [],
+            "folder": null,
+            "sort": 0,
+            "ownership": {
+              "default": 0
+            }
+          },
+          "failureAfter": {
+            "name": "P02-P Same Name",
+            "type": "feat",
+            "_stats": {
+              "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "ptu",
+              "systemVersion": "4.4.3",
+              "lastModifiedBy": "lMqIt6G1J6gh89ut",
+              "modifiedTime": 1792991543719
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+              },
+              "ptu": {
+                "p02pRole": "original",
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "rulesSelections": {
+                  "choice": "saved-original"
+                },
+                "itemGrants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                }
+              }
+            },
+            "system": {
+              "origin": "",
+              "effect": "",
+              "snippet": "",
+              "rules": [],
+              "enabled": false,
+              "slug": null,
+              "schema": {
+                "version": 0.11,
+                "lastMigration": {
+                  "datetime": "2026-10-26T05:10:25.160Z",
+                  "version": {
+                    "schema": 0.11,
+                    "foundry": "13.351",
+                    "system": "4.4.3"
+                  }
+                }
+              },
+              "referenceEffect": null,
+              "source": {
+                "value": "Homebrew"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Custom"
+              ],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": "",
+              "range": "Custom range",
+              "automation": [],
+              "name": "Agility Training",
+              "useCount": 0,
+              "p02pRecovered": "supported synthetic update"
+            },
+            "_id": "zpyv6NFxxbFvbUgm",
+            "img": "icons/svg/book.svg",
+            "effects": [],
+            "folder": null,
+            "sort": 0,
+            "ownership": {
+              "default": 0
+            }
+          },
+          "rejected": true,
+          "recovered": {
+            "name": "P02-P Same Name",
+            "type": "feat",
+            "_stats": {
+              "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "ptu",
+              "systemVersion": "4.4.3",
+              "lastModifiedBy": "lMqIt6G1J6gh89ut",
+              "modifiedTime": 1792991543719
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+              },
+              "ptu": {
+                "p02pRole": "original",
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "rulesSelections": {
+                  "choice": "saved-original"
+                },
+                "itemGrants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                }
+              }
+            },
+            "system": {
+              "origin": "",
+              "effect": "",
+              "snippet": "",
+              "rules": [],
+              "enabled": false,
+              "slug": null,
+              "schema": {
+                "version": 0.115,
+                "lastMigration": {
+                  "datetime": "2026-10-26T05:12:23.722Z",
+                  "version": {
+                    "schema": 0.11,
+                    "foundry": "13.351",
+                    "system": "4.4.3"
+                  }
+                }
+              },
+              "referenceEffect": null,
+              "source": {
+                "value": "Homebrew"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Custom"
+              ],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": "",
+              "range": "Custom range",
+              "automation": [],
+              "name": "Agility Training",
+              "useCount": 0,
+              "p02pRecovered": "supported synthetic update"
+            },
+            "_id": "zpyv6NFxxbFvbUgm",
+            "img": "icons/svg/book.svg",
+            "effects": [],
+            "folder": null,
+            "sort": 0,
+            "ownership": {
+              "default": 0
+            }
+          },
+          "persisted": {
+            "name": "P02-P Same Name",
+            "type": "feat",
+            "_stats": {
+              "compendiumSource": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "duplicateSource": null,
+              "exportSource": null,
+              "coreVersion": "13.351",
+              "systemId": "ptu",
+              "systemVersion": "4.4.3",
+              "lastModifiedBy": "lMqIt6G1J6gh89ut",
+              "modifiedTime": 1792991543725
+            },
+            "flags": {
+              "core": {
+                "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07"
+              },
+              "ptu": {
+                "p02pRole": "original",
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                },
+                "rulesSelections": {
+                  "choice": "saved-original"
+                },
+                "itemGrants": {
+                  "saved": {
+                    "id": "saved-grant-id",
+                    "onDelete": "detach"
+                  }
+                }
+              }
+            },
+            "system": {
+              "origin": "",
+              "effect": "",
+              "snippet": "",
+              "rules": [],
+              "enabled": false,
+              "slug": null,
+              "schema": {
+                "version": 0.115,
+                "lastMigration": {
+                  "datetime": "2026-10-26T05:12:23.722Z",
+                  "version": {
+                    "schema": 0.11,
+                    "foundry": "13.351",
+                    "system": "4.4.3"
+                  }
+                }
+              },
+              "referenceEffect": null,
+              "source": {
+                "value": "Homebrew"
+              },
+              "stackSlugs": false,
+              "keywords": [
+                "Custom"
+              ],
+              "prerequisites": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "frequency": "At Will - Standard Action",
+              "notes": "",
+              "free": false,
+              "class": "",
+              "range": "Custom range",
+              "automation": [],
+              "name": "Agility Training",
+              "useCount": 0,
+              "p02pRecovered": "supported synthetic update"
+            },
+            "_id": "zpyv6NFxxbFvbUgm",
+            "img": "icons/svg/book.svg",
+            "effects": [],
+            "folder": null,
+            "sort": 0,
+            "ownership": {
+              "default": 0
+            }
+          },
+          "worldSchemaUnchanged": true
+        }
+      }
+    ],
+    "preexisting": {
+      "actors": [
+        {
+          "id": "gk9r0fbZDEaU3Uqm",
+          "hash": "ed4c0cc58ddcea229da6527306c763f2b59bd5c764ed21748148dc52eb902581"
+        },
+        {
+          "id": "U9TckZf3BvzVEIOd",
+          "hash": "1c8aea7b6cba7bdca7f04770e1d054d932bbc7dd52aa43a2956de0084b65d5a4"
+        },
+        {
+          "id": "gFmuOhlecRgxoWRy",
+          "hash": "03b78f78e6eca9c41d1d8057ef9d911323330292364915c97daac6d97c6658b2"
+        },
+        {
+          "id": "qM8DAzVFVaRgO2WM",
+          "hash": "3955c85685722e7069117e5dda39b57eec58b81b933a5ff4520ca5e8c0ef73f8"
+        },
+        {
+          "id": "ohMwmzoYpN7zFoq6",
+          "hash": "b71ca1023a34f5d645564891c555d98bba66646dbace6c1b3c58de950c24bf8a"
+        },
+        {
+          "id": "kNPpnI85vSTST3D9",
+          "hash": "0159a14cb747ebf0c859d4e04e43272a7aea8f0ccfa8ff7670ee790ecb5d7ff6"
+        },
+        {
+          "id": "XpltYaUtqRyRoaHK",
+          "hash": "d9e7b8666513ecb1093f587afd06c03621da30ef4e67079b4b14296e193e0a07"
+        },
+        {
+          "id": "4bO5qqIyWpGrQ5wZ",
+          "hash": "5864c7997bf22ebef625fbf6ffa56df8d99377fe1637a0601be1dce66a6d3e77"
+        },
+        {
+          "id": "T9QHv2ik0Y6pd81S",
+          "hash": "f91d2861823790902d5df22057a028affd7b3514a38482254c77900541075905"
+        },
+        {
+          "id": "XMStozeLb0BAajWg",
+          "hash": "a253bc2dc88b4654f0bfb14c9b0d684b3f910c9411b4054c82d813b003d93049"
+        },
+        {
+          "id": "z60uZJcZji5Gpg3Z",
+          "hash": "f7576debb58f0ae76d778bb19aee30425c30190c6073b3611f82ab67aad03dd5"
+        },
+        {
+          "id": "7IkwR9DlWP9l7uFf",
+          "hash": "570c4265ab4d2bcb9f9b5d8cdf7fad7acfce248dedcccc20718f99a5727eaea4"
+        },
+        {
+          "id": "SwSRV8qeTtfvelp5",
+          "hash": "b022acf8e0ff5a1f31a358928d24455fc37f06df88d453dcf645ac701f856cd0"
+        },
+        {
+          "id": "vJqJwFhewJ88lFfV",
+          "hash": "3b110dac387ca5c086c041f43d20d73cafb999117366fb23ad2d5bae87d09d12"
+        },
+        {
+          "id": "1i7JXBgZreqrPRGK",
+          "hash": "40ff906ae77d3a734ade434b5417ef3fdcab8c63b12ccf3393003e01f7d46f93"
+        }
+      ],
+      "items": [
+        {
+          "id": "4NJKcWkt2x65VvzP",
+          "hash": "35ac712ef4169eacdd7cc87c40c6c60e37c0b330810ad071265b9a74a7d1c36e"
+        },
+        {
+          "id": "E0pSDkCVC9CZs67s",
+          "hash": "8d068eedaf774386ac6432355a7640f1d61927ad15cbfde475d4e6c9f5dd7f0d"
+        },
+        {
+          "id": "8kocPkR2GmT8I2Ac",
+          "hash": "5affd9e5afd5623b8ecc2986b566b776142fa0a85c7a071bf719c7debef68adc"
+        },
+        {
+          "id": "eeQ7uHfm9iJb4hhX",
+          "hash": "63db1663d71ab0b0147c19c869f7812397df406efb35db51222189c96a2b0f1b"
+        },
+        {
+          "id": "E7AxtQtER8VJaiTJ",
+          "hash": "835de83074a29bf3ba047cb9b7b4823adcc8ed188735888abe6371cbf18532a5"
+        },
+        {
+          "id": "SdMzAKZeBGnNhB1q",
+          "hash": "a18d9322ab5a60aeb5196d769e6d5301279c93c4958b5ecfff88cd61bb7f0e6a"
+        },
+        {
+          "id": "mWTFJQKZIM7XU7jn",
+          "hash": "ef51f56497a011c0be36a7216edb5e673f1de938f850ec9d235b50ab73f31cc6"
+        },
+        {
+          "id": "6vdQjZwLepn27WfY",
+          "hash": "3045a318aedce12635179069b9a3678fb87ed5cf383f813d083f676c98e9bb4d"
+        },
+        {
+          "id": "bvufb8M11tEXAlq8",
+          "hash": "be31fb15a7917ff686d3a6f9febc007443842552a81b7596dcde2c3e2c78f940"
+        },
+        {
+          "id": "sDVdMaIGQGEglnln",
+          "hash": "22f942f31bc2ee5cc31318023925929f54898c01e47c5ea5bad345e89316c523"
+        }
+      ],
+      "worldSchema": 0.115
+    },
+    "expectedPersisted": [
+      {
+        "id": "zpyv6NFxxbFvbUgm",
+        "name": "P02-P Same Name",
+        "img": "icons/svg/book.svg",
+        "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+        "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+        "version": {
+          "id": "synthetic-original",
+          "label": "Synthetic original"
+        },
+        "selection": {
+          "choice": "saved-original"
+        },
+        "grants": {
+          "saved": {
+            "id": "saved-grant-id",
+            "onDelete": "detach"
+          }
+        },
+        "system": {
+          "origin": "",
+          "effect": "",
+          "snippet": "",
+          "rules": [],
+          "enabled": false,
+          "slug": null,
+          "schema": {
+            "version": 0.115,
+            "lastMigration": {
+              "datetime": "2026-10-26T05:12:23.722Z",
+              "version": {
+                "schema": 0.11,
+                "foundry": "13.351",
+                "system": "4.4.3"
+              }
+            }
+          },
+          "referenceEffect": null,
+          "source": {
+            "value": "Homebrew"
+          },
+          "stackSlugs": false,
+          "keywords": [
+            "Custom"
+          ],
+          "prerequisites": [
+            "Master Focus",
+            "GM Permission"
+          ],
+          "frequency": "At Will - Standard Action",
+          "notes": "",
+          "free": false,
+          "class": "",
+          "range": "Custom range",
+          "automation": [],
+          "name": "Agility Training",
+          "useCount": 0,
+          "p02pRecovered": "supported synthetic update"
+        }
+      },
+      {
+        "id": "KWua1z3vFfhveFEF",
+        "name": "P02-P Same Name",
+        "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+        "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+        "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+        "version": {
+          "id": "synthetic-revised",
+          "label": "Synthetic revised"
+        },
+        "selection": {
+          "choice": "saved-revised"
+        },
+        "grants": {
+          "saved": {
+            "id": "saved-grant-id",
+            "onDelete": "detach"
+          }
+        },
+        "system": {
+          "origin": "",
+          "effect": "",
+          "snippet": "",
+          "rules": [],
+          "enabled": false,
+          "slug": null,
+          "schema": {
+            "version": 0.115,
+            "lastMigration": {
+              "datetime": "2026-10-26T05:10:24.896Z",
+              "version": {
+                "schema": null,
+                "foundry": "13.351",
+                "system": "4.4.3"
+              }
+            }
+          },
+          "referenceEffect": null,
+          "source": {
+            "value": "Homebrew"
+          },
+          "stackSlugs": false,
+          "keywords": [
+            "Custom"
+          ],
+          "prerequisites": [
+            "Novice Focus",
+            "Custom requirement"
+          ],
+          "frequency": "At Will - Standard Action",
+          "notes": "",
+          "free": false,
+          "class": "",
+          "range": "Custom range",
+          "name": "Focused Training",
+          "useCount": 0,
+          "automation": []
+        }
+      }
+    ],
+    "actor": "Actor.FeDJXbu7cC7eXJg8"
+  },
+  "reload": {
+    "batch": "P02-P-2026-10-26",
+    "phase": "reload",
+    "foundry": "13.351",
+    "system": "4.4.3",
+    "scenarios": [
+      {
+        "id": "persisted-reload-and-preexisting-world-data",
+        "result": "pass",
+        "observed": {
+          "actor": "Actor.FeDJXbu7cC7eXJg8",
+          "items": [
+            {
+              "id": "zpyv6NFxxbFvbUgm",
+              "name": "P02-P Same Name",
+              "img": "icons/svg/book.svg",
+              "source": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "legacy": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+              "version": {
+                "id": "synthetic-original",
+                "label": "Synthetic original"
+              },
+              "selection": {
+                "choice": "saved-original"
+              },
+              "grants": {
+                "saved": {
+                  "id": "saved-grant-id",
+                  "onDelete": "detach"
+                }
+              },
+              "system": {
+                "origin": "",
+                "effect": "",
+                "snippet": "",
+                "rules": [],
+                "enabled": false,
+                "slug": null,
+                "schema": {
+                  "version": 0.115,
+                  "lastMigration": {
+                    "datetime": "2026-10-26T05:12:23.722Z",
+                    "version": {
+                      "schema": 0.11,
+                      "foundry": "13.351",
+                      "system": "4.4.3"
+                    }
+                  }
+                },
+                "referenceEffect": null,
+                "source": {
+                  "value": "Homebrew"
+                },
+                "stackSlugs": false,
+                "keywords": [
+                  "Custom"
+                ],
+                "prerequisites": [
+                  "Master Focus",
+                  "GM Permission"
+                ],
+                "frequency": "At Will - Standard Action",
+                "notes": "",
+                "free": false,
+                "class": "",
+                "range": "Custom range",
+                "automation": [],
+                "name": "Agility Training",
+                "useCount": 0,
+                "p02pRecovered": "supported synthetic update"
+              }
+            },
+            {
+              "id": "KWua1z3vFfhveFEF",
+              "name": "P02-P Same Name",
+              "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+              "source": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+              "legacy": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+              "version": {
+                "id": "synthetic-revised",
+                "label": "Synthetic revised"
+              },
+              "selection": {
+                "choice": "saved-revised"
+              },
+              "grants": {
+                "saved": {
+                  "id": "saved-grant-id",
+                  "onDelete": "detach"
+                }
+              },
+              "system": {
+                "origin": "",
+                "effect": "",
+                "snippet": "",
+                "rules": [],
+                "enabled": false,
+                "slug": null,
+                "schema": {
+                  "version": 0.115,
+                  "lastMigration": {
+                    "datetime": "2026-10-26T05:10:24.896Z",
+                    "version": {
+                      "schema": null,
+                      "foundry": "13.351",
+                      "system": "4.4.3"
+                    }
+                  }
+                },
+                "referenceEffect": null,
+                "source": {
+                  "value": "Homebrew"
+                },
+                "stackSlugs": false,
+                "keywords": [
+                  "Custom"
+                ],
+                "prerequisites": [
+                  "Novice Focus",
+                  "Custom requirement"
+                ],
+                "frequency": "At Will - Standard Action",
+                "notes": "",
+                "free": false,
+                "class": "",
+                "range": "Custom range",
+                "name": "Focused Training",
+                "useCount": 0,
+                "automation": []
+              }
+            }
+          ],
+          "preexistingActorCount": 15,
+          "preexistingItemCount": 10,
+          "allHashesMatch": true
+        }
+      },
+      {
+        "id": "accepted-p03-reports-retain-raw-selected-version-inputs",
+        "result": "pass",
+        "observed": {
+          "rows": [
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": "Actor.FeDJXbu7cC7eXJg8",
+                "uuid": "Actor.FeDJXbu7cC7eXJg8.Item.zpyv6NFxxbFvbUgm",
+                "id": "zpyv6NFxxbFvbUgm",
+                "sourceId": "Compendium.ptu.feats.Item.TQ6scoBM3iZKMuZT",
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Homebrew"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-original",
+                  "label": "Synthetic original"
+                }
+              },
+              "rawRequirements": [
+                "Master Focus",
+                "GM Permission"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 6,
+                  "actual": 2,
+                  "raw": "Master Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "gm-approval-not-evidenced",
+                  "raw": "GM Permission"
+                }
+              ]
+            },
+            {
+              "schemaVersion": 1,
+              "advisory": true,
+              "identity": {
+                "actorUuid": "Actor.FeDJXbu7cC7eXJg8",
+                "uuid": "Actor.FeDJXbu7cC7eXJg8.Item.KWua1z3vFfhveFEF",
+                "id": "KWua1z3vFfhveFEF",
+                "sourceId": "Compendium.ptu.feats.Item.FLSt79Zix8j69T07",
+                "name": "P02-P Same Name",
+                "type": "feat",
+                "source": {
+                  "value": "Homebrew"
+                },
+                "selectedVersion": {
+                  "id": "synthetic-revised",
+                  "label": "Synthetic revised"
+                }
+              },
+              "rawRequirements": [
+                "Novice Focus",
+                "Custom requirement"
+              ],
+              "attributionIssues": [],
+              "requirements": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                },
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom requirement"
+                }
+              ],
+              "satisfied": [],
+              "unmet": [
+                {
+                  "status": "unmet",
+                  "kind": "skill",
+                  "skillKey": "focus",
+                  "required": 3,
+                  "actual": 2,
+                  "raw": "Novice Focus"
+                }
+              ],
+              "unverifiable": [
+                {
+                  "status": "unverifiable",
+                  "kind": "custom",
+                  "reason": "custom-or-unresolved-identity",
+                  "raw": "Custom requirement"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "preexisting": {
+      "actors": [
+        {
+          "id": "gk9r0fbZDEaU3Uqm",
+          "hash": "ed4c0cc58ddcea229da6527306c763f2b59bd5c764ed21748148dc52eb902581"
+        },
+        {
+          "id": "U9TckZf3BvzVEIOd",
+          "hash": "1c8aea7b6cba7bdca7f04770e1d054d932bbc7dd52aa43a2956de0084b65d5a4"
+        },
+        {
+          "id": "gFmuOhlecRgxoWRy",
+          "hash": "03b78f78e6eca9c41d1d8057ef9d911323330292364915c97daac6d97c6658b2"
+        },
+        {
+          "id": "qM8DAzVFVaRgO2WM",
+          "hash": "3955c85685722e7069117e5dda39b57eec58b81b933a5ff4520ca5e8c0ef73f8"
+        },
+        {
+          "id": "ohMwmzoYpN7zFoq6",
+          "hash": "b71ca1023a34f5d645564891c555d98bba66646dbace6c1b3c58de950c24bf8a"
+        },
+        {
+          "id": "kNPpnI85vSTST3D9",
+          "hash": "0159a14cb747ebf0c859d4e04e43272a7aea8f0ccfa8ff7670ee790ecb5d7ff6"
+        },
+        {
+          "id": "XpltYaUtqRyRoaHK",
+          "hash": "d9e7b8666513ecb1093f587afd06c03621da30ef4e67079b4b14296e193e0a07"
+        },
+        {
+          "id": "4bO5qqIyWpGrQ5wZ",
+          "hash": "5864c7997bf22ebef625fbf6ffa56df8d99377fe1637a0601be1dce66a6d3e77"
+        },
+        {
+          "id": "T9QHv2ik0Y6pd81S",
+          "hash": "f91d2861823790902d5df22057a028affd7b3514a38482254c77900541075905"
+        },
+        {
+          "id": "XMStozeLb0BAajWg",
+          "hash": "a253bc2dc88b4654f0bfb14c9b0d684b3f910c9411b4054c82d813b003d93049"
+        },
+        {
+          "id": "z60uZJcZji5Gpg3Z",
+          "hash": "f7576debb58f0ae76d778bb19aee30425c30190c6073b3611f82ab67aad03dd5"
+        },
+        {
+          "id": "7IkwR9DlWP9l7uFf",
+          "hash": "570c4265ab4d2bcb9f9b5d8cdf7fad7acfce248dedcccc20718f99a5727eaea4"
+        },
+        {
+          "id": "SwSRV8qeTtfvelp5",
+          "hash": "b022acf8e0ff5a1f31a358928d24455fc37f06df88d453dcf645ac701f856cd0"
+        },
+        {
+          "id": "vJqJwFhewJ88lFfV",
+          "hash": "3b110dac387ca5c086c041f43d20d73cafb999117366fb23ad2d5bae87d09d12"
+        },
+        {
+          "id": "1i7JXBgZreqrPRGK",
+          "hash": "40ff906ae77d3a734ade434b5417ef3fdcab8c63b12ccf3393003e01f7d46f93"
+        }
+      ],
+      "items": [
+        {
+          "id": "4NJKcWkt2x65VvzP",
+          "hash": "35ac712ef4169eacdd7cc87c40c6c60e37c0b330810ad071265b9a74a7d1c36e"
+        },
+        {
+          "id": "E0pSDkCVC9CZs67s",
+          "hash": "8d068eedaf774386ac6432355a7640f1d61927ad15cbfde475d4e6c9f5dd7f0d"
+        },
+        {
+          "id": "8kocPkR2GmT8I2Ac",
+          "hash": "5affd9e5afd5623b8ecc2986b566b776142fa0a85c7a071bf719c7debef68adc"
+        },
+        {
+          "id": "eeQ7uHfm9iJb4hhX",
+          "hash": "63db1663d71ab0b0147c19c869f7812397df406efb35db51222189c96a2b0f1b"
+        },
+        {
+          "id": "E7AxtQtER8VJaiTJ",
+          "hash": "835de83074a29bf3ba047cb9b7b4823adcc8ed188735888abe6371cbf18532a5"
+        },
+        {
+          "id": "SdMzAKZeBGnNhB1q",
+          "hash": "a18d9322ab5a60aeb5196d769e6d5301279c93c4958b5ecfff88cd61bb7f0e6a"
+        },
+        {
+          "id": "mWTFJQKZIM7XU7jn",
+          "hash": "ef51f56497a011c0be36a7216edb5e673f1de938f850ec9d235b50ab73f31cc6"
+        },
+        {
+          "id": "6vdQjZwLepn27WfY",
+          "hash": "3045a318aedce12635179069b9a3678fb87ed5cf383f813d083f676c98e9bb4d"
+        },
+        {
+          "id": "bvufb8M11tEXAlq8",
+          "hash": "be31fb15a7917ff686d3a6f9febc007443842552a81b7596dcde2c3e2c78f940"
+        },
+        {
+          "id": "sDVdMaIGQGEglnln",
+          "hash": "22f942f31bc2ee5cc31318023925929f54898c01e47c5ea5bad345e89316c523"
+        }
+      ],
+      "worldSchema": 0.115
+    }
+  },
+  "intermediateLiveFailures": [
+    {
+      "id": "exact-source-conflict-rename-and-successful-missing-field-updates",
+      "result": "fail",
+      "error": "Cannot read properties of null (reading 'uuid')"
+    },
+    {
+      "id": "actual-owned-refresh-repeat-and-permission-boundary",
+      "result": "fail",
+      "error": "Refresh changed identity/selection img"
+    }
+  ],
+  "intermediateDisposition": "Harness scoped version loops to flagged Feature fixtures after default 0 HP invoked Fainted/Vulnerable; corrected default-image assertion and exercised custom image. No production change followed the initial live run.",
+  "fixtureLimit": "Two existing core Feature UUIDs with synthetic original/revised labels test identity/preservation, not approved original/errata counterparts. Historical Agility Move UUID is read structurally; no move/effect behavior executed.",
+  "permissionsLimit": "Actual non-owner canUserModify false plus refresh guard called with non-owner context and no update; separate player-client refresh UI was not exercised.",
+  "failureLimit": "Live actual document ensureSchemaVersion failure/recovery; world transform/write/embedded/free-form faults use actual runner entrypoints with controlled Node IO. No whole-world forced migration or backend outage was induced.",
+  "transactionLimit": "No cross-document transaction/rollback. Prior successful writes may remain after a later failure; old world stamp allows retry and tested paths are repeat safe.",
+  "scopeLimit": "Only 0.111/0.113/0.115 content transformations, refresh and shared failure propagation are corrected. Other historical content migrations are not certified. Existing data lost before this correction cannot be reconstructed without original backups.",
+  "ci": {
+    "status": "final-pushed-head-check-pending",
+    "route": "Authorized GitHub workflow-run/job metadata only; Code Review diagnostics not retried. Final commit/run/results are bound in the final handoff."
+  },
+  "shutdown": {
+    "worldObservedAtSetup": true,
+    "managedServerTerminal": true,
+    "exitCode": 1,
+    "port30001RefusesConnections": true,
+    "inactiveLockReclaimedThroughProperLockfile": true,
+    "lockAbsent": true,
+    "temporaryViewportReset": true,
+    "finalGracefulShutdownLogCaptured": false
+  },
+  "nextGate": "P02-A held until substantive planner acceptance and explicit assignment; no other chat started or messaged."
+}

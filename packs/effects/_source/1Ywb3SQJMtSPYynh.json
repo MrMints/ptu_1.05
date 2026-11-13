@@ -1,0 +1,85 @@
+{
+  "folder": "fTnXg4Xmuu6z14TV",
+  "name": "Effect: Surge of Spirit (Bound)",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ActionPoint",
+        "boundValue": 2
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-surge-of-spirit-bound",
+    "schema": {
+      "version": 0.112,
+      "lastMigration": {
+        "datetime": "2024-01-14T21:44:47.537Z",
+        "version": {
+          "schema": null,
+          "foundry": "11.315",
+          "system": "4.0.9"
+        }
+      }
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "unlimited",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "usUqaPHVyuEDJzbo": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": false
+    },
+    "exportSource": {
+      "world": "marth-ptr",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.1.0"
+    },
+    "core": {}
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.1.1",
+    "createdTime": 1706452721947,
+    "modifiedTime": 1706452721947,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "1Ywb3SQJMtSPYynh",
+  "sort": 0,
+  "_key": "!items!1Ywb3SQJMtSPYynh"
+}

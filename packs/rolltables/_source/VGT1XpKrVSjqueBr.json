@@ -1,0 +1,1101 @@
+{
+  "folder": "KdbYHm255fVoO8XG",
+  "name": "Berries",
+  "_id": "VGT1XpKrVSjqueBr",
+  "img": "systems/ptu/static/images/item_icons/oran%20berry.webp",
+  "description": "",
+  "results": [
+    {
+      "text": "Kelpsy Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0IBizkBY2Kyq5KkH",
+      "img": "systems/ptu/images/item_icons/kelpsy berry.webp",
+      "_id": "jVOEvRtG8asI9G15",
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.jVOEvRtG8asI9G15"
+    },
+    {
+      "text": "Rindo Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0UYLtvxxgnwAbDUF",
+      "img": "systems/ptu/images/item_icons/rindo berry.webp",
+      "_id": "pegl7ZAx3mc247m8",
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.pegl7ZAx3mc247m8"
+    },
+    {
+      "text": "Oran Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "0txLVYw8LvBMSVdd",
+      "img": "systems/ptu/images/item_icons/oran berry.webp",
+      "_id": "JCfCUG1rdjt5QoGW",
+      "range": [
+        3,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.JCfCUG1rdjt5QoGW"
+    },
+    {
+      "text": "Lansat Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "1DRUhFxU6Y72ODAA",
+      "img": "systems/ptu/images/item_icons/lansat berry.webp",
+      "_id": "K4PnOWbvXRlZbzx1",
+      "range": [
+        6,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.K4PnOWbvXRlZbzx1"
+    },
+    {
+      "text": "Aspear Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "1F4h8ATAl8MlaM7e",
+      "img": "systems/ptu/images/item_icons/aspear berry.webp",
+      "_id": "OdaKlsJzyS9MK22h",
+      "range": [
+        8,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.OdaKlsJzyS9MK22h"
+    },
+    {
+      "text": "Custap Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "1RcHGmJQHWKigx54",
+      "img": "systems/ptu/images/item_icons/custap berry.webp",
+      "_id": "ewYgTnAlMlpBBmCO",
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.ewYgTnAlMlpBBmCO"
+    },
+    {
+      "text": "Chople Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2Hz3FvCYLKM6GxqI",
+      "img": "systems/ptu/images/item_icons/chople berry.webp",
+      "_id": "RMnt9eQoee2UXJup",
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.RMnt9eQoee2UXJup"
+    },
+    {
+      "text": "Belue Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "34nn2TkdQjNbXL0U",
+      "img": "systems/ptu/images/item_icons/belue berry.webp",
+      "_id": "VL3n3XJWS6ND01WX",
+      "range": [
+        13,
+        14
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.VL3n3XJWS6ND01WX"
+    },
+    {
+      "text": "Wepear Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "4PebEIFVWG5hNGrz",
+      "img": "systems/ptu/images/item_icons/wepear berry.webp",
+      "_id": "qpB3Tc748vChIQXL",
+      "range": [
+        15,
+        17
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.qpB3Tc748vChIQXL"
+    },
+    {
+      "text": "Grepa Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "5c1Ra5oqykO2dMb9",
+      "img": "systems/ptu/images/item_icons/grepa berry.webp",
+      "_id": "0VsDWVeo2F4OF64u",
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.0VsDWVeo2F4OF64u"
+    },
+    {
+      "text": "Watmel Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "63QJ0JtoxTJQ5nc0",
+      "img": "systems/ptu/images/item_icons/watmel%20berry.webp",
+      "_id": "dKnu1nshJGqL1So3",
+      "range": [
+        19,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.dKnu1nshJGqL1So3"
+    },
+    {
+      "text": "Razz Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "6Ulf3uG4QRO9sEEK",
+      "img": "systems/ptu/images/item_icons/razz berry.webp",
+      "_id": "o4TUV4K9yrkMfSqG",
+      "range": [
+        21,
+        23
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.o4TUV4K9yrkMfSqG"
+    },
+    {
+      "text": "Occa Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "6YJtA57wmDEOVtC7",
+      "img": "systems/ptu/images/item_icons/occa berry.webp",
+      "_id": "3uYWkNLmreWWcX6p",
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.3uYWkNLmreWWcX6p"
+    },
+    {
+      "text": "Tanga Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ADMAWB03oV5wv0zd",
+      "img": "systems/ptu/images/item_icons/tanga berry.webp",
+      "_id": "ezNigKt2GqvZgHEC",
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.ezNigKt2GqvZgHEC"
+    },
+    {
+      "text": "Pinap Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "AnzVYlXddqWdCUCQ",
+      "img": "systems/ptu/images/item_icons/pinap berry.webp",
+      "_id": "L7OUjZxy2xVjHw1E",
+      "range": [
+        26,
+        28
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.L7OUjZxy2xVjHw1E"
+    },
+    {
+      "text": "Shuca Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "DcSCtsmyeHIdwbli",
+      "img": "systems/ptu/images/item_icons/shuca berry.webp",
+      "_id": "GZE3rMuQ56JuGsH2",
+      "range": [
+        29,
+        29
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.GZE3rMuQ56JuGsH2"
+    },
+    {
+      "text": "Tamato Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "EG9PIafCznbKmjbK",
+      "img": "systems/ptu/images/item_icons/tamato berry.webp",
+      "_id": "D3HHMd7mQay4nhvQ",
+      "range": [
+        30,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.D3HHMd7mQay4nhvQ"
+    },
+    {
+      "text": "Roseli Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "FqoZCJvoWrxmqYCr",
+      "img": "systems/ptu/images/item_icons/roseli berry.webp",
+      "_id": "rNWE3QiQGAC4V3aE",
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.rNWE3QiQGAC4V3aE"
+    },
+    {
+      "text": "Lum Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "HV1s0SlTRW15Czy4",
+      "img": "systems/ptu/images/item_icons/lum berry.webp",
+      "_id": "DrdKUWIhQCP13CA9",
+      "range": [
+        32,
+        33
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.DrdKUWIhQCP13CA9"
+    },
+    {
+      "text": "Liechi Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "JsdmMnIq4DciokB6",
+      "img": "systems/ptu/images/item_icons/liechi berry.webp",
+      "_id": "dcSEbocMgeBRZjBu",
+      "range": [
+        34,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.dcSEbocMgeBRZjBu"
+    },
+    {
+      "text": "Figy Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "KANaICzUllgcccn6",
+      "img": "systems/ptu/images/item_icons/figy berry.webp",
+      "_id": "oWacwe1GtBO8Mg2p",
+      "range": [
+        36,
+        37
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.oWacwe1GtBO8Mg2p"
+    },
+    {
+      "text": "Bluk Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "LOHaoajMrgco1NjQ",
+      "img": "systems/ptu/images/item_icons/bluk berry.webp",
+      "_id": "Tu0l6seikyVriX2d",
+      "range": [
+        38,
+        40
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.Tu0l6seikyVriX2d"
+    },
+    {
+      "text": "Qualot Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "OB3PSgoyi6o3yr3G",
+      "img": "systems/ptu/images/item_icons/qualot berry.webp",
+      "_id": "rUT9Fv2zBm419Tgo",
+      "range": [
+        41,
+        41
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.rUT9Fv2zBm419Tgo"
+    },
+    {
+      "text": "Chilan Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "P1JwCLq7RN39KvIr",
+      "img": "systems/ptu/images/item_icons/chilan berry.webp",
+      "_id": "ZzFkjFMglXTkpdL3",
+      "range": [
+        42,
+        42
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.ZzFkjFMglXTkpdL3"
+    },
+    {
+      "text": "Pamtre Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "Pt8QZy6atB2PDZgK",
+      "img": "systems/ptu/images/item_icons/pamtre berry.webp",
+      "_id": "9Pnux62gDx7l7acc",
+      "range": [
+        43,
+        44
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.9Pnux62gDx7l7acc"
+    },
+    {
+      "text": "Mago Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "QVycESa0ERv6vnVx",
+      "img": "systems/ptu/images/item_icons/mago berry.webp",
+      "_id": "plfn4na2PLJmjdL8",
+      "range": [
+        45,
+        46
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.plfn4na2PLJmjdL8"
+    },
+    {
+      "text": "Persim Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "UIukeOUhW7aQKDhe",
+      "img": "systems/ptu/images/item_icons/persim berry.webp",
+      "_id": "jSD0xyVQgTE74TQs",
+      "range": [
+        47,
+        49
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.jSD0xyVQgTE74TQs"
+    },
+    {
+      "text": "Ganlon Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "UQZg03UetHtq6tBK",
+      "img": "systems/ptu/images/item_icons/ganlon berry.webp",
+      "_id": "SJXUvqB0H0Oq9dog",
+      "range": [
+        50,
+        51
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.SJXUvqB0H0Oq9dog"
+    },
+    {
+      "text": "Rabuta Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "UX3xgG5stg8D8cy9",
+      "img": "systems/ptu/images/item_icons/rabuta berry.webp",
+      "_id": "gEBvjQA59R5OT90R",
+      "range": [
+        52,
+        53
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.gEBvjQA59R5OT90R"
+    },
+    {
+      "text": "Chesto Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "Ui1HOOBmxt6iCjqM",
+      "img": "systems/ptu/images/item_icons/chesto berry.webp",
+      "_id": "vxbtI58J0exx2pGs",
+      "range": [
+        54,
+        56
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.vxbtI58J0exx2pGs"
+    },
+    {
+      "text": "Coba Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UkwrfJYxL3klZLA2",
+      "img": "systems/ptu/images/item_icons/coba berry.webp",
+      "_id": "zyTD6Om481ehiOrB",
+      "range": [
+        57,
+        57
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.zyTD6Om481ehiOrB"
+    },
+    {
+      "text": "Nomel Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "WoqejsstCRWX2tdD",
+      "img": "systems/ptu/images/item_icons/nomel berry.webp",
+      "_id": "fDxGbi3b7UAGvw9I",
+      "range": [
+        58,
+        59
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.fDxGbi3b7UAGvw9I"
+    },
+    {
+      "text": "Aguav Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "XIUq1Al547PHDZXH",
+      "img": "systems/ptu/images/item_icons/aguav berry.webp",
+      "_id": "CLdvuJ0qXsd4ZIlm",
+      "range": [
+        60,
+        61
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.CLdvuJ0qXsd4ZIlm"
+    },
+    {
+      "text": "Pomeg Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "XIe5IPZjyb1nxytx",
+      "img": "systems/ptu/images/item_icons/pomeg berry.webp",
+      "_id": "Y7lCgUipzMkZlpP0",
+      "range": [
+        62,
+        62
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.Y7lCgUipzMkZlpP0"
+    },
+    {
+      "text": "Colbur Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "XpOAmnjq70PZgIKI",
+      "img": "systems/ptu/images/item_icons/colbur berry.webp",
+      "_id": "jSmA9dzsSbIrDnIx",
+      "range": [
+        63,
+        63
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.jSmA9dzsSbIrDnIx"
+    },
+    {
+      "text": "Magost Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "YvfMvlPLXjg1ObaG",
+      "img": "systems/ptu/images/item_icons/magost berry.webp",
+      "_id": "c5Q1fSBar6REknwX",
+      "range": [
+        64,
+        65
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.c5Q1fSBar6REknwX"
+    },
+    {
+      "text": "Durin Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "Z8CeZSs15ub588jA",
+      "img": "systems/ptu/images/item_icons/durin berry.webp",
+      "_id": "pOHPch2tZJJOBzwu",
+      "range": [
+        66,
+        67
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.pOHPch2tZJJOBzwu"
+    },
+    {
+      "text": "Kasib Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Zq6Rh3Tw1NCDXEFS",
+      "img": "systems/ptu/images/item_icons/kasib berry.webp",
+      "_id": "hOHfPkxj74CIkP1G",
+      "range": [
+        68,
+        68
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.hOHfPkxj74CIkP1G"
+    },
+    {
+      "text": "Sitrus Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "aUCBw6tTWR2Jj8EH",
+      "img": "systems/ptu/images/item_icons/sitrus berry.webp",
+      "_id": "S00Z1sgRCDX0XA3V",
+      "range": [
+        69,
+        70
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.S00Z1sgRCDX0XA3V"
+    },
+    {
+      "text": "Haban Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "b0fjkhUpGjD3pjfN",
+      "img": "systems/ptu/images/item_icons/haban berry.webp",
+      "_id": "kljpFe0swmaycP99",
+      "range": [
+        71,
+        71
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.kljpFe0swmaycP99"
+    },
+    {
+      "text": "Cheri Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "cv5eqwzldHxaSdUx",
+      "img": "systems/ptu/images/item_icons/cheri berry.webp",
+      "_id": "O276M9u7LUJem4eQ",
+      "range": [
+        72,
+        74
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.O276M9u7LUJem4eQ"
+    },
+    {
+      "text": "Yache Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "g6BHkwLi6oMYeTCS",
+      "img": "systems/ptu/images/item_icons/yache berry.webp",
+      "_id": "NGfeFz3PlKQorLJ6",
+      "range": [
+        75,
+        75
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.NGfeFz3PlKQorLJ6"
+    },
+    {
+      "text": "Apicot Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "g7OvsSZcfwkbMiVY",
+      "img": "systems/ptu/images/item_icons/apicot berry.webp",
+      "_id": "t1zllSXcMIHYIKFu",
+      "range": [
+        76,
+        77
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.t1zllSXcMIHYIKFu"
+    },
+    {
+      "text": "Maranga Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "gE1PMK51swmhZMuc",
+      "img": "systems/ptu/images/item_icons/maranga berry.webp",
+      "_id": "qydPVmlcwd8E1PK7",
+      "range": [
+        78,
+        78
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.qydPVmlcwd8E1PK7"
+    },
+    {
+      "text": "Cornn Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "gdeshTlDpJXxuXOq",
+      "img": "systems/ptu/images/item_icons/cornn berry.webp",
+      "_id": "eSduyfvJOTeowjCz",
+      "range": [
+        79,
+        80
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.eSduyfvJOTeowjCz"
+    },
+    {
+      "text": "Hondew Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "gsti929NeOTl8LUN",
+      "img": "systems/ptu/images/item_icons/hondew berry.webp",
+      "_id": "z6JbljxE2LCCTGiX",
+      "range": [
+        81,
+        81
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.z6JbljxE2LCCTGiX"
+    },
+    {
+      "text": "Kee Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "kdAhVEVIFWW0LAJi",
+      "img": "systems/ptu/images/item_icons/kee berry.webp",
+      "_id": "PFHbQZmlE5hU3ue1",
+      "range": [
+        82,
+        82
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.PFHbQZmlE5hU3ue1"
+    },
+    {
+      "text": "Babiri Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "kdQKZJ0UWyT73mHR",
+      "img": "systems/ptu/images/item_icons/babiri berry.webp",
+      "_id": "KrslJtT4RHsuSn3F",
+      "range": [
+        83,
+        83
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.KrslJtT4RHsuSn3F"
+    },
+    {
+      "text": "Pecha Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "myUsKao9Dkcrkvky",
+      "img": "systems/ptu/images/item_icons/pecha berry.webp",
+      "_id": "kDqANBUwHPxFjBSJ",
+      "range": [
+        84,
+        84
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.kDqANBUwHPxFjBSJ"
+    },
+    {
+      "text": "Rawst Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "nyubmMDwJSkeLJiM",
+      "img": "systems/ptu/images/item_icons/rawst berry.webp",
+      "_id": "XLYs4jnT97x3MBxJ",
+      "range": [
+        85,
+        87
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.XLYs4jnT97x3MBxJ"
+    },
+    {
+      "text": "Micle Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "ooVt5GkL00bj2IKd",
+      "img": "systems/ptu/images/item_icons/micle berry.webp",
+      "_id": "YgAIeRMYBbsYfoEa",
+      "range": [
+        88,
+        89
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.YgAIeRMYBbsYfoEa"
+    },
+    {
+      "text": "Spelon Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "pR81Bf8454iI2LPj",
+      "img": "systems/ptu/images/item_icons/spelon berry.webp",
+      "_id": "8PefG7RF5JGqHxuq",
+      "range": [
+        90,
+        91
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.8PefG7RF5JGqHxuq"
+    },
+    {
+      "text": "Charti Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "pU0mQdHTnUAYgVNw",
+      "img": "systems/ptu/images/item_icons/charti berry.webp",
+      "_id": "mbPX2sB8qucx0EwN",
+      "range": [
+        92,
+        92
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.mbPX2sB8qucx0EwN"
+    },
+    {
+      "text": "Iapapa Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "qHAQPjlnHjtkJ28h",
+      "img": "systems/ptu/images/item_icons/iapapa berry.webp",
+      "_id": "fRQJTzJq76tNS7Id",
+      "range": [
+        93,
+        94
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.fRQJTzJq76tNS7Id"
+    },
+    {
+      "text": "Petaya Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "qYhgTWe598QR5KVp",
+      "img": "systems/ptu/images/item_icons/petaya berry.webp",
+      "_id": "U7XP4uCA8Gzyb2pw",
+      "range": [
+        95,
+        96
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.U7XP4uCA8Gzyb2pw"
+    },
+    {
+      "text": "Wacan Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "sSYi4rXcwYCUR9J0",
+      "img": "systems/ptu/images/item_icons/wacan berry.webp",
+      "_id": "18f4lg4W8rizc4z9",
+      "range": [
+        97,
+        97
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.18f4lg4W8rizc4z9"
+    },
+    {
+      "text": "Kebia Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "seMAAnnI4h7ssAjv",
+      "img": "systems/ptu/images/item_icons/kebia berry.webp",
+      "_id": "QjHiMn3r1f1489Xv",
+      "range": [
+        98,
+        98
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.QjHiMn3r1f1489Xv"
+    },
+    {
+      "text": "Starf Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "tLbd4c0hcoukiAT0",
+      "img": "systems/ptu/images/item_icons/starf berry.webp",
+      "_id": "CydI8I41O4A9qdVu",
+      "range": [
+        99,
+        100
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.CydI8I41O4A9qdVu"
+    },
+    {
+      "text": "Enigma Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "uahYsx6JSnsISmvH",
+      "img": "systems/ptu/images/item_icons/enigma berry.webp",
+      "_id": "okkOb3vPbF9WPgSE",
+      "range": [
+        101,
+        102
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.okkOb3vPbF9WPgSE"
+    },
+    {
+      "text": "Passho Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "urfkI8QlslEsvqrV",
+      "img": "systems/ptu/images/item_icons/passho berry.webp",
+      "_id": "3OrHVJqiF6MES3Ef",
+      "range": [
+        103,
+        103
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.3OrHVJqiF6MES3Ef"
+    },
+    {
+      "text": "Jaboca Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "v48SW5lvvEUEIvIt",
+      "img": "systems/ptu/images/item_icons/jaboca berry.webp",
+      "_id": "CFeVIzvzwKAfz1Tc",
+      "range": [
+        104,
+        105
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.CFeVIzvzwKAfz1Tc"
+    },
+    {
+      "text": "Nanab Berry",
+      "type": "pack",
+      "weight": 3,
+      "documentCollection": "ptu.items",
+      "documentId": "vlQ41G1No20eQlY9",
+      "img": "systems/ptu/images/item_icons/nanab berry.webp",
+      "_id": "qkjlO7tmgJXEcxuu",
+      "range": [
+        106,
+        108
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.qkjlO7tmgJXEcxuu"
+    },
+    {
+      "text": "Leppa Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "wKKRq8CKmvmmIxJv",
+      "img": "systems/ptu/images/item_icons/leppa berry.webp",
+      "_id": "TMtwBLJ84hIdnU4a",
+      "range": [
+        109,
+        109
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.TMtwBLJ84hIdnU4a"
+    },
+    {
+      "text": "Payapa Berry",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "wz0rz7B6Qrd1xkhD",
+      "img": "systems/ptu/images/item_icons/payapa berry.webp",
+      "_id": "fyPj13uzhrSCzLNU",
+      "range": [
+        110,
+        110
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.fyPj13uzhrSCzLNU"
+    },
+    {
+      "text": "Salac Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "xUZ48QKktiO0cifN",
+      "img": "systems/ptu/images/item_icons/salac berry.webp",
+      "_id": "yZGCB4mvjYHdubuK",
+      "range": [
+        111,
+        112
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.yZGCB4mvjYHdubuK"
+    },
+    {
+      "text": "Wiki Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "xvhemPoZ4h4wBjUs",
+      "img": "systems/ptu/images/item_icons/wiki berry.webp",
+      "_id": "SAlTS1SltAJVg9rp",
+      "range": [
+        113,
+        114
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.SAlTS1SltAJVg9rp"
+    },
+    {
+      "text": "Rowap Berry",
+      "type": "pack",
+      "weight": 2,
+      "documentCollection": "ptu.items",
+      "documentId": "zSmw6LaCvKSj4mNd",
+      "img": "systems/ptu/images/item_icons/rowap berry.webp",
+      "_id": "cQ6TtV4MqlpLencA",
+      "range": [
+        115,
+        116
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!VGT1XpKrVSjqueBr.cQ6TtV4MqlpLencA"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 300000,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697731471763,
+    "modifiedTime": 1710778630544,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d116",
+  "_key": "!tables!VGT1XpKrVSjqueBr"
+}

@@ -1,0 +1,23 @@
+name: Bug report
+description: Report a reproducible system or rules defect
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Foundry and system versions, enabled modules, standard/revised choices.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction and actual result
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result and rule source
+      description: Include document edition and page for gameplay issues.
+    validations:
+      required: true

@@ -20,6 +20,7 @@
         </nav>
     </header>
     <main class="sheet-body h-100">
+        {{> "systems/ptu/static/templates/partials/prerequisite-diagnostics.hbs"}}
         <!-- Stats Tab -->
         <div class="tab details stats h-100" data-group="primary" data-tab="stats">
             <div class="d-flex flex-row justify-content-between h-100">
@@ -348,6 +349,7 @@
                         <div class="swsh-body w-100" style="display: block;">
                             {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title=(localize
                             "ITEM.TypeEdgePlural") type="edge" items=edges featsOrEdges=actor.system.edges}}
+                            {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title="Poké Edges" type="pokeedge" items=crossActorPokeEdges}}
                         </div>
                     </div>
                 </div>

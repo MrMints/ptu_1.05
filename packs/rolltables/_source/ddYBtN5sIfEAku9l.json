@@ -1,0 +1,133 @@
+{
+  "name": "Shards Table",
+  "img": "systems/ptu/static/images/item_icons/green%20shard.webp",
+  "description": "<p>Results for Dowsing Check Table</p>",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "Red Shard",
+      "documentId": "mIdhpWktLBSqBT1H",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/images/item_icons/red%20shard.webp",
+      "_id": "M2OahcMU0xqTgiXa",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.M2OahcMU0xqTgiXa"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "Orange Shard",
+      "documentId": "mvL2ySkR2aNfCsz0",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "vAZfHQLNatvVy1fm",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.vAZfHQLNatvVy1fm"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "Yellow Shard",
+      "documentId": "EMsXttzmVktkjdUn",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/images/item_icons/yellow%20shard.webp",
+      "_id": "zR8XV9qFPWq17Wvw",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.zR8XV9qFPWq17Wvw"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "Green Shard",
+      "documentId": "ASttzswAilKpkQ2q",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/images/item_icons/green%20shard.webp",
+      "_id": "hewAqk2BdrMvc4bL",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.hewAqk2BdrMvc4bL"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "Blue Shard",
+      "documentId": "w6eiB1WS68v4Tp9y",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/images/item_icons/blue%20shard.webp",
+      "_id": "x14lR7FKbjwV6Jay",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.x14lR7FKbjwV6Jay"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Violet Shard",
+      "documentId": "BQtWlxuEgye0Xi1X",
+      "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/systems/ptu/css/images/icons/item_icon.png",
+      "_id": "kM3mQp92bnODMJkk",
+      "flags": {},
+      "_key": "!tables.results!ddYBtN5sIfEAku9l.kM3mQp92bnODMJkk"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "folder": "2QGVmITcIgGCeRtD",
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "exportSource": {
+      "world": "the-chosen",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.0.6"
+    },
+    "core": {}
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1703190898962,
+    "modifiedTime": 1710778630465,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d6",
+  "_id": "ddYBtN5sIfEAku9l",
+  "sort": 0,
+  "_key": "!tables!ddYBtN5sIfEAku9l"
+}

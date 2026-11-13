@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "baseline": "b03b1c4e97da64f3f29b18f090e215824e511773",
+  "ruleReference": "PTU 1.05 Core, p.38 (Intimidate); terminology only, no mechanical or source-version approval",
+  "documents": [
+    {
+      "identity": "edges.DlrPhx5QApDOSCy0",
+      "path": "packs/edges/_source/DlrPhx5QApDOSCy0.json",
+      "displayName": "Flustering Charisma",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "7c3dc3cf09450ea2715959b1a8fe47431c185c24ee9d47f1084d7d7c58c74d71",
+      "legacyOccurrences": [
+        {
+          "pointer": "/name",
+          "count": 1
+        },
+        {
+          "pointer": "/system/name",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "effects.n1GqXEIcRzrAtMli",
+      "path": "packs/effects/_source/n1GqXEIcRzrAtMli.json",
+      "displayName": "Effect: Flustering Charisma",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "39154a027e09d1b1f3b46b94021a1a20eea20b214c2f9f28d8996a885d7ef7ac",
+      "legacyOccurrences": [
+        {
+          "pointer": "/name",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.2iwO9sGVZrdwrU3A",
+      "path": "packs/feats/_source/2iwO9sGVZrdwrU3A.json",
+      "displayName": "Provocateur [CR]",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/effect",
+          "before": "Effect: You learn the Moves Comeuppance and Taunt.\nNote: The Provocateur Skills are Charm, Guile, and Intimidation.",
+          "after": "Effect: You learn the Moves Comeuppance and Taunt.\nNote: The Provocateur Skills are Charm, Guile, and Intimidate."
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "778e537aa2872de1709ad7e9ffd1dcfacbcddee80fa4881a5bb636a8854f45a7",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/effect",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.6ktf1OhDQ4xn6E1p",
+      "path": "packs/feats/_source/6ktf1OhDQ4xn6E1p.json",
+      "displayName": "Witch Hunter",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "7e19bc10e99e1e0e79880568c04624afa3e3a96dca2ba40c1a236e50b9df4ce7",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/keywords/0",
+          "count": 1
+        },
+        {
+          "pointer": "/system/class",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.97h0sM3DubWFjaYw",
+      "path": "packs/feats/_source/97h0sM3DubWFjaYw.json",
+      "displayName": "Mental Resistance",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "3a06d243825221a9bb8fe32b7cd0d9c548dc16f06cbdf1f23a5bcf3e70891641",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/keywords/0",
+          "count": 1
+        },
+        {
+          "pointer": "/system/class",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.aVyafFaA8RQLoJYf",
+      "path": "packs/feats/_source/aVyafFaA8RQLoJYf.json",
+      "displayName": "Immutable Mind",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "ea6df3b5400c13a657518383069a7d3d8d87d7245a1728a8b50336e9372eb645",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/keywords/0",
+          "count": 1
+        },
+        {
+          "pointer": "/system/class",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.bpS6M9S47y1SbNg4",
+      "path": "packs/feats/_source/bpS6M9S47y1SbNg4.json",
+      "displayName": "Unrivaled Battle Power Rank 3",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "before": "Expert Intimidation or Combat",
+          "after": "Expert Intimidate or Combat"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "790c98f29eb0bd308baebd3f8c7c4013489ddb02f966bf8d322fb79f06686fc8",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.bue6yUXtLwDVuHNL",
+      "path": "packs/feats/_source/bue6yUXtLwDVuHNL.json",
+      "displayName": "Not A God, But A Demon",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/prerequisites/1",
+          "before": "Adept Intimidation or Combat",
+          "after": "Adept Intimidate or Combat"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "9cdbb17c08e4867f68303eedf8be8b677cac1eb2fa379287dbf7987269ce19c0",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/prerequisites/1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.Ho2F6YMv6BzqyRJr",
+      "path": "packs/feats/_source/Ho2F6YMv6BzqyRJr.json",
+      "displayName": "Tyrant",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "before": "Adept Intimidation",
+          "after": "Adept Intimidate"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "d58a85e76e862d61943b172a0ef83668fc2b0fd39c948e4dea7ac18f93b46d37",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.UJWQ7wP8OlmMduii",
+      "path": "packs/feats/_source/UJWQ7wP8OlmMduii.json",
+      "displayName": "Heartless",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/prerequisites/1",
+          "before": "Novice Intimidation",
+          "after": "Novice Intimidate"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "5100308c3b09f4fa41bd502162ca91796593ceaafbc961de6fab1e86540ea1a8",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/prerequisites/1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.UO2wiMe8cjQ8oqYR",
+      "path": "packs/feats/_source/UO2wiMe8cjQ8oqYR.json",
+      "displayName": "Bury the Light",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/effect",
+          "before": "Trigger: You enter Hyper Mode.\nEffect: Your Hyper Mode becomes significantly more potent, becoming something akin to a transformation or a Forme Change. But now you carry the weight of your destroyer’s might, even when at rest.\nWhen you enter Hyper Mode, you instead enter Apex Hyper Mode, receiving the following abilities and conditions in addition to those normally conferred by Hyper Mode:\n»» You gain six Combat Stages, but lose four, split between the Stats of your choice, with a maximum of two Stage granted or lost per Combat Stat. You cannot grant Combat Stages in a Stat, and then choose to lose them in that same Stat. You may also assign these Combat Stages to your Accuracy or Evasion.\n»» When you inflict a Critical Hit, you deal +20 damage on the Attack, but you suffer 1 Injury.\n»» You heal a Tick of Hit Points at the start of each of your turns.\n»» For the duration of the Mode, you have the Hustle and Bully Abilities.\n\nHowever, this barely-fettered brutality confers a number of penalties to your existence outside of combat:\n»» Social interaction tests (excluding uses of Intimidation) are innately more difficult for you. Conversely, you gain +4 to your Intimidation rolls.\n»» Your natural healing rate is halved, meaning your heal 1/8th of your Hit Points every two hours. Additionally, you can only heal 2 Injuries per day, instead of the normally allowable 3.\n»» After an Extended Rest, you only regain half of your Drained AP, up to a minimum of 1.\n»» The intensity of your malicious aura even scars your surroundings. Upon using Apex Hyper Mode, you leave Psychic Residue in the spaces you are in or move through. The residue persists for 10 days.",
+          "after": "Trigger: You enter Hyper Mode.\nEffect: Your Hyper Mode becomes significantly more potent, becoming something akin to a transformation or a Forme Change. But now you carry the weight of your destroyer’s might, even when at rest.\nWhen you enter Hyper Mode, you instead enter Apex Hyper Mode, receiving the following abilities and conditions in addition to those normally conferred by Hyper Mode:\n»» You gain six Combat Stages, but lose four, split between the Stats of your choice, with a maximum of two Stage granted or lost per Combat Stat. You cannot grant Combat Stages in a Stat, and then choose to lose them in that same Stat. You may also assign these Combat Stages to your Accuracy or Evasion.\n»» When you inflict a Critical Hit, you deal +20 damage on the Attack, but you suffer 1 Injury.\n»» You heal a Tick of Hit Points at the start of each of your turns.\n»» For the duration of the Mode, you have the Hustle and Bully Abilities.\n\nHowever, this barely-fettered brutality confers a number of penalties to your existence outside of combat:\n»» Social interaction tests (excluding uses of Intimidate) are innately more difficult for you. Conversely, you gain +4 to your Intimidate rolls.\n»» Your natural healing rate is halved, meaning your heal 1/8th of your Hit Points every two hours. Additionally, you can only heal 2 Injuries per day, instead of the normally allowable 3.\n»» After an Extended Rest, you only regain half of your Drained AP, up to a minimum of 1.\n»» The intensity of your malicious aura even scars your surroundings. Upon using Apex Hyper Mode, you leave Psychic Residue in the spaces you are in or move through. The residue persists for 10 days."
+        },
+        {
+          "pointer": "/system/prerequisites/1",
+          "before": "Master Intimidation or Combat",
+          "after": "Master Intimidate or Combat"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "cc9a8ba15a856bab3ccfdc9582aa88ba4da13d7c31a4d1e75f07d5c5055d684f",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/effect",
+          "count": 2
+        },
+        {
+          "pointer": "/system/prerequisites/1",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.waz389hndmJeW5jL",
+      "path": "packs/feats/_source/waz389hndmJeW5jL.json",
+      "displayName": "Psionic Analysis",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "6cef16c06477523a3fa9436eba40c8489a2df45c39062f03a424a8fd7f45276b",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/keywords/0",
+          "count": 1
+        },
+        {
+          "pointer": "/system/class",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "feats.ZNO7wwC0jBJGN98G",
+      "path": "packs/feats/_source/ZNO7wwC0jBJGN98G.json",
+      "displayName": "Unrivaled Battle Power Rank 2",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "before": "Adept Intimidation or Combat",
+          "after": "Adept Intimidate or Combat"
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "caad0836e61eb6c65981d0722e3894eccebb3efbaedc15a2b03165002a7122ba",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/prerequisites/0",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "items.Qo4GRJw0Feczgicv",
+      "path": "packs/items/_source/Qo4GRJw0Feczgicv.json",
+      "displayName": "DIY Engineering",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "0038ccbbf43bff35b30e0020a8c33b2699c7dcf2c70d43a98dce60ba6b005932",
+      "legacyOccurrences": [
+        {
+          "pointer": "/name",
+          "count": 1
+        },
+        {
+          "pointer": "/system/name",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "journals.cP772AChmDjr486z",
+      "path": "packs/journals/_source/cP772AChmDjr486z.json",
+      "displayName": "PTR Rulebook",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "0b302c19aa51d2ea64dc0bdf50fe770feb7d6871314ffdb4b8716c1672730df9",
+      "legacyOccurrences": [
+        {
+          "pointer": "/pages/197/name",
+          "count": 1
+        },
+        {
+          "pointer": "/pages/197/text/content",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "identity": "references.r2nUvK0BRQuBP08O",
+      "path": "packs/references/_source/r2nUvK0BRQuBP08O.json",
+      "displayName": "Twisted Form",
+      "disposition": "unambiguous-skill-reference-canonicalized-label-only",
+      "changedFields": [
+        {
+          "pointer": "/system/effect",
+          "before": "Effect: Your very being becomes warped, taking on aspects of the one who Branded you. You gain the Elemental Types they possess as well as a +4 to Intimidation checks, but receive a -4 penalty on Charm and Guile checks, as these deformations are unsettling to most people and Pokémon.",
+          "after": "Effect: Your very being becomes warped, taking on aspects of the one who Branded you. You gain the Elemental Types they possess as well as a +4 to Intimidate checks, but receive a -4 penalty on Charm and Guile checks, as these deformations are unsettling to most people and Pokémon."
+        }
+      ],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "c5c06507c0f5dd1bf54c35cbb5265d691c2834c0c017334090a3a085d18e6b42",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/effect",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "identity": "species.XBFS8vuLkuh3M3RA",
+      "path": "packs/species/_source/XBFS8vuLkuh3M3RA.json",
+      "displayName": "Azelf",
+      "disposition": "preserved-proper-title-class-field-or-prose",
+      "changedFields": [],
+      "sourceClassification": "inherited-unclassified; terminology normalization does not approve content",
+      "baselineHash": "0f0864775623451a705f972d3932f4d26a4231c8aa574c265521017fb2765e42",
+      "legacyOccurrences": [
+        {
+          "pointer": "/system/dexentry",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}
