@@ -305,3 +305,18 @@ The inactive Basic Ranged draft passed the 34 focused integrity tests and the fi
 ## 2026-11-09 — Basic Ranged local acceptance
 
 The accepted Basic Ranged batch is a source-only proposal. Its five proposal IDs and printed cost representation have no runtime adoption or compatibility approval. The existing Item, 17-Type chooser, saved selections and settings stay on their current paths. Publication and any runtime adoption require separate decisions.
+
+## Open the mechanic preferences review
+
+Pass caller-supplied serialized evidence as `requestJson` to the class in the existing PTU UI registry. Open the window with an explicit render call.
+
+```js
+new CONFIG.PTU.ui.mechanicPreferencesReview.sheetClass(
+  requestJson,
+  "preset-preview"
+).render(true);
+```
+
+Omit the mode or use `"current"` to review current evidence. Use `"preset-preview"` to display advisory proposals alongside it. The registry does not open the window automatically. The review captures no settings, applies no changes, and grants no consent.
+
+The registry and initialization conformance test models the existing initializer with synthetic host boundaries. Native Foundry startup, rendering, and live settings behavior remain unverified.
