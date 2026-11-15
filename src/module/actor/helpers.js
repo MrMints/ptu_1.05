@@ -1,3 +1,4 @@
+import {HUGE_POWER_ENABLED, selectHugePowerBase} from '../../util/huge-power.js';
 /* ─────────────────────────────────────────────
    INTERNAL CONSTANTS
    ───────────────────────────────────────────── */
@@ -53,7 +54,8 @@ function calcBaseStats(stats, speciesData, nature, baseStatModifier) {
    STAT TOTAL CALCULATION (CANONICAL)
    ───────────────────────────────────────────── */
 
-function calculateStatTotal({
+function calculateStatTotal(input) {
+    const {
     level,
     actorStats,
     speciesData,
@@ -61,7 +63,7 @@ function calculateStatTotal({
     baseStatModifier,
     twistedPower,
     ignoreStages = false
-}) {
+    } = input;
     // Always ensure base stats (and Nature) are applied
     const stats = calcBaseStats(
         actorStats,
@@ -69,6 +71,11 @@ function calculateStatTotal({
         nature,
         baseStatModifier
     );
+
+    if (HUGE_POWER_ENABLED) {
+        const hugePowerTicket = input.hugePowerTicket;
+        if (hugePowerTicket) stats.atk.value = Math.max(1, selectHugePowerBase(hugePowerTicket, stats.atk.value));
+    }
 
     let levelUpPointsSpend = 0;
 

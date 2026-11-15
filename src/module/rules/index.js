@@ -1,3 +1,4 @@
+import {captureHugePowerRule, finishHugePowerRule} from '../../util/huge-power.js';
 import { RuleElementPTU } from "./rule-element/base.js";
 import { AELikeRuleElement } from "./rule-element/ae-like.js";
 import { GrantItemRuleElement } from "./rule-element/grant-item/rule-element.js";
@@ -50,6 +51,7 @@ class RuleElements {
             }
             const RuleElementDocument = this.custom[source.key] ?? this.builtin[source.key];
             if(RuleElementDocument) {
+                const hugePowerRecord = captureHugePowerRule(item, sourceIndex, source, RuleElementDocument);
                 const rule = (() => {
                     try {
                         return new RuleElementDocument(source, item, {...(options ?? {}), sourceIndex});
@@ -61,6 +63,7 @@ class RuleElements {
                         return null;
                     }
                 })();
+                finishHugePowerRule(item, hugePowerRecord, rule);
                 if(rule) rules.push(rule);
             }
             else {

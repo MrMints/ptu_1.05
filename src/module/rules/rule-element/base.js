@@ -1,3 +1,4 @@
+import {HUGE_POWER_ENABLED, noteHugePowerValidity, invalidateHugePowerRule, observeHugePowerPredicate, testRulePredicate} from '../../../util/huge-power.js';
 import { PTUActor } from "../../actor/base.js";
 import { PTUItem } from "../../item/base.js";
 import { PTUPredicate } from "../../system/index.js";
@@ -45,6 +46,10 @@ class RuleElementPTU extends foundry.abstract.DataModel {
         this.sourceIndex = options.sourceIndex ?? null;
 
         const validActorType = RuleElementPTU.validActorTypes.includes(item.actor.type);
+        if (HUGE_POWER_ENABLED) {
+            try { noteHugePowerValidity(this, validActorType, item instanceof CONFIG.PTU.Item.documentClass, this.invalid === false); }
+            catch { invalidateHugePowerRule(this); }
+        }
         if(!validActorType) { 
             console.warn(`PTU | RuleElementPTU | Invalid actor type for rule element: ${source.key}`, item.actor.type);
             return;
@@ -201,15 +206,9 @@ class RuleElementPTU extends foundry.abstract.DataModel {
     test(options) {
         if(this.ignored) return false;
         if(!this.item.enabled) return false;
-        if(this.predicate.length === 0) return true;
-
-        const optionSet = new Set([
-            ...(options ?? this.actor.getRollOptions()),
-            // Always include the item roll options of this rule element's parent item
-            ...this.item.getRollOptions(),
-        ])
-
-        return this.resolveInjectedProperties(this.predicate).test(optionSet);
+        const result = testRulePredicate(this, options);
+        observeHugePowerPredicate(this, result);
+        return result;
     }
 
     /**
@@ -343,6 +342,7 @@ class RuleElementPTU extends foundry.abstract.DataModel {
     }
 
     failValidation(...message) {
+        invalidateHugePowerRule(this);
         const fullMessage = message.join(" ");
         const { name, uuid } = this.item;
 

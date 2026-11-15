@@ -1,3 +1,4 @@
+import {HUGE_POWER_ENABLED, rememberHugePowerStats} from '../../../util/huge-power.js';
 import { PTUActor, PTUSkills } from "../index.js";
 import { calculateStatTotal } from "../helpers.js";
 import { calculateLevel } from "./level.js";
@@ -208,7 +209,7 @@ class PTUPokemonActor extends PTUActor {
         const leftoverLevelUpPoints = system.levelUpPoints - Object.values(system.stats).reduce((a, v) => v.levelUp + a, 0);
         const actualLevel = Math.max(1, system.level.current - Math.max(0, Math.clamp(0, leftoverLevelUpPoints, leftoverLevelUpPoints - system.modifiers.statPoints.total ?? 0)));
 
-        const result = calculateStatTotal({
+        const statArguments = {
             level: actualLevel,
             actorStats: system.stats,
             baseStatModifier: system.modifiers.baseStats,
@@ -216,7 +217,9 @@ class PTUPokemonActor extends PTUActor {
             isTrainer: false,
             twistedPower: this.rollOptions.all["self:ability:twisted-power"],
             hybridArmor: this.rollOptions.all["self:ability:hybrid-armor"],
-        })
+        };
+        const result = calculateStatTotal(statArguments);
+        if (HUGE_POWER_ENABLED) rememberHugePowerStats(this, statArguments, result, calculateStatTotal);
 
         system.stats = result.stats;
         system.levelUpPoints = system.levelUpPoints - result.pointsSpend;

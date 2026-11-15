@@ -1,3 +1,4 @@
+import {beginHugePowerPreparation, markHugePowerStage, openHugePowerApplyPhase, completeHugePowerPreparation, abortHugePowerPreparation, testRulePredicate} from '../../util/huge-power.js';
 import { sluggify } from "../../util/misc.js";
 import { Weather } from "../apps/weather.js";
 import { PTUCombatant } from "../combat/combatant.js";
@@ -256,8 +257,11 @@ class PTUActor extends Actor {
 
     /** @override */
     prepareData() {
+        const hugePowerToken = beginHugePowerPreparation(this);
+        try {
         this.constructed = false;
         super.prepareData();
+        markHugePowerStage(this, hugePowerToken, "core");
         this.constructed = true;
 
         // Extra Rolloptions before 'After Derived' hooks get called
@@ -271,12 +275,16 @@ class PTUActor extends Actor {
             rule.afterPrepareData?.();
         }
 
+        markHugePowerStage(this, hugePowerToken, "hooks");
         this.prepareDerivedData();
+        markHugePowerStage(this, hugePowerToken, "derived");
 
         this.initiative = this.prepareInitiative();//new ActorInitiative(this);
 
+        markHugePowerStage(this, hugePowerToken, "initiative");
         // Set origins
         this._setDefaultChanges();
+        markHugePowerStage(this, hugePowerToken, "origins");
 
         // Refresh sidebar if needed
         if (this.constructed && canvas.ready && game.ptu) {
@@ -287,6 +295,9 @@ class PTUActor extends Actor {
                 game.ptu.tokenPanel.refresh();
             }
         }
+        markHugePowerStage(this, hugePowerToken, "refresh");
+        completeHugePowerPreparation(this, hugePowerToken, testRulePredicate);
+        } finally { abortHugePowerPreparation(this, hugePowerToken); }
     }
 
     /** @override */
@@ -334,6 +345,7 @@ class PTUActor extends Actor {
         this.prepareDataFromItems();
 
 
+        openHugePowerApplyPhase(this);
         for (const rule of this.rules.sort((a, b) => (a.priority ?? 0) - (b.priority ?? 0))) {
             rule.onApplyActiveEffects?.();
         }
