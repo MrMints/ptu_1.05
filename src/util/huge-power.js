@@ -236,6 +236,116 @@ export function rememberHugePowerStats(actor, args, ordinary, calculate) {
         context.snapshot = freeze({args: plain(args), ordinary: plain(ordinary), currentLevel: actor.system.level.current});
     });
 }
+// A real Pokemon derived interval has eager consumers of final Attack. Keep
+// their ordinary output private until the complete Actor interval is proven.
+// These descriptors describe plain data in the closed preparation model, not a
+// native Foundry/DataModel admission. Accessors and unexplained state fall back.
+function dataDescriptor(object, key, writable = false) {
+    const descriptor = object && Object.getOwnPropertyDescriptor(object, key);
+    if (!descriptor || !Object.hasOwn(descriptor, 'value') ||
+        (writable && descriptor.writable !== true)) throw Error('Unsupported derived data property');
+    return descriptor;
+}
+function captureDerivedTree(root) {
+    const seen = new Set(); let fields = 0;
+    function capture(value, depth = 0) {
+        if (value === null || ['string', 'boolean'].includes(typeof value) || finite(value))
+            return Object.freeze({scalar: true, value});
+        if (!value || typeof value !== 'object' || depth > 12 || seen.has(value) || seen.size >= 256)
+            throw Error('Unsupported derived data graph');
+        const prototype = Object.getPrototypeOf(value);
+        if (prototype !== Object.prototype && prototype !== Array.prototype && prototype !== null)
+            throw Error('Unsupported derived data prototype');
+        seen.add(value);
+        const keys = Reflect.ownKeys(value);
+        if ((fields += keys.length) > 2048 || keys.some(key => typeof key !== 'string'))
+            throw Error('Unsupported derived data inventory');
+        const properties = keys.map(key => {
+            const descriptor = dataDescriptor(value, key);
+            return Object.freeze({key, descriptor: Object.freeze({...descriptor}), child: capture(descriptor.value, depth + 1)});
+        });
+        // Do not recursively freeze or mutate the live ordinary result.
+        return Object.freeze({scalar: false, object: value, prototype, properties: Object.freeze(properties)});
+    }
+    return capture(root);
+}
+function derivedTreeMatches(value, snapshot) {
+    if (snapshot.scalar) return Object.is(value, snapshot.value);
+    if (value !== snapshot.object || Object.getPrototypeOf(value) !== snapshot.prototype) return false;
+    const keys = Reflect.ownKeys(value);
+    return keys.length === snapshot.properties.length && snapshot.properties.every(row =>
+        keys.includes(row.key) && sameDescriptor(Object.getOwnPropertyDescriptor(value, row.key), row.descriptor) &&
+        derivedTreeMatches(row.descriptor.value, row.child));
+}
+export function beginHugePowerPokemonDerived(actor) {
+    if (!HUGE_POWER_ENABLED) return;
+    safely(actor, context => {
+        const count = (context.pokemonDerivedCount ?? 0) + 1;
+        context.pokemonDerivedCount = count;
+        context.pokemonDerived = null;
+        context.snapshot = null;
+        if (!context.active || !context.phase || !((count === 1 && context.stage === 0) || (count === 2 && context.stage === 2)))
+            invalidate(context, 'incomplete-pokemon-derived');
+    });
+}
+export function finishHugePowerPokemonDerived(actor) {
+    if (!HUGE_POWER_ENABLED) return;
+    safely(actor, context => {
+        if (!context.active || !context.snapshot || !context.pokemonDerivedCount) {
+            invalidate(context, 'incomplete-pokemon-derived'); return;
+        }
+        try {
+            const system = dataDescriptor(actor, 'system').value;
+            const stats = dataDescriptor(system, 'stats', true);
+            const contests = dataDescriptor(system, 'contests');
+            context.pokemonDerived = Object.freeze({system, stats: Object.freeze({...stats}),
+                contests: Object.freeze({...contests}), statsTree: captureDerivedTree(stats.value),
+                contestTree: captureDerivedTree(contests.value), stage: context.stage});
+        } catch { invalidate(context, 'unsupported-pokemon-derived-state'); }
+    });
+}
+function pokemonDerivedSnapshot(actor, context) {
+    if (context.pokemonDerivedCount === undefined) return null; // Earlier closed helper-only model.
+    const snapshot = context.pokemonDerived;
+    if (context.pokemonDerivedCount !== 2 || !snapshot || snapshot.stage !== 2) {
+        invalidate(context, 'incomplete-pokemon-derived'); return null;
+    }
+    const system = dataDescriptor(actor, 'system').value;
+    if (system !== snapshot.system || !sameDescriptor(Object.getOwnPropertyDescriptor(system, 'stats'), snapshot.stats) ||
+        !sameDescriptor(Object.getOwnPropertyDescriptor(system, 'contests'), snapshot.contests) ||
+        !derivedTreeMatches(snapshot.stats.value, snapshot.statsTree) || !derivedTreeMatches(snapshot.contests.value, snapshot.contestTree)) {
+        invalidate(context, 'late-pokemon-derived-change'); return null;
+    }
+    return snapshot;
+}
+function pokemonCandidateUpdate(actor, context, candidate) {
+    const snapshot = pokemonDerivedSnapshot(actor, context);
+    if (!snapshot) return null;
+    const expected = plain(context.snapshot.ordinary.stats), actual = plain(candidate.stats);
+    delete expected.atk.value; delete expected.atk.total;
+    delete actual.atk.value; delete actual.atk.total;
+    if (!equal(actual, expected) || candidate.pointsSpend !== context.snapshot.ordinary.pointsSpend ||
+        !finite(candidate.stats.atk.value) || !finite(candidate.stats.atk.total)) {
+        invalidate(context, 'unexpected-pokemon-candidate'); return null;
+    }
+    const field = (object, key) => dataDescriptor(object, key).value;
+    const contests = snapshot.contests.value;
+    const cool = field(field(contests, 'stats'), 'cool');
+    const stats = field(cool, 'stats'), poffins = field(cool, 'poffins');
+    const value = dataDescriptor(stats, 'value', true), total = dataDescriptor(stats, 'total', true), dice = dataDescriptor(cool, 'dice', true);
+    const mod = field(stats, 'mod'), poffinValue = field(poffins, 'value'), poffinMod = field(poffins, 'mod');
+    const poffinTotal = field(poffins, 'total'), voltage = field(field(contests, 'voltage'), 'value');
+    const ordinaryValue = Math.min(Math.floor(context.snapshot.ordinary.stats.atk.total / 10), 3);
+    if (![value.value, total.value, dice.value, mod, poffinValue, poffinMod, poffinTotal, voltage].every(finite) ||
+        value.value !== ordinaryValue || total.value !== Math.min(ordinaryValue + mod, 3) ||
+        poffinTotal !== poffinValue + poffinMod || dice.value !== total.value + poffinTotal + voltage) {
+        invalidate(context, 'unsupported-pokemon-derived-state'); return null;
+    }
+    const nextValue = Math.min(Math.floor(candidate.stats.atk.total / 10), 3);
+    const nextTotal = Math.min(nextValue + mod, 3);
+    return {stats, cool, value: nextValue, total: nextTotal, dice: nextTotal + poffinTotal + voltage};
+}
+
 export function selectHugePowerBase(ticket, ordinary) {
     if (!HUGE_POWER_ENABLED || !ticket) return ordinary;
     const selection = tickets.get(ticket);
@@ -250,6 +360,9 @@ export function completeHugePowerPreparation(actor, token, disabledPredicate) {
             if (context.stage !== stages.length || !modelMatches(actor, context.model) || !context.snapshot || !context.phase)
                 invalidate(context, 'final-domain-not-established');
             if (!context.valid) return;
+            // Reject late descriptors before the existing code reads or
+            // serializes live stats. Candidate publication rechecks them below.
+            if (context.pokemonDerivedCount !== undefined && !pokemonDerivedSnapshot(actor, context)) return;
             const owned = Array.from(actor.items?.contents ?? actor.items ?? []);
             const expectedCount = owned.reduce((count, item) => count + (item.system.rules?.length ?? 0), 0);
             if (expectedCount !== context.records.length || context.records.some(record => !owned.includes(record.item) || record.item.actor !== actor)) {
@@ -310,6 +423,15 @@ export function completeHugePowerPreparation(actor, token, disabledPredicate) {
             try {
                 const candidate = context.model.calculateStatTotal({...plain(snapshot.args), hugePowerTicket: ticket});
                 if (!context.valid || !modelMatches(actor, context.model)) return;
+                const dependent = pokemonCandidateUpdate(actor, context, candidate);
+                if (!context.valid || !modelMatches(actor, context.model)) return;
+                // All targets are unchanged writable data properties in this
+                // closed model. No callback, hook or preparation is replayed.
+                if (dependent) {
+                    dependent.stats.value = dependent.value;
+                    dependent.stats.total = dependent.total;
+                    dependent.cool.dice = dependent.dice;
+                }
                 actor.system.stats = candidate.stats;
                 context.selected = selected.row.mode;
             } finally { tickets.delete(ticket); }

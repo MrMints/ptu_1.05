@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
+import {SourceTextModule} from 'node:vm';
 
 // Quarantined cloud candidate. Revision 02 corrections are authored, not yet executed.
 // Whole module bodies are retained. Only the exact declared import rows below
@@ -14,8 +15,8 @@ const PINS = {
     "sha256": "6676cf1728813edc295516ec23dce9981d09577f8a2645b498cba3aad6ded3a0"
   },
   "src/util/huge-power.js": {
-      "bytes": 20522,
-      "sha256": "13cadee0f49e9cbb57f8f53ae489588c4f8dabd882c1dcd810621dd99a3c2b5e"
+    "bytes": 28073,
+    "sha256": "2dfd02821063a454bdec09bb84e162ca7bf1b56740f51d2d33ddf0202e8e3b8f"
   },
   "src/util/document-source.js": {
     "bytes": 1386,
@@ -54,8 +55,8 @@ const PINS = {
     "sha256": "5e93dfbdb398a69b2f6268a053aa043996f64dfc2ce404aa44738660f0c71968"
   },
   "src/module/actor/pokemon/document.js": {
-    "bytes": 34480,
-    "sha256": "a9c47b94d920a8e742ba5c9fee42b01dd2bcf8bc3bb126ad4e199789d863974b"
+    "bytes": 34678,
+    "sha256": "ec4a3cebc1eec9c8b0335ed6f1b1ea4b9887ca44ba3d72e9f3fabdfe86262a2e"
   },
   "src/module/item/index.js": {
     "bytes": 720,
@@ -64,6 +65,14 @@ const PINS = {
   "src/module/system/index.js": {
     "bytes": 154,
     "sha256": "7214cb62d77078a071a9993531b4f87bd8f4393f398a5bae4c31e8742801f6eb"
+  },
+  "src/module/actor/modifiers.js": {
+    "bytes": 16767,
+    "sha256": "5b70e4ea610677c84a35e387f867ac0ac50f857a67d3f595188de3524d9a124a"
+  },
+  "src/module/actor/pokemon/level.js": {
+    "bytes": 897,
+    "sha256": "ff3208c161e07035abdfb721b677f80b9d08e325779a8419272a873cca3df926"
   }
 };
 const IMPORTS = {
@@ -148,7 +157,7 @@ const IMPORTS = {
     "import {HUGE_POWER_ENABLED, selectHugePowerBase} from '../../util/huge-power.js';"
   ],
   "src/module/actor/pokemon/document.js": [
-    "import {HUGE_POWER_ENABLED, rememberHugePowerStats} from '../../../util/huge-power.js';",
+    "import {HUGE_POWER_ENABLED, rememberHugePowerStats, beginHugePowerPokemonDerived, finishHugePowerPokemonDerived} from '../../../util/huge-power.js';",
     "import { PTUActor, PTUSkills } from \"../index.js\";",
     "import { calculateStatTotal } from \"../helpers.js\";",
     "import { calculateLevel } from \"./level.js\";",
@@ -158,13 +167,19 @@ const IMPORTS = {
     "import { PTUModifier } from \"../modifiers.js\";"
   ],
   "src/module/item/index.js": [],
-  "src/module/system/index.js": []
+  "src/module/system/index.js": [],
+  "src/module/actor/modifiers.js": [
+    "import { sluggify } from \"../../util/misc.js\";",
+    "import { extractModifierAdjustments } from \"../rules/helpers.js\";",
+    "import { PTUPredicate } from \"../system/predication.js\";",
+    "import { getSkillLabel } from \"../../util/skills.js\";"
+  ],
+  "src/module/actor/pokemon/level.js": []
 };
 const fields = ['key','mode','path','phase','value','priority','predicate','ignored'];
 const semantic = source => fields.map(key => [key, source[key] ?? (key === 'predicate' ? [] : key === 'ignored' ? false : null)]);
 const clone = structuredClone;
 let nonce = 0;
-const url = source => 'data:text/javascript;base64,' + Buffer.from(source).toString('base64');
 const missing = name => { throw Error('Unexpected synthetic boundary: ' + name); };
 function freeze(value) {
     if (value && typeof value === 'object') { for (const child of Object.values(value)) freeze(child); Object.freeze(value); }
@@ -180,14 +195,46 @@ function pinned(path) {
     })());
     return pinnedSources.get(path);
 }
-function unavailable(line) {
+function unavailable(line, url) {
     const names = /^import\s*\{([^}]+)\}/.exec(line)?.[1].split(',').map(name => name.trim());
     assert.ok(names && names.every(name => /^[A-Za-z_$][\w$]*$/.test(name)), line);
     return url(names.map(name => `export class ${name} { constructor() { throw Error('Unexpected boundary: ${name}'); } }`).join('\n'));
 }
 async function harness(configuration = {}) {
     const generation = ++nonce;
-    const counters = {expression:0, writes:0, logs:0, predicates:0, predicateCalls:[], predicateTests:0, formulaInputs:[], writeTrace:[], debounceConstructed:0, debounceInvoked:0};
+    // Same-realm modules use short identifiers instead of recursively embedding
+    // entire dependency sources in data URLs. No native ESM cache owns these
+    // per-fixture module graphs after their explicit tables are released.
+    const moduleSources=new Map(), moduleInstances=new Map(), sourceIdentifiers=new Map();
+    let generatedBytes=0;
+    const url=source=>{
+        assert.equal(typeof source,'string');
+        if(sourceIdentifiers.has(source))return sourceIdentifiers.get(source);
+        assert.ok(moduleSources.size<128,'fixture module-count bound');
+        generatedBytes+=Buffer.byteLength(source,'utf8');
+        assert.ok(generatedBytes<=512*1024,'fixture generated-source bound');
+        const identifier=`ptu-fixture:${generation}:${moduleSources.size}`;
+        assert.ok(identifier.length<=48,'fixture identifier bound');
+        moduleSources.set(identifier,source);sourceIdentifiers.set(source,identifier);
+        return identifier;
+    };
+    const compile=identifier=>{
+        assert.ok(moduleSources.has(identifier),'unknown fixture module: '+identifier);
+        if(!moduleInstances.has(identifier))moduleInstances.set(identifier,new SourceTextModule(moduleSources.get(identifier),{
+            identifier,
+            importModuleDynamically(){throw Error('Unexpected dynamic fixture import');},
+        }));
+        return moduleInstances.get(identifier);
+    };
+    const load=async identifier=>{
+        const entry=compile(identifier);
+        if(entry.status==='unlinked')await entry.link(specifier=>compile(specifier));
+        if(entry.status==='linked')await entry.evaluate({timeout:5000});
+        assert.equal(entry.status,'evaluated','fixture module did not evaluate');
+        return entry.namespace;
+    };
+    const releaseModules=()=>{moduleSources.clear();moduleInstances.clear();sourceIdentifiers.clear();};
+    const counters = {derivedEvents:[], incompleteBoundaryStates:[], derivedGetterCalls:0, corePreparations:0, initiativeHooks:[], settingReads:[], finalCalls:0, expression:0, writes:0, logs:0, predicates:0, predicateCalls:[], predicateTests:0, formulaInputs:[], writeTrace:[], debounceConstructed:0, debounceInvoked:0};
     const raw = (value, extra={}) => ({key:'ActiveEffectLike',predicate:[],mode:'add',path:'system.modifiers.baseStats.atk.mod',phase:'applyAEs',value,priority:null,...extra});
     const specs = [{source:'Compendium.synthetic.abilities.Item.AAAAAAAAAAAAAAAA',version:configuration.version ?? 'synthetic-february',mode:configuration.mode ?? 'february',raw:raw(Object.hasOwn(configuration,'expression') ? configuration.expression : 7, configuration.rule ?? {}),enabled:configuration.enabled ?? true}];
     if (configuration.contributors) specs.push(
@@ -198,6 +245,7 @@ async function harness(configuration = {}) {
         specs.push({source:'Compendium.synthetic.feats.Item.DDDDDDDDDDDDDDDD',version:'synthetic-dependent',category:'trainer',raw:raw('@actor.system.modifiers.baseStats.atk.mod'),enabled:true});
     }
     if (configuration.multiple) specs.push({...specs[0],source:'Compendium.synthetic.abilities.Item.BBBBBBBBBBBBBBBB'});
+    if(configuration.noAbility)specs.length=0;
     for (const spec of specs) spec.raws = [spec.raw];
     if (configuration.sameItemDisabled) { specs[0].enabled = false; specs[0].raws.push(raw(3)); }
     const rows = specs.flatMap(spec => spec.raws.map((source,index) => freeze({
@@ -210,8 +258,20 @@ async function harness(configuration = {}) {
         contributors:Object.freeze(rows.filter(row => row.category)),
         models:Object.freeze([model]),
         countPredicate(receiver,args){counters.predicates++;counters.predicateCalls.push({receiver,args});},
+        observeDerived(event,inspection){counters.derivedEvents.push({event,valid:inspection?.valid??null,selected:inspection?.selected??null,reasons:[...(inspection?.reasons??[])]});},
     };
     const globals = new Map();
+    const auxiliaryDescriptors=[];
+    const replaceDescriptor=(object,key,value)=>{
+        auxiliaryDescriptors.push([object,key,Object.getOwnPropertyDescriptor(object,key)]);
+        Object.defineProperty(object,key,{value,writable:true,configurable:true});
+    };
+    const restoreAuxiliary=()=>{
+        for(const [object,key,prior] of auxiliaryDescriptors.reverse()) {
+            if(prior)Object.defineProperty(object,key,prior);else Reflect.deleteProperty(object,key);
+            assert.deepEqual(Object.getOwnPropertyDescriptor(object,key),prior,key);
+        }
+    };
     const diagnostics = [];
     const diagnosticDescriptors = new Map(['warn','error'].map(name => [name,Object.getOwnPropertyDescriptor(console,name)]));
     for (const [name,descriptor] of diagnosticDescriptors) Object.defineProperty(console,name,{...descriptor,value:(...args)=>diagnostics.push({name,args})});
@@ -239,10 +299,31 @@ async function harness(configuration = {}) {
             this.priority=source.priority ?? 100;
             if(configuration.predicateThrowTripwire) this.predicate.test=function(){counters.predicateTests++;throw Error('Synthetic unsupported predicate tripwire');};
             if(configuration.ownRuleHook) this.afterPrepareData=function(){this.actor.system.modifiers.baseStats.atk.mod+=5;this.actor.system.modifiers.baseStats.atk.mod-=5;};
+            if(configuration.incompleteSecondDerived)this.afterPrepareData=function(){this.actor._types.species=[];};
             if(configuration.lateOffset) callbacks.final=function(actor){actor.system.modifiers.baseStats.atk.mod+=5;actor.system.modifiers.baseStats.atk.mod-=5;};
         }
     }
-    const callbacks={final(){},afterEmbedded(actor){
+    let reentered=false;
+    const callbacks={final(actor){
+        if(configuration.lateContest==='dice')actor.system.contests.stats.cool.dice=99;
+        if(configuration.lateContest==='mod')actor.system.contests.stats.cool.stats.mod=9;
+        if(configuration.lateContest==='replace')actor.system.contests=clone(actor.system.contests);
+        if(configuration.lateContest==='extra')actor.system.contests.custom='preserve me';
+        if(configuration.lateContest==='readonly')Object.defineProperty(actor.system.contests.stats.cool.stats,'value',{writable:false});
+        if(configuration.lateContest==='accessor')Object.defineProperty(actor.system.contests.stats.cool.stats,'value',{configurable:true,get(){counters.derivedGetterCalls++;throw Error('Unexpected derived getter');}});
+        if(configuration.lateContest==='allocated')actor.system.stats.atk.levelUp+=1;
+        if(configuration.lateStats){
+            const stats=actor.system.stats;
+            counters.lateStatsTargets={stats,attack:stats.atk,contests:actor.system.contests,cool:clone(actor.system.contests.stats.cool),ordinaryAttack:stats.atk.total};
+            const getter=function(){counters.derivedGetterCalls++;throw Error('Unexpected late stats getter');};
+            if(configuration.lateStats==='root-accessor')Object.defineProperty(actor.system,'stats',{configurable:true,get:getter});
+            if(configuration.lateStats==='total-accessor')Object.defineProperty(stats.atk,'total',{configurable:true,get:getter});
+            if(configuration.lateStats==='root-readonly')Object.defineProperty(actor.system,'stats',{writable:false});
+            if(configuration.lateStats==='total-readonly')Object.defineProperty(stats.atk,'total',{writable:false});
+        }
+    },afterEmbedded(actor){
+        if(configuration.reentrant && !reentered)hookListeners.push(actor=>{if(!reentered){reentered=true;actor.prepareData();}});
+        if(configuration.throwDerived)hookListeners.push(()=>{throw Error('Synthetic interrupted derived interval');});
         if(configuration.invalidActorDuringConstruction) actor.type='pokemon';
         if(configuration.lateValidation) actor.items[0].rules[0].failValidation('Synthetic disabled validation after construction');
         if(configuration.eraseInvalidity) {
@@ -265,6 +346,7 @@ async function harness(configuration = {}) {
         constructor() {this.id='SYNTHETICACTOR01';this.type='pokemon';this.name='Synthetic';this.flags={ptu:{rollOptions:{all:{}}}};}
         get itemTypes(){return this._types;}
         prepareData() {
+            counters.corePreparations++;
             this.system=clone(actorSeed);
             this.prepareBaseData();
             this.prepareEmbeddedDocuments();
@@ -295,6 +377,31 @@ async function harness(configuration = {}) {
         },
     });
     setGlobal('__ptuHugePowerCloudFixture',bindingFixture);
+    const hookListeners=[];
+    const hookRegistry={updateInitiative:hookListeners};
+    const hooks={call(event,actor){
+        assert.equal(event,'updateInitiative');
+        counters.initiativeHooks.push({attack:actor.system.stats.atk.total});
+        for(const callback of hookRegistry[event])callback(actor);
+        return true;
+    }};
+    if(configuration.realPokemon) {
+        replaceDescriptor(Math,'clamp',(value,min,max)=>Math.min(Math.max(value,min),max));
+        auxiliaryDescriptors.push([Number.prototype,'signedString',Object.getOwnPropertyDescriptor(Number.prototype,'signedString')]);
+        setGlobal('calculateLevel',undefined);
+        setGlobal('Hooks',hooks);
+        setGlobal('Collection',class SyntheticCollection extends Map {});
+        game.settings={get(scope,key){
+            assert.equal(scope,'ptu'); counters.settingReads.push(key);
+            if(key==='variant.spiritPlaytest')return false;
+            if(key==='automation.maxEvasion')return 20;
+            return missing('setting '+key);
+        }};
+        game.actors={get(){return null;}};
+        CONFIG.PTU.data.typeEffectiveness={};
+        CONFIG.PTU.data.levelProgression=Object.fromEntries(Array.from({length:100},(_,i)=>[i+1,(i+1)*10]));
+        CONFIG.PTU.Capabilities={stringArray:[],numericNonMovement:[]};
+    }
     const modules=new Map();
     const weather={globalEffects:new Map()};
     setGlobal('__ptuHugePowerCloudWeather',weather);
@@ -305,7 +412,7 @@ async function harness(configuration = {}) {
         const inverse=new Map();
         const bound=original.replace(/^import[^\n]*/gm,line=>{
             const specifier=/(['"])([^'"]+)\1;?$/.exec(line);assert.ok(specifier,line);
-            const target=overrides[specifier[2]]??unavailable(line);
+            const target=overrides[specifier[2]]??unavailable(line,url);
             const replacement=line.slice(0,specifier.index)+specifier[1]+target+specifier[1]+';';inverse.set(replacement,line);return replacement;
         });
         assert.equal(bound.replace(/^import[^\n]*/gm,line=>inverse.get(line)),original);
@@ -317,20 +424,23 @@ async function harness(configuration = {}) {
         // Test-only bridge: every entry delegates once with unchanged receiver,
         // arguments, return value and exception. No ordinary-call deduplication.
         const predicateBridgeURL=url(`import * as hp from ${JSON.stringify(huge)};export * from ${JSON.stringify(huge)};const f=globalThis.__ptuHugePowerCloudFixture;export function testRulePredicate(...args){f.countPredicate(this,args);return Reflect.apply(hp.testRulePredicate,this,args);}//${generation}`);
-        const predicateBridge=await import(predicateBridgeURL);
+        const predicateBridge=await load(predicateBridgeURL);
+        const pokemonBridgeURL=configuration.realPokemon ? url(`import * as hp from ${JSON.stringify(huge)};export * from ${JSON.stringify(huge)};const f=globalThis.__ptuHugePowerCloudFixture;export function beginHugePowerPokemonDerived(...args){const result=Reflect.apply(hp.beginHugePowerPokemonDerived,this,args);f.observeDerived('begin',hp.inspectHugePower(args[0]));return result;}export function finishHugePowerPokemonDerived(...args){const result=Reflect.apply(hp.finishHugePowerPokemonDerived,this,args);f.observeDerived('finish',hp.inspectHugePower(args[0]));return result;}//${generation}`) : huge;
         const predicate=await module('src/module/system/predication.js');
         const schema=await module('src/module/system/schema-data-fields.js',{'./predication.js':predicate});
         const base=await module('src/module/rules/rule-element/base.js',{'../../../util/huge-power.js':predicateBridgeURL,'../../system/index.js':predicate,'../../system/schema-data-fields.js':schema});
         const ae=await module('src/module/rules/rule-element/ae-like.js',{'../../../util/huge-power.js':huge,'../../system/schema-data-fields.js':schema,'./base.js':base});
         const registry=await module('src/module/rules/index.js',{'../../util/huge-power.js':huge,'./rule-element/base.js':base,'./rule-element/ae-like.js':ae});
         const item=await module('src/module/item/base.js',{'../rules/index.js':registry,'../../util/document-source.js':documentSource,'../rules/rule-element/grant-item/rule-element.js':url('export class GrantItemRuleElement {}'),'../../util/misc.js':url('export const sluggify = value => value;')});
-        const actor=await module('src/module/actor/base.js',{'../../util/huge-power.js':predicateBridgeURL,'../../util/document-source.js':documentSource,'../apps/weather.js':url('export const Weather=globalThis.__ptuHugePowerCloudWeather;')});
+        const modifiers=configuration.realPokemon ? await module('src/module/actor/modifiers.js',{'../../util/misc.js':url('export const sluggify = value => value;'),'../system/predication.js':predicate}) : null;
+        const level=configuration.realPokemon ? await module('src/module/actor/pokemon/level.js') : null;
+        const actor=await module('src/module/actor/base.js',{'../../util/huge-power.js':predicateBridgeURL,'../../util/document-source.js':documentSource,'../apps/weather.js':url('export const Weather=globalThis.__ptuHugePowerCloudWeather;'),...(modifiers?{'./modifiers.js':modifiers}:{})});
         const helpers=await module('src/module/actor/helpers.js',{'../../util/huge-power.js':huge});
-        const pokemon=await module('src/module/actor/pokemon/document.js',{'../../../util/huge-power.js':huge,'../helpers.js':helpers,'../index.js':url(`export {PTUActor} from ${JSON.stringify(actor)};export class PTUSkills {}`)});
-        const hp=await import(huge), rules=await import(registry), ruleBase=await import(base), ruleAE=await import(ae), itemModule=await import(item), actorModule=await import(actor), pokemonModule=await import(pokemon), arithmetic=await import(helpers),predicateModule=await import(predicate),schemaModule=await import(schema);
+        const pokemon=await module('src/module/actor/pokemon/document.js',{'../../../util/huge-power.js':pokemonBridgeURL,'../helpers.js':helpers,'../index.js':url(`export {PTUActor} from ${JSON.stringify(actor)};export class PTUSkills {}`),...(level?{'./level.js':level,'../modifiers.js':modifiers}:{})});
+        const hp=await load(huge), rules=await load(registry), ruleBase=await load(base), ruleAE=await load(ae), itemModule=await load(item), actorModule=await load(actor), pokemonModule=await load(pokemon), arithmetic=await load(helpers),predicateModule=await load(predicate),schemaModule=await load(schema);
         CONFIG.PTU.Item.documentClass=configuration.invalidItemClass ? class RejectedItem {} : itemModule.PTUItem;
         class ModelActor extends pokemonModule.PTUPokemonActor {
-            prepareBaseData(){actorModule.PTUActor.prototype.prepareBaseData.call(this);}
+            prepareBaseData(){(configuration.realPokemon?pokemonModule.PTUPokemonActor:actorModule.PTUActor).prototype.prepareBaseData.call(this);}
             prepareMoves(){return [];}
             prepareDerivedData(){
                 actorModule.PTUActor.prototype.prepareDerivedData.call(this);
@@ -341,14 +451,50 @@ async function harness(configuration = {}) {
                 this.system.stats=ordinary.stats;
             }
             prepareInitiative(){return {};}
-            _setDefaultChanges(){callbacks.final(this);}
+            _setDefaultChanges(){if(configuration.realPokemon)pokemonModule.PTUPokemonActor.prototype._setDefaultChanges.call(this);counters.finalCalls++;callbacks.final(this);}
+        }
+        if(configuration.realPokemon) {
+            // Never replace or copy the actual derived method under test.
+            delete ModelActor.prototype.prepareDerivedData;
+            delete ModelActor.prototype.prepareMoves;
+            delete ModelActor.prototype.prepareInitiative;
+            assert.equal(ModelActor.prototype.prepareDerivedData,pokemonModule.PTUPokemonActor.prototype.prepareDerivedData);
+        }
+        if(configuration.incompleteByTypes) {
+            const actualTypes=Object.getOwnPropertyDescriptor(actorModule.PTUActor.prototype,'types').get;
+            Object.defineProperty(ModelActor.prototype,'types',{configurable:true,get(){
+                const value=Reflect.apply(actualTypes,this,[]);
+                if(this.constructed && counters.incompleteBoundaryStates.length===0) {
+                    const inspection=hp.inspectHugePower(this);
+                    counters.incompleteBoundaryStates.push({valid:inspection?.valid??null,reasons:[...(inspection?.reasons??[])]});
+                    this._types.species=[];
+                }
+                return value;
+            }});
         }
         const keys=['hp','atk','def','spatk','spdef','spd'];
         actorSeed={level:{current:configuration.level??20},stats:Object.fromEntries(keys.map(key=>[key,{base:10,value:10,levelUp:key==='atk'?(configuration.points??0):0,mod:{value:0,mod:0},stage:{value:0,mod:0}}])),
             modifiers:{baseStats:Object.fromEntries(keys.map(key=>[key,{value:0,mod:0,total:0}]))},spirit:{value:0},nature:{value:configuration.nature?'synthetic':null},changes:{},typing:['Untyped']};
-        const a=new ModelActor();a.system=clone(actorSeed);a.synthetics={speciesOverride:{},typeOverride:{}};
+        if(configuration.realPokemon) {
+            Object.assign(actorSeed,{
+                background:{increased:{},decreased:{}},skills:{},health:{value:30,injuries:0},tempHp:0,
+                tp:{pep:{}},friendship:2,shiny:false,
+                contests:{stats:Object.fromEntries(['cool','tough','beauty','smart','cute'].map(key=>[key,{stats:{mod:1},poffins:{value:2,mod:1}}])),voltage:{},appeal:{}}
+            });
+            actorSeed.level.exp=actorSeed.level.current*10;
+            actorSeed.stats.atk.stage.value=configuration.attackStage??0;
+            actorSeed.stats.atk.mod.value=configuration.attackModifier??0;
+            Object.assign(actorSeed.modifiers,{statPoints:{value:0,mod:0},saveChecks:{value:0,mod:0},initiative:{value:2,mod:0},skillBonus:{value:0,mod:0},capabilities:{all:0},evasion:{physical:{value:1,mod:0},special:{value:0,mod:1},speed:{value:0,mod:0}}});
+        }
+        const a=new ModelActor();a.system=clone(actorSeed);a.synthetics={speciesOverride:{},typeOverride:{},statisticsModifiers:{}};
         a.items=specs.map((spec,index)=>new itemModule.PTUItem({_id:String(index+1).padStart(16,'0'),name:'Synthetic '+index,type:spec.category==='trainer'?'feat':spec.category==='vitamin'?'item':'ability',img:'synthetic',_stats:{compendiumSource:spec.source},flags:{ptu:{selectedVersion:{id:spec.version},rollOptions:{all:{}}}},system:{enabled:spec.enabled,slug:'synthetic-'+index,rules:clone(spec.raws)}},{parent:a}));
         a.items.contents=a.items;a._types={effect:[],condition:[],species:[{system:{stats:Object.fromEntries(keys.map(key=>[key,10]))}}],move:[]};
+        if(configuration.realPokemon) {
+            Object.assign(a._types.species[0].system,{types:['Untyped'],skills:{},capabilities:{overland:5},breeding:{eggGroups:['Synthetic']}});
+            a._types.species[0].system.stats.atk=configuration.baseAttack??10;
+            if(configuration.noSpecies)a._types.species=[];
+            if(configuration.noSpeciesSystem)a._types.species=[{}];
+        }
         const profile = (prototype, ownCallbacks=[]) => {
             const chain=[];
             for(let current=prototype;current!==null;current=Object.getPrototypeOf(current)) {
@@ -371,18 +517,19 @@ async function harness(configuration = {}) {
             predicateModule.PTUPredicate,predicateModule.PTUPredicate.prototype,predicateModule.StatementValidator,
             schemaModule.PredicateField,schemaModule.PredicateField.prototype,schemaModule.ResolvableValueField,schemaModule.ResolvableValueField.prototype,
             ruleAE.AELikeRuleElement.CHANGE_MODES,ruleAE.AELikeRuleElement.PHASES,rules.RuleElements.builtin,rules.RuleElements.custom];
+        if(configuration.realPokemon) descriptorObjects.push(bindingFixture,hooks,hookRegistry,Number.prototype,game.settings,game.actors,CONFIG.PTU.Capabilities,CONFIG.PTU.data.typeEffectiveness,CONFIG.PTU.data.levelProgression,Math);
         Object.assign(model,{kind:'synthetic-closed-preparation-v2',
             actorProfile:profile(ModelActor.prototype,[['debouncedUpdate',actorCallback]]),itemProfile:profile(itemModule.PTUItem.prototype),ruleProfile:profile(ruleAE.AELikeRuleElement.prototype),
-            dependencies:Object.freeze([[weather.globalEffects,'size',0]].map(Object.freeze)),
+            dependencies:Object.freeze([[weather.globalEffects,'size',0],...(configuration.realPokemon?[[hookListeners,'length',0],...[...globals.keys()].map(key=>[globalThis,key,globalThis[key]])]:[])].map(Object.freeze)),
             objects:Object.freeze(descriptorObjects.map(object=>Object.freeze([object,Object.freeze(Reflect.ownKeys(object).map(key=>Object.freeze([key,Object.freeze({...Object.getOwnPropertyDescriptor(object,key)})])))]))),
             ruleClass:ruleAE.AELikeRuleElement,ruleTest:ruleBase.RuleElementPTU.prototype.test,ruleApply:ruleAE.AELikeRuleElement.prototype.apply,
             resolveValue:ruleBase.RuleElementPTU.prototype.resolveValue,resolveInjectedProperties:ruleBase.RuleElementPTU.prototype.resolveInjectedProperties,
             predicatePrimitive:predicateBridge.testRulePredicate,calculateStatTotal:arithmetic.calculateStatTotal});Object.freeze(model);
-        const before=a.items.map(i=>i.toObject());
-        const restore=()=>{restoreDiagnostics();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,name),prior,name);}};
-        return {a,hp,predicateBridge,arithmetic,ruleBase,ruleAE,rules,itemModule,callbacks,counters,configuration,actorSeed,model,diagnostics,debounceRecords,
-            preserve(){assert.deepEqual(a.items.map(i=>i.toObject()),before);},restore};
-    } catch(error) {restoreDiagnostics();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);}throw error;}
+        const before=a.items.map(i=>i.toObject()), seedBefore=clone(actorSeed);
+        const restore=()=>{try{restoreDiagnostics();restoreAuxiliary();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,name),prior,name);}}finally{releaseModules();}};
+        return {a,hp,pokemonModule,hookListeners,predicateBridge,arithmetic,ruleBase,ruleAE,rules,itemModule,callbacks,counters,configuration,actorSeed,model,diagnostics,debounceRecords,
+            preserve(){assert.deepEqual(a.items.map(i=>i.toObject()),before);assert.deepEqual(actorSeed,seedBefore);},restore};
+    } catch(error) {try{restoreDiagnostics();restoreAuxiliary();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);}}finally{releaseModules();}throw error;}
 }
 async function scenario(options,fn){const h=await harness(options);try{await fn(h);h.preserve();}finally{h.restore();}}
 
@@ -676,4 +823,142 @@ process.stdout.write('Actor-first actual-edge smoke passed\n');
         input:JSON.stringify(sources),encoding:'utf8',timeout:10000,maxBuffer:32768,windowsHide:true
     });
     assert.equal(result.error,undefined);assert.equal(result.status,0,result.stderr);assert.match(result.stdout,/actual-edge smoke passed/);
+});
+
+// HP-POKEMON-DERIVED-20261115-01 baseline. This expectation deliberately
+// describes required consistency; execute only after the frozen review gate.
+test('real Pokemon baseline: final Core Attack and Cool remain consistent',()=>scenario({realPokemon:true,mode:'core'},h=>{
+    assert.equal(Object.getPrototypeOf(h.a).prepareDerivedData,h.pokemonModule.PTUPokemonActor.prototype.prepareDerivedData);
+    h.a.prepareData();
+    assert.equal(h.counters.corePreparations,1);
+    assert.equal(h.counters.finalCalls,1);
+    assert.deepEqual(h.counters.initiativeHooks,[{attack:17},{attack:17}]);
+    assert.equal(h.counters.writes,1);
+    assert.equal(h.counters.predicates,1);
+    assert.equal(h.hp.inspectHugePower(h.a).selected,'core');
+    assert.equal(h.a.system.stats.atk.total,20);
+    assert.equal(h.a.system.contests.stats.cool.stats.value,2);
+    assert.equal(h.a.system.contests.stats.cool.stats.total,3);
+    assert.equal(h.a.system.contests.stats.cool.dice,6);
+}));
+
+
+const pokemonView = h => ({system:clone(h.a.system),attributes:clone(h.a.attributes),flags:clone(h.a.flags),initiative:{slug:h.a.initiative.slug,totalModifier:h.a.initiative.totalModifier,modifiers:clone(h.a.initiative.modifiers)}});
+const withoutSelectedFields = view => {
+    const output=clone(view);
+    delete output.system.stats.atk.value;delete output.system.stats.atk.total;
+    delete output.system.contests.stats.cool.stats.value;delete output.system.contests.stats.cool.stats.total;delete output.system.contests.stats.cool.dice;
+    return output;
+};
+for(const row of [
+    {mode:'core',expected:20},
+    {mode:'core',points:4,expected:24},
+    {mode:'core',baseAttack:9,expected:18},
+    {mode:'core',baseAttack:15,expected:30},
+    {mode:'core',baseAttack:20,expected:40},
+    {mode:'core',attackStage:1,expected:24},
+    {mode:'core',attackStage:-1,expected:18},
+    {mode:'core',attackModifier:2,expected:22},
+    {mode:'core',contributors:true,nature:true,points:4,expected:33},
+    {mode:'february',expected:17},
+    {mode:'february',level:50,expected:20},
+    {mode:'february',enabled:false,level:50,expected:20},
+    {mode:'february',enabled:false,baseAttack:15,points:4,expected:26},
+    {mode:'february',contributors:true,nature:true,points:4,expected:27}
+])test('real Pokemon complete ordinary preservation and consistent selection '+JSON.stringify(row),async()=>{
+    let ordinary;
+    await scenario({...row,realPokemon:true,production:true},h=>{
+        h.a.prepareData();ordinary=pokemonView(h);assert.equal(h.hp.inspectHugePower(h.a),null);
+        assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.initiativeHooks.length,2);
+    });
+    await scenario({...row,realPokemon:true},h=>{
+        h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a).selected,row.mode);
+        assert.equal(h.a.system.stats.atk.total,row.expected);
+        const contribution=Math.min(Math.floor(row.expected/10),3),cool=h.a.system.contests.stats.cool;
+        assert.equal(cool.stats.value,contribution);assert.equal(cool.stats.total,Math.min(contribution+1,3));assert.equal(cool.dice,Math.min(contribution+1,3)+3);
+        assert.deepEqual(withoutSelectedFields(pokemonView(h)),withoutSelectedFields(ordinary));
+        assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.finalCalls,1);assert.equal(h.counters.initiativeHooks.length,2);
+        assert.deepEqual(h.counters.initiativeHooks,Array(2).fill({attack:ordinary.system.stats.atk.total}));
+        assert.equal(h.counters.expression,0);assert.equal(h.counters.writes,(row.enabled===false?0:1)+(row.contributors?2:0));
+        assert.equal(h.counters.predicates,1+(row.contributors?2:0));assert.equal(h.counters.derivedGetterCalls,0);
+        assert.equal(h.counters.debounceInvoked,0);
+    });
+});
+test('real Pokemon repeated full and derived preparation does not replay or compound selection',()=>scenario({realPokemon:true,mode:'core'},h=>{
+    h.a.prepareData();assert.equal(h.a.system.stats.atk.total,20);assert.equal(h.a.system.contests.stats.cool.stats.value,2);
+    h.a.prepareDerivedData();assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.a.system.contests.stats.cool.stats.value,1);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+    h.a.prepareDerivedData();assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.a.system.contests.stats.cool.stats.value,1);
+    assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.initiativeHooks.length,4);
+    h.a.prepareData();assert.equal(h.a.system.stats.atk.total,20);assert.equal(h.a.system.contests.stats.cool.stats.value,2);
+    assert.equal(h.counters.writes,2);assert.equal(h.counters.predicates,2);assert.equal(h.counters.corePreparations,2);assert.equal(h.counters.initiativeHooks.length,6);
+}));
+for(const lateContest of ['dice','mod','replace','extra','readonly','allocated'])test('real Pokemon late '+lateContest+' retains complete ordinary result',async()=>{
+    let ordinary;
+    await scenario({realPokemon:true,mode:'core',production:true,lateContest},h=>{h.a.prepareData();ordinary=pokemonView(h);});
+    await scenario({realPokemon:true,mode:'core',lateContest},h=>{
+        h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a).selected,null);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+        assert.ok(h.hp.inspectHugePower(h.a).reasons.length>0);assert.deepEqual(pokemonView(h),ordinary);
+        if(lateContest==='readonly')assert.equal(Object.getOwnPropertyDescriptor(h.a.system.contests.stats.cool.stats,'value').writable,false);
+    });
+});
+test('real Pokemon late accessor is never invoked or overwritten',()=>scenario({realPokemon:true,mode:'core',lateContest:'accessor'},h=>{
+    h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a).selected,null);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+    assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.counters.derivedGetterCalls,0);
+    const descriptor=Object.getOwnPropertyDescriptor(h.a.system.contests.stats.cool.stats,'value');assert.equal(typeof descriptor.get,'function');assert.equal(Object.hasOwn(descriptor,'value'),false);
+    assert.equal(h.a.system.contests.stats.cool.dice,5);
+}));
+for(const options of [{noSpecies:true},{noSpeciesSystem:true},{incompleteSecondDerived:true},{reentrant:true}])test('real Pokemon incomplete or reentrant interval preserves ordinary '+JSON.stringify(options),async()=>{
+    let ordinary;
+    await scenario({realPokemon:true,mode:'core',production:true,...options},h=>{h.a.prepareData();ordinary=pokemonView(h);});
+    await scenario({realPokemon:true,mode:'core',...options},h=>{
+        h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a)?.selected??null,null);assert.notEqual(h.hp.inspectHugePower(h.a)?.valid,true);assert.deepEqual(pokemonView(h),ordinary);
+    });
+});
+test('real Pokemon interrupted derived body never authorizes a partial candidate',()=>scenario({realPokemon:true,mode:'core',throwDerived:true},h=>{
+    assert.throws(()=>h.a.prepareData(),/Synthetic interrupted derived interval/);assert.equal(h.hp.inspectHugePower(h.a).selected,null);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+    assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);assert.equal(h.counters.finalCalls,0);
+}));
+for(const location of ['listener','global-hooks'])test('real Pokemon unknown '+location+' cannot authorize selection',()=>scenario({realPokemon:true,mode:'core'},h=>{
+    let observed=0;
+    if(location==='listener')h.hookListeners.push(()=>{observed++;});
+    else globalThis.Hooks={call(){observed++;}};
+    h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a),null);assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.a.system.contests.stats.cool.stats.value,1);assert.equal(observed,2);
+}));
+
+test('real Pokemon without an Ability remains ordinary with empty admissions',()=>scenario({realPokemon:true,noAbility:true},h=>{
+    h.a.prepareData();assert.equal(h.hp.HUGE_POWER_ENABLED,false);assert.equal(h.hp.inspectHugePower(h.a),null);
+    assert.equal(h.a.system.stats.atk.total,10);assert.equal(h.a.system.contests.stats.cool.stats.value,1);assert.equal(h.a.system.contests.stats.cool.dice,5);
+    assert.equal(h.counters.writes,0);assert.equal(h.counters.predicates,0);assert.equal(h.counters.expression,0);assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.initiativeHooks.length,2);
+}));
+
+
+for(const lateStats of ['root-accessor','total-accessor','root-readonly','total-readonly'])test('real Pokemon rejects late stats '+lateStats+' before live traversal',()=>scenario({realPokemon:true,mode:'core',lateStats},h=>{
+    h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a).selected,null);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+    assert.ok(h.hp.inspectHugePower(h.a).reasons.includes('late-pokemon-derived-change'));assert.equal(h.counters.derivedGetterCalls,0);
+    const before=h.counters.lateStatsTargets;assert.equal(before.ordinaryAttack,17);
+    assert.strictEqual(h.a.system.contests,before.contests);assert.deepEqual(h.a.system.contests.stats.cool,before.cool);
+    const root=Object.getOwnPropertyDescriptor(h.a.system,'stats'),total=Object.getOwnPropertyDescriptor(before.attack,'total');
+    if(lateStats==='root-accessor')assert.equal(typeof root.get,'function');else assert.strictEqual(root.value,before.stats);
+    if(lateStats==='total-accessor')assert.equal(typeof total.get,'function');else assert.equal(total.value,17);
+    if(lateStats==='root-readonly')assert.equal(root.writable,false);
+    if(lateStats==='total-readonly')assert.equal(total.writable,false);
+    assert.strictEqual(before.stats.atk,before.attack);assert.equal(before.attack.value,17);
+}));
+test('real Pokemon valid first completion cannot authorize an incomplete second derived pass',async()=>{
+    let ordinary;
+    await scenario({realPokemon:true,mode:'core',production:true,incompleteByTypes:true},h=>{h.a.prepareData();ordinary=pokemonView(h);});
+    await scenario({realPokemon:true,mode:'core',incompleteByTypes:true},h=>{
+        assert.equal(Object.getPrototypeOf(h.a).prepareDerivedData,h.pokemonModule.PTUPokemonActor.prototype.prepareDerivedData);
+        h.a.prepareData();
+        assert.deepEqual(h.counters.derivedEvents,[
+            {event:'begin',valid:true,selected:null,reasons:[]},
+            {event:'finish',valid:true,selected:null,reasons:[]},
+            {event:'begin',valid:true,selected:null,reasons:[]}
+        ]);
+        assert.deepEqual(h.counters.incompleteBoundaryStates,[{valid:true,reasons:[]}]);
+        assert.equal(h.hp.inspectHugePower(h.a).selected,null);assert.equal(h.hp.inspectHugePower(h.a).valid,false);
+        assert.deepEqual(h.hp.inspectHugePower(h.a).reasons,['final-domain-not-established']);
+        assert.deepEqual(pokemonView(h),ordinary);assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.a.system.contests.stats.cool.stats.value,1);
+        assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.initiativeHooks.length,1);assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);
+    });
 });

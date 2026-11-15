@@ -1,4 +1,4 @@
-import {HUGE_POWER_ENABLED, rememberHugePowerStats} from '../../../util/huge-power.js';
+import {HUGE_POWER_ENABLED, rememberHugePowerStats, beginHugePowerPokemonDerived, finishHugePowerPokemonDerived} from '../../../util/huge-power.js';
 import { PTUActor, PTUSkills } from "../index.js";
 import { calculateStatTotal } from "../helpers.js";
 import { calculateLevel } from "./level.js";
@@ -153,6 +153,7 @@ class PTUPokemonActor extends PTUActor {
 
     /** @override */
     prepareDerivedData() {
+        if (HUGE_POWER_ENABLED) beginHugePowerPokemonDerived(this);
         super.prepareDerivedData();
 
         const system = this.system;
@@ -368,6 +369,7 @@ class PTUPokemonActor extends PTUActor {
             system.health.max = 1;
             system.health.tick = 1;
         }
+        if (HUGE_POWER_ENABLED) finishHugePowerPokemonDerived(this);
     }
 
     _calcBaseStats() {
