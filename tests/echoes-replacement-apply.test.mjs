@@ -16,7 +16,7 @@ const same = (actual, expected) => {
 };
 const utf8 = new TextDecoder('utf-8', {fatal: true, ignoreBOM: true});
 const runtime = [
-    ['package.json', 589, 'df135a39f198db5bf1bc9136b608c0cc2c592241'],
+    ['package.json', 615, '76d81ab7182b563883d0ec8857fda73108292111'],
     ['src/util/echoes-replacement-plan.js', 43779, '33d583b0446f457da7f69a3fa75078f4a5a96cd2'],
     ['src/util/rule-version-registry.js', 6196, 'd5753450386cc200d01d1cd161a0122d07d6ea5b'],
     ['src/util/rule-version-preview.js', 13099, '9118635571b4836f7ce8ee4a775b759a92f9b679'],

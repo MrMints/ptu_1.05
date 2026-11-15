@@ -6,6 +6,8 @@ A real-method synthetic baseline reproduced an inconsistency: final guarded Core
 
 Production admission, contributor and preparation tables remain empty. Ordinary production behavior is therefore unchanged. The separately accepted predecessor `dddcf34494611b49782096826287dbbe5a902b84` has successful repository CI; that success is not evidence that this new correction passes.
 
+The published candidate `bf1b860be0a71e06f47415501fbf197b1b4f1b28` subsequently failed full repository CI because an existing Echoes fixture still pinned the earlier package manifest. The separately reviewed, one-row pin correction has now passed all 194 focused Huge Power and Echoes cases. Corrective-head full CI and final publication acceptance remain pending; the details and failed CI outcome are retained below.
+
 ## Scope and evidence
 
 This extends the [previous Huge Power consumer validation](p05-huge-power-consumer.md), using its accepted arithmetic and source references: PTU 1.05 Core p.320 and February 2016 optional playtest p.5. February is an optional playtest, not official errata. No original PDF or new source/version mapping was established by this batch. Supported content remains Generations 1–8.
@@ -105,3 +107,37 @@ Evidence identifiers:
 - Complete stdout SHA-256: `1bd53b949a4eec33b44523e2d5a77fcb2eccb1dd8b93efc0251207eaf7ca1e49`.
 
 Exact-commit repository CI and publication acceptance are separate gates, not inferred from this focused result. Repository CI must exercise the committed test script with its VM-module flag. This batch does not authorize native activation, merge or release.
+
+## Repository CI failure and narrow fixture repair
+
+The published candidate `bf1b860be0a71e06f47415501fbf197b1b4f1b28` was tested by [PTU CI run 43711810590, attempt 1](https://github.com/MrMints/ptu_1.05/actions/runs/43711810590). It completed with failure on 2026-11-15 at 12:41:54 UTC. Documentation passed. Validation failed at `pnpm test`; validation, pack verification, build and artifact upload did not run after that failure.
+
+The complete test summary was **3,822 tests: 3,776 passed and 46 failed**, with no cancellations, skips or todos, on Node 22.23.4. Every failure was in `tests/echoes-replacement-apply.test.mjs`: its common integrity hook rejected `package.json` before any of those 46 behavior cases could run. The package test script had legitimately gained the experimental VM-module flag required by the accepted Huge Power harness, but the Echoes fixture still expected the previous 589-byte manifest.
+
+The repair changes only the exact package pin in that fixture, from 589 bytes / Git blob `df135a39f198db5bf1bc9136b608c0cc2c592241` to the already-published 615 bytes / Git blob `76d81ab7182b563883d0ec8857fda73108292111`. It does not alter the package manifest, production code, other fixture pins, test assertions, dependencies, lockfile or CI workflow. The failed CI run remains a failure; it was not rerun or reclassified.
+
+### Successful corrective focused invocation
+
+A separately admitted and independently reviewed final invocation ran on 2026-11-15 from **13:32:40.778 to 13:32:49.904 UTC**, with Node **24.22.1**, the VM-module flag and test concurrency 1:
+
+- **194 passed, 0 failed, 0 cancelled, 0 skipped and 0 todo**: 46 Echoes cases plus all 148 Huge Power cases. Individual outcomes numbered 1–194 and all three summaries agreed.
+- The actual Actor-first cycle smoke passed as case 158; all 36 real-Pokémon synthetic cases, 159–194, passed. The prior case bodies and assertions were retained.
+- Node exited 0 in 9.126 seconds. Supervisor errors were empty. The owned process group ceased and both streams reached EOF, with no discarded bytes or potentially unread remainder.
+- Preflight and postflight each checked **7,442 pinned paths / 159,644,245 bytes**, with no mismatches and identical preservation digest `873f29964c4fc225e29807d82744d21f4d6a20c3cff83ac91d095a171cfb2af8`.
+- The Echoes diagnostic confirmed the fixed 7,395-entry collision inventory and its integrity/assembly byte totals. Large retained fixtures were used only for the existing inventory, collision and preservation checks, not as new gameplay support evidence.
+- Complete retained output was **32,972 stdout bytes and zero outer Node stderr bytes**. Reporter accounting recorded no omitted case/other records or details, clipping, redaction or child-capture gaps. No child-process failure occurred.
+- The private reporter was corrected before execution to preserve bounded child-process status, signal and retained-output accounting even when a failure detail is shortened. Missing measurements are explicit gaps, not assumed zero. No shipped test behavior was changed for that accounting correction.
+- The tool display was truncated by its return budget, but independent acceptance inspected the complete retained JSONL and matching hashes. The **two outer Python startup warnings** were retained separately. They were not Node stderr or lost test outcomes.
+- Git metadata sizes were measured in a separate bounded **preflight only**, not directly during the test: `ls-tree` returned 772,691 bytes and `check-attr` returned 1,802,625 bytes. The existing caller and its per-command time/buffer limits were unchanged; this is not a claim of direct runtime byte measurement.
+
+Independent result review accepted this complete focused result. The final invocation allowance is consumed and no retry is authorized. The earlier baseline failure, heap-exhausted final invocation, successful reserved harness diagnostic and failed full CI remain distinct outcomes.
+
+Evidence identifiers:
+
+- Failed CI job log SHA-256: `6abda1a66ee09a64d698f42fb388120e3cd639863103b1ed0ba6c6d429cbe377`.
+- Corrective manifest SHA-256: `4b7946e3d9c58adec104cb6a84e0107a187d072f4a7be7602a8e90fed0e14a1c`.
+- Corrective result SHA-256: `64ba6134d87a2523f734716234c659151bd5f638eb2e9aca1450b02369e101c8`.
+- Complete corrective stdout SHA-256: `e5c526cdf8ab18a37e87a1123613211d87f8cdc529777418f7f746789cf98b08`.
+- Corrected Echoes caller SHA-256: `0486334a2d308e66225b94af7d92f8452ab7e4c9a80baf3fb4314b7c1f15aa15`.
+
+This Node 24.22.1 focused result does not substitute for the required complete repository workflow on the corrective commit, whose CI uses Node 22.23.4. Production tables remain empty and inactive. Native Foundry completeness, actual-world preservation, activation, P05 completion, merge and release are not established or authorized by this result.
