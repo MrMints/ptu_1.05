@@ -2,6 +2,14 @@ import {HUGE_POWER_ADMISSIONS, HUGE_POWER_CONTRIBUTORS, HUGE_POWER_PREPARATIONS}
 import {getDocumentSourceId} from './document-source.js';
 
 export const HUGE_POWER_ENABLED = HUGE_POWER_ADMISSIONS.length > 0;
+// The shipped empty-table path captures no dependency intrinsic. Enabled closed
+// synthetic profiles bind this realm's Map size operation, never a model-supplied
+// getter. This is not a qualification of arbitrary Proxies or native extensions.
+const dependencyIntrinsics = HUGE_POWER_ENABLED ? Object.freeze({
+    mapPrototype: Map.prototype,
+    mapSize: Object.freeze(Object.getOwnPropertyDescriptor(Map.prototype, 'size')),
+    apply: Reflect.apply,
+}) : null;
 const contexts = new WeakMap();
 const invalidRules = new WeakSet();
 const tickets = new WeakMap();
@@ -100,13 +108,97 @@ function profileMatches(receiver, profile, allowActorCallback = false) {
         return !inheritedCallbacks.has(key) && typeof descriptor.value !== 'function' && !descriptor.get && !descriptor.set;
     });
 }
+function frozenDataRecord(record, keys) {
+    if (!record || typeof record !== 'object' || !Object.isFrozen(record)) return false;
+    const prototype = Object.getPrototypeOf(record);
+    if (prototype !== Object.prototype && prototype !== null) return false;
+    const own = Reflect.ownKeys(record);
+    return own.length === keys.length && keys.every(key => {
+        const descriptor = Object.getOwnPropertyDescriptor(record, key);
+        return descriptor && Object.hasOwn(descriptor, 'value');
+    });
+}
+function frozenArrayData(array) {
+    // Metadata is a dense, ordinary frozen array, not an iterable protocol.
+    // Read only own data slots; never dispatch its every/map/iterator methods.
+    if (!Array.isArray(array) || !Object.isFrozen(array) || Object.getPrototypeOf(array) !== Array.prototype) return null;
+    const length = Object.getOwnPropertyDescriptor(array, 'length');
+    if (!length || !Object.hasOwn(length, 'value') || !Number.isSafeInteger(length.value) ||
+        length.value < 0 || length.value > 256 || Reflect.ownKeys(array).length !== length.value + 1) return null;
+    const values = [];
+    for (let index = 0; index < length.value; index++) {
+        const descriptor = Object.getOwnPropertyDescriptor(array, String(index));
+        if (!descriptor || !Object.hasOwn(descriptor, 'value')) return null;
+        values.push(descriptor.value);
+    }
+    return values;
+}
+function dependencyDescriptorMatches(actual, expected, onlyData = false) {
+    if (!actual || !expected || typeof expected !== 'object') return false;
+    const data = Object.getOwnPropertyDescriptor(expected, 'value');
+    const keys = data ? ['value', 'writable', 'enumerable', 'configurable'] : ['get', 'set', 'enumerable', 'configurable'];
+    if ((onlyData && !data) || !frozenDataRecord(expected, keys) ||
+        typeof expected.enumerable !== 'boolean' || typeof expected.configurable !== 'boolean' ||
+        (data ? typeof expected.writable !== 'boolean' :
+            (expected.get !== undefined && typeof expected.get !== 'function') ||
+            (expected.set !== undefined && typeof expected.set !== 'function'))) return false;
+    // Compare only qualified own fields. Do not consult absent get/set/value
+    // fields on either descriptor record or anything inherited from its prototype.
+    return keys.every(key => {
+        const field = Object.getOwnPropertyDescriptor(actual, key);
+        return field && Object.hasOwn(field, 'value') && field.value === expected[key];
+    });
+}
+function dependencyInventoryMatches(object, inventory) {
+    const entries = frozenArrayData(inventory);
+    if (!entries) return false;
+    const actualKeys = Reflect.ownKeys(object), seen = new Set();
+    if (actualKeys.length !== entries.length) return false;
+    for (let index = 0; index < entries.length; index++) {
+        const row = frozenArrayData(entries[index]);
+        if (!row || row.length !== 2 || !['string', 'symbol'].includes(typeof row[0]) ||
+            seen.has(row[0]) || !actualKeys.includes(row[0]) ||
+            !dependencyDescriptorMatches(Object.getOwnPropertyDescriptor(object, row[0]), row[1])) return false;
+        seen.add(row[0]);
+    }
+    return true;
+}
+function dependencyMatches(dependency) {
+    // Qualify the record through its own data descriptors before reading fields.
+    // Unsupported, accessor-backed and legacy [object, key, value] rows fail closed.
+    const kind = dependency && Object.getOwnPropertyDescriptor(dependency, 'kind');
+    if (!kind || !Object.hasOwn(kind, 'value')) return false;
+    if (kind.value === 'own-data') {
+        if (!frozenDataRecord(dependency, ['kind', 'object', 'key', 'descriptor']) ||
+            !['string', 'symbol'].includes(typeof dependency.key)) return false;
+        return dependencyDescriptorMatches(Object.getOwnPropertyDescriptor(dependency.object, dependency.key), dependency.descriptor, true);
+    }
+    if (kind.value !== 'map-size' ||
+        !frozenDataRecord(dependency, ['kind', 'object', 'value', 'own', 'chain']) ||
+        !Number.isSafeInteger(dependency.value) || dependency.value < 0 ||
+        !dependencyInventoryMatches(dependency.object, dependency.own)) return false;
+    const chain = frozenArrayData(dependency.chain);
+    if (!chain || !chain.length) return false;
+    let prototype = Object.getPrototypeOf(dependency.object);
+    if (prototype !== dependencyIntrinsics.mapPrototype) return false;
+    for (let index = 0; index < chain.length; index++) {
+        const row = frozenArrayData(chain[index]);
+        if (!row || row.length !== 2 || prototype !== row[0] || !dependencyInventoryMatches(prototype, row[1])) return false;
+        prototype = Object.getPrototypeOf(prototype);
+    }
+    if (prototype !== null || !dependencyDescriptorMatches(
+        Object.getOwnPropertyDescriptor(dependencyIntrinsics.mapPrototype, 'size'), dependencyIntrinsics.mapSize)) return false;
+    // Only the positively bound intrinsic is invoked, after the complete receiver
+    // own/prototype inventory qualifies. Its Map brand check rejects forged owners.
+    return dependencyIntrinsics.apply(dependencyIntrinsics.mapSize.get, dependency.object, []) === dependency.value;
+}
 function modelMatches(actor, model) {
     // No native model is shipped. A synthetic profile binds complete Actor,
     // Item and Rule prototype/descriptor inventories, not only select methods.
     if (!Object.isFrozen(model) || model.kind !== 'synthetic-closed-preparation-v2' ||
-        !Object.isFrozen(model.dependencies) || !Object.isFrozen(model.objects) ||
+        !Object.isFrozen(model.objects) ||
         !profileMatches(actor, model.actorProfile, true) ||
-        !model.dependencies.every(([object, key, value]) => object[key] === value) ||
+        !frozenArrayData(model.dependencies)?.every(dependencyMatches) ||
         !model.objects.every(([object, descriptors]) => inventoryMatches(object, descriptors))) return false;
     const items = Array.from(actor.items?.contents ?? actor.items ?? []);
     return items.every(item => profileMatches(item, model.itemProfile) &&

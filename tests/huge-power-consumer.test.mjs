@@ -15,8 +15,8 @@ const PINS = {
     "sha256": "6676cf1728813edc295516ec23dce9981d09577f8a2645b498cba3aad6ded3a0"
   },
   "src/util/huge-power.js": {
-    "bytes": 28073,
-    "sha256": "2dfd02821063a454bdec09bb84e162ca7bf1b56740f51d2d33ddf0202e8e3b8f"
+    "bytes": 33681,
+    "sha256": "3e2a95453e98c17a189de588572b58b460cf75cef581adf704f895f5074104b2"
   },
   "src/util/document-source.js": {
     "bytes": 1386,
@@ -234,7 +234,7 @@ async function harness(configuration = {}) {
         return entry.namespace;
     };
     const releaseModules=()=>{moduleSources.clear();moduleInstances.clear();sourceIdentifiers.clear();};
-    const counters = {derivedEvents:[], incompleteBoundaryStates:[], derivedGetterCalls:0, corePreparations:0, initiativeHooks:[], settingReads:[], finalCalls:0, expression:0, writes:0, logs:0, predicates:0, predicateCalls:[], predicateTests:0, formulaInputs:[], writeTrace:[], debounceConstructed:0, debounceInvoked:0};
+    const counters = {dependencyRecordGetterCalls:0, derivedEvents:[], incompleteBoundaryStates:[], derivedGetterCalls:0, corePreparations:0, initiativeHooks:[], settingReads:[], finalCalls:0, expression:0, writes:0, logs:0, predicates:0, predicateCalls:[], predicateTests:0, formulaInputs:[], writeTrace:[], debounceConstructed:0, debounceInvoked:0};
     const raw = (value, extra={}) => ({key:'ActiveEffectLike',predicate:[],mode:'add',path:'system.modifiers.baseStats.atk.mod',phase:'applyAEs',value,priority:null,...extra});
     const specs = [{source:'Compendium.synthetic.abilities.Item.AAAAAAAAAAAAAAAA',version:configuration.version ?? 'synthetic-february',mode:configuration.mode ?? 'february',raw:raw(Object.hasOwn(configuration,'expression') ? configuration.expression : 7, configuration.rule ?? {}),enabled:configuration.enabled ?? true}];
     if (configuration.contributors) specs.push(
@@ -305,6 +305,8 @@ async function harness(configuration = {}) {
     }
     let reentered=false;
     const callbacks={final(actor){
+        if(configuration.dependencyTiming==='final')configuration.dependencyActions.apply();
+        if(configuration.dependencyTiming==='embedded-restore')configuration.dependencyActions.restore();
         if(configuration.lateContest==='dice')actor.system.contests.stats.cool.dice=99;
         if(configuration.lateContest==='mod')actor.system.contests.stats.cool.stats.mod=9;
         if(configuration.lateContest==='replace')actor.system.contests=clone(actor.system.contests);
@@ -322,6 +324,7 @@ async function harness(configuration = {}) {
             if(configuration.lateStats==='total-readonly')Object.defineProperty(stats.atk,'total',{writable:false});
         }
     },afterEmbedded(actor){
+        if(configuration.dependencyTiming==='embedded-restore')configuration.dependencyActions.apply();
         if(configuration.reentrant && !reentered)hookListeners.push(actor=>{if(!reentered){reentered=true;actor.prepareData();}});
         if(configuration.throwDerived)hookListeners.push(()=>{throw Error('Synthetic interrupted derived interval');});
         if(configuration.invalidActorDuringConstruction) actor.type='pokemon';
@@ -518,16 +521,70 @@ async function harness(configuration = {}) {
             schemaModule.PredicateField,schemaModule.PredicateField.prototype,schemaModule.ResolvableValueField,schemaModule.ResolvableValueField.prototype,
             ruleAE.AELikeRuleElement.CHANGE_MODES,ruleAE.AELikeRuleElement.PHASES,rules.RuleElements.builtin,rules.RuleElements.custom];
         if(configuration.realPokemon) descriptorObjects.push(bindingFixture,hooks,hookRegistry,Number.prototype,game.settings,game.actors,CONFIG.PTU.Capabilities,CONFIG.PTU.data.typeEffectiveness,CONFIG.PTU.data.levelProgression,Math);
+        const ownInventory=object=>Object.freeze(Reflect.ownKeys(object).map(key=>
+            Object.freeze([key,Object.freeze({...Object.getOwnPropertyDescriptor(object,key)})])));
+        const ownData=(object,key)=>{
+            const descriptor=Object.getOwnPropertyDescriptor(object,key);
+            assert.ok(descriptor&&Object.hasOwn(descriptor,'value'),'fixture dependency must be own data');
+            return Object.freeze({kind:'own-data',object,key,descriptor:Object.freeze({...descriptor})});
+        };
+        const dependencies=[Object.freeze({kind:'map-size',object:weather.globalEffects,value:0,
+            own:ownInventory(weather.globalEffects),chain:profile(Map.prototype).chain}),
+            ...(configuration.realPokemon?[ownData(hookListeners,'length'),...[...globals.keys()].map(key=>ownData(globalThis,key))]:[])];
+        // Deliberately invalid author-supplied model records, never Item authority.
+        if(configuration.dependencySchema==='legacy')dependencies[0]=Object.freeze([weather.globalEffects,'size',0]);
+        if(configuration.dependencySchema==='unknown')dependencies[0]=Object.freeze({...dependencies[0],kind:'unqualified'});
+        if(configuration.dependencySchema==='accessor-record')dependencies[0]=Object.freeze({...dependencies[0],get object(){counters.dependencyRecordGetterCalls++;throw Error('Unexpected record getter');}});
+        if(configuration.dependencySchema==='accessor-kind')dependencies[0]=Object.freeze({...dependencies[0],get kind(){counters.dependencyRecordGetterCalls++;throw Error('Unexpected kind getter');}});
+        if(configuration.dependencySchema==='forged-map')dependencies[0]=Object.freeze({...dependencies[0],object:Object.create(Map.prototype)});
+        const dependencySchemaKind=configuration.dependencySchema;
+        const countedGetter=value=>function(){counters.dependencyRecordGetterCalls++;return value;};
+        if(['data-descriptor-prototype-get','data-descriptor-prototype-set','data-descriptor-value-getter','data-descriptor-flags'].includes(dependencySchemaKind)) {
+            const original=dependencies[1],descriptor={...original.descriptor};
+            if(dependencySchemaKind.startsWith('data-descriptor-prototype-')) {
+                const prototype={};Object.defineProperty(prototype,dependencySchemaKind.endsWith('-get')?'get':'set',{get:countedGetter(undefined)});
+                Object.setPrototypeOf(descriptor,prototype);
+            }
+            if(dependencySchemaKind==='data-descriptor-value-getter')Object.defineProperty(descriptor,'value',{get:countedGetter(original.descriptor.value),configurable:true});
+            if(dependencySchemaKind==='data-descriptor-flags')descriptor.writable=1;
+            dependencies[1]=Object.freeze({...original,descriptor:Object.freeze(descriptor)});
+        }
+        if(['map-own-every','map-own-iterator','map-inventory-inherited-iterator'].includes(dependencySchemaKind)) {
+            const own=[];
+            if(dependencySchemaKind==='map-inventory-inherited-iterator'){
+                const prototype=Object.create(Array.prototype);Object.defineProperty(prototype,Symbol.iterator,{get:countedGetter(Array.prototype[Symbol.iterator])});Object.setPrototypeOf(own,prototype);
+            } else Object.defineProperty(own,dependencySchemaKind==='map-own-every'?'every':Symbol.iterator,{get:countedGetter(dependencySchemaKind==='map-own-every'?Array.prototype.every:Array.prototype[Symbol.iterator])});
+            dependencies[0]=Object.freeze({...dependencies[0],own:Object.freeze(own)});
+        }
+        if(dependencySchemaKind==='map-chain-iterator'||dependencySchemaKind==='map-chain-row-index') {
+            const chain=[...dependencies[0].chain];
+            if(dependencySchemaKind==='map-chain-iterator')Object.defineProperty(chain,Symbol.iterator,{get:countedGetter(Array.prototype[Symbol.iterator])});
+            else {const row=[...chain[0]],value=row[0];Object.defineProperty(row,'0',{get:countedGetter(value),configurable:true});chain[0]=Object.freeze(row);}
+            dependencies[0]=Object.freeze({...dependencies[0],chain:Object.freeze(chain)});
+        }
+        if(['map-inventory-row-index','map-inventory-descriptor-getter','map-inventory-prototype'].includes(dependencySchemaKind)) {
+            const chain=[...dependencies[0].chain],inventory=[...chain[0][1]],row=[...inventory[0]];
+            if(dependencySchemaKind==='map-inventory-row-index'){const value=row[0];Object.defineProperty(row,'0',{get:countedGetter(value),configurable:true});}
+            else {
+                const descriptor={...row[1]};
+                if(dependencySchemaKind==='map-inventory-descriptor-getter'){const value=descriptor.value;Object.defineProperty(descriptor,'value',{get:countedGetter(value),configurable:true});}
+                else {const prototype={};Object.defineProperty(prototype,'get',{get:countedGetter(undefined)});Object.setPrototypeOf(descriptor,prototype);}
+                row[1]=Object.freeze(descriptor);
+            }
+            inventory[0]=Object.freeze(row);chain[0]=Object.freeze([chain[0][0],Object.freeze(inventory)]);
+            dependencies[0]=Object.freeze({...dependencies[0],chain:Object.freeze(chain)});
+        }
+        if(dependencySchemaKind==='dependencies-every'||dependencySchemaKind==='dependencies-iterator')Object.defineProperty(dependencies,dependencySchemaKind==='dependencies-every'?'every':Symbol.iterator,{get:countedGetter(dependencySchemaKind==='dependencies-every'?Array.prototype.every:Array.prototype[Symbol.iterator])});
         Object.assign(model,{kind:'synthetic-closed-preparation-v2',
             actorProfile:profile(ModelActor.prototype,[['debouncedUpdate',actorCallback]]),itemProfile:profile(itemModule.PTUItem.prototype),ruleProfile:profile(ruleAE.AELikeRuleElement.prototype),
-            dependencies:Object.freeze([[weather.globalEffects,'size',0],...(configuration.realPokemon?[[hookListeners,'length',0],...[...globals.keys()].map(key=>[globalThis,key,globalThis[key]])]:[])].map(Object.freeze)),
+            dependencies:Object.freeze(dependencies),
             objects:Object.freeze(descriptorObjects.map(object=>Object.freeze([object,Object.freeze(Reflect.ownKeys(object).map(key=>Object.freeze([key,Object.freeze({...Object.getOwnPropertyDescriptor(object,key)})])))]))),
             ruleClass:ruleAE.AELikeRuleElement,ruleTest:ruleBase.RuleElementPTU.prototype.test,ruleApply:ruleAE.AELikeRuleElement.prototype.apply,
             resolveValue:ruleBase.RuleElementPTU.prototype.resolveValue,resolveInjectedProperties:ruleBase.RuleElementPTU.prototype.resolveInjectedProperties,
             predicatePrimitive:predicateBridge.testRulePredicate,calculateStatTotal:arithmetic.calculateStatTotal});Object.freeze(model);
         const before=a.items.map(i=>i.toObject()), seedBefore=clone(actorSeed);
         const restore=()=>{try{restoreDiagnostics();restoreAuxiliary();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,name),prior,name);}}finally{releaseModules();}};
-        return {a,hp,pokemonModule,hookListeners,predicateBridge,arithmetic,ruleBase,ruleAE,rules,itemModule,callbacks,counters,configuration,actorSeed,model,diagnostics,debounceRecords,
+        return {a,hp,weather,pokemonModule,hookListeners,predicateBridge,arithmetic,ruleBase,ruleAE,rules,itemModule,callbacks,counters,configuration,actorSeed,model,diagnostics,debounceRecords,
             preserve(){assert.deepEqual(a.items.map(i=>i.toObject()),before);assert.deepEqual(actorSeed,seedBefore);},restore};
     } catch(error) {try{restoreDiagnostics();restoreAuxiliary();for(const [name,prior] of [...globals].reverse()){if(prior)Object.defineProperty(globalThis,name,prior);else Reflect.deleteProperty(globalThis,name);}}finally{releaseModules();}throw error;}
 }
@@ -787,6 +844,8 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 const input=JSON.parse(readFileSync(0,'utf8'));
 const context=createContext({Actor:class {},Item:class {},foundry:{abstract:{DataModel:class {}},data:{fields:{DataField:class {},ArrayField:class {},StringField:class {},NumberField:class {},BooleanField:class {}}}}});
+let dependencyIntrinsicReads=0;
+Object.defineProperty(context,'Map',{get(){dependencyIntrinsicReads++;throw Error('Inactive dependency intrinsic capture');},configurable:true});
 const resolve=(from,specifier)=>path.posix.normalize(path.posix.join(path.posix.dirname(from),specifier));
 const externals=new Map(),modules=new Map(),edges=[];
 for(const [from,source] of Object.entries(input)) {
@@ -815,6 +874,7 @@ for(const [from,to] of [
 assert.equal(typeof entry.namespace.PTUActor,'function');
 assert.equal(typeof modules.get('src/module/rules/rule-element/ae-like.js').namespace.AELikeRuleElement,'function');
 assert.equal(modules.get('src/util/huge-power.js').namespace.HUGE_POWER_ENABLED,false);
+assert.equal(dependencyIntrinsicReads,0);
 process.stdout.write('Actor-first actual-edge smoke passed\n');
 `;
     // One bounded synthetic child is part of the future focused-test admission.
@@ -960,5 +1020,123 @@ test('real Pokemon valid first completion cannot authorize an incomplete second 
         assert.deepEqual(h.hp.inspectHugePower(h.a).reasons,['final-domain-not-established']);
         assert.deepEqual(pokemonView(h),ordinary);assert.equal(h.a.system.stats.atk.total,17);assert.equal(h.a.system.contests.stats.cool.stats.value,1);
         assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.initiativeHooks.length,1);assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);
+    });
+});
+
+
+// HP-DEPENDENCY-OBSERVATION-20261115-01: all callbacks and state comparisons
+// below are paired against actual preparation with the shipped empty tables.
+// The changed descriptors remain installed through preparation and are restored
+// before the harness's independent preservation/cleanup assertions.
+function dependencyMutation(h,kind) {
+    const map=h.weather.globalEffects,prototype=Object.getPrototypeOf(map);
+    const size=Object.getOwnPropertyDescriptor(prototype,'size');
+    const values=Object.getOwnPropertyDescriptor(prototype,'values');
+    const globalKey=kind==='global-hooks-getter'?'Hooks':'__ptuHugePowerCloudWeather';
+    const globalDescriptor=Object.getOwnPropertyDescriptor(globalThis,globalKey);
+    let calls=0,active=false,restoreAction=null;
+    const getter=value=>function(){calls++;return value;};
+    const throwing=function(){calls++;throw Error('Unexpected dependency getter');};
+    const define=(object,key,descriptor)=>{
+        const before=Object.getOwnPropertyDescriptor(object,key);
+        Object.defineProperty(object,key,descriptor);
+        const installed=Object.getOwnPropertyDescriptor(object,key);
+        restoreAction=()=>{
+            assert.deepEqual(Object.getOwnPropertyDescriptor(object,key),installed,'observer must not rewrite dependency');
+            if(before)Object.defineProperty(object,key,before);else Reflect.deleteProperty(object,key);
+            assert.deepEqual(Object.getOwnPropertyDescriptor(object,key),before,'dependency descriptor restored');
+        };
+    };
+    return {get calls(){return calls;},get active(){return active;},apply(){
+        assert.equal(active,false);active=true;
+        if(kind==='map-own-size-getter')define(map,'size',{get:getter(0),configurable:true});
+        else if(kind==='map-own-size-throwing')define(map,'size',{get:throwing,configurable:true});
+        else if(kind==='map-own-size-data')define(map,'size',{value:0,configurable:true});
+        else if(kind==='map-own-values-getter')define(map,'values',{get:getter(values.value),configurable:true});
+        else if(kind==='map-prototype-size-getter')define(prototype,'size',{...size,get:getter(0)});
+        else if(kind==='map-prototype-size-throwing')define(prototype,'size',{...size,get:throwing});
+        else if(kind==='map-prototype-size-missing'){
+            assert.equal(Reflect.deleteProperty(prototype,'size'),true);
+            restoreAction=()=>{assert.equal(Object.getOwnPropertyDescriptor(prototype,'size'),undefined);Object.defineProperty(prototype,'size',size);assert.deepEqual(Object.getOwnPropertyDescriptor(prototype,'size'),size);};
+        }
+        else if(kind==='map-prototype-values-getter')define(prototype,'values',{get:getter(values.value),enumerable:values.enumerable,configurable:values.configurable});
+        else if(kind==='map-prototype-change'){
+            const replacement=Object.create(prototype);Object.setPrototypeOf(map,replacement);
+            restoreAction=()=>{assert.equal(Object.getPrototypeOf(map),replacement);Object.setPrototypeOf(map,prototype);assert.equal(Object.getPrototypeOf(map),prototype);};
+        }
+        else if(kind==='map-content-change'){
+            const effect={system:{mode:'disabled'}};map.set('synthetic-disabled',effect);
+            restoreAction=()=>{assert.equal(map.get('synthetic-disabled'),effect);assert.equal(map.delete('synthetic-disabled'),true);assert.equal(Reflect.apply(size.get,map,[]),0);};
+        }
+        else if(kind==='global-weather-getter'||kind==='global-hooks-getter')define(globalThis,globalKey,{get:getter(globalDescriptor.value),configurable:globalDescriptor.configurable,enumerable:globalDescriptor.enumerable});
+        else if(kind==='global-weather-value')define(globalThis,globalKey,{...globalDescriptor,value:{}});
+        else if(kind==='global-weather-readonly')define(globalThis,globalKey,{...globalDescriptor,writable:false});
+        else if(kind==='global-weather-missing'){
+            assert.equal(Reflect.deleteProperty(globalThis,globalKey),true);
+            restoreAction=()=>{assert.equal(Object.getOwnPropertyDescriptor(globalThis,globalKey),undefined);Object.defineProperty(globalThis,globalKey,globalDescriptor);assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis,globalKey),globalDescriptor);};
+        }
+        else if(kind==='listener-change'){
+            const listener=()=>{calls++;};h.hookListeners.push(listener);
+            restoreAction=()=>{assert.equal(h.hookListeners.pop(),listener);assert.equal(h.hookListeners.length,0);};
+        }
+        else assert.fail('Unknown dependency mutation '+kind);
+    },restore(){if(active){restoreAction();active=false;}}};
+}
+const dependencyCalls=h=>({core:h.counters.corePreparations,final:h.counters.finalCalls,
+    initiative:clone(h.counters.initiativeHooks),writes:h.counters.writes,predicates:h.counters.predicates,
+    expressions:h.counters.expression,debounce:h.counters.debounceInvoked,settings:clone(h.counters.settingReads)});
+const dependencyCases=[
+    'map-own-size-getter','map-own-size-throwing','map-own-size-data','map-own-values-getter',
+    'map-prototype-size-getter','map-prototype-size-throwing','map-prototype-size-missing','map-prototype-values-getter',
+    'map-prototype-change','map-content-change','global-weather-getter','global-weather-missing',
+    'global-weather-value','global-weather-readonly','global-hooks-getter','listener-change'
+].map(kind=>({kind,timing:'initial'}));
+for(const timing of ['final','embedded-restore'])for(const kind of [
+    'map-own-size-getter','map-prototype-size-getter','global-weather-getter','global-weather-value'
+])dependencyCases.push({kind,timing});
+for(const {kind,timing} of dependencyCases)test('dependency preservation '+timing+' '+kind,async()=>{
+    const observations=[];
+    for(const production of [true,false]){
+        const actions={};
+        await scenario({realPokemon:true,mode:'core',production,dependencyTiming:timing,dependencyActions:actions},h=>{
+            const mutation=dependencyMutation(h,kind);actions.apply=()=>mutation.apply();actions.restore=()=>mutation.restore();
+            try {
+                if(timing==='initial')mutation.apply();
+                h.a.prepareData();
+                const inspection=h.hp.inspectHugePower(h.a);
+                assert.equal(inspection?.selected??null,null);assert.notEqual(inspection?.valid,true);
+                if(!production&&timing!=='initial'){
+                    assert.ok(inspection,'late mutation started in an admitted interval');
+                    assert.equal(inspection.valid,false);assert.ok(inspection.reasons.includes('incomplete-preparation-interval'));
+                }
+                if(timing==='embedded-restore')assert.equal(mutation.active,false,'restored before final completion; invalidation stays sticky');
+                observations.push({view:pokemonView(h),calls:dependencyCalls(h),getterOrListenerCalls:mutation.calls});
+                assert.equal(h.a.system.stats.atk.total,17);
+                assert.equal(h.a.system.contests.stats.cool.stats.value,1);assert.equal(h.a.system.contests.stats.cool.stats.total,2);assert.equal(h.a.system.contests.stats.cool.dice,5);
+                assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.finalCalls,1);assert.equal(h.counters.initiativeHooks.length,2);
+                assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);assert.equal(h.counters.dependencyRecordGetterCalls,0);
+            } finally {mutation.restore();}
+        });
+    }
+    assert.deepEqual(observations[1],observations[0],'observer must preserve full ordinary state and call counts');
+    if(!['map-own-values-getter','map-prototype-values-getter','global-hooks-getter','listener-change'].includes(kind))assert.equal(observations[1].getterOrListenerCalls,0);
+    else assert.ok(observations[0].getterOrListenerCalls>0,'ordinary path intentionally exercises this callback');
+});
+test('qualified own-data and intrinsic Map dependencies retain the supported selection',()=>scenario({realPokemon:true,mode:'core'},h=>{
+    assert.equal(h.model.dependencies[0].kind,'map-size');assert.equal(h.model.dependencies[0].value,0);
+    assert.ok(h.model.dependencies.slice(1).every(row=>row.kind==='own-data'&&Object.hasOwn(row.descriptor,'value')));
+    h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a).selected,'core');assert.equal(h.hp.inspectHugePower(h.a).valid,true);
+    assert.equal(h.a.system.stats.atk.total,20);assert.equal(h.a.system.contests.stats.cool.stats.value,2);
+    assert.equal(h.counters.corePreparations,1);assert.equal(h.counters.writes,1);assert.equal(h.counters.predicates,1);
+}));
+for(const dependencySchema of ['legacy','unknown','accessor-record','accessor-kind','forged-map',
+    'data-descriptor-prototype-get','data-descriptor-prototype-set','data-descriptor-value-getter','data-descriptor-flags',
+    'map-own-every','map-own-iterator','map-chain-iterator','map-chain-row-index','map-inventory-row-index',
+    'map-inventory-descriptor-getter','map-inventory-prototype','map-inventory-inherited-iterator','dependencies-every','dependencies-iterator'])test('unqualified dependency schema rejects '+dependencySchema,async()=>{
+    let ordinary;
+    await scenario({realPokemon:true,mode:'core',production:true,dependencySchema},h=>{h.a.prepareData();ordinary={view:pokemonView(h),calls:dependencyCalls(h)};assert.equal(h.counters.dependencyRecordGetterCalls,0);});
+    await scenario({realPokemon:true,mode:'core',dependencySchema},h=>{
+        h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a),null);assert.equal(h.counters.dependencyRecordGetterCalls,0);
+        assert.deepEqual({view:pokemonView(h),calls:dependencyCalls(h)},ordinary);
     });
 });
