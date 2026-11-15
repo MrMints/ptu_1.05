@@ -10,9 +10,49 @@ const G_NPC_IMPLEMENTATION_PATH = 'src/module/apps/npc-quick-build/document.js';
 // predecessor. The original G primitives/acceptance pins below remain unchanged.
 const G_IMPLEMENTATION_TRANSITION = '1b0e4a3ebe3c2ceaa25b6ce6b1355629f24b58b0a6948ed10662840ffe25e9eb';
 
-export function organizationalImplementationBindingErrors(code, current, transition) {
+const G_HUGE_POWER_IMPLEMENTATION_PATH = 'src/module/rules/rule-element/ae-like.js';
+// Independent pins preserve historical G evidence and admit only this reviewed
+// successor. A transition cannot authorize its own replacement hashes.
+const G_HUGE_POWER_IMPLEMENTATION_TRANSITION = '9a9f6f17a0cf15c25dfdaf32c9a550e224a63281315e98ec30de5ebe7a7ec53c';
+const G_HUGE_POWER_FROZEN_CONTEXT = '73265763eae1bc2590a76961de8c30b6fe721873ade5df1ae6b00dc4ebacf5fb';
+
+function hugePowerImplementationBindingErrors(code, current, transition) {
+    const errors = [], fail = (ok,message) => {if (!ok) errors.push(message);};
+    let frozen = false, pinned = false;
+    try {frozen = digest(code) === G_HUGE_POWER_FROZEN_CONTEXT;} catch { /* Invalid evidence fails closed. */ }
+    try {pinned = digest(transition) === G_HUGE_POWER_IMPLEMENTATION_TRANSITION;} catch { /* Data cannot authorize itself. */ }
+    fail(frozen, 'G Huge Power frozen implementation context changed');
+    fail(pinned, 'G Huge Power implementation transition missing or independently pinned data changed');
+    if (!frozen || !pinned) return errors;
+
+    const {predecessor,successor,excerpt} = transition;
+    const archive = predecessor.canonicalLfText, part = code.contexts[0];
+    fail(code.path === G_HUGE_POWER_IMPLEMENTATION_PATH && transition.path === code.path && code.codeExecuted === false
+        && code.canonicalLfSha256 === predecessor.canonicalLfSha256,
+        'G Huge Power frozen predecessor metadata binding changed');
+    fail(typeof archive === 'string' && !archive.includes('\r') && textDigest(archive) === predecessor.canonicalLfSha256,
+        'G Huge Power archived predecessor hash/canonical text changed');
+    fail(part.startLine === excerpt.predecessor.startLine && part.endLine === excerpt.predecessor.endLine
+        && textDigest(part.rawText) === excerpt.canonicalLfSha256,
+        'G Huge Power frozen excerpt metadata/text changed');
+    const exactLines = (text,range) => text.split('\n').slice(range.startLine-1,range.endLine).join('\n');
+    const occurrences = text => {
+        const lines = text.split('\n'), length = part.rawText.split('\n').length;
+        return lines.reduce((count,_line,index) => count + (lines.slice(index,index+length).join('\n') === part.rawText ? 1 : 0),0);
+    };
+    fail(exactLines(archive,excerpt.predecessor) === part.rawText && occurrences(archive) === 1,
+        'G Huge Power archived predecessor does not uniquely preserve frozen excerpt');
+    fail(typeof current === 'string' && !current.includes('\r') && textDigest(current) === successor.canonicalLfSha256,
+        'G Huge Power successor implementation binding changed: ' + code.path);
+    if (typeof current === 'string') fail(exactLines(current,excerpt.successor) === part.rawText && occurrences(current) === 1,
+        'G Huge Power relocated successor excerpt changed or is not unique');
+    return errors;
+}
+
+export function organizationalImplementationBindingErrors(code, current, transition, hugePowerTransition) {
     const errors = [], fail = (ok,message) => {if (!ok) errors.push(message);};
     const path = code?.path;
+    if (path === G_HUGE_POWER_IMPLEMENTATION_PATH) return hugePowerImplementationBindingErrors(code,current,hugePowerTransition);
     const known = G_IMPLEMENTATION_PATHS.includes(path);
     if (path !== G_NPC_IMPLEMENTATION_PATH) {
         fail(known && typeof current === 'string' && textDigest(current) === code?.canonicalLfSha256 && code?.codeExecuted === false,
@@ -164,10 +204,11 @@ export async function loadOrganizationalSourceReview(index) {
     const organizationalCode = {};
     for (const path of G_IMPLEMENTATION_PATHS) organizationalCode[path] = (await readFile(path, 'utf8')).replace(/\r\n/g, '\n');
     const organizationalImplementationBindingTransition = JSON.parse(await readFile('docs/data/g-implementation-binding-transition.json','utf8'));
+    const organizationalHugePowerImplementationBindingTransition = JSON.parse(await readFile('docs/data/g-huge-power-implementation-binding-transition.json','utf8'));
     const organizationalPriorHashes = {};
     // Fixed, reviewed paths only. Never follow arbitrary paths supplied by JSON.
     for (const path of Object.keys(G_PRIOR_DATA_PINS)) organizationalPriorHashes[path] = digest(JSON.parse(await readFile(path, 'utf8')));
-    return {organizationalSource, organizationalCode, organizationalPriorHashes, organizationalImplementationBindingTransition};
+    return {organizationalSource, organizationalCode, organizationalPriorHashes, organizationalImplementationBindingTransition, organizationalHugePowerImplementationBindingTransition};
 }
 export function organizationalSourceFactErrors(facts) {
     const errors = [], require = (ok, message) => {if (!ok) errors.push(message);}, clean = cleanOrganizationalSource;
@@ -262,7 +303,7 @@ export function checkOrganizationalSourceReview(bundle, context) {
     fail(audit.parentContexts.length === 30 && audit.nativeContexts.length === 5 && audit.implementationContexts.length === 15, 'G source parent/context coverage changed');
     for (const p of audit.parentContexts) {fail(p.completePage && textHash(p.rawText) === p.rawTextSha256, 'G incomplete/stale whole original page: ' + p.id); citations(p);}
     for (const code of audit.implementationContexts) {
-        for (const error of organizationalImplementationBindingErrors(code,bundle.organizationalCode[code.path],bundle.organizationalImplementationBindingTransition)) fail(false,error);
+        for (const error of organizationalImplementationBindingErrors(code,bundle.organizationalCode[code.path],bundle.organizationalImplementationBindingTransition,bundle.organizationalHugePowerImplementationBindingTransition)) fail(false,error);
     }
     const prior = new Map(Object.entries(bundle.files).filter(([p]) => Object.hasOwn(audit.priorPayloadPins, p)).flatMap(([file, data]) => data.records.map(row => [row.identity, {file,row}])));
     const kindCounts = {}, seen = new Set();

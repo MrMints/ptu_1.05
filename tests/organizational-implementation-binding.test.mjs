@@ -8,6 +8,10 @@ import {G_IMPLEMENTATION_PATHS} from '../tools/organizational-source-derivation.
 const read=p=>fs.readFileSync(new URL(`../${p}`,import.meta.url),'utf8');
 const audit=JSON.parse(read('docs/data/organizational-source-evidence-g.json'));
 const transition=JSON.parse(read('docs/data/g-implementation-binding-transition.json'));
+const hugePowerTransition=JSON.parse(read('docs/data/g-huge-power-implementation-binding-transition.json'));
+const hugePowerPath='src/module/rules/rule-element/ae-like.js';
+const hugePowerFrozen=audit.implementationContexts.find(code=>code.path===hugePowerPath);
+const hugePowerCurrent=read(hugePowerPath).replace(/\r\n/g,'\n');
 const path='src/module/apps/npc-quick-build/document.js';
 const frozen=audit.implementationContexts.find(code=>code.path===path);
 const current=read(path).replace(/\r\n/g,'\n');
@@ -77,8 +81,9 @@ test('frozen G metadata remains independently checked without editing original e
     for(const change of [c=>c.canonicalLfSha256=transition.successor.canonicalLfSha256,c=>c.codeExecuted=true,c=>c.contexts[0].startLine=693,c=>c.contexts[0].endLine=738,c=>c.contexts[0].rawText+='\n',c=>c.contexts=[],c=>c.contexts.push(clone(c.contexts[0]))]){const code=clone(frozen);change(code);assert.ok(check(code).length);}
     assert.deepEqual(check(),[]);assert.equal(semantic(audit),before);assert.equal(semantic(transition),prior);
 });
-test('all14 other implementation paths retain strict original whole-file and line binding',()=>{
-    const other=audit.implementationContexts.filter(code=>code.path!==path);assert.equal(other.length,14);
+test('all13 other implementation paths retain strict original whole-file and line binding',()=>{
+    const other=audit.implementationContexts.filter(code=>code.path!==path && code.path!==hugePowerPath);assert.equal(other.length,13);
+    assert.equal(audit.implementationContexts.length,15);assert.equal(new Set(audit.implementationContexts.map(code=>code.path)).size,15);
     for(const code of other){assert.ok(G_IMPLEMENTATION_PATHS.includes(code.path));const text=read(code.path).replace(/\r\n/g,'\n');assert.deepEqual(errors(code,text,transition),[]);assert.ok(errors(code,text+'\n// unapproved\n',transition).length);}
 });
 test('unlisted paths cannot borrow either a frozen binding or the NPC transition',()=>{
@@ -93,7 +98,73 @@ test('loader retains the actual live code and loads transition separately from i
     const loaded=await loadOrganizationalSourceReview({organizationalSourceEvidence:'organizational-source-evidence-g.json'});
     assert.equal(loaded.organizationalCode[path],current);assert.notEqual(loaded.organizationalCode[path],transition.predecessor.canonicalLfText);
     assert.deepEqual(loaded.organizationalImplementationBindingTransition,transition);
+    assert.equal(loaded.organizationalCode[hugePowerPath],hugePowerCurrent);
+    assert.deepEqual(loaded.organizationalHugePowerImplementationBindingTransition,hugePowerTransition);
+    assert.deepEqual(errors(hugePowerFrozen,loaded.organizationalCode[hugePowerPath],loaded.organizationalImplementationBindingTransition,loaded.organizationalHugePowerImplementationBindingTransition),[]);
     assert.equal(semantic(loaded.organizationalSource),semantic(audit));
     assert.deepEqual(errors(frozen,loaded.organizationalCode[path],loaded.organizationalImplementationBindingTransition),[]);
     for(const text of Object.values(loaded.organizationalCode))assert.equal(text.includes('\r\n'),false);
+});
+
+const checkHugePower=(code=hugePowerFrozen,text=hugePowerCurrent,record=hugePowerTransition,npcRecord=transition)=>errors(code,text,npcRecord,record);
+test('Huge Power transition preserves the unique original74-line excerpt without changing historical G evidence',()=>{
+    assert.equal(semantic(hugePowerTransition),'9a9f6f17a0cf15c25dfdaf32c9a550e224a63281315e98ec30de5ebe7a7ec53c');
+    assert.equal(semantic(hugePowerFrozen),'73265763eae1bc2590a76961de8c30b6fe721873ade5df1ae6b00dc4ebacf5fb');
+    assert.equal(hugePowerTransition.predecessor.revision,'2c35cc5356871ad03e17877883d8d15af852435f');
+    assert.equal(hugePowerTransition.successor.revision,'5ee6e483dd12b9c48c19dae0d27e6078db5b186e');
+    assert.equal(hash(hugePowerTransition.predecessor.canonicalLfText),'45f98f67272f090e1c3aa32efc10076534a0804e832735cab6288327ceed85c3');
+    assert.equal(hash(hugePowerCurrent),'fbc067a0fff876cafc34c45d9bd57f07df9356ec511facef741716416ff80aca');
+    assert.equal(part(hugePowerTransition.predecessor.canonicalLfText,1,74),hugePowerFrozen.contexts[0].rawText);
+    assert.equal(part(hugePowerCurrent,2,75),hugePowerFrozen.contexts[0].rawText);
+    assert.notEqual(part(hugePowerCurrent,1,74),hugePowerFrozen.contexts[0].rawText);
+    const occurrences=text=>text.split('\n').reduce((count,_line,index)=>count+(part(text,index+1,index+74)===hugePowerFrozen.contexts[0].rawText?1:0),0);
+    assert.equal(occurrences(hugePowerTransition.predecessor.canonicalLfText),1);assert.equal(occurrences(hugePowerCurrent),1);
+    assert.deepEqual(checkHugePower(),[]);
+});
+for(const missing of [undefined,null,{},[],false,'transition'])test('Huge Power missing/malformed transition '+JSON.stringify(missing)+' rejects',()=>{
+    assert.ok(errors(hugePowerFrozen,hugePowerCurrent,transition,missing).length);
+});
+for(const [name,change] of Object.entries(tampering))test('Huge Power independent transition pin rejects '+name,()=>{
+    const record=clone(hugePowerTransition);change(record);assert.ok(checkHugePower(hugePowerFrozen,hugePowerCurrent,record).length);
+});
+test('Huge Power unknown successor and coordinated self-reported hash refresh fail closed',()=>{
+    const changed=hugePowerCurrent+'\n// unknown successor\n';
+    assert.equal(part(changed,2,75),hugePowerFrozen.contexts[0].rawText);assert.ok(checkHugePower(hugePowerFrozen,changed).length);
+    const record=clone(hugePowerTransition);record.successor.canonicalLfSha256=hash(changed);
+    assert.ok(checkHugePower(hugePowerFrozen,changed,record).length);
+});
+test('Huge Power altered or duplicated excerpt cannot be accepted with coordinated evidence changes',()=>{
+    for(const changed of [hugePowerCurrent.replace('class AELikeRuleElement','class AlteredRuleElement'),hugePowerCurrent+'\n'+hugePowerFrozen.contexts[0].rawText]){
+        assert.ok(checkHugePower(hugePowerFrozen,changed).length);
+        const code=clone(hugePowerFrozen),record=clone(hugePowerTransition);code.contexts[0].rawText=part(changed,2,75);
+        record.excerpt.canonicalLfSha256=hash(code.contexts[0].rawText);record.successor.canonicalLfSha256=hash(changed);
+        assert.ok(checkHugePower(code,changed,record).length);
+    }
+});
+test('Huge Power frozen metadata and original no-execution boundary cannot be replaced',()=>{
+    const before=semantic(audit),prior=semantic(hugePowerTransition);
+    for(const change of [c=>c.canonicalLfSha256=hugePowerTransition.successor.canonicalLfSha256,c=>c.codeExecuted=true,c=>c.wholeFileRead=true,c=>c.interpretationLimit='runtime certified',c=>c.contexts[0].startLine=2,c=>c.contexts[0].endLine=75,c=>c.contexts[0].rawText+='\n',c=>c.contexts=[],c=>c.contexts.push(clone(c.contexts[0]))]){
+        const code=clone(hugePowerFrozen);change(code);assert.ok(checkHugePower(code).length);
+    }
+    assert.deepEqual(checkHugePower(),[]);assert.equal(semantic(audit),before);assert.equal(semantic(hugePowerTransition),prior);
+});
+test('Huge Power archived predecessor, missing live code and NPC transition cannot stand in for its successor',()=>{
+    assert.ok(checkHugePower(hugePowerFrozen,hugePowerTransition.predecessor.canonicalLfText).length);
+    for(const text of [undefined,null,{},[],false])assert.ok(errors(hugePowerFrozen,text,transition,hugePowerTransition).length);
+    assert.ok(checkHugePower(hugePowerFrozen,hugePowerCurrent,transition).length);
+    assert.ok(errors(frozen,current,hugePowerTransition,hugePowerTransition).length);
+});
+test('unlisted and unrelated paths cannot borrow the Huge Power transition',()=>{
+    const code={...clone(hugePowerFrozen),path:'src/custom-aelike.js',canonicalLfSha256:hash(hugePowerCurrent)};
+    assert.ok(errors(code,hugePowerCurrent,transition,hugePowerTransition).length);
+    for(const original of audit.implementationContexts.filter(code=>code.path!==path&&code.path!==hugePowerPath)){
+        const text=read(original.path).replace(/\r\n/g,'\n');
+        assert.deepEqual(errors(original,text,transition,hugePowerTransition),[]);
+        assert.ok(errors(original,text+'\n// unapproved\n',transition,hugePowerTransition).length);
+    }
+});
+test('Huge Power validation does not execute archive text or follow transition-controlled file paths',()=>{
+    const record=clone(hugePowerTransition);record.path='../../outside.js';record.predecessor.canonicalLfText='throw Error("must never execute");';
+    record.predecessor.canonicalLfSha256=hash(record.predecessor.canonicalLfText);
+    assert.doesNotThrow(()=>checkHugePower(hugePowerFrozen,hugePowerCurrent,record));assert.ok(checkHugePower(hugePowerFrozen,hugePowerCurrent,record).length);
 });

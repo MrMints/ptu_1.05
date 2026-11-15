@@ -124,3 +124,74 @@ None of these counts is a full-suite result for the final correction.
 Production tables stay empty and this implementation is not activated. Real Foundry/DataModel behavior and the complete native preparation domain, source/version admission and mappings, actual-world preservation, affected integration checks and final-head CI remain separate requirements. Synthetic bindings do not prove a safe native production profile. No build, installation, dependency change, live-world operation, settings change, merge or release is established by these results.
 
 The original private audit remains retained separately; this public report preserves the technical failures, corrections, evidence and limits while omitting account usage, private workstation paths and internal coordination records.
+
+
+## Corrective historical implementation binding
+
+Published Huge Power revision 5ee6e483dd12b9c48c19dae0d27e6078db5b186e passed
+Documentation but failed Validation [run 43690128824](https://github.com/MrMints/ptu_1.05/actions/runs/43690128824).
+The full test command reported 3,756 tests: 3,750 passed and six failed, with
+no cancelled, skipped or todo tests. Validation, pack verification and build
+were subsequently skipped. This is not a green full-suite result.
+
+All six failures reported the historical whole-file and saved-line binding for
+src/module/rules/rule-element/ae-like.js. Original G source/interface evidence
+is unchanged. Its exact 2,693-byte excerpt at predecessor lines 1–74 occurs
+once in predecessor 2c35cc5356871ad03e17877883d8d15af852435f and once, unchanged,
+at published successor lines 2–75. The added import shifted that excerpt;
+later apply instrumentation also changed the whole-file hash.
+
+A separate validation-only transition archives the exact predecessor and pins
+the exact successor, unchanged excerpt and both line ranges. Independent
+validator pins prevent arbitrary data from authorizing its own hashes.
+The NPC transition and all historical G primitives, acceptance and source data
+remain unchanged. Of 15 implementation bindings, two now have separately
+pinned transitions and 13 retain strict original whole-file and line checks.
+Runtime implementation files are unchanged by this correction. The transition
+establishes historical interface continuity, not runtime equivalence,
+activation or gameplay acceptance.
+
+Focused binding tests add malformed/missing transition, archive/hash, successor,
+excerpt, metadata, cross-transition and unrelated-path mutations. The focused
+result below received independent local acceptance. Corrective-head full CI
+must still pass Documentation, tests, validation, pack verification and build
+before final acceptance. The prior 112-test Huge Power result remains evidence
+for its own revision, not a substitute for pending checks. Production bindings
+remain empty and inactive.
+
+
+### Accepted 63-case binding regression
+
+The single corrective invocation used Node v24.22.1 and
+`tests/organizational-implementation-binding.test.mjs`, without a test filter.
+It ran on 2026-11-15 from **08:58:20.207515 to 08:58:29.405234 UTC**, elapsed
+**9.1977 seconds**, exit **0**.
+
+- **63 distinct sequential PASS outcomes**, matching the registered test count.
+  File and aggregate summaries agree: 63 passed, zero failed, cancelled,
+  skipped or todo.
+- Complete stdout was **11,178 bytes**, SHA-256
+  `27abe6daa52f0ca4973a19624234f00f23ca97cd2b03eb8e0480d4ab095fdec3`;
+  stderr was empty. There were no omitted records/details, clipped fields,
+  redactions, interruptions, timeout or output-cap termination.
+- The existing NPC transition, all 13 strictly bound unrelated implementations
+  and the actual loader round-trip passed alongside the new transition's
+  positive and adversarial checks.
+- Identity-checked integrity loading accounted for **91 fixed public historical
+  paths / 92 reads / 668,977,755 bytes**. The audit was read twice and the 90
+  prior files once each. These reads performed existing JSON integrity and
+  semantic-hash checks, not substantive gameplay-record validation.
+- **20 nonhistorical paths / 50 reads / 490,285 bytes** were accounted separately.
+  Every guarded read matched its expected content identity. No additional
+  historical body pass was performed before or after the test.
+- The process group ceased normally. Postflight verified unchanged correction
+  inputs, published Huge Power runtime code and the earlier consumer test.
+  The report update was the only subsequent project-content change.
+
+Independent review reconciled every outcome and read receipt, inspected the
+assertions and verified preservation, accepting this local validation-only
+correction. The other four previously failing test files were inspected for
+property propagation but **not rerun locally**. Full CI on the corrective
+commit remains pending; the earlier failed CI is not replaced by this focused
+pass. No runtime activation, native Foundry completeness, merge or release is
+established.
