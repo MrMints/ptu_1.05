@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P05 provider-injected preference capture interface
+
+- Add a bounded, explicit provider-injected capture interface and focused contract tests for detached stored evidence, selected coverage, unavailable/inconsistent observations, and preservation of false, zero and null.
+- Keep production mapping, Foundry settings integration, native capture, defaults and save/apply outside this package. See the [interface contract and validation scope](docs/validation/p05-mechanic-preferences-capture.md). Huge Power remains disabled and P05 is incomplete.
+
 ### P05 read-only preferences native evidence
 
 - Record the independently accepted registered review-app check in disposable Foundry: **35 inert adapter cases**, seven native stages before and after one reload, seven review rows and four advisory proposals, zero observed PTU setting-write attempts, and verified dismissal/restoration/process cleanup.
