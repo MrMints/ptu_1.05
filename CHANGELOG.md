@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P05 read-only preferences native evidence
+
+- Record the independently accepted registered review-app check in disposable Foundry: **35 inert adapter cases**, seven native stages before and after one reload, seven review rows and four advisory proposals, zero observed PTU setting-write attempts, and verified dismissal/restoration/process cleanup.
+- Preserve the bounded evidence and omissions in the [validation report](docs/validation/p05-disposable-sandbox.md#accepted-read-only-preferences-review-in-disposable-foundry-2026-11-16). This is supplied-evidence rendering, not live capture, defaults, save/apply or full P05 acceptance. No gameplay activation, Forge access, merge or release.
+
 ### P05 supported refresh repair and disposable native validation
 
 - Reset source-backed Pokémon state before public refresh preparation, and route the ready callback through that same refresh method. This prevents the reproduced additive Attack compounding on the supported refresh and tested callback paths without changing rule arithmetic.

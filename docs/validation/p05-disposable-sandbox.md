@@ -398,3 +398,94 @@ failure evidence and older recovery records remain preserved. This establishes
 the reset-based public refresh and tested callers avoid the observed additive
 compounding. It does **not** establish arbitrary direct `prepareData()` re-entry
 idempotence, activate Huge Power, complete P05, or authorize publication.
+
+
+## Accepted read-only preferences review in disposable Foundry (2026-11-16)
+
+The existing registered mechanic-preferences review application was exercised in
+the isolated Foundry sandbox with supplied synthetic evidence. This is a
+read-only construction/render check, not a new application implementation or a
+live preference-capture adapter. The fixture supplied seven current rows and
+four advisory proposals, including observed absence, saved selection, custom
+data, unknown selection, missing observation, excluded choice and an
+unregistered identity. The expected reports and escaped literal markup were
+fixed before execution.
+
+A separate private inert-adapter regression batch passed **35/35 cases**, with
+zero failed, cancelled, skipped or todo cases. It completed at
+2026-11-16T13:29:02.381910Z; all 5,281 stdout bytes were retained, stderr was
+empty, input pins were unchanged, and owned-process cessation was established.
+Those cases cover the observation adapter and failure/lifecycle handling, not
+the actual application or the three original preference/registration suites.
+Those original suites were omitted and were not rerun in this package.
+
+The single native preferences V5 session completed at
+2026-11-16T13:52:06.432364Z, after 261.547 seconds including supervision. It
+passed these seven stages both before and after **one completed reload**:
+
+- Registered application and ready GM context verified.
+- Current report rendered with seven rows.
+- Existing instance rerendered without changing its report.
+- Close completed, with the closed-instance guard exercised.
+- A fresh instance reopened and Cancel completed.
+- Four advisory proposals rendered; Escape completed.
+- Selected settings/records and document-identity observations remained equal.
+
+Both phases produced the same current and preview report digests. There were
+zero attempted PTU setting writes. The four selected settings, their observed
+records and Actor/embedded Item/world Item identity digests matched within each
+phase and across the reload. No Actor or Item fixtures were created for this
+check: these observations do **not** establish preservation of Actor/Item field
+values or mutation-free behavior outside the observed state. All three
+application instances in each phase closed, and the original setting descriptors
+were restored.
+
+### Runtime and source binding
+
+The session reused the previously verified Foundry **13.351**, Node **22.23.5**,
+Chrome **157.0.8103.78** and Puppeteer Core **25.17.0** setup. It reused the
+accepted matrix V2 installation, based on `9c39c265d36d16050bc5ee63e8d461e66cee435b`
+plus the two corrective source payloads published in
+`1753bc65071bc8016c0ec25dd2144cfa8b6142ac`. This was not a fresh build or pack
+compilation. The eight preference source files were pinned before Foundry
+started; the actual served application and template were checked after ready.
+
+| Preference source | SHA-256 |
+| --- | --- |
+| `src/scripts/config/index.js` | `3c0f4f814134e36c8155af5424062d63ec84f94445583080f7f5a285883460c1` |
+| `src/scripts/hooks/init.js` | `4b638989e7a5971a2ffc4a04d986b4a5cf65b7e245df4c773b080a1b4a930dfc` |
+| `src/module/apps/mechanic-preferences-review.js` | `50a6d2a681d710775861259a9a0eb44fd81a438481dc5d4903dfe9ac0510daab` |
+| `src/util/mechanic-preferences.js` | `de585d7b5ba9d0d0b75135fdefdad27ec9f3badd0ea0d1d6e0164c155ab6f8d1` |
+| `src/util/rule-versions.js` | `ec4fb514b4bdb022f70bc65dab7d8a547e2f829c1529a9224df3d6883fcc20c9` |
+| `src/util/document-source.js` | `86a6ba2b69bb83e2e27d3df86249d99c60df17a4e544e4515018bbbf0c0385e0` |
+| `src/util/rule-version-registry.js` | `93d8c8341d73102415894b47ba4a989f0600498ca478cd3e5503b044097b10d5` |
+| `static/templates/apps/mechanic-preferences-review.hbs` | `c5aafb7e4655b2fec4ec2f4265f204bc0a7a7b1aa65ddace1bd90d5cc4c8a762` |
+
+### Terminal evidence and limits
+
+Independent review accepted the bounded native result and checked all four
+complete terminal records by exact hash, totaling 58,523 bytes. The supervisor
+receipt is 32,559 bytes, SHA-256
+`f5be3c043072827ca3c9ab5b2de907553e0f0ad4980442b32d55a7b8b0cd4b94`;
+the native receipt is 25,620 bytes, SHA-256
+`561f7a521355d3b54e411ce9cc55b854086f383b6c424ccad6bbe66b03ee5700`.
+
+Browser, Foundry and proxy closed, the owned Job was empty and the watchdog
+exited zero. No resource or cleanup errors were recorded. All 12,107 observed
+server bytes and 127 host-output bytes were retained without discard. Raw
+server-log contents were not reviewed, so this is not an engine-log cleanliness
+claim. Three owned-endpoint tunnels each passed two ownership checks, used no
+DNS and closed both ends. Of 23 denied requests, 16 details were retained and
+**seven details were explicitly omitted**. Prior fixed evidence and metadata
+were preserved, and the terminal storage inventory was stable.
+
+This acceptance covers explicit construction of the registered application
+with supplied evidence, its bounded rendering/dismissal lifecycle, and the
+observations above. It does not prove a settings-menu opener, class-level GM
+authorization enforcement, live preference capture, new-world defaults,
+source authority, save/apply behavior, Item replacement or full P05 completion.
+No production preference writer or gameplay feature was added or activated;
+Huge Power remains disabled. The raw direct `prepareData()` re-entry limitation
+and all earlier failure records remain. No Forge access, merge or release
+occurred. This two-file documentation update requires its own normal
+exact-head CI and publication acceptance; prior-head CI is not substituted.
