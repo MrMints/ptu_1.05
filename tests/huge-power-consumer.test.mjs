@@ -3,13 +3,14 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
-import {SourceTextModule} from 'node:vm';
+import {SourceTextModule, createContext} from 'node:vm';
 
 // Quarantined cloud candidate. Revision 02 corrections are authored, not yet executed.
 // Whole module bodies are retained. Only the exact declared import rows below
 // are rebound. Core Document/DataModel and modeled lifecycle boundaries are
 // explicitly synthetic and do not establish native Foundry completeness.
 const PINS = {
+  "src/scripts/hooks/trainer-pokemon-sync.js": {"bytes":2350,"sha256":"76cd952b3b7799e3d6b29c1aed76eeb614017cdd1941a922a3a11b8b2d856fa0"},
   "src/util/huge-power-bindings.js": {
     "bytes": 405,
     "sha256": "6676cf1728813edc295516ec23dce9981d09577f8a2645b498cba3aad6ded3a0"
@@ -55,8 +56,8 @@ const PINS = {
     "sha256": "5e93dfbdb398a69b2f6268a053aa043996f64dfc2ce404aa44738660f0c71968"
   },
   "src/module/actor/pokemon/document.js": {
-    "bytes": 34678,
-    "sha256": "ec4a3cebc1eec9c8b0335ed6f1b1ea4b9887ca44ba3d72e9f3fabdfe86262a2e"
+    "bytes": 34709,
+    "sha256": "672dcf6d55961e84f7b285d9ac7fa79b7f4c7a7d066270b011c0b21cde8708a9"
   },
   "src/module/item/index.js": {
     "bytes": 720,
@@ -76,6 +77,7 @@ const PINS = {
   }
 };
 const IMPORTS = {
+  "src/scripts/hooks/trainer-pokemon-sync.js": [],
   "src/util/huge-power-bindings.js": [],
   "src/util/huge-power.js": [
     "import {HUGE_POWER_ADMISSIONS, HUGE_POWER_CONTRIBUTORS, HUGE_POWER_PREPARATIONS} from './huge-power-bindings.js';",
@@ -1139,4 +1141,39 @@ for(const dependencySchema of ['legacy','unknown','accessor-record','accessor-ki
         h.a.prepareData();assert.equal(h.hp.inspectHugePower(h.a),null);assert.equal(h.counters.dependencyRecordGetterCalls,0);
         assert.deepEqual({view:pokemonView(h),calls:dependencyCalls(h)},ordinary);
     });
+});
+
+
+// Caller regressions use the actual module bodies. The reset delegate below is
+// deliberately synthetic; the separate disposable native matrix proves runtime arithmetic.
+test('Pokemon refresh requests exactly one source reset and preserves sheet behavior',()=>scenario({production:true,noAbility:true},h=>{
+    const refresh=h.pokemonModule.PTUPokemonActor.prototype.refreshPreparedData;
+    let resets=0,renders=0;
+    const receiver={reset(){assert.equal(this,receiver);resets++;},prepareData(){throw Error('Direct preparation must not be called');},sheet:{rendered:true,render(force){assert.equal(force,false);renders++;}}};
+    for(let n=1;n<=3;n++){refresh.call(receiver);assert.equal(resets,n);assert.equal(renders,n);}
+    receiver.sheet.rendered=false;refresh.call(receiver);assert.equal(resets,4);assert.equal(renders,3);
+    receiver.sheet=null;refresh.call(receiver);assert.equal(resets,5);assert.equal(renders,3);
+    receiver.reset=()=>{throw Error('Reset delegate failure');};
+    assert.throws(()=>refresh.call(receiver),/Reset delegate failure/);assert.equal(renders,3);
+}));
+
+test('registered trainer synchronization callbacks use only the supported refresh boundary',async()=>{
+    const calls=[],registry=new Map(),renderCalls=[];
+    const pokemon=(id,trainer)=>({id,type:'pokemon',flags:{ptu:{party:{trainer}}},refreshPreparedData(){calls.push(id);},prepareData(){throw Error('Unsafe direct preparation');}});
+    const linked=pokemon('linked','trainer'),other=pokemon('other','different'),unlinked=pokemon('unlinked',null),character={id:'trainer',type:'character'};
+    const actors=[linked,other,unlinked,character];
+    const hasProperty=(object,path)=>{let current=object;for(const key of path.split('.')){if(current===null||typeof current!=='object'||!Object.hasOwn(current,key))return false;current=current[key];}return true;};
+    const context=createContext({Hooks:{on(event,callback){const rows=registry.get(event)??[];rows.push(callback);registry.set(event,rows);}},game:{actors},foundry:{utils:{hasProperty}},ui:{windows:{a:{constructor:{name:'PTUPokemonTrainingSheet'},trainer:{id:'trainer'},render:force=>renderCalls.push(force)},b:{constructor:{name:'OtherSheet'},trainer:{id:'trainer'},render(){throw Error('Unrelated sheet');}}}},console:{error(...args){throw Error('Unexpected hook failure: '+args.map(String).join(' '));}}});
+    const module=new SourceTextModule(await pinned('src/scripts/hooks/trainer-pokemon-sync.js'),{context});
+    await module.link(()=>{throw Error('Unexpected hook import');});await module.evaluate({timeout:1000});module.namespace.TrainerPokemonSync.listen();
+    assert.equal(registry.get('ready').length,1);assert.equal(registry.get('updateActor').length,2);
+    const [ready]=registry.get('ready'),[trainerUpdate,partyUpdate]=registry.get('updateActor');
+    ready();assert.deepEqual(calls,['linked','other']);calls.length=0;
+    for(const level of [{current:2},{milestones:1},{miscexp:10},{}]){
+        trainerUpdate(character,{system:{level}},{},'owner');assert.deepEqual(calls,['linked']);calls.length=0;
+    }
+    assert.deepEqual(renderCalls,[false,false,false,false]);
+    for(const [actor,change] of [[linked,{system:{level:{current:2}}}],[character,{name:'Unrelated'}],[{id:'missing',type:'character'},{system:{level:{current:2}}}]]){trainerUpdate(actor,change,{},'owner');assert.deepEqual(calls,[]);}
+    partyUpdate(linked,{flags:{ptu:{party:{trainer:null}}}},{},'owner');assert.deepEqual(calls,['linked']);calls.length=0;
+    partyUpdate(linked,{system:{nickname:'Unrelated'}},{},'owner');partyUpdate(character,{flags:{ptu:{party:{trainer:null}}}},{},'owner');assert.deepEqual(calls,[]);
 });

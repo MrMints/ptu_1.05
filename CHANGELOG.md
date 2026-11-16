@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 supported refresh repair and disposable native validation
+
+- Reset source-backed Pokémon state before public refresh preparation, and route the ready callback through that same refresh method. This prevents the reproduced additive Attack compounding on the supported refresh and tested callback paths without changing rule arithmetic.
+- Validate the actual refresh/callback definitions with **233 focused tests** and an independently accepted isolated Foundry matrix: **eight scenarios, 35 stages, one reload**, preserved saved base modifiers, and cleanup of all nine synthetic Actors. Preserve the original 22-to-34 failure and earlier infrastructure failures in the [validation report](docs/validation/p05-disposable-sandbox.md).
+- Raw direct `prepareData()` re-entry is not claimed safe. Huge Power remains disabled, P05 is incomplete, and full portable verification remains subject to the normal final-head CI result. No Forge access, merge or release.
+
 ### P05 non-runtime Huge Power Ability drafts
 
 - Author separate core p320 and individually optional February 2016 playtest p5 drafts with complete source wording, the 13 declared Ability/base fields and independently proposed identities. Preserve inherited Huge/Pure Power and Echoes records; copy no executable rules, automation, permissions, provenance or migration stamps.

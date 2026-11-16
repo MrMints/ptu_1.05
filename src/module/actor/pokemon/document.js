@@ -47,8 +47,8 @@ class PTUPokemonActor extends PTUActor {
      * Force refresh of level caps when trainer data changes
      */
     refreshPreparedData() {
-        // Force a full data preparation cycle
-        this.prepareData();
+        // Restore source fields before applying derived values and additive rules.
+        this.reset();
         
         // Update any rendered sheets
         if (this.sheet?.rendered) {
