@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P05 isolated trainer-advancement provider
+
+- Add a trusted-port, GM-gated read-only adapter for an explicit original-to-standard trainer baseline mapping, with separate loaded-source, decoding, effective/default and override evidence.
+- Keep all alternative modes unresolved, preserve physical values, and add focused regressions. Focused projection validation passed all 150 cases (55 unchanged capture cases and 95 adapter cases) and received independent result acceptance; no live settings acquisition, native binding, rule activation or gameplay conformance claim. See [provider scope](docs/validation/p05-mechanic-preferences-foundry-provider.md).
+
 ### P05 provider-injected preference capture interface
 
 - Add a bounded, explicit provider-injected capture interface and focused contract tests for detached stored evidence, selected coverage, unavailable/inconsistent observations, and preservation of false, zero and null.
