@@ -1,6 +1,6 @@
 # P05 explicit trainer-advancement Foundry host (Stage B)
 
-## Scope and current state
+## Historical Stage B scope and state
 
 This four-path Stage B adds an explicitly invoked actual-global host around the unchanged accepted trainer provider. The parent is `51cda27024ea8f7ab38c0ec3c57ddcf22a9d0f46`. The primary portable attempt failed and is preserved below. The single reviewed corrective attempt subsequently **passed all 258 portable cases**: 55 unchanged capture cases, 95 unchanged provider cases and 108 host cases. This is focused portable verification, not native Foundry compatibility, an activated integration or a full repository test-suite result.
 
@@ -56,3 +56,55 @@ Outer, controller and independent watchdog exits were all 0. Complete diagnostic
 Corrective receipt SHA256: `88dc5bfc4c34780b4732c4dca7ddd4a5f45c487deea085363ee33848d95904d2`; controller SHA256: `388a195da67ff64bff56ed654df9c1a32571382d0c47f0e5ef7ef1dc8e207faa`; complete diagnostic SHA256: `5b6ad89c1a397617f55affdc3ed9925a25e010094cdbe0a74a6bb39e92dd6602`. Earlier failure evidence is retained separately.
 
 The current deliverable is an uninstalled explicit host, its focused tests and this report. Native bootstrap/CONFIG/session qualification, actual loaded-world behavior, override authority and any installation or activation remain unverified and unreleased. No additional behavior run is implied by the documentation-only result update. P05 remains incomplete.
+
+## Accepted bounded native host verification — 2026-11-17
+
+This follow-on evaluates the unchanged host/provider/capture closure at public source revision `af64d6a69e34ee1b430960d5c2085790eff42d14`. The earlier sections retain the historical Stage B portable checkpoint. Independent review has now accepted the portable bootstrap qualification and the bounded native result below. This is **not full P05 acceptance, production mapping, installation or activation**.
+
+### Preserved failure and correction history
+
+The first follow-on portable preflight stopped because its checker incorrectly required five sparse-checkout files to be materialized. It did not run test bodies. A separately reviewed correction verified the exact HEAD blobs, skip-worktree entries and absent filesystem paths; its complete focused batch passed **328/328**.
+
+The first native attempt then failed an unlabelled CONFIG qualification check before any host capture or Setting fixture. It stopped with verified process cleanup and retained evidence. Its exact failed comparison remains unidentified. Subsequent source review showed that PTU selects its own `PTUUser` subclass; that static finding is not retroactive proof of the historical failed comparison.
+
+The private bootstrap correction preserves the official core references separately, verifies the canonical PTUUser module bytes before importing that exact module, and checks direct constructor/prototype ancestry, exact configured/current-user identity and inherited authority paths. It never derives trust from a constructor name or invokes PTUUser preparation helpers or its settings getter. Each of the three CONFIG comparisons now has a separate diagnostic label. A pre-execution review also caught three historical-preservation keys incorrectly naming the new files; those keys were corrected before the additional test invocation. None of these changes altered production host, provider, capture or dependency bytes.
+
+### Accepted portable bootstrap qualification
+
+The complete focused batch passed **356/356**, with zero failures, cancellations, skips or todos: 258 protected production-interface cases, 70 earlier private harness cases and 28 added bootstrap regressions. All 328 earlier cases/assertions were preserved. This is a focused batch, not the full repository suite.
+
+The whole invocation took **4.4286 seconds** within its 120-second limit. All 17 commands, including four syntax checks, succeeded. Outer, controller and watchdog exits were 0. Complete diagnostic capture retained 66,293 bytes with no discarded or possibly unread bytes or reader errors. Exact private/projection/runtime pins, all 11 HEAD blobs, six materialized inputs and five sparse absences matched before and after. The repository stayed unchanged and owned-process cessation was verified.
+
+### Accepted native observations
+
+One disposable local Foundry 13.351 / PTU 4.4.3 session completed four actual-global captures and one reload. Both page phases verified all eight served assets and the canonical 699-byte PTUUser source. The independently labelled `User.documentClass`, `User.collection` and `Setting.documentClass` comparisons all passed, together with the reviewed client/session qualification.
+
+| Observation | Observed result |
+| --- | --- |
+| No loaded selected record | Host observation completed; provider remained `partial / presence-unestablished`. |
+| One explicitly created original Setting | Loaded source text and prepared value were observed separately; provider remained `partial / override-unresolved`. |
+| Stable repeat | The selected identity, values and host evidence matched. |
+| After one reload | The same selected identity, values and host evidence were observed again; override uncertainty remained. |
+
+An ordinary `ClientSettings.get` outside host capture separately returned the registered `original` default when no selected record was loaded. That API return is not a persisted-record observation and was not substituted into the host's absent-value evidence.
+
+The seven explicitly guarded mutator slots recorded **zero attempts during capture**, and their guards were restored. The ordinary-API creation and deletion of the single owned test Setting occurred outside capture. Only that newly created selected Setting was deleted, with loaded absence verified afterwards. No other fixture or production mapping was created.
+
+### Cessation, preservation and diagnostic limits
+
+The whole native supervisor completed in **139.922 seconds**. The owned native phase, outer process and watchdog exited 0; the Job was empty. Browser launch/close settled, and Foundry and the proxy closed. No resource or cleanup error was recorded. All eleven historical before/after preservation summaries matched, including the failed native attempt.
+
+The network record contains three closed owned tunnels, zero proxy DNS calls and zero unverified tunnel closures. There were **21 denials: 16 details retained and five explicitly omitted**. One denied-client connection reset was classified as a nonfatal policy closure. There were zero fatal proxy errors, **not zero proxy errors**.
+
+Server capture was complete at 12,292 bytes with no discard. Server-log contents were not separately reviewed, so complete capture does not certify engine-log cleanliness. Storage inventory was terminally stable and remained within the reviewed capacity/free-space bounds; no storage-monitor error was recorded.
+
+### What this result does not establish
+
+- Loaded absence is still **presence-unestablished**, not persisted-database absence or a complete new-world baseline.
+- Explicit original mode is still **override-unresolved**. Source text, decoded/prepared values and an ordinary default return remain separate evidence.
+- Paired checks are non-atomic and cannot exclude transient or ABA changes. Seven guarded mutation slots do not prove universal purity.
+- The successful private, explicitly vetted bootstrap is **not installed in production**. It does not certify general authentication, uncompromised provenance, production mapping or activation.
+- The failed earlier CONFIG comparison remains unidentified; the later pass does not rewrite that failure.
+- Huge Power remains disabled, raw `prepareData()` re-entry remains unsupported, and P05 is incomplete.
+
+This update records accepted evidence only. No additional behavioral run, production change, merge or release is implied.

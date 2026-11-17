@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### P05 bounded trainer-advancement host native verification
+
+- Record independently accepted **356/356 focused portable tests** and a disposable native host check: four actual-global observations, one reload, canonical PTUUser/configuration qualification, owned test-Setting cleanup and verified process cessation.
+- Preserve earlier failures, loaded/source/default distinctions, `presence-unestablished`, `override-unresolved`, non-atomicity and uninstalled-bootstrap limits in the [host validation report](docs/validation/p05-mechanic-preferences-foundry-host.md#accepted-bounded-native-host-verification--2026-11-17). This does not activate production mapping or complete P05. Huge Power stays disabled; raw `prepareData()` re-entry remains unsupported.
+- Network evidence retains 16 of 21 denial details and records five omitted details plus one nonfatal policy-closure reset. Server capture was complete, but server-log contents were not separately reviewed.
+
 ### P05 explicit trainer-advancement host draft
 
 - Add an uninstalled, explicitly invoked actual-global host with trusted-bootstrap pins, exact full-GM/current-user checks, bounded paired loaded-setting observations and representation-aware evidence for the unchanged provider.
