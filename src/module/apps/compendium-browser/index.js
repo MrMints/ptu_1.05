@@ -1,6 +1,7 @@
 import { sluggify } from "../../../util/misc.js";
 import { Progress } from "../../../util/progress.js";
 import * as browserTabs from "./tabs/index.js";
+import {filterNewContent} from '../../../util/content-scope.js';
 import noUiSlider from "../../../../static/js/nouislider.mjs"
 class PackLoader {
 
@@ -8,6 +9,7 @@ class PackLoader {
      * @typedef {object} PackRecordObject
      * @property {CompendiumCollection} pack
      * @property {CollectionIndex} index
+     * @property {string[]} indexFields Requested fields, including absent optional data
      */
 
     loadedPacks = {
@@ -34,12 +36,12 @@ class PackLoader {
         const progress = new Progress({ steps: packs.length });
         for (const packId of packs) {
             let data = this.loadedPacks[documentType][packId];
-            if (data) {
+            if (data && indexFields.every(field => data.indexFields.includes(field))) {
                 const { pack } = data;
                 progress.advance(game.i18n.format("PTU.CompendiumBrowser.ProgressBar.LoadingPack", { pack: pack?.metadata.label ?? "" }));
             }
             else {
-                const pack = game.packs.get(packId);
+                const pack = data?.pack ?? game.packs.get(packId);
                 if (!pack) {
                     progress.advance("");
                     continue;
@@ -47,11 +49,14 @@ class PackLoader {
                 progress.advance(game.i18n.format("PTU.CompendiumBrowser.ProgressBar.LoadingPack", { pack: pack.metadata.label }));
                 if (pack.documentName !== documentType) continue;
 
-                const index = await pack.getIndex({ fields: indexFields });
+                // A different tab may have primed this pack with fewer fields.
+                // Track requested fields, including optional fields absent on older Items.
+                const requestedFields = [...new Set([...(data?.indexFields ?? []), ...indexFields])];
+                const index = await pack.getIndex({ fields: requestedFields });
                 const firstResult = index.contents.at(0) ?? {};
                 if (firstResult.system) {
-                    const filteredIndex = this.#createFilteredIndex(index, sources);
-                    data = { pack, index: filteredIndex };
+                    const filteredIndex = filterNewContent(this.#createFilteredIndex(index, sources), row => `Compendium.${pack.collection}.${row._id}`);
+                    data = { pack, index: filteredIndex, indexFields: requestedFields };
                     this.loadedPacks[documentType][packId] = data;
                 }
                 else {
@@ -191,10 +196,13 @@ class CompendiumBrowser extends Application {
 
         this.settings = game.settings.get("ptu", "compendiumBrowserPacks");
         this.navigationTab = this.hookTab();
+        // Explicit construction only; no default registry or runtime content loading.
+        const registry = Object.getOwnPropertyDescriptor(options, "ruleVersionRegistry");
+        const featOptions = registry ? { registry: registry.enumerable && Object.hasOwn(registry, "value") ? registry.value : undefined } : {};
         this.tabs = {
             abilities: new browserTabs.Abilities(this),
             edges: new browserTabs.Edges(this),
-            feats: new browserTabs.Feats(this),
+            feats: new browserTabs.Feats(this, featOptions),
             items: new browserTabs.Items(this),
             moves: new browserTabs.Moves(this),
             pokeEdges: new browserTabs.PokeEdges(this),

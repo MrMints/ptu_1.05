@@ -1,0 +1,309 @@
+# Batch testing
+
+## PTU 05 isolated source/version lookup
+
+Run `node --test --test-isolation=none tests/rule-versions.test.mjs` (18 tests). The [contract](RULE_VERSIONS.md) uses explicitly synthetic snapshots/mappings, not approved pack variants. Its [85-test affected foundation batch and exact limits](validation/2026-10-29-p05-foundation.md#validation) exercise non-mutating attribution/rule reads, same-name/renamed and unknown mappings, selected-version prerequisite reports, independent standard-default mechanic choices and repeated Poké Edges. No live caller or world-setting migration is integrated. Prior live evidence is reused within its recorded limits; no new Foundry certification is claimed. Full tests/validate/pack/build/upload remain required in normal CI on the final documented head.
+
+## P03-NPC identity checks
+
+Run `node --test --test-isolation=none tests/npc-selection.test.mjs tests/prerequisites.test.mjs tests/skills.test.mjs tests/acquisition.test.mjs` (38 passing). Tests execute the actual bundled dropdown and actual NPC preload/refresh/generation with controlled Foundry IO. Retained failing baseline evidence and Node/live boundaries are in [the validation report](validation/2026-10-26-p03-npc.md).
+
+Run `node tools/check-npc-identity-evidence.mjs --current` to replay 13 captured scenario families, verify 55 raw-file hashes and compare the four current production files with tested commit text. Omit `--current` only when reviewing historical evidence after later runtime changes; raw assertions/hashes still run. This read-only checker does not launch Foundry or certify a new runtime.
+
+For fresh live work, install the candidate only after stopping the disposable server, copy `tools/foundry-npc-identity-check.mjs` to `.foundry-test/Data/p03-checks/`, and use a saved Script macro importing `/p03-checks/foundry-npc-identity-check.mjs` and calling `openNpcIdentityProbe({phase:'final-matrix'})` in `ptu-verification`. This creates/reuses 8 synthetic compendium Items and opens actual controls; select through normal dropdown clicks, capture state/refresh, remove/re-add/rename and Submit. Do not inject selection arrays. Keep distinct phase snapshots, clicked UUID/order, generated raw data and installed/served/archive hashes. The runner's `final-cancel` phase supports actual unresolved-choice cancellation; a player probe requires access to its macro and real ACTOR_CREATE denial. The recorded owner-approved temporary Observer grant was restored to Default; world roles/core permissions were unchanged. Do not assume that grant authorizes future access changes.
+
+Reload generated actors and compare exact selected owned IDs/source IDs, full system/flags/choices and diagnostics. Check ordinary actor-sheet display. Return world to Setup and stop the owned server, verify port/lock and restore temporary UI/access changes. Synthetic source/version labels do not approve production variants. No unsaved builder-draft persistence or general species rules certification is implied.
+
+
+## D source checks
+
+Remaining D2/D3 adds signed/arithmetic lexical guards and finite source-search integrity to the same focused command below. The 18 Move parser/evidence tests cover synthetic spaced/Unicode minus negatives, actual Mud Bomb/Acrobatics/source boundaries, optional alternatives, weapon/use conditions, executable fields, fixed Hidden Power non-approval, complete underlying rules and exact native-page substitution. Synthetic fixtures do not establish new real discrepancies. Together with the 39 record/Ability tests, the complete source batch has 57 tests. [Current source examination and limits](validation/2026-10-26-move-source-review.md). Reuse unaffected accepted runtime/catalog observations; no world is started for source tooling.
+
+Run `node --test --test-isolation=none tests/record-source-review.test.mjs tests/ability-source-parsing.test.mjs tests/ability-source-review.test.mjs tests/move-source-parsing.test.mjs tests/move-source-review.test.mjs` and `node tools/record-source-review.mjs`. The Move regressions exercise actual Curse, compact Glitch, Gravity, source-boundary and Contest counter/identity evidence. Corrupt literal dice, current/history fields, source words or frozen memberships must fail. Equal ordered words do not establish typed-role or behavioral equivalence. [Historical D1 coverage](validation/2026-10-26-d1-source-checkpoint.md) records its then-unstarted D2/D3 slices; the current report above supersedes that progress state; CI does not read local PDFs or certify gameplay.
+
+## P01 evidence-contract checks
+
+Run `node --test --test-isolation=none tests/documentation.test.mjs tests/evidence-contract.test.mjs` and `node tools/evidence-contract.mjs` after evidence-contract changes. The existing Documentation entrypoint runs the contract; the Validation test glob includes its negative tests. The [contract](data/p01-evidence-contract.json) links all 16 supported routes to observed cases and distinguishes current from reused evidence. The [runtime binding](validation/2026-10-26-p02a-runtime-binding.json) resolves 26 label contradictions through reviewed installation/client/hash evidence without editing raw reports. Exact indices distinguish repeated scenario labels.
+
+Required failures/not-run cases need accepted dispositions and reciprocal links to passing superseding observations; a later pass never erases the earlier failure. Record expected/observed outcomes, execution/runtime/artifact identities and explicit limits. Structure checks do not establish accuracy, appropriate reuse/dispositions or actual route behavior. See [P01 validation](validation/2026-10-26-p01.md). No new production variants, full 04, OPEN-05 or release readiness is certified.
+
+
+All supported behavior tests follow [SCOPE.md](SCOPE.md): **Generations 1–8 only; Generation 9 and later excluded**. Use in-scope fixtures. Historical Generation 9 diagnostics remain evidence, not an active recovery/verification backlog. Shared older content is still tested when it has an independent in-scope use. Partial guards cover three reviewed identities; future release validation must check complete exclusion from shipped playable packs, new acquisition and presets while preserving legacy campaigns. Complete release exclusion is not implemented.
+
+## Amended pre-05 acceptance
+
+The required observed matrix and correction owners are in [PRE_05_RECONCILIATION.md](PRE_05_RECONCILIATION.md#required-observed-acceptance). These are open acceptance requirements, not passing scenarios. Record initial inputs, exact actor/item/source/version identity, action/route, expected and observed results, persisted values, tested commit and evidence. Test non-mutating satisfied/unmet/unverifiable reporting, every supported trainer/Pokémon add route, persistent visible reports, same-name/renamed/version-specific records, repeat add/reload, ownership denial and separate effect/scope conditions. Single/multiple/mixed and custom/unknown requirements must not be hidden by automatic dependency grants or skill increases.
+
+Before 05, reproduce and correct the bounded 0.111/0.113/0.115, refresh and migration-failure preservation risks on disposable fixtures, including repeated runs, modern/legacy identity conflicts, custom fields/automation and failure without a false successful schema stamp. Existing starter/skill evidence remains limited to its historical cases. P01 must test that incomplete/failed/not-run required evidence cannot pass the amended gate; human review checks actual accuracy. After 05, repeat against real accepted variant pairs across all four categories; 09 binds the complete matrix to the tested archive digest and commit. Do not treat scenario names alone as evidence.
+
+## Automated batch
+
+P03's focused batch is `node --test --test-isolation=none tests/prerequisites.test.mjs tests/skills.test.mjs` (16 tests). The real NPC refresh regression executes the actual class with fixture-controlled Foundry IO; the separate live runner imports the installed modules normally. For the latter, copy `tools/foundry-p03-check.mjs` into `.foundry-test/Data/p03-checks/`, launch the disposable `ptu-verification` world as GM, and execute a saved Script macro importing `/p03-checks/foundry-p03-check.mjs` and calling `runP03Check()`. It retains four flagged synthetic world Items and no new actors. Capture the result textarea and inspect the actual NPC warning panel/navigation. These fixtures establish diagnostic identity separation, not approved original/errata production variants. [P03 evidence](validation/2026-10-26-p03.md) records inputs, observations and untested route/persistence boundaries. On Windows, restricted child-process/filesystem permissions can produce `spawn EPERM` or staged-directory rename `EPERM`; distinguish these from failed assertions and rerun the affected disposable batch with normal filesystem permissions.
+
+Run `pnpm test`, `pnpm validate`, `pnpm packs:verify`, and `pnpm build`.
+The pack round trip checks semantic equality and stable IDs. It is not a rules audit.
+Run `node tools/audit-content.mjs` to refresh the structural audit and move inventory without losing recorded review status.
+
+Run `node tools/content-scope.mjs` to regenerate the all-record ID/hash inventory from
+the source-linked review ledger. Generation eligibility, rule-version approval and
+verification are independent fields; folders are included in source counts. The commands
+`node tools/content-scope.mjs --require-complete` and `node tools/build.mjs --supported`
+currently **must refuse** incomplete catalog/dependency approval. Normal `pnpm build`
+produces a development candidate with `content-scope-status.json` and preserves original
+pack UUID resolution; it does not produce a certified supported release.
+
+### Source catalog checks
+
+Run `node tools/rules-catalog.mjs` and the 11-test `tests/rules-catalog.test.mjs` batch
+after catalog changes. CI includes these tests in the normal suite. They check citation
+hashes/page bounds, source coverage, independent review states, canonical identities,
+stable species hashes and historical dispositions; they do not certify rules behavior.
+With local originals and `pypdf`, run `python tools/reference-catalog.py --check` to
+check the physical inventory without overwriting review metadata. See
+[the source guide](RULES_SOURCES.md) for catalog coverage and manual conflicts.
+
+The focused batch also rejects missing required supplemental pages, regional profile/combined-page gaps,
+uninterpreted dex fields, lost repeated printed slots, split/merged prose defects, duplicate reprint identities
+and accidental source-to-runtime approval. It checks catalog consistency; it does not parse PDFs in CI or
+certify the interpreted rules, inherited record mappings or gameplay.
+
+## Foundry v13.351 batch
+
+P02-A exposes `actor.prerequisiteDiagnostics` and `item.prerequisiteDiagnostic` as derived
+views of the accepted P03 interface. Actor and Feature/Edge/Poké Edge sheets display the
+same escaped, itemized reports; no report flags are persisted. Existing saved
+`flags.ptu.selectedVersion` is reported as supplied and shape-validated, never inferred.
+Trainer and Pokémon collections include all three distinct Item types, without inventing
+new budgets. Ownership/scope checks and genuine effect/choice predicates remain separate.
+Creating/importing an Item with a class label does not guess a class grant; deliberate
+same-sheet grouping uses exact owned IDs. Complete reciprocal JSON/inline restoration preserves supplied choices; incomplete or
+unestablished saved graphs refuse unchanged rather than guessing/replaying grants. NPC generation resolves choices on a temporary
+actor before creating folders/actors, and leaves its normal starter entitlement pending
+for explicit selection rather than opening a competing prompt during generation.
+
+The [earlier P02-A matrix](validation/2026-10-26-p02a.md) retains its bounded route/UI observations; subsequent review reproduced mixed cancellation and saved-grant gaps. The [correction matrix and raw evidence](validation/2026-10-26-p02a-correction.md) supersedes broad cancellation/no-replay claims: runtime `416c645e`, 34 focused/140 final full local passes, actual source-aware clone/drop/folder consent and cancellation, raw complete/ambiguous graphs, player security and reload proof. The first 2/3 reload and exact ordinary core stamp/derived-attribution difference remain explicit; stable reload is 3/3. Pending substantive acceptance; implementation tests do not approve content/rules.
+
+For a saved Item with reciprocal linked Items, Duplicate/save and cross-actor sheet drops collect the full component only from its actual accessible source collection. An explicit Copy linked Items prompt lists additional Items and the destination, with No as default. Confirm to create independent IDs and internal relationships; No or Close changes nothing. A partial raw payload without an established origin cannot infer partners from names, provenance or other actors. Malformed linked components require review; unrelated null metadata must not block ordinary unlinked copying. Ordinary core unlinked drop provenance can be transient in memory and affect report identity.sourceId after reload; the correction evidence isolates that limit.
+
+On a trainer, open Features & Edges to inspect Features, Edges and Poké Edges. On a Pokémon, open Enhancements & Items: the existing Enhancements collection uses the distinct `pokeedge` type, with Features and Edges alongside it. Both the actor and the individual Item show non-blocking unmet and unverifiable/custom requirements. Missing version attribution is separate from prerequisite truth; it does not authorize choosing a different source. Reports update from actor and embedded inputs, including species skills. Ordinary read-only sheets retain diagnostics; their visible Add anchors do not grant permission.
+
+For v13 JSON restoration, import the JSON into a world Item and then copy that restored Item to the actor, or restore supported raw inline/copy data through normal Document APIs. Core embedded `Item.importFromJSON` currently fails because its embedded collection lacks `fromCompendium`; that unsupported core call is retained as a limitation. Restoration is not explicit variant replacement or dependency replay. Unlinked tokens retain core base-plus-delta behavior: later base-actor additions may appear after reload, so persistence checks must compare exact acquired Items and token sources and use stable bases for whole synthetic-actor equality.
+
+Inherited source classifications have a separate check: `node tools/record-source-review.mjs` and
+`node --test --test-isolation=none tests/record-source-review.test.mjs tests/ability-source-parsing.test.mjs tests/ability-source-review.test.mjs`.
+The current C checkpoint has 39 passing focused tests and 11 unchanged reusable catalog results; normal CI repeats the full configured suite on the documented revision. These check source evidence and finite coverage, not gameplay. Ability checks cover complete source boundaries, Defensive/Immune marker spelling and punctuation, Range/Keywords headers, literal Heatproof wording, different typed-role boundaries despite equal words, exact current fields/UUID paths, missing triggers/numeric conflicts, profile/compiled-copy authority limits and the required C-to-D review gate. B additionally checks cached negative-scope numeric/Type/two-metric identity, compact Porygon blocks, every current unmatched field/hash and dependency path, competing source/profile coverage, recorded historical lineage and the mandatory predecessor review before C. It rejects disagreements
+between duplicated evidence, declared values that differ from the current Move/Ability/species fields and
+wrong exact acquisition UUID paths even when the real target appears elsewhere. It retains all 95 examined
+form/branch/skill cases and the Phione four-group regression. The shared acquisition parser is exercised directly for repeated TM headings, Mew machine/tutoring permissions and normative table tails. The finite acquisition audit binds 1,075 identity/hash members and 4,300 sections to their field evidence, source context and all flagged literal/Type dispositions. Actual Meowstic paragraph, sTutor, numbered-period, None and malformed Type-column/vertical-bar cases have regressions; missing sections, erased literals, unexamined flags and altered current candidate fields are rejected. Source notes retain conditions/stat variants; duplicate acquisition paths and actual Oricorio conditional Type facts have corruption coverage. A valid snapshot may
+remain incomplete; unreviewed inventory and protected production approvals must remain visible.
+Stop the disposable server before refreshing its copy with `pnpm test:foundry:setup`.
+Launch the installed Foundry application using `.foundry-test` as its data path, or use:
+
+```powershell
+node 'D:\Foundry\Foundry Virtual Tabletop\resources\app\main.mjs' '--dataPath=D:\Projects\PTU 1.05 on Foundry\.foundry-test' --port=30001 --noupnp
+```
+
+Complete the normal Foundry license/setup process if needed. Do not commit license files or test-world databases.
+Use the `ptu-verification` world and GM/player accounts. Keep only one process using this data directory.
+
+### Pack-loading check
+
+Prepare source-ID expectations with `node tools/prepare-foundry-pack-check.mjs`.
+Join `ptu-verification` as GM, create a Script macro, paste
+`tools/foundry-pack-check.macro.js`, save it, reopen it and execute it. The result dialog
+reports every declared pack's index, loaded documents, folders, document type, invalid records
+and missing/unexpected/duplicate IDs. Folder records count separately from content documents.
+Save the JSON result as batch evidence. Repeat after a client reload when checking persistence.
+The macro reads packs; it does not import documents, execute pack macros or test rules behavior.
+Its fixture is served from the disposable data directory and is excluded from the archive.
+
+`test:foundry:setup` now holds Foundry v13.351's Config/options.json data-directory lock,
+stages a fresh system copy, and swaps directories without mixing database files. It refuses
+a held lock, unsafe manifest paths and directory junctions. The previous installation stays
+recoverable under `.foundry-test/.setup-backups/`; licensing, Config and worlds are preserved.
+Build generated packs first. Stop the world through Return to Setup, then stop the server
+before setup. Do not remove a held lock or refresh a campaign installation.
+For a clean archive test, stop Foundry, preserve the previous disposable `Data/systems/ptu`
+directory outside `Data/systems`, and extract `dist/system.zip` into a new `Data/systems/ptu`.
+Keep the disposable Config and world directories intact. Never replace a campaign installation.
+The [2026-10-24 pack baseline](validation/2026-10-24-foundry-packs.md) records the tested scope and limitations.
+
+### Basic integration and source compatibility
+
+Serve `tools/foundry-integration-check.mjs` from `.foundry-test/Data/ptu02-checks/` only.
+The [integration evidence](validation/2026-10-25-foundry-integration.md) records the plan
+phases, exact fixture UUIDs, Script macro command and manual UI steps. This runner creates
+disposable actors, a player and a scene; it is restricted to GM in `ptu-verification` and
+is excluded from the system archive. Read the runner before executing it. Save each result
+dialog's JSON and inspect the actual sheet, level-up and player UI. Do not rerun the
+Generation 9 reference fixtures as a supported-content acceptance test.
+
+Current `_stats.compendiumSource` takes precedence over legacy `flags.core.sourceId`.
+Neither field is migrated or rewritten by the source accessor. A missing modern source
+does not fall back to historical metadata or a matching label. Refresh fills absent source
+system fields while preserving existing values, owned quantity, custom name/image and source
+identity; comprehensive campaign and rule-selection migrations remain with chat 09.
+
+P02-P changes refresh to **fill absent system fields only**. Existing raw prerequisites,
+keywords/range, automation payload, schema, custom values and selected-version data remain.
+Empty/null values are intentional; they are not permission to copy a source default.
+Default images may refresh, but custom images remain. Exact source identity/type must
+resolve; missing or ambiguous sources require manual review. Refresh is not a version
+replacement or schema migration. Migrations 0.111/0.113/0.115 follow the same preservation
+boundary; local legacy tag arrays can populate missing keywords without deleting tags.
+Source rules/reference effects are one payload and must not be blended with saved automation.
+
+Run `node --test --test-isolation=none tests/preservation.test.mjs tests/document-source.test.mjs`
+for actual migration/runner entrypoints with controlled IO. Test older snapshots, both exact
+same-name identities, conflicts, missing/custom records, repeat calls and injected
+transformation/write/embedded/free-form failures. A failed run must retain the prior
+world/document schema and be retryable. Earlier successfully persisted records are not
+rolled back as a cross-document transaction; retain a backup and verify affected values.
+No user campaign or live database is a test fixture. P02-A acquisition/display tests remain
+held until substantive P02-P review.
+
+For the document/persistence boundary, serve `tools/foundry-p02p-check.mjs` only under
+`Data/ptu02-preservation/check.mjs` in `ptu-verification`. Follow the [P02-P reproduction](validation/2026-10-26-p02p.md)
+for its normal Script macro, `check` then actual-client `reload` phases, saved expectations,
+flagged fixture lifecycle, exact case results and limits. It reads source packs and hashes
+pre-existing actors/Items; it writes only named disposable fixtures. It does not run a
+forced whole-world migration or certify the later acquisition/variant framework.
+
+### Starting Training and acquisition preservation
+
+A newly created empty trainer opens the four-choice core Training prompt. Choose one;
+the starting prerequisite exception applies and four ordinary Features/four Edges remain
+available. Cancel creates no item and leaves **Choose Starter Training** on the editable
+owner sheet for explicit retry. Existing populated/imported/duplicated trainers are not
+retrofitted. A completed choice must survive rename/reload and refuse another helper grant.
+
+Serve `tools/foundry-corrective02-check.mjs` as `Data/ptu02-correction/check.mjs` only.
+In the disposable GM world, use a Script macro:
+
+```javascript
+const {runCorrective02Check}=await import('/ptu02-correction/check.mjs?v='+Date.now());
+await runCorrective02Check();
+```
+
+Read the runner before use. Set `Data/ptu02-correction/plan.json` to a phase object.
+The recorded sequence is `begin`; `create` with case `choice-0` through `choice-3`
+(choose through real UI); `choice` with the corresponding case/index 0–3; `create`
+with case `cancel` (cancel UI); `cancel`; `permissions`; `open-sheet` with case;
+`acquisition`; `browser`; and `reload`. See the [matrix/raw results](validation/2026-10-25-corrective02.md)
+for exact fixtures, manual owner/observer/retry steps and scenario boundaries. Creation
+refuses an existing case: inspect preserved fixtures rather than blindly repeating it.
+The runner writes disposable actors/Items/flags and temporarily uses original advancement;
+the final phase restores the captured setting and checks pre-existing actor hashes.
+
+New acquisitions use actual pack Documents and stable UUIDs. Saved raw Items may retain
+excluded provenance: verify actual JSON import, `clone` with save/addSource, owned/world-folder
+copy and original-ID restoration without deleting user fields. This is deliberately distinct
+from rejecting the three known excluded pack imports/drops, new grants and generator input.
+The pack-folder diagnostic intercepts final creation to avoid executing unclassified form
+behavior. No Generation 9 gameplay probe is authorized by these boundary checks. The runner
+is excluded from packages; full catalog approval and migration acceptance remain staged.
+
+### Skill terminology acceptance
+
+Use `tools/foundry-skills-check.mjs` only in the disposable `ptu-verification` world as GM.
+The [section-03 matrix](validation/2026-10-25-skills.md) documents setup, phases, exact
+coverage and the manual dialog/contested steps; its JSON preserves the numerical results.
+Serve the runner and `docs/data/skill-terminology-review.json` from `Data/ptu03-checks/`,
+not from the installed system. It creates flagged trainer/Pokémon fixtures, a trainer
+folder and two scene tokens, and writes test chat. Existing campaign data is outside this runner.
+Use populated background choices for exact persistence checks; preserve the recorded
+empty-slot `""` to `"blank"` observation instead of claiming that source state is identical.
+The runner and data directory are excluded from the archive. Restore browser sizing after
+layout checks and stop the server at handoff.
+
+### Reference classification and targeted probes
+
+Run `node tools/audit-content.mjs` to regenerate the structural audit, move inventory
+and `docs/data/compendium-reference-audit.json`. This preserves the existing unresolved
+target list and records every occurrence's source, JSON pointer, UUID and field profile.
+Unknown profiles stop the refresh for review. Reviewed runtime dispositions are reused
+only while their occurrence fingerprints still match; changed occurrences need revalidation.
+The review ledger is `docs/data/reference-investigations.json`. Classification does not repair links.
+
+For the targeted v13.351 reproduction, run `node tools/prepare-foundry-reference-check.mjs`,
+then save and execute `tools/foundry-reference-check.macro.js` as a Script macro in
+`ptu-verification` as GM. Save the result JSON. It resolves active target UUIDs, inspects
+all affected feats and core import preparation, exercises generator `create` with
+`generate:false`, and constructs one temporary owned effect/rule. It writes no actor
+or compendium records. Creating/saving the test macro itself changes only the disposable world.
+The generator fixture bypasses random preparation and does not certify full generation
+or gameplay. See the [reference investigation](validation/2026-10-25-compendium-references.md).
+
+The recorded generator/TemporarySpecies reference fixtures use now-excluded Generation 9 consumers. Do not rerun them as a required Generations 1–8 acceptance batch. Preserve the original report, and select independently in-scope fixtures before further behavior checks. Structural reference coverage may continue to inventory excluded records without certifying them.
+
+In one session check clean startup, all declared packs, trainer and Pokémon sheets, species data,
+background selectors, all 17 skills, old/new prerequisite aliases, contested rolls, macro selectors,
+linked/unlinked tokens, permissions, save/reload and console errors. Check labels for clipping.
+Use fixtures with old display labels and non-default ranks/modifiers; compare numeric outcomes before/after.
+
+Future gameplay batches must exercise accuracy/evasion/damage, STAB, effectiveness, criticals,
+rounding, status/healing/recoil/multiple-strike/area/delayed moves, independent revision toggles,
+cancellation, duplicate application, turn expiry, migrations and custom content.
+
+## Release evidence
+Record actual results in `docs/validation/<version>.json`, including systemVersion, foundryVersion,
+commit, result and scenarios with IDs: fresh-install, upgrade, permissions, skills, moves, variants,
+cancellation, duplicate-application. Include reproducible steps and results. Never mark unrun checks passed.
+The release workflow only creates a draft and fails if required evidence or a dated changelog is absent.
+The evidence commit must be a tested ancestor of the release commit. Only documentation/evidence may
+change afterward; the workflow rejects changed runtime, content, dependency or build inputs.
+
+For terminal 1.0.0 publication, additionally record cleanup/deletion evidence, the tested transition from inherited 4.4.3 or other higher versions, unchanged meaningful schema identities, final commit/tag and archive SHA-256, public raw-manifest response, resolved download, matching packaged manifest and successful installation from the published URL. Verify the actual remote README retains the exact installation heading/description required by [the terminal roadmap](../ROADMAP.md#terminal-cleanup-and-100-publication). Ancestor evidence, local files or a successful draft workflow alone do not establish these results. Prepare release metadata before final artifact validation; reconcile the final merged/tagged commit and repeat affected checks if package inputs change.
+
+## P05 native Feature-review stopped-run evidence
+
+The exact14-path owner-admitted attempt used only accepted e63595a2 / CI41250223014 artifact13061542688 in the disposable world. Native core package conversion triggered the required stop before login: all28 Feature-review cases are NOT RUN, with no fixtures/access grants or served-module certification. Offline analysis identifies7,198 primary plus2,790 embedded conversions, preserved IDs and canonical system values; this is physical compatibility evidence, not gameplay/content or native review acceptance. The previous system is byte-restored and server/port/lock released; two setting timestamps and world lastPlayed/existing-pack metadata remain preserved alongside private before/after backups. Return to Setup and complete world restoration remain uncertified. Screenshot stays unsaved by owner direction. [Full blocked-run evidence, diagnosis, checks and minimum next admission](validation/p05-feature-review-native.md) retain independent/planner and all prior gates. No native restart, recovery overwrite, acquisition/replacement, full05/pre06, merge or release is authorized.
+
+Offline evidence commands: node --test --test-isolation=none tests/feature-review-evidence.test.mjs and node tools/check-feature-review-evidence.mjs. The checker reports integrity separately from nativeStatus; --require-complete must fail the checked-in blocked run. Authorized reviewers with access to retained private files may add --raw-dir pointing to the exact batch backup root for log/capture replay; raw data must never be committed or uploaded. The controller is import-inert and refuses blocked inputs; these commands never launch Foundry. Its actual fixture/native UI/cleanup paths remain unverified.
+
+The default Feature-review validator/replay are pinned to the immutable known stopped record, independently of report-selected kind/status/preflight/batch. Shape-only helper functions exercise synthetic format controls and cannot accept the handoff record. A future native run needs an independently reviewed record contract; relabeling this report is rejected. The coordinator bypass, initial failing regressions and bounded correction are retained in the native report.
+
+## P05 offline future-attempt preparation
+
+Completed planner01a194ed-0454-7e43-921a-a46762fec44b accepted stopped closure6b686b6b and selected this single14-path offline A dependency. Existing05 owns checkout only. The actual dialog/controller probe first failed valid5/2 membership; the bounded helper now checks the dialog's known-state mapping plus stable types/UUIDs. A separate independently pinned future-attempt contract/checker keeps admission pending, preserves the stopped record/proofs/history and refuses native/authorization/restoration claims. Synthetic tests/replay are not native evidence. [Exact APIs, checks, physical-conversion plan, protection and limits](validation/p05-feature-review-attempt-preparation.md) require final-head normal CI, clean agreement and RELEASE/STOP for independent/planner review. No world/server/database/installation/migration/access/credential/security/screenshot action, native resumption, full05/pre06, merge or release. Saved settings and all operating/sequential gates remain.
+
+The future-attempt CLI rejects missing path arguments, repeated options and unknown override/admit flags. A missing --raw-dir value cannot consume --require-native-complete or silently weaken that request. The exact malformed-call failure and corrected122-case execution are retained in the preparation report.
+
+The2026-11-01 offline text-result correction requires name='' for a text predecessor without name, preserves existing valid strings and rejects omitted/invented/changed/invalid names. The full10,185-record synthetic audit now represents all34 required text defaults with unchanged per-database/type/transformation counts. The first0/1 failure and separate151/151 preparation and474/474 affected executions are retained in the [preparation report](validation/p05-feature-review-attempt-preparation.md#required-text-result-name-correction--2026-11-01-indianapolis). Static schema/retained changed paths are not full captured-payload comparison or native acceptance;0/28 and admission pending persist.
+
+## P05 owner-admitted offline evidence interface
+
+Mat approved manager01a19580's bounded original-artifact conversion/residual policy. Completed planner01a1958a-b433-74c3-9524-19a35f47b1f3 assigned existing05 sole checkout writer/no world for exactly14 offline controller/contract/checker/test/documentation paths from accepted e450abaf. The [separate admitted-run preparation](validation/p05-feature-review-admitted-preparation.md) records actual owner/proposal provenance while holding execution/readiness and independent acceptance; it does not weaken the protected pending or original stopped evidence. Plain validated serial checkpoints preserve identities, repetitions, actual permissions, first failures, runtime-only registries and all28 fixed routes. Full10,185-record captured-payload auditing, exact residual/playtime checks and manifest-owned cleanup/byte-restoration evidence are required. The final affected execution passes589/589, including world-before-account checks, canonical embedded-source replay and phase-invariant grant evidence; earlier586/586 and587/587 remain separate checkpoints; earlier94/96,96/96,0/1,102/102,101/102,109/109 and583/583 histories remain separate. Real original archive/five-proof replay passes; real backup bytes, native conversion/closure and normal access remain unverified. Native0 passed/0 failed/28 not run persists. Existing05 retains checkout ownership only through exact final documented-head CI and clean local/tracking/actual-remote/open draftPR4 agreement, then RELEASES/STOPS for independent and planner review. No Setup-only start, world/server/database/installation/migration/fixture/access/security/credential/screenshot action, full05/pre06, acquisition/replacement, merge or release is assigned. Saved models/effort, weekday08–17 Indianapolis/weekend exemption, weekly safe-hold/resumption, sole-writer and sequential gates persist; earlier assignment text retains historical meaning.
+
+Private/public correction: completed planner01a195d7-fdca-7763-a174-4dffde9b1a50 retained this exact14-path scope. Full private plans/baselines/aggregate GM history are forbidden in browser input. Explicit public packets expose only finite fixture controls, serial commitments and opaque stop state; browser exports are principal-local segments merged and byte-replayed privately before handoff. Player-GM substitution, stale/forked history, baseline changes, failure clearing and macro absence/configuration tampering are rejected. A true reload cannot invent retained-Document revocation coverage. Final affected604/604 (130 new plus474 unchanged),0 failures/0 skips, supersedes the earlier589 checkpoint; the privacy0/1 and all intermediate failures remain in the admitted-preparation report. Native0/28 persists. No world/installation/access/credential/security/screenshot action occurred. Exact final-head CI and independent/planner acceptance remain required; P05 releases/stops after CI, with no native start, merge or release.
+
+Final bounded control correction: a new pack-access value canary failed0/1 after the604 checkpoint. The private/public validators now require NONE/OBSERVER and a matching actual mutation receipt; arbitrary private payload values are rejected. Positive levels and the corrected focused control pass; affected605/605 (131 new plus474 unchanged),0 failures/0 skips. The report retains earlier failures/bindings and predecessor CI41285107640, which cannot accept this successor. Fresh final documented-head CI and independent/planner review remain required. Same14 paths, no native/world/installation/access/security/credential action; native0/28, STOP/RELEASE after final CI, no merge/release.
+
+Event-order correction,2026-11-01: independent review found that455b6024 accepted begin/capture before creation or grants by borrowing later receipts. Its605/605 and CI41285786161/2787 remain older-coverage evidence. The [append-only causal correction](validation/p05-feature-review-admitted-preparation.md) retains the initial0/6 and retry0/2 failures. Segment validation, private merge and history replay now require prior creation/setup/finite grants and permitted phase at each review event; later receipts cannot certify earlier events. Valid permission/pack handoffs, retained references, sticky failures, identical retries and owned cleanup remain covered. Corrected622/622 (148 admitted plus474 unchanged),0 failures/0 skips. Only12 paths within the existing14-path approval change; protected evidence/runtime and all live gates remain. New final documented-head CI/clean agreement precede RELEASE/STOP for renewed independent then substantive planner review. Checkout ownership only; no native/world/installation/database/access/security/credential/screenshot action. Native0/28; no full05/pre06, merge or release.
+
+Pending-review lifecycle correction,2026-11-01: independent re-review found overlapping and unfinished begins still accepted ate7bfbdbd despite622/622 and CI41290589119/2804. The [append-only lifecycle evidence](validation/p05-feature-review-admitted-preparation.md) retains initial0/8, adjacent0/6, predicate18/23, healthy-abort0/1, close/refresh0/1 and pending-control0/2 histories. One review must resolve exactly once or explicitly abort after a recorded failure before export/handoff; incomplete private evidence stays inspectable. Controller actions/export/refresh/close serialize, healthy refusals do not invent failures, and a public-metadata-only reload barrier holds unsaved continuation. Prior causal/privacy/UUID/retained-reference/first-failure gates remain. Final affected677/677 (203 admitted plus474 unchanged),0 failures/0 skips. Exactly14 allowed paths, append-only prior documentation; no native/world/database/installation/fixture/access/security/credential/screenshot action. New final documented-head CI/clean agreement precede RELEASE/STOP for renewed independent review, then substantive planner acceptance. Native0/28 and execution/full05/pre06/merge/release holds remain; saved settings and operating gates persist.
+
+
+## P05 offline collector/operator preparation — 2026-11-01
+
+The [bounded offline operator report](validation/p05-feature-review-operator-preparation.md) documents three new inert tools and synthetic tests from accepted45a5d211. The collector measures stopped source/copy bytes and raw stored records, keeps Users/configuration opaque, and reuses the unchanged conversion/baseline/closure validators. The operator checks actual host/private receipts; the browser verifier binds fresh live facts to one bounded trusted-executor action and supports acknowledged refresh/sealed reload with the same callback. The four accepted implementation/test files and all original runtime/artifact/proof/backup/history inputs stay protected.
+
+Focused tests pass71/71, including seven real-controller service-double transition controls, full synthetic10185-record conversion, separate baseline/closure, credential canaries and resolved-reader compatibility on self-generated stores. Earlier55/58, targeted1/3,0/1,2/3,0/1 and integration6/7 failures remain in the report; corrected passing executions are separate. Actual stored-data capture, host/privacy/access checks, native cases and restoration are unverified in this batch. The narrow process-query exception does not authorize moving a whole collector/operator command across the command boundary. Exact actions/paths need their applicable managed review; JSON is not authority.
+
+Exactly14 code/test/docs paths are assigned; existing documentation receives append-only updates. Checkout ownership only through scoped commit/push, final documented-head normal CI and clean local/tracking/actual-remote/open draftPR4 agreement, then STOP/RELEASE for independent and substantive planner review. Saved settings, usage/hours/sole-writer and all sequential gates remain. No world ownership or actual world/database/retained-backup/configuration/license collection, installation/startup, fixture/grant/access/security/credential action, next batch, full05/pre06, merge or release. Native0 passed/0 failed/28 not run. Earlier assignments/results retain historical meaning.
+
+Run the affected batch with `node --test --test-isolation=none tests/feature-review-operator.test.mjs tests/feature-review-admitted.test.mjs tests/feature-review-attempt-contract.test.mjs tests/feature-review-evidence.test.mjs tests/feature-acquisition-review-dialog.test.mjs tests/feature-acquisition-review-launcher.test.mjs tests/rule-version-acquisition-review.test.mjs tests/documentation.test.mjs tests/evidence-contract.test.mjs`. New tests generate only ignored .cache fixtures. Reader compatibility uses the pinned CLI-context classic-level3.0.0 addon on self-generated LevelDB stores; Linux CI's addon result is distinct from Windows and from actual Foundry-store compatibility. `node tools/collect-feature-review-evidence.mjs --reader-info` is reader inspection only; native collection requires the callable API and live trusted executor, with no request-file admission shortcut. The report gives the stage-specific invocation and action-completion boundaries.
+
+Finite-JSON follow-up within this same offline batch: the earlier748/748 affected pass preceded an independently reproduced1e309→Infinity→null capture defect. Four new controls failed0/4; complete finite-tree validation in the new collector/operator helpers corrects it without changing protected contracts. Corrected5/5 targeted and78/78 focused include positive/negative/nested overflow, finite-value preservation, pre-read manifest refusal and retained failed-copy evidence. Users/configuration remain opaque. Earlier71/58/controller results and all prior failures remain separate; corrected affected-suite/final-CI evidence follows in the operator report. No actual world/native work is admitted.
+
+Final corrected local checkpoint for the same14-path offline operator batch: **755/755** affected checks pass (78 new plus677 unchanged),0 failures/0 skips;447 local links, all nine complete45a5d211 documentation prefixes, the four protected implementation hashes, syntax, whitespace and held default-checker semantics pass. The operator report binds the four new implementation/test hashes. Earlier748/748 and all failing probes remain historical coverage. New exact final documented-head normal CI and clean agreement precede STOP/RELEASE for independent/planner review. No actual native/host/world collection, installation/startup or next batch is performed; native0/28 and all existing holds persist.
+
+
+## P05 offline operator correction — 2026-11-01
+
+Independent review after f4a42009 found a missed forward-slash dataPath and a last-global/last-principal acknowledgement mismatch. The [append-only correction report](validation/p05-feature-review-operator-preparation.md) retains earlier green CI and the failing/retry evidence. The generated pure Windows matcher now handles equivalent paths without unrelated command-line matches; private receipts replay and byte-check the whole history while acknowledging only the caller's prior segment plus an opaque global-prefix commitment. Interleaved real-controller/service-double refresh and sealed reopening, retained-reference identity and tampering/privacy controls pass. First corrected affected run:772/772 (95 operator-suite plus677 unchanged),0 failures/0 skips. Final documented-head CI and renewed independent/planner acceptance remain required. Thirteen paths within the same14 allowance; collector and four protected files unchanged, complete prior documentation retained. Native0/28 remains unrun; checkout ownership only, all saved settings/operating/review gates preserved. STOP/RELEASE after final CI; no native start, next batch, merge or release.
+
+
+## P05 admitted native preflight stopped before mutation — 2026-11-01
+
+Offline68993f5c was accepted after CI41342866920/2980, independent121 and planner re-review. The [new stopped preflight record](validation/p05-feature-review-admitted-native.md) preserves command admission separately from execution: fresh managed target process/port/lock checks pass, but the separately reviewed frozen private-directory checker throws STOP: unrepresentable captured JSON before confirming restrictions. No retry/bypass/tool change or native mutation followed. Original archive/five-proof/backup byte replay and all16 retained-candidate runtime bindings pass; fresh installed/served state, accounts/access/exit, baseline, conversion and closure remain unverified. Native0 attempted/0 passed/0 failed/28 not run. Ten documentation paths only, complete historical prefixes and all tooling/evidence protected. New final documented-head CI/clean agreement precede STOP/RELEASE for independent/planner evidence review; no automatic retry, next batch, full05/pre06, merge or release.

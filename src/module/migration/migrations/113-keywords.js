@@ -1,33 +1,21 @@
-import { sluggify } from "../../../util/misc.js";
-import { MigrationBase } from "../base.js";
+import {MigrationBase} from '../base.js';
+import {resolvePreservationSource, fillMissingFields} from '../../../util/preservation.js';
 
 export class Migration113Keywords extends MigrationBase {
     static version = 0.113;
 
-    items = {
-        feat: undefined,
-        move: undefined,
-        item: undefined
-    }
-
-    /**
-     * @type {MigrationBase['updateItem']} 
-     */
-    async updateItem(item, actor) {
-        if(!["feat", "move", "item"].includes(item.type)) return;
-
-        const items = this.items[item.type] ??= await game.packs.get(`ptu.${item.type}s`).getDocuments();
-
-        const entry = items.find(entry => entry.slug === (item.slug || sluggify(item.name)));
-        if(!entry) return;
-
-        item.system.keywords = entry.system.keywords;
-        if(item.type === 'feat') {
-            delete item.system.tags;
-            item.system["-=tags"] = null;
+    async updateItem(item) {
+        if (!['feat', 'move', 'item'].includes(item.type)) return;
+        // Retain raw legacy tags; a local array can supply its structural successor.
+        if (!Object.hasOwn(item.system, 'keywords') && Array.isArray(item.system.tags)) {
+            item.system.keywords = structuredClone(item.system.tags);
         }
-        if(item.type === "move") {
-            item.system.range = entry.system.range;
-        }
+        const fields = ['keywords', ...(item.type === 'move' ? ['range'] : [])];
+        if (fields.every(field => Object.hasOwn(item.system, field))) return;
+        // Unknown legacy tags must not be silently replaced with source keywords.
+        const missing = fields.filter(field => field !== 'keywords' || !Object.hasOwn(item.system, 'tags'));
+        if (missing.every(field => Object.hasOwn(item.system, field))) return;
+        const source = await resolvePreservationSource(item);
+        if (source) fillMissingFields(item.system, source.system, missing);
     }
 }

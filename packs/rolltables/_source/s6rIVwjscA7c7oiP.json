@@ -1,0 +1,324 @@
+{
+  "folder": "iqDcWm7TAypOYnT6",
+  "name": "Luck Table",
+  "_id": "s6rIVwjscA7c7oiP",
+  "img": "systems/ptu/static/images/item_icons/amulet coin.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "text",
+      "weight": 4,
+      "range": [
+        1,
+        4
+      ],
+      "drawn": false,
+      "_id": "Q9Vjopy6kn3YfNPN",
+      "text": "You find nothing",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.Q9Vjopy6kn3YfNPN"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "_id": "woIelH6GpMNIZiPS",
+      "text": "Random X-Item",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.woIelH6GpMNIZiPS"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        5,
+        6
+      ],
+      "drawn": false,
+      "_id": "yw9U1CNF3SMJxpZu",
+      "text": "X-Items",
+      "documentId": "lxTuzJBSGZRyBsAA",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.yw9U1CNF3SMJxpZu"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "_id": "00cpByFTze78Rla4",
+      "text": "1d4x100 $",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.00cpByFTze78Rla4"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "_id": "1IWUgbeQxXk8ymMI",
+      "text": "Random Berry",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.1IWUgbeQxXk8ymMI"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        9,
+        10
+      ],
+      "drawn": false,
+      "_id": "fqEN8FCjnoJuzgqS",
+      "text": "Berries",
+      "documentId": "VGT1XpKrVSjqueBr",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.fqEN8FCjnoJuzgqS"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "_id": "PtbNjtm01GA6q59N",
+      "text": "Random Pokeball",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "documentCollection": "Actor",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.PtbNjtm01GA6q59N"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        11,
+        12
+      ],
+      "drawn": false,
+      "_id": "MIJbqHP065Rg0Wdz",
+      "text": "Pokeballs",
+      "documentId": "w8CSPcS7XUtTKQxw",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.MIJbqHP065Rg0Wdz"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        13,
+        16
+      ],
+      "drawn": false,
+      "_id": "KgwjmbjUzyz3SAXJ",
+      "text": "Random Restorative",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.KgwjmbjUzyz3SAXJ"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        13,
+        16
+      ],
+      "drawn": false,
+      "_id": "rxk0VhKhJvuU2wTE",
+      "text": "Restoratives",
+      "documentId": "YgeeOFNtOR1ywSbW",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.rxk0VhKhJvuU2wTE"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_id": "8oCvvy8WYfGUepyV",
+      "text": "Random Evolutionary Stone",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.8oCvvy8WYfGUepyV"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "_id": "hPi9Ooj4CQvzADF9",
+      "text": "Evolutionary Stones",
+      "documentId": "wdOETkq5aY7M7hJg",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.hPi9Ooj4CQvzADF9"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_id": "I23hQLGnNBM1oX2K",
+      "text": "Random Vitamin",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.I23hQLGnNBM1oX2K"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "_id": "W6eBiRnSjTylldr4",
+      "text": "Vitamins",
+      "documentId": "Jz6VDOAcaGNtMA0v",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.W6eBiRnSjTylldr4"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "_id": "JEO6rJzFpQefNKKt",
+      "text": "Random Held Item",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.JEO6rJzFpQefNKKt"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "_id": "m4JHqqzTbGQLWacw",
+      "text": "Held Items",
+      "documentId": "MlmOVH32wiSuP3sh",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.m4JHqqzTbGQLWacw"
+    },
+    {
+      "type": "text",
+      "weight": 2,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_id": "6cF7TEEpmOPxMds4",
+      "text": "Random TM",
+      "documentId": null,
+      "flags": {},
+      "img": "icons/svg/d20-black.svg",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.6cF7TEEpmOPxMds4"
+    },
+    {
+      "type": "pack",
+      "weight": 2,
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "_id": "dekJa54q9tSxW875",
+      "text": "TMs",
+      "documentId": "Hir8FWBHOgL0enD3",
+      "flags": {},
+      "img": "icons/svg/d20-grey.svg",
+      "documentCollection": "ptu.rolltables",
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.dekJa54q9tSxW875"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.rolltables",
+      "weight": 2,
+      "range": [
+        7,
+        8
+      ],
+      "drawn": false,
+      "_id": "hJGn51oAWWv803oP",
+      "text": "Poke",
+      "img": "icons/svg/d20-grey.svg",
+      "documentId": "QEnQIcCZMSLbQhwh",
+      "flags": {},
+      "_key": "!tables.results!s6rIVwjscA7c7oiP.hJGn51oAWWv803oP"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 2,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697734411337,
+    "modifiedTime": 1710778630502,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d20",
+  "_key": "!tables!s6rIVwjscA7c7oiP"
+}

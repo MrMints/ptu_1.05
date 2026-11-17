@@ -1,0 +1,653 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Pokeballs",
+  "_id": "w8CSPcS7XUtTKQxw",
+  "img": "systems/ptu/static/images/item_icons/basic%20ball.webp",
+  "description": "",
+  "results": [
+    {
+      "text": "Moon Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0OIuj8vmHHahGdmu",
+      "img": "systems/ptu/images/item_icons/moon ball.webp",
+      "_id": "ir2uDWOkcvQ6Hbss",
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.ir2uDWOkcvQ6Hbss"
+    },
+    {
+      "text": "Heavy Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0W7lg1gF7uWIYtsU",
+      "img": "systems/ptu/images/item_icons/heavy ball.webp",
+      "_id": "Wrkkm2OOu4RFVyR3",
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.Wrkkm2OOu4RFVyR3"
+    },
+    {
+      "text": "Gossamer Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "0YRlOGROIh3g5pyh",
+      "img": "systems/ptu/images/item_icons/gossamer ball.webp",
+      "_id": "Wb4ZWCuGT7sVFnpz",
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.Wb4ZWCuGT7sVFnpz"
+    },
+    {
+      "text": "Nest Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2CqsSkD7AQQPDcgl",
+      "img": "systems/ptu/images/item_icons/nest ball.webp",
+      "_id": "mM2bIReXrW0lhmDf",
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.mM2bIReXrW0lhmDf"
+    },
+    {
+      "text": "Heal Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "2kThT4G7lRriGgkb",
+      "img": "systems/ptu/images/item_icons/heal ball.webp",
+      "_id": "J2oztKPgdQ2AwEiQ",
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.J2oztKPgdQ2AwEiQ"
+    },
+    {
+      "text": "Quick Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "3WZ1SjFAF8nSQfBn",
+      "img": "systems/ptu/images/item_icons/quick ball.webp",
+      "_id": "fJJVV5MPfEfAQs51",
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.fJJVV5MPfEfAQs51"
+    },
+    {
+      "text": "Net Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "BVXqYbshv4HIgOmA",
+      "img": "systems/ptu/images/item_icons/net ball.webp",
+      "_id": "fZKx9CzRQtkMft7C",
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.fZKx9CzRQtkMft7C"
+    },
+    {
+      "text": "Dive Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Be5yPkNoR5HYkp9h",
+      "img": "systems/ptu/images/item_icons/dive ball.webp",
+      "_id": "ptCtd0zJL4aOKelq",
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.ptCtd0zJL4aOKelq"
+    },
+    {
+      "text": "Solid Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "BxaZEobXcjiiI1HB",
+      "img": "systems/ptu/images/item_icons/solid ball.webp",
+      "_id": "00fywZUjzGWgfNJE",
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.00fywZUjzGWgfNJE"
+    },
+    {
+      "text": "Earth Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Cdo6z6GWoZ6EKNS8",
+      "img": "systems/ptu/images/item_icons/earth ball.webp",
+      "_id": "rcJ7jOoH7iL7ujdl",
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.rcJ7jOoH7iL7ujdl"
+    },
+    {
+      "text": "Timer Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "DHGOva7RuJIosngC",
+      "img": "systems/ptu/images/item_icons/timer ball.webp",
+      "_id": "6kpS0pISH6Fh1tnH",
+      "range": [
+        11,
+        11
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.6kpS0pISH6Fh1tnH"
+    },
+    {
+      "text": "Level Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "I1tZvsAzQgTNSPib",
+      "img": "systems/ptu/images/item_icons/level ball.webp",
+      "_id": "zT2L10dT4dgjoQgG",
+      "range": [
+        12,
+        12
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.zT2L10dT4dgjoQgG"
+    },
+    {
+      "text": "Fast Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "IVEtmfZSgjCrhAkP",
+      "img": "systems/ptu/images/item_icons/fast ball.webp",
+      "_id": "WgkoVvJVTe0x3uko",
+      "range": [
+        13,
+        13
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.WgkoVvJVTe0x3uko"
+    },
+    {
+      "text": "Lure Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "J1ZZKx19Jm46RSJ4",
+      "img": "systems/ptu/images/item_icons/lure ball.webp",
+      "_id": "ieXrV7L5EOXPG2Zv",
+      "range": [
+        14,
+        14
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.ieXrV7L5EOXPG2Zv"
+    },
+    {
+      "text": "Mold Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "KPQtcd2yWdetmck0",
+      "img": "systems/ptu/images/item_icons/mold ball.webp",
+      "_id": "y2fDALD6rXJlNrEf",
+      "range": [
+        15,
+        15
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.y2fDALD6rXJlNrEf"
+    },
+    {
+      "text": "Premier Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "PzZGjwgU4rh8NeU7",
+      "img": "systems/ptu/images/item_icons/premier ball.webp",
+      "_id": "UadLgGf3BwDKB3A4",
+      "range": [
+        16,
+        16
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.UadLgGf3BwDKB3A4"
+    },
+    {
+      "text": "Heat Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Qbu0j8OSXygKJLzo",
+      "img": "systems/ptu/images/item_icons/heat ball.webp",
+      "_id": "j9pcQ73T38Q5sUdY",
+      "range": [
+        17,
+        17
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.j9pcQ73T38Q5sUdY"
+    },
+    {
+      "text": "Rain Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "QsrRnjkh1RRTfiRn",
+      "img": "systems/ptu/images/item_icons/rain ball.webp",
+      "_id": "wFniIzsXYuq4FWxw",
+      "range": [
+        18,
+        18
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.wFniIzsXYuq4FWxw"
+    },
+    {
+      "text": "Park Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "S2VCT7wkPNu4QCGi",
+      "img": "systems/ptu/images/item_icons/park ball.webp",
+      "_id": "ysGCTW5T2Y07Mm5u",
+      "range": [
+        19,
+        19
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.ysGCTW5T2Y07Mm5u"
+    },
+    {
+      "text": "Air Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Sy3rPHhhNa0ZjGaq",
+      "img": "systems/ptu/images/item_icons/air ball.webp",
+      "_id": "WpdndLfxLYfoCeVH",
+      "range": [
+        20,
+        20
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.WpdndLfxLYfoCeVH"
+    },
+    {
+      "text": "Haunt Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "U9MTnq3y1K7mvwcP",
+      "img": "systems/ptu/images/item_icons/haunt ball.webp",
+      "_id": "PKJkDT6PkMe20tre",
+      "range": [
+        21,
+        21
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.PKJkDT6PkMe20tre"
+    },
+    {
+      "text": "Sun Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "UzHgwPWUeA3NRKVH",
+      "img": "systems/ptu/images/item_icons/sun ball.webp",
+      "_id": "zviWIxW4lx0BU54O",
+      "range": [
+        22,
+        22
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.zviWIxW4lx0BU54O"
+    },
+    {
+      "text": "Friend Ball [F&amp;S Playtest]",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Z9stmwTRxJ1mSJkz",
+      "img": "systems/ptu/static/images/item_icons/friend%20ball.webp",
+      "_id": "xtSFUUq3TF7EFCZ2",
+      "range": [
+        23,
+        23
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.xtSFUUq3TF7EFCZ2"
+    },
+    {
+      "text": "Sand Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ZMvZKSvurYXBCaxU",
+      "img": "systems/ptu/images/item_icons/sand ball.webp",
+      "_id": "D04O19SsKZcxMjEW",
+      "range": [
+        24,
+        24
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.D04O19SsKZcxMjEW"
+    },
+    {
+      "text": "Repeat Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ZnKwJTJTk5p5S6LV",
+      "img": "systems/ptu/images/item_icons/repeat ball.webp",
+      "_id": "YPdReWAPPN3diP5X",
+      "range": [
+        25,
+        25
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.YPdReWAPPN3diP5X"
+    },
+    {
+      "text": "Power Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "ZrKtdENMsgK0IwAy",
+      "img": "systems/ptu/images/item_icons/power ball.webp",
+      "_id": "tYgVUS2uxsv0z5tg",
+      "range": [
+        26,
+        26
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.tYgVUS2uxsv0z5tg"
+    },
+    {
+      "text": "Sport Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "a5eburXZhzwHQ2W2",
+      "img": "systems/ptu/images/item_icons/sport ball.webp",
+      "_id": "I7AoYwYWQlmTK0CV",
+      "range": [
+        27,
+        27
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.I7AoYwYWQlmTK0CV"
+    },
+    {
+      "text": "Hail Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "bzxiRfiHN2Nnnyol",
+      "img": "systems/ptu/images/item_icons/hail ball.webp",
+      "_id": "Tdj0AveQ7y6krEBG",
+      "range": [
+        28,
+        28
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.Tdj0AveQ7y6krEBG"
+    },
+    {
+      "text": "Cherish Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "cWJvyfb9gAmWkuBB",
+      "img": "systems/ptu/images/item_icons/cherish ball.webp",
+      "_id": "VFUAdLdb4sW8jP6A",
+      "range": [
+        29,
+        29
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.VFUAdLdb4sW8jP6A"
+    },
+    {
+      "text": "Great Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "dQLYYQDlmCbgFHz6",
+      "img": "systems/ptu/images/item_icons/great ball.webp",
+      "_id": "iLFXr0A2GGQrtzy6",
+      "range": [
+        30,
+        30
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.iLFXr0A2GGQrtzy6"
+    },
+    {
+      "text": "Safari Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "eZK0E0wJRtzFIyKh",
+      "img": "systems/ptu/images/item_icons/safari ball.webp",
+      "_id": "ed1947TEJH4fEKkP",
+      "range": [
+        31,
+        31
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.ed1947TEJH4fEKkP"
+    },
+    {
+      "text": "Learning Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "g2ukc9h9uooLHFTr",
+      "img": "systems/ptu/images/item_icons/learning ball.webp",
+      "_id": "1k3mXLGgA0IRTxHn",
+      "range": [
+        32,
+        32
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.1k3mXLGgA0IRTxHn"
+    },
+    {
+      "text": "Love Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "h1pK58XM9nHYktm1",
+      "img": "systems/ptu/images/item_icons/love ball.webp",
+      "_id": "kMPlVT5z5N3YdCBr",
+      "range": [
+        33,
+        33
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.kMPlVT5z5N3YdCBr"
+    },
+    {
+      "text": "Mystic Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "j73NDpHlQCGPJqZ2",
+      "img": "systems/ptu/images/item_icons/mystic ball.webp",
+      "_id": "TVVtgzW078YL7F94",
+      "range": [
+        34,
+        34
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.TVVtgzW078YL7F94"
+    },
+    {
+      "text": "Luxury Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "okhcdkoCYYKcNHMD",
+      "img": "systems/ptu/images/item_icons/luxury ball.webp",
+      "_id": "WoehOzyEGwxrHCmP",
+      "range": [
+        35,
+        35
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.WoehOzyEGwxrHCmP"
+    },
+    {
+      "text": "Basic Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "slWfCt4O8yD0cXuC",
+      "img": "systems/ptu/images/item_icons/basic ball.webp",
+      "_id": "U9G38NmQTXlWm0bG",
+      "range": [
+        36,
+        36
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.U9G38NmQTXlWm0bG"
+    },
+    {
+      "text": "Dusk Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "vwGtLLZ0U1mbHzEk",
+      "img": "systems/ptu/images/item_icons/dusk ball.webp",
+      "_id": "b80C0k6p4MumyocJ",
+      "range": [
+        37,
+        37
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.b80C0k6p4MumyocJ"
+    },
+    {
+      "text": "Ultra Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "yJco0xyHka0Bfk0C",
+      "img": "systems/ptu/images/item_icons/ultra ball.webp",
+      "_id": "v9R1KNm0iveipi5n",
+      "range": [
+        38,
+        38
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.v9R1KNm0iveipi5n"
+    },
+    {
+      "text": "Fabulous Ball",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "z2DDshlESqmTvkyx",
+      "img": "systems/ptu/images/item_icons/fabulous ball.webp",
+      "_id": "QuU2DLWyInWSIpRJ",
+      "range": [
+        39,
+        39
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!w8CSPcS7XUtTKQxw.QuU2DLWyInWSIpRJ"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733020957,
+    "modifiedTime": 1710778630533,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d39",
+  "_key": "!tables!w8CSPcS7XUtTKQxw"
+}

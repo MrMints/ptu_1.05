@@ -1,0 +1,141 @@
+{
+  "folder": "KdbYHm255fVoO8XG",
+  "name": "Apricorns",
+  "_id": "AqCpXr5kan30Y0OF",
+  "img": "systems/ptu/static/images/item_icons/red%20apricorn.webp",
+  "description": "",
+  "results": [
+    {
+      "text": "Black Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "AOpwLlhEyyupgxoQ",
+      "img": "systems/ptu/images/item_icons/black apricorn.webp",
+      "_id": "nbnLWODLkgXkHyO2",
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.nbnLWODLkgXkHyO2"
+    },
+    {
+      "text": "Green Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "FeuH5JfRj5cyxTJ1",
+      "img": "systems/ptu/images/item_icons/green apricorn.webp",
+      "_id": "agJSj3gwocI9kRCS",
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.agJSj3gwocI9kRCS"
+    },
+    {
+      "text": "White Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "GvwXkhjQV22euvVa",
+      "img": "systems/ptu/images/item_icons/white apricorn.webp",
+      "_id": "hvVd1PQqS0Eu7BPg",
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.hvVd1PQqS0Eu7BPg"
+    },
+    {
+      "text": "Pink Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "JPV293LYQNNy5EzX",
+      "img": "systems/ptu/images/item_icons/pink apricorn.webp",
+      "_id": "c1FYfJ1xI2wl26hs",
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.c1FYfJ1xI2wl26hs"
+    },
+    {
+      "text": "Yellow Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "Ya2E1j0rYQc8DIzv",
+      "img": "systems/ptu/images/item_icons/yellow apricorn.webp",
+      "_id": "dXGnBFDhfTPFdrhx",
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.dXGnBFDhfTPFdrhx"
+    },
+    {
+      "text": "Blue Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "sVqd4iABHBjGV4ky",
+      "img": "systems/ptu/images/item_icons/blue apricorn.webp",
+      "_id": "f87dacmbF6VyPHQB",
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.f87dacmbF6VyPHQB"
+    },
+    {
+      "text": "Red Apricorn",
+      "type": "pack",
+      "weight": 1,
+      "documentCollection": "ptu.items",
+      "documentId": "uqSBEZvhGjfFx8BI",
+      "img": "systems/ptu/images/item_icons/red apricorn.webp",
+      "_id": "DSKydDNJgJAoJ83E",
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "flags": {},
+      "_key": "!tables.results!AqCpXr5kan30Y0OF.DSKydDNJgJAoJ83E"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697731489761,
+    "modifiedTime": 1710778630470,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d7",
+  "_key": "!tables!AqCpXr5kan30Y0OF"
+}

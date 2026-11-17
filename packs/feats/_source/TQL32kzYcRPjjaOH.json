@@ -1,0 +1,61 @@
+{
+  "name": "Spirited Routine [CR]",
+  "system": {
+    "origin": "Class Rework",
+    "effect": "Target: Your Pokémon with Positive Spirit Points\nEffect: Your Pokémon may spend 2 Spirit to use a Cheerleading move from your move list disregarding it's frequency.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "spirited-routine-cr",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Orders",
+      "Playtest",
+      "Class Rework"
+    ],
+    "prerequisites": [
+      "Cheer Brigade or From the Sidelines",
+      "Adept Charm"
+    ],
+    "frequency": "At-Will – Free Action",
+    "notes": "",
+    "free": false,
+    "class": "Cheerleader [CR]",
+    "name": "Spirited Routine [CR]"
+  },
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "type": "feat",
+  "folder": "gFSt4QEIkRBOMEOK",
+  "_id": "TQL32kzYcRPjjaOH",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1699736627730,
+    "modifiedTime": 1707827243445,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!TQL32kzYcRPjjaOH"
+}

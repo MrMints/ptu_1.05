@@ -1,0 +1,104 @@
+<section class="ptu-mechanic-preferences-review">
+    <p>This review displays supplied evidence. It changes no settings or selected Items. Proposals confer no consent.</p>
+    <dl>
+        <dt>Mode</dt><dd>{{mode}}</dd>
+        <dt>Current report</dt><dd>{{availability}}</dd>
+        <dt>Source assessment</dt><dd>{{sourceApproval}}</dd>
+    </dl>
+
+    <h2>Current results</h2>
+    {{#each current}}
+    <article>
+        <h3><code style="white-space: pre-wrap;">{{id}}</code></h3>
+        <dl>
+            <dt>Definition</dt><dd>{{definitionStatus}}</dd>
+            <dt>Declared storage scope</dt><dd><code>{{storageScope}}</code></dd>
+            <dt>Observation presence</dt><dd>{{presence}}</dd>
+            <dt>Observation availability</dt><dd>{{availability}}</dd>
+            <dt>Stored value</dt><dd><pre>{{stored}}</pre></dd>
+            <dt>Basic classification</dt><dd>{{basicStatus}} <code>{{basicValue}}</code></dd>
+            <dt>Declared choice membership</dt><dd>{{membership}}</dd>
+            <dt>Effective availability</dt><dd>{{effectiveAvailability}}</dd>
+            <dt>Effective value</dt><dd><code>{{effective}}</code></dd>
+            <dt>Effective origin</dt><dd>{{origin}}</dd>
+        </dl>
+        {{#if issueCodes}}
+        <ul aria-label="Current result issues">{{#each issueCodes}}<li><code>{{this}}</code></li>{{/each}}</ul>
+        {{/if}}
+        {{#each definitions}}
+        <details><summary>Definition [{{index}}] <code>{{label}}</code></summary><pre>{{detail}}</pre></details>
+        {{/each}}
+        {{#each observations}}
+        <details><summary>Observation [{{index}}]</summary><pre>{{detail}}</pre></details>
+        {{/each}}
+        {{#if choice}}
+        <details>
+            <summary>Indexed choice [{{choice.index}}] in definition [{{choice.definitionIndex}}]</summary>
+            <dl>
+                <dt>Declared source status (unassessed)</dt><dd><code>{{choice.sourceStatus}}</code></dd>
+                <dt>Declared citation (unassessed)</dt><dd><code>{{choice.citation}}</code></dd>
+                <dt>Declared eligibility (unassessed)</dt><dd><code>{{choice.eligibility}}</code></dd>
+            </dl>
+            <pre>{{choice.detail}}</pre>
+        </details>
+        {{/if}}
+        <details><summary>Provenance</summary><pre>{{provenance}}</pre></details>
+        <details><summary>Complete current result</summary><pre>{{detail}}</pre></details>
+    </article>
+    {{else}}
+    <p>No current results were returned.</p>
+    {{/each}}
+
+    <h2>Choice projection</h2>
+    <p>{{projection.availability}}</p>
+    <pre>{{projection.choices}}</pre>
+
+    <h2>Preset preview</h2>
+    <dl>
+        <dt>Availability</dt><dd>{{preset.availability}}</dd>
+        <dt>Preset ID</dt><dd><code style="white-space: pre-wrap;">{{preset.id}}</code></dd>
+    </dl>
+    {{#each preset.proposals}}
+    <article>
+        <h3><code style="white-space: pre-wrap;">{{id}}</code></h3>
+        <dl>
+            <dt>Disposition</dt><dd>{{disposition}}</dd>
+            <dt>Before</dt><dd><pre>{{before}}</pre></dd>
+            <dt>Proposed</dt><dd><pre>{{proposed}}</pre></dd>
+            <dt>Stored value would differ</dt><dd><code>{{storedWouldDiffer}}</code></dd>
+            <dt>Effective preference would differ</dt><dd><code>{{preferenceWouldDiffer}}</code></dd>
+        </dl>
+        {{#if issueCodes}}
+        <ul aria-label="Proposal issues">{{#each issueCodes}}<li><code>{{this}}</code></li>{{/each}}</ul>
+        {{/if}}
+        <details><summary>Complete proposal</summary><pre>{{detail}}</pre></details>
+    </article>
+    {{else}}
+    <p>No proposals were returned.</p>
+    {{/each}}
+
+    <h2>Report issues</h2>
+    <ul>
+        {{#each issues}}<li><code>{{code}}</code> at <code>{{path}}</code></li>
+        {{else}}<li>No report issues.</li>{{/each}}
+    </ul>
+
+    <h2>Supplied evidence</h2>
+    {{#each suppliedDefinitions}}
+    <details><summary>Supplied definition [{{index}}]</summary><pre>{{detail}}</pre></details>
+    {{/each}}
+    {{#each suppliedObservations}}
+    <details><summary>Supplied observation [{{index}}]</summary><pre>{{detail}}</pre></details>
+    {{/each}}
+    {{#each suppliedPresets}}
+    <details><summary>Supplied preset [{{index}}]</summary><pre>{{detail}}</pre></details>
+    {{/each}}
+    <details><summary>Raw request JSON</summary><pre>{{rawJson}}</pre></details>
+    <details><summary>Retained input</summary><pre>{{input}}</pre></details>
+    <details><summary>Complete report</summary><pre>{{report}}</pre></details>
+
+    <footer>
+        <button type="button" data-action="close">Close</button>
+        <button type="button" data-action="cancel">Cancel</button>
+    </footer>
+</section>

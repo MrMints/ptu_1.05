@@ -1,3 +1,5 @@
+import { getDocumentSourceId } from './document-source.js';
+
 const wordCharacter = String.raw`[\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]`;
 const nonWordCharacter = String.raw`[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Join_Control}]`;
 const nonWordCharacterRE = new RegExp(nonWordCharacter, "gu");
@@ -162,7 +164,7 @@ export async function getItemFromCompendium({ uuid, name, type, item }) {
         found = await findItemInCompendium({ name, type });
     }
     if (!found && item) {
-        found = await getItemFromCompendium({ uuid: item.flags?.core?.sourceId, name: item.name, type: item.type });
+        found = await getItemFromCompendium({ uuid: getDocumentSourceId(item), name: item.name, type: item.type });
     }
     return found;
 }

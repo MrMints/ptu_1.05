@@ -1,0 +1,232 @@
+{
+  "scope": "Reference classification and targeted diagnostic reproduction; not gameplay certification",
+  "runtimeContentCommit": "5e4946a7a09a0ab3605b3b33b27f4f1624617e0d",
+  "live": {
+    "foundryVersion": "13.351",
+    "systemVersion": "4.4.3",
+    "checkedAt": "2026-10-25T04:35:16.409Z",
+    "sourceFingerprint": "82370d1749f655ea3fd70ec1dbcbf144eceebfb47dd535043a98647cc9945685",
+    "runtime": [
+      {
+        "target": "abilities.DUw3xozURebyikaS",
+        "result": "missing"
+      },
+      {
+        "target": "capabilities.v1ksvxUrvIhkV7aD",
+        "result": "missing"
+      },
+      {
+        "target": "moves.73AHUIh6V65adbTW",
+        "result": "missing"
+      },
+      {
+        "target": "moves.9ctsajRuxfXNvEnv",
+        "result": "missing"
+      },
+      {
+        "target": "moves.9xBKv8W7Bus0tIly",
+        "result": "missing"
+      },
+      {
+        "target": "moves.ARPgyJJ3JseliM1K",
+        "result": "missing"
+      },
+      {
+        "target": "moves.CCIib8kjCbVHJqC4",
+        "result": "missing"
+      },
+      {
+        "target": "moves.dUETXbMQMsjLOsfo",
+        "result": "missing"
+      },
+      {
+        "target": "moves.ecbGKQbSoxGEIpbH",
+        "result": "missing"
+      },
+      {
+        "target": "moves.IW5JN8hhwgXFV72V",
+        "result": "missing"
+      },
+      {
+        "target": "moves.K7UB9TkJk18A5zvS",
+        "result": "missing"
+      },
+      {
+        "target": "moves.L3SlDw7Vz1QpAN7Z",
+        "result": "missing"
+      },
+      {
+        "target": "moves.mrYbUoEGQqVbkd8D",
+        "result": "missing"
+      },
+      {
+        "target": "moves.oXkwKDV9PDa2HBR6",
+        "result": "missing"
+      },
+      {
+        "target": "moves.QbOpkuydT0R2mo0z",
+        "result": "missing"
+      },
+      {
+        "target": "moves.TokvBTYi7ZG92XHJ",
+        "result": "missing"
+      },
+      {
+        "target": "moves.vypDpjMbQDlUywfo",
+        "result": "missing"
+      },
+      {
+        "target": "moves.Y1brXQWXKmLFHLEe",
+        "result": "missing"
+      },
+      {
+        "target": "moves.yeX0bso0PRJIS9XL",
+        "result": "missing"
+      },
+      {
+        "target": "moves.yg2lgjKqsBKRO17s",
+        "result": "missing"
+      },
+      {
+        "target": "moves.yjo9WADdCK1VkuOf",
+        "result": "missing"
+      },
+      {
+        "target": "moves.YXfJThGTFgAhZO7u",
+        "result": "missing"
+      },
+      {
+        "target": "moves.Zp2xGTRJ3Enoj6Ip",
+        "result": "missing"
+      },
+      {
+        "target": "species.uTLNgrPjP79HCmkW",
+        "result": "missing"
+      }
+    ],
+    "provenance": {
+      "sources": 667,
+      "loadedLegacyFlags": 0,
+      "matchingHistoricalStats": 667,
+      "sourceIdGetterDefined": 0,
+      "importsStampedWithCurrentUuid": 667,
+      "importsRetainingLegacyFlag": 0
+    },
+    "dryRuns": [
+      {
+        "source": "effects.3w7uQfBvzzxATXis",
+        "kind": "TemporarySpecies",
+        "result": "constructor-error",
+        "error": "Cannot read properties of null (reading 'system')",
+        "stack": [
+          "TypeError: Cannot read properties of null (reading 'system')",
+          "    at new TemporarySpeciesRuleElement (http://127.0.0.1:30001/systems/ptu/src/module/rules/rule-element/temp-species.js:16:30)",
+          "    at Macro.eval (eval at #executeScript (http://127.0.0.1:30001/scripts/foundry.mjs:45528:16), <anonymous>:66:26)",
+          "    at async #onExecute (http://127.0.0.1:30001/scripts/foundry.mjs:97764:5)"
+        ]
+      },
+      {
+        "source": "species.dkQPNz0RLbgzWMLq",
+        "kind": "abilities",
+        "selectedReferences": 1,
+        "generatedContentItems": 0,
+        "result": "missing-selected-content-omitted"
+      },
+      {
+        "source": "species.dkQPNz0RLbgzWMLq",
+        "kind": "capabilities",
+        "selectedReferences": 1,
+        "generatedContentItems": 0,
+        "result": "missing-selected-content-omitted"
+      },
+      {
+        "source": "species.jAIJeRtRc1sUekjO",
+        "kind": "abilities",
+        "selectedReferences": 1,
+        "generatedContentItems": 0,
+        "result": "missing-selected-content-omitted"
+      },
+      {
+        "source": "species.jAIJeRtRc1sUekjO",
+        "kind": "capabilities",
+        "selectedReferences": 1,
+        "generatedContentItems": 0,
+        "result": "missing-selected-content-omitted"
+      },
+      {
+        "source": "species.jAIJeRtRc1sUekjO",
+        "kind": "moves",
+        "selectedReferences": 3,
+        "generatedContentItems": 0,
+        "result": "missing-selected-content-omitted"
+      }
+    ]
+  },
+  "classification": {
+    "targets": {
+      "runtime-reference": 24,
+      "historical-metadata": 658
+    },
+    "occurrences": {
+      "runtime-reference": 46,
+      "historical-metadata": 1334
+    },
+    "profiles": {
+      "species-ability": 2,
+      "species-capability": 2,
+      "import-provenance": 667,
+      "legacy-import-provenance": 667,
+      "species-move": 41,
+      "temporary-species": 1
+    }
+  },
+  "sourceDecisions": {
+    "sourcePacksChanged": false,
+    "uuidsRetargeted": 0,
+    "recordsRecovered": 0,
+    "rulesAdjudicated": 0,
+    "reason": "No authoritative ID mapping established. Name/slug similarity is insufficient."
+  },
+  "knownLimitations": [
+    "Generator dry runs directly exercise create reference resolution with generate:false; random generation, full level-up UI and game rules are not certified.",
+    "Only the TemporarySpecies constructor was invoked directly; effect application to a persistent actor was not tested.",
+    "Provenance observations cover all 667 affected current compendium feats and core import preparation, not user campaigns.",
+    "Two historical snapshots were inspected, not all history."
+  ],
+  "session": {
+    "worldReturnedToSetup": true,
+    "serverHandle": "terminal",
+    "port30001": "ECONNREFUSED after stop",
+    "method": "Return to Setup through Foundry, verify / redirects to /setup, then Ctrl+C to stop the remaining setup server. Final graceful-process-shutdown log not observed.",
+    "actorOrCompendiumWritesByProbe": 0
+  },
+  "result": "classification-complete; confirmed-runtime-failures-remain",
+  "automatedChecks": [
+    {
+      "command": "node --test --test-isolation=none tests/compendium-references.test.mjs",
+      "result": "pass",
+      "tests": 5
+    },
+    {
+      "command": "node tools/audit-content.mjs",
+      "result": "pass",
+      "targets": 682,
+      "unclassified": 0,
+      "deterministic": true
+    },
+    {
+      "command": "node --check tools/foundry-reference-check.macro.js",
+      "result": "pass"
+    },
+    {
+      "command": "node --check tools/prepare-foundry-reference-check.mjs",
+      "result": "pass"
+    },
+    {
+      "command": "node tools/prepare-foundry-reference-check.mjs",
+      "result": "pass",
+      "runtimeTargets": 24,
+      "provenanceSources": 667
+    }
+  ]
+}

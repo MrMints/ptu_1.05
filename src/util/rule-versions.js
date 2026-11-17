@@ -1,0 +1,160 @@
+import {getDocumentSourceId} from './document-source.js';
+import {matchRuleVersionRegistry} from './rule-version-registry.js';
+
+export const RULE_VERSION_SCHEMA = 1;
+export const STANDARD_RULE_DEFAULT = 'standard';
+const itemTypes = new Set(['move', 'ability', 'feat', 'edge', 'pokeedge']);
+const sourceStatuses = new Set(['core', 'official-errata', 'optional-playtest', 'supplement', 'custom', 'synthetic']);
+const text = value => typeof value === 'string' && value.trim().length > 0;
+const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const copy = value => value === undefined ? undefined : structuredClone(value);
+const documentUuid = value => typeof value === 'string' && /^(?:Compendium\.[\w-]+\.[\w-]+\.(?:Item\.)?|Item\.|Actor\.[\w]+\.Item\.)[A-Za-z0-9]{16}$/.test(value);
+
+// Preserve known date precision; null means unknown, never a guessed publication day.
+function publicationDate(value) {
+    if (value === null) return true;
+    if (typeof value !== 'string' || !/^\d{4}(?:-\d{2}(?:-\d{2})?)?$/.test(value)) return false;
+    const [year, month, day] = value.split('-').map(Number);
+    if (year < 1 || (month !== undefined && (month < 1 || month > 12))) return false;
+    if (day === undefined) return true;
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    return day >= 1 && day <= [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
+}
+
+/** Shape checks only. A citation/eligible declaration is not production or behavior approval. */
+export function ruleVersionMetadataErrors(record) {
+    if (!object(record)) return ['metadata-missing-or-invalid'];
+    const errors = [];
+    if (record.schemaVersion !== RULE_VERSION_SCHEMA) errors.push('unsupported-metadata-schema');
+    if (!documentUuid(record.documentUuid)) errors.push('document-identity-invalid');
+    if (!itemTypes.has(record.type)) errors.push('unsupported-item-type');
+    if (!object(record.version) || !text(record.version.id) || !text(record.version.label)) errors.push('version-identity-missing');
+    if (!['original', 'revised', 'addition'].includes(record.version?.kind)) errors.push('version-kind-unestablished');
+    if (!['eligible', 'excluded', 'unclassified'].includes(record.generationEligibility)) errors.push('generation-eligibility-unestablished');
+    const source = record.source;
+    if (!object(source) || !text(source.id) || !text(source.edition) || !text(source.citation)) errors.push('source-attribution-incomplete');
+    if (!sourceStatuses.has(source?.status)) errors.push('source-status-unestablished');
+    if (!publicationDate(source?.publicationDate)) errors.push('source-date-invalid');
+    // Null explicitly retains an unknown relationship. Catalog coordinates are evidence, not runtime IDs.
+    if (record.canonical !== null && (!object(record.canonical) || !text(record.canonical.id)
+        || /^r04-/.test(record.canonical.id) || !text(record.canonical.evidence))) errors.push('canonical-relationship-unevidenced');
+    return errors;
+}
+
+function snapshot(item) {
+    const data = item?.toObject?.() ?? item;
+    const sourceId = getDocumentSourceId(data) ?? null;
+    const uuid = item?.uuid ?? null;
+    const actualPack = Boolean(item?.pack);
+    return {data, actualPack, identity:{uuid, id:item?.id ?? data?._id ?? null, sourceId,
+        // An actual pack document's own UUID wins over historical export provenance.
+        mappingUuid:actualPack ? uuid : sourceId ?? uuid},
+    storedSelection:copy(data?.flags?.ptu?.selectedVersion)};
+}
+
+function selectionFromSnapshot({data, identity, storedSelection}, versions) {
+    const issues = [];
+    let metadata = null;
+    if (!Array.isArray(versions)) issues.push('version-registry-invalid');
+    else if (!text(identity.mappingUuid)) issues.push('document-identity-unestablished');
+    else {
+        const matches = versions.filter(record => record?.documentUuid === identity.mappingUuid);
+        if (matches.length !== 1) issues.push(matches.length ? 'ambiguous-document-mapping' : 'document-mapping-unestablished');
+        else {
+            const record = matches[0];
+            issues.push(...ruleVersionMetadataErrors(record));
+            if (record.type !== data?.type) issues.push('mapped-item-type-conflict');
+            if (record.generationEligibility !== 'eligible') issues.push('mapping-outside-approved-generation-scope');
+            const selectedId = typeof storedSelection === 'string' ? storedSelection : storedSelection?.id;
+            if (storedSelection !== undefined && storedSelection !== null && !text(selectedId)) issues.push('stored-version-identity-unestablished');
+            else if (text(selectedId) && selectedId !== record.version?.id) issues.push('stored-version-conflict');
+            // Edition/version tokens may be shared by distinct benefits, but one evidenced
+            // canonical version must not silently point to competing source documents.
+            if (text(record.canonical?.id) && text(record.version?.id) && versions.some(other => other !== record
+                && other?.canonical?.id === record.canonical.id && other?.version?.id === record.version.id)) issues.push('ambiguous-canonical-version');
+            if (issues.length === 0) metadata = copy(record);
+        }
+    }
+    return {schemaVersion:RULE_VERSION_SCHEMA, status:metadata ? 'resolved' : 'unresolved',
+        identity:copy(identity), storedSelection, selectedVersion:metadata ? copy(metadata.version) : null,
+        canonical:metadata ? copy(metadata.canonical) : null, source:metadata ? copy(metadata.source) : null,
+        rawPrerequisites:copy(data?.system?.prerequisites), issues};
+}
+
+function selectionFromOptions(state, options) {
+    const container = options !== null && ['object', 'function'].includes(typeof options);
+    const descriptor = container ? Object.getOwnPropertyDescriptor(options, 'registry') : undefined;
+    const failed = issues => {
+        const result = selectionFromSnapshot(state, []);
+        return {...result, registryMatch:{status:'unresolved', canonicalUuid:null}, issues:[...issues, ...result.issues]};
+    };
+    const hasRegistry = descriptor !== undefined || container && 'registry' in options;
+    if (hasRegistry && (!object(options) || ![Object.prototype, null].includes(Object.getPrototypeOf(options)))) return failed(['registry-options-not-plain-object']);
+    if (!descriptor) {
+        if (hasRegistry) return failed(['registry-option-not-own-data']);
+        const {versions = []} = options;
+        return selectionFromSnapshot(state, versions);
+    }
+    if (!descriptor.enumerable || !Object.hasOwn(descriptor, 'value')) return failed(['registry-option-not-data']);
+    if (Object.hasOwn(options, 'versions')) return failed(['registry-and-versions-conflict']);
+    const modern = state.data?._stats?.compendiumSource;
+    if (!state.actualPack && modern !== undefined && modern !== null && typeof modern !== 'string') return failed(['registry-modern-source-identity-invalid']);
+    const match = matchRuleVersionRegistry(descriptor.value, state.identity.mappingUuid);
+    if (match.status !== 'matched') return failed(match.issues);
+    const result = selectionFromSnapshot({...state, identity:{...state.identity, mappingUuid:match.canonicalUuid}}, match.mappings);
+    return {...result, identity:copy(state.identity), registryMatch:{status:'matched', canonicalUuid:match.canonicalUuid}};
+}
+
+/** Exact {versions} is unchanged; an explicit registry additionally matches its derived aliases. */
+export function lookupSelectedRuleVersion(item, options = {}) {
+    return selectionFromOptions(snapshot(item), options);
+}
+
+function copyOptionalChoiceData(value, ancestors = new Set()) {
+    if (value === null || ['string', 'boolean'].includes(typeof value) || typeof value === 'number' && Number.isFinite(value)) return value;
+    if (typeof value !== 'object' || ancestors.has(value)) throw Error('unreadable-choices');
+    const array = Array.isArray(value), prototype = Object.getPrototypeOf(value);
+    if (array ? prototype !== Array.prototype : ![Object.prototype, null].includes(prototype)) throw Error('unreadable-choices');
+    const result = array ? [] : {}, next = new Set(ancestors).add(value);
+    let count = 0;
+    for (const key of Reflect.ownKeys(value)) {
+        if (array && key === 'length') continue;
+        const descriptor = Object.getOwnPropertyDescriptor(value, key);
+        if (typeof key !== 'string' || !descriptor.enumerable || !Object.hasOwn(descriptor, 'value')) throw Error('unreadable-choices');
+        const index = Number(key);
+        if (array && (!Number.isInteger(index) || index < 0 || index >= 4294967295 || String(index) !== key)) throw Error('unreadable-choices');
+        Object.defineProperty(result, key, {value:copyOptionalChoiceData(descriptor.value, next), enumerable:true, writable:true, configurable:true});
+        count++;
+    }
+    if (array && count !== value.length) throw Error('unreadable-choices');
+    return result;
+}
+
+/** Owned data stays authoritative, including custom rules/choices and unresolved legacy selections. */
+export function lookupEffectiveRule(item, options = {}) {
+    const optional = options !== null && ['object', 'function'].includes(typeof options) && 'registry' in options;
+    if (!optional) {
+        const {mechanicChoices = {}} = options;
+        const state = snapshot(item);
+        return {selection:selectionFromOptions(state, options), system:copy(state.data?.system), mechanicChoices:copy(mechanicChoices)};
+    }
+    const state = snapshot(item);
+    const selection = selectionFromOptions(state, options), system = copy(state.data?.system);
+    const unavailable = issue => ({selection, system, mechanicChoices:null, mechanicChoiceIssues:[issue]});
+    if (!object(options) || ![Object.prototype, null].includes(Object.getPrototypeOf(options))) return unavailable('registry-options-not-plain-object');
+    const descriptor = Object.getOwnPropertyDescriptor(options, 'mechanicChoices');
+    if (!descriptor && 'mechanicChoices' in options) return unavailable('mechanic-choices-not-own-data');
+    if (descriptor && (!descriptor.enumerable || !Object.hasOwn(descriptor, 'value'))) return unavailable('mechanic-choices-not-data');
+    try {
+        const value = descriptor?.value === undefined ? {} : descriptor.value;
+        return {selection, system, mechanicChoices:copyOptionalChoiceData(value)};
+    } catch {return unavailable('mechanic-choices-not-serialized-data');}
+}
+
+/** Independent mechanic preference; an absent choice uses standard, never a selected item's version. */
+export function lookupMechanicChoice(id, choices = {}) {
+    if (!text(id) || !object(choices)) return {status:'unresolved', value:null, issue:'mechanic-choices-invalid'};
+    if (!Object.hasOwn(choices, id)) return {status:'default', value:STANDARD_RULE_DEFAULT};
+    return text(choices[id]) ? {status:'explicit', value:choices[id]}
+        : {status:'unresolved', value:copy(choices[id]), issue:'mechanic-choice-invalid'};
+}

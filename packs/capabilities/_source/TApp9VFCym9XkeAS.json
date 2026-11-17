@@ -1,0 +1,50 @@
+{
+  "folder": "7ycBPshrC6RdRwFb",
+  "name": "Tera Type: Stellar",
+  "type": "capability",
+  "_id": "TApp9VFCym9XkeAS",
+  "img": "https://assets.forge-vtt.com/6464e7dd7cb6da75187d728c/worlds/Pokemon%20The%20Chosen/Tera%20Types/tera_type_stellar_symbol_paldea_by_jormxdos_dg5qm2y-375w.png",
+  "system": {
+    "origin": "",
+    "effect": "",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "tera-type-stellar",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": []
+  },
+  "effects": [],
+  "sort": 131250,
+  "ownership": {
+    "default": 2,
+    "y4EIjJlrc2eCclW7": 3,
+    "s5aYT4VJEW56OtOC": 3,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Item.JO3eeRIg0u2AZTcx"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.1",
+    "coreVersion": "12.327",
+    "createdTime": 1705600772569,
+    "modifiedTime": 1706451403856,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Item.JO3eeRIg0u2AZTcx",
+    "duplicateSource": null
+  },
+  "_key": "!items!TApp9VFCym9XkeAS"
+}

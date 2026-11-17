@@ -1,0 +1,402 @@
+- list
+- complementary:
+  - list:
+    - tab "Token Controls": 
+    - tab "Measurement Controls": 
+    - tab "Tile Controls": 
+    - tab "Drawing Tools": 
+    - tab "Wall Controls": 
+    - tab "Lighting Controls": 
+    - tab "Ambient Sound Controls": 
+    - tab "Region Controls": 
+    - tab "Journal Notes": 
+  - list:
+    - button "Select Tokens" [pressed]: 
+    - button "Select Targets": 
+    - button "Measure Distance": 
+    - button "Unconstrained Movement": 
+    - button "Pokedex": 
+    - button "Weather & Global Effects Menu": 
+- complementary:
+  - list:
+    - generic: Gamemaster [GM]
+  - generic: Latency 0ms
+  - generic: FPS 60
+  - button ""
+- navigation:
+  - generic "Expand Navigation":
+    - generic: 
+  - list:
+    - generic: PTU 02 integration
+    - list:
+      - listitem "Gamemaster": G
+    - text: 
+- complementary:
+  - button "Mute Volume": 
+  - button "Main Menu": 
+  - list:
+    - button "Empty Slot":
+      - generic: "1"
+    - button "Empty Slot":
+      - generic: "2"
+    - button "Empty Slot":
+      - generic: "3"
+    - button "Empty Slot":
+      - generic: "4"
+    - button "Empty Slot":
+      - generic: "5"
+    - button "Empty Slot":
+      - generic: "6"
+    - button "Empty Slot":
+      - generic: "7"
+    - button "Empty Slot":
+      - generic: "8"
+    - button "Empty Slot":
+      - generic: "9"
+    - button "Empty Slot":
+      - generic: "0"
+  - navigation:
+    - button "Next Page": 
+    - generic: "1"
+    - button "Previous Page": 
+  - button "Lock Hotbar": 
+  - button "Clear Hotbar": 
+- list
+- textbox "Chat":
+  - /placeholder: Enter message
+- button "Public Roll" [pressed]: 
+- button "Private GM Roll": 
+- button "Blind GM Roll": 
+- button "Self Roll": 
+- text:  
+- complementary:
+  - tablist:
+    - list:
+      - tab "Chat Messages": 
+      - tab "Combat Encounters": 
+      - tab "Scenes": 
+      - tab "Actors": 
+      - tab "Items": 
+      - tab "Journal": 
+      - tab "Rollable Tables": 
+      - tab "Card Stacks": 
+      - tab "Macros": 
+      - tab "Playlists": 
+      - tab "Compendium Packs": 
+      - tab "Game Settings": 
+      - button "Collapse": 
+  - text:                                           +      
+  - button " Create Actor":
+    - generic: 
+    - generic: Create Actor
+  - button " Create Folder":
+    - generic: 
+    - generic: Create Folder
+  - button " Import Party":
+    - generic: 
+    - text: Import Party
+  - button " Pkmn Generator":
+    - generic: 
+    - text: Pkmn Generator
+  - button " NPC Quick Build":
+    - generic: 
+    - text: NPC Quick Build
+  - button " Pokemon Training":
+    - generic: 
+    - text: Pokemon Training
+  - search:
+    - button "Search by Name only": 
+    - searchbox "Search Actors": P03 NPC final-matrix
+    - button "Sort Alphabetically": 
+    - button "Collapse All Folders":  
+  - list:
+    - text:   +  +   +  +   +  +
+    - generic: 
+    - generic: P03 NPC final-matrix
+    - button "Create Folder":  +
+    - button "Create Actor":  +
+    - list:
+      - text:   +  +
+      - img "P03 NPC final-matrix"
+      - generic: P03 NPC final-matrix
+    - text:   +  +   +  +   +  +   +  +
+  - text:          +  +   +  +   +  +   +  +   +  +   +  +   +  +   +  +         +  +                                      +  +               +  +   +  +         +  +                     +  +                        
+- figure "Game Paused":
+  - generic: Game Paused
+- banner:
+  - heading "P03 NPC final-matrixCopy Document UUID" [level=4]:
+    - text: P03 NPC final-matrix
+    - generic "Copy Document UUID":
+      - generic: 
+  - generic: 
+  - text: Dex
+  - generic: 
+  - text: Party
+  - generic: 
+  - text: Training
+  - generic: 
+  - text: Notes
+  - generic: 
+  - text: Heal
+  - generic: 
+  - text: Choose Starter Training
+  - generic: 
+  - text: Prototype Token
+  - generic: 
+  - text: Configure
+  - generic: 
+  - text: Close
+- navigation:
+  - generic: 
+  - generic: 
+  - generic: 
+  - generic: 
+  - generic: 
+  - generic: 
+  - generic: 
+  - generic: 
+- main:
+  - region "Prerequisite diagnostics":
+    - heading "Prerequisites — advisory" [level=3]
+    - paragraph: Game-rule prerequisites are advisory. Normal ownership and scope permissions still apply.
+    - article:
+      - heading "NPC Identity class" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity class [Actor.Jg7xKPoyLbqkGkc0.Item.NaN8lGfmnzuxOTtV; source Synthetic diagnostic class-A; version Synthetic class-A]: Unmet: Master Focus (Focus: requires 6, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity class [Actor.Jg7xKPoyLbqkGkc0.Item.NaN8lGfmnzuxOTtV; source Synthetic diagnostic class-A; version Synthetic class-A]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "NPC Identity class" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity class [Actor.Jg7xKPoyLbqkGkc0.Item.x77bwZxHuTq1VC1c; source Synthetic diagnostic class-B; version Synthetic class-B]: Unmet: Adept Charm (Charm: requires 4, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity class [Actor.Jg7xKPoyLbqkGkc0.Item.x77bwZxHuTq1VC1c; source Synthetic diagnostic class-B; version Synthetic class-B]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "Medical Techniques" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.HwXGqmFN6WMO26Hk; source PTR Compendiums; version unestablished]: Unmet: Adept Medicine Education (Medicine Education: requires 4, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.HwXGqmFN6WMO26Hk; source PTR Compendiums; version unestablished]: Unverifiable: Medic (custom-or-unresolved-identity)."
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.HwXGqmFN6WMO26Hk; source PTR Compendiums; version unestablished]: Unverifiable: rule-version-unestablished."
+    - article:
+      - heading "Medical Techniques" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.O9WYIfc7AM42qsLz; source PTR Compendiums; version unestablished]: Unmet: Expert Medicine Education (Medicine Education: requires 5, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.O9WYIfc7AM42qsLz; source PTR Compendiums; version unestablished]: Unverifiable: Apothecary (custom-or-unresolved-identity)."
+        - listitem: "Medical Techniques [Actor.Jg7xKPoyLbqkGkc0.Item.O9WYIfc7AM42qsLz; source PTR Compendiums; version unestablished]: Unverifiable: rule-version-unestablished."
+    - article:
+      - heading "NPC Identity renamed Feature B (Beta)" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity renamed Feature B (Beta) [Actor.Jg7xKPoyLbqkGkc0.Item.xkJxZIYytEDrqGul; source Synthetic diagnostic feat-B; version Synthetic feat-B]: Unmet: Adept Charm (Charm: requires 4, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity renamed Feature B (Beta) [Actor.Jg7xKPoyLbqkGkc0.Item.xkJxZIYytEDrqGul; source Synthetic diagnostic feat-B; version Synthetic feat-B]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "NPC Identity feat (Beta)" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity feat (Beta) [Actor.Jg7xKPoyLbqkGkc0.Item.LelBlISFEOUIjygH; source Synthetic diagnostic feat-A; version Synthetic feat-A]: Unmet: Master Focus (Focus: requires 6, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity feat (Beta) [Actor.Jg7xKPoyLbqkGkc0.Item.LelBlISFEOUIjygH; source Synthetic diagnostic feat-A; version Synthetic feat-A]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "NPC Identity feat (Alpha)" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity feat (Alpha) [Actor.Jg7xKPoyLbqkGkc0.Item.UR5mRr9UdqWzftKQ; source Synthetic diagnostic feat-A; version Synthetic feat-A]: Unmet: Master Focus (Focus: requires 6, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity feat (Alpha) [Actor.Jg7xKPoyLbqkGkc0.Item.UR5mRr9UdqWzftKQ; source Synthetic diagnostic feat-A; version Synthetic feat-A]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "NPC Identity edge" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity edge [Actor.Jg7xKPoyLbqkGkc0.Item.F4EkFnjYqYURPdul; source Synthetic diagnostic edge-A; version Synthetic edge-A]: Unmet: Master Focus (Focus: requires 6, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity edge [Actor.Jg7xKPoyLbqkGkc0.Item.F4EkFnjYqYURPdul; source Synthetic diagnostic edge-A; version Synthetic edge-A]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+    - article:
+      - heading "NPC Identity edge" [level=4]
+      - strong: Unmet
+      - list:
+        - listitem: "NPC Identity edge [Actor.Jg7xKPoyLbqkGkc0.Item.uLJe9sap7csrMXzG; source Synthetic diagnostic edge-B; version Synthetic edge-B]: Unmet: Adept Charm (Charm: requires 4, current 2)."
+      - strong: Unverifiable / custom
+      - list:
+        - listitem: "NPC Identity edge [Actor.Jg7xKPoyLbqkGkc0.Item.uLJe9sap7csrMXzG; source Synthetic diagnostic edge-B; version Synthetic edge-B]: Unverifiable: GM Permission (gm-approval-not-evidenced)."
+  - generic: Skill
+  - generic: Value
+  - generic: Rank
+  - generic: Mod
+  - generic: Dice
+  - generic: Acrobatics
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Athletics
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Medicine Education
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Charm
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Combat
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Command
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: General Education
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Technology Education
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Guile
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Intimidate
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Intuition
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Occult Education
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Perception
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Stealth
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Survival
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Focus
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - generic: Pokémon Education
+  - text: "0"
+  - textbox [disabled]: "2"
+  - generic: Untrained
+  - text: "0"
+  - textbox: "0"
+  - generic: 
+  - text: 2d6
+  - textbox "Name": P03 NPC final-matrix
+  - generic: "Level:"
+  - textbox [disabled]: "1"
+  - generic: Trainer exp
+  - generic: Exp bank
+  - spinbutton: "0"
+  - spinbutton
+  - generic: Height
+  - generic: Weight
+  - textbox
+  - textbox
+  - img "P03 NPC final-matrix"
+  - generic: Physical description
+  - generic: Describe various things about your trainer, especially those that may not be visible in the image you chose. Things like age, birthmarks, old injuries, etc. belong here. Further description of any accessories or any special equipment that may not be visible in your image also go here.
+  - generic: 
+  - generic: Background
+  - generic: Describe your trainer's history; this could include their where they were born/grew up, their childhood experiences, their family life, any significant formative events (positive or negative), frienships/enmities, or even what drove them to start on this journey.
+  - generic: 
+  - generic: Personality
+  - generic: Describe the aspects of your trainer's personality. Maybe they are quick to anger and quick to forgive, maybe they have a soft spot for kids, or maybe they are afraid of bugs. Whatever they like, disklike, think, believe, or feel goes here; note that this can and likely will change over time.
+  - generic: 
+  - generic: GM Info
+  - generic: Spot for GM-only info like trainer experience conditions, rival info, plans for the future, etc.
+  - generic: 
+  - text:                                                    0 0 0 0 0 0 0 0 0 0 0 0     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+- generic: 

@@ -1,4 +1,5 @@
 import { sluggify } from "../../util/misc.js";
+import { getSkillLabel } from "../../util/skills.js";
 import { PTUDiceModifier, PTUModifier } from "../actor/modifiers.js";
 import { extractDamageDice, extractModifiers, extractNotes } from "../rules/helpers.js";
 import { Statistic } from "../system/statistic/index.js";
@@ -68,11 +69,11 @@ class PTUSkills {
             }
             const skillDiceModifier = new PTUDiceModifier({
                 diceNumber: diceNumber,
-                label: game.i18n.format("PTU.Check.SkillDice", { skill: Handlebars.helpers.capitalize(skill) })
+                label: game.i18n.format("PTU.Check.SkillDice", { skill: getSkillLabel(skill) })
             });
             diceModifiers.push(skillDiceModifier);
             const skillModifier = new PTUModifier({
-                label: game.i18n.format("PTU.Check.SkillMod", { skill: Handlebars.helpers.capitalize(skill) }),
+                label: game.i18n.format("PTU.Check.SkillMod", { skill: getSkillLabel(skill) }),
                 modifier: actor.system.skills[skill]?.modifier?.total ?? 0
             })
             modifiers.push(skillModifier);
@@ -88,7 +89,7 @@ class PTUSkills {
 
         const testedModifier = new Statistic(actor, {
             slug: skill ? `${skill}-check` : "check",
-            label: game.i18n.format(skill ? "PTU.Check.SkillCheck" : "PTU.Check.Check", { skill: Handlebars.helpers.capitalize(skill) }),
+            label: game.i18n.format(skill ? "PTU.Check.SkillCheck" : "PTU.Check.Check", { skill: getSkillLabel(skill) }),
             check: { type: "skill-check", domains: selectors, modifiers, diceModifiers },
             options: [...options],
             domains: [],

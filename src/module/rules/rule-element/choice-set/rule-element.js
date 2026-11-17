@@ -4,6 +4,7 @@ import { PTUPredicate } from "../../../system/predication.js";
 import { PredicateField } from "../../../system/schema-data-fields.js";
 import { RuleElementPTU } from "../base.js";
 import { ChoiceSetPrompt } from "./prompt.js";
+import {isExcludedContent} from '../../../../util/content-scope.js';
 
 class ChoiceSetRuleElement extends RuleElementPTU {
     constructor(data, item, options) {
@@ -61,7 +62,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
     }
 
     /** @override */
-    async preCreate({ itemSource, ruleSource }) {
+    async preCreate({ itemSource, ruleSource, context }) {
         const rollOptions = [this.actor.getRollOptions(), this.item.getRollOptions("item")].flat();
 
         const predicate = this.resolveInjectedProperties(this.predicate);
@@ -128,7 +129,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
             }
         } else {
             if(!this.allowNoSelection) {
-                ui.notifications.error(game.i18n.format("PTU.RuleElement.ChoiceSet.NoSelectionNotAllowed", { item: this.item.name}));
+                if (!context?.ptuStarterTraining) ui.notifications.error(game.i18n.format("PTU.RuleElement.ChoiceSet.NoSelectionNotAllowed", { item: this.item.name}));
                 throw new Error("PTU | ChoiceSetRuleElement | No selection made.");
             }
             ruleSource.ignored = true;
@@ -137,7 +138,7 @@ class ChoiceSetRuleElement extends RuleElementPTU {
 
     async inflateChoices() {
         const choices = Array.isArray(this.choices)
-            ? this.choices.map(c => ({...c, value: this.resolveInjectedProperties(c.value)})).filter(c => c.value !== 'undefined')
+            ? this.choices.map(c => ({...c, value: this.resolveInjectedProperties(c.value)})).filter(c => c.value !== 'undefined' && !isExcludedContent(c.value))
             : typeof this.choices === "string"
             ? this.#choicesFromPath(this.choices)
             : [];

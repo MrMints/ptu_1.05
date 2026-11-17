@@ -1,0 +1,72 @@
+{
+  "name": "Shadow Down",
+  "type": "move",
+  "img": "systems/ptu/static/css/images/types2/ShadowIC_Icon.png",
+  "system": {
+    "origin": "",
+    "effect": "All Legal Targets have their Defense lowered 2 Combat Stages.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "shadow-down",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "Compendium.ptu.effects.Item.0Km7iGlBLycSiE9d",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Friendly"
+    ],
+    "sheerForce": false,
+    "toughClaws": false,
+    "technician": false,
+    "reckless": false,
+    "ironFist": false,
+    "megaLauncher": false,
+    "punkRock": false,
+    "strongJaw": false,
+    "type": "Shadow",
+    "category": "Status",
+    "damageBase": "--",
+    "frequency": "EOT",
+    "ac": "3",
+    "range": "Burst 2",
+    "contestType": "",
+    "stab": false,
+    "damageBonus": 0,
+    "isStruggle": false
+  },
+  "effects": [],
+  "folder": "O2vsL1IY0u9DOERr",
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "core": {
+      "sourceId": "Compendium.forge-vtt-shared-compendiums-shadow-moves.item-1-shadopw-moves.Item.6nF7C7SDU9BCA7jk"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1694870235015,
+    "modifiedTime": 1710765456884,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.forge-vtt-shared-compendiums-shadow-moves.item-1-shadopw-moves.Item.6nF7C7SDU9BCA7jk",
+    "duplicateSource": null
+  },
+  "_id": "8MUEKNGgj0oc7P2f",
+  "ownership": {
+    "default": 0,
+    "WhlnHKyCf2rNFP17": 3,
+    "xUomATnixLnn15IR": 3,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "sort": 425000,
+  "_key": "!items!8MUEKNGgj0oc7P2f"
+}

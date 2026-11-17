@@ -1,0 +1,65 @@
+{
+  "folder": "2JCGsdCpOqDxjk8e",
+  "name": "Zen-Like Instinct [CR]",
+  "type": "feat",
+  "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Trigger: Your Fighting-Type Pokémon would be hit by a Ranged Attack or Status Move.\nEffect: The triggering Ranged Attack's Accuracy Check is rerolled, with its AC increased by 2, and the triggering Status Move misses.\nBonus: Your Fighting-Type Pokémon gain a +3 bonus to their Save Rolls.\n",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "zen-like-instinct-cr",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Branch",
+      "Playtest",
+      "CR"
+    ],
+    "prerequisites": [
+      "Bend Like Reeds [CR]",
+      "Type-Linked Skill at Master"
+    ],
+    "frequency": "Scene x2 - Free Action",
+    "notes": "",
+    "free": false,
+    "class": "Type Ace (Fighting) [CR]"
+  },
+  "effects": [],
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "exportSource": {
+      "world": "the-chosen",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.2.2"
+    }
+  },
+  "_id": "9hrY4I8PJMoSbbGk",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "createdTime": 1710767018129,
+    "modifiedTime": 1710767018129,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!9hrY4I8PJMoSbbGk"
+}

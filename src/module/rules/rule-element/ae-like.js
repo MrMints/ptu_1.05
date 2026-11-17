@@ -1,3 +1,4 @@
+import {beginHugePowerAE, noteHugePowerAE, endHugePowerAE} from '../../../util/huge-power.js';
 import { PTUModifier } from "../../actor/modifiers.js";
 import { ResolvableValueField } from "../../system/schema-data-fields.js";
 import { RuleElementPTU } from "./base.js";
@@ -101,6 +102,8 @@ class AELikeRuleElement extends RuleElementPTU {
     }
 
     apply(rollOptions) {
+        const hugePowerReceipt = beginHugePowerAE(this);
+        try {
         this.validateData();
         if (!this.test(rollOptions ?? this.actor.getRollOptions())) return;
 
@@ -113,6 +116,7 @@ class AELikeRuleElement extends RuleElementPTU {
         const current = foundry.utils.getProperty(actor, path);
         const change = this.resolveValue(this.value)
         const newValue = this.getNewValue(current, change);
+        if (hugePowerReceipt) noteHugePowerAE(this, hugePowerReceipt, "resolved", {path, current, change, result: newValue});
         if (this.ignored) return;
 
         if (this.mode === "add" && Array.isArray(current)) {
@@ -127,10 +131,14 @@ class AELikeRuleElement extends RuleElementPTU {
         }
         try {
             foundry.utils.setProperty(actor, path, newValue);
+            noteHugePowerAE(this, hugePowerReceipt, "written");
             this._logChange(change);
+            noteHugePowerAE(this, hugePowerReceipt, "logged");
         } catch (error) {
+            noteHugePowerAE(this, hugePowerReceipt, "write-or-log-failure");
             console.warn(error);
         }
+        } finally { endHugePowerAE(this, hugePowerReceipt); }
     }
 
     getNewValue(current, change) {

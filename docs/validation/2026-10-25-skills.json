@@ -1,0 +1,3542 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "scope": "PTU 1.05 skill terminology compatibility using Generation 1 fixtures; Generations 1-8 supported boundary, Generation 9 excluded. No content-version approval.",
+  "systemVersion": "4.4.3",
+  "foundryVersion": "13.351",
+  "baselineCommit": "b03b1c4e97da64f3f29b18f090e215824e511773",
+  "runtimeCommit": "1c586021e192cc28111c84189cb07b3a84828501",
+  "runtimeTrees": {
+    "src": "1a9b106e18be95a550f14ff926de522d67b3a913",
+    "static": "b74f0dc1ec2582ee55712f98b5c8a795d3f1ecc1",
+    "packs": "44453b35d82a524887c447f042c2866fa10b59bf",
+    "template": "f753ba3d552b3043d9fc43d073cb58440bbaad87"
+  },
+  "archive": {
+    "bytes": 1108935207,
+    "sha256": "024d1c178b6f95639197fdd05d9c0507e48e339261ebde8abd87142ca606f42a",
+    "runtimeFilesCompared": 3495,
+    "excludedPathsAbsent": true,
+    "packManifests": 15
+  },
+  "automated": {
+    "tests": 23,
+    "passed": 23,
+    "skillTests": 7,
+    "command": "node --test --test-isolation=none tests/*.test.mjs",
+    "manifestSources": "17 skills, 15 packs, 7395 inherited source documents; structural inventory only",
+    "semanticRoundTrips": "15 packs; all source IDs and semantic JSON equal",
+    "installedRuntimeFilesCompared": 3495,
+    "initialFailure": "One initial setup fixture rename returned EPERM; affected 4-test setup batch and final 23-test run passed without implementation changes."
+  },
+  "baselineReproduction": [
+    {
+      "text": "Novice Technology Edu",
+      "met": false,
+      "newFeatures": [],
+      "newEdges": [],
+      "newSkills": {},
+      "skillRank": null,
+      "subOption": null,
+      "unknown": true
+    },
+    {
+      "text": "  NOVICE   Pokémon   Education  ",
+      "met": true,
+      "newFeatures": [],
+      "newEdges": [],
+      "newSkills": {
+        "pokemonEd": 3
+      },
+      "skillRank": 3,
+      "subOption": null,
+      "unknown": false
+    },
+    {
+      "text": "invented Novice Charm",
+      "met": true,
+      "newFeatures": [],
+      "newEdges": [],
+      "newSkills": {
+        "charm": 3
+      },
+      "skillRank": 3,
+      "subOption": null,
+      "unknown": false
+    },
+    {
+      "legacy": "Cannot read properties of undefined (reading 'value')"
+    }
+  ],
+  "runtime": [
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "core",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "existing-trainer-fixture",
+          "result": "passed",
+          "evidence": {
+            "actor": "SwSRV8qeTtfvelp5",
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "numeric": {
+              "acrobatics": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": -3,
+                  "mod": 0,
+                  "total": -3
+                },
+                "rank": "untrained",
+                "slug": "acrobatics"
+              },
+              "athletics": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": -2,
+                  "mod": 0,
+                  "total": -2
+                },
+                "rank": "novice",
+                "slug": "athletics"
+              },
+              "medicineEd": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "rank": "novice",
+                "slug": "medicineEd"
+              },
+              "charm": {
+                "value": {
+                  "value": 4,
+                  "mod": -1,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": -1,
+                  "mod": 0,
+                  "total": -1
+                },
+                "rank": "novice",
+                "slug": "charm"
+              },
+              "combat": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "expert",
+                "slug": "combat"
+              },
+              "command": {
+                "value": {
+                  "value": 6,
+                  "mod": 0,
+                  "total": 6
+                },
+                "modifier": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "rank": "master",
+                "slug": "command"
+              },
+              "generalEd": {
+                "value": {
+                  "value": 2,
+                  "mod": 2,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "rank": "adept",
+                "slug": "generalEd"
+              },
+              "techEd": {
+                "value": {
+                  "value": 6,
+                  "mod": 0,
+                  "total": 6
+                },
+                "modifier": {
+                  "value": -1,
+                  "mod": 0,
+                  "total": -1
+                },
+                "rank": "master",
+                "slug": "techEd"
+              },
+              "guile": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "rank": "novice",
+                "slug": "guile"
+              },
+              "intimidate": {
+                "value": {
+                  "value": 4,
+                  "mod": -1,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "rank": "novice",
+                "slug": "intimidate"
+              },
+              "intuition": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "rank": "expert",
+                "slug": "intuition"
+              },
+              "occultEd": {
+                "value": {
+                  "value": 4,
+                  "mod": 0,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": -3,
+                  "mod": 0,
+                  "total": -3
+                },
+                "rank": "adept",
+                "slug": "occultEd"
+              },
+              "perception": {
+                "value": {
+                  "value": 6,
+                  "mod": 0,
+                  "total": 6
+                },
+                "modifier": {
+                  "value": -3,
+                  "mod": 0,
+                  "total": -3
+                },
+                "rank": "master",
+                "slug": "perception"
+              },
+              "stealth": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": -2,
+                  "mod": 0,
+                  "total": -2
+                },
+                "rank": "untrained",
+                "slug": "stealth"
+              },
+              "survival": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": -1,
+                  "mod": 0,
+                  "total": -1
+                },
+                "rank": "novice",
+                "slug": "survival"
+              },
+              "focus": {
+                "value": {
+                  "value": 2,
+                  "mod": -1,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "focus"
+              },
+              "pokemonEd": {
+                "value": {
+                  "value": 5,
+                  "mod": 1,
+                  "total": 6
+                },
+                "modifier": {
+                  "value": -2,
+                  "mod": 0,
+                  "total": -2
+                },
+                "rank": "master",
+                "slug": "pokemonEd"
+              }
+            },
+            "staleStoredLabelsPreserved": true
+          }
+        },
+        {
+          "id": "generated-pokemon-all-skills",
+          "result": "passed",
+          "evidence": {
+            "actor": "vJqJwFhewJ88lFfV",
+            "species": "Compendium.ptu.species.Item.QE7WhquxeuebiEVQ",
+            "level": 5,
+            "numeric": {
+              "acrobatics": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "acrobatics"
+              },
+              "athletics": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 2
+                },
+                "rank": "novice",
+                "slug": "athletics"
+              },
+              "medicineEd": {
+                "value": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "medicineEd"
+              },
+              "charm": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "charm"
+              },
+              "combat": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "combat"
+              },
+              "command": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "command"
+              },
+              "generalEd": {
+                "value": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "generalEd"
+              },
+              "techEd": {
+                "value": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "techEd"
+              },
+              "guile": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "guile"
+              },
+              "intimidate": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "intimidate"
+              },
+              "intuition": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "intuition"
+              },
+              "occultEd": {
+                "value": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "occultEd"
+              },
+              "perception": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "perception"
+              },
+              "stealth": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "stealth"
+              },
+              "survival": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "survival"
+              },
+              "focus": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 1
+                },
+                "rank": "untrained",
+                "slug": "focus"
+              },
+              "pokemonEd": {
+                "value": {
+                  "value": 1,
+                  "mod": 0,
+                  "total": 1
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "pathetic",
+                "slug": "pokemonEd"
+              }
+            }
+          }
+        },
+        {
+          "id": "npc-generation-all-skills",
+          "result": "passed",
+          "evidence": {
+            "actor": "1i7JXBgZreqrPRGK",
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "numeric": {
+              "acrobatics": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "acrobatics"
+              },
+              "athletics": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "novice",
+                "slug": "athletics"
+              },
+              "medicineEd": {
+                "value": {
+                  "value": 4,
+                  "mod": 0,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "adept",
+                "slug": "medicineEd"
+              },
+              "charm": {
+                "value": {
+                  "value": 4,
+                  "mod": 0,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "adept",
+                "slug": "charm"
+              },
+              "combat": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "expert",
+                "slug": "combat"
+              },
+              "command": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "command"
+              },
+              "generalEd": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "novice",
+                "slug": "generalEd"
+              },
+              "techEd": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "novice",
+                "slug": "techEd"
+              },
+              "guile": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "expert",
+                "slug": "guile"
+              },
+              "intimidate": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "intimidate"
+              },
+              "intuition": {
+                "value": {
+                  "value": 3,
+                  "mod": 0,
+                  "total": 3
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "novice",
+                "slug": "intuition"
+              },
+              "occultEd": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "expert",
+                "slug": "occultEd"
+              },
+              "perception": {
+                "value": {
+                  "value": 4,
+                  "mod": 0,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "adept",
+                "slug": "perception"
+              },
+              "stealth": {
+                "value": {
+                  "value": 5,
+                  "mod": 0,
+                  "total": 5
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "expert",
+                "slug": "stealth"
+              },
+              "survival": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "survival"
+              },
+              "focus": {
+                "value": {
+                  "value": 4,
+                  "mod": 0,
+                  "total": 4
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "adept",
+                "slug": "focus"
+              },
+              "pokemonEd": {
+                "value": {
+                  "value": 2,
+                  "mod": 0,
+                  "total": 2
+                },
+                "modifier": {
+                  "value": 0,
+                  "mod": 0,
+                  "total": 0
+                },
+                "rank": "untrained",
+                "slug": "pokemonEd"
+              }
+            },
+            "noPartyOrContentSelections": true
+          }
+        },
+        {
+          "id": "prerequisites-all-names-and-ranks",
+          "result": "passed",
+          "evidence": {
+            "cases": 183,
+            "unknownCases": 5,
+            "alternativesAndCounts": 3,
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ]
+          }
+        },
+        {
+          "id": "backgrounds-all-keys",
+          "result": "passed",
+          "evidence": {
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "trainerAndPokemon": true,
+            "transientOnly": true
+          }
+        },
+        {
+          "id": "skill-modifier-helper-all-keys",
+          "result": "passed",
+          "evidence": {
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "actors": [
+              "SwSRV8qeTtfvelp5",
+              "vJqJwFhewJ88lFfV"
+            ]
+          }
+        },
+        {
+          "id": "legacy-statistic-and-rule-selectors-all-keys",
+          "result": "passed",
+          "evidence": [
+            {
+              "key": "acrobatics",
+              "slug": "acrobatics-check",
+              "ruleSelector": "skill-acrobatics",
+              "dice": 2
+            },
+            {
+              "key": "athletics",
+              "slug": "athletics-check",
+              "ruleSelector": "skill-athletics",
+              "dice": 3
+            },
+            {
+              "key": "charm",
+              "slug": "charm-check",
+              "ruleSelector": "skill-charm",
+              "dice": 3
+            },
+            {
+              "key": "combat",
+              "slug": "combat-check",
+              "ruleSelector": "skill-combat",
+              "dice": 5
+            },
+            {
+              "key": "command",
+              "slug": "command-check",
+              "ruleSelector": "skill-command",
+              "dice": 6
+            },
+            {
+              "key": "generalEd",
+              "slug": "generalEd-check",
+              "ruleSelector": "skill-generalEd",
+              "dice": 4
+            },
+            {
+              "key": "medicineEd",
+              "slug": "medicineEd-check",
+              "ruleSelector": "skill-medicineEd",
+              "dice": 3
+            },
+            {
+              "key": "occultEd",
+              "slug": "occultEd-check",
+              "ruleSelector": "skill-occultEd",
+              "dice": 4
+            },
+            {
+              "key": "pokemonEd",
+              "slug": "pokemonEd-check",
+              "ruleSelector": "skill-pokemonEd",
+              "dice": 6
+            },
+            {
+              "key": "techEd",
+              "slug": "techEd-check",
+              "ruleSelector": "skill-techEd",
+              "dice": 6
+            },
+            {
+              "key": "focus",
+              "slug": "focus-check",
+              "ruleSelector": "skill-focus",
+              "dice": 1
+            },
+            {
+              "key": "guile",
+              "slug": "guile-check",
+              "ruleSelector": "skill-guile",
+              "dice": 3
+            },
+            {
+              "key": "intimidate",
+              "slug": "intimidate-check",
+              "ruleSelector": "skill-intimidate",
+              "dice": 3
+            },
+            {
+              "key": "intuition",
+              "slug": "intuition-check",
+              "ruleSelector": "skill-intuition",
+              "dice": 5
+            },
+            {
+              "key": "perception",
+              "slug": "perception-check",
+              "ruleSelector": "skill-perception",
+              "dice": 6
+            },
+            {
+              "key": "stealth",
+              "slug": "stealth-check",
+              "ruleSelector": "skill-stealth",
+              "dice": 2
+            },
+            {
+              "key": "survival",
+              "slug": "survival-check",
+              "ruleSelector": "skill-survival",
+              "dice": 3
+            }
+          ]
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "rolls",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "character-rolls-all-17",
+          "result": "passed",
+          "evidence": [
+            {
+              "key": "acrobatics",
+              "formula": "2d6 - 3",
+              "dice": 2,
+              "modifier": -3,
+              "message": "dr3xajBpGxaXm9lZ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-acrobatics"
+              ]
+            },
+            {
+              "key": "athletics",
+              "formula": "3d6 - 2",
+              "dice": 3,
+              "modifier": -2,
+              "message": "fyLoUqF0twG2sCVI",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-athletics"
+              ]
+            },
+            {
+              "key": "charm",
+              "formula": "3d6 - 1",
+              "dice": 3,
+              "modifier": -1,
+              "message": "7t9ZhwgeVsCpcHMZ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-charm"
+              ]
+            },
+            {
+              "key": "combat",
+              "formula": "5d6",
+              "dice": 5,
+              "modifier": 0,
+              "message": "4rIVTSUldWCy4RG3",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-combat"
+              ]
+            },
+            {
+              "key": "command",
+              "formula": "6d6 + 1",
+              "dice": 6,
+              "modifier": 1,
+              "message": "ccYIW3DpneCpC6tf",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-command"
+              ]
+            },
+            {
+              "key": "generalEd",
+              "formula": "4d6 + 2",
+              "dice": 4,
+              "modifier": 2,
+              "message": "tNHGH9hYzgUjKbFP",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-generalEd"
+              ]
+            },
+            {
+              "key": "medicineEd",
+              "formula": "3d6 + 3",
+              "dice": 3,
+              "modifier": 3,
+              "message": "4ezAqFfV58qQlkCQ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-medicineEd"
+              ]
+            },
+            {
+              "key": "occultEd",
+              "formula": "4d6 - 3",
+              "dice": 4,
+              "modifier": -3,
+              "message": "moXkHhAyHP0Yy8xK",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-occultEd"
+              ]
+            },
+            {
+              "key": "pokemonEd",
+              "formula": "6d6 - 2",
+              "dice": 6,
+              "modifier": -2,
+              "message": "uIAvcC2uy2E3wdoz",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-pokemonEd"
+              ]
+            },
+            {
+              "key": "techEd",
+              "formula": "6d6 - 1",
+              "dice": 6,
+              "modifier": -1,
+              "message": "kVZPCOyMjoAFNLBK",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-techEd"
+              ]
+            },
+            {
+              "key": "focus",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "4M48TU1q5i589BcD",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-focus"
+              ]
+            },
+            {
+              "key": "guile",
+              "formula": "3d6 + 1",
+              "dice": 3,
+              "modifier": 1,
+              "message": "fnivlLMsUxqHBd7O",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-guile"
+              ]
+            },
+            {
+              "key": "intimidate",
+              "formula": "3d6 + 2",
+              "dice": 3,
+              "modifier": 2,
+              "message": "PfF9FtTgKxjdXnNp",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-intimidate"
+              ]
+            },
+            {
+              "key": "intuition",
+              "formula": "5d6 + 3",
+              "dice": 5,
+              "modifier": 3,
+              "message": "rLBmZ0kORPaepNre",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-intuition"
+              ]
+            },
+            {
+              "key": "perception",
+              "formula": "6d6 - 3",
+              "dice": 6,
+              "modifier": -3,
+              "message": "w8UtbcmGtg0Ha0w8",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-perception"
+              ]
+            },
+            {
+              "key": "stealth",
+              "formula": "2d6 - 2",
+              "dice": 2,
+              "modifier": -2,
+              "message": "a22vfgPi8TdDKYcH",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-stealth"
+              ]
+            },
+            {
+              "key": "survival",
+              "formula": "3d6 - 1",
+              "dice": 3,
+              "modifier": -1,
+              "message": "rNkxnoMV8ZUjhTX6",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-survival"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pokemon-rolls-all-17",
+          "result": "passed",
+          "evidence": [
+            {
+              "key": "acrobatics",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "5jFGplaa7e8YVdXh",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-acrobatics"
+              ]
+            },
+            {
+              "key": "athletics",
+              "formula": "3d6 + 2",
+              "dice": 3,
+              "modifier": 2,
+              "message": "AUeLyMTDxq5CymfZ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-athletics"
+              ]
+            },
+            {
+              "key": "charm",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "hogUWM3ZUdcs8i4h",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-charm"
+              ]
+            },
+            {
+              "key": "combat",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "KIPvdDAYt3q7s6sH",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-combat"
+              ]
+            },
+            {
+              "key": "command",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "jSiHV4qQ0IUplF9b",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-command"
+              ]
+            },
+            {
+              "key": "generalEd",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "MhgSFroCqvVSFwRv",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-generalEd"
+              ]
+            },
+            {
+              "key": "medicineEd",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "K3FeuQW5nVd19twM",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-medicineEd"
+              ]
+            },
+            {
+              "key": "occultEd",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "FThTyiq6PVQkLW7w",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-occultEd"
+              ]
+            },
+            {
+              "key": "pokemonEd",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "ezBt5X33or4KfkYZ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-pokemonEd"
+              ]
+            },
+            {
+              "key": "techEd",
+              "formula": "1d6",
+              "dice": 1,
+              "modifier": 0,
+              "message": "yZJzbysWZ76m2qgr",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-techEd"
+              ]
+            },
+            {
+              "key": "focus",
+              "formula": "2d6 + 1",
+              "dice": 2,
+              "modifier": 1,
+              "message": "4xHjPLAfVZRXiZ5m",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-focus"
+              ]
+            },
+            {
+              "key": "guile",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "7ndU0yd5eweCha3L",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-guile"
+              ]
+            },
+            {
+              "key": "intimidate",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "4rUZeyjQPXuaVMiQ",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-intimidate"
+              ]
+            },
+            {
+              "key": "intuition",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "r7nc4xo2X7S90WPa",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-intuition"
+              ]
+            },
+            {
+              "key": "perception",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "u8cJMuDvyep9EWRm",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-perception"
+              ]
+            },
+            {
+              "key": "stealth",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "buTmQOSfADClPyZT",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-stealth"
+              ]
+            },
+            {
+              "key": "survival",
+              "formula": "2d6",
+              "dice": 2,
+              "modifier": 0,
+              "message": "xILK9mvkAOzHzy0X",
+              "selectors": [
+                "all",
+                "check",
+                "skill-check",
+                "skill-survival"
+              ]
+            }
+          ]
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "trainer-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "trainer-sheet",
+          "result": "passed",
+          "evidence": {
+            "actor": "SwSRV8qeTtfvelp5",
+            "labels": [
+              {
+                "key": "acrobatics",
+                "label": "Acrobatics"
+              },
+              {
+                "key": "athletics",
+                "label": "Athletics"
+              },
+              {
+                "key": "charm",
+                "label": "Charm"
+              },
+              {
+                "key": "combat",
+                "label": "Combat"
+              },
+              {
+                "key": "command",
+                "label": "Command"
+              },
+              {
+                "key": "generalEd",
+                "label": "General Education"
+              },
+              {
+                "key": "medicineEd",
+                "label": "Medicine Education"
+              },
+              {
+                "key": "occultEd",
+                "label": "Occult Education"
+              },
+              {
+                "key": "pokemonEd",
+                "label": "Pokémon Education"
+              },
+              {
+                "key": "techEd",
+                "label": "Technology Education"
+              },
+              {
+                "key": "focus",
+                "label": "Focus"
+              },
+              {
+                "key": "guile",
+                "label": "Guile"
+              },
+              {
+                "key": "intimidate",
+                "label": "Intimidate"
+              },
+              {
+                "key": "intuition",
+                "label": "Intuition"
+              },
+              {
+                "key": "perception",
+                "label": "Perception"
+              },
+              {
+                "key": "stealth",
+                "label": "Stealth"
+              },
+              {
+                "key": "survival",
+                "label": "Survival"
+              }
+            ],
+            "backgroundSelectors": 5,
+            "sourceUnchanged": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "pokemon-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "pokemon-sheet",
+          "result": "passed",
+          "evidence": {
+            "actor": "vJqJwFhewJ88lFfV",
+            "labels": [
+              {
+                "key": "acrobatics",
+                "label": "Acrobatics"
+              },
+              {
+                "key": "athletics",
+                "label": "Athletics"
+              },
+              {
+                "key": "charm",
+                "label": "Charm"
+              },
+              {
+                "key": "combat",
+                "label": "Combat"
+              },
+              {
+                "key": "command",
+                "label": "Command"
+              },
+              {
+                "key": "generalEd",
+                "label": "General Education"
+              },
+              {
+                "key": "medicineEd",
+                "label": "Medicine Education"
+              },
+              {
+                "key": "occultEd",
+                "label": "Occult Education"
+              },
+              {
+                "key": "pokemonEd",
+                "label": "Pokémon Education"
+              },
+              {
+                "key": "techEd",
+                "label": "Technology Education"
+              },
+              {
+                "key": "focus",
+                "label": "Focus"
+              },
+              {
+                "key": "guile",
+                "label": "Guile"
+              },
+              {
+                "key": "intimidate",
+                "label": "Intimidate"
+              },
+              {
+                "key": "intuition",
+                "label": "Intuition"
+              },
+              {
+                "key": "perception",
+                "label": "Perception"
+              },
+              {
+                "key": "stealth",
+                "label": "Stealth"
+              },
+              {
+                "key": "survival",
+                "label": "Survival"
+              }
+            ],
+            "backgroundSelectors": 6,
+            "sourceUnchanged": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "npc-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "npc-builder-visible-all-17",
+          "result": "passed",
+          "evidence": {
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "labels": [
+              "Acrobatics",
+              "Athletics",
+              "Charm",
+              "Combat",
+              "Command",
+              "General Education",
+              "Medicine Education",
+              "Occult Education",
+              "Pokémon Education",
+              "Technology Education",
+              "Focus",
+              "Guile",
+              "Intimidate",
+              "Intuition",
+              "Perception",
+              "Stealth",
+              "Survival"
+            ],
+            "contentSelection": false
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "species-sheet",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "species-sheet-all-17",
+          "result": "passed",
+          "evidence": {
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "item": "Actor.vJqJwFhewJ88lFfV.Item.WqXekntFpOfT4aZ6",
+            "sourceUnchanged": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "dialogs-all",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "dialogs-all-17-both-actors",
+          "result": "passed",
+          "evidence": {
+            "renderedDialogs": 68,
+            "rows": [
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "acrobatics",
+                "title": "Acrobatics Check",
+                "dice": 2,
+                "modifier": -3
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "athletics",
+                "title": "Athletics Check",
+                "dice": 3,
+                "modifier": -2
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "charm",
+                "title": "Charm Check",
+                "dice": 3,
+                "modifier": -1
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "combat",
+                "title": "Combat Check",
+                "dice": 5,
+                "modifier": 0
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "command",
+                "title": "Command Check",
+                "dice": 6,
+                "modifier": 1
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "generalEd",
+                "title": "General Education Check",
+                "dice": 4,
+                "modifier": 2
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "medicineEd",
+                "title": "Medicine Education Check",
+                "dice": 3,
+                "modifier": 3
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "occultEd",
+                "title": "Occult Education Check",
+                "dice": 4,
+                "modifier": -3
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "pokemonEd",
+                "title": "Pokémon Education Check",
+                "dice": 6,
+                "modifier": -2
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "techEd",
+                "title": "Technology Education Check",
+                "dice": 6,
+                "modifier": -1
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "focus",
+                "title": "Focus Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "guile",
+                "title": "Guile Check",
+                "dice": 3,
+                "modifier": 1
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "intimidate",
+                "title": "Intimidate Check",
+                "dice": 3,
+                "modifier": 2
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "intuition",
+                "title": "Intuition Check",
+                "dice": 5,
+                "modifier": 3
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "perception",
+                "title": "Perception Check",
+                "dice": 6,
+                "modifier": -3
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "stealth",
+                "title": "Stealth Check",
+                "dice": 2,
+                "modifier": -2
+              },
+              {
+                "actor": "SwSRV8qeTtfvelp5",
+                "key": "survival",
+                "title": "Survival Check",
+                "dice": 3,
+                "modifier": -1
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "acrobatics",
+                "title": "Acrobatics Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "athletics",
+                "title": "Athletics Check",
+                "dice": 3,
+                "modifier": 2
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "charm",
+                "title": "Charm Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "combat",
+                "title": "Combat Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "command",
+                "title": "Command Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "generalEd",
+                "title": "General Education Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "medicineEd",
+                "title": "Medicine Education Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "occultEd",
+                "title": "Occult Education Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "pokemonEd",
+                "title": "Pokémon Education Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "techEd",
+                "title": "Technology Education Check",
+                "dice": 1,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "focus",
+                "title": "Focus Check",
+                "dice": 2,
+                "modifier": 1
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "guile",
+                "title": "Guile Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "intimidate",
+                "title": "Intimidate Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "intuition",
+                "title": "Intuition Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "perception",
+                "title": "Perception Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "stealth",
+                "title": "Stealth Check",
+                "dice": 2,
+                "modifier": 0
+              },
+              {
+                "actor": "vJqJwFhewJ88lFfV",
+                "key": "survival",
+                "title": "Survival Check",
+                "dice": 2,
+                "modifier": 0
+              }
+            ]
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "dialog",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "manual-skill-dialog-and-chat",
+          "result": "passed",
+          "evidence": {
+            "message": "0sdSgrOzEA1EZpDI",
+            "formula": "6d6 - 2",
+            "title": "Pokémon Education Check",
+            "origin": "Scene.2uSnegSt0al2ypEy.Token.qAAWD93wAq48LJag",
+            "target": "Scene.2uSnegSt0al2ypEy.Token.yUvU5CPUzOKsmFJK"
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "scene": "2uSnegSt0al2ypEy",
+        "origin": "qAAWD93wAq48LJag",
+        "target": "yUvU5CPUzOKsmFJK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "contested-result",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "manual-contested-result",
+          "result": "passed",
+          "evidence": {
+            "original": "0sdSgrOzEA1EZpDI",
+            "response": "5rpS88xZC2DiiVEF",
+            "originTotal": 24,
+            "responseTotal": 3,
+            "dc": 24,
+            "outcome": "hit"
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "persistence-setup",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "populated-background-persistence-fixture",
+          "result": "passed",
+          "evidence": [
+            {
+              "actor": "SwSRV8qeTtfvelp5",
+              "numeric": {
+                "acrobatics": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0,
+                    "total": -3
+                  },
+                  "rank": "untrained",
+                  "slug": "acrobatics"
+                },
+                "athletics": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0,
+                    "total": -2
+                  },
+                  "rank": "novice",
+                  "slug": "athletics"
+                },
+                "medicineEd": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "rank": "novice",
+                  "slug": "medicineEd"
+                },
+                "charm": {
+                  "value": {
+                    "value": 4,
+                    "mod": -1,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0,
+                    "total": -1
+                  },
+                  "rank": "novice",
+                  "slug": "charm"
+                },
+                "combat": {
+                  "value": {
+                    "value": 5,
+                    "mod": 0,
+                    "total": 5
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "expert",
+                  "slug": "combat"
+                },
+                "command": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0,
+                    "total": 6
+                  },
+                  "modifier": {
+                    "value": 1,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "rank": "master",
+                  "slug": "command"
+                },
+                "generalEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 2,
+                    "total": 4
+                  },
+                  "modifier": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "rank": "adept",
+                  "slug": "generalEd"
+                },
+                "techEd": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0,
+                    "total": 6
+                  },
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0,
+                    "total": -1
+                  },
+                  "rank": "master",
+                  "slug": "techEd"
+                },
+                "guile": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": 1,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "rank": "novice",
+                  "slug": "guile"
+                },
+                "intimidate": {
+                  "value": {
+                    "value": 4,
+                    "mod": -1,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "rank": "novice",
+                  "slug": "intimidate"
+                },
+                "intuition": {
+                  "value": {
+                    "value": 5,
+                    "mod": 0,
+                    "total": 5
+                  },
+                  "modifier": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "rank": "expert",
+                  "slug": "intuition"
+                },
+                "occultEd": {
+                  "value": {
+                    "value": 4,
+                    "mod": 0,
+                    "total": 4
+                  },
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0,
+                    "total": -3
+                  },
+                  "rank": "adept",
+                  "slug": "occultEd"
+                },
+                "perception": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0,
+                    "total": 6
+                  },
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0,
+                    "total": -3
+                  },
+                  "rank": "master",
+                  "slug": "perception"
+                },
+                "stealth": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0,
+                    "total": -2
+                  },
+                  "rank": "untrained",
+                  "slug": "stealth"
+                },
+                "survival": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0,
+                    "total": -1
+                  },
+                  "rank": "novice",
+                  "slug": "survival"
+                },
+                "focus": {
+                  "value": {
+                    "value": 2,
+                    "mod": -1,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "focus"
+                },
+                "pokemonEd": {
+                  "value": {
+                    "value": 5,
+                    "mod": 1,
+                    "total": 6
+                  },
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0,
+                    "total": -2
+                  },
+                  "rank": "master",
+                  "slug": "pokemonEd"
+                }
+              },
+              "sourceSkills": {
+                "acrobatics": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Acrobatics",
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "athletics": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "label": "Athletics",
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "medicineEd": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "label": "Biochemistry",
+                  "modifier": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "charm": {
+                  "value": {
+                    "value": 4,
+                    "mod": 0
+                  },
+                  "label": "Charisma",
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "combat": {
+                  "value": {
+                    "value": 5,
+                    "mod": 0
+                  },
+                  "label": "Combat",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "command": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0
+                  },
+                  "label": "Command",
+                  "modifier": {
+                    "value": 1,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "generalEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Education",
+                  "modifier": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "techEd": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0
+                  },
+                  "label": "Engineering",
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "guile": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "label": "Guile",
+                  "modifier": {
+                    "value": 1,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "intimidate": {
+                  "value": {
+                    "value": 4,
+                    "mod": 0
+                  },
+                  "label": "Intimidation",
+                  "modifier": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "intuition": {
+                  "value": {
+                    "value": 5,
+                    "mod": 0
+                  },
+                  "label": "Intuition",
+                  "modifier": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "occultEd": {
+                  "value": {
+                    "value": 4,
+                    "mod": 0
+                  },
+                  "label": "Occultism",
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "perception": {
+                  "value": {
+                    "value": 6,
+                    "mod": 0
+                  },
+                  "label": "Perception",
+                  "modifier": {
+                    "value": -3,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "stealth": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Stealth",
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "survival": {
+                  "value": {
+                    "value": 3,
+                    "mod": 0
+                  },
+                  "label": "Survival",
+                  "modifier": {
+                    "value": -1,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "focus": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Willpower",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "pokemonEd": {
+                  "value": {
+                    "value": 5,
+                    "mod": 0
+                  },
+                  "label": "Zoology",
+                  "modifier": {
+                    "value": -2,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                }
+              },
+              "background": {
+                "pathetic": {
+                  "one": "focus",
+                  "two": "charm",
+                  "three": "intimidate"
+                },
+                "novice": "pokemonEd",
+                "adept": "generalEd"
+              }
+            },
+            {
+              "actor": "vJqJwFhewJ88lFfV",
+              "numeric": {
+                "acrobatics": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "acrobatics"
+                },
+                "athletics": {
+                  "value": {
+                    "value": 3,
+                    "mod": 1,
+                    "total": 4
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "rank": "adept",
+                  "slug": "athletics"
+                },
+                "medicineEd": {
+                  "value": {
+                    "value": 1,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "medicineEd"
+                },
+                "charm": {
+                  "value": {
+                    "value": 2,
+                    "mod": -1,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "charm"
+                },
+                "combat": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "combat"
+                },
+                "command": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "command"
+                },
+                "generalEd": {
+                  "value": {
+                    "value": 1,
+                    "mod": 1,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "generalEd"
+                },
+                "techEd": {
+                  "value": {
+                    "value": 1,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "techEd"
+                },
+                "guile": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "guile"
+                },
+                "intimidate": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "intimidate"
+                },
+                "intuition": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "intuition"
+                },
+                "occultEd": {
+                  "value": {
+                    "value": 1,
+                    "mod": -1,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "occultEd"
+                },
+                "perception": {
+                  "value": {
+                    "value": 2,
+                    "mod": -1,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "perception"
+                },
+                "stealth": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "stealth"
+                },
+                "survival": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0,
+                    "total": 2
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "untrained",
+                  "slug": "survival"
+                },
+                "focus": {
+                  "value": {
+                    "value": 2,
+                    "mod": 1,
+                    "total": 3
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "rank": "novice",
+                  "slug": "focus"
+                },
+                "pokemonEd": {
+                  "value": {
+                    "value": 1,
+                    "mod": 0,
+                    "total": 1
+                  },
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0,
+                    "total": 0
+                  },
+                  "rank": "pathetic",
+                  "slug": "pokemonEd"
+                }
+              },
+              "sourceSkills": {
+                "acrobatics": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Acrobatics",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "athletics": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Athletics",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "medicineEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Biochemistry",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "charm": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Charisma",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "combat": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Combat",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "command": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Command",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "generalEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Education",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "techEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Engineering",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "guile": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Guile",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "intimidate": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Intimidation",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "intuition": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Intuition",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "occultEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Occultism",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "perception": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Perception",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                },
+                "stealth": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Stealth",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "survival": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Survival",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "body"
+                },
+                "focus": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Willpower",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "spirit"
+                },
+                "pokemonEd": {
+                  "value": {
+                    "value": 2,
+                    "mod": 0
+                  },
+                  "label": "Zoology",
+                  "modifier": {
+                    "value": 0,
+                    "mod": 0
+                  },
+                  "type": "mind"
+                }
+              },
+              "background": {
+                "increased": {
+                  "one": "athletics",
+                  "two": "focus",
+                  "three": "generalEd"
+                },
+                "decreased": {
+                  "one": "charm",
+                  "two": "perception",
+                  "three": "occultEd"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "source-text",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "changed-pack-text-and-identities",
+          "result": "passed",
+          "evidence": {
+            "rows": [
+              {
+                "identity": "feats.2iwO9sGVZrdwrU3A",
+                "fields": [
+                  "/system/effect"
+                ]
+              },
+              {
+                "identity": "feats.bpS6M9S47y1SbNg4",
+                "fields": [
+                  "/system/prerequisites/0"
+                ]
+              },
+              {
+                "identity": "feats.bue6yUXtLwDVuHNL",
+                "fields": [
+                  "/system/prerequisites/1"
+                ]
+              },
+              {
+                "identity": "feats.Ho2F6YMv6BzqyRJr",
+                "fields": [
+                  "/system/prerequisites/0"
+                ]
+              },
+              {
+                "identity": "feats.UJWQ7wP8OlmMduii",
+                "fields": [
+                  "/system/prerequisites/1"
+                ]
+              },
+              {
+                "identity": "feats.UO2wiMe8cjQ8oqYR",
+                "fields": [
+                  "/system/effect",
+                  "/system/prerequisites/1"
+                ]
+              },
+              {
+                "identity": "feats.ZNO7wwC0jBJGN98G",
+                "fields": [
+                  "/system/prerequisites/0"
+                ]
+              },
+              {
+                "identity": "references.r2nUvK0BRQuBP08O",
+                "fields": [
+                  "/system/effect"
+                ]
+              }
+            ],
+            "terminologyOnly": true,
+            "contentApproval": false
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    },
+    {
+      "batch": "skills-03-2026-10-25",
+      "phase": "reload",
+      "foundryVersion": "13.351",
+      "systemVersion": "4.4.3",
+      "scenarios": [
+        {
+          "id": "saved-reloaded-all-17",
+          "result": "passed",
+          "evidence": {
+            "trainer": "SwSRV8qeTtfvelp5",
+            "pokemon": "vJqJwFhewJ88lFfV",
+            "keys": [
+              "acrobatics",
+              "athletics",
+              "charm",
+              "combat",
+              "command",
+              "generalEd",
+              "medicineEd",
+              "occultEd",
+              "pokemonEd",
+              "techEd",
+              "focus",
+              "guile",
+              "intimidate",
+              "intuition",
+              "perception",
+              "stealth",
+              "survival"
+            ],
+            "sourceAndNumericValuesPreserved": true
+          }
+        }
+      ],
+      "fixtures": {
+        "trainer": "SwSRV8qeTtfvelp5",
+        "pokemon": "vJqJwFhewJ88lFfV",
+        "generatedTrainer": "1i7JXBgZreqrPRGK"
+      }
+    }
+  ],
+  "contestedOptions": [
+    {
+      "label": "Acrobatics",
+      "selected": false,
+      "value": "acrobatics"
+    },
+    {
+      "label": "Athletics",
+      "selected": false,
+      "value": "athletics"
+    },
+    {
+      "label": "Charm",
+      "selected": false,
+      "value": "charm"
+    },
+    {
+      "label": "Combat",
+      "selected": false,
+      "value": "combat"
+    },
+    {
+      "label": "Command",
+      "selected": false,
+      "value": "command"
+    },
+    {
+      "label": "Focus",
+      "selected": false,
+      "value": "focus"
+    },
+    {
+      "label": "General Education",
+      "selected": false,
+      "value": "generalEd"
+    },
+    {
+      "label": "Guile",
+      "selected": false,
+      "value": "guile"
+    },
+    {
+      "label": "Intimidate",
+      "selected": false,
+      "value": "intimidate"
+    },
+    {
+      "label": "Intuition",
+      "selected": false,
+      "value": "intuition"
+    },
+    {
+      "label": "Medicine Education",
+      "selected": false,
+      "value": "medicineEd"
+    },
+    {
+      "label": "Occult Education",
+      "selected": false,
+      "value": "occultEd"
+    },
+    {
+      "label": "Perception",
+      "selected": false,
+      "value": "perception"
+    },
+    {
+      "label": "Pokémon Education",
+      "selected": true,
+      "value": "pokemonEd"
+    },
+    {
+      "label": "Stealth",
+      "selected": false,
+      "value": "stealth"
+    },
+    {
+      "label": "Survival",
+      "selected": false,
+      "value": "survival"
+    },
+    {
+      "label": "Technology Education",
+      "selected": false,
+      "value": "techEd"
+    }
+  ],
+  "layout": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "trainer": [
+      {
+        "label": "Acrobatics",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Athletics",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Medicine Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Charm",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Combat",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Command",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "General Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Technology Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Guile",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Intimidate",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Intuition",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Occult Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Perception",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Stealth",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Survival",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Focus",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Pokémon Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      }
+    ],
+    "pokemon": [
+      {
+        "label": "Acrobatics",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Athletics",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Medicine Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Charm",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Combat",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Command",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "General Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Technology Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Guile",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Intimidate",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Intuition",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Occult Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Perception",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Stealth",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Survival",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Focus",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      },
+      {
+        "label": "Pokémon Education",
+        "overflowWrap": "normal",
+        "parentScroll": 118,
+        "parentWidth": 118,
+        "wordBreak": "normal"
+      }
+    ],
+    "scope": "All 17 labels in both sheets have normal word breaks and no horizontal overflow; manual screenshots inspected. General layout/responsiveness is not certified."
+  },
+  "harnessCorrections": [
+    "Initial helper/selector assertions expected camelCase modifier slugs; the unchanged PTUModifier constructor has always sluggified them. Corrected test expectations only.",
+    "NPC preview test incorrectly passed getSkillLabel directly to Array.map, whose index replaced its optional i18n argument. Corrected the test callback only."
+  ],
+  "emptyBackgroundObservation": {
+    "initialFailure": "pokemon background keys: {\"actual\":{\"increased\":{\"one\":\"blank\",\"two\":\"blank\",\"three\":\"blank\"},\"decreased\":{\"one\":\"blank\",\"two\":\"blank\",\"three\":\"blank\"}},\"expected\":{\"increased\":{\"one\":\"\",\"two\":\"\",\"three\":\"\"},\"decreased\":{\"one\":\"\",\"two\":\"\",\"three\":\"\"}}}",
+    "numericalDataAndStoredSkillLabelsPreserved": true,
+    "cause": "Existing select option value=blank is submitted for previously empty slots when closing the Pokemon sheet.",
+    "disposition": "Unassigned placeholder normalization is recorded, not claimed to be exact source preservation or a terminology-induced regression. Actual populated skill-key choices and exact source/numeric skill data pass after sheet close and client reload.",
+    "fixtureChange": "persistence-setup intentionally assigns six distinct stable keys to disposable Pokemon background slots; its expected numeric snapshot is recorded before final sheet close/reload."
+  },
+  "limitations": [
+    "Starter training record edges.xiZydXM8sex5CP7O remains missing; trainer creation warns and grants nothing.",
+    "Inherited content classification and Generation 9 package/acquisition exclusion remain unresolved dependencies; no Generation 9 gameplay was tested.",
+    "Eight inherited records receive label-only text corrections; their content approval/version classification remains unclassified.",
+    "Historical chat, saved user prose, stable keys/UUIDs, macro paths, numerical rules and source provenance are not migrated.",
+    "Transform macro explicitly declares itself unreviewed; optional skill copying is not certified.",
+    "Full campaign upgrades, other gameplay/rules/variants and general layout are outside this batch."
+  ],
+  "sharedState": {
+    "world": "ptu-verification",
+    "worldReturnedToSetup": true,
+    "managedServerHandleTerminal": true,
+    "port30001RefusesConnections": true,
+    "serverStopped": true,
+    "shutdownLimit": "World unload + terminal completion (Ctrl+C exit 1) + TCP refusal; no final graceful-process shutdown line captured.",
+    "otherChatsStartedOrMessaged": false,
+    "inactiveLockReclaimedAndReleased": true
+  },
+  "warnings": [
+    "Initial browser tab at 1280x720 emitted the minimum viewport warning; subsequent layout inspection used 1440x1000.",
+    "Inherited manifest warnings, V1 deprecations and unpublished update manifest remain; final server log has no observed runtime errors.",
+    "After stopped-server refresh was attempted too soon, the helper correctly refused the not-yet-stale data lock. After verified terminal/port stop and expiry, proper-lockfile reclaimed it during setup; no held lock was manually removed."
+  ]
+}

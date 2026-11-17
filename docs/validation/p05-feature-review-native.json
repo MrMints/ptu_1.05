@@ -1,0 +1,856 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "batch": "p05-feature-review-20261101T001244Z-813568a4",
+  "pin": {
+    "commit": "e63595a2f6bb51358d5b66a66b594e6868e5286b",
+    "run": 41250223014,
+    "artifact": 13061542688,
+    "outerSha256": "be63c04bf0e555c513a5ae933ca3ddb3991fde4dae0a9ae3f93df54698854710",
+    "innerSha256": "7a6b89a38cd602a4643dce9cd1022b43cacd5f2b645f91013c2a48fdb929e8cd",
+    "core": "13.351",
+    "system": "4.4.3",
+    "world": "ptu-verification",
+    "gm": "lMqIt6G1J6gh89ut",
+    "player": "iVkqwxalI3cGJahD"
+  },
+  "target": {
+    "world": "ptu-verification",
+    "title": "PTU verification (disposable)",
+    "worldPath": "D:/Projects/PTU 1.05 on Foundry/.foundry-test/Data/worlds/ptu-verification",
+    "systemPath": "D:/Projects/PTU 1.05 on Foundry/.foundry-test/Data/systems/ptu"
+  },
+  "accounts": {
+    "users": [
+      {
+        "id": "iVkqwxalI3cGJahD",
+        "name": "PTU 02 Player",
+        "role": 1
+      },
+      {
+        "id": "lMqIt6G1J6gh89ut",
+        "name": "Gamemaster",
+        "role": 4
+      }
+    ],
+    "coveredPlayers": [
+      "iVkqwxalI3cGJahD"
+    ]
+  },
+  "preflight": {
+    "privateBackupsVerified": true,
+    "noReparsePoints": true,
+    "stoppedBeforeMutation": true,
+    "schemaVersion": 0.115,
+    "migrationRequired": true,
+    "thirdPartyModulesEnabled": false,
+    "worldBackupEntriesSha256": "daf6cad8948b8893ef14a8382db9e1a980ee46e72d0caa7bf01dda25cf76d6b2",
+    "systemBackupEntriesSha256": "baa475a74bab1ce68b27dc0e1514335688192b2f1b2cd6d4acfe79d79bd89e5b",
+    "migrationInspectionLimit": "PTU schema 0.115 matched; native core package migration was not ruled out by that comparison"
+  },
+  "manifest": {
+    "expectedCounts": {
+      "Actor": 4,
+      "embeddedItem": 11,
+      "worldItem": 4,
+      "packItem": 2,
+      "Macro": 1,
+      "Pack": 1
+    },
+    "resources": []
+  },
+  "runtime": [
+    {
+      "path": "system.json",
+      "packaged": "f9009d19bace3df3008cb17d2476c6b59dad85733a34f968ea022610c09afea2",
+      "installed": "f9009d19bace3df3008cb17d2476c6b59dad85733a34f968ea022610c09afea2",
+      "served": null
+    },
+    {
+      "path": "template.json",
+      "packaged": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9",
+      "installed": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9",
+      "served": null
+    },
+    {
+      "path": "src/ptr.js",
+      "packaged": "fc02e7cfef9d3c16772a12b2833e7a2a9a6a092172f900e8dede32fc4f18d45c",
+      "installed": "fc02e7cfef9d3c16772a12b2833e7a2a9a6a092172f900e8dede32fc4f18d45c",
+      "served": null
+    },
+    {
+      "path": "src/scripts/hooks/ready.js",
+      "packaged": "7e492ec2fa9d3223c0cfba68f1a31d32d035540d976ee2b9f1b9229376c76d6a",
+      "installed": "7e492ec2fa9d3223c0cfba68f1a31d32d035540d976ee2b9f1b9229376c76d6a",
+      "served": null
+    },
+    {
+      "path": "src/module/migration/runner/base.js",
+      "packaged": "ac6c76f47aa9df4a2b0cda6a71e6f1351068fcf2ded22e14250b08c575c39489",
+      "installed": "ac6c76f47aa9df4a2b0cda6a71e6f1351068fcf2ded22e14250b08c575c39489",
+      "served": null
+    },
+    {
+      "path": "src/module/apps/feature-acquisition-review-launcher.js",
+      "packaged": "8d221eed995dc90b55866d6933f0f7c3992a30ccb5723a7cc66991d0725c4cdf",
+      "installed": "8d221eed995dc90b55866d6933f0f7c3992a30ccb5723a7cc66991d0725c4cdf",
+      "served": null
+    },
+    {
+      "path": "src/module/apps/feature-acquisition-review.js",
+      "packaged": "cffc668c7c47068d85ada8820755a2b982e40e2d5e02078950a204f7833a6fbd",
+      "installed": "cffc668c7c47068d85ada8820755a2b982e40e2d5e02078950a204f7833a6fbd",
+      "served": null
+    },
+    {
+      "path": "src/util/rule-version-acquisition-review.js",
+      "packaged": "2d5083e7229af4994bcf9f9f7f28bbe89ce23a2d58786876fd4ffa42f97d195b",
+      "installed": "2d5083e7229af4994bcf9f9f7f28bbe89ce23a2d58786876fd4ffa42f97d195b",
+      "served": null
+    },
+    {
+      "path": "src/util/rule-version-registry.js",
+      "packaged": "93d8c8341d73102415894b47ba4a989f0600498ca478cd3e5503b044097b10d5",
+      "installed": "93d8c8341d73102415894b47ba4a989f0600498ca478cd3e5503b044097b10d5",
+      "served": null
+    },
+    {
+      "path": "src/util/rule-version-preview.js",
+      "packaged": "12ffc1c984f78034bb15d2af7d466f4cd583e70e54520cda97315a944735664f",
+      "installed": "12ffc1c984f78034bb15d2af7d466f4cd583e70e54520cda97315a944735664f",
+      "served": null
+    },
+    {
+      "path": "src/util/rule-versions.js",
+      "packaged": "ec4fb514b4bdb022f70bc65dab7d8a547e2f829c1529a9224df3d6883fcc20c9",
+      "installed": "ec4fb514b4bdb022f70bc65dab7d8a547e2f829c1529a9224df3d6883fcc20c9",
+      "served": null
+    },
+    {
+      "path": "src/util/prerequisites.js",
+      "packaged": "d3a6626420c26f52e31b07fd428cf63a455a6bcfc36b7a979a62bf34400d3649",
+      "installed": "d3a6626420c26f52e31b07fd428cf63a455a6bcfc36b7a979a62bf34400d3649",
+      "served": null
+    },
+    {
+      "path": "src/util/skills.js",
+      "packaged": "5bb8390d3bf44e4dddfeca8534a7c0a35e74b380e39f203e8e671d41ad4aea76",
+      "installed": "5bb8390d3bf44e4dddfeca8534a7c0a35e74b380e39f203e8e671d41ad4aea76",
+      "served": null
+    },
+    {
+      "path": "src/util/document-source.js",
+      "packaged": "86a6ba2b69bb83e2e27d3df86249d99c60df17a4e544e4515018bbbf0c0385e0",
+      "installed": "86a6ba2b69bb83e2e27d3df86249d99c60df17a4e544e4515018bbbf0c0385e0",
+      "served": null
+    },
+    {
+      "path": "static/templates/apps/feature-acquisition-review.hbs",
+      "packaged": "f435949aa8db9bf3f1bfc54b9c2f66e4b0efb65ec36c22a1964642bb56572ba6",
+      "installed": "f435949aa8db9bf3f1bfc54b9c2f66e4b0efb65ec36c22a1964642bb56572ba6",
+      "served": null
+    },
+    {
+      "path": "static/lang/en.json",
+      "packaged": "f4d4b9de4093e7ec4b12b1f5f7d19dd2730950a381410282abff39485140c0fa",
+      "installed": "f4d4b9de4093e7ec4b12b1f5f7d19dd2730950a381410282abff39485140c0fa",
+      "served": null
+    }
+  ],
+  "cases": [
+    {
+      "id": "gm-trainer-core-to-optional",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-pokemon-optional-to-core",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-owned-repeats-membership",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-incoming-batch-conflicts",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-unresolved-custom",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-escaped-render-focus-scroll",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-close",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-cancel",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-escape",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-header-close",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-repeated-dismissal",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-fresh-capture",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "gm-reload-preservation",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-trainer-review",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-pokemon-review",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-source-parent-readable",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-denied-actor",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-denied-incoming",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-denied-source-parent",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-pack-none",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-pack-observer",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-pack-revoked",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-close",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-cancel",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-escape",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-header-close",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-repeated-dismissal",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    },
+    {
+      "id": "player-reload-preservation",
+      "result": "not-run",
+      "reason": "STOP before login: native package migration; no Feature review executed",
+      "expected": "Native installed/served read-only review or denial with unchanged state",
+      "observed": null,
+      "raw": []
+    }
+  ],
+  "mutations": [],
+  "screenshots": [],
+  "access": {
+    "packPlayerTransitions": [],
+    "trusted": "NONE",
+    "assistant": "NONE",
+    "otherPackSettingsUnchanged": true
+  },
+  "restoration": {
+    "fixturesRemoved": true,
+    "accessRestored": true,
+    "preexistingDocumentsUnchanged": false,
+    "usersRolesPermissionsUnchanged": true,
+    "priorSystemRestored": true,
+    "serverStopped": true,
+    "portFree": true,
+    "lockReleased": true,
+    "privateBackupsRetained": true,
+    "uncertain": true
+  },
+  "claims": {
+    "nativeAllCasesPassed": false,
+    "full05": false,
+    "pre06": false,
+    "acquisition": false,
+    "replacement": false,
+    "duplicateBenefitPrevention": false,
+    "release": false,
+    "independentAcceptance": false
+  },
+  "limitations": [
+    "0/28 native cases executed; 0 native Feature review passes; controller remains prepared and not native-verified",
+    "Core package migration stopped the attempt; no GM/player session, fixtures, grants, pack role change or acquisition occurred",
+    "Foundry modified two existing setting timestamps and normalized existing pack metadata; both world states retained, current world not overwritten",
+    "Return to Setup required existing administrator password; credentials were not read or changed; owned process stopped instead",
+    "Screenshot remains unsaved by explicit owner direction after private-folder EPERM and TEMP automatic approval denial; no retry/access expansion",
+    "Accepted e635 runtime/artifact only was installed; later evidence/tools/docs CI archives are not native-tested",
+    "Independent/planner acceptance and any future migration/recovery admission remain required; no automatic resumption"
+  ],
+  "executionGate": {
+    "status": "blocked",
+    "reason": "Foundry native core package migration occurred on world launch before any session, fixture, access grant or review. Stop condition triggered.",
+    "migrationObserved": true,
+    "sessionEntered": false,
+    "fixtureSetup": false,
+    "packRoleGrantApplied": false,
+    "raw": [
+      {
+        "path": "logs/server-stdout.log",
+        "sha256": "fbc34addcb8f943d3475904bb4ffeaab33e1bf31688e67c3e2974743fc6b787f",
+        "private": true
+      },
+      {
+        "path": "logs/server-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "private": true
+      },
+      {
+        "path": "raw/startup-stop.json",
+        "sha256": "cebdf31751711d01fe8bcd0cfb547512b39cf2debe418159ca2ba358cbb96c2f",
+        "private": true
+      },
+      {
+        "path": "raw/offline-closure.json",
+        "sha256": "199d7a8800d849e4f7489538b5488a8a4c599c276adcee886f58cd5a1c12a6cb",
+        "private": true
+      },
+      {
+        "path": "raw/offline-closure-final.json",
+        "private": true,
+        "sha256": "40bfaaaa044fe4ad8fb98b64db7b1f2661df63ee158a626e0b47764d6a2d8d06"
+      }
+    ],
+    "migratedPackRecords": {
+      "ptu.abilities": 631,
+      "ptu.moves": 1294,
+      "ptu.feats": 1324,
+      "ptu.edges": 85,
+      "ptu.items": 843,
+      "ptu.capabilities": 144,
+      "ptu.habitats": 25,
+      "ptu.rolltables": 17,
+      "ptu.effects": 614,
+      "ptu.species": 1806,
+      "ptu.macros": 6,
+      "ptu.references": 335,
+      "ptu.spirit-actions": 34,
+      "ptu.journals": 2,
+      "ptu.poke-edges": 38
+    },
+    "totalMigratedRecords": 7198,
+    "returnToSetup": false,
+    "kind": "startup-core-package-migration"
+  },
+  "restorationDetail": {
+    "actorsItemsOtherDocumentCollectionsUnchanged": true,
+    "settingsValuesUnchanged": true,
+    "settingMetadataChanges": [
+      {
+        "key": "core.moduleConfiguration",
+        "paths": [
+          "_stats.modifiedTime"
+        ]
+      },
+      {
+        "key": "core.compendiumConfiguration",
+        "paths": [
+          "_stats.modifiedTime"
+        ]
+      }
+    ],
+    "worldManifestChanges": [
+      "lastPlayed",
+      "packs.0.package",
+      "packs.0.id",
+      "packs.0.packageType",
+      "packs.0.packageName",
+      "packs.0.index",
+      "packs.0.folders"
+    ],
+    "worldOverwritten": false,
+    "postStatePreserved": true,
+    "priorSystemEntriesVerified": 6890,
+    "returnToSetup": false,
+    "returnToSetupReason": "Server administrator password required; no credentials read or changed",
+    "userRecordsCanonicalUnchanged": true
+  },
+  "screenshotDisposition": "unsaved-owner-directed",
+  "offlineDiagnosis": {
+    "mode": "read-only-analysis-copies-and-static-vendor-source",
+    "core": "13.351",
+    "primaryRecordsLogged": 7198,
+    "embeddedRecordsChanged": 2790,
+    "changedStoredRecords": 9988,
+    "unchangedFolderRecords": 197,
+    "totalStoredRecords": 10185,
+    "recordIdsUnchanged": true,
+    "systemFieldsCanonicalUnchanged": true,
+    "missingRecords": 0,
+    "addedRecords": 0,
+    "gameplayVerified": false,
+    "excludedRecordsPreserved": true,
+    "coreVersionTransitions": {
+      "[\"12.327\",\"13.351\"]": 7457,
+      "[\"12.329\",\"13.351\"]": 12,
+      "[null,\"13.351\"]": 2519
+    },
+    "changedFieldCounts": {
+      "_stats.coreVersion": 7469,
+      "_stats.exportSource": 7469,
+      "flags.exportSource": 728,
+      "flags.core.sourceId": 979,
+      "text": 2519,
+      "type": 2485,
+      "documentCollection": 2492,
+      "documentId": 2519,
+      "_stats": 2519,
+      "name": 2519,
+      "documentUuid": 2485,
+      "description": 2519,
+      "category": 271,
+      "_stats.compendiumSource": 6
+    },
+    "packComparisons": [
+      {
+        "pack": "abilities",
+        "type": "Item",
+        "before": 634,
+        "after": 634,
+        "changed": 631,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 631,
+          "_stats.exportSource": 631,
+          "flags.exportSource": 8,
+          "flags.core.sourceId": 22
+        }
+      },
+      {
+        "pack": "moves",
+        "type": "Item",
+        "before": 1310,
+        "after": 1310,
+        "changed": 1294,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 1294,
+          "_stats.exportSource": 1294,
+          "flags.core.sourceId": 100,
+          "flags.exportSource": 26
+        }
+      },
+      {
+        "pack": "feats",
+        "type": "Item",
+        "before": 1402,
+        "after": 1402,
+        "changed": 1324,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "flags.core.sourceId": 671,
+          "_stats.coreVersion": 1324,
+          "_stats.exportSource": 1324,
+          "flags.exportSource": 259
+        }
+      },
+      {
+        "pack": "edges",
+        "type": "Item",
+        "before": 86,
+        "after": 86,
+        "changed": 85,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 85,
+          "_stats.exportSource": 85,
+          "flags.exportSource": 6
+        }
+      },
+      {
+        "pack": "items",
+        "type": "Item",
+        "before": 854,
+        "after": 854,
+        "changed": 843,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "flags.core.sourceId": 96,
+          "_stats.coreVersion": 843,
+          "_stats.exportSource": 843,
+          "flags.exportSource": 22
+        }
+      },
+      {
+        "pack": "capabilities",
+        "type": "Item",
+        "before": 148,
+        "after": 148,
+        "changed": 144,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 144,
+          "_stats.exportSource": 144,
+          "flags.core.sourceId": 19,
+          "flags.exportSource": 5
+        }
+      },
+      {
+        "pack": "habitats",
+        "type": "RollTable",
+        "before": 1962,
+        "after": 1962,
+        "changed": 1962,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 25,
+          "_stats.exportSource": 25,
+          "text": 1937,
+          "type": 1937,
+          "documentCollection": 1937,
+          "documentId": 1937,
+          "_stats": 1937,
+          "name": 1937,
+          "documentUuid": 1937,
+          "description": 1937
+        }
+      },
+      {
+        "pack": "rolltables",
+        "type": "RollTable",
+        "before": 604,
+        "after": 604,
+        "changed": 599,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 17,
+          "_stats.exportSource": 17,
+          "flags.exportSource": 2,
+          "text": 582,
+          "type": 548,
+          "documentCollection": 555,
+          "documentId": 582,
+          "_stats": 582,
+          "name": 582,
+          "documentUuid": 548,
+          "description": 582
+        }
+      },
+      {
+        "pack": "effects",
+        "type": "Item",
+        "before": 673,
+        "after": 673,
+        "changed": 614,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "flags.exportSource": 367,
+          "_stats.coreVersion": 614,
+          "_stats.exportSource": 614,
+          "flags.core.sourceId": 65
+        }
+      },
+      {
+        "pack": "species",
+        "type": "Item",
+        "before": 1814,
+        "after": 1814,
+        "changed": 1806,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 1806,
+          "_stats.exportSource": 1806,
+          "flags.exportSource": 24
+        }
+      },
+      {
+        "pack": "macros",
+        "type": "Macro",
+        "before": 6,
+        "after": 6,
+        "changed": 6,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 6,
+          "_stats.exportSource": 6,
+          "flags.exportSource": 1
+        }
+      },
+      {
+        "pack": "references",
+        "type": "Item",
+        "before": 336,
+        "after": 336,
+        "changed": 335,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 335,
+          "_stats.exportSource": 335,
+          "flags.exportSource": 1
+        }
+      },
+      {
+        "pack": "spirit-actions",
+        "type": "Item",
+        "before": 42,
+        "after": 42,
+        "changed": 34,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 34,
+          "_stats.exportSource": 34
+        }
+      },
+      {
+        "pack": "journals",
+        "type": "JournalEntry",
+        "before": 273,
+        "after": 273,
+        "changed": 273,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 273,
+          "_stats.exportSource": 273,
+          "flags.exportSource": 1,
+          "category": 271,
+          "flags.core.sourceId": 6,
+          "_stats.compendiumSource": 6
+        }
+      },
+      {
+        "pack": "poke-edges",
+        "type": "Item",
+        "before": 41,
+        "after": 41,
+        "changed": 38,
+        "systemChanged": 0,
+        "missing": 0,
+        "added": 0,
+        "paths": {
+          "_stats.coreVersion": 38,
+          "_stats.exportSource": 38,
+          "flags.exportSource": 6
+        }
+      }
+    ],
+    "transformChecks": {
+      "exportSourceRemoved": 728,
+      "exportSourceNormalizedExact": 728,
+      "legacySourceRemoved": 979,
+      "legacySourcePreservedExact": 979,
+      "legacySourceConflicts": 0,
+      "tablePackResults": 2485,
+      "tableUuidTargetPreserved": 2485,
+      "tablePackNamesPreserved": 2485,
+      "tableTextResults": 34,
+      "tableDescriptionsPreserved": 34,
+      "journalPageCategoryAddedNull": 271,
+      "idsUnchanged": true,
+      "rawSystemSerializationUnchanged": false,
+      "systemFieldsCanonicalUnchanged": true
+    },
+    "sourceBindings": [
+      {
+        "path": "dist/database/backend/server-document.mjs",
+        "sha256": "91da9efe90f7234d178c8aa8a4cfe36fdcc7a2c734456dac669ac1f5c552b7ef"
+      },
+      {
+        "path": "dist/packages/world.mjs",
+        "sha256": "50c6408bc26a23a53b027d4a6366ac869b39b9a807635ce98273ca53044d7bff"
+      },
+      {
+        "path": "dist/database/documents/item.mjs",
+        "sha256": "e38af966e1ea9a0f0462c2b2bc99d5480ab8cfd7116e802f5e812f35d58a97e1"
+      },
+      {
+        "path": "common/documents/item.mjs",
+        "sha256": "2e82f38075d02acb3ddcd00fae280a777993ff7ad11e25ac9e49d4369d8a3f79"
+      },
+      {
+        "path": "common/data/fields.mjs",
+        "sha256": "705f1d78a921605bfd3787e16dea40e6fae0c0e1b03e36f63d1b1d7ff82ccc1f"
+      },
+      {
+        "path": "common/documents/table-result.mjs",
+        "sha256": "80193e41d517a4c9713f10010e89e09dd9de8094684a54a84193a72358b1f287"
+      },
+      {
+        "path": "common/documents/journal-entry-page.mjs",
+        "sha256": "b9e64b918c331a3ed3937a7dcbf0f8486a80bd76004b9ee9d8af7fd863141163"
+      },
+      {
+        "path": "dist/database/documents/table-result.mjs",
+        "sha256": "245c21c2cfa1262c6630e4b47f52d29656e9578ef02387e075d84364d4a6d4f9"
+      },
+      {
+        "path": "dist/database/documents/journal-page.mjs",
+        "sha256": "47529cdbf70f27650b9b1fa4a6c6dc28ae444824f736740c181dae1a035dd821"
+      }
+    ],
+    "trigger": "All 7198 primary documents were stamped core12.327/12.329. Native startup always migrates active packs; server migration registry and document model schema13.x convert these records and embedded documents before any PTU ready hook or login.",
+    "limits": "Canonical equality of stored system values and preserved target identities is physical compatibility evidence only; no supported-content, excluded-content, gameplay, target-resolution, permission or native Feature-review acceptance."
+  }
+}

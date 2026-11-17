@@ -1,14 +1,23 @@
 import { sluggify } from "../../../../util/misc.js";
 import { CompendiumBrowserTab } from "./base.js";
+import { lookupSelectedRuleVersion } from "../../../../util/rule-versions.js";
+
+const sourceStatusLabels = {
+    core: "Core", "official-errata": "OfficialErrata", "optional-playtest": "OptionalPlaytest",
+    supplement: "Supplement", custom: "Custom", synthetic: "Synthetic"
+};
 
 export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
-    constructor(browser) {
+    constructor(browser, options = {}) {
         super(browser);
+        this.ruleVersionOptions = options;
+        this.hasRuleVersionRegistry = Object.hasOwn(options, "registry");
 
         this.searchFields = ["name", "prerequisites.label", "prerequisites.tier", "class"]
         this.storeFields = ["name", "uuid", "type", "source", "img", "prerequisites", "class", "classPretty", "keywords"];
 
         this.index = ["img", "system.source.value", "system.prerequisites", "system.class", "system.keywords"];
+        if (this.hasRuleVersionRegistry) this.storeFields.push("ruleVersion");
 
         this.filterData = this.prepareFilterData();
     }
@@ -24,6 +33,8 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
     async loadData() {
         const feats = [];
         const indexFields = foundry.utils.duplicate(this.index);
+        if (this.hasRuleVersionRegistry) indexFields.push("flags.ptu.selectedVersion");
+        const versionOptions = new Map();
         const sources = new Set();
 
         const classes = new Set();
@@ -37,7 +48,8 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
         )) {
             for (const featData of index) {
                 if (featData.type !== "feat") continue;
-                if (!this.hasAllIndexFields(featData, indexFields)) continue;
+                // Selected-version metadata is optional on inherited/custom documents.
+                if (!this.hasAllIndexFields(featData, this.index)) continue;
 
                 const source = featData.system.source?.value ?? "";
                 const sourceSlug = sluggify(source);
@@ -51,11 +63,21 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
                     allKeywordsSeen.add(keyword);
                 }
 
+                const uuid = `Compendium.${pack.collection}.${featData._id}`;
+                const ruleVersion = this.hasRuleVersionRegistry
+                    ? this.#ruleVersion(featData, pack.collection, uuid) : undefined;
+                if (ruleVersion?.status === "resolved") {
+                    versionOptions.set(ruleVersion.filterKey, {
+                        label: `${ruleVersion.versionLabel} — ${ruleVersion.sourceEdition} (${game.i18n.localize(ruleVersion.sourceStatusLabel)})`,
+                        selected: ruleVersion.sourceStatus === "core"
+                    });
+                }
                 feats.push({
                     name: featData.name,
                     type: featData.type,
                     img: featData.img,
-                    uuid: `Compendium.${pack.collection}.${featData._id}`,
+                    uuid,
+                    ...(ruleVersion ? {ruleVersion} : {}),
                     source: sourceSlug,
                     prerequisites: this.#prerequisitesStringToEntries(prerequisites),
                     class: sluggify(_class),
@@ -83,11 +105,30 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
         }
 
         this.indexData = feats;
+        if (this.hasRuleVersionRegistry) {
+            this.filterData.checkboxes.ruleVersion.options = Object.fromEntries(versionOptions);
+            this.filterData.checkboxes.ruleVersion.selected = [...versionOptions].filter(([, option]) => option.selected).map(([key]) => key);
+        }
 
         // Set filters if necessary
         this.filterData.checkboxes.class.options = this.#generateCheckboxOptions([...classes].sort());
         this.filterData.checkboxes.source.options = this.generateSourceCheckboxOptions(sources);
         this.filterData.multiselects.keywords.options = this.filterOptionsFromSet(allKeywordsSeen)
+    }
+
+    #ruleVersion(data, pack, uuid) {
+        const result = lookupSelectedRuleVersion({...data, pack, uuid}, this.ruleVersionOptions);
+        if (result.status !== "resolved") return {
+            status: "unresolved", statusLabel: "PTU.CompendiumBrowser.RuleVersion.Unresolved", issues: result.issues
+        };
+        return {
+            status: "resolved", versionId: result.selectedVersion.id, versionLabel: result.selectedVersion.label,
+            sourceId: result.source.id, sourceEdition: result.source.edition, sourceCitation: result.source.citation,
+            sourceStatus: result.source.status,
+            sourceStatusLabel: `PTU.CompendiumBrowser.RuleVersion.${sourceStatusLabels[result.source.status]}`,
+            // Stable attribution, never translated text, separates optional versions.
+            filterKey: JSON.stringify([result.source.id, result.selectedVersion.id, result.source.status])
+        };
     }
 
     #prerequisitesStringToEntries(prerequisites) {
@@ -126,6 +167,14 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
 
     filterIndexData(entry) {
         const { multiselects, checkboxes } = this.filterData;
+        if (this.hasRuleVersionRegistry && entry.ruleVersion?.status === "resolved") {
+            const filter = checkboxes.ruleVersion;
+            const selected = filter?.selected;
+            // Empty means no attributed alternatives; malformed/unknown filters fail closed.
+            // Unmapped/custom rows continue through their existing filters below.
+            if (!Array.isArray(selected) || selected.some(key => typeof key !== "string" || !Object.hasOwn(filter.options, key))
+                || !selected.includes(entry.ruleVersion.filterKey)) return false;
+        }
 
         if (checkboxes.source.selected.length) {
             if (!checkboxes.source.selected.includes(entry.source)) return false;
@@ -167,6 +216,11 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
     prepareFilterData() {
         return {
             checkboxes: {
+                ...(this.hasRuleVersionRegistry ? {ruleVersion: {
+                    isExpanded: true,
+                    label: "PTU.CompendiumBrowser.RuleVersion.Filter",
+                    options: {}, selected: []
+                }} : {}),
                 class: {
                     isExpanded: false,
                     label: "PTU.CompendiumBrowser.FilterOptions.Class",
@@ -201,4 +255,4 @@ export class CompendiumBrowserFeatsTab extends CompendiumBrowserTab {
             }
         }
     }
-} 
+}

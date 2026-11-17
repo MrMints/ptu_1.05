@@ -1,0 +1,3386 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "identity": "species.04HUofEWMHdMr0Ya",
+      "contentHash": "304637227bac4b9814a00acba733296921b9aec2e256a642470d5984b3e79561",
+      "labelForReview": "Phione",
+      "recordType": "species",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact packs/<pack>/_source/<id>.json _id and content hash agree with accepted stable-ID inventory; recovered export lineage is docs/data/recovery.json. No display-name-derived ID."
+      },
+      "recordClass": "mixed",
+      "generationReview": {
+        "status": "supported",
+        "scope": "supplied Generations1–8 source topic",
+        "revisionLimitation": "Unattributed altered fields are not thereby approved as in-scope revisions."
+      },
+      "ruleVersionReview": {
+        "status": "contradictory",
+        "basis": "Exact compared fields differ: system.moves.level, system.moves.machine, system.moves.tutor, system.number, system.form, system.dexentry",
+        "sourceVersion": "supplied optional source"
+      },
+      "fieldReview": [
+        {
+          "field": "system.stats",
+          "status": "supported",
+          "recordValue": {
+            "hp": 8,
+            "atk": 8,
+            "def": 8,
+            "spatk": 8,
+            "spdef": 8,
+            "spd": 8
+          },
+          "sourceValue": {
+            "hp": 8,
+            "atk": 8,
+            "def": 8,
+            "spatk": 8,
+            "spdef": 8,
+            "spd": 8
+          }
+        },
+        {
+          "field": "system.types",
+          "status": "supported",
+          "recordValue": [
+            "Water"
+          ],
+          "sourceValue": [
+            "Water"
+          ]
+        },
+        {
+          "field": "system.abilities exact UUID-resolved slot order",
+          "status": "supported",
+          "recordValue": [
+            "Hydration",
+            "Rain Dish",
+            "Swift Swim",
+            "Damp",
+            "Absorb Force"
+          ],
+          "sourceValue": [
+            "Hydration",
+            "Rain Dish",
+            "Swift Swim",
+            "Damp",
+            "Absorb Force"
+          ]
+        },
+        {
+          "field": "system.evolutions levels",
+          "status": "supported",
+          "recordValue": [
+            1
+          ],
+          "sourceValue": [
+            1
+          ],
+          "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+        },
+        {
+          "field": "system.moves.level",
+          "status": "contradictory",
+          "recordEntryCount": 11,
+          "sourceTableNormalizedSha256": "be6d391bff792b4f4b7a6a68d7982bc10b95e584106041314283cdd3d22d9d6f",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.TgmOU36SFwwlN5di",
+              "resolvedLabel": "Charm",
+              "level": 5
+            },
+            {
+              "target": "moves.I8d7of2dA9eAP0OG",
+              "resolvedLabel": "Supersonic",
+              "level": 8
+            },
+            {
+              "target": "moves.0O3ntZlEtOYU7vqT",
+              "resolvedLabel": "Bubble Beam",
+              "level": 12
+            },
+            {
+              "target": "moves.joCaLnLmgcLh36ym",
+              "resolvedLabel": "Acid Armor",
+              "level": 16
+            },
+            {
+              "target": "moves.DUWjQv05jUb2p6gj",
+              "resolvedLabel": "Whirlpool",
+              "level": 20
+            },
+            {
+              "target": "moves.9TnRLGZ6WIGqIeQ4",
+              "resolvedLabel": "Water Pulse",
+              "level": 23
+            },
+            {
+              "target": "moves.ywYeIhxlrHb9gOP1",
+              "resolvedLabel": "Aqua Ring",
+              "level": 27
+            },
+            {
+              "target": "moves.5P4ZKecoBzCd8vh5",
+              "resolvedLabel": "Dive",
+              "level": 31
+            },
+            {
+              "target": "moves.TQrk7QpDTMSD7Ycz",
+              "resolvedLabel": "Rain Dance",
+              "level": 35
+            }
+          ],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.machine",
+          "status": "contradictory",
+          "recordEntryCount": 26,
+          "sourceTableNormalizedSha256": "eae271bd56a0498f5c1e4203a3fa5a89d057358a60e611923382ed2bd4846f34",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.43i757GW8pptWB5j",
+              "resolvedLabel": "Confide",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "dive"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.egg",
+          "status": "supported",
+          "recordEntryCount": 0,
+          "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.tutor",
+          "status": "contradictory",
+          "recordEntryCount": 19,
+          "sourceTableNormalizedSha256": "4979049d9ddcdfb1e12529b609cad609461895c405484edf5cbc02c23e76abd9",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.ywYeIhxlrHb9gOP1",
+              "resolvedLabel": "Aqua Ring",
+              "level": null
+            },
+            {
+              "target": "moves.5ORKWU9EYYyzJOaH",
+              "resolvedLabel": "Brine",
+              "level": null
+            },
+            {
+              "target": "moves.iRpfWZ1PSCAeyUEX",
+              "resolvedLabel": "Liquidation",
+              "level": null
+            },
+            {
+              "target": "moves.9TnRLGZ6WIGqIeQ4",
+              "resolvedLabel": "Water Pulse",
+              "level": null
+            },
+            {
+              "target": "moves.DUWjQv05jUb2p6gj",
+              "resolvedLabel": "Whirlpool",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "sleeptalk"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.capabilities numeric fields",
+          "status": "supported",
+          "values": [
+            {
+              "field": "overland",
+              "record": 4,
+              "source": 4
+            },
+            {
+              "field": "swim",
+              "record": 6,
+              "source": 6
+            },
+            {
+              "field": "sky",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "levitate",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "burrow",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "power",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "highJump",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "longJump",
+              "record": 1,
+              "source": 1
+            }
+          ],
+          "sourceTextNormalizedSha256": "f80d8e8522f6647adceae0913b3c437bde9ac0ca07cee94858acd559a13e71e5"
+        },
+        {
+          "field": "system.size.height",
+          "status": "supported",
+          "recordValue": 0.4,
+          "sourceValue": 0.4
+        },
+        {
+          "field": "system.size.weight",
+          "status": "supported",
+          "recordValue": 3.1,
+          "sourceValue": 3.1
+        },
+        {
+          "field": "system.size.sizeClass",
+          "status": "supported",
+          "recordValue": "Small",
+          "sourceValue": "Small"
+        },
+        {
+          "field": "system.size.weightClass",
+          "status": "supported",
+          "recordValue": 1,
+          "sourceValue": 1
+        },
+        {
+          "field": "system.breeding.genderRatio",
+          "status": "supported",
+          "recordValue": -1,
+          "sourceValue": -1
+        },
+        {
+          "field": "system.breeding.eggGroups",
+          "status": "supported",
+          "recordValue": [
+            "fairy",
+            "water1"
+          ],
+          "sourceValue": [
+            "fairy",
+            "water1"
+          ]
+        },
+        {
+          "field": "system.breeding.hatchRate",
+          "status": "supported",
+          "recordValue": 25,
+          "sourceValue": 25
+        },
+        {
+          "field": "system.diet",
+          "status": "supported",
+          "recordValue": [
+            "herbivore"
+          ],
+          "sourceValue": [
+            "herbivore"
+          ]
+        },
+        {
+          "field": "system.habitats",
+          "status": "supported",
+          "recordValue": [
+            "ocean"
+          ],
+          "sourceValue": [
+            "ocean"
+          ]
+        },
+        {
+          "field": "system.skills six printed entries",
+          "status": "supported",
+          "values": [
+            {
+              "key": "athletics",
+              "record": {
+                "value": 3,
+                "modifier": 2
+              },
+              "source": {
+                "value": 3,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "acrobatics",
+              "record": {
+                "value": 4,
+                "modifier": 2
+              },
+              "source": {
+                "value": 4,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "combat",
+              "record": {
+                "value": 3,
+                "modifier": 0
+              },
+              "source": {
+                "value": 3,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "stealth",
+              "record": {
+                "value": 4,
+                "modifier": 3
+              },
+              "source": {
+                "value": 4,
+                "modifier": 3
+              },
+              "status": "supported"
+            },
+            {
+              "key": "perception",
+              "record": {
+                "value": 4,
+                "modifier": 2
+              },
+              "source": {
+                "value": 4,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "focus",
+              "record": {
+                "value": 3,
+                "modifier": 0
+              },
+              "source": {
+                "value": 3,
+                "modifier": 0
+              },
+              "status": "supported"
+            }
+          ],
+          "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+        },
+        {
+          "field": "system.capabilities.naturewalk",
+          "status": "supported",
+          "recordValue": [
+            "ocean"
+          ],
+          "sourceValue": [
+            "ocean"
+          ]
+        },
+        {
+          "field": "system.capabilities.other exact UUID targets",
+          "status": "supported",
+          "targetFindings": [
+            {
+              "target": "capabilities.nWoI9YVnNO7M6UtR",
+              "resolvedLabel": "Amorphous",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.ut911FJQTWb21u98",
+              "resolvedLabel": "Fountain",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.Sr5UjqsO8FydTuNw",
+              "resolvedLabel": "Gilled",
+              "printedPresence": true
+            }
+          ],
+          "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+        },
+        {
+          "field": "system.evolutions requirements",
+          "status": "supported",
+          "recordRestrictions": [],
+          "sourceRequirementFragments": [],
+          "sourceEvolutionNormalizedSha256": "9a7b9a936d04f48c96b61cbed21806cd1fc8fd8853c4296e605038193b47d6b6",
+          "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+        },
+        {
+          "field": "system.number",
+          "status": "unavailable",
+          "recordNormalizedSha256": "e4be97ce765e6cfcd703884cc31db7478fa7befca7cf6dc15420ba20ed718abe",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.form",
+          "status": "source-coordinate-only",
+          "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.dexentry",
+          "status": "unavailable",
+          "recordNormalizedSha256": "bc983091f77e65a95cd05adf5f045a11b80fff529caf976259acacb98b491868",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        }
+      ],
+      "sources": [
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            714
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        }
+      ],
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "sourceComparison": {
+        "sourceProfile": "plus-dex:714",
+        "source": {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            714
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        "fields": [
+          {
+            "field": "system.stats",
+            "status": "supported",
+            "recordValue": {
+              "hp": 8,
+              "atk": 8,
+              "def": 8,
+              "spatk": 8,
+              "spdef": 8,
+              "spd": 8
+            },
+            "sourceValue": {
+              "hp": 8,
+              "atk": 8,
+              "def": 8,
+              "spatk": 8,
+              "spdef": 8,
+              "spd": 8
+            }
+          },
+          {
+            "field": "system.types",
+            "status": "supported",
+            "recordValue": [
+              "Water"
+            ],
+            "sourceValue": [
+              "Water"
+            ]
+          },
+          {
+            "field": "system.abilities exact UUID-resolved slot order",
+            "status": "supported",
+            "recordValue": [
+              "Hydration",
+              "Rain Dish",
+              "Swift Swim",
+              "Damp",
+              "Absorb Force"
+            ],
+            "sourceValue": [
+              "Hydration",
+              "Rain Dish",
+              "Swift Swim",
+              "Damp",
+              "Absorb Force"
+            ]
+          },
+          {
+            "field": "system.evolutions levels",
+            "status": "supported",
+            "recordValue": [
+              1
+            ],
+            "sourceValue": [
+              1
+            ],
+            "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+          },
+          {
+            "field": "system.moves.level",
+            "status": "contradictory",
+            "recordEntryCount": 11,
+            "sourceTableNormalizedSha256": "be6d391bff792b4f4b7a6a68d7982bc10b95e584106041314283cdd3d22d9d6f",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.TgmOU36SFwwlN5di",
+                "resolvedLabel": "Charm",
+                "level": 5
+              },
+              {
+                "target": "moves.I8d7of2dA9eAP0OG",
+                "resolvedLabel": "Supersonic",
+                "level": 8
+              },
+              {
+                "target": "moves.0O3ntZlEtOYU7vqT",
+                "resolvedLabel": "Bubble Beam",
+                "level": 12
+              },
+              {
+                "target": "moves.joCaLnLmgcLh36ym",
+                "resolvedLabel": "Acid Armor",
+                "level": 16
+              },
+              {
+                "target": "moves.DUWjQv05jUb2p6gj",
+                "resolvedLabel": "Whirlpool",
+                "level": 20
+              },
+              {
+                "target": "moves.9TnRLGZ6WIGqIeQ4",
+                "resolvedLabel": "Water Pulse",
+                "level": 23
+              },
+              {
+                "target": "moves.ywYeIhxlrHb9gOP1",
+                "resolvedLabel": "Aqua Ring",
+                "level": 27
+              },
+              {
+                "target": "moves.5P4ZKecoBzCd8vh5",
+                "resolvedLabel": "Dive",
+                "level": 31
+              },
+              {
+                "target": "moves.TQrk7QpDTMSD7Ycz",
+                "resolvedLabel": "Rain Dance",
+                "level": 35
+              }
+            ],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.machine",
+            "status": "contradictory",
+            "recordEntryCount": 26,
+            "sourceTableNormalizedSha256": "eae271bd56a0498f5c1e4203a3fa5a89d057358a60e611923382ed2bd4846f34",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.43i757GW8pptWB5j",
+                "resolvedLabel": "Confide",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "dive"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.egg",
+            "status": "supported",
+            "recordEntryCount": 0,
+            "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.tutor",
+            "status": "contradictory",
+            "recordEntryCount": 19,
+            "sourceTableNormalizedSha256": "4979049d9ddcdfb1e12529b609cad609461895c405484edf5cbc02c23e76abd9",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.ywYeIhxlrHb9gOP1",
+                "resolvedLabel": "Aqua Ring",
+                "level": null
+              },
+              {
+                "target": "moves.5ORKWU9EYYyzJOaH",
+                "resolvedLabel": "Brine",
+                "level": null
+              },
+              {
+                "target": "moves.iRpfWZ1PSCAeyUEX",
+                "resolvedLabel": "Liquidation",
+                "level": null
+              },
+              {
+                "target": "moves.9TnRLGZ6WIGqIeQ4",
+                "resolvedLabel": "Water Pulse",
+                "level": null
+              },
+              {
+                "target": "moves.DUWjQv05jUb2p6gj",
+                "resolvedLabel": "Whirlpool",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "sleeptalk"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.capabilities numeric fields",
+            "status": "supported",
+            "values": [
+              {
+                "field": "overland",
+                "record": 4,
+                "source": 4
+              },
+              {
+                "field": "swim",
+                "record": 6,
+                "source": 6
+              },
+              {
+                "field": "sky",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "levitate",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "burrow",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "power",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "highJump",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "longJump",
+                "record": 1,
+                "source": 1
+              }
+            ],
+            "sourceTextNormalizedSha256": "f80d8e8522f6647adceae0913b3c437bde9ac0ca07cee94858acd559a13e71e5"
+          },
+          {
+            "field": "system.size.height",
+            "status": "supported",
+            "recordValue": 0.4,
+            "sourceValue": 0.4
+          },
+          {
+            "field": "system.size.weight",
+            "status": "supported",
+            "recordValue": 3.1,
+            "sourceValue": 3.1
+          },
+          {
+            "field": "system.size.sizeClass",
+            "status": "supported",
+            "recordValue": "Small",
+            "sourceValue": "Small"
+          },
+          {
+            "field": "system.size.weightClass",
+            "status": "supported",
+            "recordValue": 1,
+            "sourceValue": 1
+          },
+          {
+            "field": "system.breeding.genderRatio",
+            "status": "supported",
+            "recordValue": -1,
+            "sourceValue": -1
+          },
+          {
+            "field": "system.breeding.eggGroups",
+            "status": "supported",
+            "recordValue": [
+              "fairy",
+              "water1"
+            ],
+            "sourceValue": [
+              "fairy",
+              "water1"
+            ]
+          },
+          {
+            "field": "system.breeding.hatchRate",
+            "status": "supported",
+            "recordValue": 25,
+            "sourceValue": 25
+          },
+          {
+            "field": "system.diet",
+            "status": "supported",
+            "recordValue": [
+              "herbivore"
+            ],
+            "sourceValue": [
+              "herbivore"
+            ]
+          },
+          {
+            "field": "system.habitats",
+            "status": "supported",
+            "recordValue": [
+              "ocean"
+            ],
+            "sourceValue": [
+              "ocean"
+            ]
+          },
+          {
+            "field": "system.skills six printed entries",
+            "status": "supported",
+            "values": [
+              {
+                "key": "athletics",
+                "record": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "acrobatics",
+                "record": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "combat",
+                "record": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "stealth",
+                "record": {
+                  "value": 4,
+                  "modifier": 3
+                },
+                "source": {
+                  "value": 4,
+                  "modifier": 3
+                },
+                "status": "supported"
+              },
+              {
+                "key": "perception",
+                "record": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "focus",
+                "record": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "status": "supported"
+              }
+            ],
+            "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+          },
+          {
+            "field": "system.capabilities.naturewalk",
+            "status": "supported",
+            "recordValue": [
+              "ocean"
+            ],
+            "sourceValue": [
+              "ocean"
+            ]
+          },
+          {
+            "field": "system.capabilities.other exact UUID targets",
+            "status": "supported",
+            "targetFindings": [
+              {
+                "target": "capabilities.nWoI9YVnNO7M6UtR",
+                "resolvedLabel": "Amorphous",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.ut911FJQTWb21u98",
+                "resolvedLabel": "Fountain",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.Sr5UjqsO8FydTuNw",
+                "resolvedLabel": "Gilled",
+                "printedPresence": true
+              }
+            ],
+            "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+          },
+          {
+            "field": "system.evolutions requirements",
+            "status": "supported",
+            "recordRestrictions": [],
+            "sourceRequirementFragments": [],
+            "sourceEvolutionNormalizedSha256": "9a7b9a936d04f48c96b61cbed21806cd1fc8fd8853c4296e605038193b47d6b6",
+            "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+          },
+          {
+            "field": "system.number",
+            "status": "unavailable",
+            "recordNormalizedSha256": "e4be97ce765e6cfcd703884cc31db7478fa7befca7cf6dc15420ba20ed718abe",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.form",
+            "status": "source-coordinate-only",
+            "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.dexentry",
+            "status": "unavailable",
+            "recordNormalizedSha256": "bc983091f77e65a95cd05adf5f045a11b80fff529caf976259acacb98b491868",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          }
+        ],
+        "independentGroups": {
+          "baseStats": true,
+          "types": true,
+          "abilitySlots": true,
+          "evolutionLevels": true
+        },
+        "equalMechanicalGroups": 4,
+        "candidateCount": 2,
+        "correspondenceSupported": true,
+        "otherCandidateProfiles": [
+          "old-dex:714"
+        ]
+      },
+      "coverageState": "reviewed",
+      "implementationImpact": "05 must preserve selections and use reviewed source fields/explicit variants; untraced deltas require a cited source or disposition before policy promotion. Gameplay/automation is not certified.",
+      "normativeFieldCoverage": "All printed profile groups compared; unprinted National number/narrative/default-skill fields and source omissions are explicit. No whole-record approval."
+    },
+    {
+      "identity": "species.07C1xktkoENBPgjs",
+      "contentHash": "7cb91f57f979e2fd344878d6f4a413594187ccd00194b03370288a1e8bcaceed",
+      "labelForReview": "Tentacruel",
+      "recordType": "species",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact packs/<pack>/_source/<id>.json _id and content hash agree with accepted stable-ID inventory; recovered export lineage is docs/data/recovery.json. No display-name-derived ID."
+      },
+      "recordClass": "mixed",
+      "generationReview": {
+        "status": "supported",
+        "scope": "supplied Generations1–8 source topic",
+        "revisionLimitation": "Unattributed altered fields are not thereby approved as in-scope revisions."
+      },
+      "ruleVersionReview": {
+        "status": "contradictory",
+        "basis": "Exact compared fields differ: system.moves.machine, system.moves.tutor, system.breeding.hatchRate, system.capabilities.other exact UUID targets, system.number, system.form, system.dexentry",
+        "sourceVersion": "supplied optional source"
+      },
+      "fieldReview": [
+        {
+          "field": "system.stats",
+          "status": "supported",
+          "recordValue": {
+            "hp": 8,
+            "atk": 7,
+            "def": 7,
+            "spatk": 8,
+            "spdef": 12,
+            "spd": 10
+          },
+          "sourceValue": {
+            "hp": 8,
+            "atk": 7,
+            "def": 7,
+            "spatk": 8,
+            "spdef": 12,
+            "spd": 10
+          }
+        },
+        {
+          "field": "system.types",
+          "status": "supported",
+          "recordValue": [
+            "Water",
+            "Poison"
+          ],
+          "sourceValue": [
+            "Water",
+            "Poison"
+          ]
+        },
+        {
+          "field": "system.abilities exact UUID-resolved slot order",
+          "status": "supported",
+          "recordValue": [
+            "Clear Body",
+            "Rain Dish",
+            "Liquid Ooze",
+            "Poison Touch",
+            "Illuminate"
+          ],
+          "sourceValue": [
+            "Clear Body",
+            "Rain Dish",
+            "Liquid Ooze",
+            "Poison Touch",
+            "Illuminate"
+          ]
+        },
+        {
+          "field": "system.evolutions levels",
+          "status": "supported",
+          "recordValue": [
+            1,
+            25
+          ],
+          "sourceValue": [
+            1,
+            25
+          ],
+          "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+        },
+        {
+          "field": "system.moves.level",
+          "status": "supported",
+          "recordEntryCount": 16,
+          "sourceTableNormalizedSha256": "e81058cddcdeb000dd9b922da76beb95c1c6bfdd764d1adc938e279b1499f219",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.machine",
+          "status": "contradictory",
+          "recordEntryCount": 33,
+          "sourceTableNormalizedSha256": "2cdc25f15908f49da2541e49c10cf4ded8dde6db3d17332e134c9a20aaaa94b8",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [
+            "cut",
+            "dive"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.egg",
+          "status": "supported",
+          "recordEntryCount": 0,
+          "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.tutor",
+          "status": "contradictory",
+          "recordEntryCount": 13,
+          "sourceTableNormalizedSha256": "b59c2fff86077ea8085048f6a77370155f9b07fe86f7a5a14d266b60cff8e128",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.9TnRLGZ6WIGqIeQ4",
+              "resolvedLabel": "Water Pulse",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "sleeptalk"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.capabilities numeric fields",
+          "status": "supported",
+          "values": [
+            {
+              "field": "overland",
+              "record": 3,
+              "source": 3
+            },
+            {
+              "field": "swim",
+              "record": 7,
+              "source": 7
+            },
+            {
+              "field": "sky",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "levitate",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "burrow",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "power",
+              "record": 6,
+              "source": 6
+            },
+            {
+              "field": "highJump",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "longJump",
+              "record": 1,
+              "source": 1
+            }
+          ],
+          "sourceTextNormalizedSha256": "894be3ba4dddfc0ebb6aa53c7cd4b0084065e9d3768d63b9ccddbcc79431934d"
+        },
+        {
+          "field": "system.size.height",
+          "status": "supported",
+          "recordValue": 1.6,
+          "sourceValue": 1.6
+        },
+        {
+          "field": "system.size.weight",
+          "status": "supported",
+          "recordValue": 55,
+          "sourceValue": 55.0
+        },
+        {
+          "field": "system.size.sizeClass",
+          "status": "supported",
+          "recordValue": "Medium",
+          "sourceValue": "Medium"
+        },
+        {
+          "field": "system.size.weightClass",
+          "status": "supported",
+          "recordValue": 4,
+          "sourceValue": 4
+        },
+        {
+          "field": "system.breeding.genderRatio",
+          "status": "supported",
+          "recordValue": 50,
+          "sourceValue": 50.0
+        },
+        {
+          "field": "system.breeding.eggGroups",
+          "status": "supported",
+          "recordValue": [
+            "water3"
+          ],
+          "sourceValue": [
+            "water3"
+          ]
+        },
+        {
+          "field": "system.breeding.hatchRate",
+          "status": "unavailable",
+          "recordValue": -1,
+          "sourceValue": null,
+          "limitation": "The cited source block does not print this value; absence is not approval of an inherited default."
+        },
+        {
+          "field": "system.diet",
+          "status": "supported",
+          "recordValue": [
+            "carnivore"
+          ],
+          "sourceValue": [
+            "carnivore"
+          ]
+        },
+        {
+          "field": "system.habitats",
+          "status": "supported",
+          "recordValue": [
+            "ocean"
+          ],
+          "sourceValue": [
+            "ocean"
+          ]
+        },
+        {
+          "field": "system.skills six printed entries",
+          "status": "supported",
+          "values": [
+            {
+              "key": "athletics",
+              "record": {
+                "value": 4,
+                "modifier": 2
+              },
+              "source": {
+                "value": 4,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "acrobatics",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "combat",
+              "record": {
+                "value": 4,
+                "modifier": 0
+              },
+              "source": {
+                "value": 4,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "stealth",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "perception",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "focus",
+              "record": {
+                "value": 3,
+                "modifier": 0
+              },
+              "source": {
+                "value": 3,
+                "modifier": 0
+              },
+              "status": "supported"
+            }
+          ],
+          "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+        },
+        {
+          "field": "system.capabilities.naturewalk",
+          "status": "supported",
+          "recordValue": [
+            "ocean"
+          ],
+          "sourceValue": [
+            "ocean"
+          ]
+        },
+        {
+          "field": "system.capabilities.other exact UUID targets",
+          "status": "contradictory",
+          "targetFindings": [
+            {
+              "target": "capabilities.ut911FJQTWb21u98",
+              "resolvedLabel": "Fountain",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.Sr5UjqsO8FydTuNw",
+              "resolvedLabel": "Gilled",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.v4OOr4KlIO0DKw5r",
+              "resolvedLabel": "Glow",
+              "printedPresence": false
+            },
+            {
+              "target": "capabilities.o7NdOFXqtOAIFv6x",
+              "resolvedLabel": "Reach",
+              "printedPresence": true
+            }
+          ],
+          "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+        },
+        {
+          "field": "system.evolutions requirements",
+          "status": "supported",
+          "recordRestrictions": [],
+          "sourceRequirementFragments": [],
+          "sourceEvolutionNormalizedSha256": "4ed39dc4c9e9d5d9a1f131229fb9a26780d12de81dcbb70c971e2af60925a63e",
+          "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+        },
+        {
+          "field": "system.number",
+          "status": "unavailable",
+          "recordNormalizedSha256": "96061e92f58e4bdcdee73df36183fe3ac64747c81c26f6c83aada8d2aabb1864",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.form",
+          "status": "source-coordinate-only",
+          "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.dexentry",
+          "status": "unavailable",
+          "recordNormalizedSha256": "b9e63fb43a39e31c0e98755eeb2b8c2d5d397b07c63f94dc8bbe3609d2d8f1c0",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        }
+      ],
+      "sources": [
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            442
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        }
+      ],
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "sourceComparison": {
+        "sourceProfile": "plus-dex:442",
+        "source": {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            442
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        "fields": [
+          {
+            "field": "system.stats",
+            "status": "supported",
+            "recordValue": {
+              "hp": 8,
+              "atk": 7,
+              "def": 7,
+              "spatk": 8,
+              "spdef": 12,
+              "spd": 10
+            },
+            "sourceValue": {
+              "hp": 8,
+              "atk": 7,
+              "def": 7,
+              "spatk": 8,
+              "spdef": 12,
+              "spd": 10
+            }
+          },
+          {
+            "field": "system.types",
+            "status": "supported",
+            "recordValue": [
+              "Water",
+              "Poison"
+            ],
+            "sourceValue": [
+              "Water",
+              "Poison"
+            ]
+          },
+          {
+            "field": "system.abilities exact UUID-resolved slot order",
+            "status": "supported",
+            "recordValue": [
+              "Clear Body",
+              "Rain Dish",
+              "Liquid Ooze",
+              "Poison Touch",
+              "Illuminate"
+            ],
+            "sourceValue": [
+              "Clear Body",
+              "Rain Dish",
+              "Liquid Ooze",
+              "Poison Touch",
+              "Illuminate"
+            ]
+          },
+          {
+            "field": "system.evolutions levels",
+            "status": "supported",
+            "recordValue": [
+              1,
+              25
+            ],
+            "sourceValue": [
+              1,
+              25
+            ],
+            "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+          },
+          {
+            "field": "system.moves.level",
+            "status": "supported",
+            "recordEntryCount": 16,
+            "sourceTableNormalizedSha256": "e81058cddcdeb000dd9b922da76beb95c1c6bfdd764d1adc938e279b1499f219",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.machine",
+            "status": "contradictory",
+            "recordEntryCount": 33,
+            "sourceTableNormalizedSha256": "2cdc25f15908f49da2541e49c10cf4ded8dde6db3d17332e134c9a20aaaa94b8",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [
+              "cut",
+              "dive"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.egg",
+            "status": "supported",
+            "recordEntryCount": 0,
+            "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.tutor",
+            "status": "contradictory",
+            "recordEntryCount": 13,
+            "sourceTableNormalizedSha256": "b59c2fff86077ea8085048f6a77370155f9b07fe86f7a5a14d266b60cff8e128",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.9TnRLGZ6WIGqIeQ4",
+                "resolvedLabel": "Water Pulse",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "sleeptalk"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.capabilities numeric fields",
+            "status": "supported",
+            "values": [
+              {
+                "field": "overland",
+                "record": 3,
+                "source": 3
+              },
+              {
+                "field": "swim",
+                "record": 7,
+                "source": 7
+              },
+              {
+                "field": "sky",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "levitate",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "burrow",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "power",
+                "record": 6,
+                "source": 6
+              },
+              {
+                "field": "highJump",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "longJump",
+                "record": 1,
+                "source": 1
+              }
+            ],
+            "sourceTextNormalizedSha256": "894be3ba4dddfc0ebb6aa53c7cd4b0084065e9d3768d63b9ccddbcc79431934d"
+          },
+          {
+            "field": "system.size.height",
+            "status": "supported",
+            "recordValue": 1.6,
+            "sourceValue": 1.6
+          },
+          {
+            "field": "system.size.weight",
+            "status": "supported",
+            "recordValue": 55,
+            "sourceValue": 55.0
+          },
+          {
+            "field": "system.size.sizeClass",
+            "status": "supported",
+            "recordValue": "Medium",
+            "sourceValue": "Medium"
+          },
+          {
+            "field": "system.size.weightClass",
+            "status": "supported",
+            "recordValue": 4,
+            "sourceValue": 4
+          },
+          {
+            "field": "system.breeding.genderRatio",
+            "status": "supported",
+            "recordValue": 50,
+            "sourceValue": 50.0
+          },
+          {
+            "field": "system.breeding.eggGroups",
+            "status": "supported",
+            "recordValue": [
+              "water3"
+            ],
+            "sourceValue": [
+              "water3"
+            ]
+          },
+          {
+            "field": "system.breeding.hatchRate",
+            "status": "unavailable",
+            "recordValue": -1,
+            "sourceValue": null,
+            "limitation": "The cited source block does not print this value; absence is not approval of an inherited default."
+          },
+          {
+            "field": "system.diet",
+            "status": "supported",
+            "recordValue": [
+              "carnivore"
+            ],
+            "sourceValue": [
+              "carnivore"
+            ]
+          },
+          {
+            "field": "system.habitats",
+            "status": "supported",
+            "recordValue": [
+              "ocean"
+            ],
+            "sourceValue": [
+              "ocean"
+            ]
+          },
+          {
+            "field": "system.skills six printed entries",
+            "status": "supported",
+            "values": [
+              {
+                "key": "athletics",
+                "record": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 4,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "acrobatics",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "combat",
+                "record": {
+                  "value": 4,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 4,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "stealth",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "perception",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "focus",
+                "record": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "status": "supported"
+              }
+            ],
+            "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+          },
+          {
+            "field": "system.capabilities.naturewalk",
+            "status": "supported",
+            "recordValue": [
+              "ocean"
+            ],
+            "sourceValue": [
+              "ocean"
+            ]
+          },
+          {
+            "field": "system.capabilities.other exact UUID targets",
+            "status": "contradictory",
+            "targetFindings": [
+              {
+                "target": "capabilities.ut911FJQTWb21u98",
+                "resolvedLabel": "Fountain",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.Sr5UjqsO8FydTuNw",
+                "resolvedLabel": "Gilled",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.v4OOr4KlIO0DKw5r",
+                "resolvedLabel": "Glow",
+                "printedPresence": false
+              },
+              {
+                "target": "capabilities.o7NdOFXqtOAIFv6x",
+                "resolvedLabel": "Reach",
+                "printedPresence": true
+              }
+            ],
+            "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+          },
+          {
+            "field": "system.evolutions requirements",
+            "status": "supported",
+            "recordRestrictions": [],
+            "sourceRequirementFragments": [],
+            "sourceEvolutionNormalizedSha256": "4ed39dc4c9e9d5d9a1f131229fb9a26780d12de81dcbb70c971e2af60925a63e",
+            "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+          },
+          {
+            "field": "system.number",
+            "status": "unavailable",
+            "recordNormalizedSha256": "96061e92f58e4bdcdee73df36183fe3ac64747c81c26f6c83aada8d2aabb1864",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.form",
+            "status": "source-coordinate-only",
+            "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.dexentry",
+            "status": "unavailable",
+            "recordNormalizedSha256": "b9e63fb43a39e31c0e98755eeb2b8c2d5d397b07c63f94dc8bbe3609d2d8f1c0",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          }
+        ],
+        "independentGroups": {
+          "baseStats": true,
+          "types": true,
+          "abilitySlots": true,
+          "evolutionLevels": true
+        },
+        "equalMechanicalGroups": 4,
+        "candidateCount": 2,
+        "correspondenceSupported": true,
+        "otherCandidateProfiles": [
+          "old-dex:442"
+        ]
+      },
+      "coverageState": "reviewed",
+      "implementationImpact": "05 must preserve selections and use reviewed source fields/explicit variants; untraced deltas require a cited source or disposition before policy promotion. Gameplay/automation is not certified.",
+      "normativeFieldCoverage": "All printed profile groups compared; unprinted National number/narrative/default-skill fields and source omissions are explicit. No whole-record approval."
+    },
+    {
+      "identity": "species.07CjMJ4qMxK0ZaEk",
+      "contentHash": "984d5931eae627647d729f7a697f206ca74074384fbd384b0502bfb816cd1ae6",
+      "labelForReview": "Magneton",
+      "recordType": "species",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact packs/<pack>/_source/<id>.json _id and content hash agree with accepted stable-ID inventory; recovered export lineage is docs/data/recovery.json. No display-name-derived ID."
+      },
+      "recordClass": "mixed",
+      "generationReview": {
+        "status": "supported",
+        "scope": "supplied Generations1–8 source topic",
+        "revisionLimitation": "Unattributed altered fields are not thereby approved as in-scope revisions."
+      },
+      "ruleVersionReview": {
+        "status": "contradictory",
+        "basis": "Exact compared fields differ: system.evolutions levels, system.moves.level, system.moves.machine, system.moves.tutor, system.breeding.hatchRate, system.capabilities.other exact UUID targets, system.evolutions requirements, system.number, system.form, system.dexentry",
+        "sourceVersion": "supplied optional source"
+      },
+      "fieldReview": [
+        {
+          "field": "system.stats",
+          "status": "supported",
+          "recordValue": {
+            "hp": 5,
+            "atk": 6,
+            "def": 10,
+            "spatk": 12,
+            "spdef": 7,
+            "spd": 7
+          },
+          "sourceValue": {
+            "hp": 5,
+            "atk": 6,
+            "def": 10,
+            "spatk": 12,
+            "spdef": 7,
+            "spd": 7
+          }
+        },
+        {
+          "field": "system.types",
+          "status": "supported",
+          "recordValue": [
+            "Electric",
+            "Steel"
+          ],
+          "sourceValue": [
+            "Electric",
+            "Steel"
+          ]
+        },
+        {
+          "field": "system.abilities exact UUID-resolved slot order",
+          "status": "supported",
+          "recordValue": [
+            "Magnet Pull",
+            "Sturdy",
+            "Analytic",
+            "Soundproof",
+            "Targeting System"
+          ],
+          "sourceValue": [
+            "Magnet Pull",
+            "Sturdy",
+            "Analytic",
+            "Soundproof",
+            "Targeting System"
+          ]
+        },
+        {
+          "field": "system.evolutions levels",
+          "status": "unavailable-source-omission",
+          "recordValue": [
+            1,
+            30,
+            40
+          ],
+          "sourceValue": [
+            1,
+            30,
+            null
+          ],
+          "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+        },
+        {
+          "field": "system.moves.level",
+          "status": "contradictory",
+          "recordEntryCount": 17,
+          "sourceTableNormalizedSha256": "e3672f927f1927bc20a491fe6c38a5b0e8a7e3bb1fa564bbbf860d507a5d1a71",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.IWDclyABMiQ3puo0",
+              "resolvedLabel": "Tri Attack",
+              "level": "Evo"
+            },
+            {
+              "target": "moves.HhQrSZjCBL95D1zV",
+              "resolvedLabel": "Thunder Shock",
+              "level": 5
+            },
+            {
+              "target": "moves.wxMkDV7tasspdddy",
+              "resolvedLabel": "Thunder Wave",
+              "level": 7
+            },
+            {
+              "target": "moves.PyKNQmVYYDDxeL5J",
+              "resolvedLabel": "Magnet Bomb",
+              "level": 11
+            },
+            {
+              "target": "moves.weEc5wlOZ5H7Tguh",
+              "resolvedLabel": "Light Screen",
+              "level": 13
+            },
+            {
+              "target": "moves.kLwGOMnWIIl2m3sU",
+              "resolvedLabel": "Sonic Boom",
+              "level": 17
+            }
+          ],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.machine",
+          "status": "contradictory",
+          "recordEntryCount": 29,
+          "sourceTableNormalizedSha256": "97d20f98c52b68c61dbdaaa951c126f65b1260ffbf50c6458fa8ad2001d1d3b1",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.43i757GW8pptWB5j",
+              "resolvedLabel": "Confide",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "flash"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.egg",
+          "status": "supported",
+          "recordEntryCount": 0,
+          "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.tutor",
+          "status": "contradictory",
+          "recordEntryCount": 15,
+          "sourceTableNormalizedSha256": "c48a4ce76a48e843dc88d6bac2f130da4029336f34c68dd40e5fdd55253e1ed6",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [
+            "metalclaw",
+            "sleeptalk",
+            "sonicboom",
+            "supersonic",
+            "thundershock",
+            "triattack"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.capabilities numeric fields",
+          "status": "supported",
+          "values": [
+            {
+              "field": "overland",
+              "record": 3,
+              "source": 3
+            },
+            {
+              "field": "swim",
+              "record": 4,
+              "source": 4
+            },
+            {
+              "field": "sky",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "levitate",
+              "record": 5,
+              "source": 5
+            },
+            {
+              "field": "burrow",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "power",
+              "record": 4,
+              "source": 4
+            },
+            {
+              "field": "highJump",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "longJump",
+              "record": 1,
+              "source": 1
+            }
+          ],
+          "sourceTextNormalizedSha256": "9b8c15139d34c6477977da6fcec31530bd199e7066aab2d17844c6914ddbf5d7"
+        },
+        {
+          "field": "system.size.height",
+          "status": "supported",
+          "recordValue": 1,
+          "sourceValue": 1.0
+        },
+        {
+          "field": "system.size.weight",
+          "status": "supported",
+          "recordValue": 60,
+          "sourceValue": 60.0
+        },
+        {
+          "field": "system.size.sizeClass",
+          "status": "supported",
+          "recordValue": "Medium",
+          "sourceValue": "Medium"
+        },
+        {
+          "field": "system.size.weightClass",
+          "status": "supported",
+          "recordValue": 4,
+          "sourceValue": 4
+        },
+        {
+          "field": "system.breeding.genderRatio",
+          "status": "supported",
+          "recordValue": -1,
+          "sourceValue": -1
+        },
+        {
+          "field": "system.breeding.eggGroups",
+          "status": "supported",
+          "recordValue": [
+            "mineral"
+          ],
+          "sourceValue": [
+            "mineral"
+          ]
+        },
+        {
+          "field": "system.breeding.hatchRate",
+          "status": "unavailable",
+          "recordValue": -1,
+          "sourceValue": null,
+          "limitation": "The cited source block does not print this value; absence is not approval of an inherited default."
+        },
+        {
+          "field": "system.diet",
+          "status": "supported",
+          "recordValue": [
+            "ergovore"
+          ],
+          "sourceValue": [
+            "ergovore"
+          ]
+        },
+        {
+          "field": "system.habitats",
+          "status": "supported",
+          "recordValue": [
+            "mountain",
+            "urban"
+          ],
+          "sourceValue": [
+            "mountain",
+            "urban"
+          ]
+        },
+        {
+          "field": "system.skills six printed entries",
+          "status": "supported",
+          "values": [
+            {
+              "key": "athletics",
+              "record": {
+                "value": 3,
+                "modifier": 0
+              },
+              "source": {
+                "value": 3,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "acrobatics",
+              "record": {
+                "value": 2,
+                "modifier": 1
+              },
+              "source": {
+                "value": 2,
+                "modifier": 1
+              },
+              "status": "supported"
+            },
+            {
+              "key": "combat",
+              "record": {
+                "value": 2,
+                "modifier": 2
+              },
+              "source": {
+                "value": 2,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "stealth",
+              "record": {
+                "value": 2,
+                "modifier": 1
+              },
+              "source": {
+                "value": 2,
+                "modifier": 1
+              },
+              "status": "supported"
+            },
+            {
+              "key": "perception",
+              "record": {
+                "value": 3,
+                "modifier": 2
+              },
+              "source": {
+                "value": 3,
+                "modifier": 2
+              },
+              "status": "supported"
+            },
+            {
+              "key": "focus",
+              "record": {
+                "value": 3,
+                "modifier": 2
+              },
+              "source": {
+                "value": 3,
+                "modifier": 2
+              },
+              "status": "supported"
+            }
+          ],
+          "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+        },
+        {
+          "field": "system.capabilities.naturewalk",
+          "status": "supported",
+          "recordValue": [],
+          "sourceValue": []
+        },
+        {
+          "field": "system.capabilities.other exact UUID targets",
+          "status": "contradictory",
+          "targetFindings": [
+            {
+              "target": "capabilities.GQ53gx8t1mfqgydo",
+              "resolvedLabel": "Breathless",
+              "printedPresence": false
+            },
+            {
+              "target": "capabilities.27U7ZioOgyZFzxDx",
+              "resolvedLabel": "Dead Silent",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.O00WEaCeKskK8vY4",
+              "resolvedLabel": "Magnetic",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.v3QyNdZYDVwlG2tY",
+              "resolvedLabel": "Zapper",
+              "printedPresence": true
+            }
+          ],
+          "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+        },
+        {
+          "field": "system.evolutions requirements",
+          "status": "contradictory",
+          "recordRestrictions": [],
+          "sourceRequirementFragments": [
+            "above sea level"
+          ],
+          "sourceEvolutionNormalizedSha256": "30543f06ab29749f0214e533171ef98d0f60784557ef390d67d830d37f382baf",
+          "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+        },
+        {
+          "field": "system.number",
+          "status": "unavailable",
+          "recordNormalizedSha256": "a46e37632fa6ca51a13fe39a567b3c23b28c2f47d8af6be9bd63e030e214ba38",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.form",
+          "status": "source-coordinate-only",
+          "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.dexentry",
+          "status": "unavailable",
+          "recordNormalizedSha256": "45ad835785ccf3439efde6d62baea8367938b6d23254e725edebab4908e6653b",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        }
+      ],
+      "sources": [
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            148
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        }
+      ],
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "sourceComparison": {
+        "sourceProfile": "plus-dex:148",
+        "source": {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            148
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        "fields": [
+          {
+            "field": "system.stats",
+            "status": "supported",
+            "recordValue": {
+              "hp": 5,
+              "atk": 6,
+              "def": 10,
+              "spatk": 12,
+              "spdef": 7,
+              "spd": 7
+            },
+            "sourceValue": {
+              "hp": 5,
+              "atk": 6,
+              "def": 10,
+              "spatk": 12,
+              "spdef": 7,
+              "spd": 7
+            }
+          },
+          {
+            "field": "system.types",
+            "status": "supported",
+            "recordValue": [
+              "Electric",
+              "Steel"
+            ],
+            "sourceValue": [
+              "Electric",
+              "Steel"
+            ]
+          },
+          {
+            "field": "system.abilities exact UUID-resolved slot order",
+            "status": "supported",
+            "recordValue": [
+              "Magnet Pull",
+              "Sturdy",
+              "Analytic",
+              "Soundproof",
+              "Targeting System"
+            ],
+            "sourceValue": [
+              "Magnet Pull",
+              "Sturdy",
+              "Analytic",
+              "Soundproof",
+              "Targeting System"
+            ]
+          },
+          {
+            "field": "system.evolutions levels",
+            "status": "unavailable-source-omission",
+            "recordValue": [
+              1,
+              30,
+              40
+            ],
+            "sourceValue": [
+              1,
+              30,
+              null
+            ],
+            "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+          },
+          {
+            "field": "system.moves.level",
+            "status": "contradictory",
+            "recordEntryCount": 17,
+            "sourceTableNormalizedSha256": "e3672f927f1927bc20a491fe6c38a5b0e8a7e3bb1fa564bbbf860d507a5d1a71",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.IWDclyABMiQ3puo0",
+                "resolvedLabel": "Tri Attack",
+                "level": "Evo"
+              },
+              {
+                "target": "moves.HhQrSZjCBL95D1zV",
+                "resolvedLabel": "Thunder Shock",
+                "level": 5
+              },
+              {
+                "target": "moves.wxMkDV7tasspdddy",
+                "resolvedLabel": "Thunder Wave",
+                "level": 7
+              },
+              {
+                "target": "moves.PyKNQmVYYDDxeL5J",
+                "resolvedLabel": "Magnet Bomb",
+                "level": 11
+              },
+              {
+                "target": "moves.weEc5wlOZ5H7Tguh",
+                "resolvedLabel": "Light Screen",
+                "level": 13
+              },
+              {
+                "target": "moves.kLwGOMnWIIl2m3sU",
+                "resolvedLabel": "Sonic Boom",
+                "level": 17
+              }
+            ],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.machine",
+            "status": "contradictory",
+            "recordEntryCount": 29,
+            "sourceTableNormalizedSha256": "97d20f98c52b68c61dbdaaa951c126f65b1260ffbf50c6458fa8ad2001d1d3b1",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.43i757GW8pptWB5j",
+                "resolvedLabel": "Confide",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "flash"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.egg",
+            "status": "supported",
+            "recordEntryCount": 0,
+            "sourceTableNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.tutor",
+            "status": "contradictory",
+            "recordEntryCount": 15,
+            "sourceTableNormalizedSha256": "c48a4ce76a48e843dc88d6bac2f130da4029336f34c68dd40e5fdd55253e1ed6",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [
+              "metalclaw",
+              "sleeptalk",
+              "sonicboom",
+              "supersonic",
+              "thundershock",
+              "triattack"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.capabilities numeric fields",
+            "status": "supported",
+            "values": [
+              {
+                "field": "overland",
+                "record": 3,
+                "source": 3
+              },
+              {
+                "field": "swim",
+                "record": 4,
+                "source": 4
+              },
+              {
+                "field": "sky",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "levitate",
+                "record": 5,
+                "source": 5
+              },
+              {
+                "field": "burrow",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "power",
+                "record": 4,
+                "source": 4
+              },
+              {
+                "field": "highJump",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "longJump",
+                "record": 1,
+                "source": 1
+              }
+            ],
+            "sourceTextNormalizedSha256": "9b8c15139d34c6477977da6fcec31530bd199e7066aab2d17844c6914ddbf5d7"
+          },
+          {
+            "field": "system.size.height",
+            "status": "supported",
+            "recordValue": 1,
+            "sourceValue": 1.0
+          },
+          {
+            "field": "system.size.weight",
+            "status": "supported",
+            "recordValue": 60,
+            "sourceValue": 60.0
+          },
+          {
+            "field": "system.size.sizeClass",
+            "status": "supported",
+            "recordValue": "Medium",
+            "sourceValue": "Medium"
+          },
+          {
+            "field": "system.size.weightClass",
+            "status": "supported",
+            "recordValue": 4,
+            "sourceValue": 4
+          },
+          {
+            "field": "system.breeding.genderRatio",
+            "status": "supported",
+            "recordValue": -1,
+            "sourceValue": -1
+          },
+          {
+            "field": "system.breeding.eggGroups",
+            "status": "supported",
+            "recordValue": [
+              "mineral"
+            ],
+            "sourceValue": [
+              "mineral"
+            ]
+          },
+          {
+            "field": "system.breeding.hatchRate",
+            "status": "unavailable",
+            "recordValue": -1,
+            "sourceValue": null,
+            "limitation": "The cited source block does not print this value; absence is not approval of an inherited default."
+          },
+          {
+            "field": "system.diet",
+            "status": "supported",
+            "recordValue": [
+              "ergovore"
+            ],
+            "sourceValue": [
+              "ergovore"
+            ]
+          },
+          {
+            "field": "system.habitats",
+            "status": "supported",
+            "recordValue": [
+              "mountain",
+              "urban"
+            ],
+            "sourceValue": [
+              "mountain",
+              "urban"
+            ]
+          },
+          {
+            "field": "system.skills six printed entries",
+            "status": "supported",
+            "values": [
+              {
+                "key": "athletics",
+                "record": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "acrobatics",
+                "record": {
+                  "value": 2,
+                  "modifier": 1
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 1
+                },
+                "status": "supported"
+              },
+              {
+                "key": "combat",
+                "record": {
+                  "value": 2,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "stealth",
+                "record": {
+                  "value": 2,
+                  "modifier": 1
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 1
+                },
+                "status": "supported"
+              },
+              {
+                "key": "perception",
+                "record": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "status": "supported"
+              },
+              {
+                "key": "focus",
+                "record": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 2
+                },
+                "status": "supported"
+              }
+            ],
+            "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+          },
+          {
+            "field": "system.capabilities.naturewalk",
+            "status": "supported",
+            "recordValue": [],
+            "sourceValue": []
+          },
+          {
+            "field": "system.capabilities.other exact UUID targets",
+            "status": "contradictory",
+            "targetFindings": [
+              {
+                "target": "capabilities.GQ53gx8t1mfqgydo",
+                "resolvedLabel": "Breathless",
+                "printedPresence": false
+              },
+              {
+                "target": "capabilities.27U7ZioOgyZFzxDx",
+                "resolvedLabel": "Dead Silent",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.O00WEaCeKskK8vY4",
+                "resolvedLabel": "Magnetic",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.v3QyNdZYDVwlG2tY",
+                "resolvedLabel": "Zapper",
+                "printedPresence": true
+              }
+            ],
+            "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+          },
+          {
+            "field": "system.evolutions requirements",
+            "status": "contradictory",
+            "recordRestrictions": [],
+            "sourceRequirementFragments": [
+              "above sea level"
+            ],
+            "sourceEvolutionNormalizedSha256": "30543f06ab29749f0214e533171ef98d0f60784557ef390d67d830d37f382baf",
+            "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+          },
+          {
+            "field": "system.number",
+            "status": "unavailable",
+            "recordNormalizedSha256": "a46e37632fa6ca51a13fe39a567b3c23b28c2f47d8af6be9bd63e030e214ba38",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.form",
+            "status": "source-coordinate-only",
+            "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.dexentry",
+            "status": "unavailable",
+            "recordNormalizedSha256": "45ad835785ccf3439efde6d62baea8367938b6d23254e725edebab4908e6653b",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          }
+        ],
+        "independentGroups": {
+          "baseStats": true,
+          "types": true,
+          "abilitySlots": true,
+          "evolutionLevels": false
+        },
+        "equalMechanicalGroups": 3,
+        "candidateCount": 2,
+        "correspondenceSupported": true,
+        "otherCandidateProfiles": [
+          "old-dex:148"
+        ]
+      },
+      "coverageState": "reviewed",
+      "implementationImpact": "05 must preserve selections and use reviewed source fields/explicit variants; untraced deltas require a cited source or disposition before policy promotion. Gameplay/automation is not certified.",
+      "normativeFieldCoverage": "All printed profile groups compared; unprinted National number/narrative/default-skill fields and source omissions are explicit. No whole-record approval."
+    },
+    {
+      "identity": "species.08vVg10BhDfQUn87",
+      "contentHash": "ee92976be370863a9810f06d11a9d9b0ebcd93b49c607a8f2aa8cd402ce7c4ce",
+      "labelForReview": "Torchic",
+      "recordType": "species",
+      "identityReview": {
+        "status": "supported",
+        "basis": "Exact packs/<pack>/_source/<id>.json _id and content hash agree with accepted stable-ID inventory; recovered export lineage is docs/data/recovery.json. No display-name-derived ID."
+      },
+      "recordClass": "mixed",
+      "generationReview": {
+        "status": "supported",
+        "scope": "supplied Generations1–8 source topic",
+        "revisionLimitation": "Unattributed altered fields are not thereby approved as in-scope revisions."
+      },
+      "ruleVersionReview": {
+        "status": "contradictory",
+        "basis": "Exact compared fields differ: system.evolutions levels, system.moves.machine, system.moves.tutor, system.capabilities.naturewalk, system.number, system.form, system.dexentry",
+        "sourceVersion": "supplied optional source"
+      },
+      "fieldReview": [
+        {
+          "field": "system.stats",
+          "status": "supported",
+          "recordValue": {
+            "hp": 5,
+            "atk": 6,
+            "def": 4,
+            "spatk": 7,
+            "spdef": 5,
+            "spd": 5
+          },
+          "sourceValue": {
+            "hp": 5,
+            "atk": 6,
+            "def": 4,
+            "spatk": 7,
+            "spdef": 5,
+            "spd": 5
+          }
+        },
+        {
+          "field": "system.types",
+          "status": "supported",
+          "recordValue": [
+            "Fire"
+          ],
+          "sourceValue": [
+            "Fire"
+          ]
+        },
+        {
+          "field": "system.abilities exact UUID-resolved slot order",
+          "status": "supported",
+          "recordValue": [
+            "Blaze",
+            "Klutz",
+            "Speed Boost",
+            "Tangled Feet",
+            "Moxie"
+          ],
+          "sourceValue": [
+            "Blaze",
+            "Klutz",
+            "Speed Boost",
+            "Tangled Feet",
+            "Moxie"
+          ]
+        },
+        {
+          "field": "system.evolutions levels",
+          "status": "contradictory",
+          "recordValue": [
+            1,
+            15,
+            30
+          ],
+          "sourceValue": [
+            1,
+            15,
+            35
+          ],
+          "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+        },
+        {
+          "field": "system.moves.level",
+          "status": "supported",
+          "recordEntryCount": 12,
+          "sourceTableNormalizedSha256": "c896b4441bd69586023e23d8ab49be002d1244b8847bb08e4f0dc172a4464dc9",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.machine",
+          "status": "contradictory",
+          "recordEntryCount": 27,
+          "sourceTableNormalizedSha256": "13925949f5f4f4d514238cf9643f29d0e9e111c847907b26e931b90cf533806d",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.gCofXErMduyn6zwf",
+              "resolvedLabel": "Work Up",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "cut",
+            "strength",
+            "honeclaws",
+            "dig",
+            "incinerate",
+            "rocksmash",
+            "poweruppunch"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.egg",
+          "status": "supported",
+          "recordEntryCount": 16,
+          "sourceTableNormalizedSha256": "e974818aafa2ad021a9579480871cb01642ee4eb15e5b730f43696edac6ca144",
+          "unsupportedCurrentEntries": [],
+          "missingSourceEntries": [],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.moves.tutor",
+          "status": "contradictory",
+          "recordEntryCount": 15,
+          "sourceTableNormalizedSha256": "e2605759594a232608cd288916aacd16921e4691c737dc73a570bd3b89a54b79",
+          "unsupportedCurrentEntries": [
+            {
+              "target": "moves.DANp8m02Ocfv3esu",
+              "resolvedLabel": "Defog",
+              "level": null
+            }
+          ],
+          "missingSourceEntries": [
+            "sleeptalk"
+          ],
+          "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+        },
+        {
+          "field": "system.capabilities numeric fields",
+          "status": "supported",
+          "values": [
+            {
+              "field": "overland",
+              "record": 6,
+              "source": 6
+            },
+            {
+              "field": "swim",
+              "record": 3,
+              "source": 3
+            },
+            {
+              "field": "sky",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "levitate",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "burrow",
+              "record": 0,
+              "source": 0
+            },
+            {
+              "field": "power",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "highJump",
+              "record": 1,
+              "source": 1
+            },
+            {
+              "field": "longJump",
+              "record": 2,
+              "source": 2
+            }
+          ],
+          "sourceTextNormalizedSha256": "13ca4bf66fa32a3322354789fbe29ea2ca29f97aa37143067e83c86ba3122616"
+        },
+        {
+          "field": "system.size.height",
+          "status": "supported",
+          "recordValue": 0.4,
+          "sourceValue": 0.4
+        },
+        {
+          "field": "system.size.weight",
+          "status": "supported",
+          "recordValue": 2.5,
+          "sourceValue": 2.5
+        },
+        {
+          "field": "system.size.sizeClass",
+          "status": "supported",
+          "recordValue": "Small",
+          "sourceValue": "Small"
+        },
+        {
+          "field": "system.size.weightClass",
+          "status": "supported",
+          "recordValue": 1,
+          "sourceValue": 1
+        },
+        {
+          "field": "system.breeding.genderRatio",
+          "status": "supported",
+          "recordValue": 87.5,
+          "sourceValue": 87.5
+        },
+        {
+          "field": "system.breeding.eggGroups",
+          "status": "supported",
+          "recordValue": [
+            "field"
+          ],
+          "sourceValue": [
+            "field"
+          ]
+        },
+        {
+          "field": "system.breeding.hatchRate",
+          "status": "supported",
+          "recordValue": 10,
+          "sourceValue": 10
+        },
+        {
+          "field": "system.diet",
+          "status": "supported",
+          "recordValue": [
+            "herbivore"
+          ],
+          "sourceValue": [
+            "herbivore"
+          ]
+        },
+        {
+          "field": "system.habitats",
+          "status": "supported",
+          "recordValue": [
+            "grassland"
+          ],
+          "sourceValue": [
+            "grassland"
+          ]
+        },
+        {
+          "field": "system.skills six printed entries",
+          "status": "supported",
+          "values": [
+            {
+              "key": "athletics",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "acrobatics",
+              "record": {
+                "value": 3,
+                "modifier": 3
+              },
+              "source": {
+                "value": 3,
+                "modifier": 3
+              },
+              "status": "supported"
+            },
+            {
+              "key": "combat",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "stealth",
+              "record": {
+                "value": 3,
+                "modifier": 0
+              },
+              "source": {
+                "value": 3,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "perception",
+              "record": {
+                "value": 2,
+                "modifier": 0
+              },
+              "source": {
+                "value": 2,
+                "modifier": 0
+              },
+              "status": "supported"
+            },
+            {
+              "key": "focus",
+              "record": {
+                "value": 1,
+                "modifier": 0
+              },
+              "source": {
+                "value": 1,
+                "modifier": 0
+              },
+              "status": "supported"
+            }
+          ],
+          "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+        },
+        {
+          "field": "system.capabilities.naturewalk",
+          "status": "contradictory",
+          "recordValue": [
+            "grassland"
+          ],
+          "sourceValue": [
+            "grasslands"
+          ]
+        },
+        {
+          "field": "system.capabilities.other exact UUID targets",
+          "status": "supported",
+          "targetFindings": [
+            {
+              "target": "capabilities.9DQsEtRIDXdw7ICw",
+              "resolvedLabel": "Heater",
+              "printedPresence": true
+            },
+            {
+              "target": "capabilities.AIbbzjfDZix8YFkU",
+              "resolvedLabel": "Underdog",
+              "printedPresence": true
+            }
+          ],
+          "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+        },
+        {
+          "field": "system.evolutions requirements",
+          "status": "supported",
+          "recordRestrictions": [],
+          "sourceRequirementFragments": [],
+          "sourceEvolutionNormalizedSha256": "f8a325f11bbf45c5dee85ddacb810032967c84a199252932cc631dfd3a97aeac",
+          "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+        },
+        {
+          "field": "system.number",
+          "status": "unavailable",
+          "recordNormalizedSha256": "9556b82499cc0aaf86aee7f0d253e17c61b7ef73d48a295f37d98f08b04ffa7f",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.form",
+          "status": "source-coordinate-only",
+          "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        },
+        {
+          "field": "system.dexentry",
+          "status": "unavailable",
+          "recordNormalizedSha256": "a1f00a19a9efa308b25e2cb6815d94afde706b4c6723859bf6525a2ea317e594",
+          "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+        }
+      ],
+      "sources": [
+        {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            36
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        }
+      ],
+      "behavioralVerification": "not-run",
+      "productionPolicyPromotion": false,
+      "sourceComparison": {
+        "sourceProfile": "plus-dex:36",
+        "source": {
+          "path": "Core System/Pokedex 1.05+.pdf",
+          "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+          "pdfPages": [
+            36
+          ],
+          "pageConvention": "one-based PDF; printed coordinates follow source authority ledger"
+        },
+        "fields": [
+          {
+            "field": "system.stats",
+            "status": "supported",
+            "recordValue": {
+              "hp": 5,
+              "atk": 6,
+              "def": 4,
+              "spatk": 7,
+              "spdef": 5,
+              "spd": 5
+            },
+            "sourceValue": {
+              "hp": 5,
+              "atk": 6,
+              "def": 4,
+              "spatk": 7,
+              "spdef": 5,
+              "spd": 5
+            }
+          },
+          {
+            "field": "system.types",
+            "status": "supported",
+            "recordValue": [
+              "Fire"
+            ],
+            "sourceValue": [
+              "Fire"
+            ]
+          },
+          {
+            "field": "system.abilities exact UUID-resolved slot order",
+            "status": "supported",
+            "recordValue": [
+              "Blaze",
+              "Klutz",
+              "Speed Boost",
+              "Tangled Feet",
+              "Moxie"
+            ],
+            "sourceValue": [
+              "Blaze",
+              "Klutz",
+              "Speed Boost",
+              "Tangled Feet",
+              "Moxie"
+            ]
+          },
+          {
+            "field": "system.evolutions levels",
+            "status": "contradictory",
+            "recordValue": [
+              1,
+              15,
+              30
+            ],
+            "sourceValue": [
+              1,
+              15,
+              35
+            ],
+            "limitation": "Root stage maps to1; absent/non-level requirements are not fabricated level1 minima. Decimal geographic quantities are not levels. Requirements/related identities are separate; levels alone never establish the profile."
+          },
+          {
+            "field": "system.moves.level",
+            "status": "supported",
+            "recordEntryCount": 12,
+            "sourceTableNormalizedSha256": "c896b4441bd69586023e23d8ab49be002d1244b8847bb08e4f0dc172a4464dc9",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.machine",
+            "status": "contradictory",
+            "recordEntryCount": 27,
+            "sourceTableNormalizedSha256": "13925949f5f4f4d514238cf9643f29d0e9e111c847907b26e931b90cf533806d",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.gCofXErMduyn6zwf",
+                "resolvedLabel": "Work Up",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "cut",
+              "strength",
+              "honeclaws",
+              "dig",
+              "incinerate",
+              "rocksmash",
+              "poweruppunch"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.egg",
+            "status": "supported",
+            "recordEntryCount": 16,
+            "sourceTableNormalizedSha256": "e974818aafa2ad021a9579480871cb01642ee4eb15e5b730f43696edac6ca144",
+            "unsupportedCurrentEntries": [],
+            "missingSourceEntries": [],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.moves.tutor",
+            "status": "contradictory",
+            "recordEntryCount": 15,
+            "sourceTableNormalizedSha256": "e2605759594a232608cd288916aacd16921e4691c737dc73a570bd3b89a54b79",
+            "unsupportedCurrentEntries": [
+              {
+                "target": "moves.DANp8m02Ocfv3esu",
+                "resolvedLabel": "Defog",
+                "level": null
+              }
+            ],
+            "missingSourceEntries": [
+              "sleeptalk"
+            ],
+            "limitation": "Exact current links are resolved; this checks source membership/levels, not target Move definition versions or full runtime behavior."
+          },
+          {
+            "field": "system.capabilities numeric fields",
+            "status": "supported",
+            "values": [
+              {
+                "field": "overland",
+                "record": 6,
+                "source": 6
+              },
+              {
+                "field": "swim",
+                "record": 3,
+                "source": 3
+              },
+              {
+                "field": "sky",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "levitate",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "burrow",
+                "record": 0,
+                "source": 0
+              },
+              {
+                "field": "power",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "highJump",
+                "record": 1,
+                "source": 1
+              },
+              {
+                "field": "longJump",
+                "record": 2,
+                "source": 2
+              }
+            ],
+            "sourceTextNormalizedSha256": "13ca4bf66fa32a3322354789fbe29ea2ca29f97aa37143067e83c86ba3122616"
+          },
+          {
+            "field": "system.size.height",
+            "status": "supported",
+            "recordValue": 0.4,
+            "sourceValue": 0.4
+          },
+          {
+            "field": "system.size.weight",
+            "status": "supported",
+            "recordValue": 2.5,
+            "sourceValue": 2.5
+          },
+          {
+            "field": "system.size.sizeClass",
+            "status": "supported",
+            "recordValue": "Small",
+            "sourceValue": "Small"
+          },
+          {
+            "field": "system.size.weightClass",
+            "status": "supported",
+            "recordValue": 1,
+            "sourceValue": 1
+          },
+          {
+            "field": "system.breeding.genderRatio",
+            "status": "supported",
+            "recordValue": 87.5,
+            "sourceValue": 87.5
+          },
+          {
+            "field": "system.breeding.eggGroups",
+            "status": "supported",
+            "recordValue": [
+              "field"
+            ],
+            "sourceValue": [
+              "field"
+            ]
+          },
+          {
+            "field": "system.breeding.hatchRate",
+            "status": "supported",
+            "recordValue": 10,
+            "sourceValue": 10
+          },
+          {
+            "field": "system.diet",
+            "status": "supported",
+            "recordValue": [
+              "herbivore"
+            ],
+            "sourceValue": [
+              "herbivore"
+            ]
+          },
+          {
+            "field": "system.habitats",
+            "status": "supported",
+            "recordValue": [
+              "grassland"
+            ],
+            "sourceValue": [
+              "grassland"
+            ]
+          },
+          {
+            "field": "system.skills six printed entries",
+            "status": "supported",
+            "values": [
+              {
+                "key": "athletics",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "acrobatics",
+                "record": {
+                  "value": 3,
+                  "modifier": 3
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 3
+                },
+                "status": "supported"
+              },
+              {
+                "key": "combat",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "stealth",
+                "record": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 3,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "perception",
+                "record": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 2,
+                  "modifier": 0
+                },
+                "status": "supported"
+              },
+              {
+                "key": "focus",
+                "record": {
+                  "value": 1,
+                  "modifier": 0
+                },
+                "source": {
+                  "value": 1,
+                  "modifier": 0
+                },
+                "status": "supported"
+              }
+            ],
+            "limitation": "Other stored skills are explicit schema defaults, not printed/certified species skill values."
+          },
+          {
+            "field": "system.capabilities.naturewalk",
+            "status": "contradictory",
+            "recordValue": [
+              "grassland"
+            ],
+            "sourceValue": [
+              "grasslands"
+            ]
+          },
+          {
+            "field": "system.capabilities.other exact UUID targets",
+            "status": "supported",
+            "targetFindings": [
+              {
+                "target": "capabilities.9DQsEtRIDXdw7ICw",
+                "resolvedLabel": "Heater",
+                "printedPresence": true
+              },
+              {
+                "target": "capabilities.AIbbzjfDZix8YFkU",
+                "resolvedLabel": "Underdog",
+                "printedPresence": true
+              }
+            ],
+            "limitation": "Presence establishes capability slot membership only; capability definition versions are independently classified."
+          },
+          {
+            "field": "system.evolutions requirements",
+            "status": "supported",
+            "recordRestrictions": [],
+            "sourceRequirementFragments": [],
+            "sourceEvolutionNormalizedSha256": "f8a325f11bbf45c5dee85ddacb810032967c84a199252932cc631dfd3a97aeac",
+            "limitation": "Empty current restrictions omit any explicit printed stone/held-item/gender/location requirement. Nonempty restrictions require branch-specific comparison; a level match does not certify them."
+          },
+          {
+            "field": "system.number",
+            "status": "unavailable",
+            "recordNormalizedSha256": "9556b82499cc0aaf86aee7f0d253e17c61b7ef73d48a295f37d98f08b04ffa7f",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.form",
+            "status": "source-coordinate-only",
+            "recordNormalizedSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          },
+          {
+            "field": "system.dexentry",
+            "status": "unavailable",
+            "recordNormalizedSha256": "a1f00a19a9efa308b25e2cb6815d94afde706b4c6723859bf6525a2ea317e594",
+            "basis": "National number/narrative are not printed profile facts; form correspondence is established by independent mechanical fields and source coordinates, never a display label alone."
+          }
+        ],
+        "independentGroups": {
+          "baseStats": true,
+          "types": true,
+          "abilitySlots": true,
+          "evolutionLevels": false
+        },
+        "equalMechanicalGroups": 3,
+        "candidateCount": 2,
+        "correspondenceSupported": true,
+        "otherCandidateProfiles": [
+          "old-dex:36"
+        ]
+      },
+      "coverageState": "reviewed",
+      "implementationImpact": "05 must preserve selections and use reviewed source fields/explicit variants; untraced deltas require a cited source or disposition before policy promotion. Gameplay/automation is not certified.",
+      "normativeFieldCoverage": "All printed profile groups compared; unprinted National number/narrative/default-skill fields and source omissions are explicit. No whole-record approval."
+    }
+  ],
+  "productionPolicyPromotion": false
+}

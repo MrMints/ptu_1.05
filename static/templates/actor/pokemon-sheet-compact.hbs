@@ -19,6 +19,7 @@
         </nav>
     </header>
     <main class="sheet-body h-100">
+        {{> "systems/ptu/static/templates/partials/prerequisite-diagnostics.hbs"}}
         <!-- Skills and Description Tab -->
         <div class="tab details stats h-100" data-group="primary" data-tab="stats">
             <div class="d-flex justify-content-between flex-row h-100">
@@ -579,6 +580,8 @@
                         <div class="swsh-body w-100" style="display: block;">
                             {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title=(localize
                             "ITEM.TypePokeedgePlural") type="pokeedge" items=edges}}
+                            {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title="Features" type="feat" items=crossActorFeatures}}
+                            {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title="Edges" type="edge" items=crossActorEdges}}
                         </div>
                     </div>
                 </div>
@@ -588,6 +591,8 @@
                         <div class="swsh-body w-100" style="display: block;">
                             {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title=(localize
                             "ITEM.TypePokeedgePlural") type="pokeedge" items=edges}}
+                            {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title="Features" type="feat" items=crossActorFeatures}}
+                            {{> "systems/ptu/static/templates/partials/item-display-partial.hbs" title="Edges" type="edge" items=crossActorEdges}}
                         </div>
                     </div>
                 </div> --}}

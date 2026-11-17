@@ -4,6 +4,8 @@ import { PTUPartySheet } from "../../apps/party/sheet.js";
 import { Statistic } from "../../system/statistic/index.js";
 import { PTUDexSheet } from "../../apps/dex/sheet.js";
 import { PTUActorSheet } from "../sheet.js";
+import { presentSkills } from "../../../util/skills.js";
+import {assignFeatureGroup} from '../../../util/acquisition.js';
 
 export class PTUCharacterSheet extends PTUActorSheet {
 
@@ -59,7 +61,7 @@ export class PTUCharacterSheet extends PTUActorSheet {
 		// Setup Item Columns
 		if (this.actor.getFlag("ptu", "itemColumns") === undefined) {
 			const columns = { one: ["Culinary items", "Medicinal items", "Poke balls", "Training items"], two: ["Equipment", "Travel items", "Money"], available: [] };
-			this.actor.setFlag("ptu", "itemColumns", columns)
+			if (this.isEditable) await this.actor.setFlag("ptu", "itemColumns", columns);
 			data.columns = columns;
 		}
 		else data.columns = this.actor.getFlag("ptu", "itemColumns");
@@ -124,7 +126,7 @@ export class PTUCharacterSheet extends PTUActorSheet {
 	 * @return {undefined}
 	 */
 	async _prepareCharacterItems(sheetData) {
-		sheetData['skills'] = this.actor.system.skills
+		sheetData['skills'] = presentSkills(this.actor.system.skills)
 
 		const actor = sheetData.actor;
 
@@ -399,18 +401,15 @@ export class PTUCharacterSheet extends PTUActorSheet {
 		const item = await Item.implementation.fromDropData(data);
 		const itemData = item.toObject();
 
+		if (this.actor.uuid!==item.parent?.uuid && hasSavedItemGraph(item)) return copySavedItemDocuments([item],{parent:this.actor});
+
 		const category = $(event.target).closest(".color-wrapper").data("category");
 
 		const dropTarget = event.target?.closest("[data-item-id]");
+		const featureTarget=item.category==='feat'&&dropTarget?this.actor.items.get(dropTarget.dataset.itemId):null;
 		if (item.category === "feat" && dropTarget) {
-			const target = this.actor.items.get(dropTarget.dataset.itemId);
 			const source = this.actor.items.get(itemData._id);
-			if (!source?.isGranted && target?.isClass && itemData.system.class != target.name) {
-				await source?.update({ "system.class": target.name })
-			}
-			else if (!source?.isGranted && !target?.isClass && itemData.system.class) {
-				await source?.update({ "system.class": null })
-			}
+			if(source&&this.actor.uuid===item.parent?.uuid)await assignFeatureGroup(this.actor,source,featureTarget);
 		}
 		if (item.type === "item" && dropTarget) {
 			let target = this.actor.items.get(dropTarget.dataset.itemId);
@@ -441,7 +440,7 @@ export class PTUCharacterSheet extends PTUActorSheet {
 
 		// If duplicate item gets added instead increase the quantity
 		const existingItem = this.actor.items.getName(item.name);
-		if (existingItem && existingItem.id != item.id && existingItem.system.quantity) {
+		if (item.type==='item' && existingItem?.type==='item' && existingItem.id != item.id && existingItem.system.quantity) {
 			const quantity = foundry.utils.duplicate(existingItem.system.quantity);
 			await existingItem.update({ "system.quantity": Number(quantity) + (item.system.quantity > 0 ? Number(item.system.quantity) : 1) });
 			return false;
@@ -454,7 +453,9 @@ export class PTUCharacterSheet extends PTUActorSheet {
 		}
 
 		// Create the owned item
-		return this._onDropItemCreate(itemData);
+		const created=await this._onDropItemCreate(itemData);
+		if(featureTarget?.isClass)for(const item of created??[])await assignFeatureGroup(this.actor,item,featureTarget);
+		return created;
 	}
 
 	/**
@@ -628,3 +629,4 @@ export class PTUCharacterSheet extends PTUActorSheet {
 	}
 
 }
+import {hasSavedItemGraph,copySavedItemDocuments} from '../../../util/saved-item-graph.js';

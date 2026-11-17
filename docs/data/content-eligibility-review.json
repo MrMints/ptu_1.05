@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "reviewedBaseline": "aaf9d9f34281e7ac3d9662d4f1ac96bebd81f7a6",
+  "sourceFingerprint": "9ddfb4fd52b84c31d7996dc3fa6fe0da16578af04d288c68e8f93d3cc4a1f24a",
+  "records": [
+    {
+      "identity": "feats.TQ6scoBM3iZKMuZT",
+      "contentHash": "524cfec59afc799cc3275313539d30f429075f5d49e31fa086fc30015a77a63c",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "approved-starter-selection-only",
+      "verification": "verified-starter-creation-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pages": [
+            13,
+            18,
+            60
+          ]
+        }
+      ],
+      "relationshipEvidence": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28^ original effect and its exact four feat UUIDs; predecessor is restored, missing edge identity is not recovered.",
+      "reviewedFields": [
+        "type",
+        "system.prerequisites",
+        "system.keywords",
+        "core effect text"
+      ],
+      "limitations": [
+        "Selection/starting exception only; linked effect activation and broad automation not certified.",
+        "Ordinary starting budgets remain unchanged."
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
+    },
+    {
+      "identity": "feats.MolTHMn3UrNiIZ3h",
+      "contentHash": "27825436e9b7513cae6032ad3f9c01e9321b1a1715788940b86a64f527f68f5b",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "approved-starter-selection-only",
+      "verification": "verified-starter-creation-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pages": [
+            13,
+            18,
+            60
+          ]
+        }
+      ],
+      "relationshipEvidence": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28^ original effect and its exact four feat UUIDs; predecessor is restored, missing edge identity is not recovered.",
+      "reviewedFields": [
+        "type",
+        "system.prerequisites",
+        "system.keywords",
+        "core effect text"
+      ],
+      "limitations": [
+        "Selection/starting exception only; linked effect activation and broad automation not certified.",
+        "Ordinary starting budgets remain unchanged."
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
+    },
+    {
+      "identity": "feats.FLSt79Zix8j69T07",
+      "contentHash": "e8470e7459a0ac0ee744d0f71cd39d04dcf7d8809107cb4cd2e52581c9718dfe",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "approved-starter-selection-only",
+      "verification": "verified-starter-creation-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pages": [
+            13,
+            18,
+            60
+          ]
+        }
+      ],
+      "relationshipEvidence": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28^ original effect and its exact four feat UUIDs; predecessor is restored, missing edge identity is not recovered.",
+      "reviewedFields": [
+        "type",
+        "system.prerequisites",
+        "system.keywords",
+        "core effect text"
+      ],
+      "limitations": [
+        "Selection/starting exception only; linked effect activation and broad automation not certified.",
+        "Ordinary starting budgets remain unchanged."
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
+    },
+    {
+      "identity": "feats.WfLcIrUmRwblAaYr",
+      "contentHash": "18cc17ac0dbab3d129184d58ccd36f4a516bcf15b277d3a936b332b2066fbe51",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "approved-starter-selection-only",
+      "verification": "verified-starter-creation-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pages": [
+            13,
+            18,
+            60
+          ]
+        }
+      ],
+      "relationshipEvidence": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28^ original effect and its exact four feat UUIDs; predecessor is restored, missing edge identity is not recovered.",
+      "reviewedFields": [
+        "type",
+        "system.prerequisites",
+        "system.keywords",
+        "core effect text"
+      ],
+      "limitations": [
+        "Selection/starting exception only; linked effect activation and broad automation not certified.",
+        "Ordinary starting budgets remain unchanged."
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
+    },
+    {
+      "identity": "effects.fm0TZUuQK0uRhkJA",
+      "contentHash": "382a420e4feebdde90a04099cc778928ed7e1de1417d3b1d7ade7e173b52eed0",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "approved-creation-helper-only",
+      "verification": "verified-starter-creation-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+          "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+          "pages": [
+            13,
+            18,
+            60
+          ]
+        }
+      ],
+      "relationshipEvidence": "eed5c4c98915545fa8e825e8a2afbd4b4a1c9f28^ original effect and its exact four feat UUIDs; predecessor is restored, missing edge identity is not recovered.",
+      "reviewedFields": [
+        "system.rules ChoiceSet exact UUIDs and GrantItem replaceSelf relationship"
+      ],
+      "limitations": [
+        "Selection/starting exception only; linked effect activation and broad automation not certified.",
+        "Ordinary starting budgets remain unchanged."
+      ],
+      "verificationEvidence": "docs/validation/2026-10-25-corrective02.json"
+    },
+    {
+      "identity": "species.QE7WhquxeuebiEVQ",
+      "contentHash": "0d5f9de85ec18c8c3d0fde75d82286f0aad18bac86441e5c43a1568c8339b14b",
+      "generationEligibility": "eligible",
+      "ruleVersionApproval": "unclassified",
+      "verification": "integration-fixture-only",
+      "sourceReferences": [
+        {
+          "path": "Core System/Pokedex 1.05 Old.pdf",
+          "sha256": "f6e37647b7450fa7602ff28080adb1bda31f148e1901f6d8b0b6d92b64b7b8ca",
+          "pages": [
+            12
+          ]
+        },
+        {
+          "path": "Core System/Complete Pokedex Gen 1-8.pdf",
+          "sha256": "d9dc1bdd7cfac93b50ae85860bcd493e7f197886e4cb02e3f415b5e70c6ab056",
+          "pages": [
+            12
+          ]
+        }
+      ],
+      "comparedIdentityFields": {
+        "baseStats": {
+          "hp": 5,
+          "atk": 5,
+          "def": 5,
+          "spatk": 7,
+          "spdef": 7,
+          "spd": 5
+        },
+        "types": [
+          "Grass",
+          "Poison"
+        ],
+        "form": "",
+        "size": {
+          "height": 0.7,
+          "weight": 6.9,
+          "sizeClass": "Small",
+          "weightClass": 1
+        },
+        "evolutionLevels": [
+          1,
+          15,
+          30
+        ],
+        "skills": {
+          "athletics": [
+            3,
+            2
+          ],
+          "acrobatics": [
+            2,
+            0
+          ],
+          "focus": [
+            2,
+            1
+          ]
+        }
+      },
+      "decisionBasis": "Original exported stable species identity plus multi-field profile/evolution/size/skill comparison in two local references, not title, name or numeric cutoff alone.",
+      "conflict": {
+        "localReferences": {
+          "basic": [
+            "Confidence",
+            "Photosynthesis"
+          ],
+          "advanced": [
+            "Chlorophyll",
+            "Leaf Guard"
+          ],
+          "high": [
+            "Courage"
+          ]
+        },
+        "inheritedStableIds": {
+          "basic": [
+            {
+              "slug": "chlorophyll",
+              "uuid": "Compendium.ptu.abilities.Item.ZiTUZHmZaIq0K2na"
+            },
+            {
+              "slug": "overgrow",
+              "uuid": "Compendium.ptu.abilities.Item.HSv89TejG6adprHJ"
+            }
+          ],
+          "advanced": [
+            {
+              "slug": "confidence",
+              "uuid": "Compendium.ptu.abilities.Item.dnokBxCkJAn5nqHN"
+            },
+            {
+              "slug": "discipline",
+              "uuid": "Compendium.ptu.abilities.Item.kHDxnwsm7KNgQuQY"
+            }
+          ],
+          "high": [
+            {
+              "slug": "empower",
+              "uuid": "Compendium.ptu.abilities.Item.w5xfL4tul12d4MVp"
+            }
+          ]
+        }
+      },
+      "assignedSourceTask": {
+        "owner": "04",
+        "nextFiniteAction": "Compare the remaining supplied Pokédex/errata profiles and the inherited UUID history using the approved standard-core-first policy. Resolve version attribution; request an owner authority decision only if the accepted references leave a real conflict.",
+        "scope": "No ability-list rewrite or new source precedence chosen in section 02."
+      }
+    },
+    {
+      "identity": "effects.3w7uQfBvzzxATXis",
+      "contentHash": "a67cd7ce4dcb623fa52d991fdceb6dbf3e9860faa98a94500a17a20a65b07a5f",
+      "generationEligibility": "excluded",
+      "ruleVersionApproval": "owner-excluded",
+      "verification": "excluded-no-new-behavior-verification",
+      "sourceReferences": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ]
+    },
+    {
+      "identity": "species.dkQPNz0RLbgzWMLq",
+      "contentHash": "edcb734b2ef2ae8bbbc2beb53b42c2630eee83aeb8cee7cfd67cf2431e4928ff",
+      "generationEligibility": "excluded",
+      "ruleVersionApproval": "owner-excluded",
+      "verification": "excluded-no-new-behavior-verification",
+      "sourceReferences": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ]
+    },
+    {
+      "identity": "species.jAIJeRtRc1sUekjO",
+      "contentHash": "7a9109f9b81cc8ca4369527afb839355160d804a5a0e8ea790c5ad26be9db974",
+      "generationEligibility": "excluded",
+      "ruleVersionApproval": "owner-excluded",
+      "verification": "excluded-no-new-behavior-verification",
+      "sourceReferences": [
+        {
+          "path": "docs/data/supported-content-scope.json",
+          "decision": "Owner 2026-10-25 exact excluded consumer inventory"
+        }
+      ]
+    }
+  ],
+  "sourceAuthorityDecision": "Core governs starter creation. Pokédex version/content conflicts remain undecided. No full revision catalog or broad content approval in this batch."
+}

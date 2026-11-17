@@ -1,0 +1,63 @@
+{
+  "name": "Apothecary",
+  "system": {
+    "origin": "",
+    "effect": "You may use any Apothecary Recipe for which you qualify.\nRecipe - Restorative Science",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Apothecary Research Field",
+      "Branch"
+    ],
+    "prerequisites": [
+      "Novice Medicine Education"
+    ],
+    "frequency": "At-Will - Extended Action",
+    "notes": "",
+    "free": false,
+    "class": "Researcher (Apothecary)",
+    "name": "Apothecary",
+    "useCount": 0,
+    "automation": []
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.PUHkjW4cWIldOdB5"
+    },
+    "ptu": {
+      "prereqBackup": "Novice Medicine Education"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368079279,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.PUHkjW4cWIldOdB5",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 53100000,
+  "_id": "ky3sPKl5czZD8kfi",
+  "_key": "!items!ky3sPKl5czZD8kfi"
+}

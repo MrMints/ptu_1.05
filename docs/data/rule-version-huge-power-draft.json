@@ -1,0 +1,621 @@
+{
+  "schemaVersion": 1,
+  "status": "draft-not-production-approved",
+  "scope": "Generations 1–8 only",
+  "productionMapping": null,
+  "generationEligibility": "unclassified",
+  "approvals": {
+    "production": false,
+    "behavioralVerification": "not-run",
+    "implemented": false,
+    "automation": false
+  },
+  "representation": {
+    "whitespace": "Join whitespace within each accepted printed field using one space; retain frequency and effect as separate typed fields.",
+    "spelling": "Preserve all rule words, spelling, accents, numbers and punctuation; no Pokemon spelling repair or numerical interpretation.",
+    "name": "Display Huge Power for this exact pair; retain the combined February heading as evidence without authoring or merging Pure Power.",
+    "effect": "Copy the complete single effect clause into system.effect; do not replace cannot-disable with Innate or copy executable rules."
+  },
+  "schemaEvidence": {
+    "path": "template.json",
+    "rawFileSha256": {
+      "lf": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9",
+      "crlf": "97a664dc78173c5e4c1601661286187710384118bea2fc2ddf55c1a4974f9bc4"
+    },
+    "jsonSha256": "bffa4c1e57a3b3208affcbc7a9d4a37fc36f0081f8c6b54c0831172ad351c3b2",
+    "basePointer": "/Item/templates/base",
+    "typePointer": "/Item/ability",
+    "requiredSystemFields": [
+      "effect",
+      "enabled",
+      "frequency",
+      "keywords",
+      "origin",
+      "referenceEffect",
+      "rules",
+      "schema",
+      "slug",
+      "snippet",
+      "source",
+      "stackSlugs",
+      "tier"
+    ]
+  },
+  "upstream": {
+    "baseline": "c95f62ea9198c63aab934eab0b32b93cd6e0f320",
+    "pilotJsonSha256": "abe2c88035f9e6444b3eedb0b36cc23c0fbda41272fe337a55bdb8e3e7696101",
+    "caseId": "r04-r0046",
+    "caseJsonSha256": "752574680adb90cb4ae89aecc3014306572051220d56283e27fadf90575cd5ef",
+    "sourceFiles": {
+      "system.json": {
+        "rawFileSha256": {
+          "lf": "f9009d19bace3df3008cb17d2476c6b59dad85733a34f968ea022610c09afea2",
+          "crlf": "258ef593c7c84253fc2b8f5284988934ef01b7269124ed16da0dfa4d88e51cc1"
+        },
+        "jsonSha256": "7ab49214e6c7b94d06b936cd09005403dc4a73df4e1d2be6326c1e77d2204087"
+      },
+      "template.json": {
+        "rawFileSha256": {
+          "lf": "153a42fcfd7449f3de6d87949ec05c569c1e33eae6fbdd79f0ab8f46282ca7c9",
+          "crlf": "97a664dc78173c5e4c1601661286187710384118bea2fc2ddf55c1a4974f9bc4"
+        },
+        "jsonSha256": "bffa4c1e57a3b3208affcbc7a9d4a37fc36f0081f8c6b54c0831172ad351c3b2"
+      },
+      "docs/data/ability-source-evidence.json": {
+        "rawFileSha256": {
+          "lf": "9a2c90f182919563c6ff20c15899235b1f07aa840c2ef83cb78ca126f15b63ff",
+          "crlf": "4becd97a5d88dc18001efa37782373b986f45f091a2dd6ac7f2a44ed72106940"
+        },
+        "jsonSha256": "29cc72e8f7c43ff5dfbd7ec61eec2f7125f5a5a5510dd272587d26b77ccb1ad2"
+      },
+      "docs/data/rules-revisions.json": {
+        "rawFileSha256": {
+          "lf": "b81ac60cafed64bc8944fac1ee907a2f9e99497e4ce25411781e48afbd250c51",
+          "crlf": "6a162198b4615247c71af09a50fee9bb2b632492a8222b8721f7ed41f52e5aaf"
+        },
+        "jsonSha256": "cfa30b3a5917953fcc645dde18fb23b05bd7ae5e8d9f0efce41d05a616d7af26"
+      },
+      "docs/data/source-authority.json": {
+        "rawFileSha256": {
+          "lf": "2667a37b048a8ede853027ecfd75cd41c994f23302113960995e50307f5ea171",
+          "crlf": "a57f5708617e1461926bb2e6f60638cb89956117ed13a35886cbc378de81f75b"
+        },
+        "jsonSha256": "a6e3b1b806381850ef61dc42b3abb9c9e63eeea597087cde12de841cb7e79f54"
+      },
+      "docs/data/references.json": {
+        "rawFileSha256": {
+          "lf": "61f699296584d114ed2d9168f2e8bf3096a3aae2b03e8d51399b4b1bfc9ef96c",
+          "crlf": "3c61124dd58cdfe7757f9285cc065bc284573d1b81d6f44406c22d2f9e876834"
+        },
+        "jsonSha256": "8aa029ddb35d85f16ae96d402ac3bdada661ca17404f2668dda6d8381e4b4548"
+      },
+      "docs/data/record-source-review/abilities-core.json": {
+        "rawFileSha256": {
+          "lf": "fd4d11967475fc917c9d50bab1d16a12bff0d03bf0aeebeeb0a54a6fe910261c",
+          "crlf": "afb4b5dcd19654b257b48b0b115d666c9ed64051c0e405a23f89420995e89c3e"
+        },
+        "jsonSha256": "fe7805fe8ddd54c936c9b91bca8a2392d5285b29d1525de0b33d558d680f06af"
+      }
+    },
+    "currentRecords": {
+      "abilities.oNB76oqVYrjhYd7W": {
+        "path": "packs/abilities/_source/oNB76oqVYrjhYd7W.json",
+        "rawFileSha256": "92fb0234379019b40234f352de1b7a31fe1488a457821033494fc3142bd987c2",
+        "jsonSha256": "77415297fa5299debe707a0fc967eda3ce9ad9463f3566d7faf9306ee1c103a9"
+      },
+      "abilities.nuGa21WQ0QD07kQj": {
+        "path": "packs/abilities/_source/nuGa21WQ0QD07kQj.json",
+        "rawFileSha256": "300ffd5c2c3ce9e8690d6b4fac26bc54881bb820698f6a0f9d24130e5db487f9",
+        "jsonSha256": "76621986900168184117bf13a448664e10d1beba461a8835cb8189c67feb485f"
+      }
+    },
+    "catalogEntryJsonSha256": "bd418f02b3b814918ebe6b8661c689a1ea2ca7ba3ca93a204db00a413c79f230",
+    "authorityEntriesJsonSha256": [
+      "26626bd07a02b4b8b268b101563554075e92c3ea56c74a01c9953ff381a5e797",
+      "4b9ee5e007cf7a9e59681b558f10bd51d45d6eeace8f04b8cef22fa83a3d68af"
+    ],
+    "referenceEntriesJsonSha256": [
+      "6237945d8791bf1a9a65d7011dd241b46e893440648c26ae33286673574eaf2a",
+      "285eb5782a0c58c8644f867d24108b2f0f186e670dd5d98609464cc6ebebb2cf"
+    ],
+    "auditJsonSha256": "797129636564536ae3915b50444707a7477f0d0813f04ada8d1bbeb04978fdca",
+    "reviewJsonSha256": "8cac1f3d5d0a834e463184d66aa9191b126b423f07649dcd05a6aff699f8270b",
+    "exportLineageJsonSha256": "8597c3edd87c9c008642a2af471ccd9ab84f7cb0702073609a240e85f0b67360"
+  },
+  "collisionInventory": {
+    "method": "SHA256(JSON.stringify(sorted unique tracked pack-source filename IDs))",
+    "trackedPathCount": 7395,
+    "count": 7394,
+    "jsonSha256": "22f7417fac6c4a09048c5a7b2cf2e26969307b31133a09c25283bc98539f44bf",
+    "trackedPathsJsonSha256": "3753c69c130ce2274f5ed4b0c648b221d53e0b6488a25fcc2d45439425c1f056"
+  },
+  "identityAllocation": {
+    "generator": "node:crypto.randomInt over 62 alphanumeric symbols",
+    "setsGenerated": 1,
+    "regenerations": 0,
+    "explicitExclusions": [
+      "oNB76oqVYrjhYd7W",
+      "nuGa21WQ0QD07kQj",
+      "aJ47Z5z6Az9c8Dy8",
+      "ta6bKIiHCuccjTqU",
+      "ViZpn17qLA4ACQGa",
+      "e9dQ3NmVm7EuQBO5",
+      "UKk9BnAZtm1xMoRB",
+      "celnYjQjM3jjtAnZ",
+      "i1OAz3lvuCRIm3n9"
+    ],
+    "exactIdCollisionSearch": {
+      "passes": 1,
+      "matches": 0,
+      "exitCode": 1,
+      "commit": "c95f62ea9198c63aab934eab0b32b93cd6e0f320",
+      "scope": [
+        "tracked packs/*/_source/*.json",
+        "tracked docs/data/**/*.json"
+      ]
+    }
+  },
+  "negativeControl": {
+    "purpose": "separate-identity-only",
+    "identity": "abilities.nuGa21WQ0QD07kQj",
+    "documentUuid": "Compendium.ptu.abilities.Item.nuGa21WQ0QD07kQj",
+    "coreDefinitionId": "core:327:ability-line18",
+    "coreDefinitionJsonSha256": "38b7913c1fa402dc987c672383c9e350493b79c8e48beff4510a3c95300cf4db",
+    "sharedRevisedDefinitionId": "feb:5:ability-line83",
+    "currentRecordJsonSha256": "76621986900168184117bf13a448664e10d1beba461a8835cb8189c67feb485f",
+    "proposalCase": false,
+    "canonicalMerge": false
+  },
+  "unresolvedAuthoring": [
+    {
+      "code": "production-identity-and-adoption",
+      "detail": "The five proposed identities require independent and substantive identity review. Preserve inherited Huge/Pure Power and Echoes selections; no pack, registry, eligibility, installation or optional-adoption decision is applied."
+    },
+    {
+      "code": "cannot-disable-and-calculation-execution",
+      "detail": "Core doubling and February additive/cannot-disable clauses are fully descriptive. Empty rules and neutral enabled=true establish no calculation, disabling, effect-use or gameplay automation behavior."
+    },
+    {
+      "code": "saved-custom-repeats-stacking-transfer",
+      "detail": "Existing saved/custom choices, legitimate repeats and unknown use state remain untouched. Alternate-benefit stacking, replacement/transfer, cancellation, reload and migration need separate implementation and artifact-bound evidence."
+    }
+  ],
+  "sourcePairRationale": "Accepted core320 Huge Power and the February5 combined printed revision supply two complete definitions for this exact Huge Power pair. Pure Power core327 is independently bound as a separate negative identity control; combined printing and labels never merge its identity.",
+  "identityDecision": "One cryptographic node:crypto.randomInt set of five alphanumeric IDs was generated once, checked against 7395 tracked pack paths / 7394 unique filename IDs and one batched exact-ID search in tracked packs/docs/data JSON (receipt 1fdb92). No collision or regeneration occurred. Proposed IDs are stable, uninstalled, unreserved and not private-campaign clearance.",
+  "validationLimit": "Fixed pure source/schema/identity checks validate authored descriptive content and preserved inputs only. They do not authenticate human approval, historical search delivery, PDFs, original persistence, private campaign identity clearance, installed defaults, attack calculations, cannot-disable execution or production adoption.",
+  "roles": [
+    {
+      "role": "baseline",
+      "source": {
+        "authorityId": "r04-s12",
+        "path": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+        "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+        "edition": "PTU 1.05 supplied core",
+        "status": "standard-baseline",
+        "publicationDate": null,
+        "datePrecision": "unknown",
+        "pdfPages": [
+          320
+        ],
+        "printedPages": [
+          320
+        ]
+      },
+      "definitionEvidence": {
+        "file": "docs/data/ability-source-evidence.json",
+        "id": "core:320:ability-line34",
+        "jsonSha256": "46277731c7d90a2a2eeb8fca7a069f66be9e59fb9d546d1b7a32c8945e48a117",
+        "rawDefinitionSha256": "d80f96e0ee5cc190e3732d63e4bf1fe347ce343448bee99b3991f139841c8431",
+        "definitionNormalizedSha256": "76d55ed57febc6c32b5f380f6e470cd3ee97600675dcec614cebfeaaa393e915",
+        "evidenceSemanticSha256": "379c2644871415da2adfd07fdee4cd8da0bbcc3cdb412207c3363e04253785e4"
+      },
+      "productionMapping": null,
+      "generationEligibility": "unclassified",
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "proposedIdentity": {
+        "itemId": "ypjzWxMaeA5IzjQb",
+        "canonicalId": "OnXtELEC8HtZL2xT",
+        "versionId": "N77AbLpO4cfdubJU"
+      },
+      "item": {
+        "name": "Huge Power",
+        "type": "ability",
+        "system": {
+          "origin": "",
+          "effect": "The Pokemon's Base Attack stat is doubled. This may double any bonuses from Nature or Vitamins, but not bonuses from Trainer Features.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "PTU 1.05 supplied core — p.320"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "frequency": "Static",
+          "tier": ""
+        }
+      },
+      "fieldDecisions": [
+        {
+          "target": "name",
+          "basis": "source-pair-display",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/label"
+          ],
+          "sourceValueJsonSha256": [
+            "da0c02265caf7c5b38355a4762089745facdcb4578fdaef6bf586d59d4d5fba5"
+          ],
+          "draftValueJsonSha256": "da0c02265caf7c5b38355a4762089745facdcb4578fdaef6bf586d59d4d5fba5",
+          "reason": "Display the exact Huge Power pair while preserving the combined February source heading in evidence. This neither authors Pure Power nor derives persistent identities from labels."
+        },
+        {
+          "target": "type",
+          "basis": "schema-type",
+          "schemaPointer": "/Item/ability",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "df265d1623cd1f0b78e5bc28e598f844f647507b7484ef8c52b1000052b12022",
+          "reason": "Use the explicitly declared Ability Item shape; this non-runtime draft is not an installed Item."
+        },
+        {
+          "target": "system.origin",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/origin",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        },
+        {
+          "target": "system.effect",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/ruleStructure/clauses/0/text"
+          ],
+          "sourceValueJsonSha256": [
+            "c59e265d88054af8917b6edf87a231e59fbf24d7ef5fd3019dbe4576b47dcc86"
+          ],
+          "draftValueJsonSha256": "c59e265d88054af8917b6edf87a231e59fbf24d7ef5fd3019dbe4576b47dcc86",
+          "reason": "Keep every word and punctuation of the complete accepted effect clause, joining whitespace only. Do not substitute Innate or introduce executable calculations."
+        },
+        {
+          "target": "system.snippet",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/snippet",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        },
+        {
+          "target": "system.rules",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/rules",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the declared empty rules array. The printed doubling/additive/cannot-disable text is descriptive; no inherited ActiveEffectLike automation is copied."
+        },
+        {
+          "target": "system.enabled",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/enabled",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "reason": "Keep the neutral declared true value. It establishes neither source approval nor runtime cannot-disable behavior."
+        },
+        {
+          "target": "system.slug",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/slug",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reason": "Keep the declared null slug; neither labels nor slugs determine the proposed stable identities."
+        },
+        {
+          "target": "system.schema",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/schema",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "ded787753979922ffa4622132d59c37c637714a9bdca8850150674f2161b1b64",
+          "reason": "Keep both declared schema migration values null; do not copy the inherited version 0.11 or claim installation or migration."
+        },
+        {
+          "target": "system.referenceEffect",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/referenceEffect",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the empty declared reference; no linked target or executable effect is authored."
+        },
+        {
+          "target": "system.source",
+          "basis": "source-attribution",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "role:/source"
+          ],
+          "sourceValueJsonSha256": [
+            "0559eff878d3a9c9da647490a4e5b3501a1e1f1648f403865de54f5366ee0274"
+          ],
+          "draftValueJsonSha256": "46a60a817bef6f297402b3b575c475a22f0db79f4777bfedfd01b1049629ecad",
+          "reason": "Attribute the exact accepted edition and page. Do not inherit PTR/Homebrew provenance or turn an optional playtest into official errata."
+        },
+        {
+          "target": "system.stackSlugs",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/stackSlugs",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Keep the declared false value without claiming alternate-benefit or repeated-choice enforcement."
+        },
+        {
+          "target": "system.keywords",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/keywords",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the empty declared list; no Innate or other keyword is invented from prose."
+        },
+        {
+          "target": "system.frequency",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/frequency"
+          ],
+          "sourceValueJsonSha256": [
+            "7ab285ce72a056a26617f9710b11c57d1c9af39f6f1da90e771bd0a227b04ddd"
+          ],
+          "draftValueJsonSha256": "7ab285ce72a056a26617f9710b11c57d1c9af39f6f1da90e771bd0a227b04ddd",
+          "reason": "Keep the complete printed Static header as its own typed field, distinct from effect text."
+        },
+        {
+          "target": "system.tier",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/ability/tier",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        }
+      ]
+    },
+    {
+      "role": "revised",
+      "source": {
+        "authorityId": "r04-s01",
+        "path": "Core System/1.05 Errata/February 2016 Playtest Packet.pdf",
+        "sha256": "bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916",
+        "edition": "February 2016 playtest",
+        "status": "optional-playtest",
+        "publicationDate": "2016-02",
+        "datePrecision": "month",
+        "pdfPages": [
+          5
+        ],
+        "printedPages": [
+          5
+        ]
+      },
+      "definitionEvidence": {
+        "file": "docs/data/ability-source-evidence.json",
+        "id": "feb:5:ability-line83",
+        "jsonSha256": "168d79759e414d8efb8d5891e2ec3968ad366ef4716b423a36b8796cfdbb8f1c",
+        "rawDefinitionSha256": "9c8a55b165d13aa6444a7180dd1e38d2ac5e361915c816572161e64b889e8b5e",
+        "definitionNormalizedSha256": "5fdf20caec255038e370ed1263a26474f647cc2e5960a70e80fc8384c9dc3802",
+        "evidenceSemanticSha256": "dfb97ea4954bf23061d346d270fb83e10459fb51bceffb7963f0a5b7cde9d13e"
+      },
+      "productionMapping": null,
+      "generationEligibility": "unclassified",
+      "approvals": {
+        "production": false,
+        "behavioralVerification": "not-run",
+        "implemented": false,
+        "automation": false
+      },
+      "proposedIdentity": {
+        "itemId": "Z4qnGQ3gbYYIs66d",
+        "canonicalId": "OnXtELEC8HtZL2xT",
+        "versionId": "jAM8ro6ZClgBEbOl"
+      },
+      "item": {
+        "name": "Huge Power",
+        "type": "ability",
+        "system": {
+          "origin": "",
+          "effect": "The user's Base Attack Stat is increased by +5, and by +1 more for every 10 Levels the user has. This Ability cannot be disabled in any way.",
+          "snippet": "",
+          "rules": [],
+          "enabled": true,
+          "slug": null,
+          "schema": {
+            "version": null,
+            "lastMigration": null
+          },
+          "referenceEffect": "",
+          "source": {
+            "value": "February 2016 playtest — p.5"
+          },
+          "stackSlugs": false,
+          "keywords": [],
+          "frequency": "Static",
+          "tier": ""
+        }
+      },
+      "fieldDecisions": [
+        {
+          "target": "name",
+          "basis": "source-pair-display",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/label"
+          ],
+          "sourceValueJsonSha256": [
+            "e5d1ff1e719faecc0e4c53c4b7a410656d12411cccd3f75c41ef3e7e9dc5fbdc"
+          ],
+          "draftValueJsonSha256": "da0c02265caf7c5b38355a4762089745facdcb4578fdaef6bf586d59d4d5fba5",
+          "reason": "Display the exact Huge Power pair while preserving the combined February source heading in evidence. This neither authors Pure Power nor derives persistent identities from labels."
+        },
+        {
+          "target": "type",
+          "basis": "schema-type",
+          "schemaPointer": "/Item/ability",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "df265d1623cd1f0b78e5bc28e598f844f647507b7484ef8c52b1000052b12022",
+          "reason": "Use the explicitly declared Ability Item shape; this non-runtime draft is not an installed Item."
+        },
+        {
+          "target": "system.origin",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/origin",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        },
+        {
+          "target": "system.effect",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/ruleStructure/clauses/0/text"
+          ],
+          "sourceValueJsonSha256": [
+            "d8c0688c8daf7e5542d0a3e310bcf48b51291ac327f365ef0357579b63afb637"
+          ],
+          "draftValueJsonSha256": "d8c0688c8daf7e5542d0a3e310bcf48b51291ac327f365ef0357579b63afb637",
+          "reason": "Keep every word and punctuation of the complete accepted effect clause, joining whitespace only. Do not substitute Innate or introduce executable calculations."
+        },
+        {
+          "target": "system.snippet",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/snippet",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        },
+        {
+          "target": "system.rules",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/rules",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the declared empty rules array. The printed doubling/additive/cannot-disable text is descriptive; no inherited ActiveEffectLike automation is copied."
+        },
+        {
+          "target": "system.enabled",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/enabled",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+          "reason": "Keep the neutral declared true value. It establishes neither source approval nor runtime cannot-disable behavior."
+        },
+        {
+          "target": "system.slug",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/slug",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "reason": "Keep the declared null slug; neither labels nor slugs determine the proposed stable identities."
+        },
+        {
+          "target": "system.schema",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/schema",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "ded787753979922ffa4622132d59c37c637714a9bdca8850150674f2161b1b64",
+          "reason": "Keep both declared schema migration values null; do not copy the inherited version 0.11 or claim installation or migration."
+        },
+        {
+          "target": "system.referenceEffect",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/referenceEffect",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Keep the empty declared reference; no linked target or executable effect is authored."
+        },
+        {
+          "target": "system.source",
+          "basis": "source-attribution",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "role:/source"
+          ],
+          "sourceValueJsonSha256": [
+            "249837e5b4ca871bf89a571444cbbef3097c4379af935065621e52e53d9a6a87"
+          ],
+          "draftValueJsonSha256": "1f0173e945f30bfecd8bd63893e0e0113f20dc0c68e034cbc3820e6c080c2fa5",
+          "reason": "Attribute the exact accepted edition and page. Do not inherit PTR/Homebrew provenance or turn an optional playtest into official errata."
+        },
+        {
+          "target": "system.stackSlugs",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/stackSlugs",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+          "reason": "Keep the declared false value without claiming alternate-benefit or repeated-choice enforcement."
+        },
+        {
+          "target": "system.keywords",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/templates/base/keywords",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "reason": "Keep the empty declared list; no Innate or other keyword is invented from prose."
+        },
+        {
+          "target": "system.frequency",
+          "basis": "source-leaf",
+          "schemaPointer": null,
+          "sourcePointers": [
+            "/frequency"
+          ],
+          "sourceValueJsonSha256": [
+            "7ab285ce72a056a26617f9710b11c57d1c9af39f6f1da90e771bd0a227b04ddd"
+          ],
+          "draftValueJsonSha256": "7ab285ce72a056a26617f9710b11c57d1c9af39f6f1da90e771bd0a227b04ddd",
+          "reason": "Keep the complete printed Static header as its own typed field, distinct from effect text."
+        },
+        {
+          "target": "system.tier",
+          "basis": "neutral-schema-default",
+          "schemaPointer": "/Item/ability/tier",
+          "sourcePointers": [],
+          "sourceValueJsonSha256": [],
+          "draftValueJsonSha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+          "reason": "Retain the exact empty value from the current declared Ability/base template solely for draft shape; it is not a printed source fact or behavior approval."
+        }
+      ]
+    }
+  ],
+  "proposedIdentityJsonSha256": "1f78c4683dce05b31de91df8d7ee125344fdeca61c9cd93965dd326d8d4b6b38"
+}

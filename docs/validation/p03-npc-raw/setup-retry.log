@@ -1,0 +1,12 @@
+✔ repeated setup replaces stale files, preserves a recoverable copy and leaves config/world bytes intact (38.4775ms)
+✔ Foundry lock refuses setup before changing the installed system (5.8377ms)
+✔ unsafe manifest paths are rejected and existing copies are untouched (16.908ms)
+✔ data-directory junction/symlink is refused (1.6604ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 87.0083

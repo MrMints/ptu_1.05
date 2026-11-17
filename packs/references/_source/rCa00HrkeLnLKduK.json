@@ -1,0 +1,51 @@
+{
+  "name": "Obscuring Terrain",
+  "type": "reference",
+  "img": "/systems/ptu/static/css/images/icons/reference_icon.png",
+  "system": {
+    "origin": "Hiding",
+    "effect": "Obscuring Terrain is any terrain that can provide reasonable cover from sight-based perception, and prevents a creature from being observed. Any creature in Obscuring terrain gains a bonus to their Stealth skill checks based on their size: Small +4, Medium +2, Large +1. Huge and Gigantic creatures do not gain this bonus.\n\nExamples of Obscurring Terrain: Fog Weather, Tall Grass, Dense Bushes, Deep Water, Smokescreens, Dust Clouds, etc.",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": []
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "ptr-dev-world",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.1.2"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.2.0",
+    "createdTime": 1708348831610,
+    "modifiedTime": 1708348831610,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_id": "rCa00HrkeLnLKduK",
+  "sort": 0,
+  "_key": "!items!rCa00HrkeLnLKduK"
+}

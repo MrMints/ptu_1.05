@@ -1,0 +1,73 @@
+{
+  "name": "Corrupt Reality",
+  "system": {
+    "origin": "",
+    "effect": "Target: Any roll made by an enemy\nEffect: You may force the enemy to reroll that roll.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.modifiers.baseStats.spdef.mod",
+        "value": 1,
+        "predicate": [],
+        "phase": "applyAEs"
+      }
+    ],
+    "enabled": true,
+    "slug": "",
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "+Special Defense"
+    ],
+    "prerequisites": [
+      "Glitch Bender",
+      "Adept Perception or Occult Education or Focus"
+    ],
+    "frequency": "Scene - Free Action",
+    "notes": "",
+    "free": false,
+    "class": "Glitch Bender",
+    "automation": [],
+    "name": "Corrupt Reality",
+    "useCount": 0
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.VWEU2xiwLoJsBhtq"
+    },
+    "ptu": {
+      "prereqBackup": "Glitch Bender, Adept Perception, Occult Education, or Focus",
+      "showInTokenPanel": true
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368078940,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.VWEU2xiwLoJsBhtq",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 19700000,
+  "_id": "IrUjmAejyna2mlXz",
+  "_key": "!items!IrUjmAejyna2mlXz"
+}

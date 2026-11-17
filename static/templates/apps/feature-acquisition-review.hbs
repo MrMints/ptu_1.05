@@ -1,0 +1,64 @@
+{{#*inline "reviewEntry"}}
+    <h4>{{@root.labels.index}} {{index}}: {{name}}</h4>
+    <p>{{attribution}} · {{versionLabel}} · {{sourceLabel}} · {{sourceStatus}}</p>
+    <dl>
+        {{#each identity}}<dt>{{label}}</dt><dd><code>{{value}}</code></dd>{{/each}}
+        <dt>{{@root.labels.snapshotAvailable}}</dt><dd>{{snapshotAvailable}}</dd>
+    </dl>
+    <ul>{{#each inputIssues}}<li><code>{{this}}</code></li>{{/each}}{{#each attributionIssues}}<li><code>{{this}}</code></li>{{/each}}</ul>
+    <details><summary>{{@root.labels.evidence}}</summary>
+        <h5>{{@root.labels.version}}</h5><pre>{{version}}</pre>
+        <h5>{{@root.labels.source}}</h5><pre>{{source}}</pre>
+        <h5>{{@root.labels.canonical}}</h5><pre>{{canonical}}</pre>
+        <h5>{{@root.labels.snapshot}}</h5><pre>{{snapshot}}</pre>
+    </details>
+{{/inline}}
+{{#*inline "reviewPair"}}
+    <strong>{{label}}</strong>
+    <details><summary>{{@root.labels.evidence}}</summary>
+        <h6>{{@root.labels.relationship}}</h6><pre>{{relationship}}</pre>
+        <h6>{{@root.labels.identities}}</h6><pre>{{identities}}</pre>
+        <h6>{{@root.labels.versions}}</h6><pre>{{versions}}</pre>
+        <h6>{{@root.labels.differences}}</h6><pre>{{differences}}</pre>
+        <h6>{{@root.labels.issues}}</h6><pre>{{inputIssues}}</pre><pre>{{contextIssues}}</pre>
+    </details>
+{{/inline}}
+<div class="feature-acquisition-review" aria-label="{{labels.title}}">
+    <p>{{labels.limits}}</p>
+    <p>{{labels.advisory}}</p>
+    <h2>{{labels.collections}}</h2>
+    <p>{{labels.mappingMode}}: {{mappingMode}}</p>
+    {{#each collections}}
+        <h3>{{label}}</h3><p>{{@root.labels.status}}: {{status}} · {{@root.labels.count}}: {{count}}</p>
+        <ul>{{#each issues}}<li><code>{{this}}</code></li>{{else}}<li>{{@root.labels.noIssues}}</li>{{/each}}</ul>
+    {{/each}}
+    <h3>{{labels.actor}}</h3>
+    <p>{{labels.status}}: {{actor.status}} · {{labels.membership}}: {{actor.membership}} · {{labels.snapshotAvailable}}: {{actor.snapshotAvailable}}</p>
+    <ul>{{#each actor.issues}}<li><code>{{this}}</code></li>{{/each}}</ul>
+    <details><summary>{{labels.actorFacts}}</summary><pre>{{actor.snapshot}}</pre></details>
+    <h3>{{labels.contextIssues}}</h3>
+    <ul>{{#each contextIssues}}<li><code>{{this}}</code></li>{{else}}<li>{{labels.noIssues}}</li>{{/each}}</ul>
+    <h2>{{labels.owned}}</h2>
+    {{#each owned}}<section class="owned-occurrence" data-owned-index="{{index}}">{{> reviewEntry}}</section>{{/each}}
+    <h2>{{labels.candidates}}</h2>
+    {{#each candidates}}
+        <section class="candidate-occurrence" data-candidate-index="{{index}}">
+            {{> reviewEntry}}
+            <h4>{{@root.labels.prerequisites}}</h4>
+            <h5>{{@root.labels.unmet}}</h5>
+            <ul class="unmet">{{#each unmet}}<li>{{text}}<details><summary>{{@root.labels.evidence}}</summary><pre>{{detail}}</pre></details></li>{{else}}<li>{{@root.labels.noneReported}}</li>{{/each}}</ul>
+            <h5>{{@root.labels.unknown}}</h5>
+            <ul class="unknown">{{#each unknown}}<li>{{text}}<details><summary>{{@root.labels.evidence}}</summary><pre>{{detail}}</pre></details></li>{{else}}<li>{{@root.labels.noneReported}}</li>{{/each}}</ul>
+            <ul>{{#each prerequisiteContext}}<li><code>{{this}}</code></li>{{/each}}</ul>
+            <details><summary>{{@root.labels.prerequisites}} — {{@root.labels.evidence}}</summary><pre>{{prerequisiteEvidence}}</pre></details>
+            <h4>{{@root.labels.ownedComparisons}}</h4>
+            <ol>{{#each ownedComparisons}}<li data-owned-comparison="{{ownedIndex}}">{{@root.labels.owned}} {{@root.labels.index}} {{ownedIndex}}: {{> reviewPair}}</li>{{else}}<li>{{@root.labels.noComparisons}}</li>{{/each}}</ol>
+        </section>
+    {{/each}}
+    <h2>{{labels.incomingComparisons}}</h2>
+    <ol>{{#each candidateComparisons}}<li data-incoming-pair="{{firstIndex}}:{{secondIndex}}">{{@root.labels.index}} {{firstIndex}} / {{secondIndex}}: {{> reviewPair}}</li>{{else}}<li>{{labels.noComparisons}}</li>{{/each}}</ol>
+    <div class="dialog-buttons">
+        <button type="button" data-action="close">{{labels.close}}</button>
+        <button type="button" data-action="cancel">{{labels.cancel}}</button>
+    </div>
+</div>

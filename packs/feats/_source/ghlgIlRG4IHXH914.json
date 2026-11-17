@@ -1,0 +1,64 @@
+{
+  "folder": "WkzYl2eCkah61zli",
+  "name": "Rigged From the Start [CR]",
+  "type": "feat",
+  "img": "/systems/ptu/static/css/images/icons/feat_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Target: Your Dark-Type Pokemon.\nEffect: The target loses 2 Tutor Points, and gains the Super Luck Ability.\n\n@Embed[Compendium.ptu.abilities.Item.z8xkCPTGTlVWDMqC]",
+    "snippet": "",
+    "rules": [],
+    "enabled": true,
+    "slug": "life-isnt-fair-cr",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "Playtest",
+      "Branch",
+      "CR"
+    ],
+    "prerequisites": [
+      "Type Ace (Dark)"
+    ],
+    "frequency": "At Will - Extended Action",
+    "notes": "",
+    "free": false,
+    "class": "Type Ace (Dark) [CR]"
+  },
+  "effects": [],
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "exportSource": {
+      "world": "the-chosen",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.2.2"
+    }
+  },
+  "_id": "ghlgIlRG4IHXH914",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "createdTime": 1710766924862,
+    "modifiedTime": 1710767271874,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_key": "!items!ghlgIlRG4IHXH914"
+}

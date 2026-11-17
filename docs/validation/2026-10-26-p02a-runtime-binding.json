@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "evidencePath": "docs/validation/2026-10-26-p02a-correction.json",
+  "review": {
+    "status": "accepted",
+    "evidenceHead": "48f05f2e6dbcdb210384cbb83cc9c39c21df7ec6",
+    "threadId": "01a170e3-c169-77e3-9df1-73fd8a2d830a",
+    "turnId": "01a177ac-456d-7121-9d66-b3dc525a8ddf",
+    "decision": "Planner substantive review accepted P02-A foundations within explicit limits; reconciled 26 stale copy runtime/group labels using installation history, fresh clients and final served code. No rerun required.",
+    "ci": "https://github.com/MrMints/ptu_1.05/actions/runs/40303951797"
+  },
+  "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+  "artifact": {
+    "sha256": "5e737689cf30a65f373ba9c17274e0451476ae5b95aa0b2bc270d68787d31f71",
+    "bytes": 1108953037,
+    "entries": 6842
+  },
+  "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+  "installation": {
+    "record": "archive-install.json",
+    "runtimeFilesRecord": "source-copy-runtime-files.json",
+    "matchedFiles": 3503,
+    "history": "Final 416c645e archive installed with the server stopped and lock held; all 3,503 runtime/static files matched checkout, ZIP and installation. The planner reviewed the actual execution/session history, not filenames alone.",
+    "freshClients": "After final installation, fresh GM and player clients loaded the world. The 26 actual source-copy reports fetched the final served Item source hash. Their caller-supplied runtime/group labels remained bce58b2f/final-bce58; that fixture group was reused on final code.",
+    "reviewReference": "Codex planner chat 01a170e3-c169-77e3-9df1-73fd8a2d830a, review turn 01a177ac-456d-7121-9d66-b3dc525a8ddf; final decision and runtime-discrepancy resolution."
+  },
+  "fixtures": {
+    "path": "docs/validation/2026-10-26-p02a-copy-fixtures.json",
+    "originalFile": ".cache/p02a-correction/source-copy-final-copy-init.json",
+    "context": "Actual copy-origin/target actors and world graph in this preserved capture belong to final-bce58. They are not the different E285d264wNLTFWmr/MCxhCE802vZRUrRt actors from final416-copy-init.json. Existing final-bce58 actors also occur in final416-init.json baseline. Player world sources E91eZRPIUHawkbCs and 6JE8tkRtcBPax974 are later copies, independently recorded in each initialSource/protectedSources and the stable checkpoint; do not substitute the initial world pair.",
+    "rawCaptureSha256": "75635c66dbe0bcfde158f515cec7cf6681fa5531b1fdb1daaacf4f98cf83b8ef",
+    "textSha256": "75635c66dbe0bcfde158f515cec7cf6681fa5531b1fdb1daaacf4f98cf83b8ef"
+  },
+  "observations": [
+    {
+      "file": "final416-gm-character-clone-child.json",
+      "rawSha256": "2e8b030773c3570ada68f504ff44a91166191ea2c441b7d057273367c1e556ff",
+      "executionId": "fba1e287-ebfe-43c3-959b-c197c6a94660",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-clone:child:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acchild000001",
+      "destination": "Actor.Vzf6kwdJrPPySWaq",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-character-clone-parent.json",
+      "rawSha256": "7dd6bab56e93d347ed2f1a14b67e935f33dae580df218e39bc155cae57f9f26c",
+      "executionId": "fb601b2d-e824-42d8-891c-35342aaf400d",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-clone:parent:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acparent00001",
+      "destination": "Actor.Vzf6kwdJrPPySWaq",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-character-drop-child.json",
+      "rawSha256": "af93f0859017877c3337cd31b9e586a16a323bf38321b69c2dabc3dde64dba6e",
+      "executionId": "ef7e603e-2eed-4357-8e1f-0542d7fa9755",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-drop:child:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acchild000001",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-character-drop-parent.json",
+      "rawSha256": "15c781b381107a60f050595bbb303c68e6a9b12d64084982ab0bfeabf50733bd",
+      "executionId": "d803f622-b291-494a-8030-20211cb081d2",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-drop:parent:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acparent00001",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-character-world-drop-child.json",
+      "rawSha256": "f730fcc050808a0ebc3e80a6bf362a397144ccff1da2aa4d11269ba3f4a35aa2",
+      "executionId": "ecb82f3a-38bd-47d4-ba8d-e96e230aa82f",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-drop:child:select:owner"
+      ],
+      "source": "Item.NXP0rSGcjm4ErMSS",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-character-world-drop-parent.json",
+      "rawSha256": "3c24d6bf8ce92083f05ff903ea05e2cae18dccd7e267d2f6489d27d89b18a221",
+      "executionId": "77b1846e-b95b-490b-8429-05333673e121",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-drop:parent:select:owner"
+      ],
+      "source": "Item.GVpA7Q0670tXu2Fq",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-clone-child.json",
+      "rawSha256": "1f506c0586b08446b234094bef94fbb3624a8ef241ea8046361122099412cc48",
+      "executionId": "dfd1583d-e813-4cc6-bd52-a53768296b15",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-clone:child:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acchild000001",
+      "destination": "Actor.SVDgHNPF27bsX8X7",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-clone-parent.json",
+      "rawSha256": "7e566a1406398806c110076243c61e0046080267a7a6ca4351afb927a69f012b",
+      "executionId": "ab9364f6-290b-4829-86e6-9356fb70f454",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-clone:parent:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acparent00001",
+      "destination": "Actor.SVDgHNPF27bsX8X7",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-drop-child.json",
+      "rawSha256": "68b9d796860ef7d315c023abd1b136f0c38bde0df1881c0a5a058c03bdfdb35f",
+      "executionId": "79e6d80b-7faf-4676-ab28-807819c0d03f",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-drop:child:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acchild000001",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-drop-parent.json",
+      "rawSha256": "ac649bc905b22179507a05994303ab588b986336820eb850177d13f7fc9a0f53",
+      "executionId": "fc64a017-c0e8-434a-8b8a-2dfc0c05a040",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-drop:parent:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acparent00001",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-world-drop-child.json",
+      "rawSha256": "37277f3e6fe7de6114f98bde66c4fe401bcd3326e3e5f7ab0f85dec55af77a8d",
+      "executionId": "2042d3b3-2ce6-4cf4-8c32-cfb1dd09aeaa",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:world-drop:child:select:owner"
+      ],
+      "source": "Item.NXP0rSGcjm4ErMSS",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-pokemon-world-drop-parent.json",
+      "rawSha256": "3be6d400da746f3ec3ee3873d15282a6b985fcf6b9d46ad805bf42715394d0f4",
+      "executionId": "045fd3f1-70f9-403b-817c-88846b286e5f",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:world-drop:parent:select:owner"
+      ],
+      "source": "Item.GVpA7Q0670tXu2Fq",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-world-clone-child.json",
+      "rawSha256": "e1d299d77aa87263801ef1f70176686d5552b4a4c1d82ae40a82d4a6a67c8947",
+      "executionId": "8c73f9e4-5a44-4245-be2a-e8ebe2e1feea",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-clone:child:select:owner"
+      ],
+      "source": "Item.NXP0rSGcjm4ErMSS",
+      "destination": "World Items",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-gm-world-clone-parent.json",
+      "rawSha256": "096c600ab5e0b90524e15458a1cfe646fae5870ac8125c0b211ddf97b86ded9a",
+      "executionId": "7c91ce4f-3ee5-42c5-b61b-fc00169a3ac4",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-clone:parent:select:owner"
+      ],
+      "source": "Item.GVpA7Q0670tXu2Fq",
+      "destination": "World Items",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-character-clone-child.json",
+      "rawSha256": "9b24c77e6803fea291626e2f550f0f47d93538cce5df77590de20e148c955bc0",
+      "executionId": "5ec186a7-1142-4f09-9b22-90bba0a2b77d",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-clone:child:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acchild000001",
+      "destination": "Actor.Vzf6kwdJrPPySWaq",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-character-clone-parent.json",
+      "rawSha256": "314a75044b998c9f985619f5731156d28d8bf7b7e7857a7098c9e6f3c290ee50",
+      "executionId": "88d7e144-2dcf-4fa9-9cc0-559ac66039e2",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-clone:parent:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acparent00001",
+      "destination": "Actor.Vzf6kwdJrPPySWaq",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-character-drop-child.json",
+      "rawSha256": "5343dfc75d3e252572459ef702ea860e2a81ae4954328112a3a8c4a29c217f0a",
+      "executionId": "ba1c0d75-9940-41d9-a892-309ee33dfa76",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-drop:child:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acchild000001",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-character-drop-parent.json",
+      "rawSha256": "95aa56a883296b68dff5f7616d83a8d0f6693d03cd824d2eae078d764b7b5c2d",
+      "executionId": "0319eba9-af59-4d5e-9247-e994144552f4",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:owned-drop:parent:select:owner"
+      ],
+      "source": "Actor.Vzf6kwdJrPPySWaq.Item.p02acparent00001",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-character-world-drop-child.json",
+      "rawSha256": "062b4d6de3404a592c8ee7ac467e2503f45e08fddb2528593a8287838b4e822e",
+      "executionId": "ef987a9d-0000-4edd-837c-1a6974741b77",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-drop:child:select:owner"
+      ],
+      "source": "Item.6JE8tkRtcBPax974",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual world source UUID is a saved copy in final-bce58, recorded by initialSource/protectedSources and the stable world-Item checkpoint. Destination is the preserved final-bce58 target actor, not the newer final-416c target."
+    },
+    {
+      "file": "final416-player-character-world-drop-parent.json",
+      "rawSha256": "1cc501577bc7002f8b1279b178d8db25d35915da77681475cf29d02ba8ac8fa1",
+      "executionId": "74eaef81-6ff0-4e37-add2-f94ab140bc9e",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "character:world-drop:parent:select:owner"
+      ],
+      "source": "Item.E91eZRPIUHawkbCs",
+      "destination": "Actor.Jlgqq5iPwBLfGKgG",
+      "fixtureContext": "Actual world source UUID is a saved copy in final-bce58, recorded by initialSource/protectedSources and the stable world-Item checkpoint. Destination is the preserved final-bce58 target actor, not the newer final-416c target."
+    },
+    {
+      "file": "final416-player-pokemon-clone-child.json",
+      "rawSha256": "0c9cd59bd2c8b973b690cf51cb917fc4a8fa6ad55ff05799042edd8691fe949d",
+      "executionId": "7a0c641e-3c0c-4321-8723-5d9b813a4b86",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-clone:child:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acchild000001",
+      "destination": "Actor.SVDgHNPF27bsX8X7",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-pokemon-clone-parent.json",
+      "rawSha256": "e26307668f09fce6afc9121dcb6b4b3929da316fefb909b9eee9191a105b96ad",
+      "executionId": "28b38efd-0374-48e9-b50d-fb04c05f8ba8",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-clone:parent:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acparent00001",
+      "destination": "Actor.SVDgHNPF27bsX8X7",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-pokemon-drop-child.json",
+      "rawSha256": "9b4dd0f3bd5bf48d79332dfce96e3411eab7049680c39f0e94c15375df85c58c",
+      "executionId": "68caf885-361c-472e-84e2-be00aeaf792b",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-drop:child:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acchild000001",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-pokemon-drop-parent.json",
+      "rawSha256": "7f030175553c2b3e0682a035cd5dfcf5e96d613451d9d24147cc96198dad481a",
+      "executionId": "6afe89bd-3fc4-49cd-91b2-147924e7513a",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:owned-drop:parent:select:owner"
+      ],
+      "source": "Actor.SVDgHNPF27bsX8X7.Item.p02acparent00001",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual source/destination UUIDs refer to the preserved final-bce58 copy fixtures, reused after the final installation; original labels remain untouched."
+    },
+    {
+      "file": "final416-player-pokemon-world-drop-child.json",
+      "rawSha256": "6be79cc8e82f943cf60644e174f734eb0722cdbb1528a240740d077555066254",
+      "executionId": "b0995be9-091b-45fc-b6dd-ae8566b76674",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:world-drop:child:select:owner"
+      ],
+      "source": "Item.6JE8tkRtcBPax974",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual world source UUID is a saved copy in final-bce58, recorded by initialSource/protectedSources and the stable world-Item checkpoint. Destination is the preserved final-bce58 target actor, not the newer final-416c target."
+    },
+    {
+      "file": "final416-player-pokemon-world-drop-parent.json",
+      "rawSha256": "253b2d429d97f917afd73471fbd5574a396f971587675f999d28dd61d8e33d5a",
+      "executionId": "0a241811-f44c-4854-9bbf-6081c0725d90",
+      "originalRuntime": "bce58b2f3425408488b8ae4164c4a5fef12590e1",
+      "originalGroup": "final-bce58",
+      "verifiedRuntime": "416c645eb73e92a4778bac486ab3b830bdf33718",
+      "servedItemBaseSha256": "a763b57fc6b0e069988820d36fc9547ce8066b667a3290bbf3c40e37d9883f9a",
+      "scenarioIds": [
+        "pokemon:world-drop:parent:select:owner"
+      ],
+      "source": "Item.E91eZRPIUHawkbCs",
+      "destination": "Actor.O57sPFgNrNysDtTo",
+      "fixtureContext": "Actual world source UUID is a saved copy in final-bce58, recorded by initialSource/protectedSources and the stable world-Item checkpoint. Destination is the preserved final-bce58 target actor, not the newer final-416c target."
+    }
+  ],
+  "hashEncoding": "UTF-8 with CRLF normalized to LF",
+  "evidenceRawCaptureSha256": "2c6bff8189e3765530a2da2d8dcd53294acb5b2fc719ee9876f7b2ab1efdb301",
+  "evidenceTextSha256": "689abaf38b462b70bd62070f21cc64d61023b4d482c21ac952830e5bbc4b369a"
+}

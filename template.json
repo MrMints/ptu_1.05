@@ -142,7 +142,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Biochemistry",
+            "label": "Medicine Education",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -154,7 +154,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Charisma",
+            "label": "Charm",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -190,7 +190,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Education",
+            "label": "General Education",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -202,7 +202,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Engineering",
+            "label": "Technology Education",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -226,7 +226,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Intimidation",
+            "label": "Intimidate",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -250,7 +250,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Occultism",
+            "label": "Occult Education",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -298,7 +298,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Willpower",
+            "label": "Focus",
             "modifier": {
               "value": 0,
               "mod": 0
@@ -310,7 +310,7 @@
               "value": 2,
               "mod": 0
             },
-            "label": "Zoology",
+            "label": "Pokémon Education",
             "modifier": {
               "value": 0,
               "mod": 0

@@ -1,0 +1,2525 @@
+{
+  "schemaVersion": 1,
+  "scope": "Existing cached metadata only, bounded negative-scope corroboration; no current-game mechanics or new corpus.",
+  "dataset": "PokeAPI primary CSV data; frozen Git blob identities previously recorded in this session",
+  "files": [
+    {
+      "file": "pokemon_species.csv",
+      "gitBlobSha": "67f0da856d395bbe058cf961edce6ef2f805d1d8",
+      "canonicalLfSha256": "e66e2eeb25fd3836b0ebab6bf87bbf01960aa3c0555e2bac495fa8393c5e0c45",
+      "url": "https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_species.csv",
+      "immutableBlobUrl": "https://api.github.com/repos/PokeAPI/pokeapi/git/blobs/67f0da856d395bbe058cf961edce6ef2f805d1d8",
+      "canonicalization": "Original cached UTF8 CSV with exactly one terminal LF; Git blob identity independently recomputed before using bounded numeric/Type/metric facts."
+    },
+    {
+      "file": "pokemon.csv",
+      "gitBlobSha": "bb32b1763d2462160f49ce88b4a1d800e4f195e1",
+      "canonicalLfSha256": "16c81c33188b0eac403aa2f759fcbe9e42c611f722d263f5b5a6a5bff9f8ce6b",
+      "url": "https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon.csv",
+      "immutableBlobUrl": "https://api.github.com/repos/PokeAPI/pokeapi/git/blobs/bb32b1763d2462160f49ce88b4a1d800e4f195e1",
+      "canonicalization": "Original cached UTF8 CSV with exactly one terminal LF; Git blob identity independently recomputed before using bounded numeric/Type/metric facts."
+    },
+    {
+      "file": "pokemon_types.csv",
+      "gitBlobSha": "5567064b22c77c4082c1dfb30674102c669968d8",
+      "canonicalLfSha256": "f1fc4bfd657a034ea3bf6972423b10276424aa068577b304a78a08996425ba05",
+      "url": "https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/pokemon_types.csv",
+      "immutableBlobUrl": "https://api.github.com/repos/PokeAPI/pokeapi/git/blobs/5567064b22c77c4082c1dfb30674102c669968d8",
+      "canonicalization": "Original cached UTF8 CSV with exactly one terminal LF; Git blob identity independently recomputed before using bounded numeric/Type/metric facts."
+    },
+    {
+      "file": "types.csv",
+      "gitBlobSha": "d0ec10c324fb7d1529269ddbffac4778fdf99836",
+      "canonicalLfSha256": "37f039c8d722f47d51ba1c5c5ecf9b7007235b1a9a1af2827645c777b70307c8",
+      "url": "https://github.com/PokeAPI/pokeapi/blob/master/data/v2/csv/types.csv",
+      "immutableBlobUrl": "https://api.github.com/repos/PokeAPI/pokeapi/git/blobs/d0ec10c324fb7d1529269ddbffac4778fdf99836",
+      "canonicalization": "Original cached UTF8 CSV with exactly one terminal LF; Git blob identity independently recomputed before using bounded numeric/Type/metric facts."
+    }
+  ],
+  "facts": {
+    "959:959": {
+      "speciesId": 959,
+      "generationId": 9,
+      "pokemonId": 959,
+      "pokemonSpeciesId": 959,
+      "isDefault": 1,
+      "heightDecimetres": 7,
+      "weightHectograms": 1128,
+      "typeSlots": [
+        {
+          "pokemonId": 959,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        },
+        {
+          "pokemonId": 959,
+          "typeId": 9,
+          "slot": 2,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "1001:1001": {
+      "speciesId": 1001,
+      "generationId": 9,
+      "pokemonId": 1001,
+      "pokemonSpeciesId": 1001,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 742,
+      "typeSlots": [
+        {
+          "pokemonId": 1001,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 1001,
+          "typeId": 12,
+          "slot": 2,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "964:964": {
+      "speciesId": 964,
+      "generationId": 9,
+      "pokemonId": 964,
+      "pokemonSpeciesId": 964,
+      "isDefault": 1,
+      "heightDecimetres": 13,
+      "weightHectograms": 602,
+      "typeSlots": [
+        {
+          "pokemonId": 964,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "916:916": {
+      "speciesId": 916,
+      "generationId": 9,
+      "pokemonId": 916,
+      "pokemonSpeciesId": 916,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 1200,
+      "typeSlots": [
+        {
+          "pokemonId": 916,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "948:948": {
+      "speciesId": 948,
+      "generationId": 9,
+      "pokemonId": 948,
+      "pokemonSpeciesId": 948,
+      "isDefault": 1,
+      "heightDecimetres": 9,
+      "weightHectograms": 330,
+      "typeSlots": [
+        {
+          "pokemonId": 948,
+          "typeId": 5,
+          "slot": 1,
+          "identifier": "ground"
+        },
+        {
+          "pokemonId": 948,
+          "typeId": 12,
+          "slot": 2,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "983:983": {
+      "speciesId": 983,
+      "generationId": 9,
+      "pokemonId": 983,
+      "pokemonSpeciesId": 983,
+      "isDefault": 1,
+      "heightDecimetres": 20,
+      "weightHectograms": 1200,
+      "typeSlots": [
+        {
+          "pokemonId": 983,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 983,
+          "typeId": 9,
+          "slot": 2,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "908:908": {
+      "speciesId": 908,
+      "generationId": 9,
+      "pokemonId": 908,
+      "pokemonSpeciesId": 908,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 312,
+      "typeSlots": [
+        {
+          "pokemonId": 908,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 908,
+          "typeId": 17,
+          "slot": 2,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "938:938": {
+      "speciesId": 938,
+      "generationId": 9,
+      "pokemonId": 938,
+      "pokemonSpeciesId": 938,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 4,
+      "typeSlots": [
+        {
+          "pokemonId": 938,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        }
+      ]
+    },
+    "993:993": {
+      "speciesId": 993,
+      "generationId": 9,
+      "pokemonId": 993,
+      "pokemonSpeciesId": 993,
+      "isDefault": 1,
+      "heightDecimetres": 13,
+      "weightHectograms": 1110,
+      "typeSlots": [
+        {
+          "pokemonId": 993,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 993,
+          "typeId": 3,
+          "slot": 2,
+          "identifier": "flying"
+        }
+      ]
+    },
+    "909:909": {
+      "speciesId": 909,
+      "generationId": 9,
+      "pokemonId": 909,
+      "pokemonSpeciesId": 909,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 98,
+      "typeSlots": [
+        {
+          "pokemonId": 909,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "921:921": {
+      "speciesId": 921,
+      "generationId": 9,
+      "pokemonId": 921,
+      "pokemonSpeciesId": 921,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 25,
+      "typeSlots": [
+        {
+          "pokemonId": 921,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        }
+      ]
+    },
+    "976:976": {
+      "speciesId": 976,
+      "generationId": 9,
+      "pokemonId": 976,
+      "pokemonSpeciesId": 976,
+      "isDefault": 1,
+      "heightDecimetres": 25,
+      "weightHectograms": 900,
+      "typeSlots": [
+        {
+          "pokemonId": 976,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        },
+        {
+          "pokemonId": 976,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "944:944": {
+      "speciesId": 944,
+      "generationId": 9,
+      "pokemonId": 944,
+      "pokemonSpeciesId": 944,
+      "isDefault": 1,
+      "heightDecimetres": 2,
+      "weightHectograms": 7,
+      "typeSlots": [
+        {
+          "pokemonId": 944,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 944,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "906:906": {
+      "speciesId": 906,
+      "generationId": 9,
+      "pokemonId": 906,
+      "pokemonSpeciesId": 906,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 41,
+      "typeSlots": [
+        {
+          "pokemonId": 906,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "936:936": {
+      "speciesId": 936,
+      "generationId": 9,
+      "pokemonId": 936,
+      "pokemonSpeciesId": 936,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 850,
+      "typeSlots": [
+        {
+          "pokemonId": 936,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        },
+        {
+          "pokemonId": 936,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "1021:1021": {
+      "speciesId": 1021,
+      "generationId": 9,
+      "pokemonId": 1021,
+      "pokemonSpeciesId": 1021,
+      "isDefault": 1,
+      "heightDecimetres": 52,
+      "weightHectograms": 4800,
+      "typeSlots": [
+        {
+          "pokemonId": 1021,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 1021,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "1006:1006": {
+      "speciesId": 1006,
+      "generationId": 9,
+      "pokemonId": 1006,
+      "pokemonSpeciesId": 1006,
+      "isDefault": 1,
+      "heightDecimetres": 14,
+      "weightHectograms": 350,
+      "typeSlots": [
+        {
+          "pokemonId": 1006,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        },
+        {
+          "pokemonId": 1006,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "934:934": {
+      "speciesId": 934,
+      "generationId": 9,
+      "pokemonId": 934,
+      "pokemonSpeciesId": 934,
+      "isDefault": 1,
+      "heightDecimetres": 23,
+      "weightHectograms": 2400,
+      "typeSlots": [
+        {
+          "pokemonId": 934,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        }
+      ]
+    },
+    "978:978": {
+      "speciesId": 978,
+      "generationId": 9,
+      "pokemonId": 978,
+      "pokemonSpeciesId": 978,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 80,
+      "typeSlots": [
+        {
+          "pokemonId": 978,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 978,
+          "typeId": 11,
+          "slot": 2,
+          "identifier": "water"
+        }
+      ]
+    },
+    "937:937": {
+      "speciesId": 937,
+      "generationId": 9,
+      "pokemonId": 937,
+      "pokemonSpeciesId": 937,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 620,
+      "typeSlots": [
+        {
+          "pokemonId": 937,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        },
+        {
+          "pokemonId": 937,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "949:949": {
+      "speciesId": 949,
+      "generationId": 9,
+      "pokemonId": 949,
+      "pokemonSpeciesId": 949,
+      "isDefault": 1,
+      "heightDecimetres": 19,
+      "weightHectograms": 580,
+      "typeSlots": [
+        {
+          "pokemonId": 949,
+          "typeId": 5,
+          "slot": 1,
+          "identifier": "ground"
+        },
+        {
+          "pokemonId": 949,
+          "typeId": 12,
+          "slot": 2,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "1018:1018": {
+      "speciesId": 1018,
+      "generationId": 9,
+      "pokemonId": 1018,
+      "pokemonSpeciesId": 1018,
+      "isDefault": 1,
+      "heightDecimetres": 20,
+      "weightHectograms": 600,
+      "typeSlots": [
+        {
+          "pokemonId": 1018,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        },
+        {
+          "pokemonId": 1018,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "956:956": {
+      "speciesId": 956,
+      "generationId": 9,
+      "pokemonId": 956,
+      "pokemonSpeciesId": 956,
+      "isDefault": 1,
+      "heightDecimetres": 19,
+      "weightHectograms": 900,
+      "typeSlots": [
+        {
+          "pokemonId": 956,
+          "typeId": 14,
+          "slot": 1,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "992:992": {
+      "speciesId": 992,
+      "generationId": 9,
+      "pokemonId": 992,
+      "pokemonSpeciesId": 992,
+      "isDefault": 1,
+      "heightDecimetres": 18,
+      "weightHectograms": 3807,
+      "typeSlots": [
+        {
+          "pokemonId": 992,
+          "typeId": 2,
+          "slot": 1,
+          "identifier": "fighting"
+        },
+        {
+          "pokemonId": 992,
+          "typeId": 13,
+          "slot": 2,
+          "identifier": "electric"
+        }
+      ]
+    },
+    "915:915": {
+      "speciesId": 915,
+      "generationId": 9,
+      "pokemonId": 915,
+      "pokemonSpeciesId": 915,
+      "isDefault": 1,
+      "heightDecimetres": 5,
+      "weightHectograms": 102,
+      "typeSlots": [
+        {
+          "pokemonId": 915,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "969:969": {
+      "speciesId": 969,
+      "generationId": 9,
+      "pokemonId": 969,
+      "pokemonSpeciesId": 969,
+      "isDefault": 1,
+      "heightDecimetres": 7,
+      "weightHectograms": 80,
+      "typeSlots": [
+        {
+          "pokemonId": 969,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        },
+        {
+          "pokemonId": 969,
+          "typeId": 4,
+          "slot": 2,
+          "identifier": "poison"
+        }
+      ]
+    },
+    "941:941": {
+      "speciesId": 941,
+      "generationId": 9,
+      "pokemonId": 941,
+      "pokemonSpeciesId": 941,
+      "isDefault": 1,
+      "heightDecimetres": 14,
+      "weightHectograms": 386,
+      "typeSlots": [
+        {
+          "pokemonId": 941,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 941,
+          "typeId": 3,
+          "slot": 2,
+          "identifier": "flying"
+        }
+      ]
+    },
+    "973:973": {
+      "speciesId": 973,
+      "generationId": 9,
+      "pokemonId": 973,
+      "pokemonSpeciesId": 973,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 370,
+      "typeSlots": [
+        {
+          "pokemonId": 973,
+          "typeId": 3,
+          "slot": 1,
+          "identifier": "flying"
+        },
+        {
+          "pokemonId": 973,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "943:943": {
+      "speciesId": 943,
+      "generationId": 9,
+      "pokemonId": 943,
+      "pokemonSpeciesId": 943,
+      "isDefault": 1,
+      "heightDecimetres": 11,
+      "weightHectograms": 610,
+      "typeSlots": [
+        {
+          "pokemonId": 943,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "995:995": {
+      "speciesId": 995,
+      "generationId": 9,
+      "pokemonId": 995,
+      "pokemonSpeciesId": 995,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 3030,
+      "typeSlots": [
+        {
+          "pokemonId": 995,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        },
+        {
+          "pokemonId": 995,
+          "typeId": 13,
+          "slot": 2,
+          "identifier": "electric"
+        }
+      ]
+    },
+    "914:914": {
+      "speciesId": 914,
+      "generationId": 9,
+      "pokemonId": 914,
+      "pokemonSpeciesId": 914,
+      "isDefault": 1,
+      "heightDecimetres": 18,
+      "weightHectograms": 619,
+      "typeSlots": [
+        {
+          "pokemonId": 914,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        },
+        {
+          "pokemonId": 914,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "939:939": {
+      "speciesId": 939,
+      "generationId": 9,
+      "pokemonId": 939,
+      "pokemonSpeciesId": 939,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 1130,
+      "typeSlots": [
+        {
+          "pokemonId": 939,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        }
+      ]
+    },
+    "957:957": {
+      "speciesId": 957,
+      "generationId": 9,
+      "pokemonId": 957,
+      "pokemonSpeciesId": 957,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 89,
+      "typeSlots": [
+        {
+          "pokemonId": 957,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        },
+        {
+          "pokemonId": 957,
+          "typeId": 9,
+          "slot": 2,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "1017:1017": {
+      "speciesId": 1017,
+      "generationId": 9,
+      "pokemonId": 1017,
+      "pokemonSpeciesId": 1017,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 398,
+      "typeSlots": [
+        {
+          "pokemonId": 1017,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "1003:1003": {
+      "speciesId": 1003,
+      "generationId": 9,
+      "pokemonId": 1003,
+      "pokemonSpeciesId": 1003,
+      "isDefault": 1,
+      "heightDecimetres": 27,
+      "weightHectograms": 6997,
+      "typeSlots": [
+        {
+          "pokemonId": 1003,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 1003,
+          "typeId": 5,
+          "slot": 2,
+          "identifier": "ground"
+        }
+      ]
+    },
+    "1013:1013": {
+      "speciesId": 1013,
+      "generationId": 9,
+      "pokemonId": 1013,
+      "pokemonSpeciesId": 1013,
+      "isDefault": 1,
+      "heightDecimetres": 2,
+      "weightHectograms": 22,
+      "typeSlots": [
+        {
+          "pokemonId": 1013,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 1013,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "989:989": {
+      "speciesId": 989,
+      "generationId": 9,
+      "pokemonId": 989,
+      "pokemonSpeciesId": 989,
+      "isDefault": 1,
+      "heightDecimetres": 23,
+      "weightHectograms": 600,
+      "typeSlots": [
+        {
+          "pokemonId": 989,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 989,
+          "typeId": 5,
+          "slot": 2,
+          "identifier": "ground"
+        }
+      ]
+    },
+    "1022:1022": {
+      "speciesId": 1022,
+      "generationId": 9,
+      "pokemonId": 1022,
+      "pokemonSpeciesId": 1022,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 1625,
+      "typeSlots": [
+        {
+          "pokemonId": 1022,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        },
+        {
+          "pokemonId": 1022,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "1005:1005": {
+      "speciesId": 1005,
+      "generationId": 9,
+      "pokemonId": 1005,
+      "pokemonSpeciesId": 1005,
+      "isDefault": 1,
+      "heightDecimetres": 20,
+      "weightHectograms": 3800,
+      "typeSlots": [
+        {
+          "pokemonId": 1005,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 1005,
+          "typeId": 17,
+          "slot": 2,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "1023:1023": {
+      "speciesId": 1023,
+      "generationId": 9,
+      "pokemonId": 1023,
+      "pokemonSpeciesId": 1023,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 1560,
+      "typeSlots": [
+        {
+          "pokemonId": 1023,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        },
+        {
+          "pokemonId": 1023,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "961:961": {
+      "speciesId": 961,
+      "generationId": 9,
+      "pokemonId": 961,
+      "pokemonSpeciesId": 961,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 54,
+      "typeSlots": [
+        {
+          "pokemonId": 961,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "1012:1012": {
+      "speciesId": 1012,
+      "generationId": 9,
+      "pokemonId": 1012,
+      "pokemonSpeciesId": 1012,
+      "isDefault": 1,
+      "heightDecimetres": 1,
+      "weightHectograms": 11,
+      "typeSlots": [
+        {
+          "pokemonId": 1012,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 1012,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "997:997": {
+      "speciesId": 997,
+      "generationId": 9,
+      "pokemonId": 997,
+      "pokemonSpeciesId": 997,
+      "isDefault": 1,
+      "heightDecimetres": 8,
+      "weightHectograms": 300,
+      "typeSlots": [
+        {
+          "pokemonId": 997,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 997,
+          "typeId": 15,
+          "slot": 2,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "958:958": {
+      "speciesId": 958,
+      "generationId": 9,
+      "pokemonId": 958,
+      "pokemonSpeciesId": 958,
+      "isDefault": 1,
+      "heightDecimetres": 7,
+      "weightHectograms": 591,
+      "typeSlots": [
+        {
+          "pokemonId": 958,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        },
+        {
+          "pokemonId": 958,
+          "typeId": 9,
+          "slot": 2,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "967:967": {
+      "speciesId": 967,
+      "generationId": 9,
+      "pokemonId": 967,
+      "pokemonSpeciesId": 967,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 630,
+      "typeSlots": [
+        {
+          "pokemonId": 967,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 967,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "918:918": {
+      "speciesId": 918,
+      "generationId": 9,
+      "pokemonId": 918,
+      "pokemonSpeciesId": 918,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 165,
+      "typeSlots": [
+        {
+          "pokemonId": 918,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        }
+      ]
+    },
+    "932:932": {
+      "speciesId": 932,
+      "generationId": 9,
+      "pokemonId": 932,
+      "pokemonSpeciesId": 932,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 160,
+      "typeSlots": [
+        {
+          "pokemonId": 932,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        }
+      ]
+    },
+    "971:971": {
+      "speciesId": 971,
+      "generationId": 9,
+      "pokemonId": 971,
+      "pokemonSpeciesId": 971,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 350,
+      "typeSlots": [
+        {
+          "pokemonId": 971,
+          "typeId": 8,
+          "slot": 1,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "924:924": {
+      "speciesId": 924,
+      "generationId": 9,
+      "pokemonId": 924,
+      "pokemonSpeciesId": 924,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 18,
+      "typeSlots": [
+        {
+          "pokemonId": 924,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "990:990": {
+      "speciesId": 990,
+      "generationId": 9,
+      "pokemonId": 990,
+      "pokemonSpeciesId": 990,
+      "isDefault": 1,
+      "heightDecimetres": 9,
+      "weightHectograms": 2400,
+      "typeSlots": [
+        {
+          "pokemonId": 990,
+          "typeId": 5,
+          "slot": 1,
+          "identifier": "ground"
+        },
+        {
+          "pokemonId": 990,
+          "typeId": 9,
+          "slot": 2,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "987:987": {
+      "speciesId": 987,
+      "generationId": 9,
+      "pokemonId": 987,
+      "pokemonSpeciesId": 987,
+      "isDefault": 1,
+      "heightDecimetres": 14,
+      "weightHectograms": 40,
+      "typeSlots": [
+        {
+          "pokemonId": 987,
+          "typeId": 8,
+          "slot": 1,
+          "identifier": "ghost"
+        },
+        {
+          "pokemonId": 987,
+          "typeId": 18,
+          "slot": 2,
+          "identifier": "fairy"
+        }
+      ]
+    },
+    "1010:1010": {
+      "speciesId": 1010,
+      "generationId": 9,
+      "pokemonId": 1010,
+      "pokemonSpeciesId": 1010,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 1250,
+      "typeSlots": [
+        {
+          "pokemonId": 1010,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 1010,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "979:979": {
+      "speciesId": 979,
+      "generationId": 9,
+      "pokemonId": 979,
+      "pokemonSpeciesId": 979,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 560,
+      "typeSlots": [
+        {
+          "pokemonId": 979,
+          "typeId": 2,
+          "slot": 1,
+          "identifier": "fighting"
+        },
+        {
+          "pokemonId": 979,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "907:907": {
+      "speciesId": 907,
+      "generationId": 9,
+      "pokemonId": 907,
+      "pokemonSpeciesId": 907,
+      "isDefault": 1,
+      "heightDecimetres": 9,
+      "weightHectograms": 122,
+      "typeSlots": [
+        {
+          "pokemonId": 907,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        }
+      ]
+    },
+    "1004:1004": {
+      "speciesId": 1004,
+      "generationId": 9,
+      "pokemonId": 1004,
+      "pokemonSpeciesId": 1004,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 49,
+      "typeSlots": [
+        {
+          "pokemonId": 1004,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 1004,
+          "typeId": 10,
+          "slot": 2,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "929:929": {
+      "speciesId": 929,
+      "generationId": 9,
+      "pokemonId": 929,
+      "pokemonSpeciesId": 929,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 119,
+      "typeSlots": [
+        {
+          "pokemonId": 929,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 929,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "945:945": {
+      "speciesId": 945,
+      "generationId": 9,
+      "pokemonId": 945,
+      "pokemonSpeciesId": 945,
+      "isDefault": 1,
+      "heightDecimetres": 7,
+      "weightHectograms": 272,
+      "typeSlots": [
+        {
+          "pokemonId": 945,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 945,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "928:928": {
+      "speciesId": 928,
+      "generationId": 9,
+      "pokemonId": 928,
+      "pokemonSpeciesId": 928,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 65,
+      "typeSlots": [
+        {
+          "pokemonId": 928,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 928,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "912:912": {
+      "speciesId": 912,
+      "generationId": 9,
+      "pokemonId": 912,
+      "pokemonSpeciesId": 912,
+      "isDefault": 1,
+      "heightDecimetres": 5,
+      "weightHectograms": 61,
+      "typeSlots": [
+        {
+          "pokemonId": 912,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "917:917": {
+      "speciesId": 917,
+      "generationId": 9,
+      "pokemonId": 917,
+      "pokemonSpeciesId": 917,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 40,
+      "typeSlots": [
+        {
+          "pokemonId": 917,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        }
+      ]
+    },
+    "1007:1007": {
+      "speciesId": 1007,
+      "generationId": 9,
+      "pokemonId": 1007,
+      "pokemonSpeciesId": 1007,
+      "isDefault": 1,
+      "heightDecimetres": 25,
+      "weightHectograms": 3030,
+      "typeSlots": [
+        {
+          "pokemonId": 1007,
+          "typeId": 2,
+          "slot": 1,
+          "identifier": "fighting"
+        },
+        {
+          "pokemonId": 1007,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "1020:1020": {
+      "speciesId": 1020,
+      "generationId": 9,
+      "pokemonId": 1020,
+      "pokemonSpeciesId": 1020,
+      "isDefault": 1,
+      "heightDecimetres": 35,
+      "weightHectograms": 5900,
+      "typeSlots": [
+        {
+          "pokemonId": 1020,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        },
+        {
+          "pokemonId": 1020,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "926:926": {
+      "speciesId": 926,
+      "generationId": 9,
+      "pokemonId": 926,
+      "pokemonSpeciesId": 926,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 109,
+      "typeSlots": [
+        {
+          "pokemonId": 926,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        }
+      ]
+    },
+    "986:986": {
+      "speciesId": 986,
+      "generationId": 9,
+      "pokemonId": 986,
+      "pokemonSpeciesId": 986,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 210,
+      "typeSlots": [
+        {
+          "pokemonId": 986,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 986,
+          "typeId": 17,
+          "slot": 2,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "1002:1002": {
+      "speciesId": 1002,
+      "generationId": 9,
+      "pokemonId": 1002,
+      "pokemonSpeciesId": 1002,
+      "isDefault": 1,
+      "heightDecimetres": 19,
+      "weightHectograms": 1522,
+      "typeSlots": [
+        {
+          "pokemonId": 1002,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        },
+        {
+          "pokemonId": 1002,
+          "typeId": 15,
+          "slot": 2,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "931:931": {
+      "speciesId": 931,
+      "generationId": 9,
+      "pokemonId": 931,
+      "pokemonSpeciesId": 931,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 24,
+      "typeSlots": [
+        {
+          "pokemonId": 931,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        },
+        {
+          "pokemonId": 931,
+          "typeId": 3,
+          "slot": 2,
+          "identifier": "flying"
+        }
+      ]
+    },
+    "919:919": {
+      "speciesId": 919,
+      "generationId": 9,
+      "pokemonId": 919,
+      "pokemonSpeciesId": 919,
+      "isDefault": 1,
+      "heightDecimetres": 2,
+      "weightHectograms": 10,
+      "typeSlots": [
+        {
+          "pokemonId": 919,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        }
+      ]
+    },
+    "984:984": {
+      "speciesId": 984,
+      "generationId": 9,
+      "pokemonId": 984,
+      "pokemonSpeciesId": 984,
+      "isDefault": 1,
+      "heightDecimetres": 22,
+      "weightHectograms": 3200,
+      "typeSlots": [
+        {
+          "pokemonId": 984,
+          "typeId": 5,
+          "slot": 1,
+          "identifier": "ground"
+        },
+        {
+          "pokemonId": 984,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "999:999": {
+      "speciesId": 999,
+      "generationId": 9,
+      "pokemonId": 999,
+      "pokemonSpeciesId": 999,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 50,
+      "typeSlots": [
+        {
+          "pokemonId": 999,
+          "typeId": 8,
+          "slot": 1,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "991:991": {
+      "speciesId": 991,
+      "generationId": 9,
+      "pokemonId": 991,
+      "pokemonSpeciesId": 991,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 110,
+      "typeSlots": [
+        {
+          "pokemonId": 991,
+          "typeId": 15,
+          "slot": 1,
+          "identifier": "ice"
+        },
+        {
+          "pokemonId": 991,
+          "typeId": 11,
+          "slot": 2,
+          "identifier": "water"
+        }
+      ]
+    },
+    "1008:1008": {
+      "speciesId": 1008,
+      "generationId": 9,
+      "pokemonId": 1008,
+      "pokemonSpeciesId": 1008,
+      "isDefault": 1,
+      "heightDecimetres": 35,
+      "weightHectograms": 2400,
+      "typeSlots": [
+        {
+          "pokemonId": 1008,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 1008,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "998:998": {
+      "speciesId": 998,
+      "generationId": 9,
+      "pokemonId": 998,
+      "pokemonSpeciesId": 998,
+      "isDefault": 1,
+      "heightDecimetres": 21,
+      "weightHectograms": 2100,
+      "typeSlots": [
+        {
+          "pokemonId": 998,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 998,
+          "typeId": 15,
+          "slot": 2,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "940:940": {
+      "speciesId": 940,
+      "generationId": 9,
+      "pokemonId": 940,
+      "pokemonSpeciesId": 940,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 36,
+      "typeSlots": [
+        {
+          "pokemonId": 940,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 940,
+          "typeId": 3,
+          "slot": 2,
+          "identifier": "flying"
+        }
+      ]
+    },
+    "966:966": {
+      "speciesId": 966,
+      "generationId": 9,
+      "pokemonId": 966,
+      "pokemonSpeciesId": 966,
+      "isDefault": 1,
+      "heightDecimetres": 18,
+      "weightHectograms": 1200,
+      "typeSlots": [
+        {
+          "pokemonId": 966,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        },
+        {
+          "pokemonId": 966,
+          "typeId": 4,
+          "slot": 2,
+          "identifier": "poison"
+        }
+      ]
+    },
+    "955:955": {
+      "speciesId": 955,
+      "generationId": 9,
+      "pokemonId": 955,
+      "pokemonSpeciesId": 955,
+      "isDefault": 1,
+      "heightDecimetres": 2,
+      "weightHectograms": 15,
+      "typeSlots": [
+        {
+          "pokemonId": 955,
+          "typeId": 14,
+          "slot": 1,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "981:981": {
+      "speciesId": 981,
+      "generationId": 9,
+      "pokemonId": 981,
+      "pokemonSpeciesId": 981,
+      "isDefault": 1,
+      "heightDecimetres": 32,
+      "weightHectograms": 1600,
+      "typeSlots": [
+        {
+          "pokemonId": 981,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        },
+        {
+          "pokemonId": 981,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "965:965": {
+      "speciesId": 965,
+      "generationId": 9,
+      "pokemonId": 965,
+      "pokemonSpeciesId": 965,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 350,
+      "typeSlots": [
+        {
+          "pokemonId": 965,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        },
+        {
+          "pokemonId": 965,
+          "typeId": 4,
+          "slot": 2,
+          "identifier": "poison"
+        }
+      ]
+    },
+    "996:996": {
+      "speciesId": 996,
+      "generationId": 9,
+      "pokemonId": 996,
+      "pokemonSpeciesId": 996,
+      "isDefault": 1,
+      "heightDecimetres": 5,
+      "weightHectograms": 170,
+      "typeSlots": [
+        {
+          "pokemonId": 996,
+          "typeId": 16,
+          "slot": 1,
+          "identifier": "dragon"
+        },
+        {
+          "pokemonId": 996,
+          "typeId": 15,
+          "slot": 2,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "1016:1016": {
+      "speciesId": 1016,
+      "generationId": 9,
+      "pokemonId": 1016,
+      "pokemonSpeciesId": 1016,
+      "isDefault": 1,
+      "heightDecimetres": 14,
+      "weightHectograms": 301,
+      "typeSlots": [
+        {
+          "pokemonId": 1016,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 1016,
+          "typeId": 18,
+          "slot": 2,
+          "identifier": "fairy"
+        }
+      ]
+    },
+    "935:935": {
+      "speciesId": 935,
+      "generationId": 9,
+      "pokemonId": 935,
+      "pokemonSpeciesId": 935,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 105,
+      "typeSlots": [
+        {
+          "pokemonId": 935,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "930:930": {
+      "speciesId": 930,
+      "generationId": 9,
+      "pokemonId": 930,
+      "pokemonSpeciesId": 930,
+      "isDefault": 1,
+      "heightDecimetres": 14,
+      "weightHectograms": 482,
+      "typeSlots": [
+        {
+          "pokemonId": 930,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 930,
+          "typeId": 1,
+          "slot": 2,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "960:960": {
+      "speciesId": 960,
+      "generationId": 9,
+      "pokemonId": 960,
+      "pokemonSpeciesId": 960,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 18,
+      "typeSlots": [
+        {
+          "pokemonId": 960,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "968:968": {
+      "speciesId": 968,
+      "generationId": 9,
+      "pokemonId": 968,
+      "pokemonSpeciesId": 968,
+      "isDefault": 1,
+      "heightDecimetres": 25,
+      "weightHectograms": 3100,
+      "typeSlots": [
+        {
+          "pokemonId": 968,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        }
+      ]
+    },
+    "942:942": {
+      "speciesId": 942,
+      "generationId": 9,
+      "pokemonId": 942,
+      "pokemonSpeciesId": 942,
+      "isDefault": 1,
+      "heightDecimetres": 5,
+      "weightHectograms": 160,
+      "typeSlots": [
+        {
+          "pokemonId": 942,
+          "typeId": 17,
+          "slot": 1,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "1025:1025": {
+      "speciesId": 1025,
+      "generationId": 9,
+      "pokemonId": 1025,
+      "pokemonSpeciesId": 1025,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 3,
+      "typeSlots": [
+        {
+          "pokemonId": 1025,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 1025,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "985:985": {
+      "speciesId": 985,
+      "generationId": 9,
+      "pokemonId": 985,
+      "pokemonSpeciesId": 985,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 80,
+      "typeSlots": [
+        {
+          "pokemonId": 985,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        },
+        {
+          "pokemonId": 985,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "972:972": {
+      "speciesId": 972,
+      "generationId": 9,
+      "pokemonId": 972,
+      "pokemonSpeciesId": 972,
+      "isDefault": 1,
+      "heightDecimetres": 20,
+      "weightHectograms": 150,
+      "typeSlots": [
+        {
+          "pokemonId": 972,
+          "typeId": 8,
+          "slot": 1,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "933:933": {
+      "speciesId": 933,
+      "generationId": 9,
+      "pokemonId": 933,
+      "pokemonSpeciesId": 933,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 1050,
+      "typeSlots": [
+        {
+          "pokemonId": 933,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        }
+      ]
+    },
+    "950:950": {
+      "speciesId": 950,
+      "generationId": 9,
+      "pokemonId": 950,
+      "pokemonSpeciesId": 950,
+      "isDefault": 1,
+      "heightDecimetres": 13,
+      "weightHectograms": 790,
+      "typeSlots": [
+        {
+          "pokemonId": 950,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        }
+      ]
+    },
+    "977:977": {
+      "speciesId": 977,
+      "generationId": 9,
+      "pokemonId": 977,
+      "pokemonSpeciesId": 977,
+      "isDefault": 1,
+      "heightDecimetres": 120,
+      "weightHectograms": 2200,
+      "typeSlots": [
+        {
+          "pokemonId": 977,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "910:910": {
+      "speciesId": 910,
+      "generationId": 9,
+      "pokemonId": 910,
+      "pokemonSpeciesId": 910,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 307,
+      "typeSlots": [
+        {
+          "pokemonId": 910,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "980:980": {
+      "speciesId": 980,
+      "generationId": 9,
+      "pokemonId": 980,
+      "pokemonSpeciesId": 980,
+      "isDefault": 1,
+      "heightDecimetres": 18,
+      "weightHectograms": 2230,
+      "typeSlots": [
+        {
+          "pokemonId": 980,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 980,
+          "typeId": 5,
+          "slot": 2,
+          "identifier": "ground"
+        }
+      ]
+    },
+    "927:927": {
+      "speciesId": 927,
+      "generationId": 9,
+      "pokemonId": 927,
+      "pokemonSpeciesId": 927,
+      "isDefault": 1,
+      "heightDecimetres": 5,
+      "weightHectograms": 149,
+      "typeSlots": [
+        {
+          "pokemonId": 927,
+          "typeId": 18,
+          "slot": 1,
+          "identifier": "fairy"
+        }
+      ]
+    },
+    "947:947": {
+      "speciesId": 947,
+      "generationId": 9,
+      "pokemonId": 947,
+      "pokemonSpeciesId": 947,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 60,
+      "typeSlots": [
+        {
+          "pokemonId": 947,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 947,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "1000:1000": {
+      "speciesId": 1000,
+      "generationId": 9,
+      "pokemonId": 1000,
+      "pokemonSpeciesId": 1000,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 300,
+      "typeSlots": [
+        {
+          "pokemonId": 1000,
+          "typeId": 9,
+          "slot": 1,
+          "identifier": "steel"
+        },
+        {
+          "pokemonId": 1000,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "962:962": {
+      "speciesId": 962,
+      "generationId": 9,
+      "pokemonId": 962,
+      "pokemonSpeciesId": 962,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 429,
+      "typeSlots": [
+        {
+          "pokemonId": 962,
+          "typeId": 3,
+          "slot": 1,
+          "identifier": "flying"
+        },
+        {
+          "pokemonId": 962,
+          "typeId": 17,
+          "slot": 2,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "952:952": {
+      "speciesId": 952,
+      "generationId": 9,
+      "pokemonId": 952,
+      "pokemonSpeciesId": 952,
+      "isDefault": 1,
+      "heightDecimetres": 9,
+      "weightHectograms": 150,
+      "typeSlots": [
+        {
+          "pokemonId": 952,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 952,
+          "typeId": 10,
+          "slot": 2,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "953:953": {
+      "speciesId": 953,
+      "generationId": 9,
+      "pokemonId": 953,
+      "pokemonSpeciesId": 953,
+      "isDefault": 1,
+      "heightDecimetres": 2,
+      "weightHectograms": 10,
+      "typeSlots": [
+        {
+          "pokemonId": 953,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        }
+      ]
+    },
+    "963:963": {
+      "speciesId": 963,
+      "generationId": 9,
+      "pokemonId": 963,
+      "pokemonSpeciesId": 963,
+      "isDefault": 1,
+      "heightDecimetres": 13,
+      "weightHectograms": 602,
+      "typeSlots": [
+        {
+          "pokemonId": 963,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "920:920": {
+      "speciesId": 920,
+      "generationId": 9,
+      "pokemonId": 920,
+      "pokemonSpeciesId": 920,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 175,
+      "typeSlots": [
+        {
+          "pokemonId": 920,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        },
+        {
+          "pokemonId": 920,
+          "typeId": 17,
+          "slot": 2,
+          "identifier": "dark"
+        }
+      ]
+    },
+    "922:922": {
+      "speciesId": 922,
+      "generationId": 9,
+      "pokemonId": 922,
+      "pokemonSpeciesId": 922,
+      "isDefault": 1,
+      "heightDecimetres": 4,
+      "weightHectograms": 65,
+      "typeSlots": [
+        {
+          "pokemonId": 922,
+          "typeId": 13,
+          "slot": 1,
+          "identifier": "electric"
+        },
+        {
+          "pokemonId": 922,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "946:946": {
+      "speciesId": 946,
+      "generationId": 9,
+      "pokemonId": 946,
+      "pokemonSpeciesId": 946,
+      "isDefault": 1,
+      "heightDecimetres": 6,
+      "weightHectograms": 6,
+      "typeSlots": [
+        {
+          "pokemonId": 946,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 946,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "913:913": {
+      "speciesId": 913,
+      "generationId": 9,
+      "pokemonId": 913,
+      "pokemonSpeciesId": 913,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 215,
+      "typeSlots": [
+        {
+          "pokemonId": 913,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "988:988": {
+      "speciesId": 988,
+      "generationId": 9,
+      "pokemonId": 988,
+      "pokemonSpeciesId": 988,
+      "isDefault": 1,
+      "heightDecimetres": 32,
+      "weightHectograms": 920,
+      "typeSlots": [
+        {
+          "pokemonId": 988,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        },
+        {
+          "pokemonId": 988,
+          "typeId": 2,
+          "slot": 2,
+          "identifier": "fighting"
+        }
+      ]
+    },
+    "911:911": {
+      "speciesId": 911,
+      "generationId": 9,
+      "pokemonId": 911,
+      "pokemonSpeciesId": 911,
+      "isDefault": 1,
+      "heightDecimetres": 16,
+      "weightHectograms": 3265,
+      "typeSlots": [
+        {
+          "pokemonId": 911,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        },
+        {
+          "pokemonId": 911,
+          "typeId": 8,
+          "slot": 2,
+          "identifier": "ghost"
+        }
+      ]
+    },
+    "994:994": {
+      "speciesId": 994,
+      "generationId": 9,
+      "pokemonId": 994,
+      "pokemonSpeciesId": 994,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 360,
+      "typeSlots": [
+        {
+          "pokemonId": 994,
+          "typeId": 10,
+          "slot": 1,
+          "identifier": "fire"
+        },
+        {
+          "pokemonId": 994,
+          "typeId": 4,
+          "slot": 2,
+          "identifier": "poison"
+        }
+      ]
+    },
+    "1009:1009": {
+      "speciesId": 1009,
+      "generationId": 9,
+      "pokemonId": 1009,
+      "pokemonSpeciesId": 1009,
+      "isDefault": 1,
+      "heightDecimetres": 35,
+      "weightHectograms": 2800,
+      "typeSlots": [
+        {
+          "pokemonId": 1009,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        },
+        {
+          "pokemonId": 1009,
+          "typeId": 16,
+          "slot": 2,
+          "identifier": "dragon"
+        }
+      ]
+    },
+    "975:975": {
+      "speciesId": 975,
+      "generationId": 9,
+      "pokemonId": 975,
+      "pokemonSpeciesId": 975,
+      "isDefault": 1,
+      "heightDecimetres": 45,
+      "weightHectograms": 7000,
+      "typeSlots": [
+        {
+          "pokemonId": 975,
+          "typeId": 15,
+          "slot": 1,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "1015:1015": {
+      "speciesId": 1015,
+      "generationId": 9,
+      "pokemonId": 1015,
+      "pokemonSpeciesId": 1015,
+      "isDefault": 1,
+      "heightDecimetres": 10,
+      "weightHectograms": 122,
+      "typeSlots": [
+        {
+          "pokemonId": 1015,
+          "typeId": 4,
+          "slot": 1,
+          "identifier": "poison"
+        },
+        {
+          "pokemonId": 1015,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "954:954": {
+      "speciesId": 954,
+      "generationId": 9,
+      "pokemonId": 954,
+      "pokemonSpeciesId": 954,
+      "isDefault": 1,
+      "heightDecimetres": 3,
+      "weightHectograms": 35,
+      "typeSlots": [
+        {
+          "pokemonId": 954,
+          "typeId": 7,
+          "slot": 1,
+          "identifier": "bug"
+        },
+        {
+          "pokemonId": 954,
+          "typeId": 14,
+          "slot": 2,
+          "identifier": "psychic"
+        }
+      ]
+    },
+    "970:970": {
+      "speciesId": 970,
+      "generationId": 9,
+      "pokemonId": 970,
+      "pokemonSpeciesId": 970,
+      "isDefault": 1,
+      "heightDecimetres": 15,
+      "weightHectograms": 450,
+      "typeSlots": [
+        {
+          "pokemonId": 970,
+          "typeId": 6,
+          "slot": 1,
+          "identifier": "rock"
+        },
+        {
+          "pokemonId": 970,
+          "typeId": 4,
+          "slot": 2,
+          "identifier": "poison"
+        }
+      ]
+    },
+    "974:974": {
+      "speciesId": 974,
+      "generationId": 9,
+      "pokemonId": 974,
+      "pokemonSpeciesId": 974,
+      "isDefault": 1,
+      "heightDecimetres": 12,
+      "weightHectograms": 450,
+      "typeSlots": [
+        {
+          "pokemonId": 974,
+          "typeId": 15,
+          "slot": 1,
+          "identifier": "ice"
+        }
+      ]
+    },
+    "1017:10274": {
+      "speciesId": 1017,
+      "generationId": 9,
+      "pokemonId": 10274,
+      "pokemonSpeciesId": 1017,
+      "isDefault": 0,
+      "heightDecimetres": 12,
+      "weightHectograms": 398,
+      "typeSlots": [
+        {
+          "pokemonId": 10274,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 10274,
+          "typeId": 10,
+          "slot": 2,
+          "identifier": "fire"
+        }
+      ]
+    },
+    "1017:10275": {
+      "speciesId": 1017,
+      "generationId": 9,
+      "pokemonId": 10275,
+      "pokemonSpeciesId": 1017,
+      "isDefault": 0,
+      "heightDecimetres": 12,
+      "weightHectograms": 398,
+      "typeSlots": [
+        {
+          "pokemonId": 10275,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 10275,
+          "typeId": 6,
+          "slot": 2,
+          "identifier": "rock"
+        }
+      ]
+    },
+    "925:10257": {
+      "speciesId": 925,
+      "generationId": 9,
+      "pokemonId": 10257,
+      "pokemonSpeciesId": 925,
+      "isDefault": 0,
+      "heightDecimetres": 3,
+      "weightHectograms": 23,
+      "typeSlots": [
+        {
+          "pokemonId": 10257,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        }
+      ]
+    },
+    "964:10256": {
+      "speciesId": 964,
+      "generationId": 9,
+      "pokemonId": 10256,
+      "pokemonSpeciesId": 964,
+      "isDefault": 0,
+      "heightDecimetres": 18,
+      "weightHectograms": 974,
+      "typeSlots": [
+        {
+          "pokemonId": 10256,
+          "typeId": 11,
+          "slot": 1,
+          "identifier": "water"
+        }
+      ]
+    },
+    "1017:10273": {
+      "speciesId": 1017,
+      "generationId": 9,
+      "pokemonId": 10273,
+      "pokemonSpeciesId": 1017,
+      "isDefault": 0,
+      "heightDecimetres": 12,
+      "weightHectograms": 398,
+      "typeSlots": [
+        {
+          "pokemonId": 10273,
+          "typeId": 12,
+          "slot": 1,
+          "identifier": "grass"
+        },
+        {
+          "pokemonId": 10273,
+          "typeId": 11,
+          "slot": 2,
+          "identifier": "water"
+        }
+      ]
+    },
+    "1024:10276": {
+      "speciesId": 1024,
+      "generationId": 9,
+      "pokemonId": 10276,
+      "pokemonSpeciesId": 1024,
+      "isDefault": 0,
+      "heightDecimetres": 3,
+      "weightHectograms": 160,
+      "typeSlots": [
+        {
+          "pokemonId": 10276,
+          "typeId": 1,
+          "slot": 1,
+          "identifier": "normal"
+        }
+      ]
+    }
+  },
+  "productionPolicyPromotion": false,
+  "behavioralVerification": "not-run",
+  "typeDefinitions": {
+    "18": "fairy",
+    "9": "steel",
+    "17": "dark",
+    "12": "grass",
+    "11": "water",
+    "1": "normal",
+    "5": "ground",
+    "13": "electric",
+    "3": "flying",
+    "10": "fire",
+    "14": "psychic",
+    "4": "poison",
+    "16": "dragon",
+    "2": "fighting",
+    "6": "rock",
+    "8": "ghost",
+    "15": "ice",
+    "7": "bug"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "name": "Effect: Acid Spray",
+  "type": "effect",
+  "img": "/systems/ptu/static/css/images/icons/effect_icon.png",
+  "system": {
+    "origin": "",
+    "effect": "Sp.Def -2 CS",
+    "snippet": "Sp.Def -2 CS",
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "predicate": [],
+        "mode": "subtract",
+        "path": "system.stats.spdef.stage.mod",
+        "phase": "applyAEs",
+        "value": 2,
+        "priority": null
+      }
+    ],
+    "enabled": true,
+    "slug": "effect-acid-spray",
+    "schema": {
+      "version": null,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "Homebrew"
+    },
+    "stackSlugs": true,
+    "keywords": [],
+    "level": {
+      "value": 1
+    },
+    "duration": {
+      "value": -1,
+      "unit": "encounter",
+      "expiry": "turn-start"
+    },
+    "start": {
+      "value": 0,
+      "initiative": null
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "badge": null,
+    "context": null
+  },
+  "effects": [],
+  "folder": "ArCjyed6uN2aUKWh",
+  "flags": {
+    "ptu": {
+      "showInTokenPanel": true
+    },
+    "core": {},
+    "scene-packer": {
+      "hash": "e98c7a6367d5b554529f921398c4245ed35fce40",
+      "sourceId": "Item.CWrV1oPfRusQ8IuF"
+    },
+    "LocknKey": {
+      "IDKeysFlag": "",
+      "RemoveKeyonUseFlag": false,
+      "LPFormulaFlag": "",
+      "LPFormulaOverrideFlag": false,
+      "LBFormulaFlag": "",
+      "LBFormulaOverrideFlag": false,
+      "ReplacementItemFlag": ""
+    },
+    "exportSource": {
+      "world": "pokemon-test-world",
+      "system": "ptu",
+      "coreVersion": "11.315",
+      "systemVersion": "4.2.2"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.327",
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "createdTime": 1709368047912,
+    "modifiedTime": 1710784457457,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "_id": "TLCE3NR1GCYkV2Zn",
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "ODt7FhFvbVjW9f1k": 3
+  },
+  "_key": "!items!TLCE3NR1GCYkV2Zn"
+}

@@ -1,0 +1,30 @@
+✖ ordinary bundled dropdown lookup retains the clicked Medical Techniques identity (14.8322ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23.8734
+
+✖ failing tests:
+
+test at tests\npc-selection.test.mjs:28:1
+✖ ordinary bundled dropdown lookup retains the clicked Medical Techniques identity (14.8322ms)
+  AssertionError [ERR_ASSERTION]: Clicked Compendium.ptu.feats.Item.WscZukROrNeC7Ayp, resolved Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi; other record is Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi
+  + actual - expected
+  
+  + 'Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi'
+  - 'Compendium.ptu.feats.Item.WscZukROrNeC7Ayp'
+  
+      at TestContext.<anonymous> (file:///D:/Projects/PTU%201.05%20on%20Foundry/tests/npc-selection.test.mjs:34:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'Compendium.ptu.feats.Item.bNVcfm2VHWfhEQGi',
+    expected: 'Compendium.ptu.feats.Item.WscZukROrNeC7Ayp',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

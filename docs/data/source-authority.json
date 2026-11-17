@@ -1,0 +1,641 @@
+{
+  "schemaVersion": 1,
+  "reviewedBaseline": "9d678f05cbdc864aeab205fdecc7eb6950bd9d22",
+  "documentCount": 26,
+  "uniqueHashCount": 18,
+  "duplicatePathCount": 8,
+  "originalInventory": "docs/data/references.json",
+  "decisions": [
+    {
+      "id": "r04-a01",
+      "decision": "Owner-selected standard core remains default. Optional packet chronology applies only within explicitly revised selections.",
+      "basis": [
+        "AGENTS.md",
+        "docs/SCOPE.md",
+        "ROADMAP.md"
+      ]
+    },
+    {
+      "id": "r04-a02",
+      "decision": "Exact duplicate hashes are aliases of one source, not independent corroboration or new authority. The preferred path need not be alphabetical duplicateOf target.",
+      "basis": [
+        "docs/data/references.json"
+      ]
+    },
+    {
+      "id": "r04-a03",
+      "decision": "Combined1–8 dex is a textual composition of four supplied books, not a uniform revised edition. Select authority per component and content.",
+      "basis": [
+        "docs/data/dex-source-comparison.json"
+      ]
+    },
+    {
+      "id": "r04-a04",
+      "decision": "Bulbasaur ability slots match supplied1.05+; standard old/combined profile differs. Attribution is resolved; the inherited whole record is not approved.",
+      "basis": [
+        "docs/data/bulbasaur-source-review.json"
+      ]
+    },
+    {
+      "id": "r04-a05",
+      "decision": "Supplement toolkits are additive optional source candidates. Their recommendations and optional rules never silently replace standard core.",
+      "basis": [
+        "Core System/Game of Throhs.pdf#PDF4",
+        "Core System/Do Porygon Dream of Mareep.pdf#PDF4",
+        "Core System/Blessed and the Damned.pdf#PDF4"
+      ]
+    },
+    {
+      "id": "r04-a06",
+      "decision": "Generation eligibility, rule-version approval, data review and behavioral verification remain independent. Source artifacts are not imported into runtime/build eligibility policy.",
+      "basis": [
+        "docs/SCOPE.md",
+        "docs/RULES_SOURCES.md"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "r04-s01",
+      "sha256": "bace45a22ea958e93a44885aab8d7dcead9614d0997560324317b36af6542916",
+      "preferredPath": "Core System/1.05 Errata/February 2016 Playtest Packet.pdf",
+      "aliases": [],
+      "edition": "February 2016 playtest",
+      "role": "optional-playtest",
+      "authorityBasis": "All ability headers, explicit removals, status changes and three capabilities cataloged.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          14
+        ]
+      ],
+      "pdfPages": 14,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": [
+          {
+            "pdf": 2,
+            "printed": 2
+          }
+        ]
+      },
+      "coverageLimitation": "Mummy, Sap Sipper, Combo Striker and standard Solid Rock require manual dispositions; paired dex exact edition date not proven.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s02",
+      "sha256": "b1314908e4adbfee09042c58f08a36046b5f59a09de196425aa469b43232232d",
+      "preferredPath": "Core System/1.05 Errata/PTU May 2015 Playtest Packet.pdf",
+      "aliases": [],
+      "edition": "May 2015 playtest",
+      "role": "optional-playtest",
+      "authorityBasis": "All mechanical pages cataloged; introductory/class-flavor pages carry no independent revision.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "pdfPages": 11,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "Source interpretations complete for identified entries; manual resource/rank/modifier dispositions remain.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s03",
+      "sha256": "846c23a90f26d7deb7a86117622378bc60dc7c729a9a6b1e747ea67d4a1c6caf",
+      "preferredPath": "Core System/1.05 Errata/PTU September 2015 Playtest Packet.pdf",
+      "aliases": [],
+      "edition": "September 2015 playtest",
+      "role": "optional-playtest",
+      "authorityBasis": "All mechanical pages cataloged with May/core comparisons.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "pdfPages": 9,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "No claim of automatic cross-packet compatibility or migration.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s04",
+      "sha256": "a71c0479c12961285ab33b2864fc8b88722146fd477de06494fa5eb9fde99c6a",
+      "preferredPath": "Core System/Blessed and the Damned.pdf",
+      "aliases": [],
+      "edition": "Supplied advanced legendary toolkit; exact edition unstated",
+      "role": "optional-legendary-toolkit-pending-approval",
+      "authorityBasis": "p4 describes advanced expansion/toolbox; cited Version Notes section is not present as a separate located heading.",
+      "reviewedPdfPageRanges": [
+        [
+          2,
+          4
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          36,
+          71
+        ]
+      ],
+      "pdfPages": 71,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All required current-source units on36–71 are interpreted in supplement-rules-catalog.json. Earlier editions and referenced legacy definitions remain unavailable where specifically recorded. Optional adoption is not a cataloging prerequisite.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s05",
+      "sha256": "d9dc1bdd7cfac93b50ae85860bcd493e7f197886e4cb02e3f415b5e70c6ab056",
+      "preferredPath": "Core System/Complete Pokedex Gen 1-8.pdf",
+      "aliases": [],
+      "edition": "Supplied combined 1–8 dex; assembly date unstated",
+      "role": "composite-reference",
+      "authorityBasis": "All 1014 normalized page texts match old747 + Alola117 + Galar120 + Hisui30 in sequence.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          1014
+        ]
+      ],
+      "pdfPages": 1014,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": [
+          {
+            "pdf": 12,
+            "printed": 12
+          }
+        ]
+      },
+      "coverageLimitation": "Composite date/title cannot override old standard profiles; matching text is not byte/image identity or approval.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s06",
+      "sha256": "a77531bf881aecca0311ecc7be85f579f275e8016a1be1b75761360ad02d6594",
+      "preferredPath": "Core System/Do Porygon Dream of Mareep.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Do Porygon Dream of Mareep/Do Porygon Dream of Mareep.pdf"
+      ],
+      "edition": "1.02 supplement, 1.05 compatibility maintenance (p.156)",
+      "role": "optional-scifi-toolkit-pending-approval",
+      "authorityBasis": "p4 toolbox; p156 calls 1.02 a stopgap for 1.05, not a core replacement.",
+      "reviewedPdfPageRanges": [
+        [
+          2,
+          4
+        ],
+        [
+          21,
+          39
+        ],
+        [
+          41,
+          87
+        ],
+        [
+          156,
+          156
+        ]
+      ],
+      "pdfPages": 156,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All required current-source units21–39/41–87 interpreted, including reprints, tables and contradictory Digital Avatar definitions. Pages75/87 are chapter covers. Earlier1.01 unavailable only for historical comparisons.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s07",
+      "sha256": "532ff44930fe1f5c208c63e4139dbb502228bdb8babe41855d3fa7ef0b2a8772",
+      "preferredPath": "Core System/GalarDex + Armor_Crown.pdf",
+      "aliases": [],
+      "edition": "Galar plus Armor/Crown; exact edition unstated",
+      "role": "supporting-source-pending-approval",
+      "authorityBasis": "Gen8 Galar/Armor/Crown profile source; all pages match combined865–984.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          120
+        ]
+      ],
+      "pdfPages": 120,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s08",
+      "sha256": "999ad3c042f9cc2ff511c1917b5b74a6850189a51cbcbcb28f5eb42878c1a153",
+      "preferredPath": "Core System/Game of Throhs.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Game of Throhs/Game of Throhs.pdf"
+      ],
+      "edition": "Supplied fantasy toolkit; exact edition unstated",
+      "role": "optional-fantasy-toolkit-pending-approval",
+      "authorityBasis": "p4 explicitly recommends selecting toolkit elements; p3 indexes mechanics/modules.",
+      "reviewedPdfPageRanges": [
+        [
+          2,
+          4
+        ],
+        [
+          31,
+          45
+        ],
+        [
+          47,
+          93
+        ],
+        [
+          105,
+          105
+        ],
+        [
+          120,
+          120
+        ]
+      ],
+      "pdfPages": 121,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All required current-source units31–45/47–93 and setting-specific creation105/120 interpreted. Specific rule omissions/conflicts retained; optional campaign selection does not block cataloging.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s09",
+      "sha256": "eccde677d3ffb033c139a96f2a7979ec94b5694b1d6fd8ad970e4fc0ce961afd",
+      "preferredPath": "Core System/HisuiDex.pdf",
+      "aliases": [],
+      "edition": "Hisui; DataNinja disclaimer, exact edition unstated",
+      "role": "mixed-guidance-and-profiles",
+      "authorityBasis": "p2 explicitly describes compatibility compromises and recommendations; all pages match combined985–1014.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          30
+        ]
+      ],
+      "pdfPages": 30,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s10",
+      "sha256": "411cbc80ceb4fcb885069c710f7eefc3c19040f3527f438bb0877c0f0fb94928",
+      "preferredPath": "Core System/Indices and Reference.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Indices and Reference/Indices and Reference.pdf"
+      ],
+      "edition": "Extract of core chapter 10",
+      "role": "convenience-extract",
+      "authorityBasis": "Printed303–436 correspond to PDF1–134; source anchor is core, never a newer revision solely because extracted.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          4
+        ]
+      ],
+      "pdfPages": 134,
+      "pageMapping": {
+        "rule": "printed = PDF +302",
+        "verifiedSamples": [
+          {
+            "pdf": 1,
+            "printed": 303
+          }
+        ]
+      },
+      "coverageLimitation": "Only cited pages/offset visually confirmed; all-page equality with core not asserted.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s11",
+      "sha256": "f6e37647b7450fa7602ff28080adb1bda31f148e1901f6d8b0b6d92b64b7b8ca",
+      "preferredPath": "Core System/Pokedex 1.05 Old.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Pokedex 1.05/Pokedex 1.05.pdf"
+      ],
+      "edition": "Supplied old 1.05 dex; release date unstated",
+      "role": "standard-companion-candidate",
+      "authorityBasis": "Old 1.05 profiles accompany standard interpretation; p12 reviewed directly and all page positions compared to plus.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          747
+        ]
+      ],
+      "pdfPages": 747,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": [
+          {
+            "pdf": 12,
+            "printed": 12
+          }
+        ]
+      },
+      "coverageLimitation": "All747 shared page positions compared against supplied plus; all450 changed candidates substantively interpreted. Unchanged profiles are not behavior-certified. Old Vullaby/Mandibuzz evolution conflict is recorded.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s12",
+      "sha256": "e5e0371031601c3ad0a04056771c17599a2d8826e5a5102ccd37f9b368108907",
+      "preferredPath": "Core System/Pokemon Tabletop United 1.05 Core.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Pokemon Tabletop United 1.05 Core/Pokemon Tabletop United 1.05 Core.pdf"
+      ],
+      "edition": "PTU 1.05 supplied core",
+      "role": "standard-baseline",
+      "authorityBasis": "Owner-selected standard. Existing skill/starter evidence retained; this review compares affected packet baselines, not all core gameplay.",
+      "reviewedPdfPageRanges": [
+        [
+          33,
+          34
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          78,
+          79
+        ],
+        [
+          85,
+          86
+        ],
+        [
+          93,
+          94
+        ],
+        [
+          105,
+          106
+        ],
+        [
+          123,
+          123
+        ],
+        [
+          131,
+          132
+        ],
+        [
+          134,
+          134
+        ],
+        [
+          140,
+          141
+        ],
+        [
+          149,
+          149
+        ],
+        [
+          159,
+          159
+        ],
+        [
+          202,
+          205
+        ],
+        [
+          212,
+          214
+        ],
+        [
+          236,
+          236
+        ],
+        [
+          246,
+          248
+        ],
+        [
+          271,
+          272
+        ],
+        [
+          276,
+          277
+        ],
+        [
+          281,
+          281
+        ],
+        [
+          285,
+          285
+        ],
+        [
+          293,
+          294
+        ],
+        [
+          311,
+          336
+        ],
+        [
+          394,
+          394
+        ],
+        [
+          399,
+          399
+        ],
+        [
+          419,
+          419
+        ],
+        [
+          435,
+          436
+        ]
+      ],
+      "pdfPages": 508,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "Remaining core text is baseline reference, not individually behavior-verified.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s13",
+      "sha256": "818499d6d6277feb51d2199facd23ede7f2fcdf3212ef87196f1d77b65d68361",
+      "preferredPath": "Core System/PTU 1.05 Pokemon Sheet.pdf",
+      "aliases": [
+        "Core System/Old Maybe/PTU 1.05 Pokemon Sheet/PTU 1.05 Pokemon Sheet.pdf"
+      ],
+      "edition": "form-reference",
+      "role": "form-reference",
+      "authorityBasis": "Character-sheet fields do not define a new rule version.",
+      "reviewedPdfPageRanges": [],
+      "pdfPages": 1,
+      "pageMapping": {
+        "rule": "use PDF only; printed labels not asserted",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "No item-level source or gameplay approval follows from a summary/form. No original earlier-edition rulebook supplied.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s14",
+      "sha256": "fe804559b14828c55eee017b3aab9ba750080c9776fd6e74c91510a268b4725b",
+      "preferredPath": "Core System/PTU 1.05 Trainer Sheet.pdf",
+      "aliases": [
+        "Core System/Old Maybe/PTU 1.05 Trainer Sheet/PTU 1.05 Trainer Sheet.pdf"
+      ],
+      "edition": "form-reference",
+      "role": "form-reference",
+      "authorityBasis": "Character-sheet fields do not define a new rule version.",
+      "reviewedPdfPageRanges": [],
+      "pdfPages": 2,
+      "pageMapping": {
+        "rule": "use PDF only; printed labels not asserted",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "No item-level source or gameplay approval follows from a summary/form. No original earlier-edition rulebook supplied.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s15",
+      "sha256": "3c6e2d6ab37dc53a9e425cb2e481ce31e1cdfa98ecac50ae6fcb25ee3aa49049",
+      "preferredPath": "Core System/Useful Charts.pdf",
+      "aliases": [
+        "Core System/Old Maybe/Useful Charts/Useful Charts.pdf"
+      ],
+      "edition": "Supplied 1.05 reference charts",
+      "role": "convenience-summary",
+      "authorityBasis": "Eight summary sheets; use underlying core for full rule text.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "pdfPages": 8,
+      "pageMapping": {
+        "rule": "use PDF only; printed labels not asserted",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "PDF page references only; do not conflate with matching printed numbers or use chart omission as errata.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s16",
+      "sha256": "fb7ee0cb4a1dca16f6d848a8383aecf10ddcea7420d0b9a7c39644fc7f4ed5c1",
+      "preferredPath": "Core System/Pokedex 1.05+.pdf",
+      "aliases": [],
+      "edition": "Supplied 1.05+ dex; exact publication date unstated",
+      "role": "optional-profile-edition",
+      "authorityBasis": "Distinct mechanical profile edition, consistent with February removals/new abilities; no proven release-date metadata.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          748
+        ]
+      ],
+      "pdfPages": 748,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": [
+          {
+            "pdf": 12,
+            "printed": 12
+          }
+        ]
+      },
+      "coverageLimitation": "All450 changed candidates have field-level source interpretations, including Bellossom duplicate slot labels, Scizor editorial correction, tail additions and nine inconsistent evolution chains. Runtime ID/data acceptance remains separate.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s17",
+      "sha256": "765b2315658c54adc1d7421ab749213f5616db68a88b96621eb31f0b8815b3ed",
+      "preferredPath": "Core System/PTU changelog 1.05.txt",
+      "aliases": [],
+      "edition": "historical-1.04-to-1.05-summary",
+      "role": "historical-1.04-to-1.05-summary",
+      "authorityBasis": "Pre-1.05 changes are already part of supplied1.05 baseline; this is not a post-core erratum.",
+      "reviewedPdfPageRanges": [],
+      "pdfPages": null,
+      "pageMapping": {
+        "rule": "line references, not PDF pages",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "No item-level source or gameplay approval follows from a summary/form. No original earlier-edition rulebook supplied.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    },
+    {
+      "id": "r04-s18",
+      "sha256": "f85a8f8f09b2adb61c1ceb157550e676df3ae6e3642de019b888d5651d7bd812",
+      "preferredPath": "Core System/Ultra AlolaDex 1.05.pdf",
+      "aliases": [],
+      "edition": "Alola 1.05+ USUM booklet version 10",
+      "role": "supporting-source-pending-approval",
+      "authorityBasis": "Cover identifies 1.05+ USUM booklet version10; all pages match combined748–864.",
+      "reviewedPdfPageRanges": [
+        [
+          1,
+          117
+        ]
+      ],
+      "pdfPages": 117,
+      "pageMapping": {
+        "rule": "printed = PDF on catalog-cited numbered pages; covers/unprinted pages use PDF only",
+        "verifiedSamples": []
+      },
+      "coverageLimitation": "All current regional profiles and nonprofile pages accounted for in regional-dex-catalog.json; source facts/selection implications interpreted. Exact inherited relationships, approval and behavior verification remain separate. No modern/Gen9 content inferred.",
+      "dataApproval": "no implicit pack/policy promotion",
+      "behavioralVerification": "not-run"
+    }
+  ],
+  "runtimePolicyPromotion": false,
+  "generation9": "Excluded by owner. Historical excluded consumer IDs remain in supported-content-scope.json. No Gen9-only source or target search resumed; inventory totals do not establish support."
+}

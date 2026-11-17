@@ -1,0 +1,70 @@
+{
+  "name": "Round Trip",
+  "system": {
+    "origin": "",
+    "effect": "Trigger - Your Pokémon uses a Move\nEffect: You may immediately switch your Pokémon that just performed a Move for another of your Pokémon. This effect lets Pokémon with the Trapped condition switch out.",
+    "snippet": "",
+    "rules": [
+      {
+        "key": "ActiveEffectLike",
+        "mode": "add",
+        "path": "system.modifiers.baseStats.spd.mod",
+        "value": 1
+      }
+    ],
+    "enabled": true,
+    "slug": null,
+    "schema": {
+      "version": 0.11,
+      "lastMigration": null
+    },
+    "referenceEffect": "",
+    "source": {
+      "value": "PTR Compendiums"
+    },
+    "stackSlugs": false,
+    "keywords": [
+      "+Speed"
+    ],
+    "prerequisites": [
+      "Juggler",
+      "Adept Acrobatics or Guile"
+    ],
+    "frequency": "1 AP - Free Action",
+    "notes": "",
+    "free": false,
+    "class": "Juggler",
+    "automation": [],
+    "name": "Round Trip",
+    "useCount": 0
+  },
+  "type": "feat",
+  "img": "/systems/ptu/css/images/icons/feat_icon.png",
+  "effects": [],
+  "ownership": {
+    "default": 0,
+    "DsHOL7PqMABKgssN": 3
+  },
+  "flags": {
+    "core": {
+      "sourceId": "Compendium.ptu.feats.vb5HqLN3AqU0ojYP"
+    },
+    "ptu": {
+      "prereqBackup": "Juggler, Adept Acrobatics or Guile"
+    }
+  },
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.1.4",
+    "coreVersion": "12.327",
+    "createdTime": 1683368084389,
+    "modifiedTime": 1707818613949,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": "Compendium.ptu.feats.vb5HqLN3AqU0ojYP",
+    "duplicateSource": null
+  },
+  "folder": null,
+  "sort": 55800000,
+  "_id": "mmBY6zeFL4fit6iA",
+  "_key": "!items!mmBY6zeFL4fit6iA"
+}

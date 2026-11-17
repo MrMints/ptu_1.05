@@ -1,0 +1,42 @@
+{
+  "runtimeCommit": "78aa74b277376d5af168eb323c36ff95c07255b5",
+  "archive": "dist/system.zip",
+  "archiveSha256": "bfb1560462fdebccaa90d1ef0e812c52ce3737f2219a355ee85c93a45ddd812b",
+  "archiveBytes": 1108956200,
+  "developmentCandidateOnly": true,
+  "bindings": [
+    {
+      "path": "src/module/apps/npc-quick-build/document.js",
+      "sha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+      "servedSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+      "commitBlobSha256": "e8992f5a19165b025c64a7366afcb584b0e2e367174657cc3ca6379a959c97e4",
+      "workingInstalledServedArchiveEqual": true,
+      "commitTextEqual": true
+    },
+    {
+      "path": "src/module/apps/npc-quick-build/sheet.js",
+      "sha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+      "servedSha256": "438462e000db54fae6f59ec44568e0bf07b3bc534a4aa78fdf4630c53c6944a0",
+      "commitBlobSha256": "5ebc971754172b8c86b87f589c7f4d3a1990be13d8d12c3b52183a4fa2da0ee4",
+      "workingInstalledServedArchiveEqual": true,
+      "commitTextEqual": true
+    },
+    {
+      "path": "src/module/apps/npc-quick-build/selection.js",
+      "sha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+      "servedSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+      "commitBlobSha256": "6e64114ead6d6bf4bc67a3214f2428c697f117b12c704eaf12886979d228ef21",
+      "workingInstalledServedArchiveEqual": true,
+      "commitTextEqual": true
+    },
+    {
+      "path": "static/templates/apps/npc-quick-build-sheet.hbs",
+      "sha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+      "servedSha256": "18296d580f7cb46ca2122866d980c77ffd5a1f19a2c3faf37dc91d0b0f63d482",
+      "commitBlobSha256": "46b0c625aeb650b6083f34bfe4cb2acdc633f0300c4f195cb53088a512e857a6",
+      "workingInstalledServedArchiveEqual": true,
+      "commitTextEqual": true
+    }
+  ],
+  "originalsSourcesWorldsExcluded": true
+}

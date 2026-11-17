@@ -1,3 +1,4 @@
+import {HUGE_POWER_ENABLED, rememberHugePowerStats, beginHugePowerPokemonDerived, finishHugePowerPokemonDerived} from '../../../util/huge-power.js';
 import { PTUActor, PTUSkills } from "../index.js";
 import { calculateStatTotal } from "../helpers.js";
 import { calculateLevel } from "./level.js";
@@ -22,7 +23,7 @@ class PTUPokemonActor extends PTUActor {
     }
 
     get allowedItemTypes() {
-        return ["species", "pokeedge", "move", "contestmove", "ability", "capability", "effect", "condition", "spiritaction", "item"]
+        return ["species", "feat", "edge", "pokeedge", "move", "contestmove", "ability", "capability", "effect", "condition", "spiritaction", "item"]
     }
 
     get nature() {
@@ -46,8 +47,8 @@ class PTUPokemonActor extends PTUActor {
      * Force refresh of level caps when trainer data changes
      */
     refreshPreparedData() {
-        // Force a full data preparation cycle
-        this.prepareData();
+        // Restore source fields before applying derived values and additive rules.
+        this.reset();
         
         // Update any rendered sheets
         if (this.sheet?.rendered) {
@@ -152,6 +153,7 @@ class PTUPokemonActor extends PTUActor {
 
     /** @override */
     prepareDerivedData() {
+        if (HUGE_POWER_ENABLED) beginHugePowerPokemonDerived(this);
         super.prepareDerivedData();
 
         const system = this.system;
@@ -208,7 +210,7 @@ class PTUPokemonActor extends PTUActor {
         const leftoverLevelUpPoints = system.levelUpPoints - Object.values(system.stats).reduce((a, v) => v.levelUp + a, 0);
         const actualLevel = Math.max(1, system.level.current - Math.max(0, Math.clamp(0, leftoverLevelUpPoints, leftoverLevelUpPoints - system.modifiers.statPoints.total ?? 0)));
 
-        const result = calculateStatTotal({
+        const statArguments = {
             level: actualLevel,
             actorStats: system.stats,
             baseStatModifier: system.modifiers.baseStats,
@@ -216,7 +218,9 @@ class PTUPokemonActor extends PTUActor {
             isTrainer: false,
             twistedPower: this.rollOptions.all["self:ability:twisted-power"],
             hybridArmor: this.rollOptions.all["self:ability:hybrid-armor"],
-        })
+        };
+        const result = calculateStatTotal(statArguments);
+        if (HUGE_POWER_ENABLED) rememberHugePowerStats(this, statArguments, result, calculateStatTotal);
 
         system.stats = result.stats;
         system.levelUpPoints = system.levelUpPoints - result.pointsSpend;
@@ -365,6 +369,7 @@ class PTUPokemonActor extends PTUActor {
             system.health.max = 1;
             system.health.tick = 1;
         }
+        if (HUGE_POWER_ENABLED) finishHugePowerPokemonDerived(this);
     }
 
     _calcBaseStats() {

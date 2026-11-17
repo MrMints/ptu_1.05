@@ -1,0 +1,157 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Vitamins",
+  "_id": "Jz6VDOAcaGNtMA0v",
+  "img": "systems/ptu/static/images/item_icons/pp%20up.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "HP Up",
+      "documentId": "3O9twpEcMY8OqAUf",
+      "img": "systems/ptu/images/item_icons/hp up.webp",
+      "_id": "QyLNMcxlMT1KPmyo",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.QyLNMcxlMT1KPmyo"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "Protein",
+      "documentId": "baTiBtfxkBDEfu7j",
+      "img": "systems/ptu/images/item_icons/protein.webp",
+      "_id": "Owcn86Zl8Ty4Wggj",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.Owcn86Zl8Ty4Wggj"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "Iron",
+      "documentId": "dXAbrFgm65yJOY2n",
+      "img": "systems/ptu/images/item_icons/iron.webp",
+      "_id": "7Kr38q2T2CthrF2n",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.7Kr38q2T2CthrF2n"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "Calcium",
+      "documentId": "DGYE7zqdeMKxh2Ua",
+      "img": "systems/ptu/images/item_icons/calcium.webp",
+      "_id": "ZvK4Q5yBUU7dx7si",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.ZvK4Q5yBUU7dx7si"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "Zinc",
+      "documentId": "5pniXj3tb23NxPlr",
+      "img": "systems/ptu/images/item_icons/zinc.webp",
+      "_id": "1JMm8sfZethGBKnd",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.1JMm8sfZethGBKnd"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Carbos",
+      "documentId": "LJHODTRraeg7ykcr",
+      "img": "systems/ptu/images/item_icons/carbos.webp",
+      "_id": "ExbEecq6S6ICDzpN",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.ExbEecq6S6ICDzpN"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "text": "Heart Booster",
+      "documentId": "hKIOclVchHCJQ57J",
+      "img": "systems/ptu/images/item_icons/heart booster.webp",
+      "_id": "h0Qz9wafzO5Pw1un",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.h0Qz9wafzO5Pw1un"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "text": "PP Up",
+      "documentId": "EOP9AI3BAO1mpo0q",
+      "img": "systems/ptu/images/item_icons/pp up.webp",
+      "_id": "V14bQt77u8alGYEV",
+      "flags": {},
+      "_key": "!tables.results!Jz6VDOAcaGNtMA0v.V14bQt77u8alGYEV"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733047258,
+    "modifiedTime": 1710778630476,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d8",
+  "_key": "!tables!Jz6VDOAcaGNtMA0v"
+}

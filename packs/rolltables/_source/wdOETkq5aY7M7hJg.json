@@ -1,0 +1,189 @@
+{
+  "folder": "lGAWv04D6f3ONnmW",
+  "name": "Evolutionary Stones",
+  "_id": "wdOETkq5aY7M7hJg",
+  "img": "systems/ptu/static/images/item_icons/dawn%20stone.webp",
+  "description": "",
+  "results": [
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        1,
+        1
+      ],
+      "drawn": false,
+      "text": "Fire Stone",
+      "documentId": "lxmklcU0XcSdh9G7",
+      "img": "systems/ptu/images/item_icons/fire stone.webp",
+      "_id": "eLND140j8UO1eM4E",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.eLND140j8UO1eM4E"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        2,
+        2
+      ],
+      "drawn": false,
+      "text": "Water Stone",
+      "documentId": "AG560Qb5L1AslrQE",
+      "img": "systems/ptu/images/item_icons/water stone.webp",
+      "_id": "bHspv2TWSjF0spbZ",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.bHspv2TWSjF0spbZ"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        3,
+        3
+      ],
+      "drawn": false,
+      "text": "Thunder Stone",
+      "documentId": "ryvj0WeeE5fKiwxQ",
+      "img": "systems/ptu/images/item_icons/thunder stone.webp",
+      "_id": "rSBY0YfY0tm73sIu",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.rSBY0YfY0tm73sIu"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        4,
+        4
+      ],
+      "drawn": false,
+      "text": "Leaf Stone",
+      "documentId": "0mGUZY8Uj2keO5a2",
+      "img": "systems/ptu/images/item_icons/leaf stone.webp",
+      "_id": "1rfTpmHrhE3wgXlO",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.1rfTpmHrhE3wgXlO"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        5,
+        5
+      ],
+      "drawn": false,
+      "text": "Moon Stone",
+      "documentId": "5ECVx9CV4q7awLVL",
+      "img": "systems/ptu/images/item_icons/moon stone.webp",
+      "_id": "5BCrbxC7UBR9rcp6",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.5BCrbxC7UBR9rcp6"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        6,
+        6
+      ],
+      "drawn": false,
+      "text": "Sun Stone",
+      "documentId": "w3GldI1Jc6Zm3DXs",
+      "img": "systems/ptu/images/item_icons/sun stone.webp",
+      "_id": "HGva2xvzB0WNr3oT",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.HGva2xvzB0WNr3oT"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        7,
+        7
+      ],
+      "drawn": false,
+      "text": "Shiny Stone",
+      "documentId": "pAQBFBZV5HgjZSTg",
+      "img": "systems/ptu/images/item_icons/shiny stone.webp",
+      "_id": "1nbirxoO2EiEeZKO",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.1nbirxoO2EiEeZKO"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        8,
+        8
+      ],
+      "drawn": false,
+      "text": "Dusk Stone",
+      "documentId": "sOuoExlzgFEylP0J",
+      "img": "systems/ptu/images/item_icons/dusk stone.webp",
+      "_id": "7K9ABaRPdpuBcx2r",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.7K9ABaRPdpuBcx2r"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        9,
+        9
+      ],
+      "drawn": false,
+      "text": "Dawn Stone",
+      "documentId": "UWDW5oXZ7CP789Jo",
+      "img": "systems/ptu/images/item_icons/dawn stone.webp",
+      "_id": "EqP6cclP6qQPaEzo",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.EqP6cclP6qQPaEzo"
+    },
+    {
+      "type": "pack",
+      "documentCollection": "ptu.items",
+      "weight": 1,
+      "range": [
+        10,
+        10
+      ],
+      "drawn": false,
+      "text": "Ice Stone",
+      "documentId": "cwek3Rs7GIWQwEiS",
+      "img": "systems/ptu/images/item_icons/ice stone.webp",
+      "_id": "YvTYyHlcwztNmVJi",
+      "flags": {},
+      "_key": "!tables.results!wdOETkq5aY7M7hJg.YvTYyHlcwztNmVJi"
+    }
+  ],
+  "replacement": true,
+  "displayRoll": true,
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "gGhvW7JU3Mpr0B9i": 3
+  },
+  "flags": {},
+  "_stats": {
+    "systemId": "ptu",
+    "systemVersion": "4.2.2",
+    "coreVersion": "12.327",
+    "createdTime": 1697733042736,
+    "modifiedTime": 1710778630507,
+    "lastModifiedBy": "ODt7FhFvbVjW9f1k",
+    "compendiumSource": null,
+    "duplicateSource": null
+  },
+  "formula": "1d10",
+  "_key": "!tables!wdOETkq5aY7M7hJg"
+}
