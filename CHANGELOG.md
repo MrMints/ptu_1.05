@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### P05 explicit trainer-advancement host draft
+
+- Add an uninstalled, explicitly invoked actual-global host with trusted-bootstrap pins, exact full-GM/current-user checks, bounded paired loaded-setting observations and representation-aware evidence for the unchanged provider.
+- Keep native qualification, override authority, activation and publication held. The primary portable attempt passed 257 of 258 cases; after a reviewed fixture/tooling correction, the reserved focused rerun passed all 258 cases; see the [Stage B report](docs/validation/p05-mechanic-preferences-foundry-host.md). Huge Power remains disabled and P05 is incomplete.
+
 ### P05 isolated trainer-advancement provider
 
 - Add a trusted-port, GM-gated read-only adapter for an explicit original-to-standard trainer baseline mapping, with separate loaded-source, decoding, effective/default and override evidence.
